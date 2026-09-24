@@ -4,7 +4,7 @@ Updated: 2026-09-24
 
 ## Product
 
-**v0.1 decisions are frozen for implementation.**
+**v0.1 decisions remain frozen.**
 
 Canonical docs:
 
@@ -14,34 +14,39 @@ Canonical docs:
 
 ## Dispatch
 
-PR #1 round-01 was audited **BLOCKED_ENV**. S00 remains the only active stage; S01–S05 stay locked.
+PR #1 S00 round-02 audit verdict: **CHANGES_REQUESTED / BLOCKED_DEVICE**.
 
 | Stage | Status | Task |
 |---|---|---|
-| S00 | READY — round-02 verification | [Compile + runtime + device acceptance](tasks/S00_ROUND2_VERIFY.md) |
+| S00 | READY — round-03 repair + device verification | [S00 round-03](tasks/S00_ROUND3_DEVICE.md) |
 | S01 | LOCKED | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
 | S02 | LOCKED | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
 | S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
 | S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
 | S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
 
-## S00 audit state
+## S00 round-02 audit
 
-Reviewed PR head: `bb5194303a3871eb6341e87f5a1aac41096ced33`.
-Tested implementation: `98208953bb4625e96a7e321e5d1aded5e66cd0c0`.
-Audit: [round-01](audits/S00/round-01.md).
+Reviewed PR head: `f18e9caa15d567a6b6a8ce35bdee5596c8ef3dc8`  
+Tested implementation: `68d51cfbcda738c96a2c8d9442205a161e29be8b`  
+Audit: [round-02](audits/S00/round-02.md)
 
-Static review found no P0 safety defect, but there is no Xcode compilation, Swift test, simulator or physical-iPhone evidence. The sweep selector and full-permission flow are therefore unverified.
+Resolved:
+
+- real GitHub-hosted macOS/Xcode compile evidence;
+- SelectionCore 4/4 tests;
+- XcodeGen generation;
+- clean iOS Simulator build;
+- simulator install/launch.
+
+Still blocking:
+
+1. the current simulator artifact's supposed grid screenshot still shows the **Full photo access required** gate; permission→authorized→grid runtime evidence must be repaired;
+2. SelectionCore currently starts `selectionIndex` at 0 while the portable contract is one-based;
+3. physical-iPhone sweep selection, autoscroll, permission behavior, 200 cap, confirmation and real-library responsiveness remain NOT_RUN because there is no device installation path.
 
 ## Next action
 
-Codex continues **the same PR #1** and executes only `tasks/S00_ROUND2_VERIFY.md`:
-
-1. obtain real macOS/Xcode compile + unit-test evidence, preferably via standard GitHub-hosted macOS CI if available without paid/private infrastructure;
-2. fix actual compiler/test failures;
-3. run the physical-iPhone S00 checklist when a device installation path exists;
-4. submit `reports/S00/round-02/` and stop for re-audit.
-
-macOS green but no physical iPhone = BLOCKED_DEVICE, not S00 PASS.
+Codex continues the **same PR #1** and executes only `tasks/S00_ROUND3_DEVICE.md`.
 
 Do not merge PR #1 or start S01 until an explicit S00 PASS audit.
