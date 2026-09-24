@@ -29,6 +29,18 @@ jobs:
         run: python3 scripts/check_foundation.py
       - name: Test SelectionCore
         run: swift test --package-path Packages/SelectionCore
+      - name: Install pinned XcodeGen
+        run: |
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
+            --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version
       - name: Generate Xcode project
         run: xcodegen generate --spec project.yml
       - name: Clean iOS Simulator build
