@@ -49,6 +49,8 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath "$RUNNER_TEMP/S00DerivedData" \
             CODE_SIGNING_ALLOWED=NO clean build
+      - name: Typecheck synthetic image generator
+        run: swiftc -typecheck scripts/s00_make_synthetic.swift
       - name: Simulator permission and synthetic-grid smoke
         run: |
           set -euo pipefail

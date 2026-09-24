@@ -14,7 +14,7 @@ for number in 1...48 {
     image.lockFocus()
     let hue = CGFloat(number % 12) / 12
     NSColor(calibratedHue: hue, saturation: 0.6, brightness: 0.8, alpha: 1).setFill()
-    NSRectFill(NSRect(x: 0, y: 0, width: 240, height: 240))
+    NSBezierPath(rect: NSRect(x: 0, y: 0, width: 240, height: 240)).fill()
     let label = String(format: "%02d", number) as NSString
     label.draw(at: NSPoint(x: 75, y: 90), withAttributes: [
         .font: NSFont.boldSystemFont(ofSize: 68),
