@@ -36,7 +36,7 @@ OCR 标记 engine、request_revision、实际使用语言。confidence 不视为
 
 ## Markdown
 
-```markdown
+````markdown
 # 用户标题
 
 本文件为 OCR 检索索引。关键事实请查看对应图片。
@@ -51,7 +51,7 @@ OCR status: ok
 ```text
 这里放未经过生成式模型改写的 OCR 文本。
 ```
-```
+````
 
 实现时不能直接使用上例固定三个反引号：OCR 本身可能含反引号或 Markdown。使用比内容内最长连续反引号更长的 fence，或等效安全转义，防止破坏结构和注入外链。标题也需处理换行和 Markdown 特殊字符。
 
