@@ -1,0 +1,16 @@
+{
+  "stage": "SXX",
+  "round": 1,
+  "tested_code_sha": null,
+  "environment_report": "ENVIRONMENT.md",
+  "results": [
+    {
+      "id": "REPLACE_WITH_TEST_ID",
+      "status": "NOT_RUN",
+      "command_or_steps": "",
+      "exit_code": null,
+      "evidence": [],
+      "limitations": "Template only; not evidence of an executed test."
+    }
+  ]
+}
