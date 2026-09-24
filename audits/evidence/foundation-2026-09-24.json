@@ -1,0 +1,37 @@
+{
+  "tested_commit": "cd290105bcf3fa82569e438c584751d35160567a",
+  "scope": "Read-back contract and preflight checks only; not an iOS or real-archive test",
+  "environment": {"os": "Linux", "machine": "x86_64", "python": "3.13.5", "jsonschema": "4.26.0", "host_role": "ChatGPT review container, not Codex host"},
+  "readback_blob_matches": [
+    {"path": "schemas/manifest-v1.schema.json", "git_blob_sha": "bbd79c7b14dd2ce0cae178f3485e22d6f79967f9", "status": "PASS"},
+    {"path": "examples/manifest.example.json", "git_blob_sha": "abdaa0222386ae092eac4e5ecb323fd2233be970", "status": "PASS"},
+    {"path": "scripts/preflight.sh", "git_blob_sha": "4bb0e76b7ab754cdfdf361f891b863e9fa450b45", "status": "PASS"}
+  ],
+  "results": [
+    {"id": "schema_draft2020_valid", "status": "PASS"},
+    {"id": "example_with_format_checker", "status": "PASS"},
+    {"id": "path_traversal", "mutation": "pages[0].image = ../source.jpg", "expected": "reject", "status": "PASS"},
+    {"id": "wrong_extension", "mutation": "pages[0].image = slides/0001.png", "expected": "reject", "status": "PASS"},
+    {"id": "extra_private_field", "mutation": "add localIdentifier to pages[0]", "expected": "reject", "status": "PASS"},
+    {"id": "frame_policy", "mutation": "image_policy.full_frame = false", "expected": "reject", "status": "PASS"},
+    {"id": "hash_format", "mutation": "pages[0].sha256 = short", "expected": "reject", "status": "PASS"},
+    {"id": "invalid_datetime", "mutation": "created_at = not-a-date", "expected": "reject", "status": "PASS"},
+    {"id": "page_limit", "mutation": "page_count = 201", "expected": "reject", "status": "PASS"},
+    {"id": "file_whitelist", "mutation": "files[0].path = ledgers/private.json", "expected": "reject", "status": "PASS"},
+    {"id": "example_cross_fields", "status": "PASS"},
+    {"id": "preflight_shell_syntax", "status": "PASS", "exit_code": 0},
+    {"id": "preflight_non_mac", "status": "PASS", "exit_code": 2, "observed": "BLOCKED_ENV: this host cannot run Xcode/iOS Simulator"}
+  ],
+  "not_run": [
+    "whole-repository check_foundation.py: container git clone failed DNS",
+    "repository-wide automated link check",
+    "Swift/iOS build",
+    "simulator",
+    "real device",
+    "real archive output and file-content hashes",
+    "OCR",
+    "PhotoKit cleanup",
+    "TestFlight",
+    "App Store"
+  ]
+}
