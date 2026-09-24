@@ -1,6 +1,8 @@
-# S00 round-03 — prove authorized grid, align index contract, then physical device
+# S00 round-03 — free CI repair now; device test later
 
 Continue PR #1 / branch `codex/s00-selection`. Do not start S01.
+
+**Owner has no Mac and does not want to pay for Apple Developer/TestFlight yet. This round must use only free/public-repo infrastructure. Do not request Developer Program enrollment, signing certificates, App Store Connect, TestFlight, paid Mac services, or secrets.**
 
 Read first:
 
@@ -9,69 +11,89 @@ Read first:
 - `docs/SPEC.md`
 - `docs/ARCHITECTURE.md`
 
-## A. Fix the current-head simulator evidence
+## Scope for this round
 
-The current run 6 artifact's second screenshot still shows the permission gate. Do not merely rename the screenshot.
+Do all work that can be proven for free with the existing public GitHub repository and GitHub-hosted macOS/iOS Simulator.
 
-1. Reproduce on GitHub-hosted macOS/iOS simulator.
-2. Determine the actual `PHPhotoLibrary.authorizationStatus(for: .readWrite)` after the CI permission operation.
-3. Exercise the real app permission state machine until `.authorized` is genuinely observed.
-4. Import synthetic numbered images and prove the **real PhotoGridView** renders them.
-5. Upload a safe screenshot where the grid is visibly present.
-6. Preserve command/log evidence of the observed authorization status and app launch.
-7. Do not add a production bypass that forces authorized state. Test-only helpers/launch arguments are acceptable only if the production permission code path is still exercised and the distinction is explicit.
+A physical iPhone test is still required for final S00 PASS, but **it is explicitly deferred until the owner later chooses a device-install path**. When the free CI work is green, report `BLOCKED_DEVICE`; do not treat that as a failure and do not push the owner to pay.
 
-If `simctl privacy` cannot represent full readWrite authorization for this API/runtime, document that exact limitation and use the least artificial simulator method available; physical-device Part C remains mandatory either way.
+## A. Fix the simulator authorization/grid evidence
 
-## B. Align selectionIndex
+The current round-02 screenshot labeled as the grid still showed the permission gate.
 
-Change SelectionCore so the first selected item has `selectionIndex == 1` (preferred) or introduce an explicit tested conversion boundary to the one-based portable contract.
+1. Reproduce on GitHub-hosted macOS/iOS Simulator.
+2. Determine and log the actual `PHPhotoLibrary.authorizationStatus(for: .readWrite)`.
+3. Exercise the real production permission state machine; do not add a production bypass.
+4. Import safe synthetic numbered images.
+5. Prove the **real PhotoGridView** renders them.
+6. Upload a screenshot where the numbered grid is visibly present.
+7. Preserve raw command/log evidence and the workflow run/job URLs.
+8. If `simctl privacy` cannot model full readWrite authorization correctly on that runtime, document the limitation precisely. A test-only mechanism may be used only to isolate simulator limitations, must be impossible in release builds, and must not be reported as proof of real PhotoKit authorization.
 
-Add/adjust unit tests:
+## B. Align the portable selection index
 
-- first selection index = 1;
-- ties preserve one-based selection order;
-- deselect/reselect behavior remains deterministic;
-- 200 cap remains unchanged.
+Make the first selected item one-based:
 
-## C. Re-run compile/test
+- first `selectionIndex == 1`;
+- equal capture dates preserve one-based selection order;
+- deselect/reselect remains deterministic;
+- 200 cap unchanged.
 
-At the new implementation SHA:
+Prefer fixing SelectionCore itself instead of a later conversion boundary.
 
-- `scripts/check_foundation.py`
-- SelectionCore tests
+## C. Re-run real macOS compile/tests
+
+At the new tested implementation SHA, on a standard GitHub-hosted macOS runner:
+
+- `python scripts/check_foundation.py`
+- `swift test` for SelectionCore
 - XcodeGen generation
-- clean iOS Simulator build
-- deterministic permission→grid smoke
+- clean `xcodebuild` iOS Simulator build
+- all applicable tests
+- simulator launch/smoke
+- deterministic permission/grid evidence from Part A
 
-All must have raw GitHub Actions evidence.
+Fix all compiler/test failures and rerun until green.
 
-## D. Physical iPhone acceptance — still required for S00 PASS
+Use standard GitHub-hosted runner only. No self-hosted/paid runner. No signing. No Apple secrets.
 
-When a device-install path exists, run on disposable/safe photos:
+## D. Optional UX improvements only if simulator evidence exposes a concrete bug
 
-1. fresh full readWrite request and grant;
-2. actual library browse;
-3. tap select/deselect;
-4. quick sweep-select ≥30 adjacent photos;
-5. edge autoscroll selection;
-6. sweep deselect;
-7. 200/201 cap + feedback;
-8. confirmation chronological order + remove mistake;
-9. revoke/change Photos permission in Settings and return to blocking gate;
-10. note real-library first-load responsiveness;
-11. judge whether the current 0.15 s long-press / 12 pt allowable movement meets the owner's “sweep a block quickly” expectation.
+Do not redesign the gesture spec from speculation. If simulator evidence proves a bug in tap/sweep state logic, fix it and add tests. Otherwise leave physical gesture feel for the eventual iPhone session.
 
-If it feels sticky or turns fast sweeps into scrolling, change the gesture recognizer/design and rerun this checklist. Product behavior matters more than preserving the current recognizer.
+The following remain **NOT PROVABLE in this free round** and must stay NOT_RUN/BLOCKED_DEVICE:
 
-## Gate
-
-- A+B+C green, but no physical device path: `BLOCKED_DEVICE`.
-- Physical checklist green, no P0/P1: READY_FOR_AUDIT for S00 PASS.
-- Do not merge or start S01 before an explicit audit PASS.
+- real full Photos Read & Write grant/revocation on iPhone;
+- real-library browsing performance;
+- actual quick sweep-select ≥30;
+- real edge autoscroll feel;
+- haptic feedback;
+- 200/201 behavior on device;
+- whether 0.15 s long-press feels acceptable.
 
 ## Delivery
 
-Create `reports/S00/round-03/` with tested code SHA, current PR head, CI run/job URLs, new simulator grid screenshot, test results, device evidence or exact BLOCKED_DEVICE explanation.
+Create `reports/S00/round-03/` with:
 
-Stop at READY_FOR_AUDIT.
+- DELIVERY.md
+- ENVIRONMENT.md
+- TEST_RESULTS.json
+- exact tested code SHA and PR head
+- GitHub Actions workflow/run/job URLs
+- raw safe build/test logs
+- visible synthetic grid screenshot
+- explicit list of physical-device items marked `BLOCKED_DEVICE / NOT_RUN`
+
+## Gate for this round
+
+Expected successful outcome:
+
+> macOS CI / Swift tests / simulator grid evidence = PASS  
+> physical-iPhone acceptance = BLOCKED_DEVICE  
+> overall S00 = BLOCKED_DEVICE
+
+That is acceptable and is the stopping point while the owner avoids the $99/year program.
+
+Do not merge PR #1, do not start S01, do not create TestFlight/App Store/signing work, and do not ask for Apple credentials.
+
+Stop at READY_FOR_AUDIT after round-03 evidence is committed.
