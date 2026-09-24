@@ -66,8 +66,8 @@ jobs:
           swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/s00-synthetic"
           xcrun simctl addmedia "$device" "$RUNNER_TEMP/s00-synthetic"/*.jpg >/dev/null
           xcrun simctl privacy "$device" grant photos com.zhangsfish.lectureasset >/dev/null
-          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null
-          xcrun simctl launch "$device" com.zhangsfish.lectureasset >/dev/null
+          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
+          xcrun simctl launch "$device" com.zhangsfish.lectureasset
           sleep 5
           xcrun simctl io "$device" screenshot "$RUNNER_TEMP/s00-smoke/synthetic-grid.png" >/dev/null 2>&1
           sips -g pixelWidth -g pixelHeight "$RUNNER_TEMP/s00-smoke"/*.png
