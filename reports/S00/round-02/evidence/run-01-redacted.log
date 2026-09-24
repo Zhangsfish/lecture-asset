@@ -1,0 +1,15 @@
+2026-09-24T08:58:35.6575380Z if command -v xcodegen; then xcodegen --version; else echo 'XCODEGEN_UNAVAILABLE'; fi
+2026-09-24T08:58:35.6972800Z ProductVersion:		15.7.9
+2026-09-24T08:58:35.6973320Z BuildVersion:		24G830
+2026-09-24T08:58:35.8612030Z Xcode 16.4
+2026-09-24T08:58:35.8613680Z Build version 16F6
+2026-09-24T08:58:36.3501370Z 	iOS 18.5                      	-sdk iphoneos18.5
+2026-09-24T08:58:36.3502440Z 	Simulator - iOS 18.5          	-sdk iphonesimulator18.5
+2026-09-24T08:58:38.0978530Z Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+2026-09-24T08:58:38.1043690Z XCODEGEN_UNAVAILABLE
+2026-09-24T08:58:38.2646820Z PASS: 29 required planning files; 5 JSON files parsed; 22 local links checked; example cross-field checks.
+2026-09-24T08:58:56.3989830Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+2026-09-24T08:58:56.3990670Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+2026-09-24T08:58:56.3991360Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.002 (0.004) seconds
+2026-09-24T08:58:56.4513790Z /Users/runner/work/_temp/b965d818-ba0e-450b-ab92-49f4b90a0275.sh: line 1: xcodegen: command not found
+2026-09-24T08:58:56.4610660Z ##[error]Process completed with exit code 127.

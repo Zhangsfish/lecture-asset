@@ -1,0 +1,10 @@
+Timestamp               Ty Process[PID:TID]
+2026-09-24 14:25:09.395 I  Lecture Asset[5388:554c] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24 14:25:10.230 I  Lecture Asset[5388:554c] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24 14:26:54.442 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24 14:26:55.127 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24 14:27:02.746 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite request result rawValue=3
+2026-09-24 14:27:02.746 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3
+2026-09-24 14:27:03.221 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3
+2026-09-24 14:27:13.877 I  Lecture Asset[10239:8a22] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3
+2026-09-24 14:27:14.341 I  Lecture Asset[10239:8a22] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3

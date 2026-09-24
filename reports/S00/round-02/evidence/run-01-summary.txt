@@ -1,0 +1,17 @@
+GitHub Actions S00 macOS verification, run 1
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/35978402272
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/35978402272/job/107564216656
+Head SHA: ab6206fa916d502ce617ddb72c13d2ed7f872ab4
+Runner: standard macos-15, macOS 15.7.9 (24G830), arm64
+Xcode: 16.4 (16F6); iOS/iOS Simulator SDK: 18.5
+Swift: 6.1.2
+XcodeGen: XCODEGEN_UNAVAILABLE
+
+Step outcomes from the completed job:
+- Record host and toolchain: success
+- python3 scripts/check_foundation.py: success; 29 files, 5 JSON, 22 links
+- swift test --package-path Packages/SelectionCore: success; 4 tests, 0 failures
+- xcodegen generate --spec project.yml: failure, command not found, exit 127
+- xcodebuild clean build: skipped
+
+This summary is transcribed from the GitHub Actions job log. Follow the job URL for the original timestamped output. No iOS app compilation, simulator runtime or physical iPhone test occurred in run 1.

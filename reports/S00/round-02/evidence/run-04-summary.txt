@@ -1,0 +1,16 @@
+GitHub Actions S00 macOS verification, run 4
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/35979982931
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/35979982931/job/107569303433
+Head SHA: 127061302ce4f52a2f1bdee8a566db5252d52d4d
+Result: failure in simulator smoke; macOS app build and Swift tests succeeded.
+
+Original log facts:
+- SelectionCore: 4 tests, 0 failures.
+- XcodeGen 2.46.0 checksum OK; generation succeeded.
+- iOS Simulator clean build: BUILD SUCCEEDED.
+- Synthetic script typecheck succeeded and generated 48 numbered JPEGs.
+- Simulator installation/launch, first screenshot, synthetic import and `simctl privacy ... grant photos` completed before the error.
+- `simctl terminate` then returned POSIX code 3, `found nothing to terminate`; smoke step exited 3 before the second screenshot. This does not establish whether the App crashed or had been terminated by the system.
+- First screenshot artifact: https://github.com/Zhangsfish/lecture-asset/actions/runs/35979982931/artifacts/10799896295 (102739-byte ZIP; reported ZIP SHA-256 `55491b67a471fb6de221f81d9753ec2ee9bc9a49a2241808f2ec0da78e98b45c`).
+
+Use the job URL for original timestamped logs. No physical-iPhone test occurred.

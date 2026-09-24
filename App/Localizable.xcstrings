@@ -1,0 +1,21 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "app.title" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Lecture Asset" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "讲座照片整理" } } } },
+    "permission.title" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Full photo access required" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "需要完整照片权限" } } } },
+    "permission.explanation" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Browse and select lecture photos from your library. Full Read & Write access is required for this workflow. This version only selects photos and never modifies them." } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "浏览并选择相册中的讲座照片。此流程需要完整的读取与写入权限。本版本只选择照片，不会修改照片。" } } } },
+    "permission.allow" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Allow full access" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "允许完整访问" } } } },
+    "permission.blocked" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Limited or denied access blocks selection. Grant Full Access in Settings." } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "受限或拒绝权限时无法选择照片。请在设置中授予完整访问权限。" } } } },
+    "permission.restricted" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Photo access is restricted on this device. Check device or family restrictions." } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "这台设备限制了照片访问。请检查设备或家庭限制。" } } } },
+    "permission.settings" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Open Settings" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开设置" } } } },
+    "selection.selected" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Selected" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "已选择" } } } },
+    "selection.hint" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap to select. Press briefly, then drag to sweep; hold near an edge to scroll." } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "点按选择；短按后拖动可连续扫选，停在边缘可滚动。" } } } },
+    "selection.unselected" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Not selected" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "未选择" } } } },
+    "selection.confirm" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Confirm selection" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "确认选择" } } } },
+    "selection.limit" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Maximum 200 photos" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "最多选择 200 张" } } } },
+    "confirm.title" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Review selection" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "检查已选照片" } } } },
+    "confirm.instructions" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Photos are ordered by capture time. Tap any mistaken selection to remove it." } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "照片按拍摄时间排序。点按误选照片即可移除。" } } } },
+    "confirm.remove" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Remove selected photo" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "移除已选照片" } } } }
+  },
+  "version" : "1.0"
+}
