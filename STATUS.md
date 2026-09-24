@@ -49,4 +49,6 @@ Still blocking:
 
 Codex continues the **same PR #1** and executes only `tasks/S00_ROUND3_DEVICE.md`.
 
+Owner has no Mac and is **not enrolling in the paid Apple Developer Program yet**. Round-03 therefore uses only standard GitHub-hosted macOS/iOS Simulator infrastructure and no Apple signing/TestFlight secrets. The expected successful outcome is free CI/simulator PASS + `BLOCKED_DEVICE` for the deferred physical-iPhone checklist.
+
 Do not merge PR #1 or start S01 until an explicit S00 PASS audit.
