@@ -1,6 +1,7 @@
 import XCTest
 
 final class PhotoLibraryPermissionUITests: XCTestCase {
+    @MainActor
     func testFullReadWritePermissionOpensSyntheticGrid() {
         let app = XCUIApplication()
         app.launchArguments = ["-AppleLanguages", "(en)"]
