@@ -1,0 +1,52 @@
+GitHub Actions raw selected lines; unrelated build trace omitted.
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/36011909411
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/36011909411/job/107674486660
+Tested code SHA: c6527936a06099a0ac3bdb47375acb0b584054b5
+
+2026-09-24T14:19:18.8334760Z ProductName:		macOS
+2026-09-24T14:19:18.8336240Z ProductVersion:		15.7.9
+2026-09-24T14:19:18.8339770Z BuildVersion:		24G830
+2026-09-24T14:19:18.9385490Z Xcode 16.4
+2026-09-24T14:19:18.9388960Z Build version 16F6
+2026-09-24T14:19:19.5541450Z 	iOS 18.5                      	-sdk iphoneos18.5
+2026-09-24T14:19:19.5544690Z 	Simulator - iOS 18.5          	-sdk iphonesimulator18.5
+2026-09-24T14:19:22.3189700Z Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+2026-09-24T14:19:22.5967640Z PASS: 29 required planning files; 6 JSON files parsed; 24 local links checked; example cross-field checks.
+2026-09-24T14:19:57.1621790Z Test Case '-[SelectionCoreTests.SelectionStateTests testChronologicalOrderingKeepsSelectionOrderForTiesAndNil]' started.
+2026-09-24T14:19:57.1622980Z Test Case '-[SelectionCoreTests.SelectionStateTests testChronologicalOrderingKeepsSelectionOrderForTiesAndNil]' passed (0.002 seconds).
+2026-09-24T14:19:57.1623910Z Test Case '-[SelectionCoreTests.SelectionStateTests testSelectionLimitAndDeselectReleasesSlot]' started.
+2026-09-24T14:19:57.1624660Z Test Case '-[SelectionCoreTests.SelectionStateTests testSelectionLimitAndDeselectReleasesSlot]' passed (0.001 seconds).
+2026-09-24T14:19:57.1626760Z Test Case '-[SelectionCoreTests.SelectionStateTests testSweepActionIsFixedAndRevisitedCellIsIdempotent]' started.
+2026-09-24T14:19:57.1627730Z Test Case '-[SelectionCoreTests.SelectionStateTests testSweepActionIsFixedAndRevisitedCellIsIdempotent]' passed (0.000 seconds).
+2026-09-24T14:19:57.1628760Z Test Case '-[SelectionCoreTests.SelectionStateTests testToggleAndConfirmRemovalAffectFinalSourceSet]' started.
+2026-09-24T14:19:57.1629730Z Test Case '-[SelectionCoreTests.SelectionStateTests testToggleAndConfirmRemovalAffectFinalSourceSet]' passed (0.000 seconds).
+2026-09-24T14:19:57.1781490Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+2026-09-24T14:19:57.1783300Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+2026-09-24T14:19:57.1784990Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.007) seconds
+2026-09-24T14:19:58.0776980Z Version: 2.46.0
+2026-09-24T14:19:58.1482430Z ⚙️  Generating project...
+2026-09-24T14:19:58.1714700Z Created project at /Users/runner/work/lecture-asset/lecture-asset/LectureAsset.xcodeproj
+2026-09-24T14:20:51.5774770Z ** BUILD SUCCEEDED **
+2026-09-24T14:25:42.2187810Z Created 48 numbered synthetic JPEGs for simulator smoke
+2026-09-24T14:26:45.9202880Z Test Case '-[LectureAssetUITests.PhotoLibraryPermissionUITests testFullReadWritePermissionOpensSyntheticGrid]' started.
+2026-09-24T14:27:05.7590260Z Test Case '-[LectureAssetUITests.PhotoLibraryPermissionUITests testFullReadWritePermissionOpensSyntheticGrid]' passed (19.911 seconds).
+2026-09-24T14:27:05.7752360Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.911 (19.911) seconds
+2026-09-24T14:27:05.8148990Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.911 (19.912) seconds
+2026-09-24T14:27:06.1064650Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.911 (19.941) seconds
+2026-09-24T14:27:07.0487180Z ** TEST SUCCEEDED **
+2026-09-24T14:27:24.3519140Z 2026-09-24 14:25:09.395 I  Lecture Asset[5388:554c] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24T14:27:24.3521560Z 2026-09-24 14:25:10.230 I  Lecture Asset[5388:554c] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24T14:27:24.3641430Z 2026-09-24 14:26:54.442 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24T14:27:24.3794340Z 2026-09-24 14:26:55.127 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=0
+2026-09-24T14:27:24.3900140Z 2026-09-24 14:27:02.746 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite request result rawValue=3
+2026-09-24T14:27:24.4028720Z 2026-09-24 14:27:02.746 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3
+2026-09-24T14:27:24.4166960Z 2026-09-24 14:27:03.221 I  Lecture Asset[9483:81e1] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3
+2026-09-24T14:27:24.4325410Z 2026-09-24 14:27:13.877 I  Lecture Asset[10239:8a22] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3
+2026-09-24T14:27:24.4438930Z 2026-09-24 14:27:14.341 I  Lecture Asset[10239:8a22] [com.zhangsfish.lectureasset:S00Permission] PhotoKit readWrite authorization status rawValue=3
+2026-09-24T14:27:24.5530350Z   pixelWidth: 1179
+2026-09-24T14:27:24.5632190Z   pixelHeight: 2556
+2026-09-24T14:27:24.5877170Z   pixelWidth: 1179
+2026-09-24T14:27:24.5949330Z   pixelHeight: 2556
+2026-09-24T14:27:24.6054100Z SIMULATOR_GRID_AND_AUTHORIZATION_VERIFIED
+2026-09-24T14:27:26.6087250Z SHA256 digest of uploaded artifact zip is 2d3bab237f046a3d7e540c8fba4c79cd65d7253c025802f332fe169cce4ed65e
+2026-09-24T14:27:26.8615650Z Artifact s00-simulator-smoke has been successfully uploaded! Final size is 599328 bytes. Artifact ID is 10813456148
