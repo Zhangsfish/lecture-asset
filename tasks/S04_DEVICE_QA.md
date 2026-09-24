@@ -1,27 +1,31 @@
-# S04 — Real-device MVP acceptance
+# S04 — Real-device end-to-end acceptance
 
-前置：S03 PASS。分支 `codex/s04-device-qa`。
+Prerequisite: S03 PASS. Branch `codex/s04-device-qa`.
 
-## 目标
+## Goal
 
-把“代码看起来正确”变成“iPhone实际能稳定完成”。本阶段必须修复发现的问题，不只写一份测试计划。
+Prove the MVP works on a real iPhone and actual external destination, not just in mocks.
 
-## 必做
+## Required runs
 
-- 完整执行 docs/TEST_PLAN.md；每条写 PASS/FAIL/NOT_RUN、code SHA、环境和证据。
-- 1/20/100/200页，至少两次大批次；真实iPhone记录内存峰值/磁盘峰值/耗时/崩溃与否。使用合成大样本与经授权私人讲座本机对照。
-- 最低支持系统或明确覆盖差距、当前支持系统、有限/拒绝授权、iCloud-only、Live Photo、源修改。
-- 后台/锁屏/杀进程恢复、低磁盘、取消、导出报错、清理失败/用户取消。
-- 在实际电脑解压完整ZIP并打开全部关键产物；不假设用户一定使用Mac。Mac/Windows未测试的系统不宣称兼容已验收。
-- 最终JPEG与原图小字/公式/图表对照；固定经过证据支持的输出参数。
-- 独立Agent按归档README读取和回看图像；OCR漏词时不以无匹配断言内容不存在。
-- 动态字体/VoiceOver标签/浅深色/小屏/危险按钮分离；隐私日志审查。
-- 复查运行时依赖、实际网络请求与系统下载/导出边界；已有本地图像的飞行模式流程通过。
+- 1 / 20 / 100 / 200 selected pages.
+- At least two consecutive 200-page runs.
+- Mixture of normal and Live Photos.
+- Tap and drag selection, edge autoscroll, confirm/deselect.
+- Canonical JPEG full-resolution Q90 visual comparison.
+- OCR success + known miss.
+- AI ZIP opened on actual computer; independent agent/tool reads MD and opens JPEG.
+- PDF small text human-readable.
+- Share via owner's WeChat file transfer if accepted by installed version; otherwise recorded fallback.
+- External-save confirmation and exact source deletion on a disposable test set.
+- Live Photo entire-source deletion with static JPEG retained externally.
+- low disk, lock/background, kill/relaunch, permission revoked, share cancelled, PhotoKit delete cancelled/fails.
+- after successful cleanup App job files are gone.
 
-## 闸门
+Record total time, memory peak and disk peak. No P0/P1 open.
 
-所有P0/P1关闭且回归通过，真机闭环和外部归档可读性证据齐，才标DEVICE_MVP_VERIFIED。没有真机/用户授权执行系统清理时为BLOCKED_ENV/OWNER，不用模拟器替代。
+## Output
 
-## 交付
+DEVICE_MVP_VERIFIED only after all destructive behaviors are proven on disposable photos. Private lecture content stays off GitHub.
 
-reports/S04/round-01/ 包含完整测试矩阵、实际设备/系统（不含UDID）、测量值、bug清单及回归、可安装构建的安全获取方式、版本与code SHA。经过审计后才解锁S05。
+PR/reports may include fixes found in QA; every fix gets regression evidence before audit.

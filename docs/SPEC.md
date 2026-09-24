@@ -1,81 +1,190 @@
-# Lecture Asset v0.1 — 冻结规格
+# Lecture Asset v0.1 — frozen product spec
 
-Version: 1.0 / 2026-09-24. 本文件覆盖此前含裁切、去重、最佳帧的提案。
+Version: 2.0 / 2026-09-24. 本版覆盖此前关于 limited permission fallback、4096px 缩图、Live Photo 不删除、App 长期归档等旧方案。
 
-## 1. 产品目标与不变量
+## 1. Job
 
-用户继续用系统相机拍讲座，结束后把照片整理成独立、开放、可复核的文件归档，再主动清理相册。PDF 供人翻阅，图片供视觉核验，OCR/Markdown 供粗检索。
+讲座结束后：
 
-- 一个已确认的源条目对应一个归档页，页数一致。
-- 重复照片和动画渐进页均保留；不做任何内容相似度判断。
-- 有效图像是主产物；OCR 可失败但必须显式标记。
-- 原相册在生成/验证/导出阶段不变。
-- 不宣称 JPEG、缩放、OCR 或此归档是数学意义或语义意义上的无损。
+**选一批相册 PPT → 自动按拍摄时间排好 → 生成 AI-readable ZIP + 人类 PDF → 分享到微信/电脑/Files → 用户确认已保存 → 删除这批相册照片 → 清理 App 临时文件。**
 
-## 2. 首发范围
+主要自用，因此优先简单、确定、可恢复；不为拒绝权限或复杂媒体设计大量降级路径。
 
-iPhone 原生 App，最低运行 iOS 18；iOS 18 是产品选择，不是 Apple 当前最低提交要求。界面使用简体中文，工程预留 String Catalog；不要求首发多语言或独立 iPad 版。
+## 2. 权限与选择
 
-一次 1–200 个静态页面。超过 200 明示分批，不任意截断。支持 JPEG、HEIC、PNG 的静态画面；视频不进入流程。RAW、不受支持格式、损坏资源明确报错。Live Photo 可归档静态画面，但本版默认不纳入源照片清理候选，避免悄悄丢失动态/声音部分；用户仍可在系统照片 App 手动处理。UI 必须说明此限制，不能显示成已完整备份 Live Photo。
+### 权限
 
-## 3. 用户流程
+App 工作前必须拥有 `PHPhotoLibrary` **readWrite full authorization**。
 
-### A. 选择与确认
+- authorized：进入主流程。
+- limited / denied / restricted / notDetermined 未获完整权限：阻塞主流程；解释用途并提供请求/打开 Settings。
+- v0.1 不使用 PHPicker provider fallback，不设计“只能归档不能删”的模式。
 
-使用系统多选照片选择器，不自动扫描整库，不猜测讲座分组。允许取消和重新选择；用户可在处理前查看页序。尽量使用 PhotoKit 拍摄时间；拒绝相册读写权限也应能通过选择器导入可获取的图片，但可能缺少排序元数据和清理能力。
+理由：产品需要自定义全图库网格、拍摄时间、精确 asset mapping 和最终删除。
 
-排序规则：可解析的拍摄时间升序；同一时间按选择顺序稳定排列；未知时间放最后并保持选择顺序。优先 PHAsset.creationDate，其次具有明确时区的 EXIF 时间；不把当前时间或文件下载时间伪装成拍摄时间。缺日期时显示提示。
+### 自定义扫选网格
 
-冻结本次选择集合与页序后才开始转换。不支持的项目应列出供用户返回重选，不能静默丢弃后宣称全部成功。
+首页进入自定义最近照片网格：
 
-### B. 本地转换
+- PhotoKit image assets only。
+- 最近照片优先显示。
+- 单击选/取消。
+- 手指拖过连续 cell 可批量选或批量取消；目标体验类似 Photos 的扫选。
+- 需要 near-edge autoscroll，至少在常见长列表中可连续向上/下扫选。
+- 最大 200；达到上限时停止新增并给明确反馈。
+- Live Photo 角标可见，但不影响选择。
 
-逐页获取足够质量的当前静态呈现，正确处理方向、完整画面和色彩。仅重编码与有上限的缩放，不裁切、不旋转猜正、不做图像增强。
+确认页：
 
-审查后的初始默认：最长边不超过 4096 px、不放大小图、JPEG 0.95、sRGB。此前 2800/0.88 不直接作为上线默认。4096/0.95 也是有损参数，不保证微小字体无损；必须在 S02/S04 与原图比较，若损伤可读性，优先提高保真或明确限制，而非暗中压缩。该参数是待实测验收的工程起点，不新增复杂设置页。
+- 显示已选数量和缩略图。
+- 可取消误选。
+- 不提供拖动重排。
 
-使用 Vision accurate OCR，运行时查询支持语言，优先 zh-Hans/en-US。OCR 直接针对最终规范化图片，不绕道 PDF。文字不经过 LLM 改写；保存块坐标、confidence、语言与状态。OCR 失败仍保存该页图片和失败标记。
+## 3. 页序
 
-### C. 归档与预览
+冻结选择后，以：
 
-每批形成 README.md、lecture.md、lecture.pdf、manifest.json、slides/0001.jpg…；完整 ZIP 是主要导出物。一图一页 PDF，完整画面适配页面，不能为统一比例截边。不要求隐藏 OCR 文字层。
+1. `PHAsset.creationDate` 有值优先；
+2. creationDate 升序；
+3. 相同/无法区分时间按 selectionIndex 稳定排序；
+4. nil date 放最后。
 
-提供缩略图页序、单页放大和 PDF 预览。显示图片数、OCR 失败/空白数、归档占用；不显示臆测的已释放空间。
+不根据异步载入完成顺序排序，不用 OCR/视觉内容猜顺序。
 
-### D. 导出
+## 4. 输入与 canonical page
 
-完整 ZIP 通过系统分享面板或 Files 导出。不写传输服务器，不要求 Mac：用户可选择自己能在电脑访问的 Files provider；AirDrop 只是其中一个目标。
+支持普通照片与 Live Photo 的静态画面；视频不出现在选择网格。
 
-可单独分享 PDF 作为附加便利，但它不满足清理源照片的完整归档条件。导出完成回调仅代表系统报告活动完成，不等于验证远端硬盘或所有图片可读。
+每个最终选中的 PHAsset → 恰好一个 page：
 
-### E. 用户确认后清理
+- 获取 full-quality current still rendition。
+- Live Photo paired MOV / 音频不进入输出。
+- 不裁切、不缩图、不透视、不增强。
+- 方向归一。
+- 原像素尺寸编码为 JPEG Q90、sRGB。
+- 具体依据见 `IMAGE_POLICY.md`。
 
-前提：完整本地归档及 ZIP 检查通过；对应完整 ZIP 的导出已报告完成；本地归档仍在；用户确认在目标端已保存完整归档。再显示精确候选数量，经过用户明确点击和系统确认，调用 PhotoKit。
+如果 full-quality still 不能从本地取得，不能用 thumbnail 代替。v0.1 不主动进行 iCloud 下载；提示用户先在 Photos 获取原图后重试。
 
-不在成功分享后自动清理，不靠模糊时间范围重查再删除。只处理本次归档有映射且仍有权限、状态未变化的普通照片；不支持/无权限/Live Photo 单独列出，不误报成功。
+一张失败不能被静默跳过。用户只能重试或在确认后明确移除该页，移除的 asset 不进入最后删除集合。
 
-清理后本地归档保留，可再次导出。用户可另行明确删除 App 内归档；操作与图库清理必须分开。最近删除由用户在系统 App 自己查看/清空。
+重复页、同页重拍、PPT 动画渐进页全部保留。
 
-## 4. 四个主要界面
+## 5. OCR
 
-1. 首页：整理一场讲座；最近的本地归档入口（用于恢复、再次导出与清理副本，不是知识库）。
-2. 确认页：选定数量、日期排序异常、格式/Live Photo 提示、缩略图、开始。
-3. 处理页：当前页/总页、进度、可取消、可恢复的中断状态；不假装后台无限运行。
-4. 结果页：图片/PDF 预览、完整归档导出、本地占用、导出/确认状态、独立的图库清理与本地归档清理。
+对 canonical JPEG 执行 Apple Vision `VNRecognizeTextRequest` accurate 模式。
 
-## 5. 隐私与联网措辞
+- 运行时查询支持语言，优先 Simplified Chinese + English。
+- OCR 是索引，不是事实源。
+- 保存 text、blocks、confidence、bbox、engine/revision/languages/status。
+- OCR empty/failed 不阻塞图片归档。
+- 不调用 LLM，不修正或总结 OCR。
 
-应用无自营后端、无云端 AI、无统计 SDK，不向开发者传输内容。系统读取 iCloud 原片和用户分享可能联网；对 iCloud-only 项目明示并由用户允许系统下载，离线失败不能退而保存缩略图。已有完整本地图像的核心处理需在飞行模式通过。
+## 6. 输出
 
-导出不包含 GPS、PhotoKit localIdentifier、私有文件路径或删除账本。拍摄时间是用户需要的页序元数据。系统备份行为另依用户设置，不能宣称任何数据永不离开手机。
+### AI archive
 
-## 6. 明确不做
+`Lecture_<YYYY-MM-DD>_<short-id>_AI.zip`
 
-自动裁切/透视矫正、去重/相似度、最佳帧、相机、录音、转写、讲座自动分组、LLM/云 OCR、RAG 服务、向量数据库、PPTX 重建、账号、同步服务、收费、广告、社交、自动清空最近删除。
+ZIP 中只有：
 
-## 7. 完成定义
+```text
+Lecture_<...>/
+├── README.md
+├── lecture.md
+├── manifest.json
+└── slides/
+    ├── 0001.jpg
+    ├── 0002.jpg
+    └── ...
+```
 
-S04：真机上完整闭环、数据和故障验收通过，才叫可用 MVP。
-S05：签名构建在 TestFlight 验证、提交资料完整，再向 Apple 送审；公开可下载后才叫商店交付。
+不包含源 HEIC、Live Photo MOV、GPS、PhotoKit identifiers、私有 ledger、日志。
 
-不能用“代码写完”“模拟器能跑”“单元测试通过”替代后两层证据。具体测试见 TEST_PLAN，流程见 WORKFLOW。
+### Human PDF
+
+`Lecture_<YYYY-MM-DD>_<short-id>.pdf`
+
+- 独立文件，不放入 AI ZIP，避免重复占用/传输。
+- 一图一页，完整画面，不截边。
+- 可以为浏览降低体积，但必须保持讲座小字可读；最终参数由 S02 实测冻结。
+- 无 OCR hidden text layer。
+
+### Title
+
+默认 `Lecture YYYY-MM-DD`；处理前/结果页可改标题。路径名使用安全 slug/UUID，不直接信任用户标题。
+
+## 7. 分享
+
+使用系统 `UIActivityViewController` / Share Sheet。
+
+- 完整 ZIP 与 PDF 分别有分享按钮。
+- 用户实际主要路径：微信文件传输助手；S03/S04 必须真机验证。
+- AirDrop / Files / Mail / 其他系统 target 自动可用即支持。
+- 不接微信 SDK。
+- 不做 GitHub 登录、OAuth 或直接上传。
+- 分享 target 是否联网由该 target 自己决定；Lecture Asset 无自营网络请求。
+
+完整 ZIP 的 Share Sheet `completed` 只表示系统 activity reported completion，不是远端存储证明。
+
+## 8. 删除源照片
+
+只有以下全部满足时启用“删除原照片”：
+
+- canonical pages / MD / manifest / ZIP 完整性检查通过；
+- 完整 ZIP 至少有一次 `reportedCompleted` share；
+- 用户主动勾选/确认“我已在微信、电脑或 Files 保存完整 ZIP”；
+- full Photo Library readWrite authorization 仍存在；
+- 本次精确 PHAsset identifier 集仍可 fetch；
+- 用户再次点击删除并通过系统确认。
+
+删除集合 = 最终归档所对应的精确 PHAsset IDs；不按时间窗口重扫相册。
+
+Live Photo 被删除时，整个 asset（静态 + 未归档的 MOV/音频）一起从 Photos 删除；确认文案明确这一点。
+
+App 不访问、不清空 Recently Deleted。可在完成页提示：如需立即释放更多空间，用户自己去 Photos 处理。
+
+如果启用了 iCloud Photos，确认页简短提示删除会同步到同账户设备。
+
+## 9. App 临时文件
+
+为了中断恢复，处理过程和 ready 资产存放在 App 私有 Application Support。
+
+但 **Lecture Asset 不是长期知识库**：
+
+- 外部保存确认之前，工作副本必须保留。
+- 源照片删除成功后，自动删除本次 canonical JPEG 工作目录、ZIP、PDF、OCR/manifest 等私有工作文件。
+- 如果删除失败，先保留工作副本，允许重试。
+- 用户也可选择“不删除相册，只清理本次 App 工作文件”；需要单独确认。
+- 首页只需恢复“未完成任务”，不做历史归档库。
+
+## 10. UI
+
+简体中文 + English，String Catalog，跟随系统语言。
+
+主要 screens：
+
+1. Permission gate / Home
+2. Photo grid selection
+3. Confirm selection
+4. Processing
+5. Result / Share / Confirm / Delete
+
+## 11. 非功能要求
+
+- 单批 1–200。
+- 流式逐页处理，不把全部 full-resolution 图片同时 decode 到 RAM。
+- 可取消、可 checkpoint、前台为主；进入后台安全暂停/恢复。
+- 无服务器、无账号、无 analytics、无广告、无支付。
+- App 自身不发网络请求；iCloud-only full image 未本地可用则提示，而不是主动下载。
+- 测试日志/公开 repo 不包含真实讲座内容、照片 ID、UDID、Apple 凭据。
+
+## 12. 明确不做
+
+PPT 自动裁切/透视、去重/最佳帧、相机、录音、转写、自动分组、LLM、云 OCR、RAG/向量库、PPTX、GitHub 上传、微信 SDK、历史知识库、自动 Recently Deleted 清理。
+
+## 13. 发布
+
+免费；名称 Lecture Asset；计划 bundle id `com.zhangsfish.lectureasset`；最低 iOS 18；首发美国 App Store；简中+英文。
+
+S04 真机闭环通过才叫 MVP verified；S05 实际公开可下载才叫 App Store delivered。

@@ -4,38 +4,33 @@ Updated: 2026-09-24
 
 ## Product
 
-Frozen simplified MVP. Canonical scope: [SPEC](docs/SPEC.md).
+**v0.1 decisions are frozen for implementation.**
 
-## Current dispatch
+Canonical docs:
 
-**S00 is READY. All later stages are LOCKED.**
+- [Product decisions](docs/PRODUCT_DECISIONS.md)
+- [Spec](docs/SPEC.md)
+- [Image policy](docs/IMAGE_POLICY.md)
 
-| Stage | Status | Dependency | Task |
-|---|---|---|---|
-| S00 | READY | Planning foundation | [Environment and bootstrap](tasks/S00_BOOTSTRAP.md) |
-| S01 | LOCKED | S00 PASS | [Import and ordering](tasks/S01_IMPORT.md) |
-| S02 | LOCKED | S01 PASS | [Archive pipeline](tasks/S02_ARCHIVE.md) |
-| S03 | LOCKED | S02 PASS | [Export and cleanup](tasks/S03_EXPORT_CLEANUP.md) |
-| S04 | LOCKED | S03 PASS | [Device acceptance](tasks/S04_DEVICE_QA.md) |
-| S05 | LOCKED | S04 PASS | [Distribution](tasks/S05_RELEASE.md) |
+## Dispatch
 
-## What exists
+**S00 is READY. S01–S05 are LOCKED.**
 
-Planning, architecture, task contracts, audit protocol, manifest schema, templates and bootstrap verification instructions. No claim that an iOS application exists yet.
+| Stage | Status | Task |
+|---|---|---|
+| S00 | READY | [Bootstrap + full-permission swipe selection](tasks/S00_BOOTSTRAP.md) |
+| S01 | LOCKED | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
+| S02 | LOCKED | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
+| S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
+| S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
+| S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
 
-## What is not verified
+## Not yet verified
 
-- Codex execution host OS, Mac access, Xcode, simulator and iPhone availability.
-- Apple Developer membership, signing team, App Store Connect access or app-name availability.
-- Any Swift/iOS compilation, simulator UI, real-device import, export or cleanup.
-- Production image quality, memory/disk usage, TestFlight or App Store review.
+No Swift/iOS implementation has been accepted under this v2 spec. Mac/Xcode/device availability, actual PhotoKit gesture/deletion behavior, Apple JPEG Q90 output, WeChat ZIP sharing, TestFlight and App Store remain unverified until their stages produce evidence.
 
-## Task publication
+## First task
 
-Task Markdown files in this repository are the canonical published work queue. The connector's Issue creation attempt was blocked; no Issue numbers or Issue creation are claimed. PRs and reports may refer to task IDs directly. If Issues are introduced later, link these task files rather than creating competing specifications.
+Codex must read `handoff/CODEX_START.md` and execute only S00. S00 is deliberately functional: it must establish a real build **and** the required full-permission custom swipe-selection/confirmation flow.
 
-## Next action
-
-Codex reads [handoff/CODEX_START.md](handoff/CODEX_START.md) and executes only S00. On completion, publish a PR and `reports/S00/round-01/` evidence. User then brings the PR URL to ChatGPT for a fresh audit. No background orchestration has been configured.
-
-Only the publisher/reviewer promotes a stage after an explicit audit. Unresolved environment or account blockers remain visible and must not be relabeled as completion.
+After PR + `reports/S00/round-01/`, stop for ChatGPT audit.

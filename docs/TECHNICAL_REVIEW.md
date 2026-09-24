@@ -1,37 +1,51 @@
-# 技术路线审查与决策
+# Technical review — final simplified route
 
-审查日期：2026-09-24。结论：简化路线可进入工程实现，但旧讨论里的若干安全性和效果承诺必须撤回。下列是设计决策，不是已实现的能力。来源编号见 [REFERENCES](REFERENCES.md)。
+Updated 2026-09-24 after product-owner decisions and the HEIC→JPEG experiment.
 
-| 旧假设 | 审查修正 | 影响 |
-|---|---|---|
-| 系统选中了照片就能删除 | PHPicker 选择与 PhotoKit 授权不同；有限图库不会因一次选择自动扩大 [A01,A02] | S01 先验证权限矩阵；拒绝权限仍能归档，清理降级 |
-| 按 creationDate 必定还原讲座 | 日期可缺失，讲者也可能倒回前页 | 只承诺按可用拍摄时间；稳定 fallback 与提示 |
-| 2800px 足够且知识无损 | 远拍/小字/细线可能在缩放、重编码中丢失 | 初始 4096/0.95，真实照片对照验收；不使用“lossless in meaning”营销 |
-| OCR 错字只略微影响搜索 | 关键名词识错会导致整页完全搜不到 | README 明示无匹配不代表内容不存在；关键问题回看图片 |
-| md 图片链接让所有 AI 自动读取全部照片 | 是否解压、是否加载图片取决于消费者工具 | 交付开放格式与明确操作协议，不承诺所有聊天产品自动支持 |
-| 分享 completed 就是电脑备份已验证 | 回调只报告 activity 状态 [A06] | 记录 reportedCompleted，不命名 remoteBackupVerified；用户确认 + 本地留存 |
-| 删除只影响手机 | iCloud Photos 删除会同步其他设备 [A07] | 必须在清理确认页明示 |
-| 最近删除是可靠独立备份 | 保留期/提前永久清理/共享图库权限受系统和用户影响 [A07] | 是恢复窗口，不是完整性验证或独立备份 |
-| PDF+JPG+ZIP 必定节省手机空间 | 多副本和中间文件可能暂时增加占用，系统不保证立即回收 | 统计实际本地占用、低磁盘保护、导出后用户另行移除本地归档 |
-| 绝对零网络 | iCloud 原片下载/文件提供者分享可使用系统网络 [A08] | 无开发者上传与云端模型；系统下载须明示 |
-| 所有拍摄资源只有一张静态图 | Live Photo 有动态部分，RAW/编辑历史也不等同 JPEG | 静态归档不宣称完整原资源备份；Live Photo 默认不参与源清理 |
-| 生成 app 就能上架 | 需合规工具链、真机、账号、签名、元数据与审核 [A09–A12] | 分离各交付状态，不能保证审核结果 |
+## What was removed from earlier plans
 
-## 关键架构决策
+- limited-permission/provider fallback
+- PHPicker as the primary selector
+- automatic crop/perspective correction
+- deduplication and best-frame selection
+- 4096px resize policy
+- Live Photo source protection
+- long-term App archive library
+- direct GitHub upload
+- cloud AI / cloud OCR
 
-- 原生 SwiftUI，不使用网页套壳、Flutter、React Native。系统照片/文件/权限是核心，跨平台层在此阶段无必要。
-- Apple Vision 直接处理规范化静态图；不接 Apple Foundation Models 或远程模型，避免新增机型/版本依赖。
-- 保留全部页，完全没有相似度与最佳帧模块。重复页增加体积和 AI 阅读成本，这是主动接受的交换。
-- 唯一第三方运行时依赖选 ZIPFoundation；XcodeGen 做可审计工程描述。Apple 图片/PDF/哈希能力不再套第三方框架。
-- 最低 iOS 18；使用实际可用且满足提交要求的稳定 Xcode/SDK。S00 记录精确版本，不用“latest”作为复现配置。
-- 标准 JPEG 是对当前静态呈现的归档，不是原始 HEIC/RAW/Live Photo 的字节级备份。v0.1 不增加 originals/ 全资源备份模块。
+## Why the current route is simpler
 
-## 仍需实测的工程风险
+The app no longer tries to infer slide identity. The only content transform that affects canonical evidence is deterministic image decoding/orientation and full-resolution JPEG Q90 re-encoding. Every selected asset remains a page.
 
-1. 系统选择器、有限相册权限、云端资源和回调生命周期。
-2. 100–200 页处理时的内存峰值、磁盘峰值、后台挂起和恢复。
-3. 小字/公式/图表在最终 JPEG 与 PDF 的可读性。
-4. 真机分享、取消、权限撤销、清理失败/恢复的一致性。
-5. App Store 对完整性、隐私和最低功能的审核。不要把“小工具”误解为免审核。
+Full read/write PhotoKit permission lets the product use a custom swipe-selection grid, accurate creation dates, exact source identifiers and later deletion without maintaining two permission models.
 
-没有证据支持“某个 Codex 模型/推理档位一定一次完成”。任务设计依赖可运行测试和审计，不依赖模型名称背书。
+## Remaining technical risks
+
+1. **Custom swipe selection UX** — drag selection + autoscroll must feel reliable and never select outside the user's path.
+2. **PhotoKit full-quality still retrieval** — verify installed SDK behavior for ordinary, edited and Live Photos; never accept thumbnails.
+3. **iOS JPEG encoder quality** — Windows sample testing supports Q90, but Apple encoder output must be visually checked on real lecture small text.
+4. **Disk peak** — 200 full-resolution Q90 JPEGs + PDF + ZIP can coexist temporarily; streaming and free-space checks are mandatory.
+5. **System Share Sheet / WeChat** — WeChat ZIP acceptance is runtime/app-version behavior; test on the owner's device rather than integrate an SDK.
+6. **PhotoKit deletion** — exact-asset deletion and Live Photo behavior require real-device tests.
+7. **App Store full-library permission justification** — review notes must explain custom all-library selector plus user-confirmed source cleanup.
+
+None requires content-recognition research.
+
+## Image decision
+
+Three 3024×4032 HEIC lecture photos were converted without resizing:
+
+- Q95: about +82–97% vs HEIC, visually excellent but wasteful.
+- Q90: about +24–33%, small text/lines remained close to HEIC.
+- Q85: about 8–13% smaller than HEIC but began visible fine-detail degradation.
+
+Canonical policy = full-resolution JPEG Q90. See IMAGE_POLICY.md.
+
+## No-network definition
+
+Lecture Asset contains no HTTP/backend/analytics/GitHub/WeChat networking code. It also disables PhotoKit network acquisition; iCloud-only full originals must first be made local by the user. Share extensions are external targets and may network after the user chooses them.
+
+## Distribution choice
+
+Public free App Store app, first target United States. Chinese + English UI. China mainland distribution is not an MVP prerequisite.

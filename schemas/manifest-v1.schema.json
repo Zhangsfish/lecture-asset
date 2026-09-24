@@ -14,20 +14,21 @@
     "page_count": {"type": "integer", "minimum": 1, "maximum": 200},
     "sort_policy": {"const": "capture_time_asc_nulls_last_selection_index"},
     "image_policy": {
-      "type": "object", "additionalProperties": false,
-      "required": ["codec", "max_long_edge", "jpeg_quality", "full_frame", "orientation", "upscale", "color_space"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["codec", "jpeg_quality", "pixel_dimensions", "full_frame", "orientation", "resize", "color_space"],
       "properties": {
         "codec": {"const": "jpeg"},
-        "max_long_edge": {"type": "integer", "minimum": 1},
-        "jpeg_quality": {"type": "number", "minimum": 0, "maximum": 1},
+        "jpeg_quality": {"const": 0.9},
+        "pixel_dimensions": {"const": "preserve_full_source_rendition"},
         "full_frame": {"const": true},
         "orientation": {"const": "baked_up"},
-        "upscale": {"const": false},
+        "resize": {"const": "none"},
         "color_space": {"const": "sRGB"}
       }
     },
     "pages": {"type": "array", "minItems": 1, "maxItems": 200, "items": {"$ref": "#/$defs/page"}},
-    "files": {"type": "array", "minItems": 4, "maxItems": 203, "items": {"$ref": "#/$defs/file"}}
+    "files": {"type": "array", "minItems": 3, "maxItems": 202, "items": {"$ref": "#/$defs/file"}}
   },
   "$defs": {
     "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
@@ -55,14 +56,13 @@
     },
     "page": {
       "type": "object", "additionalProperties": false,
-      "required": ["number", "selection_index", "captured_at", "capture_time_source", "image", "pdf_page", "width", "height", "bytes", "sha256", "source_representation", "ocr", "warnings"],
+      "required": ["number", "selection_index", "captured_at", "capture_time_source", "image", "width", "height", "bytes", "sha256", "source_representation", "ocr", "warnings"],
       "properties": {
         "number": {"type": "integer", "minimum": 1, "maximum": 200},
         "selection_index": {"type": "integer", "minimum": 1, "maximum": 200},
         "captured_at": {"type": ["string", "null"], "format": "date-time"},
-        "capture_time_source": {"enum": ["photokit", "exif_with_offset", "unavailable"]},
+        "capture_time_source": {"enum": ["photokit", "unavailable"]},
         "image": {"type": "string", "pattern": "^slides/[0-9]{4}\\.jpg$"},
-        "pdf_page": {"type": "integer", "minimum": 1, "maximum": 200},
         "width": {"type": "integer", "minimum": 1},
         "height": {"type": "integer", "minimum": 1},
         "bytes": {"type": "integer", "minimum": 1},
@@ -76,7 +76,7 @@
       "type": "object", "additionalProperties": false,
       "required": ["path", "bytes", "sha256"],
       "properties": {
-        "path": {"type": "string", "pattern": "^(README\\.md|lecture\\.md|lecture\\.pdf|slides/[0-9]{4}\\.jpg)$"},
+        "path": {"type": "string", "pattern": "^(README\\.md|lecture\\.md|slides/[0-9]{4}\\.jpg)$"},
         "bytes": {"type": "integer", "minimum": 1},
         "sha256": {"$ref": "#/$defs/sha256"}
       }

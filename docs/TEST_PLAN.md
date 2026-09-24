@@ -1,77 +1,91 @@
-# Acceptance and evidence matrix
+# Acceptance and evidence matrix — v0.1
 
-没有执行的测试写 NOT_RUN，不写“预计 PASS”。所有结果标明 code SHA、环境、日期、命令/操作、输入集描述和输出。真实讲座不得直接进公开仓库。
+Unrun tests are NOT_RUN. Every result records code SHA, environment, steps/commands and actual evidence. Private lecture content stays off public GitHub.
 
-## A. Core 与格式（可自动化）
+## A. Selection / ordering
 
-| ID | 输入/操作 | 要求 |
+| ID | Scenario | Expected |
 |---|---|---|
-| C01 | 时间乱序、相同时间、无日期 | 稳定规则正确；缺失置后；无虚构日期 |
-| C02 | 同图两次、A/A+B/A+B+C | 所有选定条目保留；不出现 dedup |
-| C03 | 异步输入完成顺序不同 | 最终页序不变 |
-| C04 | manifest/MD/文件名/PDF页数 | 同一页序；数量相同；schema + 跨字段不变量 |
-| C05 | OCR 空、抛错、部分成功 | 图片保留；各页状态可区分；不阻塞有效归档 |
-| C06 | OCR 含反引号、链接、伪指令 | 索引按文本保存，格式不破坏；不执行内容 |
-| C07 | zip/path/hash 被篡改、缺一页 | 检查失败；不能进入 ready/cleanup |
-| C08 | 源图导入失败 | 无静默遗漏；不可把批次标为完整 |
-| C09 | 对整个作业取消/重跑 | 源图不动；旧导出确认失效 |
+| S01 | Full readWrite granted | main flow opens custom photo grid |
+| S02 | limited / denied / restricted | flow blocked, clear explanation + Settings path |
+| S03 | tap select/deselect | count/order correct |
+| S04 | drag across many cells | each traversed cell selected exactly once |
+| S05 | drag starting on selected cell | traversed cells deselect |
+| S06 | edge autoscroll | continued sweep works without runaway selection |
+| S07 | select >200 | hard cap 200 + visible/haptic feedback |
+| S08 | confirm page remove mistakes | removed assets not archived or later deleted |
+| S09 | creation times shuffled/equal/null | chronological/null-last/stable tie-break correct |
+| S10 | duplicate and A/A+B/A+B+C | every selected asset remains a separate page |
 
-## B. 图像与 OCR（iOS 集成 + 人工图像对照）
+## B. Canonical image
 
-覆盖 JPEG/HEIC/PNG、EXIF 1–8 方向、截图、长图、横竖混排、编辑后的当前画面、48MP 输入、Live Photo 静态帧、坏数据、RAW 拒绝。
+Use synthetic publishable fixtures plus owner-private real lecture photos.
 
-- 角落带编号的合成图验证不截边、非镜像、方向与 PDF 一致。
-- 文字/公式/细线/多列/化学结构对比原图、4096/0.95、先前的 2800/0.88；最终参数不能只凭文件大小决定。
-- OCR 记录语言与结果，不设未经数据支持的“80%准确率”；低质量 OCR 不改写视觉事实。
-- OCR bbox 左上坐标可与最终图叠加核验。
+- ordinary HEIC/JPEG/PNG and Live Photo
+- portrait/landscape/orientation variants
+- current edited rendition
+- 3024×4032 samples and higher-resolution input
+- small text, footer citations, thin table lines, colored text
 
-## C. 权限与资源（真实 iPhone 必须）
+Requirements:
 
-| ID | 场景 | 要求 |
+- full-quality source only; no thumbnails;
+- output full source-rendition pixel dimensions after orientation;
+- no crop/resize;
+- JPEG Q90 from Apple encoder;
+- real-iPhone comparison against source small text/lines;
+- Live Photo MOV is absent from outputs;
+- iCloud-only/not-local source fails visibly when network is disabled.
+
+## C. OCR / archive
+
+| ID | Scenario | Expected |
 |---|---|---|
-| P01 | 首次全量允许 | 可导入与获取精确 source mapping |
-| P02 | 有限图库，picker选中未授权项 | 可导入的 provider 图正常归档；不能误认为可删除 |
-| P03 | 拒绝 readWrite | 非清理功能可用；未知日期/清理限制明确 |
-| P04 | 处理/导出后撤销授权 | 清理不越权、不误报成功 |
-| P05 | iCloud-only：离线/拒绝/允许下载 | 不以缩略图冒充原片；说明并可重试 |
-| P06 | Live Photo / 不可删除来源 | 静态局限明示；默认排除源清理 |
-| P07 | 源图归档后被编辑 | 变更候选不自动清理，要求重新归档 |
+| A01 | OCR ok/empty/error | image always retained; correct status |
+| A02 | OCR contains backticks/Markdown/URLs | generated MD structure remains valid |
+| A03 | 1/20/100/200 pages | image/page/manifest/MD counts identical |
+| A04 | tamper image/hash/path/missing file | archive validator rejects |
+| A05 | ZIP reopen | exact whitelist, no private ledger/symlink/path traversal |
+| A06 | PDF pageCount/order | same pages/order; small text readable |
+| A07 | interrupted processing | safe checkpoint; no source deletion |
 
-## D. 导出与清理（真实 iPhone + 电脑）
+## D. Share / cleanup
 
-X01 完整 ZIP：系统分享完成后在实际目标电脑解压；图片、PDF、MD 路径、manifest 校验；记录目标 OS 与打开方式，不假设电脑是 Mac。
+X01 ZIP via Share Sheet to WeChat file transfer on owner's actual iPhone; confirm desktop receives, saves and unzips it. If installed WeChat version does not accept ZIP, record real limitation and verify AirDrop/Files fallback; do not add WeChat SDK silently.
 
-X02 分享取消、provider 报错、仅分享 PDF：不满足清理门槛。
+X02 separate PDF share works; PDF-only share does not unlock source cleanup.
 
-X03 App 重启后归档可预览/重导出，导出状态不会被误认为真实远端验证。
+X03 cancelled/failed share does not unlock cleanup.
 
-X04 用户/系统取消清理：源图保持；本地归档仍可访问。
+X04 share reported completed but user has not confirmed external save: cleanup disabled.
 
-X05 明确确认清理精确普通照片集合：核对不属于本次选择的照片未变化；源图按系统规则进入最近删除；App 归档仍在。
+X05 user confirms full ZIP saved → exact PHAsset deletion request only.
 
-X06 使用隔离测试照片验证 iCloud 删除提示与同步效应；不在真实重要照片上做破坏性测试。此项未经授权不得执行，缺证据写 NOT_RUN。
+X06 Live Photo private test: archive contains only JPEG; source cleanup removes the entire Live Photo asset; other Photos assets unchanged.
 
-X07 清理请求过程中终止 App / 操作失败 / 重复点击：不得双重自动操作或虚报成功；重启 conservative reconciliation。
+X07 PhotoKit deletion cancelled/fails: job working files remain and UI reports failure/retry.
 
-X08 清理 App 本地归档需要单独确认；不能同时清理图库。
+X08 successful source deletion: App automatically removes job/ready/PDF/ZIP/ledger; no long-term archive remains.
 
-## E. 容量、性能与恢复
+X09 App must not access/empty Recently Deleted.
 
-1 / 20 / 100 / 200 页；至少两次连续大批次；记录总时长、内存峰值、最终和峰值磁盘占用、最低测试机型/系统。目标是无 crash/jetsam、内存不随页数无限增长；数值预算由 S02 实测后在 S04 固定，不虚构现成阈值。
+## E. Capacity / recovery
 
-模拟/真机低空间、导入时中断、OCR时中断、PDF/ZIP时中断、锁屏/后台、内存警告。每次核对完整/不完整状态，源照片不被提前清理。后台不限时运行不是验收要求；恢复能力才是。
+1 / 20 / 100 / 200 pages; record wall time, memory peak, disk peak and crash/jetsam. At least two back-to-back 200-page runs before S04 PASS.
 
-## F. AI 消费验收
+Test low disk, lock/background, kill/relaunch at image/OCR/PDF/ZIP stages. Sources remain intact before explicit cleanup. Resume or clear explanation, never fake success.
 
-用具有解压/本地看图能力的独立 Agent，在不读 App 源码的情况下读取归档 README：
-1. 按 OCR 找一个清晰关键词并回看对应页。
-2. OCR 故意缺失一个词，Agent 不得断言讲座无该内容，应使用图像/说明覆盖限制。
-3. 回答某页图表/数字时提供页号，依据图像而非仅 OCR。
+## F. AI-readability
 
-这是一个指定工具环境的互操作测试，不推广成所有聊天产品都能直接吃 ZIP。
+Independent agent/tool able to unzip and open local JPEGs:
 
-## G. 发布质量
+1. reads README/MD;
+2. finds a known OCR keyword and opens matching page;
+3. if OCR misses a deliberately chosen word, follows README rule and does not conclude the lecture lacks it;
+4. answers one number/table question from the actual image and names page number.
 
-动态字体、VoiceOver 基本标签、浅深色、iPhone 小屏、旋转/分享弹窗、错误态、无账号离线使用、隐私/支持链接、第三方声明、无占位内容、干净安装与升级。
+## G. Release quality
 
-S04 只在真实闭环证据齐全后 PASS。S05 另要求签名构建、TestFlight 安装、App Store Connect 校验与发布状态证明。
+zh-Hans/en localization, Dynamic Type, basic VoiceOver labels, light/dark, small iPhone layout, privacy/support pages, clean install, permission-denied Settings recovery, actual TestFlight build.
+
+S04 requires no open P0/P1. S05 requires TestFlight + App Store state evidence.

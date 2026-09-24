@@ -1,68 +1,106 @@
-# Cleanup safety and storage
+# Cleanup, recovery and storage policy — v0.1
 
-核心：清理是单独的用户操作，不是转换的自动后处理。参见 [Apple 删除说明 A07](REFERENCES.md)。
+## 1. Core safety rule
 
-## 1. 状态必须拆开
+生成资产期间绝不删除 Photos source。删除是分享之后的独立用户动作。
 
-- Archive: staging / processing / paused / validating / ready / failed / locallyRemoved。
-- ExportAttempt: notStarted / presenting / reportedCompleted / cancelled / failed，绑定 archiveID 和 ZIP SHA256。
-- UserConfirmation: 对这个 archiveID+hash 的明确确认与时间，不从 activity 回调推断。
-- Cleanup: neverRequested / awaitingConfirmation / requested / succeeded / partial / failed / unknown。
+Cleanup eligibility:
 
-禁止用一个 `isDone` 同时表示归档成功、导出成功、远端验证与删除完成。
-
-## 2. 清理前的共同门槛
-
-```
-ready archive 仍存在且校验通过
-AND 完整 ZIP 的 export attempt 为 reportedCompleted
-AND 用户确认已在目标端保存完整归档
-AND 当前选定候选能映射到冻结的 source ledger
-AND 权限仍有效、资源可清理、资源自归档以来未变化
-AND 用户刚刚点击明确的清理确认
+```text
+job ready and locally validated
+AND AI ZIP valid
+AND AI ZIP share == reportedCompleted
+AND userExternalSaveConfirmed == true
+AND full Photo Library readWrite authorization == authorized
+AND exact selected PHAsset identifiers can still be fetched
+AND user presses Delete Source Photos now
 ```
 
-仅 PDF 导出、取消分享、分享错误、未完整获取的源图、损坏归档均不满足条件。
+不再增加“source modificationDate 变化就自动保护”的复杂逻辑；主要自用，最终删除对象就是本次冻结的精确 PHAsset set。
 
-源集合发生变更、转换参数重跑或产生新 ZIP hash 后，旧导出确认失效。App 重启不得自动继续 requested 状态的清理；先核对系统状态，无法确定则 unknown，要求重新确认。
+## 2. Full permission only
 
-## 3. 确认文案必须包含
+v0.1 不支持 limited/denied fallback。没有 full readWrite 时：
 
-- 即将从照片图库删除 X 张已归档普通照片。
-- 如启用 iCloud 照片，删除会同步到同一账户的其他设备，并非只释放本机下载缓存。
-- 已保存的是静态 JPEG 归档，可能经过缩放/有损重编码；不是原文件字节级备份。
-- App 内归档继续保留；用户已自行确认电脑/Files 中有完整 ZIP。
-- 系统通常提供最近删除恢复窗口，用户可在照片 App 查看；不要把它称为永远可靠的备份。
+- 不浏览图库；
+- 不开始任务；
+- 不生成“只能归档不能删”的特殊模式；
+- 显示原因与 Open Settings。
 
-图库与 App 本地归档清理分别使用不同按钮、文案与确认。不得做“全部清理”同时删两处。
+权限在处理中被撤销时立即停止新的 PhotoKit 操作；已有私有工作文件保留供恢复/清理。
 
-## 4. 精确映射
+## 3. Live Photo
 
-本机 ledger 保存 source ordinal → PHAsset.localIdentifier、capture/modificationDate、静态/Live 类型、归档 image hash、导入状态和清理可用性。ledger 不进入 ZIP，也不上传 GitHub。
+归档只保存全分辨率静态 JPEG。动态 MOV / 音频不保存。
 
-按 ID 重新 fetch 候选，绝不按日期范围重新找照片后批量删。发现修改时间/资源状态变化时跳过并说明需重新归档；失去权限不解释成照片已删除。Live Photo 默认不进入候选。展示可清理数、受保护数、不可用数后才执行。
+最终删除时对原 Live Photo 的 PHAsset 调用 PhotoKit delete；这会清除该 asset 的静态与动态组成。删除确认文案明确：
 
-调用 PhotoKit performChanges + deleteAssets；系统取消/错误必须保持可重试状态并保留本地归档。回调与本地状态写入中间可能被终止，恢复逻辑必须保守，不能伪报全成功。
+> Live Photo 将只保留归档中的静态 JPEG；动态片段/声音不会保留。
 
-## 5. 空间现实
+这是产品决策，不是错误恢复场景。
 
-生成期间原照片、归档 JPG、PDF、ZIP、临时文件可能同时占空间。相册已开启优化储存时，本机原占用可能比生成的归档更小，不能拿原资源大小当实际释放量。
+## 4. External save confirmation
 
-- 开始前检查可用容量，逐页持续检查；以实测输出估计剩余空间并保留安全余量。
-- 容量不足安全暂停/失败，原照片不动；不能先删除源照片给生成过程腾地方。
-- 逐张导入/释放，不把全部原资源复制为另一整套后才处理。
-- ready 目录作为本机安全副本；ZIP 在缓存中可重建，不提前删除正在分享的文件。
-- 结果页展示实际归档/缓存占用；不宣称“已经释放 X MB”。
-- 真正释放更多空间由用户完成目标端核对、系统最近删除处理、另行移除 App 本地归档。系统回收时间不保证。
+`UIActivityViewController.completed == true` 只记录 `reportedCompleted`。
 
-## 6. 中断
+随后 App 仍要求用户显式确认：
 
-每个 page 完成 JPEG/状态落盘再写 checkpoint。崩溃遗留临时文件不能计作完成页。重启重新核对 hashes。PDF/ZIP 从已完成页重新生成。取消作业只移除 staging/cache，不调用图库清理；已完成归档必须单独确认才能移除。
+> 我已在微信、电脑、AirDrop 或 Files 中保存完整 AI ZIP。
 
-## 7. 权限与网络
+PDF 单独分享不满足 source cleanup 条件。
 
-拒绝/有限/全量授权都要测试。允许导入不等于允许删除。iCloud-only 失败不能以缩略图替代成功；明确用户可联网下载后重试。无权限时提供系统设置/有限图库管理入口和手动清理说明，不诱导用户授权整个图库。
+## 5. Exact deletion
 
-## 8. 隐私
+Private ledger keeps:
 
-不上传真实讲座照片、OCR、GPS、照片 ID 或含私人文件路径的诊断。公开测试用生成的合成材料；私有真实数据仅报告去标识汇总。App 本地归档不等于独立远端备份；系统同步、备份和用户分享必须区分。
+- ordered source ordinal
+- PHAsset.localIdentifier
+- media subtype / Live Photo flag
+- capture date
+- canonical JPEG path/hash
+- inclusion/removal status
+
+Ledger never leaves the app.
+
+Delete request is constructed only from these frozen identifiers. Never search “the last 2 hours” or similar to rebuild the deletion set.
+
+If some identifiers cannot be fetched or PhotoKit delete fails, do not claim success; retain job files and allow retry. Never delete the successfully exported files at the external destination.
+
+## 6. Working-copy cleanup
+
+Main product goal is phone space, so App content is temporary.
+
+- Before external-save confirmation: keep job + ready files.
+- During cleanup failure: keep job + ready files.
+- After exact source deletion succeeds: automatically purge this job's canonical JPEGs, OCR, manifest, PDF, ZIP/cache and private ledger.
+- User may separately choose “Discard this App work copy without deleting Photos”; show confirmation because recovery is then lost.
+- No long-term local archive/history library.
+
+## 7. Recently Deleted and iCloud Photos
+
+App does not access or empty Recently Deleted. Completion screen may show one non-blocking hint to use Photos if immediate storage recovery is desired.
+
+If iCloud Photos is enabled, deleting an asset may sync to the same account's other devices; source-delete confirmation says this once.
+
+## 8. Space management
+
+During processing source photos + canonical JPEGs + PDF + ZIP can temporarily coexist.
+
+- Process one full-size page at a time.
+- Estimate/free-space check before start and before large final outputs.
+- Never delete sources early to make room.
+- AI ZIP excludes PDF to reduce duplicate raster storage.
+- ZIP is cache/rebuildable; job ready directory is the recovery copy until cleanup.
+- If disk becomes insufficient, stop safely and retain Photos sources.
+
+## 9. iCloud-only source
+
+App itself makes no network request and sets Photo retrieval network access disabled. If full-quality source is not on-device:
+
+- mark page acquisition failed;
+- tell user to open Photos/download the original, then retry;
+- never use a low-resolution thumbnail as canonical page.
+
+## 10. Public-repo privacy
+
+No real lecture photos/OCR, PHAsset identifiers, filesystem usernames, Apple IDs, UDIDs, signing data or WeChat content in reports. Use synthetic fixtures or redacted measurements.

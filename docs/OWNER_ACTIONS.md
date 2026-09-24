@@ -1,16 +1,35 @@
-# Owner-only prerequisites
+# Owner decisions and remaining owner-only actions
 
-这不是要求现在逐项回答。Codex 先在 S00 做只读环境探测；只把无法通过工具解决的真实阻塞交给持有人。
+## Already decided
 
-| 项目 | 当前事实 | 需要时由谁完成 |
-|---|---|---|
-| macOS / Xcode / simulator | 未知、未检查 | Codex 探测；缺失时持有人授权可用 Mac/CI |
-| 实际 iPhone / 系统版本 | 未知 | 持有人连接或操作；S04 必需 |
-| Apple Developer Program | 未知 | 持有人注册/付费/同意协议 |
-| App Store Connect 与签名 | 未知 | 持有人授权；不在公开聊天或仓库传凭据 |
-| Bundle ID / 名称 / 首发地区 | 尚未在 App Store Connect 核实 | S05 前由持有人确认 |
-| 支持联系方式与隐私页面 | 待准备 | 持有人提供可公开联系渠道，批准正式文案 |
-| 项目源码开源许可证 | 未选择 | 持有人决定；不要把公开仓库当已授权复制 |
-| 真实讲座样本 | 未提供本项目测试授权 | 可在用户本机验收，默认不上传公开 GitHub |
+| Item | Decision |
+|---|---|
+| Product | Lecture Asset, mainly self-use but public App Store distribution |
+| Photo permission | Full Read & Write required |
+| Max selection | 200 |
+| Image | Full-resolution JPEG Q90, no crop/resize |
+| Live Photo | Archive static still only; source deletion removes whole asset |
+| Sharing | System Share Sheet; verify WeChat file transfer; no WeChat SDK |
+| GitHub upload | Not in v0.1 |
+| Local retention | Temporary recovery files only; purge after successful source cleanup |
+| Languages | zh-Hans + English |
+| Price | Free |
+| First storefront | United States |
+| Min OS | iOS 18 |
+| Planned Bundle ID | com.zhangsfish.lectureasset |
+| Repo license | MIT |
 
-无需等待 Developer Program 就能做不签名模拟器/核心测试；但不能把这当作真机分发或上架已具备条件。不要因为某项后期账号阻塞而虚报完成，也不要据此停止所有与之无关的已授权工作。
+## Still requires owner/environment action when reached
+
+| Item | Status |
+|---|---|
+| Mac/Xcode/simulator | Codex must probe S00 host; owner supplies/authorizes Mac environment if missing |
+| Real iPhone | Required for S00 selection gesture evidence and later PhotoKit/WeChat tests |
+| Developer Program | Owner enrolls/pays/accepts agreements when release stage requires it |
+| App Store Connect/signing | Owner authorizes on secure machine; no secrets in repo/chat |
+| Bundle ID registration/name availability | Verify in Apple systems before S05 |
+| WeChat installed on test iPhone/desktop | Needed S03/S04 to validate actual transfer path |
+| Real lecture sample | Owner may test privately on device; never upload private lecture images to public GitHub |
+| Support/privacy public contact/URL | Prepare before S05 |
+
+Do not block source work on late-stage account items. Do not infer they are complete until actually checked.

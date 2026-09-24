@@ -6,7 +6,15 @@
   "source_count": 1,
   "page_count": 1,
   "sort_policy": "capture_time_asc_nulls_last_selection_index",
-  "image_policy": {"codec": "jpeg", "max_long_edge": 4096, "jpeg_quality": 0.95, "full_frame": true, "orientation": "baked_up", "upscale": false, "color_space": "sRGB"},
+  "image_policy": {
+    "codec": "jpeg",
+    "jpeg_quality": 0.9,
+    "pixel_dimensions": "preserve_full_source_rendition",
+    "full_frame": true,
+    "orientation": "baked_up",
+    "resize": "none",
+    "color_space": "sRGB"
+  },
   "pages": [
     {
       "number": 1,
@@ -14,20 +22,18 @@
       "captured_at": null,
       "capture_time_source": "unavailable",
       "image": "slides/0001.jpg",
-      "pdf_page": 1,
-      "width": 4000,
-      "height": 3000,
+      "width": 3024,
+      "height": 4032,
       "bytes": 123456,
       "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "source_representation": "current_still",
+      "source_representation": "live_photo_still",
       "ocr": {"status": "skipped", "text": "", "blocks": [], "engine": "apple_vision", "request_revision": null, "languages": [], "error_code": null},
-      "warnings": ["Example metadata only; no source image or OCR was processed."]
+      "warnings": ["Example metadata only; Live Photo motion/audio are intentionally not archived."]
     }
   ],
   "files": [
     {"path": "README.md", "bytes": 100, "sha256": "0000000000000000000000000000000000000000000000000000000000000000"},
     {"path": "lecture.md", "bytes": 200, "sha256": "0000000000000000000000000000000000000000000000000000000000000000"},
-    {"path": "lecture.pdf", "bytes": 300, "sha256": "0000000000000000000000000000000000000000000000000000000000000000"},
     {"path": "slides/0001.jpg", "bytes": 123456, "sha256": "0000000000000000000000000000000000000000000000000000000000000000"}
   ]
 }
