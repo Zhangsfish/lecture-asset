@@ -49,3 +49,32 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath "$RUNNER_TEMP/S00DerivedData" \
             CODE_SIGNING_ALLOWED=NO clean build
+      - name: Simulator permission and synthetic-grid smoke
+        run: |
+          set -euo pipefail
+          device=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; data=json.load(sys.stdin); print(next(d["udid"] for runtime, devices in data["devices"].items() if "iOS-18-5" in runtime for d in devices if d["name"] == "iPhone 16"))')
+          xcrun simctl boot "$device" >/dev/null 2>&1
+          xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
+          app="$RUNNER_TEMP/S00DerivedData/Build/Products/Debug-iphonesimulator/Lecture Asset.app"
+          xcrun simctl install "$device" "$app" >/dev/null
+          xcrun simctl launch "$device" com.zhangsfish.lectureasset >/dev/null
+          mkdir -p "$RUNNER_TEMP/s00-smoke"
+          sleep 3
+          xcrun simctl io "$device" screenshot "$RUNNER_TEMP/s00-smoke/permission-gate.png" >/dev/null 2>&1
+          swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/s00-synthetic"
+          xcrun simctl addmedia "$device" "$RUNNER_TEMP/s00-synthetic"/*.jpg >/dev/null
+          xcrun simctl privacy "$device" grant photos com.zhangsfish.lectureasset >/dev/null
+          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null
+          xcrun simctl launch "$device" com.zhangsfish.lectureasset >/dev/null
+          sleep 5
+          xcrun simctl io "$device" screenshot "$RUNNER_TEMP/s00-smoke/synthetic-grid.png" >/dev/null 2>&1
+          sips -g pixelWidth -g pixelHeight "$RUNNER_TEMP/s00-smoke"/*.png
+          echo 'SIMULATOR_SMOKE_COMPLETED'
+      - name: Upload safe simulator screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s00-simulator-smoke
+          path: ${{ runner.temp }}/s00-smoke/*.png
+          if-no-files-found: ignore
+          retention-days: 7
