@@ -1,0 +1,39 @@
+name: S00 macOS verification
+
+on:
+  push:
+    branches: [codex/s00-selection]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: macos-15
+    timeout-minutes: 30
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record host and toolchain
+        run: |
+          sw_vers
+          uname -m
+          xcode-select -p
+          xcodebuild -version
+          xcodebuild -showsdks
+          swift --version
+          if command -v xcodegen; then xcodegen --version; else echo 'XCODEGEN_UNAVAILABLE'; fi
+      - name: Check repository foundation
+        run: python3 scripts/check_foundation.py
+      - name: Test SelectionCore
+        run: swift test --package-path Packages/SelectionCore
+      - name: Generate Xcode project
+        run: xcodegen generate --spec project.yml
+      - name: Clean iOS Simulator build
+        run: |
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/S00DerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
