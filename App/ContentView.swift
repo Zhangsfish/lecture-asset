@@ -74,6 +74,7 @@ struct ContentView: View {
             case .notDetermined:
                 Button("permission.allow") { model.requestFullAccess() }
                     .buttonStyle(.borderedProminent)
+                    .accessibilityIdentifier("permission-allow")
             case .limited, .denied:
                 Text("permission.blocked")
                     .foregroundStyle(.secondary)

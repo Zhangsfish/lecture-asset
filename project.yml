@@ -29,3 +29,16 @@ targets:
         CFBundleDisplayName: Lecture Asset
         UILaunchScreen: {}
         NSPhotoLibraryUsageDescription: "Browse and select lecture photos; photo cleanup will require a separate confirmation in a future version."
+  LectureAssetUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: UITests
+    dependencies:
+      - target: LectureAsset
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "6.0"
+        TEST_TARGET_NAME: LectureAsset

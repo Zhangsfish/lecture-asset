@@ -1,6 +1,9 @@
 import Photos
 import SwiftUI
 import SelectionCore
+#if DEBUG
+import OSLog
+#endif
 
 @MainActor
 final class PhotoLibraryModel: ObservableObject {
@@ -17,6 +20,10 @@ final class PhotoLibraryModel: ObservableObject {
 
     func refreshAuthorization() {
         let current = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+#if DEBUG
+        Logger(subsystem: "com.zhangsfish.lectureasset", category: "S00Permission")
+            .info("PhotoKit readWrite authorization status rawValue=\(current.rawValue, privacy: .public)")
+#endif
         authorization = current
         if current == .authorized {
             reloadAssets()
@@ -29,7 +36,11 @@ final class PhotoLibraryModel: ObservableObject {
 
     func requestFullAccess() {
         Task {
-            _ = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
+            let result = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
+#if DEBUG
+            Logger(subsystem: "com.zhangsfish.lectureasset", category: "S00Permission")
+                .info("PhotoKit readWrite request result rawValue=\(result.rawValue, privacy: .public)")
+#endif
             refreshAuthorization()
         }
     }

@@ -15,6 +15,7 @@ final class SelectionStateTests: XCTestCase {
         XCTAssertEqual(state.orderedPhotos.map(\.localIdentifier), [
             "early-a", "early-b", "late", "nil-first", "nil-second"
         ])
+        XCTAssertEqual(state.orderedPhotos.map(\.selectionIndex), [3, 4, 2, 1, 5])
     }
 
     func testSelectionLimitAndDeselectReleasesSlot() {
@@ -27,13 +28,16 @@ final class SelectionStateTests: XCTestCase {
         XCTAssertEqual(state.setSelected(false, identifier: "0", creationDate: nil), .deselected)
         XCTAssertEqual(state.setSelected(true, identifier: "extra", creationDate: nil), .selected)
         XCTAssertEqual(state.count, 200)
+        XCTAssertEqual(state.orderedPhotos.last?.selectionIndex, 201)
     }
 
     func testToggleAndConfirmRemovalAffectFinalSourceSet() {
         var state = SelectionState()
         XCTAssertEqual(state.toggle(identifier: "a", creationDate: nil), .selected)
+        XCTAssertEqual(state.orderedPhotos.first?.selectionIndex, 1)
         XCTAssertEqual(state.toggle(identifier: "a", creationDate: nil), .deselected)
         XCTAssertEqual(state.toggle(identifier: "a", creationDate: nil), .selected)
+        XCTAssertEqual(state.orderedPhotos.first?.selectionIndex, 2)
         XCTAssertEqual(state.setSelected(false, identifier: "a", creationDate: nil), .deselected)
         XCTAssertFalse(state.identifiers.contains("a"))
         XCTAssertTrue(state.orderedPhotos.isEmpty)

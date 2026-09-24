@@ -23,7 +23,7 @@ public struct SelectionState: Sendable {
     public static let maximumCount = 200
 
     private var entries: [String: SelectedPhoto] = [:]
-    private var nextIndex = 0
+    private var nextIndex = 1
 
     public init() {}
 

@@ -49,6 +49,7 @@ final class GalleryViewController: UIViewController,
         grid.delegate = self
         grid.prefetchDataSource = self
         grid.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.reuseIdentifier)
+        grid.accessibilityIdentifier = "photo-grid"
         grid.alwaysBounceVertical = true
         let press = UILongPressGestureRecognizer(target: self, action: #selector(handleSweep(_:)))
         press.minimumPressDuration = 0.15
@@ -94,6 +95,7 @@ final class GalleryViewController: UIViewController,
             withReuseIdentifier: PhotoCell.reuseIdentifier, for: indexPath
         ) as! PhotoCell
         let asset = assets[indexPath.item]
+        cell.accessibilityIdentifier = "photo-cell-\(indexPath.item)"
         cell.configure(
             asset: asset,
             selected: model.isSelected(asset),
