@@ -1,0 +1,23 @@
+2026-09-24T09:05:39.0991880Z if command -v xcodegen; then xcodegen --version; else echo 'XCODEGEN_UNAVAILABLE'; fi
+2026-09-24T09:05:39.1524710Z ProductVersion:		15.7.9
+2026-09-24T09:05:39.1525760Z BuildVersion:		24G830
+2026-09-24T09:05:39.2453950Z Xcode 16.4
+2026-09-24T09:05:39.2456220Z Build version 16F6
+2026-09-24T09:05:40.0592600Z 	iOS 18.5                      	-sdk iphoneos18.5
+2026-09-24T09:05:40.0593660Z 	Simulator - iOS 18.5          	-sdk iphonesimulator18.5
+2026-09-24T09:05:42.6665880Z Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+2026-09-24T09:05:42.6759760Z XCODEGEN_UNAVAILABLE
+2026-09-24T09:05:42.9044890Z PASS: 29 required planning files; 5 JSON files parsed; 22 local links checked; example cross-field checks.
+2026-09-24T09:06:16.5835090Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+2026-09-24T09:06:16.5837030Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+2026-09-24T09:06:16.5837950Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.007) seconds
+2026-09-24T09:06:17.1072570Z /Users/runner/work/_temp/xcodegen.zip: OK
+2026-09-24T09:06:17.2489650Z Version: 2.46.0
+2026-09-24T09:06:17.3211740Z Created project at /Users/runner/work/lecture-asset/lecture-asset/LectureAsset.xcodeproj
+2026-09-24T09:07:01.1640610Z ** BUILD SUCCEEDED **
+2026-09-24T09:11:50.9705560Z scripts/s00_make_synthetic.swift:17:5: error: cannot find 'NSRectFill' in scope
+2026-09-24T09:11:50.9751590Z 17 |     NSRectFill(NSRect(x: 0, y: 0, width: 240, height: 240))
+2026-09-24T09:11:50.9773280Z    |     `- error: cannot find 'NSRectFill' in scope
+2026-09-24T09:11:51.1056060Z ##[error]Process completed with exit code 1.
+2026-09-24T09:11:54.0175620Z SHA256 digest of uploaded artifact zip is 221200a48a661e9182676a2407a3db28e965df017eaeda4aada67fdc52e1e0cf
+2026-09-24T09:11:54.4368930Z Artifact download URL: https://github.com/Zhangsfish/lecture-asset/actions/runs/35979119987/artifacts/10799354090

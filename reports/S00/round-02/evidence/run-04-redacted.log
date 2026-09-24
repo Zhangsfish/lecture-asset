@@ -1,0 +1,22 @@
+2026-09-24T09:14:16.5233410Z ProductVersion:		15.7.9
+2026-09-24T09:14:16.5235760Z BuildVersion:		24G830
+2026-09-24T09:14:16.9872120Z Xcode 16.4
+2026-09-24T09:14:16.9889080Z Build version 16F6
+2026-09-24T09:14:18.1276400Z 	iOS 18.5                      	-sdk iphoneos18.5
+2026-09-24T09:14:18.1281300Z 	Simulator - iOS 18.5          	-sdk iphonesimulator18.5
+2026-09-24T09:14:20.3960710Z Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+2026-09-24T09:14:20.6005660Z PASS: 29 required planning files; 5 JSON files parsed; 22 local links checked; example cross-field checks.
+2026-09-24T09:14:53.6818900Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.030 (0.030) seconds
+2026-09-24T09:14:53.6820960Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.030 (0.030) seconds
+2026-09-24T09:14:53.6822320Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.030 (0.034) seconds
+2026-09-24T09:14:54.5047920Z /Users/runner/work/_temp/xcodegen.zip: OK
+2026-09-24T09:14:54.6625880Z Version: 2.46.0
+2026-09-24T09:14:54.8403010Z Created project at /Users/runner/work/lecture-asset/lecture-asset/LectureAsset.xcodeproj
+2026-09-24T09:15:38.3586090Z ** BUILD SUCCEEDED **
+2026-09-24T09:19:39.8806940Z Created 48 numbered synthetic JPEGs for simulator smoke
+2026-09-24T09:19:49.3802200Z found nothing to terminate
+2026-09-24T09:19:49.4027110Z 	The request to terminate "com.zhangsfish.lectureasset" failed. found nothing to terminate
+2026-09-24T09:19:49.4139630Z 	found nothing to terminate
+2026-09-24T09:19:49.4657700Z ##[error]Process completed with exit code 3.
+2026-09-24T09:19:51.6447200Z SHA256 digest of uploaded artifact zip is 55491b67a471fb6de221f81d9753ec2ee9bc9a49a2241808f2ec0da78e98b45c
+2026-09-24T09:19:51.9139870Z Artifact download URL: https://github.com/Zhangsfish/lecture-asset/actions/runs/35979982931/artifacts/10799896295

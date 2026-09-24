@@ -1,0 +1,24 @@
+2026-09-24T09:21:41.8174210Z ProductVersion:		15.7.9
+2026-09-24T09:21:41.8175050Z BuildVersion:		24G830
+2026-09-24T09:21:42.0033100Z Xcode 16.4
+2026-09-24T09:21:42.0040850Z Build version 16F6
+2026-09-24T09:21:42.5759060Z 	iOS 18.5                      	-sdk iphoneos18.5
+2026-09-24T09:21:42.5759630Z 	Simulator - iOS 18.5          	-sdk iphonesimulator18.5
+2026-09-24T09:21:44.2229660Z Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+2026-09-24T09:21:44.3889320Z PASS: 29 required planning files; 5 JSON files parsed; 22 local links checked; example cross-field checks.
+2026-09-24T09:22:04.7895470Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+2026-09-24T09:22:04.7896300Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+2026-09-24T09:22:04.7896990Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+2026-09-24T09:22:05.3192630Z /Users/runner/work/_temp/xcodegen.zip: OK
+2026-09-24T09:22:05.4251470Z Version: 2.46.0
+2026-09-24T09:22:05.4688140Z Created project at /Users/runner/work/lecture-asset/lecture-asset/LectureAsset.xcodeproj
+2026-09-24T09:22:25.9795240Z ** BUILD SUCCEEDED **
+2026-09-24T09:22:32.1640490Z echo 'SIMULATOR_SMOKE_COMPLETED'
+2026-09-24T09:24:27.9477160Z Created 48 numbered synthetic JPEGs for simulator smoke
+2026-09-24T09:24:31.2929020Z com.zhangsfish.lectureasset: 6522
+2026-09-24T09:24:37.1476330Z /Users/runner/work/_temp/s00-smoke/permission-gate.png
+2026-09-24T09:24:37.1827170Z /Users/runner/work/_temp/s00-smoke/synthetic-grid.png
+2026-09-24T09:24:37.2051110Z SIMULATOR_SMOKE_COMPLETED
+2026-09-24T09:24:38.6439950Z SHA256 digest of uploaded artifact zip is 10c1fce3b950791ea429ba7f42d9d41657d12e996ac2bd7b1603ca042e2f384b
+2026-09-24T09:24:38.9230210Z Artifact s00-simulator-smoke has been successfully uploaded! Final size is 207188 bytes. Artifact ID is 10799817268
+2026-09-24T09:24:38.9332620Z Artifact download URL: https://github.com/Zhangsfish/lecture-asset/actions/runs/35980742428/artifacts/10799817268

@@ -1,0 +1,22 @@
+{
+  "stage": "S00",
+  "round": 2,
+  "delivery_state": "READY_FOR_AUDIT",
+  "acceptance_state": "BLOCKED_DEVICE",
+  "main_sha": "4ef1ca3d8b2670cfdf2b020c0b94dc9e9c917fb4",
+  "tested_code_sha": "68d51cfbcda738c96a2c8d9442205a161e29be8b",
+  "workflow_run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/35980742428",
+  "workflow_job_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/35980742428/job/107571753914",
+  "environment_report": "ENVIRONMENT.md",
+  "results": [
+    {"id":"mac_toolchain","status":"PASS","command_or_steps":"sw_vers; xcodebuild -version; xcodebuild -showsdks; swift --version","exit_code":0,"evidence":["evidence/run-05-redacted.log"],"limitations":"Standard hosted macOS runner, not a physical iPhone."},
+    {"id":"foundation","status":"PASS","command_or_steps":"python3 scripts/check_foundation.py","exit_code":0,"evidence":["evidence/run-05-redacted.log"],"limitations":"Repository planning check only."},
+    {"id":"core_tests","status":"PASS","command_or_steps":"swift test --package-path Packages/SelectionCore","exit_code":0,"test_count":4,"failure_count":0,"evidence":["evidence/run-05-redacted.log"],"limitations":"Pure Swift selection behavior, not PhotoKit/UI gestures."},
+    {"id":"xcodegen","status":"PASS","command_or_steps":"Verify official XcodeGen 2.46.0 ZIP SHA-256; xcodegen generate --spec project.yml","exit_code":0,"evidence":["evidence/run-05-redacted.log"],"limitations":"Ephemeral runner tool installation."},
+    {"id":"ios_simulator_build","status":"PASS","command_or_steps":"xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -destination 'generic/platform=iOS Simulator' -derivedDataPath $RUNNER_TEMP/S00DerivedData CODE_SIGNING_ALLOWED=NO clean build","exit_code":0,"evidence":["evidence/run-05-redacted.log"],"limitations":"Unsigned simulator build; no device/signing build."},
+    {"id":"simulator_launch_screenshots","status":"PASS","command_or_steps":"simctl boot/install/launch, add 48 synthetic JPEGs, grant photos, relaunch, capture two screenshots","exit_code":0,"evidence":["evidence/run-05-summary.txt","https://github.com/Zhangsfish/lecture-asset/actions/runs/35980742428/artifacts/10799817268"],"limitations":"Command-level smoke only; screenshot content not independently interpreted; no gesture assertions."},
+    {"id":"visual_ui_review","status":"NOT_RUN","command_or_steps":"Review screenshot pixels for actual permission gate/grid layout and localization","exit_code":null,"evidence":[],"limitations":"Screenshots provided for audit; no visual assertion recorded."},
+    {"id":"xcodebuild_unit_tests","status":"NOT_RUN","command_or_steps":"xcodebuild test","exit_code":null,"evidence":[],"limitations":"No App XCTest target; four authored package tests ran via swift test."},
+    {"id":"real_iphone_s00","status":"NOT_RUN","command_or_steps":"Full permission, library browse, tap, 30-photo sweep, edge autoscroll, sweep deselect, 200 cap, confirm order/removal, revoke permission, ordinary scroll, load responsiveness","exit_code":null,"evidence":[],"limitations":"BLOCKED_DEVICE: owner has iPhone but no Mac installation/debug route; no real-device model/OS/result."}
+  ]
+}
