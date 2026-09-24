@@ -1,0 +1,11 @@
+Lecture Asset host preflight (not an app test)
+OS: MINGW64_NT-10.0-26200
+Architecture: x86_64
+
+Git: git version 2.48.1.windows.1
+
+Swift:
+
+XcodeGen:
+
+BLOCKED_ENV: this host cannot run Xcode/iOS Simulator. Core/docs checks are not iOS build evidence.
