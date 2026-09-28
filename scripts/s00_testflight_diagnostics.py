@@ -31,6 +31,14 @@ categories = {
         "archive does not contain a signed", "not a valid archive",
     ),
     "CLOUD_SIGNING_ISSUE": ("cloud signing", "cloud-managed certificate"),
+    "CLOUD_DISTRIBUTION_PERMISSION_DENIED": (
+        "cloud signing permission error",
+        "you haven't been given access to cloud-managed distribution certificates",
+    ),
+    "APP_STORE_PROFILE_MISSING": (
+        "ios app store provisioning profiles matching",
+        "no ios app store provisioning profiles",
+    ),
     "APP_ICON": ("app icon", "appicon"),
     "UPLOAD_PROCESSING": ("upload failed", "could not upload", "processing"),
 }
