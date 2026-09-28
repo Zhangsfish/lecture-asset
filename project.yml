@@ -20,6 +20,9 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset
         PRODUCT_NAME: Lecture Asset
         SWIFT_VERSION: "6.0"
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         TARGETED_DEVICE_FAMILY: "1"
         SUPPORTS_MACCATALYST: NO
         ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: NO
@@ -27,6 +30,8 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: Lecture Asset
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         UILaunchScreen: {}
         NSPhotoLibraryUsageDescription: "Browse and select lecture photos; photo cleanup will require a separate confirmation in a future version."
   LectureAssetUITests:

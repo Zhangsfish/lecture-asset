@@ -1,0 +1,75 @@
+name: S00 TestFlight preparation and upload
+
+on:
+  push:
+    branches: [codex/s00-selection]
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Prepare only, or explicitly upload to TestFlight
+        required: true
+        type: choice
+        options: [prepare-only, upload]
+        default: prepare-only
+
+permissions:
+  contents: read
+
+jobs:
+  testflight:
+    runs-on: macos-26
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record Xcode 26 host and toolchain
+        run: |
+          set -euo pipefail
+          sw_vers
+          uname -m
+          xcode-select -p
+          xcodebuild -version
+          xcodebuild -showsdks
+          swift --version
+          major=$(xcodebuild -version | awk '/^Xcode / {split($2, parts, "."); print parts[1]}')
+          test "$major" -ge 26
+      - name: Check S00 foundation and SelectionCore
+        run: |
+          set -euo pipefail
+          python3 scripts/check_foundation.py
+          swift test --package-path Packages/SelectionCore
+      - name: Install SHA-256 verified XcodeGen 2.46.0
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
+            --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version
+      - name: Generate Xcode project and verify upload options
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+          xcodebuild -help 2>&1 | grep -E 'app-store-connect|destination.*upload|testFlightInternalTestingOnly' || true
+          bash -n scripts/s00_testflight_release.sh
+          sips -g pixelWidth -g pixelHeight App/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+      - name: Clean unsigned iPhone Release build
+        run: |
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/S00DeviceDerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
+      - name: Sign and upload only on an explicit upload trigger
+        if: >-
+          (github.event_name == 'workflow_dispatch' && inputs.operation == 'upload') ||
+          (github.event_name == 'push' && github.event.head_commit.message == 'release(s00-tf): upload TestFlight build')
+        env:
+          S00_APPLE_TEAM_ID: ${{ secrets.S00_APPLE_TEAM_ID }}
+          S00_ASC_API_KEY_ID: ${{ secrets.S00_ASC_API_KEY_ID }}
+          S00_ASC_API_ISSUER_ID: ${{ secrets.S00_ASC_API_ISSUER_ID }}
+          S00_ASC_API_KEY_P8: ${{ secrets.S00_ASC_API_KEY_P8 }}
+        run: bash scripts/s00_testflight_release.sh
