@@ -18,7 +18,7 @@ permissions:
 jobs:
   testflight:
     runs-on: macos-26
-    timeout-minutes: 50
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - name: Record Xcode 26 host and toolchain
@@ -56,6 +56,7 @@ jobs:
           xcodegen generate --spec project.yml
           xcodebuild -help 2>&1 | grep -E 'app-store-connect|destination.*upload|testFlightInternalTestingOnly' || true
           bash -n scripts/s00_testflight_release.sh
+          swiftc -typecheck scripts/s00_testflight_status.swift
           sips -g pixelWidth -g pixelHeight App/Assets.xcassets/AppIcon.appiconset/AppIcon.png
       - name: Clean unsigned iPhone Release build
         run: |

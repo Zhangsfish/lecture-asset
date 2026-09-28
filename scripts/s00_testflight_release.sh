@@ -42,6 +42,7 @@ options = {
     "method": "app-store-connect",
     "signingStyle": "automatic",
     "teamID": os.environ["S00_APPLE_TEAM_ID"],
+    "testFlightInternalTestingOnly": True,
 }
 with open(sys.argv[1], "wb") as output:
     plistlib.dump(options, output)
@@ -79,7 +80,9 @@ if xcodebuild -exportArchive -archivePath "$archive_path" \
   -authenticationKeyIssuerID "$S00_ASC_API_ISSUER_ID" \
   > "$export_log" 2>&1; then
   echo "S00_EXPORT_UPLOAD_ACCEPTED version=0.1.0 build=$build_number code_sha=$code_sha"
-  echo 'S00_PROCESSING_STATUS_NOT_YET_VERIFIED'
+  if ! swift scripts/s00_testflight_status.swift "$key_file" "$build_number"; then
+    echo 'S00_UPLOAD_ACCEPTED_PROCESSING_UNCONFIRMED'
+  fi
 else
   result=$?
   echo "S00_EXPORT_UPLOAD_FAILED exit=$result"
