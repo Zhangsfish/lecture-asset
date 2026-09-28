@@ -1,0 +1,24 @@
+Source: https://github.com/Zhangsfish/lecture-asset/actions/runs/36379080190/job/108790872730
+Tested implementation SHA: 1a687e5aac03795545905f85b906a1c9a29950cf
+Selected public CI lines only; raw Xcode signing logs were not retained.
+
+Xcode 26.6
+Apple Swift version 6.3.3
+Executed 4 tests, with 0 failures
+XcodeGen Version: 2.46.0
+S00_RELEASE_CODE_SIGN_STYLE=UNSET
+S00_RELEASE_CODE_SIGN_IDENTITY=iPhone Developer
+S00_RELEASE_DEVELOPMENT_TEAM=UNSET
+S00_RELEASE_PROVISIONING_PROFILE_SPECIFIER=UNSET
+S00_RELEASE_PRODUCT_BUNDLE_IDENTIFIER=com.zhangsfish.lectureasset
+S00_RELEASE_CODE_SIGNING_ALLOWED=YES
+** BUILD SUCCEEDED **
+S00_RELEASE_START version=0.1.0 build=15.1 code_sha=1a687e5aac03795545905f85b906a1c9a29950cf
+S00_UNSIGNED_ARCHIVE_SUCCEEDED
+S00_UNSIGNED_ARCHIVE_METADATA_VERIFIED
+S00_EXPORT_UPLOAD_FAILED exit=70
+S00_PRIVATE_LOG_CATEGORIES=NO_MATCHING_PROFILE,CLOUD_SIGNING_ISSUE,CLOUD_DISTRIBUTION_PERMISSION_DENIED
+S00_PRIVATE_ERROR_TERMS_1=error exportarchive cloud signing permission error
+S00_PRIVATE_ERROR_TERMS_2=error exportarchive no profiles for [redacted] were found
+
+Uploaded build: none. Processing and iPhone checks: NOT_RUN.
