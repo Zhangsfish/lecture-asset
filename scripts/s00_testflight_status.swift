@@ -52,19 +52,18 @@ func get(_ path: String, queries: [URLQueryItem], bearer: String) throws -> [[St
 
 let args = CommandLine.arguments
 guard args.count == 3,
-      let keyID = ProcessInfo.processInfo.environment["S00_ASC_API_KEY_ID"],
-      let issuerID = ProcessInfo.processInfo.environment["S00_ASC_API_ISSUER_ID"] else {
+      let keyID = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_KEY_ID"],
+      let issuerID = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_ISSUER_ID"] else {
     print("S00_PROCESSING_STATUS_NOT_VERIFIED configuration")
     exit(1)
 }
 
 do {
     let key = try P256.Signing.PrivateKey(pemRepresentation: String(contentsOfFile: args[1], encoding: .utf8))
-    let bearer = try token(key: key, keyID: keyID, issuerID: issuerID)
     let apps = try get("apps", queries: [
         URLQueryItem(name: "filter[bundleId]", value: "com.zhangsfish.lectureasset"),
         URLQueryItem(name: "limit", value: "2")
-    ], bearer: bearer)
+    ], bearer: token(key: key, keyID: keyID, issuerID: issuerID))
     guard apps.count == 1, let appID = apps.first?["id"] as? String else { throw APIError() }
 
     // Apple's upload acceptance and build processing are separate events.
@@ -73,7 +72,7 @@ do {
             URLQueryItem(name: "filter[app]", value: appID),
             URLQueryItem(name: "filter[version]", value: args[2]),
             URLQueryItem(name: "limit", value: "2")
-        ], bearer: bearer)
+        ], bearer: token(key: key, keyID: keyID, issuerID: issuerID))
         if let item = builds.first,
            let attributes = item["attributes"] as? [String: Any],
            let state = attributes["processingState"] as? String {
