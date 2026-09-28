@@ -52,16 +52,12 @@ echo "S00_RELEASE_START version=0.1.0 build=$build_number code_sha=$code_sha"
 if xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
   -configuration Release -destination 'generic/platform=iOS' \
   -archivePath "$archive_path" -derivedDataPath "$RUNNER_TEMP/S00ReleaseDerivedData" \
-  -allowProvisioningUpdates \
-  -authenticationKeyPath "$key_file" \
-  -authenticationKeyID "$APP_STORE_CONNECT_KEY_ID" \
-  -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID" \
-  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic \
+  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
   CURRENT_PROJECT_VERSION="$build_number" archive > "$archive_log" 2>&1; then
-  echo 'S00_ARCHIVE_SUCCEEDED'
+  echo 'S00_UNSIGNED_ARCHIVE_SUCCEEDED'
 else
   result=$?
-  echo "S00_ARCHIVE_FAILED exit=$result"
+  echo "S00_UNSIGNED_ARCHIVE_FAILED exit=$result"
   python3 scripts/s00_testflight_diagnostics.py "$archive_log"
   exit "$result"
 fi
@@ -70,7 +66,7 @@ app_info="$archive_path/Products/Applications/Lecture Asset.app/Info.plist"
 test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app_info")" = 'com.zhangsfish.lectureasset'
 test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app_info")" = '0.1.0'
 test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$app_info")" = "$build_number"
-echo 'S00_ARCHIVE_METADATA_VERIFIED'
+echo 'S00_UNSIGNED_ARCHIVE_METADATA_VERIFIED'
 
 if xcodebuild -exportArchive -archivePath "$archive_path" \
   -exportOptionsPlist "$export_options" -exportPath "$export_path" \

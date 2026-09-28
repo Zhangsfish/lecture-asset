@@ -25,6 +25,11 @@ categories = {
     "PROFILE_CREATION_FAILED": ("failed to create provisioning profile", "could not create a provisioning profile"),
     "PROFILE_CAPABILITY_MISMATCH": ("provisioning profile doesn't include", "provisioning profile does not include"),
     "PROVISIONING_PROFILE_OTHER": ("provisioning profile",),
+    "UNSIGNED_ARCHIVE_REJECTED": (
+        "archive is not signed", "archive was not signed", "unsigned archive",
+        "archive does not contain a signed", "not a valid archive",
+    ),
+    "CLOUD_SIGNING_ISSUE": ("cloud signing", "cloud-managed certificate"),
     "APP_ICON": ("app icon", "appicon"),
     "UPLOAD_PROCESSING": ("upload failed", "could not upload", "processing"),
 }

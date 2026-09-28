@@ -60,6 +60,8 @@ jobs:
           bash -n scripts/s00_testflight_release.sh
           swiftc -typecheck scripts/s00_testflight_status.swift
           sips -g pixelWidth -g pixelHeight App/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+      - name: Inspect effective Release signing settings safely
+        run: python3 scripts/s00_signing_settings.py
       - name: Clean unsigned iPhone Release build
         run: |
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
