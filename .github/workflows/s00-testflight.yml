@@ -67,9 +67,7 @@ jobs:
             -derivedDataPath "$RUNNER_TEMP/S00DeviceDerivedData" \
             CODE_SIGNING_ALLOWED=NO clean build
       - name: Sign and upload only on an explicit upload trigger
-        if: >-
-          (github.event_name == 'workflow_dispatch' && inputs.operation == 'upload') ||
-          (github.event_name == 'push' && github.event.head_commit.message == 'release(s00-tf): upload TestFlight build')
+        if: github.event_name == 'workflow_dispatch' && inputs.operation == 'upload'
         env:
           APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
