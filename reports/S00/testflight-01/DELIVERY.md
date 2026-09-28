@@ -1,32 +1,36 @@
-# S00-TF delivery — owner setup pending
+# S00-TF delivery — signing blocked by development provisioning
 
-PR: [#1](https://github.com/Zhangsfish/lecture-asset/pull/1). Scope: `tasks/S00_TESTFLIGHT_BOOTSTRAP.md` only. This is a **BLOCKED_OWNER** interim report, not `READY_FOR_AUDIT PASS`: the owner has confirmed Developer Program enrollment but has not confirmed the App Store Connect app record, Team API access/key, or GitHub Actions Secrets. No signing/upload or physical-iPhone acceptance is claimed.
+PR: [#1](https://github.com/Zhangsfish/lecture-asset/pull/1). Scope: `tasks/S00_TESTFLIGHT_BOOTSTRAP.md` only. **BLOCKED_OWNER**; do not mark S00 READY_FOR_AUDIT PASS, merge the PR, or start S01. The owner reports active Developer Program membership, registered bundle ID `com.zhangsfish.lectureasset`, an existing `Lecture Asset` App Store Connect record, and approved Team API access. GitHub API confirmed the configured **names only** of three repository Secrets and one repository Variable. No Secret value was fetched.
 
-Tested implementation SHA: `6dd0810705b0fa405c00e687ae7580244540b821`. The [standard macOS 26 preflight run](https://github.com/Zhangsfish/lecture-asset/actions/runs/36372011792) and [job](https://github.com/Zhangsfish/lecture-asset/actions/runs/36372011792/job/108770144311) completed successfully at this SHA. The explicit upload step was **skipped**. See [safe log excerpt](evidence/ci-preflight.txt), [test results](TEST_RESULTS.json), and [environment](ENVIRONMENT.md).
+Tested implementation SHA: `9e69c3c3f87bb8b7dd71bc222e351dbb8c3fd0ff`. The final [manual upload run](https://github.com/Zhangsfish/lecture-asset/actions/runs/36377001014) and [job](https://github.com/Zhangsfish/lecture-asset/actions/runs/36377001014/job/108784768531) ran at this SHA. The preceding [attempt 1](https://github.com/Zhangsfish/lecture-asset/actions/runs/36376673935) used SHA `042de5abb98bf88e0681e10b657e8895a55cb617`. Both runs built successfully without signing, then failed during `xcodebuild archive` with exit 65. The second run's private-log classifier returned `NO_REGISTERED_DEVICE,NO_MATCHING_PROFILE,PROVISIONING_PROFILE_OTHER`. The unredacted Xcode signing log stayed in the ephemeral runner and was deleted; see safe excerpts in [evidence](evidence/).
 
-## What is ready
+## Implemented
 
-- XcodeGen project now has a fixed `0.1.0` marketing version, explicit build-number setting, and an opaque 1024-pixel App Icon needed for distribution. Bundle ID remains `com.zhangsfish.lectureasset`.
-- A `macos-26` GitHub Actions workflow checks Swift tests, generates the project using SHA-256-verified XcodeGen 2.46.0, and builds an unsigned iPhone Release target before any upload attempt.
-- The explicit upload step uses Apple Team API Key authentication for Xcode automatic signing, archives and uploads through `xcodebuild -exportArchive`, marks the export for **internal TestFlight only**, and queries the App Store Connect API for the exact build's processing state. The `.p8` key and unredacted signing logs remain only in the ephemeral runner. No credential value is printed or committed.
-- The owner instructions are in [OWNER_SETUP.md](OWNER_SETUP.md). No Apple credential, account email, certificate, profile, UDID, or private photograph appears in this report.
+- Independent `macos-26` workflow with `workflow_dispatch` input. Ordinary pushes run preparation only. An upload run requires the explicit `operation=upload` manual event. GitHub accepted both manual dispatches with HTTP 204.
+- XcodeGen project retains S00 app code, bundle ID, `0.1.0` marketing version and 1024-pixel icon. Debug/simulator CI is separate and passed on the latest pre-upload code.
+- The workflow reads Team ID from `${{ vars.APPLE_TEAM_ID }}` and API Key ID, Issuer ID and `.p8` from the three user-configured repository Secrets. The key is written only into a permission-restricted `$RUNNER_TEMP` directory, then removed. Checkout does not persist the GitHub token. The release script disables shell tracing, redirects raw archive/export output to private temporary logs and emits only fixed diagnostic categories.
+- The planned export uses Apple's `app-store-connect` method, automatic signing, `destination=upload`, and `testFlightInternalTestingOnly=true`. Post-upload code would query the exact build's processing state, refreshing its short-lived API token during polling. **Export, upload and processing were not reached.**
 
-## Actual results and open gate
+## Actual results
 
-| Item | Result |
+| Check | Result |
 |---|---|
-| Standard GitHub-hosted macOS 26 / Xcode 26.6 / iOS 26.5 SDK | PASS, observed in run |
-| `python3 scripts/check_foundation.py` | PASS, exit 0 |
-| `swift test --package-path Packages/SelectionCore` | PASS, 4 tests / 0 failures |
-| XcodeGen 2.46.0 archive SHA-256 and `xcodegen generate --spec project.yml` | PASS |
-| `bash -n scripts/s00_testflight_release.sh`; `swiftc -typecheck scripts/s00_testflight_status.swift`; icon dimensions | PASS |
-| Unsigned generic iPhone Release `xcodebuild ... clean build` | PASS, `BUILD SUCCEEDED` |
-| Signed archive, IPA export, App Store Connect upload | **NOT_RUN / BLOCKED_OWNER** |
-| TestFlight version/build and Apple processing state | Version target `0.1.0`; actual build **NOT_RUN**, processing **NOT_RUN** |
-| Internal tester installation and physical S00 checklist | **NOT_RUN / BLOCKED_DEVICE** |
+| Standard GitHub-hosted macOS 26 / Xcode 26.6 / iOS 26.5 SDK | PASS |
+| `python3 scripts/check_foundation.py` | PASS |
+| `swift test --package-path Packages/SelectionCore` | PASS; 4 tests, 0 failures |
+| SHA-256-verified XcodeGen 2.46.0 and project generation | PASS |
+| Release shell syntax, processing-query Swift typecheck, icon dimensions | PASS |
+| Generic iPhone Release `CODE_SIGNING_ALLOWED=NO clean build` | PASS, `BUILD SUCCEEDED` |
+| Team API authentication settings present by **name** | PASS; values not read |
+| Signed `xcodebuild archive` with `-allowProvisioningUpdates` and API key | FAIL, exit 65; no registered device / no matching provisioning profile |
+| App Store Connect IPA export and upload | **NOT_RUN** |
+| Apple build processing / TestFlight installation | **NOT_RUN** |
+| Physical iPhone S00 checklist | **NOT_RUN / BLOCKED_DEVICE** |
 
-The unsigned compile proves the source builds with Xcode 26. It does not verify signing, upload, Apple processing, installation, PhotoKit gestures, or device behavior. The earlier S00 round-03 simulator audit remains separate. No code for S01, image export, OCR, PDF, ZIP, share, or deletion was added.
+The attempted version/build pairs were `0.1.0 (6.1)` and `0.1.0 (8.1)`. **Neither is an uploaded TestFlight build.** There is no App Store Connect processed state to report. The private Xcode log was not published as an artifact. Inspected public workflow logs do not contain a private-key PEM marker, bearer token or JWT. The repository/report contains no Apple account email, private key, certificate, profile, UDID, or photo content. This is a statement about the observed outputs, not a claim about an unperformed upload.
 
-## Next continuation within S00-TF
+## Owner gate
 
-After the owner completes [OWNER_SETUP.md](OWNER_SETUP.md) and reports only status, make one explicit upload trigger on this PR branch, inspect the new workflow run and Apple's processing state, record the resulting version/build and run URL here, then ask the owner to install this exact build on the iPhone and run the S00 device checklist with safe photos. If signing or processing fails, record FAIL and correct only S00-TF. Do not merge PR #1 or begin S01.
+The current automatic-signing archive attempted to obtain a development provisioning profile, but Apple/Xcode reported no registered device and no matching profile. Apple documents that development profiles require a registered device; TestFlight installation itself does not. This is the **current archive path's prerequisite**, not a TestFlight tester enrollment requirement. The exact owner-side check and minimal action are in [OWNER_SETUP.md](OWNER_SETUP.md). No additional GitHub Secret is requested now. A distribution certificate or App Store profile has **not** been proven missing; do not create/upload one yet.
+
+After the owner resolves the Apple device/profile gate, rerun one manual upload on this PR branch, record the actual signed archive/export/upload/processing result and exact build number, then ask the owner to install it on the iPhone and execute the S00 physical checklist. Do not claim READY_FOR_AUDIT until that device evidence exists.
