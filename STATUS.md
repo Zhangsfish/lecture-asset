@@ -19,7 +19,7 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 | Stage | Status | Task |
 |---|---|---|
 | S00 | BLOCKED_DEVICE — CI/simulator accepted | [round-03 audit](audits/S00/round-03.md) |
-| S00-TF | READY | [TestFlight bootstrap + physical S00 acceptance](tasks/S00_TESTFLIGHT_BOOTSTRAP.md) |
+| S00-TF | READY — round-02 distribution signing retry | [TestFlight round-02](tasks/S00_TESTFLIGHT_ROUND2.md) |
 | S01 | LOCKED | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
 | S02 | LOCKED | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
 | S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
@@ -53,13 +53,19 @@ Still missing:
 - confirmation order/removal on device;
 - owner judgment of the 0.15 s sweep activation UX.
 
+## TestFlight round-01 audit
+
+The first signing attempt failed because Xcode drifted into **development provisioning** and asked for a registered device. Audit conclusion: device registration is not the correct prerequisite for TestFlight/App Store distribution.
+
+Audit: [testflight-01](audits/S00/testflight-01.md).
+
 ## Next action
 
 Continue the **same PR #1** and execute only:
 
-`tasks/S00_TESTFLIGHT_BOOTSTRAP.md`
+`tasks/S00_TESTFLIGHT_ROUND2.md`
 
-Goal: use the owner's active Apple Developer Program + GitHub-hosted macOS to create/upload a signed TestFlight build, install it on the owner's iPhone and run the pending physical S00 checklist.
+Goal: correct the signing path to App Store Connect **distribution signing**. Do not register an iPhone or create development/ad-hoc provisioning merely to satisfy the failed archive path.
 
 Do not start S01 until a physical-device round is audited PASS.
 
