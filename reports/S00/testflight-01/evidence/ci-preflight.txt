@@ -1,0 +1,17 @@
+Selected safe lines from GitHub Actions run 36372011792, job 108770144311.
+Full immutable run: https://github.com/Zhangsfish/lecture-asset/actions/runs/36372011792
+Code SHA: 6dd0810705b0fa405c00e687ae7580244540b821
+
+2026-09-28T03:00:58Z Operating System: macOS 26.6.2 (25G83)
+2026-09-28T03:00:58Z Runner Image: macos-26-arm64
+2026-09-28T03:01:03Z Xcode 26.6; Build version 17F113
+2026-09-28T03:01:04Z iOS 26.5 -sdk iphoneos26.5
+2026-09-28T03:01:07Z Apple Swift version 6.3.3
+2026-09-28T03:01:08Z PASS: 29 required planning files; 8 JSON files parsed; 30 local links checked
+2026-09-28T03:01:53Z Executed 4 tests, with 0 failures
+2026-09-28T03:01:54Z xcodegen.zip: OK; Version: 2.46.0
+2026-09-28T03:01:54Z xcodegen generate --spec project.yml; bash -n scripts/s00_testflight_release.sh; swiftc -typecheck scripts/s00_testflight_status.swift
+2026-09-28T03:01:57Z xcodebuild -help lists app-store-connect and testFlightInternalTestingOnly export options
+2026-09-28T03:02:02Z App icon pixelWidth: 1024; pixelHeight: 1024
+2026-09-28T03:02:46Z ** BUILD SUCCEEDED **
+Job conclusion: success. Explicit signing/upload step: skipped.
