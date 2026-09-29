@@ -69,3 +69,5 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset.tests
         GENERATE_INFOPLIST_FILE: YES
         SWIFT_VERSION: "6.0"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Lecture Asset.app/Lecture Asset"
+        BUNDLE_LOADER: "$(TEST_HOST)"
