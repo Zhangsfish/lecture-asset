@@ -144,6 +144,31 @@ final class ArchiveCoreTests: XCTestCase {
         }
     }
 
+    func testTwentyTwelveMegapixelPDFPagesStreamWithoutRetainingDocumentImages() throws {
+        let root = FileManager.default.temporaryDirectory.appending(path: "s02-pdf-memory-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: root) }
+        let jpeg = root.appending(path: "source.jpg")
+        try makeJPEG(at: jpeg, index: 1, width: 3024, height: 4032)
+        let measured = try ArchiveBuilder.measure(jpeg)
+        let pages = (1...20).map { number in
+            ArchiveInputPage(sourceURL: jpeg,
+                record: ArchivePage(number: number, selectionIndex: number, capturedAt: nil,
+                    width: 3024, height: 4032, bytes: measured.bytes, sha256: measured.hash,
+                    isLivePhoto: false, ocr: OCRResult(status: "empty", text: "", blocks: [],
+                        requestRevision: 3, languages: ["en-US"])))
+        }
+        let pdf = root.appending(path: "streamed.pdf")
+        var after: [UInt64] = []
+        try CompanionPDF.write(pages: pages, to: pdf) { number, bytes, _ in
+            after.append(bytes)
+            print("S02_PDF_STREAM_MEMORY page=\(number) after_mib=\(Double(bytes) / 1048576)")
+        }
+        XCTAssertEqual(after.count, 20)
+        XCTAssertEqual(CGPDFDocument(pdf as CFURL)?.numberOfPages, 20)
+        XCTAssertLessThan(after[19], after[1] + 30 * 1_048_576)
+    }
+
     private func makeJPEG(at url: URL, index: Int, width: Int? = nil, height: Int? = nil) throws {
         let width = width ?? 240 + index, height = height ?? 180 + index
         let color = CGColorSpace(name: CGColorSpace.sRGB)!

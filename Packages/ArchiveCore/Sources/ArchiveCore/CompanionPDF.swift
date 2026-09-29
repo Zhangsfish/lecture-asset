@@ -7,9 +7,10 @@ import Darwin.Mach
 public enum CompanionPDF {
     public static func write(pages: [ArchiveInputPage], to url: URL,
                              memorySample: ((Int, UInt64, UInt64) -> Void)? = nil) throws {
-        guard let context = CGContext(url as CFURL, mediaBox: nil, nil) else {
-            throw ArchiveFailure.invalid("PDF context")
-        }
+        // Write image streams directly into the PDF file. A Core Graphics PDF context
+        // retained document-level image data until close, growing with the page count.
+        // The JPEG for one page is the only temporary file alive during this loop.
+        let writer = try StreamingPDFWriter(url: url, pageCount: pages.count)
         for input in pages {
             try autoreleasepool {
                 var pagePeak = footprint() ?? 0
@@ -24,26 +25,26 @@ public enum CompanionPDF {
                 let pageLongEdge = min(longEdge, ArchiveBuilder.pdfLongEdge)
                 let pageWidth = CGFloat(width) * CGFloat(pageLongEdge) / CGFloat(longEdge)
                 let pageHeight = CGFloat(height) * CGFloat(pageLongEdge) / CGFloat(longEdge)
-                var mediaBox = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
                 let temporary = url.deletingLastPathComponent().appending(path: ".page-\(input.record.number).jpg")
                 defer { try? FileManager.default.removeItem(at: temporary) }
                 try writeBrowseJPEG(source: input.sourceURL, maxPixelSize: rasterLongEdge, to: temporary)
                 sample()
                 guard let source = CGImageSourceCreateWithURL(temporary as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
-                      let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else {
+                      let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any],
+                      let rasterWidth = properties[kCGImagePropertyPixelWidth] as? Int,
+                      let rasterHeight = properties[kCGImagePropertyPixelHeight] as? Int,
+                      rasterWidth > 0, rasterHeight > 0 else {
                     throw ArchiveFailure.invalid("PDF browse JPEG")
                 }
-                context.beginPDFPage([kCGPDFContextMediaBox: Data(bytes: &mediaBox, count: MemoryLayout<CGRect>.size)] as CFDictionary)
-                context.interpolationQuality = .high
-                context.draw(image, in: mediaBox)
-                sample()
-                context.endPDFPage()
+                try writer.append(number: input.record.number, jpegURL: temporary,
+                                  rasterWidth: rasterWidth, rasterHeight: rasterHeight,
+                                  pageWidth: pageWidth, pageHeight: pageHeight)
                 sample()
                 let after = footprint() ?? 0
                 memorySample?(input.record.number, after, max(pagePeak, after))
             }
         }
-        context.closePDF()
+        try writer.finish()
     }
 
     private static func footprint() -> UInt64? {
@@ -133,5 +134,105 @@ public enum CompanionPDF {
             context.scaleBy(x: 96 / mediaBox.width, y: 96 / mediaBox.height)
             context.drawPDFPage(page)
         }
+    }
+}
+
+/// Minimal PDF 1.4 writer for one RGB JPEG XObject per page. It streams JPEG
+/// bytes from disk and keeps only object offsets in memory (O(page count)).
+private final class StreamingPDFWriter {
+    private let output: FileHandle
+    private let pageCount: Int
+    private var nextPage = 1
+    private var offsets: [UInt64]
+    private var finished = false
+
+    init(url: URL, pageCount: Int) throws {
+        guard FileManager.default.createFile(atPath: url.path, contents: nil) else {
+            throw ArchiveFailure.invalid("PDF output file")
+        }
+        output = try FileHandle(forWritingTo: url)
+        self.pageCount = pageCount
+        offsets = [UInt64](repeating: 0, count: 3 + 3 * pageCount)
+        try write("%PDF-1.4\n")
+        try output.write(contentsOf: Data([0x25, 0xE2, 0xE3, 0xCF, 0xD3, 0x0A]))
+        try object(1, "<< /Type /Catalog /Pages 2 0 R >>")
+        let children = (0..<pageCount).map { "\(3 + 3 * $0) 0 R" }.joined(separator: " ")
+        try object(2, "<< /Type /Pages /Kids [\(children)] /Count \(pageCount) >>")
+    }
+
+    deinit { try? output.close() }
+
+    func append(number: Int, jpegURL: URL, rasterWidth: Int, rasterHeight: Int,
+                pageWidth: CGFloat, pageHeight: CGFloat) throws {
+        guard number == nextPage, rasterWidth > 0, rasterHeight > 0,
+              pageWidth > 0, pageHeight > 0 else {
+            throw ArchiveFailure.invalid("PDF sequential page")
+        }
+        let pageID = 3 + 3 * (number - 1)
+        let contentID = pageID + 1
+        let imageID = pageID + 2
+        let pageW = Double(pageWidth).description
+        let pageH = Double(pageHeight).description
+        try object(pageID, "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 \(pageW) \(pageH)] " +
+                   "/Resources << /XObject << /Im0 \(imageID) 0 R >> >> /Contents \(contentID) 0 R >>")
+        let drawing = "q\n\(pageW) 0 0 \(pageH) 0 0 cm\n/Im0 Do\nQ\n"
+        try streamObject(contentID, dictionary: "", bytes: Data(drawing.utf8))
+
+        let attributes = try FileManager.default.attributesOfItem(atPath: jpegURL.path)
+        guard let length = (attributes[.size] as? NSNumber)?.intValue, length > 0 else {
+            throw ArchiveFailure.invalid("PDF JPEG size")
+        }
+        let dictionary = "/Type /XObject /Subtype /Image /Width \(rasterWidth) " +
+            "/Height \(rasterHeight) /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode"
+        try beginObject(imageID)
+        try write("<< \(dictionary) /Length \(length) >>\nstream\n")
+        let source = try FileHandle(forReadingFrom: jpegURL)
+        defer { try? source.close() }
+        var copied = 0
+        while let chunk = try source.read(upToCount: 1_048_576), !chunk.isEmpty {
+            copied += chunk.count
+            try output.write(contentsOf: chunk)
+        }
+        guard copied == length else { throw ArchiveFailure.invalid("PDF JPEG changed during write") }
+        try write("\nendstream\nendobj\n")
+        nextPage += 1
+    }
+
+    func finish() throws {
+        guard nextPage == pageCount + 1, !finished else {
+            throw ArchiveFailure.invalid("PDF incomplete page set")
+        }
+        let xref = output.offsetInFile
+        try write("xref\n0 \(offsets.count)\n0000000000 65535 f \n")
+        for offset in offsets.dropFirst() {
+            let digits = String(offset)
+            guard digits.count <= 10, offset > 0 else { throw ArchiveFailure.invalid("PDF xref offset") }
+            try write(String(repeating: "0", count: 10 - digits.count) + digits + " 00000 n \n")
+        }
+        try write("trailer\n<< /Size \(offsets.count) /Root 1 0 R >>\n" +
+                  "startxref\n\(xref)\n%%EOF\n")
+        try output.close()
+        finished = true
+    }
+
+    private func beginObject(_ number: Int) throws {
+        offsets[number] = output.offsetInFile
+        try write("\(number) 0 obj\n")
+    }
+
+    private func object(_ number: Int, _ body: String) throws {
+        try beginObject(number)
+        try write("\(body)\nendobj\n")
+    }
+
+    private func streamObject(_ number: Int, dictionary: String, bytes: Data) throws {
+        try beginObject(number)
+        try write("<< \(dictionary) /Length \(bytes.count) >>\nstream\n")
+        try output.write(contentsOf: bytes)
+        try write("endstream\nendobj\n")
+    }
+
+    private func write(_ string: String) throws {
+        try output.write(contentsOf: Data(string.utf8))
     }
 }
