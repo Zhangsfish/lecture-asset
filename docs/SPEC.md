@@ -107,12 +107,14 @@ Lecture_<...>/
 
 - 独立文件，不放入 AI ZIP，避免重复占用/传输。
 - 一图一页，完整画面，不截边。
+- **每页 PDF page box 按对应照片自身宽高比生成，不强制 A4/Letter，不加白边来适配固定纸张。**
+- 页序严格复用最终 canonical page 顺序，即 `PHAsset.creationDate` 升序后的顺序。
 - 可以为浏览降低体积，但必须保持讲座小字可读；最终参数由 S02 实测冻结。
 - 无 OCR hidden text layer。
 
-### Title
+### Title / date
 
-默认 `Lecture YYYY-MM-DD`；处理前/结果页可改标题。路径名使用安全 slug/UUID，不直接信任用户标题。
+默认 `Lecture YYYY-MM-DD`；处理前/结果页可改标题。**这里的 `YYYY-MM-DD` 取最终选中照片中最早一个非空 `PHAsset.creationDate` 的本地日历日期，而不是导出当天日期。** 若全部 creationDate 均为空，则回退到任务创建日期。路径名使用安全 slug/UUID，不直接信任用户标题。
 
 ## 7. 分享
 

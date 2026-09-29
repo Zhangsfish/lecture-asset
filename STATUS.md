@@ -18,9 +18,9 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 
 | Stage | Status | Task |
 |---|---|---|
-| S00 | BLOCKED_DEVICE — CI/simulator accepted | [round-03 audit](audits/S00/round-03.md) |
-| S00-TF | BLOCKED_OWNER — replace Developer Team API key with Admin Team API key, then rerun | [TestFlight round-03](tasks/S00_TESTFLIGHT_ROUND3.md) |
-| S01 | LOCKED | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
+| S00 | PASS — physical iPhone accepted | [device audit](audits/S00/device-01.md) |
+| S00-TF | PASS — build 0.1.0 (18.1) uploaded and VALID | [TestFlight round-03 audit](audits/S00/testflight-03.md) |
+| S01 | READY | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
 | S02 | LOCKED | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
 | S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
 | S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
@@ -58,14 +58,23 @@ Still missing:
 - Round-01: device-registration diagnosis rejected; distribution path required. [audit](audits/S00/testflight-01.md)
 - Round-02: unsigned archive reached App Store Connect distribution export; export failed with **cloud-managed distribution permission denied**. The configured Team API key was created with **Developer** access. Apple documents that Account Holder/Admin can cloud sign by default, while Developer requires separate cloud-managed distribution-certificate permission. [audit](audits/S00/testflight-02.md)
 
+## TestFlight round-03 audit
+
+Build `Lecture Asset 0.1.0 (18.1)` was independently verified as uploaded and App Store Connect processing state **VALID**.
+
+Audit: [testflight-03](audits/S00/testflight-03.md).
+
+## S00 physical-device acceptance
+
+Owner installed internal TestFlight build `0.1.0 (18.1)` and reported the complete S00 physical checklist passing.
+
+Report: [device-01](reports/S00/device-01/DELIVERY.md)  
+Audit: [device-01](audits/S00/device-01.md)
+
 ## Next action
 
-Owner creates a replacement **Team API key with Admin access**, updates only `APP_STORE_CONNECT_KEY_ID` and `APP_STORE_CONNECT_PRIVATE_KEY` GitHub Secrets, then Codex continues the **same PR #1** with:
+S00 is PASS. Merge PR #1 after syncing latest main, then start S01 on its own branch/PR:
 
-`tasks/S00_TESTFLIGHT_ROUND3.md`
+`tasks/S01_IMPORT.md`
 
-Do not register an iPhone, create development/ad-hoc provisioning, or create manual distribution assets before the Admin-key rerun.
-
-Do not start S01 until a physical-device round is audited PASS.
-
-Do not commit Apple credentials/signing material to the public repository.
+S01 goal is only full-quality still extraction → upright full-resolution sRGB JPEG Q90 with checkpointing and validation. Do not add OCR/ZIP/PDF/share/delete yet.

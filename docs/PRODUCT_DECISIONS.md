@@ -15,7 +15,8 @@ Updated: 2026-09-24. 本文件是本轮产品讨论的最终决策摘要；与�
 | 权限 | 必须完整 Photo Library Read & Write；limited / denied 直接阻塞并引导 Settings |
 | 选择 | App 自定义最近照片网格；tap + drag 扫选连续区域；最多 200 |
 | 误选 | 确认页可取消任意已选照片 |
-| 排序 | PHAsset.creationDate 升序；相同时间按选择顺序；无日期放最后 |
+| 排序 | PHAsset.creationDate 升序；相同时间按选择顺序；无日期放最后；JPEG/manifest/Markdown/PDF 全部复用同一最终顺序 |
+| 讲座日期 | 默认标题/文件名日期取最终选中照片中最早非空 creationDate 的本地日期；全为空才回退任务创建日 |
 | 手动重排 | 不做 |
 | 去重 | 不做；重复照片全部保留 |
 | 动画渐进页 | 不判断；每张选中照片都保留 |
@@ -26,7 +27,7 @@ Updated: 2026-09-24. 本文件是本轮产品讨论的最终决策摘要；与�
 | OCR | Apple Vision accurate；中英优先；只作索引 |
 | AI/LLM | 不调用 |
 | AI ZIP | README.md + lecture.md + manifest.json + slides/*.jpg |
-| PDF | 独立人类浏览副本，不是事实源，不放入 AI ZIP |
+| PDF | 独立人类浏览副本，不是事实源，不放入 AI ZIP；一图一页；页面保持对应照片宽高比，不强制 A4/Letter |
 | 分享 | 系统 Share Sheet；重点真机验证微信文件传输助手；AirDrop / Files 备选 |
 | 微信 SDK | 不接 |
 | GitHub 直传 | v0.1 不做 |
