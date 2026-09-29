@@ -38,7 +38,8 @@ public enum CompanionPDF {
                 sample()
                 context.endPDFPage()
                 sample()
-                memorySample?(input.record.number, footprint() ?? 0, pagePeak)
+                let after = footprint() ?? 0
+                memorySample?(input.record.number, after, max(pagePeak, after))
             }
         }
         context.closePDF()

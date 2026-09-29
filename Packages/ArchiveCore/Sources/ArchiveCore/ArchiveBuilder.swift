@@ -73,14 +73,16 @@ public enum ArchiveBuilder {
         try manifestData.write(to: manifestURL, options: .atomic)
 
         let zipTemp = work.appending(path: "archive.zip")
-        let writer = try Archive(url: zipTemp, accessMode: .create)
-        try writer.addEntry(with: "\(rootName)/README.md", fileURL: readmeURL, compressionMethod: .none)
-        try writer.addEntry(with: "\(rootName)/lecture.md", fileURL: lectureURL, compressionMethod: .none)
-        try writer.addEntry(with: "\(rootName)/manifest.json", fileURL: manifestURL, compressionMethod: .none)
-        for (offset, input) in pages.enumerated() {
-            try writer.addEntry(with: "\(rootName)/\(input.record.image)", fileURL: input.sourceURL,
-                                compressionMethod: .none, bufferSize: 1_048_576)
-            progress?(offset + 1, pages.count)
+        do {
+            let writer = try Archive(url: zipTemp, accessMode: .create)
+            try writer.addEntry(with: "\(rootName)/README.md", fileURL: readmeURL, compressionMethod: .none)
+            try writer.addEntry(with: "\(rootName)/lecture.md", fileURL: lectureURL, compressionMethod: .none)
+            try writer.addEntry(with: "\(rootName)/manifest.json", fileURL: manifestURL, compressionMethod: .none)
+            for (offset, input) in pages.enumerated() {
+                try writer.addEntry(with: "\(rootName)/\(input.record.image)", fileURL: input.sourceURL,
+                                    compressionMethod: .none, bufferSize: 1_048_576)
+                progress?(offset + 1, pages.count)
+            }
         }
         try ArchiveValidator.validateZIP(at: zipTemp, rootName: rootName, expected: manifest,
                                          schemaURL: schemaURL)
@@ -135,6 +137,7 @@ public enum ArchiveBuilder {
         let measured = try measure(input.sourceURL)
         guard measured.bytes == input.record.bytes, measured.hash == input.record.sha256,
               let source = CGImageSourceCreateWithURL(input.sourceURL as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
+              CGImageSourceGetType(source) == UTType.jpeg.identifier as CFString,
               CGImageSourceGetCount(source) == 1,
               let image = CGImageSourceCreateImageAtIndex(source, 0, nil),
               image.width == input.record.width, image.height == input.record.height else {

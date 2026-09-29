@@ -11,6 +11,9 @@ assert len(states) == 1, "Expected one synthetic archive checkpoint"
 state = json.loads(states[0].read_text())
 assert state["phase"] == "ready", state.get("failure_code")
 assert len(state["ocr_by_page"]) == 1
+ocr = state["ocr_by_page"]["1"]
+assert ocr["engine"] == "apple_vision" and isinstance(ocr["request_revision"], int)
+assert ocr["status"] in {"ok", "empty", "failed"}
 folder = states[0].parent / "exports"
 zip_path = folder / state["zip_name"]
 pdf_path = folder / state["pdf_name"]
@@ -23,4 +26,6 @@ with zipfile.ZipFile(zip_path) as archive:
     assert len(names) == 4
     assert names[-1].endswith("/slides/0001.jpg")
     assert not any(name.endswith(".pdf") for name in names)
-print("S02_SYNTHETIC_SIMULATOR_READY_PASS pages=1 zip_crc=pass pdf=present")
+print("S02_SYNTHETIC_SIMULATOR_READY_PASS pages=1 zip_crc=pass pdf=present "
+      f"ocr_status={ocr['status']} revision={ocr['request_revision']} "
+      f"languages={','.join(ocr['languages'])}")

@@ -77,6 +77,25 @@ final class ArchiveCoreTests: XCTestCase {
         XCTAssertThrowsError(try validator.validate(Data("{\"unexpected\":true}".utf8)))
     }
 
+    func testMissingOrChangedCanonicalJPEGIsRejected() throws {
+        let root = FileManager.default.temporaryDirectory.appending(path: "s02-corrupt-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: root) }
+        let url = root.appending(path: "0001.jpg")
+        try makeJPEG(at: url, index: 1)
+        let measured = try ArchiveBuilder.measure(url)
+        let record = ArchivePage(number: 1, selectionIndex: 1, capturedAt: nil,
+            width: 241, height: 181, bytes: measured.bytes, sha256: measured.hash,
+            isLivePhoto: false, ocr: OCRResult(status: "empty", text: "", blocks: [],
+                                              requestRevision: 3, languages: ["en-US"]))
+        let input = ArchiveInputPage(sourceURL: url, record: record)
+        try ArchiveBuilder.verifyImage(input)
+        try Data("changed".utf8).write(to: url)
+        XCTAssertThrowsError(try ArchiveBuilder.verifyImage(input))
+        try FileManager.default.removeItem(at: url)
+        XCTAssertThrowsError(try ArchiveBuilder.verifyImage(input))
+    }
+
     func testTwelveMegapixelAndLongImageBoundedMemory() throws {
         let root = FileManager.default.temporaryDirectory.appending(path: "s02-large-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
