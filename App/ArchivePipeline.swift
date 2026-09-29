@@ -66,7 +66,7 @@ enum ArchiveStore {
               try ArchiveBuilder.measure(zip).hash == zipHash,
               try ArchiveBuilder.measure(pdf).hash == pdfHash,
               let schema = Bundle.main.url(forResource: "manifest-v1.schema", withExtension: "json") else { return false }
-        let records = try job.pages.map { page -> ArchivePage in
+        let inputs = try job.pages.map { page -> ArchiveInputPage in
             guard let ocr = state.ocrByPage[page.pageIndex], let width = page.width,
                   let height = page.height, let bytes = page.jpegBytes, let sha = page.sha256 else {
                 throw ArchiveFailure.invalid("missing archive page")
@@ -75,15 +75,17 @@ enum ArchiveStore {
                                     capturedAt: page.capturedAt.map(ArchiveDate.iso), width: width,
                                     height: height, bytes: bytes, sha256: sha,
                                     isLivePhoto: page.isLivePhoto, ocr: ocr)
-            try ArchiveBuilder.verifyImage(ArchiveInputPage(sourceURL: JobStore.imageURL(for: page, in: job), record: input))
-            return input
+            let archiveInput = ArchiveInputPage(sourceURL: try JobStore.imageURL(for: page, in: job), record: input)
+            try ArchiveBuilder.verifyImage(archiveInput)
+            return archiveInput
         }
+        let records = inputs.map(\.record)
         let title = "Lecture \(ArchiveDate.titleDate(captured: job.pages.map(\.capturedAt), jobCreatedAt: job.createdAt))"
         let manifest = Manifest(archiveId: state.archiveID, title: title,
                                 createdAt: ArchiveDate.iso(job.createdAt), pages: records,
                                 files: archiveFileList(title: title, records: records))
         try ArchiveValidator.validateZIP(at: zip, rootName: String(zipName.dropLast(7)), expected: manifest, schemaURL: schema)
-        try CompanionPDF.validate(at: pdf, pages: records)
+        try CompanionPDF.validate(at: pdf, pages: inputs)
         return true
     }
 

@@ -93,7 +93,7 @@ public enum ArchiveBuilder {
         try CompanionPDF.write(pages: pages, to: pdfTemp) { number, after, peak in
             pdfAfter[number] = after; pdfPeak[number] = peak
         }
-        try CompanionPDF.validate(at: pdfTemp, pages: records)
+        try CompanionPDF.validate(at: pdfTemp, pages: pages)
         // The source may change while ZIP/PDF was being built. A changed canonical page invalidates ready.
         for input in pages { try verifyImage(input) }
         let zipName = rootName + "_AI.zip"
@@ -140,6 +140,8 @@ public enum ArchiveBuilder {
                   let source = CGImageSourceCreateWithURL(input.sourceURL as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
                   CGImageSourceGetType(source) == UTType.jpeg.identifier as CFString,
                   CGImageSourceGetCount(source) == 1,
+                  let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any],
+                  properties[kCGImagePropertyGPSDictionary] == nil,
                   let image = CGImageSourceCreateImageAtIndex(source, 0, nil),
                   image.width == input.record.width, image.height == input.record.height else {
                 throw ArchiveFailure.invalid("canonical JPEG integrity")

@@ -71,11 +71,12 @@ public enum CompanionPDF {
         guard CGImageDestinationFinalize(destination) else { throw ArchiveFailure.invalid("PDF JPEG encode") }
     }
 
-    public static func validate(at url: URL, pages: [ArchivePage]) throws {
+    public static func validate(at url: URL, pages: [ArchiveInputPage]) throws {
         guard let document = CGPDFDocument(url as CFURL), document.numberOfPages == pages.count else {
             throw ArchiveFailure.invalid("PDF page count")
         }
-        for (index, record) in pages.enumerated() {
+        for (index, input) in pages.enumerated() {
+            let record = input.record
             guard let page = document.page(at: index + 1) else { throw ArchiveFailure.invalid("PDF missing page") }
             let rect = page.getBoxRect(.mediaBox)
             let ratio = Double(record.width) / Double(record.height)
@@ -85,6 +86,51 @@ public enum CompanionPDF {
             }
             // At least one image XObject is required. The renderer never writes text.
             guard page.dictionary != nil else { throw ArchiveFailure.invalid("PDF page dictionary") }
+            try autoreleasepool {
+                let expected = try thumbnailOfJPEG(at: input.sourceURL)
+                let actual = try thumbnailOfPDF(page, mediaBox: rect)
+                let meanError = zip(expected, actual).reduce(0) { $0 + abs(Int($1.0) - Int($1.1)) }
+                    / max(1, expected.count)
+                guard meanError <= 12 else { throw ArchiveFailure.invalid("PDF page image/order") }
+            }
+        }
+    }
+
+    private static func bitmap(_ draw: (CGContext) throws -> Void) throws -> [UInt8] {
+        let side = 96
+        var pixels = [UInt8](repeating: 255, count: side * side * 4)
+        try pixels.withUnsafeMutableBytes { buffer in
+            guard let context = CGContext(data: buffer.baseAddress, width: side, height: side,
+                                          bitsPerComponent: 8, bytesPerRow: side * 4,
+                                          space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                                          bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue |
+                                              CGBitmapInfo.byteOrder32Big.rawValue) else {
+                throw ArchiveFailure.invalid("PDF verification bitmap")
+            }
+            context.setFillColor(CGColor(red: 1, green: 1, blue: 1, alpha: 1))
+            context.fill(CGRect(x: 0, y: 0, width: side, height: side))
+            try draw(context)
+        }
+        return pixels
+    }
+
+    private static func thumbnailOfJPEG(at url: URL) throws -> [UInt8] {
+        guard let source = CGImageSourceCreateWithURL(url as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
+              let image = CGImageSourceCreateThumbnailAtIndex(source, 0, [
+                kCGImageSourceCreateThumbnailFromImageAlways: true,
+                kCGImageSourceThumbnailMaxPixelSize: 96
+              ] as CFDictionary) else { throw ArchiveFailure.invalid("PDF source thumbnail") }
+        return try bitmap { context in
+            context.interpolationQuality = .high
+            context.draw(image, in: CGRect(x: 0, y: 0, width: 96, height: 96))
+        }
+    }
+
+    private static func thumbnailOfPDF(_ page: CGPDFPage, mediaBox: CGRect) throws -> [UInt8] {
+        try bitmap { context in
+            context.interpolationQuality = .high
+            context.scaleBy(x: 96 / mediaBox.width, y: 96 / mediaBox.height)
+            context.drawPDFPage(page)
         }
     }
 }

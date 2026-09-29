@@ -37,7 +37,12 @@ final class ArchiveCoreTests: XCTestCase {
                 jobCreatedAt: Date(timeIntervalSince1970: 1), destination: root.appending(path: "exports"), schemaURL: schema)
             XCTAssertTrue(FileManager.default.fileExists(atPath: output.zipURL.path))
             XCTAssertTrue(FileManager.default.fileExists(atPath: output.pdfURL.path))
-            try CompanionPDF.validate(at: output.pdfURL, pages: output.manifest.pages)
+            try CompanionPDF.validate(at: output.pdfURL, pages: pages)
+            if count == 20 {
+                var mismatched = pages
+                mismatched[1] = ArchiveInputPage(sourceURL: pages[2].sourceURL, record: pages[1].record)
+                XCTAssertThrowsError(try CompanionPDF.validate(at: output.pdfURL, pages: mismatched))
+            }
             let name = String(output.zipURL.deletingPathExtension().lastPathComponent.dropLast(3))
             try ArchiveValidator.validateZIP(at: output.zipURL, rootName: name,
                                              expected: output.manifest, schemaURL: schema)

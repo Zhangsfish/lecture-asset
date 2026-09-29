@@ -113,6 +113,16 @@ final class ArchiveModel: ObservableObject {
         var lines = ["Lecture Asset S02; phase=\(state.phase.rawValue); pages=\(job.pages.count); " +
                      "ocr_completed=\(state.completedOCRCount); pdf_long_edge=\(ArchiveBuilder.pdfLongEdge); " +
                      "pdf_jpeg_quality=\(ArchiveBuilder.pdfJPEGQuality)"]
+        if state.phase == .ready, let directory = try? ArchiveStore.outputDirectory(job: job),
+           let zipName = state.zipName, let pdfName = state.pdfName {
+            func bytes(_ name: String) -> Int {
+                let attributes = try? FileManager.default.attributesOfItem(atPath: directory.appending(path: name).path)
+                return (attributes?[.size] as? NSNumber)?.intValue ?? 0
+            }
+            let zipBytes = bytes(zipName)
+            let pdfBytes = bytes(pdfName)
+            lines.append("zip_bytes=\(zipBytes); pdf_bytes=\(pdfBytes); validated=true")
+        }
         for page in job.pages {
             let ocr = state.ocrByPage[page.pageIndex]
             let after = state.memoryAfterPage[page.pageIndex].map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown"
@@ -121,6 +131,8 @@ final class ArchiveModel: ObservableObject {
             let pdfPeak = state.pdfMemoryPeakPage[page.pageIndex].map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown"
             lines.append("page=\(page.pageIndex), pixels=\(page.width ?? 0)x\(page.height ?? 0), " +
                          "ocr_status=\(ocr?.status ?? "pending"), ocr_blocks=\(ocr?.blocks.count ?? 0), " +
+                         "vision_revision=\(ocr?.requestRevision.map { String($0) } ?? "unknown"), " +
+                         "languages=\(ocr?.languages.joined(separator: ",") ?? "unknown"), " +
                          "ocr_memory_after_mib=\(after), ocr_memory_sample_peak_mib=\(peak), " +
                          "pdf_memory_after_mib=\(pdfAfter), pdf_memory_sample_peak_mib=\(pdfPeak)")
         }
