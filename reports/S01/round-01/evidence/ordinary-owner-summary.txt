@@ -1,0 +1,5 @@
+Owner-provided safe in-app measurements for a second physical-iPhone TestFlight job, 2026-09-29. The owner was asked to reinstall before this run; the actual reset action was not separately reported. No Photos deletion action exists in the S01 App.
+Visible safe summary: 5/5 completed; 5 JPEG; 0 MOV/audio; all five pages `live=false`.
+Four pages are 1179x2556 px; one is 1254x143 px. Source still payload total 1,507,275 B; JPEG total 1,406,488 B (0.933x).
+Post-page memory range 62.9–75.9 MiB; sampled per-page peak maximum 139.3 MiB.
+The full redacted measurements are in `owner-ordinary-safe-metrics.txt`. The owner subsequently said the ordinary-photo JPEGs look clear and that the discussed lecture/PPT and screenshot/other image types were included; exact content cannot be published or independently checked in this report. The separate seven-page mixed-image run is documented in `mixed-owner-summary.txt`.

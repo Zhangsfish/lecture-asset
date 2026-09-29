@@ -1,0 +1,10 @@
+S01 source branch codex/s01-image-pipeline
+Tested code SHA d2a81fdec23ea3285ff51c5f6a28bf6d7515fdd3
+GitHub Actions https://github.com/Zhangsfish/lecture-asset/actions/runs/36575134144
+S00_RELEASE_START version=0.1.0 build=21.1 code_sha=d2a81fdec23ea3285ff51c5f6a28bf6d7515fdd3
+S00_UNSIGNED_ARCHIVE_SUCCEEDED
+S00_UNSIGNED_ARCHIVE_METADATA_VERIFIED
+S00_EXPORT_UPLOAD_ACCEPTED version=0.1.0 build=21.1 code_sha=d2a81fdec23ea3285ff51c5f6a28bf6d7515fdd3
+S00_IPA_EXPORT_NOT_RETAINED_BY_XCODE
+S00_PROCESSING_STATUS_VALID build=21.1
+These are redacted outcome lines. Raw signing/export logs and credentials are not included.
