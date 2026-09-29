@@ -1,0 +1,16 @@
+GitHub Actions S00 macOS verification, run 3
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/35979119987
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/35979119987/job/107566526579
+Head SHA: 8106fefde80271d9d83f3af76ae916736686d1b9
+Result: failure in optional simulator smoke; prior build/test steps succeeded.
+
+Original log facts:
+- SelectionCore: 4 tests, 0 failures.
+- XcodeGen 2.46.0 release SHA-256 check: OK.
+- Xcode project generation: success.
+- iOS Simulator clean build: BUILD SUCCEEDED.
+- Simulator boot, App installation/launch, and permission-gate screenshot completed before synthetic image generation.
+- Synthetic generator failed at line 17: `cannot find 'NSRectFill' in scope`; smoke step exit 1. The test-only script was corrected in the next commit.
+- The permission-gate screenshot artifact is at https://github.com/Zhangsfish/lecture-asset/actions/runs/35979119987/artifacts/10799354090 (102530-byte ZIP; reported ZIP SHA-256 `221200a48a661e9182676a2407a3db28e965df017eaeda4aada67fdc52e1e0cf`).
+
+This file is a redacted summary, not a claim that the app's gesture grid ran in run 3. Use the job URL for full original logs.

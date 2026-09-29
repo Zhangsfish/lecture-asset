@@ -1,0 +1,1 @@
+PASS: project.yml parsed; String Catalog parsed; en + zh-Hans complete

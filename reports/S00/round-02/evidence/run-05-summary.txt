@@ -1,0 +1,17 @@
+GitHub Actions S00 macOS verification, run 5
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/35980742428
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/35980742428/job/107571753914
+Tested code SHA: 68d51cfbcda738c96a2c8d9442205a161e29be8b
+Result: SUCCESS on a standard GitHub-hosted macos-15 runner.
+
+Executed checks and observations:
+- macOS 15.7.9 (24G830), arm64; Xcode 16.4 (16F6); iOS/iOS Simulator SDK 18.5; Swift 6.1.2.
+- `python3 scripts/check_foundation.py`: PASS (29 planning files, 5 JSON files, 22 local links).
+- `swift test --package-path Packages/SelectionCore`: PASS (4 XCTest tests, 0 failures).
+- XcodeGen 2.46.0 release ZIP SHA-256 verified; project generation succeeded.
+- `xcodebuild` clean iOS Simulator build with signing disabled: BUILD SUCCEEDED.
+- Synthetic image generator Swift typecheck succeeded; it produced 48 numbered JPEGs.
+- `simctl` booted an iPhone 16 / iOS 18.5 simulator, installed/launched the App, captured the initial permission screen, imported synthetic images, granted Photos permission, relaunched the App (reported PID 6522), and captured a second screenshot. The smoke step printed `SIMULATOR_SMOKE_COMPLETED`.
+- Two safe screenshots uploaded as a 207188-byte ZIP: https://github.com/Zhangsfish/lecture-asset/actions/runs/35980742428/artifacts/10799817268 . GitHub reported ZIP SHA-256 `10c1fce3b950791ea429ba7f42d9d41657d12e996ac2bd7b1603ca042e2f384b`.
+
+The screenshot ZIP has seven-day retention; the original job log and this summary remain the textual evidence. The smoke proved command-level install/launch and screenshots, not automated visual interpretation or gesture behavior. No physical iPhone was tested.

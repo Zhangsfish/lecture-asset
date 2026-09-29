@@ -1,0 +1,20 @@
+{
+  "stage": "S00",
+  "round": 1,
+  "delivery_state": "READY_FOR_AUDIT",
+  "acceptance_state": "BLOCKED_ENV",
+  "base_main_sha": "8bbbce7f018e93e3e6a898ae8e767ccfb7bcada2",
+  "tested_code_sha": "98208953bb4625e96a7e321e5d1aded5e66cd0c0",
+  "environment_report": "ENVIRONMENT.md",
+  "results": [
+    {"id":"host_preflight","status":"BLOCKED_ENV","command_or_steps":"E:\\Git\\bin\\bash.exe scripts/preflight.sh","exit_code":2,"evidence":["evidence/host-preflight.txt"],"limitations":"Windows; no macOS, Xcode, XcodeGen, iOS SDK or device test path."},
+    {"id":"foundation","status":"PASS","command_or_steps":"python scripts/check_foundation.py","exit_code":0,"evidence":["evidence/foundation-check.txt"],"limitations":"Planning and JSON/link checks only; not an iOS test."},
+    {"id":"project_and_localization_format","status":"PASS","command_or_steps":"Python yaml.safe_load(project.yml), JSON parse of App/Localizable.xcstrings, check en/zh-Hans entries","exit_code":0,"evidence":["evidence/format-check.txt"],"limitations":"Format only; XcodeGen generation and UI rendering NOT_RUN."},
+    {"id":"patch_whitespace","status":"PASS","command_or_steps":"git diff --check HEAD^ HEAD","exit_code":0,"evidence":["evidence/git-diff-check.txt"],"limitations":"No compile or behavior coverage."},
+    {"id":"xcodegen_generate","status":"NOT_RUN","command_or_steps":"xcodegen generate --spec project.yml","exit_code":null,"evidence":[],"limitations":"XcodeGen unavailable on Windows host."},
+    {"id":"swift_core_unit_tests","status":"NOT_RUN","command_or_steps":"cd Packages/SelectionCore && swift test","exit_code":null,"evidence":[],"limitations":"Swift unavailable on host; four XCTest cases are authored, not executed."},
+    {"id":"ios_build","status":"NOT_RUN","command_or_steps":"xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build","exit_code":null,"evidence":[],"limitations":"macOS/Xcode/iOS SDK unavailable; no compiled app."},
+    {"id":"simulator_ui","status":"NOT_RUN","command_or_steps":"Permission/localization/grid simulator inspection","exit_code":null,"evidence":[],"limitations":"iOS Simulator unavailable; simulator would not substitute for device gesture evidence."},
+    {"id":"real_iphone_sweep","status":"NOT_RUN","command_or_steps":"Grant full access; browse library; sweep 30 adjacent assets; edge autoscroll; sweep deselect; reach 200; inspect order; revoke authorization","exit_code":null,"evidence":[],"limitations":"No physical iPhone test path; S00 cannot PASS."}
+  ]
+}

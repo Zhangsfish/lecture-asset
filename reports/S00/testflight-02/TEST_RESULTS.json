@@ -1,0 +1,23 @@
+{
+  "stage": "S00-TF round-02",
+  "status": "CHANGES_REQUESTED",
+  "tested_code_sha": "1a687e5aac03795545905f85b906a1c9a29950cf",
+  "workflow_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36379080190",
+  "job_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36379080190/job/108790872730",
+  "version": "0.1.0",
+  "attempted_build_number": "15.1",
+  "uploaded_build_number": null,
+  "testflight_processing_state": "NOT_RUN",
+  "results": [
+    {"id": "foundation", "status": "PASS", "command": "python3 scripts/check_foundation.py", "evidence": ["evidence/final-run.txt"]},
+    {"id": "selection_core", "status": "PASS", "command": "swift test --package-path Packages/SelectionCore", "details": "4 tests, 0 failures", "evidence": ["evidence/final-run.txt"]},
+    {"id": "xcodegen", "status": "PASS", "command": "Verify XcodeGen 2.46.0 ZIP SHA-256; xcodegen generate --spec project.yml", "evidence": ["evidence/final-run.txt"]},
+    {"id": "release_script_checks", "status": "PASS", "command": "bash -n scripts/s00_testflight_release.sh; swiftc -typecheck scripts/s00_testflight_status.swift; sips -g pixelWidth -g pixelHeight App/Assets.xcassets/AppIcon.appiconset/AppIcon.png", "evidence": ["https://github.com/Zhangsfish/lecture-asset/actions/runs/36379080190/job/108790872730"]},
+    {"id": "release_settings", "status": "PASS", "command": "python3 scripts/s00_signing_settings.py", "details": "Release effective identity iPhone Developer; CODE_SIGN_STYLE and DEVELOPMENT_TEAM unset", "evidence": ["evidence/final-run.txt"]},
+    {"id": "unsigned_ios_release_build", "status": "PASS", "command": "xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath $RUNNER_TEMP/S00DeviceDerivedData CODE_SIGNING_ALLOWED=NO clean build", "evidence": ["evidence/final-run.txt"]},
+    {"id": "unsigned_archive", "status": "PASS", "command": "xcodebuild archive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CURRENT_PROJECT_VERSION=15.1", "details": "Bundle ID, version and build metadata verified", "evidence": ["evidence/final-run.txt"]},
+    {"id": "distribution_export_upload", "status": "FAIL", "command": "xcodebuild -exportArchive with app-store-connect/upload/automatic, API key and -allowProvisioningUpdates", "exit_code": 70, "details": "CLOUD_DISTRIBUTION_PERMISSION_DENIED, CLOUD_SIGNING_ISSUE, NO_MATCHING_PROFILE; no distribution asset absence proven", "evidence": ["evidence/final-run.txt"]},
+    {"id": "apple_processing", "status": "NOT_RUN", "command": "Query App Store Connect processingState for exact uploaded build", "reason": "Export/upload failed; no uploaded build"},
+    {"id": "iphone_acceptance", "status": "NOT_RUN", "command": "Install TestFlight build and run S00 physical checklist", "reason": "No TestFlight build available"}
+  ]
+}

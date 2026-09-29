@@ -1,0 +1,26 @@
+Source: https://github.com/Zhangsfish/lecture-asset/actions/runs/36384958429/job/108808306523
+Tested code SHA: b6fa4ea2c4993c5130ef2a3841fc4b78139f43d2
+Selected public CI lines only; raw Xcode signing logs were not retained.
+
+macOS ProductVersion: 26.6.2
+Xcode 26.6
+iOS device SDK: 26.5
+Apple Swift version 6.3.3
+PASS: 29 required planning files; 10 JSON files parsed; 35 local links checked
+Executed 4 tests, with 0 failures
+XcodeGen Version: 2.46.0
+S00_RELEASE_CODE_SIGN_STYLE=UNSET
+S00_RELEASE_CODE_SIGN_IDENTITY=iPhone Developer
+S00_RELEASE_DEVELOPMENT_TEAM=UNSET
+S00_RELEASE_PROVISIONING_PROFILE_SPECIFIER=UNSET
+S00_RELEASE_PRODUCT_BUNDLE_IDENTIFIER=com.zhangsfish.lectureasset
+S00_RELEASE_CODE_SIGNING_ALLOWED=YES
+** BUILD SUCCEEDED **
+S00_RELEASE_START version=0.1.0 build=18.1 code_sha=b6fa4ea2c4993c5130ef2a3841fc4b78139f43d2
+S00_UNSIGNED_ARCHIVE_SUCCEEDED
+S00_UNSIGNED_ARCHIVE_METADATA_VERIFIED
+S00_EXPORT_UPLOAD_ACCEPTED version=0.1.0 build=18.1 code_sha=b6fa4ea2c4993c5130ef2a3841fc4b78139f43d2
+S00_IPA_EXPORT_NOT_RETAINED_BY_XCODE
+S00_PROCESSING_STATUS_VALID build=18.1
+
+Physical iPhone installation/checklist: NOT_RUN.

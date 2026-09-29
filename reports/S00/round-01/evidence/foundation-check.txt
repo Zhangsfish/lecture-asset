@@ -1,0 +1,2 @@
+PASS: 29 required planning files; 5 JSON files parsed; 21 local links checked; example cross-field checks.
+NOT TESTED: full JSON Schema validation, real archive files, Swift build, simulator, device, OCR, export, cleanup, App Store.

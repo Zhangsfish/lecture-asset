@@ -1,0 +1,8 @@
+Selected safe lines from GitHub Actions run 36376673935, job 108783835203.
+Code SHA: 042de5abb98bf88e0681e10b657e8895a55cb617
+2026-09-28T04:13:11Z Executed 4 tests, with 0 failures
+2026-09-28T04:14:17Z ** BUILD SUCCEEDED ** (unsigned iPhone Release)
+2026-09-28T04:14:17Z S00_RELEASE_START version=0.1.0 build=6.1
+2026-09-28T04:14:36Z S00_ARCHIVE_FAILED exit=65
+2026-09-28T04:14:36Z S00_PRIVATE_LOG_CATEGORIES=PROVISIONING_PROFILE
+Job conclusion: failure. Export/upload/processing NOT_RUN.

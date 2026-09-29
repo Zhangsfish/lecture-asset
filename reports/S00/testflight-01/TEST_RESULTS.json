@@ -1,0 +1,23 @@
+{
+  "stage": "S00-TF",
+  "status": "BLOCKED_OWNER",
+  "tested_code_sha": "9e69c3c3f87bb8b7dd71bc222e351dbb8c3fd0ff",
+  "workflow_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36377001014",
+  "job_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36377001014/job/108784768531",
+  "version_target": "0.1.0",
+  "attempted_build_numbers": ["6.1", "8.1"],
+  "uploaded_build_number": null,
+  "testflight_processing_state": "NOT_RUN",
+  "results": [
+    {"id": "foundation", "status": "PASS", "command": "python3 scripts/check_foundation.py", "evidence": ["evidence/upload-attempt-02.txt"]},
+    {"id": "selection_core", "status": "PASS", "command": "swift test --package-path Packages/SelectionCore", "details": "4 tests, 0 failures", "evidence": ["evidence/upload-attempt-02.txt"]},
+    {"id": "xcodegen", "status": "PASS", "command": "Verify XcodeGen 2.46.0 ZIP SHA-256; xcodegen generate --spec project.yml", "evidence": ["evidence/upload-attempt-02.txt"]},
+    {"id": "release_script_check", "status": "PASS", "command": "bash -n scripts/s00_testflight_release.sh; swiftc -typecheck scripts/s00_testflight_status.swift; sips -g pixelWidth -g pixelHeight App/Assets.xcassets/AppIcon.appiconset/AppIcon.png", "evidence": ["evidence/upload-attempt-02.txt"]},
+    {"id": "unsigned_ios_release_build", "status": "PASS", "command": "xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath $RUNNER_TEMP/S00DeviceDerivedData CODE_SIGNING_ALLOWED=NO clean build", "evidence": ["evidence/upload-attempt-02.txt"], "limitations": "Unsigned compile; not installable."},
+    {"id": "github_settings_names", "status": "PASS", "command": "GitHub Actions API list names of repository Secrets and Variables", "details": "Three expected Secret names and APPLE_TEAM_ID Variable name exist; values not queried.", "evidence": []},
+    {"id": "sign_archive", "status": "FAIL", "command": "xcodebuild archive with -allowProvisioningUpdates and App Store Connect API key", "exit_code": 65, "details": "Safe classifier: NO_REGISTERED_DEVICE, NO_MATCHING_PROFILE, PROVISIONING_PROFILE_OTHER", "evidence": ["evidence/upload-attempt-01.txt", "evidence/upload-attempt-02.txt"]},
+    {"id": "ipa_export_upload", "status": "NOT_RUN", "command": "xcodebuild -exportArchive method=app-store-connect destination=upload", "reason": "Archive failed before export."},
+    {"id": "apple_processing", "status": "NOT_RUN", "command": "Query App Store Connect processingState for exact build", "reason": "No build uploaded."},
+    {"id": "iphone_acceptance", "status": "NOT_RUN", "command": "Install exact TestFlight build and execute full S00 physical checklist", "reason": "No TestFlight build exists."}
+  ]
+}

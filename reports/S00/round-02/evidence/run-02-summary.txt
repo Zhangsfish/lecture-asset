@@ -1,0 +1,17 @@
+GitHub Actions S00 macOS verification, run 2
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/35978793147
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/35978793147/job/107565481172
+Head SHA: 3beff728ab349e99826703912d9efd6e69328f40
+Result: success.
+
+Original log facts:
+- Standard macos-15 runner: macOS 15.7.9, arm64.
+- Xcode 16.4 (16F6); iOS and iOS Simulator SDK 18.5; Swift 6.1.2.
+- Foundation checker: PASS, 29 planning files, 5 JSON files, 22 local links.
+- SelectionCore: 4 XCTest tests, 0 failures.
+- XcodeGen 2.46.0 release SHA-256 check: OK; `Version: 2.46.0`.
+- `xcodegen generate --spec project.yml`: created LectureAsset.xcodeproj.
+- `xcodebuild ... CODE_SIGNING_ALLOWED=NO clean build`: BUILD SUCCEEDED.
+- The only build warning reported was App Intents metadata extraction skipped because no AppIntents.framework dependency exists.
+
+This is real macOS/Xcode compile evidence for the stated head SHA. It is not app runtime, signing, physical-iPhone, gesture or permission evidence. Use the job URL for full original logs.

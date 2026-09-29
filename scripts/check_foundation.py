@@ -35,7 +35,7 @@ def main() -> int:
         if any(p in {'.git', '.build', 'build', 'DerivedData'} for p in path.parts):
             continue
         try:
-            parsed[str(path.relative_to(ROOT))] = json.loads(path.read_text(encoding='utf-8'))
+            parsed[path.relative_to(ROOT).as_posix()] = json.loads(path.read_text(encoding='utf-8'))
         except (OSError, UnicodeError, json.JSONDecodeError) as exc:
             errors.append(f'Invalid JSON {path.relative_to(ROOT)}: {exc}')
 

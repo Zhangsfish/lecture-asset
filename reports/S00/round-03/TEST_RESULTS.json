@@ -1,0 +1,82 @@
+{
+  "stage": "S00",
+  "round": 3,
+  "tested_code_sha": "c6527936a06099a0ac3bdb47375acb0b584054b5",
+  "environment_report": "ENVIRONMENT.md",
+  "workflow_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36011909411",
+  "job_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36011909411/job/107674486660",
+  "results": [
+    {
+      "id": "foundation",
+      "status": "PASS",
+      "command_or_steps": "python3 scripts/check_foundation.py",
+      "exit_code": 0,
+      "evidence": ["evidence/run-09-redacted.log"],
+      "limitations": "Planning and repository foundation checks only."
+    },
+    {
+      "id": "selection_core",
+      "status": "PASS",
+      "command_or_steps": "swift test --package-path Packages/SelectionCore",
+      "exit_code": 0,
+      "evidence": ["evidence/run-09-redacted.log"],
+      "limitations": "Four pure Swift tests; covers one-based index assertions and 200 cap, not physical UI gestures."
+    },
+    {
+      "id": "xcodegen",
+      "status": "PASS",
+      "command_or_steps": "Verify XcodeGen 2.46.0 ZIP SHA-256; xcodegen generate --spec project.yml",
+      "exit_code": 0,
+      "evidence": ["evidence/run-09-redacted.log"],
+      "limitations": "Generated project exists only on the ephemeral runner."
+    },
+    {
+      "id": "ios_simulator_clean_build",
+      "status": "PASS",
+      "command_or_steps": "xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -destination 'generic/platform=iOS Simulator' -derivedDataPath $RUNNER_TEMP/S00DerivedData CODE_SIGNING_ALLOWED=NO clean build",
+      "exit_code": 0,
+      "evidence": ["evidence/run-09-redacted.log"],
+      "limitations": "Simulator build without signing; not an iPhone installable artifact."
+    },
+    {
+      "id": "synthetic_generator",
+      "status": "PASS",
+      "command_or_steps": "swiftc -typecheck scripts/s00_make_synthetic.swift; swift scripts/s00_make_synthetic.swift $RUNNER_TEMP/s00-synthetic",
+      "exit_code": 0,
+      "evidence": ["evidence/run-09-redacted.log"],
+      "limitations": "Generates 48 test JPEGs; no private library content."
+    },
+    {
+      "id": "simulator_permission_grid_ui",
+      "status": "PASS",
+      "command_or_steps": "Boot iPhone 16/iOS 18.5 simulator, install/launch App, import 48 JPEGs; xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -destination 'platform=iOS Simulator,id=<ephemeral simulator>' -derivedDataPath $RUNNER_TEMP/S00DerivedData -resultBundlePath $RUNNER_TEMP/s00-smoke/UITests.xcresult -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test",
+      "exit_code": 0,
+      "evidence": ["evidence/run-09-redacted.log", "evidence/permission-gate.png", "evidence/synthetic-grid.png"],
+      "limitations": "One simulator UI test, 0 failures. It verifies the system Full Access choice and a PhotoKit grid cell, not device gesture feel."
+    },
+    {
+      "id": "photokit_status_and_grid_image",
+      "status": "PASS",
+      "command_or_steps": "xcrun simctl spawn <ephemeral simulator> log show --last 10m --style compact --info --predicate 'subsystem == com.zhangsfish.lectureasset AND category == S00Permission'; grep rawValue=3; xcrun simctl io <ephemeral simulator> screenshot; visually inspect numbered grid",
+      "exit_code": 0,
+      "evidence": ["evidence/photokit-status.log", "evidence/synthetic-grid.png", "evidence/run-09-redacted.log"],
+      "limitations": "PhotoKit state 0 to 3 on simulator; 1179 x 2556 screenshot shows numbered synthetic assets."
+    },
+    {
+      "id": "physical_iphone_s00",
+      "status": "NOT_RUN",
+      "command_or_steps": "Full iPhone grant/revoke, real library browsing/performance, tap and >=30 sweep, edge autoscroll, sweep deselect, haptics, 200/201 cap, confirmation, 0.15 s press feel",
+      "exit_code": null,
+      "evidence": [],
+      "limitations": "BLOCKED_DEVICE. Owner has an iPhone but no installation/debug path for this round. Simulator evidence does not substitute for real-device acceptance."
+    },
+    {
+      "id": "signing_testflight_s01",
+      "status": "NOT_RUN",
+      "command_or_steps": "Apple Developer, signing, TestFlight, App Store Connect, paid runner, and S01 work",
+      "exit_code": null,
+      "evidence": [],
+      "limitations": "Explicitly outside this round's authorized scope."
+    }
+  ]
+}

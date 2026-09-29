@@ -1,0 +1,17 @@
+2026-09-24T09:02:25.5851830Z if command -v xcodegen; then xcodegen --version; else echo 'XCODEGEN_UNAVAILABLE'; fi
+2026-09-24T09:02:25.6264430Z ProductVersion:		15.7.9
+2026-09-24T09:02:25.6264950Z BuildVersion:		24G830
+2026-09-24T09:02:25.9184760Z Xcode 16.4
+2026-09-24T09:02:25.9193580Z Build version 16F6
+2026-09-24T09:02:26.6876490Z 	iOS 18.5                      	-sdk iphoneos18.5
+2026-09-24T09:02:26.6877130Z 	Simulator - iOS 18.5          	-sdk iphonesimulator18.5
+2026-09-24T09:02:28.6721520Z Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+2026-09-24T09:02:28.6767130Z XCODEGEN_UNAVAILABLE
+2026-09-24T09:02:28.8519700Z PASS: 29 required planning files; 5 JSON files parsed; 22 local links checked; example cross-field checks.
+2026-09-24T09:02:53.5463670Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+2026-09-24T09:02:53.5468700Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+2026-09-24T09:02:53.5471260Z 	 Executed 4 tests, with 0 failures (0 unexpected) in 0.003 (0.006) seconds
+2026-09-24T09:02:54.1487200Z /Users/runner/work/_temp/xcodegen.zip: OK
+2026-09-24T09:02:54.2853100Z Version: 2.46.0
+2026-09-24T09:02:54.3530610Z Created project at /Users/runner/work/lecture-asset/lecture-asset/LectureAsset.xcodeproj
+2026-09-24T09:03:28.0925320Z ** BUILD SUCCEEDED **
