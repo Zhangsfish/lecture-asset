@@ -20,8 +20,8 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 |---|---|---|
 | S00 | PASS — physical iPhone accepted | [device audit](audits/S00/device-01.md) |
 | S00-TF | PASS — build 0.1.0 (18.1) uploaded and VALID | [TestFlight round-03 audit](audits/S00/testflight-03.md) |
-| S01 | READY | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
-| S02 | LOCKED | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
+| S01 | PASS — PR #2 ready to merge | [round-01 audit](audits/S01/round-01.md) |
+| S02 | READY AFTER PR #2 MERGE | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
 | S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
 | S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
 | S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
@@ -78,3 +78,33 @@ S00 is PASS. Merge PR #1 after syncing latest main, then start S01 on its own br
 `tasks/S01_IMPORT.md`
 
 S01 goal is only full-quality still extraction → upright full-resolution sRGB JPEG Q90 with checkpointing and validation. Do not add OCR/ZIP/PDF/share/delete yet.
+
+
+## S01 round-01 audit
+
+PR #2 tested implementation `d2a81fdec23ea3285ff51c5f6a28bf6d7515fdd3` is accepted.
+
+Key accepted evidence:
+
+- PR-head CI green;
+- TestFlight `0.1.0 (21.1)` uploaded and VALID;
+- 46 physical-device canonical JPEGs across Live Photo and ordinary-image runs;
+- 0 MOV/audio;
+- normal 34-page lecture batch shows no unbounded page-to-page memory growth;
+- owner reports PPT fine detail remains clear;
+- force-quit/relaunch checkpoint recovery works.
+
+Audit: [S01 round-01](audits/S01/round-01.md).
+
+Non-blocking carryovers into S02:
+
+- long 1179×25194 image sampled 324.0 MiB peak; keep OCR/PDF strictly page-at-a-time and re-measure;
+- deterministic failure→retry/removal regression still needs dynamic coverage before S03 destructive cleanup.
+
+## Next action
+
+Merge PR #2 into main. Then create a fresh S02 branch/PR from the merged main and execute only:
+
+`tasks/S02_ARCHIVE.md`
+
+S02 builds OCR + validated AI ZIP + companion PDF. It must not share or delete source Photos yet.
