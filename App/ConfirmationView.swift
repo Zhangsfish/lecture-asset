@@ -3,7 +3,10 @@ import SwiftUI
 import UIKit
 
 struct ConfirmationView: View {
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var model: PhotoLibraryModel
+    @ObservedObject var processor: ProcessingModel
+    @State private var startFailed = false
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 4), count: 3)
 
     var body: some View {
@@ -43,6 +46,31 @@ struct ConfirmationView: View {
             }
         }
         .navigationTitle("confirm.title")
+        .safeAreaInset(edge: .bottom) {
+            if model.authorization == .authorized {
+                Button("confirm.start") {
+                    guard let pages = model.frozenJobPages() else {
+                        startFailed = true
+                        return
+                    }
+                    do {
+                        try processor.start(pages: pages)
+                        dismiss()
+                    } catch {
+                        startFailed = true
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(.regularMaterial)
+                .accessibilityIdentifier("processing-start")
+            }
+        }
+        .alert("confirm.startFailed", isPresented: $startFailed) {
+            Button("common.ok", role: .cancel) {}
+        }
     }
 }
 

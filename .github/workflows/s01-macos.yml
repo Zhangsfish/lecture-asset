@@ -1,0 +1,101 @@
+name: S01 image pipeline macOS verification
+
+on:
+  push:
+    branches: [codex/s01-image-pipeline]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Record Apple toolchain
+        run: |
+          set -euo pipefail
+          sw_vers
+          xcodebuild -version
+          xcodebuild -showsdks
+          swift --version
+      - name: Check repository and page-order tests
+        run: |
+          set -euo pipefail
+          python3 scripts/check_foundation.py
+          swift test --package-path Packages/SelectionCore
+      - name: Install verified XcodeGen 2.46.0
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
+            --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version
+      - name: Generate Xcode project
+        run: xcodegen generate --spec project.yml
+      - name: Clean iOS Simulator build
+        run: |
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/S01SimulatorDerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
+      - name: Clean unsigned iPhone Release build
+        run: |
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/S01DeviceDerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
+      - name: Verify export compliance metadata
+        run: |
+          set -euo pipefail
+          info="$RUNNER_TEMP/S01DeviceDerivedData/Build/Products/Release-iphoneos/Lecture Asset.app/Info.plist"
+          /usr/libexec/PlistBuddy -c 'Print :ITSAppUsesNonExemptEncryption' "$info"
+      - name: Exercise PhotoKit processing and relaunch on synthetic simulator photos
+        run: |
+          set -euo pipefail
+          device=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; data=json.load(sys.stdin); print(next(d["udid"] for runtime, devices in data["devices"].items() if "iOS" in runtime for d in devices if d["name"].startswith("iPhone") and d.get("isAvailable", True)))')
+          xcrun simctl boot "$device" >/dev/null 2>&1
+          xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
+          swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/s01-synthetic"
+          xcrun simctl addmedia "$device" "$RUNNER_TEMP/s01-synthetic"/*.jpg >/dev/null
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S01SimulatorDerivedData" \
+            -resultBundlePath "$RUNNER_TEMP/S01UITests.xcresult" \
+            -parallel-testing-enabled NO \
+            -only-testing:LectureAssetUITests/S01ProcessingUITests \
+            CODE_SIGNING_ALLOWED=NO test
+          container=$(xcrun simctl get_app_container "$device" com.zhangsfish.lectureasset data)
+          jobs="$container/Library/Application Support/LectureAsset/jobs"
+          python3 - "$jobs" <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          import sys
+          root = Path(sys.argv[1])
+          states = list(root.glob('*/job.json'))
+          assert len(states) == 1, 'Expected one private S01 job'
+          job = json.loads(states[0].read_text())
+          assert job['phase'] == 'completed'
+          assert len(job['pages']) == 1
+          page = job['pages'][0]
+          assert page['phase'] == 'completed' and page['page_index'] == 1
+          assert page['width'] == 240 and page['height'] == 240
+          assert isinstance(page['memory_bytes_after_page'], int) and page['memory_bytes_after_page'] > 0
+          assert isinstance(page['memory_bytes_peak_page'], int) and page['memory_bytes_peak_page'] > 0
+          jpeg = states[0].parent / 'slides' / '0001.jpg'
+          assert jpeg.is_file() and jpeg.stat().st_size == page['jpeg_bytes']
+          assert hashlib.sha256(jpeg.read_bytes()).hexdigest() == page['sha256']
+          assert not list(root.rglob('*.mov')) and not list(root.rglob('*.m4a'))
+          print('S01_SYNTHETIC_PHOTOKIT_JPEG_CHECKPOINT_PASS pages=1 pixels=240x240 motion_files=0 memory_sample=present')
+          PY

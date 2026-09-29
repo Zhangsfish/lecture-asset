@@ -57,4 +57,23 @@ final class SelectionStateTests: XCTestCase {
         XCTAssertEqual(removingSweep.visit(identifier: "a", creationDate: nil, in: &state), .unchanged)
         XCTAssertEqual(state.count, 0)
     }
+
+    func testFrozenPagesNumberChronologicallyAndStayIndependentOfSelectionChanges() {
+        var state = SelectionState()
+        let capture = Date(timeIntervalSince1970: 1_700_000_000.125)
+        state.setSelected(true, identifier: "undated", creationDate: nil)
+        state.setSelected(true, identifier: "late", creationDate: capture.addingTimeInterval(1))
+        state.setSelected(true, identifier: "tied-first", creationDate: capture)
+        state.setSelected(true, identifier: "tied-second", creationDate: capture)
+
+        let frozen = FrozenPage.freeze(state.orderedPhotos)
+        XCTAssertEqual(frozen.map(\.localIdentifier), ["tied-first", "tied-second", "late", "undated"])
+        XCTAssertEqual(frozen.map(\.pageIndex), [1, 2, 3, 4])
+        XCTAssertEqual(frozen.map(\.selectionIndex), [3, 4, 2, 1])
+        XCTAssertEqual(frozen.map(\.capturedAt), [capture, capture, capture.addingTimeInterval(1), nil])
+
+        state.setSelected(false, identifier: "tied-first", creationDate: nil)
+        XCTAssertEqual(frozen.count, 4, "A started job must not follow later selection changes")
+        XCTAssertEqual(try? JSONDecoder().decode([FrozenPage].self, from: JSONEncoder().encode(frozen)), frozen)
+    }
 }

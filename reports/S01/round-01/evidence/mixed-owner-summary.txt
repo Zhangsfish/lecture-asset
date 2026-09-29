@@ -1,0 +1,5 @@
+Owner-provided safe in-app measurements and qualitative comment for a third physical-iPhone TestFlight job, 2026-09-29. The owner said the ordinary photos, including the discussed lecture/PPT and screenshot/other image types, look clear; the seven additional pages also look clear.
+Safe summary: 7/7 completed; 7 JPEG; 0 MOV/audio; all seven `live=false`. Full per-page rows are in `owner-mixed-safe-metrics.txt`.
+Pixel sizes include 3024x4032 full-size photos, 1179x2556, 644x424, 1080x2444, and one 1179x25194 long image. Source still payload total 8,453,040 B; JPEG total 10,276,775 B (1.216x).
+Post-page memory samples are 111.3, 92.5, 97.0, 254.6, 199.6, 222.8, 223.0 MiB. Sampled per-page peaks are 202.5, 129.5, 98.1, 324.0, 226.2, 316.6, 316.9 MiB. The long image on page 4 had the highest observed sample, 324.0 MiB. Later samples remain above 199 MiB, so this short mixed-image run cannot establish a steady-state bound over 200 pages. These are app samples, not an Instruments high-watermark trace.
+No private images, OCR or PHAsset identifiers are included. The user did not report independently inspecting Photos' source-pixel metadata.

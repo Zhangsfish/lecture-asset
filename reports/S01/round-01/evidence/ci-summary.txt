@@ -1,0 +1,12 @@
+S01 implementation SHA d2a81fdec23ea3285ff51c5f6a28bf6d7515fdd3
+GitHub-hosted macOS CI https://github.com/Zhangsfish/lecture-asset/actions/runs/36573842536
+macOS 26.6.2; Xcode 26.6 (17F113); iOS SDK 26.5; Swift 6.3.3; XcodeGen 2.46.0.
+python3 scripts/check_foundation.py: PASS
+swift test --package-path Packages/SelectionCore: 5 tests, 0 failures
+xcodegen generate --spec project.yml: PASS
+xcodebuild clean build, generic iOS Simulator, unsigned: BUILD SUCCEEDED
+xcodebuild clean build, generic iOS Release, unsigned: BUILD SUCCEEDED
+ITSAppUsesNonExemptEncryption: false
+S01ProcessingUITests.testSyntheticPhotoProcessesAndCheckpointSurvivesRelaunch: 1 test, 0 failures
+S01_SYNTHETIC_PHOTOKIT_JPEG_CHECKPOINT_PASS pages=1 pixels=240x240 motion_files=0 memory_sample=present
+The synthetic simulator run is not physical-iPhone acceptance.

@@ -1,0 +1,10 @@
+Owner-provided iPhone screenshot, complete safe measurement text and chat comments, 2026-09-29. The original screenshot is retained in the private task chat, not committed to the public repository. All 34 redacted per-page rows are in `owner-safe-metrics.txt`.
+Visible app state: processing completed, current page 34 / 34, JPEG files 34, MOV/audio files 0.
+Visible completed pages 1-3 are labeled Live Photo static images, each 3024x4032 px.
+Page 1: source still 1436576 B; JPEG 2502877 B; post-page memory 98.3 MiB; sampled page peak 189.8 MiB.
+Page 2: source still 1316961 B; JPEG 2217639 B; post-page memory 99.2 MiB; sampled page peak 193.0 MiB.
+Page 3: source still 1036840 B; JPEG 1759063 B; post-page memory 99.4 MiB; sampled page peak 193.2 MiB.
+Across all 34 pages: all `live=true`; source still payload total 36,411,643 B; JPEG total 61,351,405 B (1.685× source encoded bytes). All outputs are 3024x4032 or 4032x3024.
+Post-page memory: page 1 98.3 MiB, page 34 99.7 MiB, range 52.7–140.3 MiB, median 94.5 MiB. Sampled per-page peaks: page 1 189.8 MiB, page 34 193.5 MiB, range 186.6–193.5 MiB. These are app-reported samples, not an Instruments high-watermark trace.
+Owner comments: "我看了感觉照片很清楚" and, in response to the specific smallest-text/footer/fine-table-line/colored-text and force-quit questions, "包含live 清晰度没问题 强行关闭后仍然显示已完成". This is owner qualitative inspection, not a public image comparison.
+Limitations: screenshot does not show the TestFlight build number or Photos' source dimension panel; the whole 34-page batch consisted of Live Photos. A separate 5-page ordinary-photo job is documented in `ordinary-owner-summary.txt`. No private image or PHAsset identifier was copied here.

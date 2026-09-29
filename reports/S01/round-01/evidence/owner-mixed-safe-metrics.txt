@@ -1,0 +1,8 @@
+Lecture Asset S01; pages=7; completed=7; jpeg_files=7; motion_audio_files=0
+page=1, live=false, pixels=3024x4032, source_bytes=2230889, jpeg_bytes=2858731, memory_mib=111.3, peak_mib=202.5
+page=2, live=false, pixels=1179x2556, source_bytes=390208, jpeg_bytes=297534, memory_mib=92.5, peak_mib=129.5
+page=3, live=false, pixels=644x424, source_bytes=227240, jpeg_bytes=87197, memory_mib=97.0, peak_mib=98.1
+page=4, live=false, pixels=1179x25194, source_bytes=3840139, jpeg_bytes=4506646, memory_mib=254.6, peak_mib=324.0
+page=5, live=false, pixels=1080x2444, source_bytes=403095, jpeg_bytes=241584, memory_mib=199.6, peak_mib=226.2
+page=6, live=false, pixels=3024x4032, source_bytes=862629, jpeg_bytes=1426391, memory_mib=222.8, peak_mib=316.6
+page=7, live=false, pixels=3024x4032, source_bytes=498840, jpeg_bytes=858692, memory_mib=223.0, peak_mib=316.9

@@ -5,11 +5,18 @@ import UIKit
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var model = PhotoLibraryModel()
+    @StateObject private var processor = ProcessingModel()
 
     var body: some View {
         NavigationStack {
             Group {
-                if model.authorization == .authorized {
+                if processor.isRestoring {
+                    ProgressView()
+                } else if processor.job != nil {
+                    ProcessingView(model: processor)
+                } else if processor.storageFailed {
+                    Text("processing.storageFailed").padding()
+                } else if model.authorization == .authorized {
                     gallery
                 } else {
                     permissionGate
@@ -19,6 +26,7 @@ struct ContentView: View {
         }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active { model.refreshAuthorization() }
+            if phase == .background { processor.pauseAfterCurrentPage() }
         }
     }
 
@@ -33,12 +41,13 @@ struct ContentView: View {
                 Text("selection.selected") + Text(" \(model.selection.count)/200")
                 Spacer()
                 NavigationLink {
-                    ConfirmationView(model: model)
+                    ConfirmationView(model: model, processor: processor)
                 } label: {
                     Text("selection.confirm")
                 }
                 .disabled(model.selection.count == 0)
                 .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("selection-confirm")
             }
             .padding()
         }
