@@ -38,7 +38,9 @@ final class S01ProcessingUITests: XCTestCase {
         let completed = NSPredicate(format: "label == %@", "Completed")
         expectation(for: completed, evaluatedWith: phase)
         waitForExpectations(timeout: 90)
-        XCTAssertTrue(app.staticTexts["processing-progress"].label.contains("1 / 1"))
+        let finalProgress = app.staticTexts.matching(identifier: "processing-progress")
+            .matching(NSPredicate(format: "label == %@", "1 / 1")).firstMatch
+        XCTAssertTrue(finalProgress.exists)
         XCTAssertTrue(app.buttons["Copy safe page measurements"].exists)
 
         app.terminate()
