@@ -56,6 +56,9 @@ struct ProcessingView: View {
                                 Text("\(archiveState.completedOCRCount) / \(job.totalCount) OCR")
                                 if archiveState.phase == .failed {
                                     Text("archive.failedDetail").foregroundStyle(.red)
+                                    Button("archive.copyFailure") {
+                                        UIPasteboard.general.string = archive.safeFailureDiagnostics(job: job)
+                                    }
                                     Button("archive.retry") { archive.startOrRetry(job: job) }
                                         .buttonStyle(.borderedProminent)
                                 }

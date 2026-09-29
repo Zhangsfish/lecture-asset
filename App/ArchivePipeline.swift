@@ -22,6 +22,7 @@ struct ArchiveState: Codable, Sendable {
     var zipSha256: String?
     var pdfSha256: String?
     var failureCode: String?
+    var failureStage: String?
 
     init(jobId: UUID) {
         self.jobId = jobId; archiveId = UUID(); phase = .processing

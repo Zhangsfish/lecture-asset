@@ -865,6 +865,22 @@
         }
       }
     },
+    "archive.copyFailure": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "value": "复制安全的失败诊断",
+            "state": "translated"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "value": "Copy safe failure diagnostics",
+            "state": "translated"
+          }
+        }
+      }
+    },
     "archive.copyMetrics": {
       "localizations": {
         "zh-Hans": {
