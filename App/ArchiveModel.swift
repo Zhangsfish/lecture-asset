@@ -93,6 +93,7 @@ final class ArchiveModel: ObservableObject {
                 saved.pdfSha256 = result.pdfSHA256
                 saved.pdfMemoryAfterPage = result.pdfMemoryAfterPage
                 saved.pdfMemoryPeakPage = result.pdfMemoryPeakPage
+                saved.pdfImageSha256ByPage = result.pdfImageSHA256ByPage
                 saved.phase = .ready
                 stage = "ready_validation"
                 guard try ArchiveStore.verifyReady(saved, job: job) else {

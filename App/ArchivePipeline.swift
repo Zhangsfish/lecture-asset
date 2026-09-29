@@ -17,6 +17,7 @@ struct ArchiveState: Codable, Sendable {
     var memoryPeakPage: [Int: UInt64]
     var pdfMemoryAfterPage: [Int: UInt64]
     var pdfMemoryPeakPage: [Int: UInt64]
+    var pdfImageSha256ByPage: [Int: String]?
     var zipName: String?
     var pdfName: String?
     var zipSha256: String?
@@ -86,7 +87,8 @@ enum ArchiveStore {
                                 createdAt: ArchiveDate.iso(job.createdAt), pages: records,
                                 files: archiveFileList(title: title, records: records))
         try ArchiveValidator.validateZIP(at: zip, rootName: String(zipName.dropLast(7)), expected: manifest, schemaURL: schema)
-        try CompanionPDF.validate(at: pdf, pages: inputs)
+        try CompanionPDF.validate(at: pdf, pages: inputs,
+                                  embeddedJPEGHashes: state.pdfImageSha256ByPage)
         return true
     }
 

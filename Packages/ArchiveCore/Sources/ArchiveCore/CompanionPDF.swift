@@ -1,4 +1,5 @@
 import CoreGraphics
+import CryptoKit
 import Foundation
 import ImageIO
 import UniformTypeIdentifiers
@@ -6,11 +7,12 @@ import Darwin.Mach
 
 public enum CompanionPDF {
     public static func write(pages: [ArchiveInputPage], to url: URL,
-                             memorySample: ((Int, UInt64, UInt64) -> Void)? = nil) throws {
+                             memorySample: ((Int, UInt64, UInt64) -> Void)? = nil) throws -> [Int: String] {
         // Write image streams directly into the PDF file. A Core Graphics PDF context
         // retained document-level image data until close, growing with the page count.
         // The JPEG for one page is the only temporary file alive during this loop.
         let writer = try StreamingPDFWriter(url: url, pageCount: pages.count)
+        var embeddedHashes: [Int: String] = [:]
         for input in pages {
             try autoreleasepool {
                 var pagePeak = footprint() ?? 0
@@ -36,15 +38,17 @@ public enum CompanionPDF {
                       rasterWidth > 0, rasterHeight > 0 else {
                     throw ArchiveFailure.invalid("PDF browse JPEG")
                 }
-                try writer.append(number: input.record.number, jpegURL: temporary,
-                                  rasterWidth: rasterWidth, rasterHeight: rasterHeight,
-                                  pageWidth: pageWidth, pageHeight: pageHeight)
+                embeddedHashes[input.record.number] = try writer.append(
+                    number: input.record.number, jpegURL: temporary,
+                    rasterWidth: rasterWidth, rasterHeight: rasterHeight,
+                    pageWidth: pageWidth, pageHeight: pageHeight)
                 sample()
                 let after = footprint() ?? 0
                 memorySample?(input.record.number, after, max(pagePeak, after))
             }
         }
         try writer.finish()
+        return embeddedHashes
     }
 
     private static func footprint() -> UInt64? {
@@ -73,9 +77,13 @@ public enum CompanionPDF {
         guard CGImageDestinationFinalize(destination) else { throw ArchiveFailure.invalid("PDF JPEG encode") }
     }
 
-    public static func validate(at url: URL, pages: [ArchiveInputPage]) throws {
+    public static func validate(at url: URL, pages: [ArchiveInputPage],
+                                embeddedJPEGHashes: [Int: String]? = nil) throws {
         guard let document = CGPDFDocument(url as CFURL), document.numberOfPages == pages.count else {
             throw ArchiveFailure.invalid("PDF page count")
+        }
+        if let embeddedJPEGHashes, embeddedJPEGHashes.count != pages.count {
+            throw ArchiveFailure.invalid("PDF image hash count")
         }
         for (index, input) in pages.enumerated() {
             let record = input.record
@@ -86,15 +94,66 @@ public enum CompanionPDF {
                   abs(Double(rect.width / rect.height) - ratio) < 0.001 else {
                 throw ArchiveFailure.invalid("PDF page box/order")
             }
-            // At least one image XObject is required. The renderer never writes text.
-            guard page.dictionary != nil else { throw ArchiveFailure.invalid("PDF page dictionary") }
             try autoreleasepool {
-                let expected = try thumbnailOfJPEG(at: input.sourceURL)
-                let actual = try thumbnailOfPDF(page, mediaBox: rect)
-                let meanError = zip(expected, actual).reduce(0) { $0 + abs(Int($1.0) - Int($1.1)) }
-                    / max(1, expected.count)
-                guard meanError <= 12 else { throw ArchiveFailure.invalid("PDF page image/order") }
+                if let embeddedJPEGHashes {
+                    let source = try ArchiveBuilder.measure(input.sourceURL)
+                    guard source.bytes == record.bytes, source.hash == record.sha256,
+                          let expectedHash = embeddedJPEGHashes[record.number] else {
+                        throw ArchiveFailure.invalid("PDF source page/hash")
+                    }
+                    try validateEmbeddedPage(page, sourceRecord: record, expectedHash: expectedHash)
+                } else {
+                    // Older ready jobs used a Core Graphics PDF writer and lack the private
+                    // embedded-image hash ledger. Preserve their original validation path.
+                    let expected = try thumbnailOfJPEG(at: input.sourceURL)
+                    let actual = try thumbnailOfPDF(page, mediaBox: rect)
+                    let meanError = zip(expected, actual).reduce(0) { $0 + abs(Int($1.0) - Int($1.1)) }
+                        / max(1, expected.count)
+                    guard meanError <= 12 else { throw ArchiveFailure.invalid("PDF legacy page image/order") }
+                }
             }
+        }
+    }
+
+    private static func validateEmbeddedPage(_ page: CGPDFPage, sourceRecord: ArchivePage,
+                                             expectedHash: String) throws {
+        guard let dictionary = page.dictionary else { throw ArchiveFailure.invalid("PDF page dictionary") }
+        var resources: CGPDFDictionaryRef?
+        var xobjects: CGPDFDictionaryRef?
+        var imageStream: CGPDFStreamRef?
+        var contentStream: CGPDFStreamRef?
+        guard CGPDFDictionaryGetDictionary(dictionary, "Resources", &resources),
+              let resources,
+              CGPDFDictionaryGetDictionary(resources, "XObject", &xobjects),
+              let xobjects,
+              CGPDFDictionaryGetStream(xobjects, "Im0", &imageStream),
+              let imageStream,
+              CGPDFDictionaryGetStream(dictionary, "Contents", &contentStream),
+              let contentStream else { throw ArchiveFailure.invalid("PDF image/content stream") }
+
+        var imageFormat = CGPDFDataFormat.raw
+        guard let imageData = CGPDFStreamCopyData(imageStream, &imageFormat),
+              imageFormat == .jpegEncoded else { throw ArchiveFailure.invalid("PDF embedded JPEG format") }
+        let compressed = imageData as Data
+        let actualHash = SHA256.hash(data: compressed).map { String(format: "%02x", $0) }.joined()
+        guard actualHash == expectedHash,
+              let imageSource = CGImageSourceCreateWithData(imageData, [kCGImageSourceShouldCache: false] as CFDictionary),
+              CGImageSourceGetType(imageSource) == UTType.jpeg.identifier as CFString,
+              CGImageSourceCreateThumbnailAtIndex(imageSource, 0, [
+                kCGImageSourceCreateThumbnailFromImageAlways: true,
+                kCGImageSourceThumbnailMaxPixelSize: 96
+              ] as CFDictionary) != nil else { throw ArchiveFailure.invalid("PDF embedded JPEG hash/decode") }
+
+        let width = sourceRecord.width, height = sourceRecord.height
+        let longEdge = max(width, height)
+        let pageLongEdge = min(longEdge, ArchiveBuilder.pdfLongEdge)
+        let pageWidth = Double(CGFloat(width) * CGFloat(pageLongEdge) / CGFloat(longEdge)).description
+        let pageHeight = Double(CGFloat(height) * CGFloat(pageLongEdge) / CGFloat(longEdge)).description
+        let drawing = "q\n\(pageWidth) 0 0 \(pageHeight) 0 0 cm\n/Im0 Do\nQ\n"
+        var contentFormat = CGPDFDataFormat.raw
+        guard let contentData = CGPDFStreamCopyData(contentStream, &contentFormat),
+              contentFormat == .raw, contentData as Data == Data(drawing.utf8) else {
+            throw ArchiveFailure.invalid("PDF page drawing/order")
         }
     }
 
@@ -163,7 +222,7 @@ private final class StreamingPDFWriter {
     deinit { try? output.close() }
 
     func append(number: Int, jpegURL: URL, rasterWidth: Int, rasterHeight: Int,
-                pageWidth: CGFloat, pageHeight: CGFloat) throws {
+                pageWidth: CGFloat, pageHeight: CGFloat) throws -> String {
         guard number == nextPage, rasterWidth > 0, rasterHeight > 0,
               pageWidth > 0, pageHeight > 0 else {
             throw ArchiveFailure.invalid("PDF sequential page")
@@ -189,13 +248,16 @@ private final class StreamingPDFWriter {
         let source = try FileHandle(forReadingFrom: jpegURL)
         defer { try? source.close() }
         var copied = 0
+        var hasher = SHA256()
         while let chunk = try source.read(upToCount: 1_048_576), !chunk.isEmpty {
             copied += chunk.count
+            hasher.update(data: chunk)
             try output.write(contentsOf: chunk)
         }
         guard copied == length else { throw ArchiveFailure.invalid("PDF JPEG changed during write") }
         try write("\nendstream\nendobj\n")
         nextPage += 1
+        return hasher.finalize().map { String(format: "%02x", $0) }.joined()
     }
 
     func finish() throws {

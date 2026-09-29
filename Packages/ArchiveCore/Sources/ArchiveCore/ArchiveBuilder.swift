@@ -21,6 +21,7 @@ public struct ArchiveOutput: Sendable {
     public let pdfJPEGQuality: Double
     public let pdfMemoryAfterPage: [Int: UInt64]
     public let pdfMemoryPeakPage: [Int: UInt64]
+    public let pdfImageSHA256ByPage: [Int: String]
 }
 
 public enum ArchiveFailure: Error, CustomStringConvertible {
@@ -90,10 +91,10 @@ public enum ArchiveBuilder {
         let pdfTemp = work.appending(path: "archive.pdf")
         var pdfAfter: [Int: UInt64] = [:]
         var pdfPeak: [Int: UInt64] = [:]
-        try CompanionPDF.write(pages: pages, to: pdfTemp) { number, after, peak in
+        let pdfImageHashes = try CompanionPDF.write(pages: pages, to: pdfTemp) { number, after, peak in
             pdfAfter[number] = after; pdfPeak[number] = peak
         }
-        try CompanionPDF.validate(at: pdfTemp, pages: pages)
+        try CompanionPDF.validate(at: pdfTemp, pages: pages, embeddedJPEGHashes: pdfImageHashes)
         // The source may change while ZIP/PDF was being built. A changed canonical page invalidates ready.
         for input in pages { try verifyImage(input) }
         let zipName = rootName + "_AI.zip"
@@ -106,7 +107,8 @@ public enum ArchiveBuilder {
         return ArchiveOutput(zipURL: finalZIP, pdfURL: finalPDF,
                              zipSHA256: try measure(finalZIP).hash, pdfSHA256: try measure(finalPDF).hash,
                              manifest: manifest, pdfLongEdge: pdfLongEdge, pdfJPEGQuality: pdfJPEGQuality,
-                             pdfMemoryAfterPage: pdfAfter, pdfMemoryPeakPage: pdfPeak)
+                             pdfMemoryAfterPage: pdfAfter, pdfMemoryPeakPage: pdfPeak,
+                             pdfImageSHA256ByPage: pdfImageHashes)
     }
 
     private static func safeDate(from title: String) -> String {

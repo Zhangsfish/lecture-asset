@@ -37,11 +37,17 @@ final class ArchiveCoreTests: XCTestCase {
                 jobCreatedAt: Date(timeIntervalSince1970: 1), destination: root.appending(path: "exports"), schemaURL: schema)
             XCTAssertTrue(FileManager.default.fileExists(atPath: output.zipURL.path))
             XCTAssertTrue(FileManager.default.fileExists(atPath: output.pdfURL.path))
-            try CompanionPDF.validate(at: output.pdfURL, pages: pages)
+            try CompanionPDF.validate(at: output.pdfURL, pages: pages,
+                                      embeddedJPEGHashes: output.pdfImageSHA256ByPage)
             if count == 20 {
                 var mismatched = pages
                 mismatched[1] = ArchiveInputPage(sourceURL: pages[2].sourceURL, record: pages[1].record)
-                XCTAssertThrowsError(try CompanionPDF.validate(at: output.pdfURL, pages: mismatched))
+                XCTAssertThrowsError(try CompanionPDF.validate(at: output.pdfURL, pages: mismatched,
+                    embeddedJPEGHashes: output.pdfImageSHA256ByPage))
+                var wrongHash = output.pdfImageSHA256ByPage
+                wrongHash[2] = String(repeating: "0", count: 64)
+                XCTAssertThrowsError(try CompanionPDF.validate(at: output.pdfURL, pages: pages,
+                    embeddedJPEGHashes: wrongHash))
             }
             let name = String(output.zipURL.deletingPathExtension().lastPathComponent.dropLast(3))
             try ArchiveValidator.validateZIP(at: output.zipURL, rootName: name,
@@ -160,12 +166,13 @@ final class ArchiveCoreTests: XCTestCase {
         }
         let pdf = root.appending(path: "streamed.pdf")
         var after: [UInt64] = []
-        try CompanionPDF.write(pages: pages, to: pdf) { number, bytes, _ in
+        let hashes = try CompanionPDF.write(pages: pages, to: pdf) { number, bytes, _ in
             after.append(bytes)
             print("S02_PDF_STREAM_MEMORY page=\(number) after_mib=\(Double(bytes) / 1048576)")
         }
         XCTAssertEqual(after.count, 20)
         XCTAssertEqual(CGPDFDocument(pdf as CFURL)?.numberOfPages, 20)
+        try CompanionPDF.validate(at: pdf, pages: pages, embeddedJPEGHashes: hashes)
         XCTAssertLessThan(after[19], after[1] + 30 * 1_048_576)
     }
 
