@@ -13,6 +13,10 @@ targets:
   LectureAsset:
     type: application
     platform: iOS
+    scheme:
+      testTargets:
+        - LectureAssetTests
+        - LectureAssetUITests
     sources:
       - path: App
       - path: schemas/manifest-v1.schema.json

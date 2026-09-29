@@ -130,18 +130,20 @@ public enum ArchiveBuilder {
     }
 
     public static func verifyImage(_ input: ArchiveInputPage) throws {
-        let values = try input.sourceURL.resourceValues(forKeys: [.isRegularFileKey, .isSymbolicLinkKey])
-        guard values.isRegularFile == true, values.isSymbolicLink != true else {
-            throw ArchiveFailure.invalid("canonical JPEG is not a regular file")
-        }
-        let measured = try measure(input.sourceURL)
-        guard measured.bytes == input.record.bytes, measured.hash == input.record.sha256,
-              let source = CGImageSourceCreateWithURL(input.sourceURL as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
-              CGImageSourceGetType(source) == UTType.jpeg.identifier as CFString,
-              CGImageSourceGetCount(source) == 1,
-              let image = CGImageSourceCreateImageAtIndex(source, 0, nil),
-              image.width == input.record.width, image.height == input.record.height else {
-            throw ArchiveFailure.invalid("canonical JPEG integrity")
+        try autoreleasepool {
+            let values = try input.sourceURL.resourceValues(forKeys: [.isRegularFileKey, .isSymbolicLinkKey])
+            guard values.isRegularFile == true, values.isSymbolicLink != true else {
+                throw ArchiveFailure.invalid("canonical JPEG is not a regular file")
+            }
+            let measured = try measure(input.sourceURL)
+            guard measured.bytes == input.record.bytes, measured.hash == input.record.sha256,
+                  let source = CGImageSourceCreateWithURL(input.sourceURL as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
+                  CGImageSourceGetType(source) == UTType.jpeg.identifier as CFString,
+                  CGImageSourceGetCount(source) == 1,
+                  let image = CGImageSourceCreateImageAtIndex(source, 0, nil),
+                  image.width == input.record.width, image.height == input.record.height else {
+                throw ArchiveFailure.invalid("canonical JPEG integrity")
+            }
         }
     }
 

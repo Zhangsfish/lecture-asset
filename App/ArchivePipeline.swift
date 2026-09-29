@@ -115,9 +115,14 @@ enum VisionOCR {
             let blocks: [OCRBlock] = (request.results ?? []).compactMap { observation in
                 guard let candidate = observation.topCandidates(1).first else { return nil }
                 let box = observation.boundingBox
+                func bounded(_ value: Double) -> Double { min(1, max(0, value)) }
+                let left = bounded(Double(box.minX))
+                let right = bounded(Double(box.maxX))
+                let top = bounded(Double(1 - box.maxY))
+                let bottom = bounded(Double(1 - box.minY))
                 return OCRBlock(text: candidate.string,
-                                confidence: Double(candidate.confidence),
-                                bbox: [Double(box.minX), Double(1 - box.maxY), Double(box.width), Double(box.height)])
+                                confidence: bounded(Double(candidate.confidence)),
+                                bbox: [left, top, right - left, bottom - top])
             }
             return OCRResult(status: blocks.isEmpty ? "empty" : "ok",
                              text: blocks.map(\.text).joined(separator: "\n"), blocks: blocks,

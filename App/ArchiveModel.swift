@@ -96,7 +96,7 @@ final class ArchiveModel: ObservableObject {
                 try ArchiveStore.save(saved, job: job)
             } catch {
                 saved.phase = .failed
-                saved.failureCode = "archive_validation_failed"
+                saved.failureCode = (error as? ArchiveFailure)?.description ?? "archive_io_or_schema_failed"
                 try? ArchiveStore.save(saved, job: job)
             }
             let snapshot = saved
