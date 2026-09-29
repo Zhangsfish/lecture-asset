@@ -23,6 +23,7 @@ struct ProcessingView: View {
 
                         if model.storageFailed {
                             Text("processing.storageFailed").foregroundStyle(.red)
+                            Button("processing.retryCheckpoint") { model.retryCheckpoint() }
                         }
                         if job.phase == .processing {
                             Button(model.pauseRequested ? "processing.pausePending" : "processing.pause") {

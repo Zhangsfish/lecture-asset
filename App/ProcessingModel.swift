@@ -24,11 +24,19 @@ final class ProcessingModel: ObservableObject {
         // Persist the entire frozen source set and page order before any PhotoKit request.
         try JobStore.save(newJob)
         job = newJob
+        pauseRequested = false
         run()
     }
 
     func pauseAfterCurrentPage() {
+        guard job?.phase == .processing else { return }
         pauseRequested = true
+    }
+
+    func retryCheckpoint() {
+        guard storageFailed, let current = job, activeTask == nil else { return }
+        guard persist(current) else { return }
+        if current.phase == .processing { run() }
     }
 
     func resume() {
@@ -102,7 +110,7 @@ final class ProcessingModel: ObservableObject {
     }
 
     private func run() {
-        guard activeTask == nil, job?.phase == .processing else { return }
+        guard activeTask == nil, !storageFailed, job?.phase == .processing else { return }
         activeTask = Task {
             defer { activeTask = nil }
             while let current = job, current.phase == .processing,

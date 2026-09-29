@@ -47,6 +47,7 @@ struct ContentView: View {
                 }
                 .disabled(model.selection.count == 0)
                 .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("selection-confirm")
             }
             .padding()
         }
