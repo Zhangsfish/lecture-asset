@@ -19,14 +19,15 @@ public enum CompanionPDF {
                 let longEdge = max(width, height)
                 // Preserve the original width of very tall screenshots; a 3000 px long edge
                 // would otherwise reduce a 1179 x 25194 image to about 140 px wide.
-                let target = Double(height) / Double(width) > 3
+                let rasterLongEdge = Double(height) / Double(width) > 3
                     ? longEdge : min(longEdge, ArchiveBuilder.pdfLongEdge)
-                let pageWidth = CGFloat(width) * CGFloat(target) / CGFloat(longEdge)
-                let pageHeight = CGFloat(height) * CGFloat(target) / CGFloat(longEdge)
+                let pageLongEdge = min(longEdge, ArchiveBuilder.pdfLongEdge)
+                let pageWidth = CGFloat(width) * CGFloat(pageLongEdge) / CGFloat(longEdge)
+                let pageHeight = CGFloat(height) * CGFloat(pageLongEdge) / CGFloat(longEdge)
                 var mediaBox = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
                 let temporary = url.deletingLastPathComponent().appending(path: ".page-\(input.record.number).jpg")
                 defer { try? FileManager.default.removeItem(at: temporary) }
-                try writeBrowseJPEG(source: input.sourceURL, maxPixelSize: target, to: temporary)
+                try writeBrowseJPEG(source: input.sourceURL, maxPixelSize: rasterLongEdge, to: temporary)
                 sample()
                 guard let source = CGImageSourceCreateWithURL(temporary as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
                       let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else {

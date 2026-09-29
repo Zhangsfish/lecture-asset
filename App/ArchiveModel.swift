@@ -111,8 +111,8 @@ final class ArchiveModel: ObservableObject {
     func safeMetrics(job: ProcessingJob) -> String {
         guard let state else { return "S02 NOT_RUN" }
         var lines = ["Lecture Asset S02; phase=\(state.phase.rawValue); pages=\(job.pages.count); " +
-                     "ocr_completed=\(state.completedOCRCount); pdf_long_edge=\(ArchiveBuilder.pdfLongEdge); " +
-                     "pdf_jpeg_quality=\(ArchiveBuilder.pdfJPEGQuality)"]
+                     "ocr_completed=\(state.completedOCRCount); pdf_page_long_edge=\(ArchiveBuilder.pdfLongEdge); " +
+                     "pdf_jpeg_quality=\(ArchiveBuilder.pdfJPEGQuality); long_image_raster=full"]
         if state.phase == .ready, let directory = try? ArchiveStore.outputDirectory(job: job),
            let zipName = state.zipName, let pdfName = state.pdfName {
             func bytes(_ name: String) -> Int {

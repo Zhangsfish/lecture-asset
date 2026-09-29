@@ -132,6 +132,9 @@ final class ArchiveCoreTests: XCTestCase {
             destination: root.appending(path: "exports"), schemaURL: schema)
         XCTAssertEqual(output.manifest.pages.map(\.width), [3024, 1179])
         XCTAssertEqual(output.manifest.pages.map(\.height), [4032, 25194])
+        let pdf = try XCTUnwrap(CGPDFDocument(output.pdfURL as CFURL))
+        let longBox = try XCTUnwrap(pdf.page(at: 2)).getBoxRect(.mediaBox)
+        XCTAssertLessThanOrEqual(longBox.height, 3001)
         for number in 1...2 {
             let after = output.pdfMemoryAfterPage[number] ?? 0
             let peak = output.pdfMemoryPeakPage[number] ?? 0
