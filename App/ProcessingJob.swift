@@ -41,6 +41,7 @@ struct JobPage: Codable, Identifiable, Sendable {
     var height: Int?
     var jpegBytes: Int?
     var sha256: String?
+    var memoryBytesPeakPage: UInt64?
     var memoryBytesAfterPage: UInt64?
 
     var id: Int { pageIndex }
@@ -162,5 +163,21 @@ enum JobStore {
             bytes += chunk.count
         }
         return (bytes, hash.finalize().map { String(format: "%02x", $0) }.joined())
+    }
+
+    static func outputInventory(in job: ProcessingJob) throws -> (jpegCount: Int, motionAudioCount: Int) {
+        let root = try directory(for: job)
+        guard let files = FileManager.default.enumerator(at: root, includingPropertiesForKeys: nil) else {
+            throw CocoaError(.fileReadUnknown)
+        }
+        var jpegCount = 0
+        var motionAudioCount = 0
+        let motionAudioExtensions: Set<String> = ["mov", "mp4", "m4v", "m4a", "caf", "wav", "aac"]
+        for case let url as URL in files {
+            let ext = url.pathExtension.lowercased()
+            if ext == "jpg" { jpegCount += 1 }
+            if motionAudioExtensions.contains(ext) { motionAudioCount += 1 }
+        }
+        return (jpegCount, motionAudioCount)
     }
 }

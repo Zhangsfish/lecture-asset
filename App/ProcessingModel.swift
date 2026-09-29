@@ -133,6 +133,7 @@ final class ProcessingModel: ObservableObject {
                     updated.pages[index].height = result.height
                     updated.pages[index].jpegBytes = result.jpegBytes
                     updated.pages[index].sha256 = result.sha256
+                    updated.pages[index].memoryBytesPeakPage = result.memoryBytesPeakPage
                     updated.pages[index].memoryBytesAfterPage = result.memoryBytesAfterPage
                     guard persist(updated) else { return } // Per-page checkpoint before continuing.
                 } catch {

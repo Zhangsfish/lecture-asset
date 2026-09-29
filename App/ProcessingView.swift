@@ -47,6 +47,15 @@ struct ProcessingView: View {
                         }
                         if job.phase == .completed {
                             Text("processing.completeDetail")
+                            if let inventory = try? JobStore.outputInventory(in: job) {
+                                HStack {
+                                    Text("processing.jpegCount")
+                                    Text("\(inventory.jpegCount)")
+                                    Text("processing.motionCount")
+                                    Text("\(inventory.motionAudioCount)")
+                                }
+                                .font(.footnote.monospacedDigit())
+                            }
                         }
 
                         if job.completedCount > 0 {
@@ -123,17 +132,23 @@ struct ProcessingView: View {
         let memory = page.memoryBytesAfterPage.map {
             String(format: "%.1f", Double($0) / 1_048_576)
         } ?? "?"
-        return "\(width)×\(height) px · source \(source) B · JPEG \(jpeg) B · memory \(memory) MiB"
+        let peak = page.memoryBytesPeakPage.map {
+            String(format: "%.1f", Double($0) / 1_048_576)
+        } ?? "?"
+        return "\(width)×\(height) px · source \(source) B · JPEG \(jpeg) B · after \(memory) MiB · peak \(peak) MiB"
     }
 
     /// Intentionally excludes PHAsset IDs, timestamps, images and hashes.
     private func diagnostics(for job: ProcessingJob) -> String {
-        (["Lecture Asset S01; pages=\(job.totalCount); completed=\(job.completedCount)"] +
+        let inventory = try? JobStore.outputInventory(in: job)
+        return (["Lecture Asset S01; pages=\(job.totalCount); completed=\(job.completedCount); " +
+                 "jpeg_files=\(inventory?.jpegCount ?? -1); motion_audio_files=\(inventory?.motionAudioCount ?? -1)"] +
          job.pages.filter { $0.phase == .completed }.map { page in
             "page=\(page.pageIndex), live=\(page.isLivePhoto), " +
             "pixels=\(page.width ?? 0)x\(page.height ?? 0), " +
             "source_bytes=\(page.sourceStillBytes ?? 0), jpeg_bytes=\(page.jpegBytes ?? 0), " +
-            "memory_mib=\(page.memoryBytesAfterPage.map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown")"
+            "memory_mib=\(page.memoryBytesAfterPage.map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown"), " +
+            "peak_mib=\(page.memoryBytesPeakPage.map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown")"
          }).joined(separator: "\n")
     }
 }

@@ -45,7 +45,9 @@
     "processing.completeDetail" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "All static JPEG pages are ready. OCR, PDF, ZIP, sharing and photo deletion are not in this build." } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "所有静态 JPEG 页面已完成。本版本尚无 OCR、PDF、ZIP、分享和照片删除。" } } } },
     "processing.copyMetrics" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Copy safe page measurements" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "复制安全的页面测量数据" } } } },
     "processing.copied" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Measurements copied" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "测量数据已复制" } } } },
-    "processing.preview" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Inspect JPEG" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "检查 JPEG" } } } }
+    "processing.preview" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Inspect JPEG" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "检查 JPEG" } } } },
+    "processing.jpegCount" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "JPEG files" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "JPEG 文件" } } } },
+    "processing.motionCount" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "MOV/audio files" } }, "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "MOV/音频文件" } } } }
   },
   "version" : "1.0"
 }

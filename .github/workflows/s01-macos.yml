@@ -91,9 +91,11 @@ jobs:
           page = job['pages'][0]
           assert page['phase'] == 'completed' and page['page_index'] == 1
           assert page['width'] == 240 and page['height'] == 240
+          assert isinstance(page['memory_bytes_after_page'], int) and page['memory_bytes_after_page'] > 0
+          assert isinstance(page['memory_bytes_peak_page'], int) and page['memory_bytes_peak_page'] > 0
           jpeg = states[0].parent / 'slides' / '0001.jpg'
           assert jpeg.is_file() and jpeg.stat().st_size == page['jpeg_bytes']
           assert hashlib.sha256(jpeg.read_bytes()).hexdigest() == page['sha256']
           assert not list(root.rglob('*.mov')) and not list(root.rglob('*.m4a'))
-          print('S01_SYNTHETIC_PHOTOKIT_JPEG_CHECKPOINT_PASS pages=1 pixels=240x240 motion_files=0')
+          print('S01_SYNTHETIC_PHOTOKIT_JPEG_CHECKPOINT_PASS pages=1 pixels=240x240 motion_files=0 memory_sample=present')
           PY

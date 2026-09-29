@@ -1,6 +1,5 @@
 @preconcurrency import Photos
 import CoreImage
-import CryptoKit
 import Foundation
 import ImageIO
 import UniformTypeIdentifiers
@@ -12,6 +11,7 @@ struct PageOutput: Sendable {
     let height: Int
     let jpegBytes: Int
     let sha256: String
+    let memoryBytesPeakPage: UInt64?
     let memoryBytesAfterPage: UInt64?
 }
 
@@ -29,6 +29,7 @@ actor CanonicalStillPipeline {
             height: encoded.height,
             jpegBytes: encoded.jpegBytes,
             sha256: encoded.sha256,
+            memoryBytesPeakPage: encoded.memoryBytesPeakPage,
             memoryBytesAfterPage: Self.currentFootprintBytes()
         )
     }
@@ -61,8 +62,7 @@ actor CanonicalStillPipeline {
                 data, _, orientation, info in
                 if (info?[PHImageCancelledKey] as? NSNumber)?.boolValue == true {
                     continuation.resume(throwing: PageProcessingError(code: .photoKitFailed))
-                } else if (info?[PHImageResultIsInCloudKey] as? NSNumber)?.boolValue == true,
-                          data == nil {
+                } else if (info?[PHImageResultIsInCloudKey] as? NSNumber)?.boolValue == true {
                     continuation.resume(throwing: PageProcessingError(code: .notDownloaded))
                 } else if info?[PHImageErrorKey] != nil {
                     continuation.resume(throwing: PageProcessingError(code: .photoKitFailed))
@@ -82,13 +82,17 @@ actor CanonicalStillPipeline {
     ) throws -> PageOutput {
         guard let source = CGImageSourceCreateWithData(data as CFData, [
             kCGImageSourceShouldCache: false
-        ] as CFDictionary),
-              CGImageSourceGetCount(source) > 0,
-              let raw = CGImageSourceCreateImageAtIndex(source, 0, [
+        ] as CFDictionary) else {
+            throw PageProcessingError(code: .sourceInvalid)
+        }
+        let primaryIndex = CGImageSourceGetPrimaryImageIndex(source)
+        guard primaryIndex < CGImageSourceGetCount(source),
+              let raw = CGImageSourceCreateImageAtIndex(source, primaryIndex, [
                 kCGImageSourceShouldCacheImmediately: true
               ] as CFDictionary) else {
             throw PageProcessingError(code: .sourceInvalid)
         }
+        let footprintAfterDecode = currentFootprintBytes() ?? 0
 
         let swapped = [CGImagePropertyOrientation.left, .leftMirrored, .right, .rightMirrored]
             .contains(orientation)
@@ -112,6 +116,7 @@ actor CanonicalStillPipeline {
         ), upright.width == expectedWidth, upright.height == expectedHeight else {
             throw PageProcessingError(code: .dimensionChanged)
         }
+        let footprintAfterRender = currentFootprintBytes() ?? 0
 
         let temporaryURL = finalURL.deletingLastPathComponent()
             .appending(path: ".\(UUID().uuidString).jpg.tmp")
@@ -131,6 +136,7 @@ actor CanonicalStillPipeline {
               checkImage.colorSpace?.name == CGColorSpace.sRGB else {
             throw PageProcessingError(code: .jpegFailed)
         }
+        let footprintAfterWrite = currentFootprintBytes() ?? 0
 
         let measured = try JobStore.fileMeasurement(at: temporaryURL)
         // A previously interrupted attempt may have left an uncheckpointed file.
@@ -144,6 +150,7 @@ actor CanonicalStillPipeline {
             height: expectedHeight,
             jpegBytes: measured.bytes,
             sha256: measured.sha256,
+            memoryBytesPeakPage: max(footprintAfterDecode, footprintAfterRender, footprintAfterWrite),
             memoryBytesAfterPage: nil
         )
     }
