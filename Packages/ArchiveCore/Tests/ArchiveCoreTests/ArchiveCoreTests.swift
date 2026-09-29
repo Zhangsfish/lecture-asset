@@ -77,8 +77,38 @@ final class ArchiveCoreTests: XCTestCase {
         XCTAssertThrowsError(try validator.validate(Data("{\"unexpected\":true}".utf8)))
     }
 
-    private func makeJPEG(at url: URL, index: Int) throws {
-        let width = 240 + index, height = 180 + index
+    func testTwelveMegapixelAndLongImageBoundedMemory() throws {
+        let root = FileManager.default.temporaryDirectory.appending(path: "s02-large-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: root) }
+        let sizes = [(3024, 4032), (1179, 25194)]
+        let inputs = try sizes.enumerated().map { offset, size -> ArchiveInputPage in
+            let number = offset + 1
+            let url = root.appending(path: String(format: "%04d.jpg", number))
+            try makeJPEG(at: url, index: number, width: size.0, height: size.1)
+            let measured = try ArchiveBuilder.measure(url)
+            let record = ArchivePage(number: number, selectionIndex: number, capturedAt: nil,
+                width: size.0, height: size.1, bytes: measured.bytes, sha256: measured.hash,
+                isLivePhoto: false, ocr: OCRResult(status: "empty", text: "", blocks: [],
+                                                  requestRevision: 3, languages: ["en-US"]))
+            return ArchiveInputPage(sourceURL: url, record: record)
+        }
+        let output = try ArchiveBuilder.build(pages: inputs, archiveID: UUID(),
+            title: "Lecture 2026-09-29", jobCreatedAt: Date(),
+            destination: root.appending(path: "exports"), schemaURL: schema)
+        XCTAssertEqual(output.manifest.pages.map(\.width), [3024, 1179])
+        XCTAssertEqual(output.manifest.pages.map(\.height), [4032, 25194])
+        for number in 1...2 {
+            let after = output.pdfMemoryAfterPage[number] ?? 0
+            let peak = output.pdfMemoryPeakPage[number] ?? 0
+            XCTAssertGreaterThan(after, 0)
+            XCTAssertGreaterThanOrEqual(peak, after)
+            print("S02_SYNTHETIC_MEMORY page=\(number) after_mib=\(Double(after)/1048576) sample_peak_mib=\(Double(peak)/1048576)")
+        }
+    }
+
+    private func makeJPEG(at url: URL, index: Int, width: Int? = nil, height: Int? = nil) throws {
+        let width = width ?? 240 + index, height = height ?? 180 + index
         let color = CGColorSpace(name: CGColorSpace.sRGB)!
         let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8,
                                 bytesPerRow: 0, space: color, bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)!

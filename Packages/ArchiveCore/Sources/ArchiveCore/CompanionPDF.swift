@@ -2,14 +2,18 @@ import CoreGraphics
 import Foundation
 import ImageIO
 import UniformTypeIdentifiers
+import Darwin.Mach
 
 public enum CompanionPDF {
-    public static func write(pages: [ArchiveInputPage], to url: URL) throws {
+    public static func write(pages: [ArchiveInputPage], to url: URL,
+                             memorySample: ((Int, UInt64, UInt64) -> Void)? = nil) throws {
         guard let context = CGContext(url as CFURL, mediaBox: nil, nil) else {
             throw ArchiveFailure.invalid("PDF context")
         }
         for input in pages {
             try autoreleasepool {
+                var pagePeak = footprint() ?? 0
+                func sample() { pagePeak = max(pagePeak, footprint() ?? 0) }
                 let width = input.record.width
                 let height = input.record.height
                 let longEdge = max(width, height)
@@ -23,6 +27,7 @@ public enum CompanionPDF {
                 let temporary = url.deletingLastPathComponent().appending(path: ".page-\(input.record.number).jpg")
                 defer { try? FileManager.default.removeItem(at: temporary) }
                 try writeBrowseJPEG(source: input.sourceURL, maxPixelSize: target, to: temporary)
+                sample()
                 guard let source = CGImageSourceCreateWithURL(temporary as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary),
                       let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else {
                     throw ArchiveFailure.invalid("PDF browse JPEG")
@@ -30,10 +35,24 @@ public enum CompanionPDF {
                 context.beginPDFPage([kCGPDFContextMediaBox: Data(bytes: &mediaBox, count: MemoryLayout<CGRect>.size)] as CFDictionary)
                 context.interpolationQuality = .high
                 context.draw(image, in: mediaBox)
+                sample()
                 context.endPDFPage()
+                sample()
+                memorySample?(input.record.number, footprint() ?? 0, pagePeak)
             }
         }
         context.closePDF()
+    }
+
+    private static func footprint() -> UInt64? {
+        var info = task_vm_info_data_t()
+        var count = mach_msg_type_number_t(MemoryLayout<task_vm_info_data_t>.size / MemoryLayout<natural_t>.size)
+        let result = withUnsafeMutablePointer(to: &info) { pointer in
+            pointer.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
+                task_info(mach_task_self_, task_flavor_t(TASK_VM_INFO), $0, &count)
+            }
+        }
+        return result == KERN_SUCCESS ? info.phys_footprint : nil
     }
 
     private static func writeBrowseJPEG(source url: URL, maxPixelSize: Int, to target: URL) throws {

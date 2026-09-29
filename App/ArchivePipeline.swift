@@ -15,6 +15,8 @@ struct ArchiveState: Codable, Sendable {
     var ocrByPage: [Int: OCRResult]
     var memoryAfterPage: [Int: UInt64]
     var memoryPeakPage: [Int: UInt64]
+    var pdfMemoryAfterPage: [Int: UInt64]
+    var pdfMemoryPeakPage: [Int: UInt64]
     var zipName: String?
     var pdfName: String?
     var zipSHA256: String?
@@ -24,6 +26,7 @@ struct ArchiveState: Codable, Sendable {
     init(jobID: UUID) {
         self.jobID = jobID; archiveID = UUID(); phase = .processing
         ocrByPage = [:]; memoryAfterPage = [:]; memoryPeakPage = [:]
+        pdfMemoryAfterPage = [:]; pdfMemoryPeakPage = [:]
     }
 
     var completedOCRCount: Int { ocrByPage.count }

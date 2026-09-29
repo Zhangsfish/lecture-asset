@@ -18,7 +18,7 @@ with zipfile.ZipFile(archive_path) as archive:
     assert names == [f"{root}/README.md", f"{root}/lecture.md", f"{root}/manifest.json"] + [
         f"{root}/slides/{index:04d}.jpg" for index in range(1, 21)
     ]
-    assert all(not info.is_dir() and not (info.external_attr >> 16) & 0o170000 == 0o120000
+    assert all(not info.is_dir() and ((info.external_attr >> 16) & 0o170000) != 0o120000
                for info in archive.infolist())
     manifest = json.loads(archive.read(f"{root}/manifest.json"))
     Draft202012Validator(schema, format_checker=FormatChecker()).validate(manifest)

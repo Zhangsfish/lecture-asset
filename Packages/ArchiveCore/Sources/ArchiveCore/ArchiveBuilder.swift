@@ -19,6 +19,8 @@ public struct ArchiveOutput: Sendable {
     public let manifest: Manifest
     public let pdfLongEdge: Int
     public let pdfJPEGQuality: Double
+    public let pdfMemoryAfterPage: [Int: UInt64]
+    public let pdfMemoryPeakPage: [Int: UInt64]
 }
 
 public enum ArchiveFailure: Error, CustomStringConvertible {
@@ -84,7 +86,11 @@ public enum ArchiveBuilder {
                                          schemaURL: schemaURL)
 
         let pdfTemp = work.appending(path: "archive.pdf")
-        try CompanionPDF.write(pages: pages, to: pdfTemp)
+        var pdfAfter: [Int: UInt64] = [:]
+        var pdfPeak: [Int: UInt64] = [:]
+        try CompanionPDF.write(pages: pages, to: pdfTemp) { number, after, peak in
+            pdfAfter[number] = after; pdfPeak[number] = peak
+        }
         try CompanionPDF.validate(at: pdfTemp, pages: records)
         // The source may change while ZIP/PDF was being built. A changed canonical page invalidates ready.
         for input in pages { try verifyImage(input) }
@@ -97,7 +103,8 @@ public enum ArchiveBuilder {
         try fm.moveItem(at: pdfTemp, to: finalPDF)
         return ArchiveOutput(zipURL: finalZIP, pdfURL: finalPDF,
                              zipSHA256: try measure(finalZIP).hash, pdfSHA256: try measure(finalPDF).hash,
-                             manifest: manifest, pdfLongEdge: pdfLongEdge, pdfJPEGQuality: pdfJPEGQuality)
+                             manifest: manifest, pdfLongEdge: pdfLongEdge, pdfJPEGQuality: pdfJPEGQuality,
+                             pdfMemoryAfterPage: pdfAfter, pdfMemoryPeakPage: pdfPeak)
     }
 
     private static func safeDate(from title: String) -> String {
@@ -166,13 +173,14 @@ public enum ArchiveValidator {
                   entry.path.hasPrefix(rootName + "/") else { throw ArchiveFailure.invalid("ZIP unsafe entry") }
             let relative = String(entry.path.dropFirst(rootName.count + 1))
             var hash = SHA256(); var bytes = 0; var smallData = Data()
-            _ = try reader.extract(entry, bufferSize: 1_048_576, skipCRC32: false) { chunk in
+            let crc = try reader.extract(entry, bufferSize: 1_048_576, skipCRC32: false) { chunk in
                 hash.update(data: chunk); bytes += chunk.count
                 if relative == "manifest.json" {
                     guard smallData.count + chunk.count <= 16_000_000 else { throw ArchiveFailure.invalid("manifest too large") }
                     smallData.append(chunk)
                 }
             }
+            guard crc == entry.checksum else { throw ArchiveFailure.invalid("ZIP CRC") }
             let digest = hash.finalize().map { String(format: "%02x", $0) }.joined()
             if relative == "manifest.json" {
                 try SchemaValidator(schemaURL: schemaURL).validate(smallData)

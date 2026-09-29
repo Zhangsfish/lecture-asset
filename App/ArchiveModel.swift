@@ -87,6 +87,8 @@ final class ArchiveModel: ObservableObject {
                 saved.pdfName = result.pdfURL.lastPathComponent
                 saved.zipSHA256 = result.zipSHA256
                 saved.pdfSHA256 = result.pdfSHA256
+                saved.pdfMemoryAfterPage = result.pdfMemoryAfterPage
+                saved.pdfMemoryPeakPage = result.pdfMemoryPeakPage
                 saved.phase = .ready
                 guard try ArchiveStore.verifyReady(saved, job: job) else {
                     throw ArchiveFailure.invalid("ready validation")
@@ -115,9 +117,12 @@ final class ArchiveModel: ObservableObject {
             let ocr = state.ocrByPage[page.pageIndex]
             let after = state.memoryAfterPage[page.pageIndex].map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown"
             let peak = state.memoryPeakPage[page.pageIndex].map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown"
+            let pdfAfter = state.pdfMemoryAfterPage[page.pageIndex].map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown"
+            let pdfPeak = state.pdfMemoryPeakPage[page.pageIndex].map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown"
             lines.append("page=\(page.pageIndex), pixels=\(page.width ?? 0)x\(page.height ?? 0), " +
                          "ocr_status=\(ocr?.status ?? "pending"), ocr_blocks=\(ocr?.blocks.count ?? 0), " +
-                         "memory_after_mib=\(after), memory_sample_peak_mib=\(peak)")
+                         "ocr_memory_after_mib=\(after), ocr_memory_sample_peak_mib=\(peak), " +
+                         "pdf_memory_after_mib=\(pdfAfter), pdf_memory_sample_peak_mib=\(pdfPeak)")
         }
         return lines.joined(separator: "\n")
     }

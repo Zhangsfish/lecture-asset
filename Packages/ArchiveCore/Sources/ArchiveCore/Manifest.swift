@@ -23,6 +23,22 @@ public struct OCRResult: Codable, Sendable {
         self.engine = "apple_vision"; self.requestRevision = requestRevision
         self.languages = languages; self.errorCode = errorCode
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case status, text, blocks, engine, requestRevision, languages, errorCode
+    }
+    public func encode(to encoder: Encoder) throws {
+        var box = encoder.container(keyedBy: CodingKeys.self)
+        try box.encode(status, forKey: .status)
+        try box.encode(text, forKey: .text)
+        try box.encode(blocks, forKey: .blocks)
+        try box.encode(engine, forKey: .engine)
+        if let requestRevision { try box.encode(requestRevision, forKey: .requestRevision) }
+        else { try box.encodeNil(forKey: .requestRevision) }
+        try box.encode(languages, forKey: .languages)
+        if let errorCode { try box.encode(errorCode, forKey: .errorCode) }
+        else { try box.encodeNil(forKey: .errorCode) }
+    }
 }
 
 public struct ArchivePage: Codable, Sendable {
@@ -47,6 +63,27 @@ public struct ArchivePage: Codable, Sendable {
         self.sourceRepresentation = isLivePhoto ? "live_photo_still" : "current_still"
         self.ocr = ocr
         self.warnings = isLivePhoto ? ["Live Photo motion and audio are not archived."] : []
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case number, selectionIndex, capturedAt, captureTimeSource, image, width, height,
+             bytes, sha256, sourceRepresentation, ocr, warnings
+    }
+    public func encode(to encoder: Encoder) throws {
+        var box = encoder.container(keyedBy: CodingKeys.self)
+        try box.encode(number, forKey: .number)
+        try box.encode(selectionIndex, forKey: .selectionIndex)
+        if let capturedAt { try box.encode(capturedAt, forKey: .capturedAt) }
+        else { try box.encodeNil(forKey: .capturedAt) }
+        try box.encode(captureTimeSource, forKey: .captureTimeSource)
+        try box.encode(image, forKey: .image)
+        try box.encode(width, forKey: .width)
+        try box.encode(height, forKey: .height)
+        try box.encode(bytes, forKey: .bytes)
+        try box.encode(sha256, forKey: .sha256)
+        try box.encode(sourceRepresentation, forKey: .sourceRepresentation)
+        try box.encode(ocr, forKey: .ocr)
+        try box.encode(warnings, forKey: .warnings)
     }
 }
 
