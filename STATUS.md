@@ -18,9 +18,9 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 
 | Stage | Status | Task |
 |---|---|---|
-| S00 | BLOCKED_DEVICE — CI/simulator accepted | [round-03 audit](audits/S00/round-03.md) |
+| S00 | PASS — physical iPhone accepted | [device audit](audits/S00/device-01.md) |
 | S00-TF | PASS — build 0.1.0 (18.1) uploaded and VALID | [TestFlight round-03 audit](audits/S00/testflight-03.md) |
-| S01 | LOCKED | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
+| S01 | READY | [Full-resolution still + JPEG90](tasks/S01_IMPORT.md) |
 | S02 | LOCKED | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
 | S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
 | S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
@@ -64,10 +64,17 @@ Build `Lecture Asset 0.1.0 (18.1)` was independently verified as uploaded and Ap
 
 Audit: [testflight-03](audits/S00/testflight-03.md).
 
+## S00 physical-device acceptance
+
+Owner installed internal TestFlight build `0.1.0 (18.1)` and reported the complete S00 physical checklist passing.
+
+Report: [device-01](reports/S00/device-01/DELIVERY.md)  
+Audit: [device-01](audits/S00/device-01.md)
+
 ## Next action
 
-Install the exact build on the owner's iPhone through internal TestFlight and execute:
+S00 is PASS. Merge PR #1 after syncing latest main, then start S01 on its own branch/PR:
 
-`tasks/S00_DEVICE_ACCEPTANCE.md`
+`tasks/S01_IMPORT.md`
 
-S00 remains BLOCKED_DEVICE until the physical checklist passes. PR #1 stays open. S01 remains locked.
+S01 goal is only full-quality still extraction → upright full-resolution sRGB JPEG Q90 with checkpointing and validation. Do not add OCR/ZIP/PDF/share/delete yet.
