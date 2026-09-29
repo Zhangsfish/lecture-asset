@@ -9,8 +9,8 @@ enum ArchivePhase: String, Codable, Sendable {
 }
 
 struct ArchiveState: Codable, Sendable {
-    let jobID: UUID
-    let archiveID: UUID
+    let jobId: UUID
+    let archiveId: UUID
     var phase: ArchivePhase
     var ocrByPage: [Int: OCRResult]
     var memoryAfterPage: [Int: UInt64]
@@ -19,12 +19,12 @@ struct ArchiveState: Codable, Sendable {
     var pdfMemoryPeakPage: [Int: UInt64]
     var zipName: String?
     var pdfName: String?
-    var zipSHA256: String?
-    var pdfSHA256: String?
+    var zipSha256: String?
+    var pdfSha256: String?
     var failureCode: String?
 
-    init(jobID: UUID) {
-        self.jobID = jobID; archiveID = UUID(); phase = .processing
+    init(jobId: UUID) {
+        self.jobId = jobId; archiveId = UUID(); phase = .processing
         ocrByPage = [:]; memoryAfterPage = [:]; memoryPeakPage = [:]
         pdfMemoryAfterPage = [:]; pdfMemoryPeakPage = [:]
     }
@@ -56,7 +56,7 @@ enum ArchiveStore {
 
     static func verifyReady(_ state: ArchiveState, job: ProcessingJob) throws -> Bool {
         guard state.phase == .ready, let zipName = state.zipName, let pdfName = state.pdfName,
-              let zipHash = state.zipSHA256, let pdfHash = state.pdfSHA256,
+              let zipHash = state.zipSha256, let pdfHash = state.pdfSha256,
               (zipName as NSString).lastPathComponent == zipName,
               (pdfName as NSString).lastPathComponent == pdfName else { return false }
         let directory = try outputDirectory(job: job)
@@ -81,7 +81,7 @@ enum ArchiveStore {
         }
         let records = inputs.map(\.record)
         let title = "Lecture \(ArchiveDate.titleDate(captured: job.pages.map(\.capturedAt), jobCreatedAt: job.createdAt))"
-        let manifest = Manifest(archiveId: state.archiveID, title: title,
+        let manifest = Manifest(archiveId: state.archiveId, title: title,
                                 createdAt: ArchiveDate.iso(job.createdAt), pages: records,
                                 files: archiveFileList(title: title, records: records))
         try ArchiveValidator.validateZIP(at: zip, rootName: String(zipName.dropLast(7)), expected: manifest, schemaURL: schema)

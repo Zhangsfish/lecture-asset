@@ -18,6 +18,19 @@ private actor SyntheticPageProcessor: StillPageProcessing {
 }
 
 final class S01RecoveryTests: XCTestCase {
+    func testArchiveCheckpointRoundTripsAcrossRelaunch() throws {
+        var original = ArchiveState(jobId: UUID())
+        original.zipSha256 = String(repeating: "a", count: 64)
+        original.pdfSha256 = String(repeating: "b", count: 64)
+        let encoder = JSONEncoder(); encoder.keyEncodingStrategy = .convertToSnakeCase
+        let decoder = JSONDecoder(); decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let decoded = try decoder.decode(ArchiveState.self, from: encoder.encode(original))
+        XCTAssertEqual(decoded.jobId, original.jobId)
+        XCTAssertEqual(decoded.archiveId, original.archiveId)
+        XCTAssertEqual(decoded.zipSha256, original.zipSha256)
+        XCTAssertEqual(decoded.pdfSha256, original.pdfSha256)
+    }
+
     @MainActor
     func testDeterministicFailureThenCauseRestoredAndRetry() async throws {
         let synthetic = SyntheticPageProcessor(failingIndex: 1)

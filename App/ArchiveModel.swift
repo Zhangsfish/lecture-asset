@@ -9,7 +9,7 @@ final class ArchiveModel: ObservableObject {
     private var task: Task<Void, Never>?
 
     func restore(job: ProcessingJob) {
-        guard !isBusy, state?.jobID != job.id else { return }
+        guard !isBusy, state?.jobId != job.id else { return }
         isBusy = true
         Task {
             let loaded = await Task.detached(priority: .utility) { () -> ArchiveState? in
@@ -33,7 +33,7 @@ final class ArchiveModel: ObservableObject {
 
     func startOrRetry(job: ProcessingJob) {
         guard job.phase == .completed, !isBusy, task == nil else { return }
-        var current = state?.jobID == job.id ? state! : ArchiveState(jobID: job.id)
+        var current = state?.jobId == job.id ? state! : ArchiveState(jobId: job.id)
         current.phase = .processing
         current.failureCode = nil
         do { try ArchiveStore.save(current, job: job) }
@@ -80,13 +80,13 @@ final class ArchiveModel: ObservableObject {
                                                 isLivePhoto: page.isLivePhoto, ocr: ocr))
                 }
                 let date = ArchiveDate.titleDate(captured: job.pages.map(\.capturedAt), jobCreatedAt: job.createdAt)
-                let result = try ArchiveBuilder.build(pages: inputs, archiveID: saved.archiveID,
+                let result = try ArchiveBuilder.build(pages: inputs, archiveID: saved.archiveId,
                     title: "Lecture \(date)", jobCreatedAt: job.createdAt,
                     destination: ArchiveStore.outputDirectory(job: job), schemaURL: schema)
                 saved.zipName = result.zipURL.lastPathComponent
                 saved.pdfName = result.pdfURL.lastPathComponent
-                saved.zipSHA256 = result.zipSHA256
-                saved.pdfSHA256 = result.pdfSHA256
+                saved.zipSha256 = result.zipSHA256
+                saved.pdfSha256 = result.pdfSHA256
                 saved.pdfMemoryAfterPage = result.pdfMemoryAfterPage
                 saved.pdfMemoryPeakPage = result.pdfMemoryPeakPage
                 saved.phase = .ready
