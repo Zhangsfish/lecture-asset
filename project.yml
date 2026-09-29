@@ -7,14 +7,19 @@ options:
 packages:
   SelectionCore:
     path: Packages/SelectionCore
+  ArchiveCore:
+    path: Packages/ArchiveCore
 targets:
   LectureAsset:
     type: application
     platform: iOS
     sources:
       - path: App
+      - path: schemas/manifest-v1.schema.json
+        buildPhase: resources
     dependencies:
       - package: SelectionCore
+      - package: ArchiveCore
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset

@@ -1,11 +1,14 @@
 import SwiftUI
 import UIKit
+import PDFKit
 
 struct ProcessingView: View {
     @ObservedObject var model: ProcessingModel
     @State private var showingRemoveConfirmation = false
     @State private var pageToPreview: JobPage?
     @State private var copied = false
+    @StateObject private var archive = ArchiveModel()
+    @State private var showingPDF = false
 
     var body: some View {
         Group {
@@ -47,6 +50,31 @@ struct ProcessingView: View {
                         }
                         if job.phase == .completed {
                             Text("processing.completeDetail")
+                            if let archiveState = archive.state {
+                                Text(archiveKey(for: archiveState.phase))
+                                    .accessibilityIdentifier("archive-phase")
+                                Text("\(archiveState.completedOCRCount) / \(job.totalCount) OCR")
+                                if archiveState.phase == .failed {
+                                    Text("archive.failedDetail").foregroundStyle(.red)
+                                    Button("archive.retry") { archive.startOrRetry(job: job) }
+                                        .buttonStyle(.borderedProminent)
+                                }
+                                if archiveState.phase == .paused {
+                                    Button("archive.resume") { archive.startOrRetry(job: job) }
+                                        .buttonStyle(.borderedProminent)
+                                }
+                                if archiveState.phase == .ready {
+                                    Text("archive.readyDetail")
+                                    Button("archive.previewPDF") { showingPDF = true }
+                                    Button("archive.copyMetrics") {
+                                        UIPasteboard.general.string = archive.safeMetrics(job: job)
+                                    }
+                                }
+                            } else if !archive.isBusy {
+                                Button("archive.start") { archive.startOrRetry(job: job) }
+                                    .buttonStyle(.borderedProminent)
+                                    .accessibilityIdentifier("archive-start")
+                            }
                             if let inventory = try? JobStore.outputInventory(in: job) {
                                 HStack {
                                     Text("processing.jpegCount")
@@ -101,6 +129,27 @@ struct ProcessingView: View {
                 CanonicalPagePreview(url: url)
             }
         }
+        .sheet(isPresented: $showingPDF) {
+            if let state = archive.state, let name = state.pdfName,
+               let job = model.job, let folder = try? ArchiveStore.outputDirectory(job: job) {
+                CompanionPDFPreview(url: folder.appending(path: name))
+            }
+        }
+        .onAppear {
+            if let job = model.job, job.phase == .completed { archive.restore(job: job) }
+        }
+        .onChange(of: model.job?.phase) { _, phase in
+            if phase == .completed, let job = model.job { archive.restore(job: job) }
+        }
+    }
+
+    private func archiveKey(for phase: ArchivePhase) -> LocalizedStringKey {
+        switch phase {
+        case .processing: "archive.processing"
+        case .paused: "archive.paused"
+        case .failed: "archive.failed"
+        case .ready: "archive.ready"
+        }
     }
 
     private func phaseKey(for phase: JobPhase) -> LocalizedStringKey {
@@ -151,6 +200,30 @@ struct ProcessingView: View {
             "peak_mib=\(page.memoryBytesPeakPage.map { String(format: "%.1f", Double($0) / 1_048_576) } ?? "unknown")"
          }).joined(separator: "\n")
     }
+}
+
+private struct CompanionPDFPreview: View {
+    let url: URL
+    @Environment(\.dismiss) private var dismiss
+    var body: some View {
+        NavigationStack {
+            PDFDocumentView(url: url)
+                .navigationTitle("archive.previewPDF")
+                .toolbar { Button("common.done") { dismiss() } }
+        }
+    }
+}
+
+private struct PDFDocumentView: UIViewRepresentable {
+    let url: URL
+    func makeUIView(context: Context) -> PDFView {
+        let view = PDFView()
+        view.autoScales = true
+        view.displayMode = .singlePageContinuous
+        view.document = PDFDocument(url: url)
+        return view
+    }
+    func updateUIView(_ uiView: PDFView, context: Context) {}
 }
 
 private struct CanonicalPagePreview: View {
