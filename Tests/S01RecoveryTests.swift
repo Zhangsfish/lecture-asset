@@ -1,7 +1,7 @@
 import Foundation
 import SelectionCore
 import XCTest
-@testable import LectureAsset
+@testable import Lecture_Asset
 
 private actor SyntheticPageProcessor: StillPageProcessing {
     private var failingIndex: Int?
