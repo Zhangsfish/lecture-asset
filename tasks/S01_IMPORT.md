@@ -6,6 +6,8 @@ Prerequisite: S00 PASS. Branch `codex/s01-image-pipeline`.
 
 For every frozen selected PHAsset, reliably create exactly one full-resolution upright canonical JPEG Q90. No OCR/ZIP/PDF/delete yet.
 
+Freeze the job's final page order from `PHAsset.creationDate` before extraction: non-null dates ascending, ties by `selectionIndex`, null dates last. This chronological order becomes the one source of truth for later JPEG numbering / manifest / Markdown / PDF.
+
 ## Requirements
 
 - Request full-quality current still; network acquisition disabled.
@@ -18,6 +20,7 @@ For every frozen selected PHAsset, reliably create exactly one full-resolution u
 - ImageIO/CoreGraphics -> sRGB JPEG quality 0.90.
 - Serial/bounded processing and autorelease lifetime.
 - Store per-page dimensions/bytes/SHA256 and private PHAsset mapping.
+- Record `captured_at` and stable final page index using the frozen chronological order; do not number pages by selection order or async completion order.
 - Per-page checkpoint; app relaunch can resume safely.
 - iCloud-only/not-local full data -> explicit error/retry guidance, not thumbnail substitution.
 - A failed page blocks complete status until retry or user explicitly removes it; removed asset leaves cleanup set.
@@ -38,3 +41,8 @@ If Apple JPEG Q90 visibly harms small text, stop and report for product review; 
 ## Delivery
 
 PR + reports/S01/round-01 with real iPhone evidence and safe measurements. Wait for audit.
+
+
+## Release metadata hygiene
+
+The app does not implement or bundle non-exempt encryption in v0.1. Add `ITSAppUsesNonExemptEncryption = NO` to the generated app Info.plist/project spec so future TestFlight uploads do not repeatedly require manual export-compliance answers. This is release metadata only; do not add cryptography or networking.
