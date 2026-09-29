@@ -3,6 +3,7 @@ import SwiftUI
 import UIKit
 
 struct ConfirmationView: View {
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var model: PhotoLibraryModel
     @ObservedObject var processor: ProcessingModel
     @State private var startFailed = false
@@ -54,6 +55,7 @@ struct ConfirmationView: View {
                     }
                     do {
                         try processor.start(pages: pages)
+                        dismiss()
                     } catch {
                         startFailed = true
                     }

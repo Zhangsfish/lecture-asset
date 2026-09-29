@@ -31,7 +31,10 @@ final class S01ProcessingUITests: XCTestCase {
         start.tap()
 
         let phase = app.staticTexts["processing-phase"]
-        XCTAssertTrue(phase.waitForExistence(timeout: 20))
+        XCTAssertTrue(
+            phase.waitForExistence(timeout: 20),
+            "Expected processing screen; visible text: \(app.staticTexts.allElementsBoundByIndex.map(\.label))"
+        )
         let completed = NSPredicate(format: "label == %@", "Completed")
         expectation(for: completed, evaluatedWith: phase)
         waitForExpectations(timeout: 90)
