@@ -20,8 +20,8 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 |---|---|---|
 | S00 | PASS — physical iPhone accepted | [device audit](audits/S00/device-01.md) |
 | S00-TF | PASS — build 0.1.0 (18.1) uploaded and VALID | [TestFlight round-03 audit](audits/S00/testflight-03.md) |
-| S01 | PASS — PR #2 ready to merge | [round-01 audit](audits/S01/round-01.md) |
-| S02 | READY AFTER PR #2 MERGE | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
+| S01 | PASS — PR #2 merged | [round-01 audit](audits/S01/round-01.md) |
+| S02 | READY | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
 | S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
 | S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
 | S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
@@ -103,7 +103,7 @@ Non-blocking carryovers into S02:
 
 ## Next action
 
-Merge PR #2 into main. Then create a fresh S02 branch/PR from the merged main and execute only:
+PR #2 is merged. Start S02 from the merged main on branch `codex/s02-archive` and execute only:
 
 `tasks/S02_ARCHIVE.md`
 
