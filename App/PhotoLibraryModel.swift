@@ -86,6 +86,28 @@ final class PhotoLibraryModel: ObservableObject {
         _ = selection.setSelected(false, identifier: identifier, creationDate: nil)
     }
 
+    /// Re-read each selected PHAsset at confirmation time, then freeze one chronological page plan.
+    /// The private identifiers are used only inside the resumable job ledger.
+    func frozenJobPages() -> [JobPage]? {
+        guard authorization == .authorized, !selection.orderedPhotos.isEmpty else { return nil }
+        var selected: [SelectedPhoto] = []
+        var liveIDs = Set<String>()
+        for entry in selection.orderedPhotos {
+            guard let asset = assetsByID[entry.localIdentifier], asset.mediaType == .image else {
+                return nil
+            }
+            selected.append(SelectedPhoto(
+                localIdentifier: asset.localIdentifier,
+                creationDate: asset.creationDate,
+                selectionIndex: entry.selectionIndex
+            ))
+            if asset.mediaSubtypes.contains(.photoLive) { liveIDs.insert(asset.localIdentifier) }
+        }
+        return FrozenPage.freeze(selected).map {
+            JobPage(frozen: $0, isLivePhoto: liveIDs.contains($0.localIdentifier))
+        }
+    }
+
     private func apply(_ result: SelectionResult) -> SelectionResult {
         if result == .limitReached { showsSelectionLimit = true }
         return result

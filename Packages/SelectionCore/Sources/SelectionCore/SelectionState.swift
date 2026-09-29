@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SelectedPhoto: Equatable, Sendable {
+public struct SelectedPhoto: Codable, Equatable, Sendable {
     public let localIdentifier: String
     public let creationDate: Date?
     public let selectionIndex: Int
@@ -9,6 +9,46 @@ public struct SelectedPhoto: Equatable, Sendable {
         self.localIdentifier = localIdentifier
         self.creationDate = creationDate
         self.selectionIndex = selectionIndex
+    }
+
+    static func chronologicalLessThan(_ lhs: SelectedPhoto, _ rhs: SelectedPhoto) -> Bool {
+        switch (lhs.creationDate, rhs.creationDate) {
+        case let (left?, right?) where left != right:
+            return left < right
+        case (_?, nil):
+            return true
+        case (nil, _?):
+            return false
+        default:
+            return lhs.selectionIndex < rhs.selectionIndex
+        }
+    }
+}
+
+/// Immutable page order captured when the owner starts a processing job.
+/// Later outputs must use pageIndex rather than callback or selection order.
+public struct FrozenPage: Codable, Equatable, Sendable {
+    public let pageIndex: Int
+    public let localIdentifier: String
+    public let capturedAt: Date?
+    public let selectionIndex: Int
+
+    public init(pageIndex: Int, localIdentifier: String, capturedAt: Date?, selectionIndex: Int) {
+        self.pageIndex = pageIndex
+        self.localIdentifier = localIdentifier
+        self.capturedAt = capturedAt
+        self.selectionIndex = selectionIndex
+    }
+
+    public static func freeze(_ selected: [SelectedPhoto]) -> [FrozenPage] {
+        selected.sorted(by: SelectedPhoto.chronologicalLessThan).enumerated().map { offset, photo in
+            FrozenPage(
+                pageIndex: offset + 1,
+                localIdentifier: photo.localIdentifier,
+                capturedAt: photo.creationDate,
+                selectionIndex: photo.selectionIndex
+            )
+        }
     }
 }
 
@@ -60,18 +100,7 @@ public struct SelectionState: Sendable {
     }
 
     public var orderedPhotos: [SelectedPhoto] {
-        entries.values.sorted { lhs, rhs in
-            switch (lhs.creationDate, rhs.creationDate) {
-            case let (left?, right?) where left != right:
-                return left < right
-            case (_?, nil):
-                return true
-            case (nil, _?):
-                return false
-            default:
-                return lhs.selectionIndex < rhs.selectionIndex
-            }
-        }
+        entries.values.sorted(by: SelectedPhoto.chronologicalLessThan)
     }
 }
 
