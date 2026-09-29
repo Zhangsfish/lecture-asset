@@ -178,7 +178,7 @@ public enum ArchiveValidator {
                 try SchemaValidator(schemaURL: schemaURL).validate(smallData)
                 let decoded = try JSONDecoder.manifestDecoder.decode(Manifest.self, from: smallData)
                 try ArchiveBuilder.checkRelations(decoded)
-                guard smallData == ArchiveJSON.encoder().encode(expected) else {
+                guard smallData == (try ArchiveJSON.encoder().encode(expected)) else {
                     throw ArchiveFailure.invalid("ZIP manifest changed")
                 }
             } else {

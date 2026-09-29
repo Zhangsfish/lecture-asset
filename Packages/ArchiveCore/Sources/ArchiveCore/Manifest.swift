@@ -60,31 +60,38 @@ public struct ArchiveFile: Codable, Sendable {
 }
 
 public struct ImagePolicy: Codable, Sendable {
-    public let codec = "jpeg"
-    public let jpegQuality = 0.90
-    public let pixelDimensions = "preserve_full_source_rendition"
-    public let fullFrame = true
-    public let orientation = "baked_up"
-    public let resize = "none"
-    public let colorSpace = "sRGB"
-    public init() {}
+    public let codec: String
+    public let jpegQuality: Double
+    public let pixelDimensions: String
+    public let fullFrame: Bool
+    public let orientation: String
+    public let resize: String
+    public let colorSpace: String
+    public init() {
+        codec = "jpeg"; jpegQuality = 0.90
+        pixelDimensions = "preserve_full_source_rendition"; fullFrame = true
+        orientation = "baked_up"; resize = "none"; colorSpace = "sRGB"
+    }
 }
 
 public struct Manifest: Codable, Sendable {
-    public let schemaVersion = "1.0.0"
+    public let schemaVersion: String
     public let archiveId: String
     public let title: String
     public let createdAt: String
     public let sourceCount: Int
     public let pageCount: Int
-    public let sortPolicy = "capture_time_asc_nulls_last_selection_index"
-    public let imagePolicy = ImagePolicy()
+    public let sortPolicy: String
+    public let imagePolicy: ImagePolicy
     public let pages: [ArchivePage]
     public let files: [ArchiveFile]
     public init(archiveId: UUID, title: String, createdAt: String,
                 pages: [ArchivePage], files: [ArchiveFile]) {
+        self.schemaVersion = "1.0.0"
         self.archiveId = archiveId.uuidString.lowercased(); self.title = title
         self.createdAt = createdAt; self.sourceCount = pages.count; self.pageCount = pages.count
+        self.sortPolicy = "capture_time_asc_nulls_last_selection_index"
+        self.imagePolicy = ImagePolicy()
         self.pages = pages; self.files = files
     }
 }

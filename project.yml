@@ -53,3 +53,15 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         SWIFT_VERSION: "6.0"
         TEST_TARGET_NAME: LectureAsset
+  LectureAssetTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: LectureAsset
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset.tests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "6.0"

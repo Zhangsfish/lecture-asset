@@ -19,8 +19,12 @@ struct PageProcessingError: Error, Sendable {
     let code: PageFailure
 }
 
+protocol StillPageProcessing: Sendable {
+    func process(_ page: JobPage, in job: ProcessingJob) async throws -> PageOutput
+}
+
 /// One call is awaited before the next page starts. No full-size image is cached across pages.
-actor CanonicalStillPipeline {
+actor CanonicalStillPipeline: StillPageProcessing {
     func process(_ page: JobPage, in job: ProcessingJob) async throws -> PageOutput {
         let encoded = try await encode(page, in: job)
         return PageOutput(
