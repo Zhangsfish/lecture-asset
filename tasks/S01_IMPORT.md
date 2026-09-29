@@ -10,6 +10,8 @@ Freeze the job's final page order from `PHAsset.creationDate` before extraction:
 
 ## Requirements
 
+- Add the missing confirmation-page primary CTA (e.g. `开始整理` / `Continue`) that freezes the current selected asset set and chronological page order, then starts the S01 processing job. The CTA must not generate OCR/PDF/ZIP yet.
+- Add a minimal Processing state/screen showing current page / total and success or blocking failure so the owner can test S01 end-to-end on device.
 - Request full-quality current still; network acquisition disabled.
 - Do not accept PhotoKit thumbnails/previews.
 - Ordinary photo and Live Photo use the same static-page pipeline.
