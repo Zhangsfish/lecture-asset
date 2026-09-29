@@ -16,6 +16,7 @@ This folder records implementation and verification of the S02 OCR, AI ZIP and c
 - `DELIVERY.md`: handoff, implementation scope, evidence links, unresolved acceptance items.
 - `ENVIRONMENT.md`: actual macOS CI/Xcode and iPhone test environment, with NOT_RUN where applicable.
 - `TEST_RESULTS.json`: machine-readable PASS/FAIL/NOT_RUN results and artifacts.
+- `evidence/owner-build-22-1-summary.txt`: safe owner iPhone metrics and the PDF memory-growth finding from the initial S02 TestFlight build. Its SHA is older than the streaming PDF fix; never cite it as verification of later code.
 
 ## Current decisions
 
