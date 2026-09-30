@@ -61,6 +61,7 @@ struct ProcessingJob: Codable, Identifiable, Sendable {
     let createdAt: Date
     var phase: JobPhase
     var pages: [JobPage]
+    var sourcesDeleted: Bool? // Optional for checkpoints written before S03.
 
     var completedCount: Int { pages.filter { $0.phase == .completed }.count }
     var totalCount: Int { pages.count }
@@ -87,6 +88,13 @@ enum JobStore {
 
     static func directory(for job: ProcessingJob) throws -> URL {
         try root().appending(path: job.id.uuidString, directoryHint: .isDirectory)
+    }
+
+    static func purge(_ job: ProcessingJob) throws {
+        // The UUID directory is the entire private working copy for this one job.
+        let directory = try directory(for: job)
+        guard FileManager.default.fileExists(atPath: directory.path) else { return }
+        try FileManager.default.removeItem(at: directory)
     }
 
     static func imageURL(for page: JobPage, in job: ProcessingJob) throws -> URL {

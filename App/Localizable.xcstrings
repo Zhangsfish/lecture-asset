@@ -38,13 +38,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Browse and select lecture photos from your library. Full Read & Write access is required for this workflow. This version only selects photos and never modifies them."
+            "value": "Browse and select lecture photos from your library. Full Read & Write access is required. Source photos are deleted only after sharing a validated ZIP, your external-save confirmation, and a separate deletion action."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "浏览并选择相册中的讲座照片。此流程需要完整的读取与写入权限。本版本只选择照片，不会修改照片。"
+            "value": "浏览并选择相册中的讲座照片。此流程需要完整的读取与写入权限。只有分享已校验的 ZIP、确认外部保存并另行操作删除后，才会删除原照片。"
           }
         }
       }
@@ -943,6 +943,174 @@
             "state": "translated"
           }
         }
+      }
+    },
+    "export.shareZIP": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Share AI ZIP" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "分享 AI ZIP" } }
+      }
+    },
+    "export.sharePDF": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Share PDF" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "分享 PDF" } }
+      }
+    },
+    "export.copyZIPHash": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Copy ZIP SHA-256 for checking the received file" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "复制 ZIP SHA-256 以核对收到的文件" } }
+      }
+    },
+    "export.shareCompleted": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "The selected app reported that ZIP sharing completed. Check the complete ZIP at its destination before confirming." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "系统报告 ZIP 分享完成。确认前，请在接收位置检查完整 ZIP。" } }
+      }
+    },
+    "export.confirmSaved": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Confirm complete ZIP saved externally" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "确认完整 ZIP 已保存到外部" } }
+      }
+    },
+    "export.savedConfirmed": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "You confirmed the complete ZIP is saved externally." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "你已确认完整 ZIP 保存到了外部。" } }
+      }
+    },
+    "export.saveConfirmTitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Have you checked the complete AI ZIP at its destination?" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "你已在接收位置检查完整的 AI ZIP 吗？" } }
+      }
+    },
+    "export.saveConfirmAction": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "I have saved the complete AI ZIP" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "我已保存完整的 AI ZIP" } }
+      }
+    },
+    "export.deleteSources": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Delete source photos" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "删除原照片" } }
+      }
+    },
+    "export.cleanupLockedHint": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Deleting photos stays locked until the complete ZIP is shared, you confirm its external save, and the archive and exact photos pass validation." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "完整 ZIP 分享成功、你确认外部保存，且归档和精确照片集合重新校验通过后，才能删除原照片。" } }
+      }
+    },
+    "export.deleteConfirmTitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Delete these exact source photos now?" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "现在删除本次精确对应的原照片吗？" } }
+      }
+    },
+    "export.deleteConfirmAction": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Continue to Photos deletion confirmation" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "继续至系统照片删除确认" } }
+      }
+    },
+    "export.deleteConfirmCount": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Source photo count:" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "原照片数量：" } }
+      }
+    },
+    "export.deleteLiveWarning": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Live Photos among them: their motion and sound are not archived. Count:" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "其中 Live Photo 的动态与声音没有归档。数量：" } }
+      }
+    },
+    "export.deleteICloudWarning": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "If iCloud Photos is on, deletion may sync to your other devices. Photos will show its own deletion confirmation. Recently Deleted is not emptied here." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "如果已开启 iCloud 照片，删除可能同步到其他设备。系统会再次询问是否删除；本 App 不会清空“最近删除”。" } }
+      }
+    },
+    "export.discardWorkCopy": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Discard App work copy without deleting Photos" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "只删除 App 工作副本，不删除相册照片" } }
+      }
+    },
+    "export.discardConfirmTitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Discard this App work copy?" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "确定删除本次 App 工作副本吗？" } }
+      }
+    },
+    "export.discardConfirmAction": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Discard App files only" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "只删除 App 文件" } }
+      }
+    },
+    "export.discardDetail": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "This removes this job's JPEGs, OCR, ZIP, PDF and recovery state from the App. Photos are not changed. You cannot resume this job." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "这会删除本次任务在 App 中的 JPEG、OCR、ZIP、PDF 和恢复状态；相册照片不会改变，此任务无法再恢复。" } }
+      }
+    },
+    "export.photosDeletedCleanupPending": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Photos deletion succeeded. App work-file cleanup is pending; do not request Photos deletion again." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "相册删除已成功，App 工作文件仍待清理；不会再次请求删除相册。" } }
+      }
+    },
+    "export.retryPurge": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Retry App file cleanup" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "重试清理 App 文件" } }
+      }
+    },
+    "export.errorArchiveChanged": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "The archive changed or failed validation. ZIP sharing and delete confirmation were reset." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "归档已变化或校验失败，ZIP 分享状态和删除确认已重置。" } }
+      }
+    },
+    "export.errorShareIncomplete": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "ZIP sharing was cancelled or failed. Source photos remain unchanged." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "ZIP 分享已取消或失败，原照片未改变。" } }
+      }
+    },
+    "export.errorPermission": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Full Photos Read & Write access is required. Restore access in Settings; App files are retained." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "需要完整的照片读取与写入权限。请在设置中恢复；App 文件已保留。" } }
+      }
+    },
+    "export.errorLedger": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "The frozen source-photo list is invalid. Deletion was not started; App files are retained." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "冻结的原照片清单无效。未开始删除，App 文件已保留。" } }
+      }
+    },
+    "export.errorMissing": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A frozen source photo is missing or duplicated. Deletion was not started; App files are retained." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "有原照片缺失或重复。未开始删除，App 文件已保留。" } }
+      }
+    },
+    "export.errorDelete": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Photos deletion was cancelled or failed. App files are retained; you may retry." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "相册删除已取消或失败。App 文件已保留，可重试。" } }
+      }
+    },
+    "export.errorPurge": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Photos deletion succeeded, but App file cleanup failed. Retry App cleanup; do not delete Photos again." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "相册删除已成功，但 App 文件清理失败。请重试清理 App 文件，不要再次删除相册。" } }
       }
     }
   },

@@ -82,6 +82,40 @@ final class ProcessingModel: ObservableObject {
         if current.phase == .processing { run() }
     }
 
+    /// Called only after PhotoKit's performChanges returns success.
+    func completePhotoDeletionAndPurge() throws {
+        guard var current = job, current.phase == .completed, activeTask == nil else {
+            throw SourceCleanupFailure.localPurgeFailed
+        }
+        current.sourcesDeleted = true
+        job = current
+        // Persist a conservative tombstone before removing the work copy. If file
+        // removal fails, relaunch can retry without ever requesting source deletion.
+        try JobStore.save(current)
+        try JobStore.purge(current)
+        job = nil
+        storageFailed = false
+    }
+
+    func retryPurgeAfterPhotoDeletion() {
+        guard let current = job, current.sourcesDeleted == true, activeTask == nil else { return }
+        do {
+            try JobStore.purge(current)
+            job = nil
+            storageFailed = false
+        } catch { storageFailed = true }
+    }
+
+    /// Independent, explicitly confirmed action. Does not call PhotoKit.
+    func discardWorkCopyKeepingPhotos() {
+        guard let current = job, current.phase != .processing, activeTask == nil else { return }
+        do {
+            try JobStore.purge(current)
+            job = nil
+            storageFailed = false
+        } catch { storageFailed = true }
+    }
+
     func imageURL(for page: JobPage) -> URL? {
         guard let job, page.phase == .completed else { return nil }
         return try? JobStore.imageURL(for: page, in: job)
@@ -91,6 +125,10 @@ final class ProcessingModel: ObservableObject {
         do {
             let recovered = try await Task.detached(priority: .utility) { () -> ProcessingJob? in
                 guard var saved = try JobStore.loadLatest() else { return nil }
+                if saved.sourcesDeleted == true {
+                    if (try? JobStore.purge(saved)) != nil { return nil }
+                    return saved // Never repeat PhotoKit deletion after a successful callback.
+                }
                 var changed = false
                 for index in saved.pages.indices where saved.pages[index].phase == .completed {
                     if (try? JobStore.verifyCompleted(saved.pages[index], in: saved)) != true {
