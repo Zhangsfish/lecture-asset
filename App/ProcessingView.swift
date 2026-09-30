@@ -3,12 +3,18 @@ import UIKit
 import PDFKit
 
 struct ProcessingView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @ObservedObject var model: ProcessingModel
     @State private var showingRemoveConfirmation = false
     @State private var pageToPreview: JobPage?
     @State private var copied = false
     @StateObject private var archive = ArchiveModel()
     @State private var showingPDF = false
+    @State private var presentedShare: SharePresentation?
+    @State private var showingSaveConfirmation = false
+    @State private var showingDeleteConfirmation = false
+    @State private var showingDiscardConfirmation = false
+    @State private var pendingDeleteSummary: SourceDeletionSummary?
 
     var body: some View {
         Group {
@@ -27,6 +33,11 @@ struct ProcessingView: View {
                         if model.storageFailed {
                             Text("processing.storageFailed").foregroundStyle(.red)
                             Button("processing.retryCheckpoint") { model.retryCheckpoint() }
+                        }
+                        if job.sourcesDeleted == true {
+                            Text("export.photosDeletedCleanupPending")
+                            Button("export.retryPurge") { model.retryPurgeAfterPhotoDeletion() }
+                                .buttonStyle(.borderedProminent)
                         }
                         if job.phase == .processing {
                             Button(model.pauseRequested ? "processing.pausePending" : "processing.pause") {
@@ -48,9 +59,9 @@ struct ProcessingView: View {
                                 }
                             }
                         }
-                        if job.phase == .completed {
+                        if job.phase == .completed && job.sourcesDeleted != true {
                             Text("processing.completeDetail")
-                            if let archiveState = archive.state {
+                            if let archiveState = archive.state, archiveState.jobId == job.id {
                                 Text(archiveKey(for: archiveState.phase))
                                     .accessibilityIdentifier("archive-phase")
                                 Text("\(archiveState.completedOCRCount) / \(job.totalCount) OCR")
@@ -72,6 +83,47 @@ struct ProcessingView: View {
                                     Button("archive.copyMetrics") {
                                         UIPasteboard.general.string = archive.safeMetrics(job: job)
                                     }
+                                    Divider()
+                                    Button("export.shareZIP") {
+                                        Task { presentedShare = await archive.prepareShare(kind: .zip, job: job) }
+                                    }
+                                    .buttonStyle(.borderedProminent)
+                                    .disabled(archive.exportBusy)
+                                    .accessibilityIdentifier("export-share-zip")
+                                    Button("export.sharePDF") {
+                                        Task { presentedShare = await archive.prepareShare(kind: .pdf, job: job) }
+                                    }
+                                    .disabled(archive.exportBusy)
+                                    .accessibilityIdentifier("export-share-pdf")
+                                    Button("export.copyZIPHash") {
+                                        UIPasteboard.general.string = archiveState.zipSha256
+                                    }
+                                    if archiveState.zipShareReceipt?.reportedCompleted == true {
+                                        Text("export.shareCompleted").font(.footnote)
+                                        if archiveState.zipShareReceipt?.externalSaveConfirmed == true {
+                                            Text("export.savedConfirmed").font(.footnote)
+                                        } else {
+                                            Button("export.confirmSaved") { showingSaveConfirmation = true }
+                                                .disabled(archive.exportBusy)
+                                                .accessibilityIdentifier("export-confirm-saved")
+                                        }
+                                    }
+                                    if let summary = archive.deletionSummary {
+                                        Button(role: .destructive) {
+                                            Task {
+                                                pendingDeleteSummary = await archive.refreshDeletionEligibility(job: job)
+                                                showingDeleteConfirmation = pendingDeleteSummary != nil
+                                            }
+                                        } label: {
+                                            Text("export.deleteSources") + Text(" \(summary.count)")
+                                        }
+                                        .disabled(archive.exportBusy)
+                                        .accessibilityIdentifier("export-delete-sources")
+                                    } else {
+                                        Text("export.cleanupLockedHint")
+                                            .font(.footnote)
+                                            .foregroundStyle(.secondary)
+                                    }
                                 }
                             } else if !archive.isBusy {
                                 Button("archive.start") { archive.startOrRetry(job: job) }
@@ -87,6 +139,19 @@ struct ProcessingView: View {
                                 }
                                 .font(.footnote.monospacedDigit())
                             }
+                        }
+
+                        if let error = archive.exportError {
+                            Text(exportErrorKey(for: error)).foregroundStyle(.red)
+                                .accessibilityIdentifier("export-error")
+                        }
+                        if archive.exportBusy { ProgressView("export.busy") }
+
+                        if job.phase != .processing && job.sourcesDeleted != true {
+                            Button("export.discardWorkCopy", role: .destructive) {
+                                showingDiscardConfirmation = true
+                            }
+                            .disabled(archive.isBusy || archive.exportBusy)
                         }
 
                         if job.completedCount > 0 {
@@ -127,6 +192,33 @@ struct ProcessingView: View {
                 model.removeFailedPage()
             }
         }
+        .confirmationDialog("export.saveConfirmTitle", isPresented: $showingSaveConfirmation) {
+            if let job = model.job {
+                Button("export.saveConfirmAction") {
+                    Task { await archive.confirmExternalSave(job: job) }
+                }
+            }
+        }
+        .confirmationDialog("export.deleteConfirmTitle", isPresented: $showingDeleteConfirmation) {
+            if let job = model.job, pendingDeleteSummary != nil {
+                Button("export.deleteConfirmAction", role: .destructive) {
+                    Task { await archive.deleteSourcesAfterConfirmation(job: job, processor: model) }
+                }
+            }
+        } message: {
+            if let summary = pendingDeleteSummary {
+                Text("export.deleteConfirmCount") + Text(" \(summary.count). ") +
+                Text("export.deleteLiveWarning") + Text(" \(summary.livePhotoCount). ") +
+                Text("export.deleteICloudWarning")
+            }
+        }
+        .confirmationDialog("export.discardConfirmTitle", isPresented: $showingDiscardConfirmation) {
+            Button("export.discardConfirmAction", role: .destructive) {
+                model.discardWorkCopyKeepingPhotos()
+            }
+        } message: {
+            Text("export.discardDetail")
+        }
         .sheet(item: $pageToPreview) { page in
             if let url = model.imageURL(for: page) {
                 CanonicalPagePreview(url: url)
@@ -138,11 +230,37 @@ struct ProcessingView: View {
                 CompanionPDFPreview(url: folder.appending(path: name))
             }
         }
+        .sheet(item: $presentedShare) { presentation in
+            SystemFileShareSheet(url: presentation.url) { completed in
+                guard presentation.kind == .zip, let identity = presentation.zipIdentity,
+                      let job = model.job else { return }
+                Task { await archive.recordZIPShareResult(job: job, identity: identity,
+                                                          completed: completed) }
+            }
+        }
         .onAppear {
             if let job = model.job, job.phase == .completed { archive.restore(job: job) }
         }
         .onChange(of: model.job?.phase) { _, phase in
             if phase == .completed, let job = model.job { archive.restore(job: job) }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active, let job = model.job,
+               archive.state?.zipShareReceipt?.externalSaveConfirmed == true {
+                Task { await archive.refreshDeletionEligibility(job: job) }
+            }
+        }
+    }
+
+    private func exportErrorKey(for error: SourceCleanupFailure) -> LocalizedStringKey {
+        switch error {
+        case .archiveChanged: "export.errorArchiveChanged"
+        case .shareIncomplete: "export.errorShareIncomplete"
+        case .permissionLost: "export.errorPermission"
+        case .invalidLedger: "export.errorLedger"
+        case .missingAsset: "export.errorMissing"
+        case .deletionCancelledOrFailed: "export.errorDelete"
+        case .localPurgeFailed: "export.errorPurge"
         }
     }
 

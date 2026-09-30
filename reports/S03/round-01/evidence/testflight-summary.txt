@@ -1,0 +1,12 @@
+Source: https://github.com/Zhangsfish/lecture-asset/actions/runs/36663496149
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/36663496149/job/109723125800
+Source SHA: a1f47c0c7c30467f9adf41d2101d9cb54b467f51
+Conclusion: success
+Host: GitHub-hosted macos-26; Xcode 26.6; Swift 6.3.3
+S00_RELEASE_START version=0.1.0 build=26.1 code_sha=a1f47c0c7c30467f9adf41d2101d9cb54b467f51
+S00_UNSIGNED_ARCHIVE_SUCCEEDED
+S00_UNSIGNED_ARCHIVE_METADATA_VERIFIED
+S00_EXPORT_UPLOAD_ACCEPTED version=0.1.0 build=26.1 code_sha=a1f47c0c7c30467f9adf41d2101d9cb54b467f51
+S00_IPA_EXPORT_NOT_RETAINED_BY_XCODE
+S00_PROCESSING_STATUS_VALID build=26.1
+Only safe workflow markers are transcribed. Raw signing logs, API key material and account details are not in this report.

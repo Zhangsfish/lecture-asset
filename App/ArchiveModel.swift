@@ -6,6 +6,9 @@ import SwiftUI
 final class ArchiveModel: ObservableObject {
     @Published private(set) var state: ArchiveState?
     @Published private(set) var isBusy = false
+    @Published private(set) var exportBusy = false
+    @Published private(set) var deletionSummary: SourceDeletionSummary?
+    @Published private(set) var exportError: SourceCleanupFailure?
     private var task: Task<Void, Never>?
 
     func restore(job: ProcessingJob) {
@@ -17,9 +20,16 @@ final class ArchiveModel: ObservableObject {
                 if saved.phase == .ready {
                     if (try? ArchiveStore.verifyReady(saved, job: job)) != true {
                         saved.phase = .failed
+                        saved.zipShareReceipt = nil
                         saved.failureCode = "archive_integrity_failed"
                         saved.failureStage = "ready_restore_validation"
                         try? ArchiveStore.save(saved, job: job)
+                    } else if let receipt = saved.zipShareReceipt {
+                        let current = try? ArchiveStore.verifiedZIPIdentity(saved, job: job).0
+                        if current != receipt.identity {
+                            saved.zipShareReceipt = nil
+                            try? ArchiveStore.save(saved, job: job)
+                        }
                     }
                 } else if saved.phase == .processing {
                     saved.phase = .paused
@@ -29,6 +39,9 @@ final class ArchiveModel: ObservableObject {
             }.value
             state = loaded
             isBusy = false
+            if loaded?.zipShareReceipt?.externalSaveConfirmed == true {
+                Task { await refreshDeletionEligibility(job: job) }
+            }
         }
     }
 
@@ -36,6 +49,10 @@ final class ArchiveModel: ObservableObject {
         guard job.phase == .completed, !isBusy, task == nil else { return }
         var current = state?.jobId == job.id ? state! : ArchiveState(jobId: job.id)
         current.phase = .processing
+        // A rebuild always revokes the old share and external-save confirmation,
+        // even when the new ZIP happens to have identical bytes.
+        current.zipShareReceipt = nil
+        deletionSummary = nil
         current.failureCode = nil
         current.failureStage = nil
         do { try ArchiveStore.save(current, job: job) }
@@ -122,6 +139,176 @@ final class ArchiveModel: ObservableObject {
                 self?.task = nil
             }
         }
+    }
+
+    func prepareShare(kind: SharedFileKind, job: ProcessingJob) async -> SharePresentation? {
+        guard !exportBusy, !isBusy, let current = state, current.jobId == job.id,
+              current.phase == .ready, job.sourcesDeleted != true else { return nil }
+        exportBusy = true
+        defer { exportBusy = false }
+        exportError = nil
+        do {
+            switch kind {
+            case .pdf:
+                let url = try await Task.detached(priority: .utility) {
+                    try ArchiveStore.verifiedPDFURL(current, job: job)
+                }.value
+                guard state?.jobId == job.id, state?.archiveId == current.archiveId else {
+                    throw SourceCleanupFailure.archiveChanged
+                }
+                return SharePresentation(kind: .pdf, url: url, zipIdentity: nil)
+            case .zip:
+                let (identity, url) = try await Task.detached(priority: .utility) {
+                    try ArchiveStore.verifiedZIPIdentity(current, job: job)
+                }.value
+                guard var latest = state, latest.jobId == job.id,
+                      latest.archiveId == current.archiveId, latest.phase == .ready else {
+                    throw SourceCleanupFailure.archiveChanged
+                }
+                // Every new ZIP share attempt resets completion and external confirmation.
+                latest.zipShareReceipt = ZIPShareReceipt(identity: identity)
+                try ArchiveStore.save(latest, job: job)
+                state = latest
+                deletionSummary = nil
+                return SharePresentation(kind: .zip, url: url, zipIdentity: identity)
+            }
+        } catch {
+            revokeZIPReceipt(job: job)
+            exportError = .archiveChanged
+            deletionSummary = nil
+            return nil
+        }
+    }
+
+    func recordZIPShareResult(job: ProcessingJob, identity: ZIPShareIdentity,
+                              completed: Bool) async {
+        guard !exportBusy, var current = state, current.jobId == job.id,
+              current.zipShareReceipt?.identity == identity else { return }
+        exportBusy = true
+        defer { exportBusy = false }
+        do {
+            if completed {
+                let verificationState = current
+                let actual = try await Task.detached(priority: .utility) {
+                    try ArchiveStore.verifiedZIPIdentity(verificationState, job: job).0
+                }.value
+                guard actual == identity else { throw SourceCleanupFailure.archiveChanged }
+            }
+            current.zipShareReceipt?.finishShare(completed: completed)
+            try ArchiveStore.save(current, job: job)
+            state = current
+            deletionSummary = nil
+            exportError = completed ? nil : .shareIncomplete
+        } catch {
+            current.zipShareReceipt = nil
+            try? ArchiveStore.save(current, job: job)
+            state = current
+            deletionSummary = nil
+            exportError = .archiveChanged
+        }
+    }
+
+    func confirmExternalSave(job: ProcessingJob) async {
+        guard !exportBusy, var current = state, current.jobId == job.id,
+              let receipt = current.zipShareReceipt, receipt.reportedCompleted else {
+            exportError = .shareIncomplete
+            return
+        }
+        exportBusy = true
+        defer { exportBusy = false }
+        do {
+            let verificationState = current
+            let actual = try await Task.detached(priority: .utility) {
+                try ArchiveStore.verifiedZIPIdentity(verificationState, job: job).0
+            }.value
+            guard receipt.identity == actual else { throw SourceCleanupFailure.archiveChanged }
+            current.zipShareReceipt?.confirmExternalSave()
+            try ArchiveStore.save(current, job: job)
+            state = current
+            exportError = nil
+            await refreshDeletionEligibility(job: job)
+        } catch {
+            current.zipShareReceipt = nil
+            try? ArchiveStore.save(current, job: job)
+            state = current
+            deletionSummary = nil
+            exportError = .archiveChanged
+        }
+    }
+
+    @discardableResult
+    func refreshDeletionEligibility(job: ProcessingJob) async -> SourceDeletionSummary? {
+        deletionSummary = nil
+        guard let current = state, current.jobId == job.id,
+              let receipt = current.zipShareReceipt, receipt.reportedCompleted,
+              receipt.externalSaveConfirmed, job.sourcesDeleted != true else { return nil }
+        do {
+            let (identity, _) = try await Task.detached(priority: .utility) {
+                try ArchiveStore.verifiedZIPIdentity(current, job: job)
+            }.value
+            guard receipt.permitsDeletion(of: identity) else {
+                throw SourceCleanupFailure.archiveChanged
+            }
+            let summary = try await Task.detached(priority: .utility) {
+                try PhotoKitSourceDeletion.preflight(job: job)
+            }.value
+            guard state?.zipShareReceipt == receipt else { return nil }
+            deletionSummary = summary
+            exportError = nil
+            return summary
+        } catch {
+            let failure = (error as? SourceCleanupFailure) ?? .archiveChanged
+            if failure == .archiveChanged { revokeZIPReceipt(job: job) }
+            exportError = failure
+            return nil
+        }
+    }
+
+    func deleteSourcesAfterConfirmation(job: ProcessingJob, processor: ProcessingModel) async {
+        guard !exportBusy, let current = state, current.jobId == job.id,
+              let receipt = current.zipShareReceipt,
+              receipt.reportedCompleted && receipt.externalSaveConfirmed,
+              processor.job?.id == job.id else { return }
+        exportBusy = true
+        deletionSummary = nil
+        defer { exportBusy = false }
+        do {
+            try await SourceCleanupOperation.run {
+                let (identity, _) = try await Task.detached(priority: .utility) {
+                    try ArchiveStore.verifiedZIPIdentity(current, job: job)
+                }.value
+                guard receipt.permitsDeletion(of: identity), processor.job?.id == job.id else {
+                    throw SourceCleanupFailure.archiveChanged
+                }
+                _ = try await Task.detached(priority: .utility) {
+                    try PhotoKitSourceDeletion.preflight(job: job)
+                }.value
+            } delete: {
+                try await PhotoKitSourceDeletion.delete(job: job)
+            } purge: {
+                try processor.completePhotoDeletionAndPurge()
+            }
+            state = nil
+            exportError = nil
+        } catch {
+            if processor.job?.sourcesDeleted == true {
+                exportError = .localPurgeFailed
+            } else {
+                let failure = (error as? SourceCleanupFailure) ?? .deletionCancelledOrFailed
+                if failure == .archiveChanged { revokeZIPReceipt(job: job) }
+                exportError = failure
+            }
+        }
+    }
+
+    func clearExportError() { exportError = nil }
+
+    private func revokeZIPReceipt(job: ProcessingJob) {
+        guard var current = state, current.jobId == job.id else { return }
+        current.zipShareReceipt = nil
+        try? ArchiveStore.save(current, job: job)
+        state = current
+        deletionSummary = nil
     }
 
     func safeMetrics(job: ProcessingJob) -> String {

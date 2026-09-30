@@ -18,6 +18,7 @@ struct ArchiveState: Codable, Sendable {
     var pdfMemoryAfterPage: [Int: UInt64]
     var pdfMemoryPeakPage: [Int: UInt64]
     var pdfImageSha256ByPage: [Int: String]?
+    var zipShareReceipt: ZIPShareReceipt? // Optional for pre-S03 archive checkpoints.
     var zipName: String?
     var pdfName: String?
     var zipSha256: String?
@@ -54,6 +55,34 @@ enum ArchiveStore {
 
     static func outputDirectory(job: ProcessingJob) throws -> URL {
         try JobStore.directory(for: job).appending(path: "exports", directoryHint: .isDirectory)
+    }
+
+    static func verifiedZIPIdentity(_ state: ArchiveState, job: ProcessingJob) throws -> (ZIPShareIdentity, URL) {
+        guard try verifyReady(state, job: job), let name = state.zipName,
+              let expectedHash = state.zipSha256 else { throw SourceCleanupFailure.archiveChanged }
+        let url = try outputDirectory(job: job).appending(path: name)
+        let properties = try url.resourceValues(forKeys: [.isRegularFileKey, .isSymbolicLinkKey])
+        let attributes = try FileManager.default.attributesOfItem(atPath: url.path)
+        guard properties.isRegularFile == true, properties.isSymbolicLink != true,
+              let number = attributes[.systemFileNumber] as? NSNumber, number.uint64Value > 0,
+              try ArchiveBuilder.measure(url).hash == expectedHash else {
+            throw SourceCleanupFailure.archiveChanged
+        }
+        return (ZIPShareIdentity(jobId: job.id, archiveId: state.archiveId,
+                                 filename: name, sha256: expectedHash,
+                                 fileNumber: number.uint64Value), url)
+    }
+
+    static func verifiedPDFURL(_ state: ArchiveState, job: ProcessingJob) throws -> URL {
+        guard try verifyReady(state, job: job), let name = state.pdfName else {
+            throw SourceCleanupFailure.archiveChanged
+        }
+        let url = try outputDirectory(job: job).appending(path: name)
+        let properties = try url.resourceValues(forKeys: [.isRegularFileKey, .isSymbolicLinkKey])
+        guard properties.isRegularFile == true, properties.isSymbolicLink != true else {
+            throw SourceCleanupFailure.archiveChanged
+        }
+        return url
     }
 
     static func verifyReady(_ state: ArchiveState, job: ProcessingJob) throws -> Bool {
