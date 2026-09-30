@@ -28,7 +28,7 @@ This folder records implementation and independent-audit evidence for S03 system
 
 ## Open questions
 
-- CI passed on SHA `a1f47c0c7c30467f9adf41d2101d9cb54b467f51`; TestFlight `0.1.0 (26.1)` uploaded and processed `VALID`. Owner iPhone sharing/deletion results are pending. Do not infer physical-device deletion from synthetic tests.
+- CI passed on SHA `a1f47c0c7c30467f9adf41d2101d9cb54b467f51`; TestFlight `0.1.0 (26.1)` uploaded and processed `VALID`. Owner iPhone sharing, five-disposable-photo deletion, Live Photo, unrelated control and relaunch were reported PASS. Direct iPhone sandbox inspection and real-device failure injection were NOT_RUN. The report is READY_FOR_AUDIT; independent audit determines PASS.
 
 ## Handoff notes
 

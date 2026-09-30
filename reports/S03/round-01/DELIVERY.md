@@ -1,6 +1,6 @@
 # S03 round-01 delivery
 
-Status: IN_PROGRESS — independent audit has not started.
+Status: READY_FOR_AUDIT — independent audit has not started; no merge or S04 work is authorized.
 
 ## Scope and tested implementation
 
@@ -20,7 +20,8 @@ Status: IN_PROGRESS — independent audit has not started.
 | Synthetic share gate, exact-set, failure/purge and relaunch regression | PASS | Same CI run: 5 S03 unit tests and 1 S03 UI test, zero failures. Fake PhotoKit is explicitly not device deletion evidence. |
 | Signed TestFlight upload and processing | PASS | https://github.com/Zhangsfish/lecture-asset/actions/runs/36663496149; `0.1.0 (26.1)`, upload accepted, App Store Connect processing `VALID` |
 | Real ZIP transfer, extraction, page count and integrity | PASS | Owner confirmed system share to WeChat File Transfer Assistant and receipt on the computer. Read-only inspection of the received ZIP matched the SHA-256 copied from the App, validated the schema, 56 consecutive JPEGs, manifest file hashes, Markdown page links and ZIP CRC. See `evidence/owner-device-summary.txt`; no private path or content was committed. |
-| Real iPhone exact deletion, Live Photo, unrelated control and App purge | NOT_RUN | Disposable photos only; owner device action pending |
+| Real iPhone exact deletion, Live Photo and unrelated control | PASS (owner report) | On TestFlight `0.1.0 (26.1)`, owner confirmed all five selected disposable photos, including the whole Live Photo, disappeared from Photos while an unselected control remained. The externally saved ZIP still opened. See `evidence/owner-device-summary.txt`. |
+| App work-file purge after successful PhotoKit deletion | PASS by observed state and code path; direct sandbox listing NOT_RUN | Owner confirmed the completed job did not reappear after force-close/relaunch. `ArchiveModel.deleteSourcesAfterConfirmation` calls `ProcessingModel.completePhotoDeletionAndPurge` only after PhotoKit `performChanges` success; that method removes the entire job directory, including ZIP/PDF. A Mac-connected filesystem inspection of the private iPhone sandbox was unavailable. |
 
 ## Reproduction
 
@@ -35,3 +36,5 @@ The existing explicit-upload `.github/workflows/s00-testflight.yml` was reused f
 Simulator/fake PhotoKit tests do not establish real-device deletion success. The public report contains no private lecture photos, OCR body, PHAsset identifiers, UDID, WeChat content, Apple credentials or raw signing log. The `.p8` remains under GitHub Actions Secrets and a temporary runner directory with `0600` permissions, removed by the workflow trap. No Recently Deleted operation, WeChat SDK, backend, GitHub upload, or S04 code is in scope.
 
 The owner supplied the App-copied SHA-256 privately. A streamed SHA-256 of the received computer ZIP matched it. The digest is not republished here to minimize metadata exposure.
+
+Real-device deletion evidence is owner attestation from the private task conversation, not agent control of the iPhone. The disposable PhotoKit source-delete outcome, control-photo survival, relaunch state and external ZIP survival were all explicitly confirmed by the owner. CI fake/simulator tests separately cover cancellation, stale ZIP identity, missing exact assets and failure retention. Real-device cancellation/failure injection and direct sandbox directory inspection were NOT_RUN. No private lecture sources were intentionally used in the destructive test.
