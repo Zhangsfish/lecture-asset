@@ -22,8 +22,8 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 | S00-TF | PASS — build 0.1.0 (18.1) uploaded and VALID | [TestFlight round-03 audit](audits/S00/testflight-03.md) |
 | S01 | PASS — PR #2 merged | [round-01 audit](audits/S01/round-01.md) |
 | S02 | PASS — PR #3 merged | [round-01 audit](audits/S02/round-01.md) |
-| S03 | READY | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
-| S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
+| S03 | PASS — PR #4 merged | [round-01 audit](audits/S03/round-01.md) |
+| S04 | READY | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
 | S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
 
 ## S00 round-03 accepted evidence
@@ -135,3 +135,32 @@ Start S03 from latest main on branch `codex/s03-share-cleanup` and execute only:
 `tasks/S03_EXPORT_CLEANUP.md`
 
 S03 is the first destructive stage. Use disposable test photos for deletion acceptance. Do not begin S04 until S03 is audited PASS.
+
+
+## S03 round-01 audit
+
+PR #4 tested implementation `a1f47c0c7c30467f9adf41d2101d9cb54b467f51` is accepted and merged.
+
+Key accepted evidence:
+
+- CI and TestFlight `0.1.0 (26.1)` green/VALID;
+- real AI ZIP shared through WeChat File Transfer Assistant and independently verified on the Windows computer;
+- ZIP SHA-256 matched the App-copied hash; CRC/schema/page/hash/Markdown checks passed;
+- real disposable deletion removed exactly five selected photos including a whole Live Photo;
+- unselected control photo remained;
+- external ZIP remained readable after source deletion;
+- job disappeared after relaunch, consistent with post-success UUID-directory purge;
+- share/delete gates bind the exact ZIP identity and exact final PHAsset set;
+- delete cancellation/failure paths retain work files; discard-work-copy path never calls PhotoKit.
+
+Audit: [S03 round-01](audits/S03/round-01.md).
+
+## Next action
+
+Start S04 from latest main on branch `codex/s04-device-qa` and execute only:
+
+`tasks/S04_DEVICE_QA.md`
+
+S04 is final real-device MVP stress/QA: 1/20/100/200 pages, two consecutive 200-page runs, fault/relaunch/permission/share/delete-cancel checks, resource peaks, external-agent archive read, and one small disposable destructive cleanup.
+
+Do not start S05 until S04 is audited PASS.
