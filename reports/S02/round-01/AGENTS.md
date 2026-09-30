@@ -18,6 +18,7 @@ This folder records implementation and verification of the S02 OCR, AI ZIP and c
 - `TEST_RESULTS.json`: machine-readable PASS/FAIL/NOT_RUN results and artifacts.
 - `evidence/owner-build-22-1-summary.txt`: safe owner iPhone metrics and the PDF memory-growth finding from the initial S02 TestFlight build. Its SHA is older than the streaming PDF fix; never cite it as verification of later code.
 - `evidence/owner-build-23-1-failure-summary.txt`: 56-page iPhone 16/iOS 26.1 run on the streaming PDF SHA; JPEG/OCR completed but archive failed after retry; build 24.1 safe diagnostic identified PDF page image/order validation.
+- `evidence/owner-build-25-1-success-summary.txt`: safe aggregate of the retained 56-page job's successful archive retry, PDF memory samples, visual clarity and force-relaunch observation; copied metrics contain no image/OCR content.
 
 ## Current decisions
 
@@ -27,7 +28,7 @@ This folder records implementation and verification of the S02 OCR, AI ZIP and c
 
 ## Open questions
 
-- TestFlight 25.1 processing remained PENDING after upload; owner iPhone retry, PDF/readability/memory and relaunch results must be filled from actual results before audit.
+- TestFlight 25.1 processing remained PENDING at the 15-minute upload workflow poll. Owner later confirmed installed build 25.1 and reported the retained 56-page job ready/validated, clear PDF and ready after force-relaunch. The safe measurement string does not itself encode the build number.
 
 ## Handoff notes
 
