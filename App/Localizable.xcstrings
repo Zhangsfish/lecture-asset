@@ -1107,6 +1107,12 @@
         "zh-Hans": { "stringUnit": { "state": "translated", "value": "相册删除已取消或失败。App 文件已保留，可重试。" } }
       }
     },
+    "export.busy": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Checking archive and Photos…" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "正在核对归档和相册…" } }
+      }
+    },
     "export.errorPurge": {
       "localizations": {
         "en": { "stringUnit": { "state": "translated", "value": "Photos deletion succeeded, but App file cleanup failed. Retry App cleanup; do not delete Photos again." } },

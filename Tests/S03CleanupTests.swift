@@ -116,6 +116,44 @@ final class S03CleanupTests: XCTestCase {
         XCTAssertEqual(fake.identifiers, ["unrelated"])
     }
 
+    @MainActor
+    func testPhotoKitSuccessMarkerPurgesActualJobStoreAndDiscardNeverTouchesPhotos() async throws {
+        let fakePhotos = FakePhotoLibrary(identifiers: ["synthetic-a", "unrelated"])
+        let model = ProcessingModel(pipeline: S03SyntheticPageProcessor(),
+                                    hasFullPhotoAccess: { true }, restoreExisting: false)
+        try model.start(pages: [page(1, identifier: "synthetic-a", live: true)])
+        try await waitForCompleted(model)
+        let first = try XCTUnwrap(model.job)
+        let firstFolder = try JobStore.directory(for: first)
+        XCTAssertTrue(FileManager.default.fileExists(atPath: firstFolder.path))
+        fakePhotos.delete(["synthetic-a"]) // Injected successful PhotoKit result.
+        try model.completePhotoDeletionAndPurge()
+        XCTAssertNil(model.job)
+        XCTAssertFalse(FileManager.default.fileExists(atPath: firstFolder.path))
+        XCTAssertEqual(fakePhotos.identifiers, ["unrelated"])
+
+        try model.start(pages: [page(1, identifier: "unrelated", live: false)])
+        try await waitForCompleted(model)
+        let second = try XCTUnwrap(model.job)
+        let secondFolder = try JobStore.directory(for: second)
+        model.discardWorkCopyKeepingPhotos()
+        XCTAssertNil(model.job)
+        XCTAssertFalse(FileManager.default.fileExists(atPath: secondFolder.path))
+        XCTAssertEqual(fakePhotos.identifiers, ["unrelated"])
+    }
+
+    @MainActor
+    private func waitForCompleted(_ model: ProcessingModel) async throws {
+        for _ in 0..<200 {
+            if model.job?.phase == .completed {
+                try await Task.sleep(for: .milliseconds(50))
+                return
+            }
+            try await Task.sleep(for: .milliseconds(25))
+        }
+        XCTFail("Synthetic processing did not complete")
+    }
+
     private func identityForTesting() -> ZIPShareIdentity {
         ZIPShareIdentity(jobId: UUID(), archiveId: UUID(), filename: "synthetic_AI.zip",
                          sha256: String(repeating: "a", count: 64), fileNumber: 12)
@@ -127,6 +165,14 @@ final class S03CleanupTests: XCTestCase {
                              isLivePhoto: live)
         result.phase = .completed
         return result
+    }
+}
+
+private actor S03SyntheticPageProcessor: StillPageProcessing {
+    func process(_ page: JobPage, in job: ProcessingJob) async throws -> PageOutput {
+        PageOutput(sourceStillBytes: 10, width: 1, height: 1, jpegBytes: 10,
+                   sha256: String(repeating: "a", count: 64),
+                   memoryBytesPeakPage: 1, memoryBytesAfterPage: 1)
     }
 }
 

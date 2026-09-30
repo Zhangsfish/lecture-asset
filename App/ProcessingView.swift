@@ -61,7 +61,7 @@ struct ProcessingView: View {
                         }
                         if job.phase == .completed && job.sourcesDeleted != true {
                             Text("processing.completeDetail")
-                            if let archiveState = archive.state {
+                            if let archiveState = archive.state, archiveState.jobId == job.id {
                                 Text(archiveKey(for: archiveState.phase))
                                     .accessibilityIdentifier("archive-phase")
                                 Text("\(archiveState.completedOCRCount) / \(job.totalCount) OCR")
@@ -88,10 +88,12 @@ struct ProcessingView: View {
                                         Task { presentedShare = await archive.prepareShare(kind: .zip, job: job) }
                                     }
                                     .buttonStyle(.borderedProminent)
+                                    .disabled(archive.exportBusy)
                                     .accessibilityIdentifier("export-share-zip")
                                     Button("export.sharePDF") {
                                         Task { presentedShare = await archive.prepareShare(kind: .pdf, job: job) }
                                     }
+                                    .disabled(archive.exportBusy)
                                     .accessibilityIdentifier("export-share-pdf")
                                     Button("export.copyZIPHash") {
                                         UIPasteboard.general.string = archiveState.zipSha256
@@ -102,6 +104,7 @@ struct ProcessingView: View {
                                             Text("export.savedConfirmed").font(.footnote)
                                         } else {
                                             Button("export.confirmSaved") { showingSaveConfirmation = true }
+                                                .disabled(archive.exportBusy)
                                                 .accessibilityIdentifier("export-confirm-saved")
                                         }
                                     }
@@ -114,6 +117,7 @@ struct ProcessingView: View {
                                         } label: {
                                             Text("export.deleteSources") + Text(" \(summary.count)")
                                         }
+                                        .disabled(archive.exportBusy)
                                         .accessibilityIdentifier("export-delete-sources")
                                     } else {
                                         Text("export.cleanupLockedHint")
@@ -141,6 +145,7 @@ struct ProcessingView: View {
                             Text(exportErrorKey(for: error)).foregroundStyle(.red)
                                 .accessibilityIdentifier("export-error")
                         }
+                        if archive.exportBusy { ProgressView("export.busy") }
 
                         if job.phase != .processing && job.sourcesDeleted != true {
                             Button("export.discardWorkCopy", role: .destructive) {
