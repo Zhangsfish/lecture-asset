@@ -7,14 +7,23 @@ options:
 packages:
   SelectionCore:
     path: Packages/SelectionCore
+  ArchiveCore:
+    path: Packages/ArchiveCore
 targets:
   LectureAsset:
     type: application
     platform: iOS
+    scheme:
+      testTargets:
+        - LectureAssetTests
+        - LectureAssetUITests
     sources:
       - path: App
+      - path: schemas/manifest-v1.schema.json
+        buildPhase: resources
     dependencies:
       - package: SelectionCore
+      - package: ArchiveCore
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset
@@ -48,3 +57,17 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         SWIFT_VERSION: "6.0"
         TEST_TARGET_NAME: LectureAsset
+  LectureAssetTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: LectureAsset
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset.tests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "6.0"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Lecture Asset.app/Lecture Asset"
+        BUNDLE_LOADER: "$(TEST_HOST)"

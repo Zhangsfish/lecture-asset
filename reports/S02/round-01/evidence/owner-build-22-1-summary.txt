@@ -1,0 +1,10 @@
+Source: owner-provided safe measurement clipboard text and direct iPhone observation, 2026-09-30.
+Build: TestFlight Lecture Asset 0.1.0 (22.1), implementation SHA c91af8b7d1714ea2bd89092dd0c7b84d612f177b.
+S01: pages=34; completed=34; jpeg_files=34; motion_audio_files=0; all 34 rows live=true and 3024x4032 or 4032x3024.
+S02: phase=ready; pages=34; ocr_completed=34; all 34 OCR status=ok; Vision revision=3; languages=zh-Hans,en-US; PDF page long edge=3000; JPEG quality=0.9; long image raster=full.
+Archive: zip_bytes=61682238; pdf_bytes=39605046; validated=true.
+Selected PDF after-page memory samples (MiB): page 1=195.4; page 2=171.7; page 18=190.0; page 19=216.9; page 34=232.7. From page 2 to page 18, 17 consecutive samples rose; from page 19 to page 34, 16 consecutive samples rose. This sustained rise is a finding, not a PASS for bounded memory.
+OCR after-page memory samples (MiB): page 1=131.3; page 6=180.0; page 18=152.5; page 29=188.8; page 34=164.2. No monotonic OCR rise observed in the copied samples.
+Owner observed PDF minimum text, footers, thin table lines, and colored text clear after zooming. Owner force-closed and reopened the App; it still showed archive and PDF ready. No crash was reported during 34-page processing.
+This sample does not include an ordinary still or the 1179x25194 long-image class. The device model/iOS version were not reported. These memory numbers are snapshots, not continuous maxima.
+No image, OCR text, PHAsset ID, account information, or Apple credential is included in this file.

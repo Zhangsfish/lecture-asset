@@ -9,16 +9,23 @@ final class ProcessingModel: ObservableObject {
     @Published private(set) var storageFailed = false
     @Published private(set) var pauseRequested = false
 
-    private let pipeline = CanonicalStillPipeline()
+    private let pipeline: any StillPageProcessing
+    private let hasFullPhotoAccess: @Sendable () -> Bool
     private var activeTask: Task<Void, Never>?
 
-    init() {
-        Task { await restore() }
+    init(pipeline: any StillPageProcessing = CanonicalStillPipeline(),
+         hasFullPhotoAccess: @escaping @Sendable () -> Bool = {
+             PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
+         }, restoreExisting: Bool = true) {
+        self.pipeline = pipeline
+        self.hasFullPhotoAccess = hasFullPhotoAccess
+        if restoreExisting { Task { await restore() } }
+        else { isRestoring = false }
     }
 
     func start(pages: [JobPage]) throws {
         guard !isRestoring, job == nil, !pages.isEmpty,
-              pages.count <= 200, PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
+              pages.count <= 200, hasFullPhotoAccess()
         else { throw PageProcessingError(code: .permissionLost) }
         let newJob = ProcessingJob(pages: pages)
         // Persist the entire frozen source set and page order before any PhotoKit request.
