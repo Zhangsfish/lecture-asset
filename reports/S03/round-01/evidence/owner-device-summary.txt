@@ -1,0 +1,5 @@
+Date: 2026-09-30 (owner report in private task conversation)
+Build under test: TestFlight 0.1.0 (26.1), pending owner confirmation for this specific extraction.
+Owner reported: the AI ZIP opens and decompresses; archive appeared sound. One SHA-256 digest was supplied privately, but whether it came from the App or desktop and whether both values match is not yet confirmed. The digest is intentionally omitted from the public report.
+Not yet confirmed: WeChat File Transfer Assistant route, 56 slide entries and expected structure, exact hash match, disposable PhotoKit deletion, Live Photo deletion, unrelated control photo, App job purge and relaunch.
+No private image, OCR text, PHAsset identifier, UDID, WeChat content or account material is included.

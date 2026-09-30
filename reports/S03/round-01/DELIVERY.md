@@ -19,7 +19,7 @@ Status: IN_PROGRESS — independent audit has not started.
 | Swift/package tests, XcodeGen, simulator and unsigned iPhone build | PASS | https://github.com/Zhangsfish/lecture-asset/actions/runs/36662386116; Xcode 26.6 / Swift 6.3.3 |
 | Synthetic share gate, exact-set, failure/purge and relaunch regression | PASS | Same CI run: 5 S03 unit tests and 1 S03 UI test, zero failures. Fake PhotoKit is explicitly not device deletion evidence. |
 | Signed TestFlight upload and processing | PASS | https://github.com/Zhangsfish/lecture-asset/actions/runs/36663496149; `0.1.0 (26.1)`, upload accepted, App Store Connect processing `VALID` |
-| Real iPhone ZIP to WeChat File Transfer Assistant, desktop extraction/count/hash | NOT_RUN | Owner device action pending; no private content will be committed |
+| Real ZIP extraction | PASS (owner report) | Owner confirmed the ZIP opens and decompresses; see `evidence/owner-device-summary.txt`. Desktop destination, transfer channel, 56-entry count and App-versus-computer SHA match remain unconfirmed. |
 | Real iPhone exact deletion, Live Photo, unrelated control and App purge | NOT_RUN | Disposable photos only; owner device action pending |
 
 ## Reproduction
@@ -33,3 +33,5 @@ The existing explicit-upload `.github/workflows/s00-testflight.yml` was reused f
 ## Safety and evidence limits
 
 Simulator/fake PhotoKit tests do not establish real-device deletion success. The public report contains no private lecture photos, OCR body, PHAsset identifiers, UDID, WeChat content, Apple credentials or raw signing log. The `.p8` remains under GitHub Actions Secrets and a temporary runner directory with `0600` permissions, removed by the workflow trap. No Recently Deleted operation, WeChat SDK, backend, GitHub upload, or S04 code is in scope.
+
+The owner supplied one SHA-256 digest in the private task conversation with the successful extraction report. Its origin and equality to the App's ZIP hash are awaiting clarification. The digest is not republished here to minimize metadata exposure.

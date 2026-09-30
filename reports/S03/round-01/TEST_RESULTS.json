@@ -23,8 +23,10 @@
     "s03_export_ui_test": "PASS: 1/1 simulator",
     "synthetic_archive_validation": "PASS: 20-page schema/hash/CRC and 1-page simulator OCR/ZIP/PDF",
     "testflight_upload_processing": "PASS: 0.1.0 (26.1) VALID",
-    "real_iphone_zip_share_to_wechat": "NOT_RUN",
-    "desktop_zip_extract_and_page_count": "NOT_RUN",
+    "real_iphone_zip_share_to_wechat": "NOT_RUN: channel not yet confirmed",
+    "zip_extract": "PASS: owner reports ZIP decompresses; destination not confirmed",
+    "desktop_zip_page_count": "NOT_RUN: 56-entry count not yet confirmed",
+    "external_zip_hash_match": "NOT_RUN: digest origin and App comparison not yet confirmed",
     "real_iphone_disposable_live_photo_delete": "NOT_RUN",
     "real_iphone_unrelated_photo_untouched": "NOT_RUN",
     "real_iphone_job_files_purged": "NOT_RUN"
