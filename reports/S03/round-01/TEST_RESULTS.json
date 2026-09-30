@@ -1,0 +1,33 @@
+{
+  "stage": "S03",
+  "round": "01",
+  "status": "IN_PROGRESS",
+  "base_main_sha": "5d97b233f7cf0feaef4fa9e88c07231dabd61779",
+  "tested_code_sha": "a1f47c0c7c30467f9adf41d2101d9cb54b467f51",
+  "pull_request": "https://github.com/Zhangsfish/lecture-asset/pull/4",
+  "ci_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36662386116",
+  "ci_result": "PASS",
+  "synthetic_archive_artifact": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36662386116/artifacts/11075380822",
+  "synthetic_archive_artifact_sha256": "94c4b2558a98f2eaf9f31f23fd9c04cd42b77c1700b6008aac804126759a6c2e",
+  "synthetic_20_page_zip_sha256": "679f87fae3180bff4b4b2e1b4c650a5e6a87287d97d9c0d3de3b65b95dc384dc",
+  "testflight_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36663496149",
+  "testflight_build": "0.1.0 (26.1)",
+  "testflight_upload": "PASS: App Store Connect upload accepted",
+  "testflight_processing": "VALID",
+  "checks": {
+    "swift_package_tests": "PASS: SelectionCore 5/5, ArchiveCore 6/6",
+    "xcodegen": "PASS: 2.46.0",
+    "simulator_build": "PASS",
+    "unsigned_iphone_build": "PASS",
+    "s03_cleanup_unit_tests": "PASS: 5/5 synthetic/fake tests",
+    "s03_export_ui_test": "PASS: 1/1 simulator",
+    "synthetic_archive_validation": "PASS: 20-page schema/hash/CRC and 1-page simulator OCR/ZIP/PDF",
+    "testflight_upload_processing": "PASS: 0.1.0 (26.1) VALID",
+    "real_iphone_zip_share_to_wechat": "NOT_RUN",
+    "desktop_zip_extract_and_page_count": "NOT_RUN",
+    "real_iphone_disposable_live_photo_delete": "NOT_RUN",
+    "real_iphone_unrelated_photo_untouched": "NOT_RUN",
+    "real_iphone_job_files_purged": "NOT_RUN"
+  },
+  "privacy": "No private photos, OCR body, PHAsset IDs, UDIDs, WeChat content, Apple credentials or signing logs in report."
+}

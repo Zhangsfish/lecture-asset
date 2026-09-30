@@ -1,0 +1,14 @@
+Source: https://github.com/Zhangsfish/lecture-asset/actions/runs/36662386116
+Job: https://github.com/Zhangsfish/lecture-asset/actions/runs/36662386116/job/109719749887
+Source SHA: a1f47c0c7c30467f9adf41d2101d9cb54b467f51
+Conclusion: success
+Host: GitHub-hosted macos-26-arm64; macOS 26.6.2; Xcode 26.6; Swift 6.3.3
+SelectionCore: 5 tests, 0 failures
+ArchiveCore: 6 tests, 0 failures
+S03CleanupTests: 5 tests, 0 failures
+S03ExportUITests: 1 test, 0 failures
+Synthetic 20-page: S02_SYNTHETIC_SCHEMA_ZIP_HASH_CRC_PASS pages=20
+Synthetic 1-page simulator: S02_SYNTHETIC_SIMULATOR_READY_PASS pages=1 zip_crc=pass pdf=present ocr_status=ok revision=3 languages=zh-Hans,en-US
+Synthetic 20-page AI ZIP SHA-256: 679f87fae3180bff4b4b2e1b4c650a5e6a87287d97d9c0d3de3b65b95dc384dc
+GitHub artifact ID: 11075380822; outer artifact SHA-256: 94c4b2558a98f2eaf9f31f23fd9c04cd42b77c1700b6008aac804126759a6c2e
+This is a redacted factual summary, not a raw signing log or physical-device deletion result.

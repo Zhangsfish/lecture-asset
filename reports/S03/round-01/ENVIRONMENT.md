@@ -1,0 +1,7 @@
+# S03 round-01 environment
+
+- Local development host: Windows PowerShell in `E:\myself\lecture_asset`. It has no Xcode and cannot itself compile or test on an iPhone.
+- CI: standard GitHub-hosted `macos-26-arm64`, macOS 26.6.2, Xcode 26.6 (17F113), Swift 6.3.3, iOS Simulator 26.4.1 / iPhone 17 Pro. Run https://github.com/Zhangsfish/lecture-asset/actions/runs/36662386116 completed successfully against implementation SHA `a1f47c0c7c30467f9adf41d2101d9cb54b467f51`. The generic iPhone Release build was unsigned; it is build evidence, not device execution.
+- Xcode project generator: SHA-256 verified XcodeGen 2.46.0, installed into the temporary macOS runner only.
+- Device: owner iPhone, TestFlight installation and disposable Photos acceptance pending. No local Mac/iPhone attachment or private library access is available to this agent.
+- TestFlight: explicit upload run https://github.com/Zhangsfish/lecture-asset/actions/runs/36663496149 completed success; build `0.1.0 (26.1)` for `com.zhangsfish.lectureasset`, App Store Connect processing `VALID`. Existing Apple Team API key workflow uses only GitHub Actions Secrets and runner-temp key storage; no secret content was printed or committed. Distribution remains internal TestFlight only; no App Store public release.
