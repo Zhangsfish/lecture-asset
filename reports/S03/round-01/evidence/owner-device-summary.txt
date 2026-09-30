@@ -1,5 +1,6 @@
-Date: 2026-09-30 (owner report in private task conversation)
-Build under test: TestFlight 0.1.0 (26.1), pending owner confirmation for this specific extraction.
-Owner reported: the AI ZIP opens and decompresses; archive appeared sound. One SHA-256 digest was supplied privately, but whether it came from the App or desktop and whether both values match is not yet confirmed. The digest is intentionally omitted from the public report.
-Not yet confirmed: WeChat File Transfer Assistant route, 56 slide entries and expected structure, exact hash match, disposable PhotoKit deletion, Live Photo deletion, unrelated control photo, App job purge and relaunch.
+Date: 2026-09-30 (owner report in private task conversation; local read-only follow-up)
+Owner reported: AI ZIP shared via WeChat File Transfer Assistant and received on the Windows computer; ZIP opens and decompresses. Owner supplied the SHA-256 copied from the App. Owner also selected five photos including a Live Photo, then chose the separate "discard App work copy" action; the App returned to selection and Photos originals remained. This is the expected non-PhotoKit discard path, not a source-deletion test.
+Local private ZIP inspection: Python 3 `hashlib` streamed the 116,505,450-byte ZIP and matched the owner-supplied App SHA-256. `zipfile` reopened it and passed CRC. `jsonschema.Draft202012Validator` with format checker validated manifest v1. Source count, page count and JPEG entry count were all 56; slide names were consecutive. ZIP entry whitelist and no-symlink checks passed. Manifest file byte/hash checks and Markdown image-link order passed. No content was extracted or uploaded; only aggregate booleans and counts were printed.
+Not yet confirmed: disposable PhotoKit source deletion, whole Live Photo removal, unrelated control photo, post-deletion App job purge and relaunch.
+The computer path and private SHA-256 digest are deliberately omitted from the public report.
 No private image, OCR text, PHAsset identifier, UDID, WeChat content or account material is included.
