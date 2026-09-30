@@ -21,8 +21,8 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 | S00 | PASS — physical iPhone accepted | [device audit](audits/S00/device-01.md) |
 | S00-TF | PASS — build 0.1.0 (18.1) uploaded and VALID | [TestFlight round-03 audit](audits/S00/testflight-03.md) |
 | S01 | PASS — PR #2 merged | [round-01 audit](audits/S01/round-01.md) |
-| S02 | READY | [OCR + AI ZIP + PDF](tasks/S02_ARCHIVE.md) |
-| S03 | LOCKED | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
+| S02 | PASS — PR #3 merged | [round-01 audit](audits/S02/round-01.md) |
+| S03 | READY | [Share + confirm + Photos cleanup](tasks/S03_EXPORT_CLEANUP.md) |
 | S04 | LOCKED | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
 | S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
 
@@ -108,3 +108,30 @@ PR #2 is merged. Start S02 from the merged main on branch `codex/s02-archive` an
 `tasks/S02_ARCHIVE.md`
 
 S02 builds OCR + validated AI ZIP + companion PDF. It must not share or delete source Photos yet.
+
+
+## S02 round-01 audit
+
+PR #3 tested implementation `16187bc3adc5dfe6873fe48893e5936033d70d74` is accepted and merged.
+
+Key accepted evidence:
+
+- final macOS CI green;
+- synthetic AI ZIP independently reopened with CRC/hash/structure verified;
+- TestFlight `0.1.0 (25.1)` installed on owner iPhone;
+- real 56-page mixed job reached `ready` and `validated=true`;
+- OCR completed 56/56; 11 empty OCR pages retained without page loss;
+- companion PDF fine text/footers/table lines/color readable;
+- ready state survives force-close/relaunch;
+- long-image memory sample rose to 334.5 MiB then recovered without sustained growth or crash;
+- no S03 sharing or Photos deletion path in S02.
+
+Audit: [S02 round-01](audits/S02/round-01.md).
+
+## Next action
+
+Start S03 from latest main on branch `codex/s03-share-cleanup` and execute only:
+
+`tasks/S03_EXPORT_CLEANUP.md`
+
+S03 is the first destructive stage. Use disposable test photos for deletion acceptance. Do not begin S04 until S03 is audited PASS.
