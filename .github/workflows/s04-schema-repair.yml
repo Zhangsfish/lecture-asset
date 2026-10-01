@@ -87,6 +87,10 @@ jobs:
             -parallel-testing-enabled NO \
             -only-testing:LectureAssetUITests/PhotoLibraryPermissionUITests \
             CODE_SIGNING_ALLOWED=NO test
+          # The S01 UI test intentionally checks a fresh Photos permission request.
+          # Reset the S00 test's grant while retaining imported synthetic media.
+          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
+          xcrun simctl privacy "$device" reset all com.zhangsfish.lectureasset
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
             -destination "platform=iOS Simulator,id=$device" \
             -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
