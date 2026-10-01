@@ -1,0 +1,28 @@
+{
+  "stage": "S04",
+  "round": "02",
+  "status": "WAITING_FOR_OWNER_RETRY",
+  "pull_request": "https://github.com/Zhangsfish/lecture-asset/pull/5",
+  "tested_implementation_sha": "a55b3f328a8088b97f94f44ddc1c95775bdebfd6",
+  "ci_head_sha": "513f12915cf4cfb13df91c97105bcc81a7e476cc",
+  "ci_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36858225907",
+  "ci_result": "PASS",
+  "synthetic_artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36858225907/artifacts/11161591019",
+  "synthetic_artifact_sha256": "704499a710ccb4ed169a61ba44b79c46246ca4ac7bda53f9f5b3a289cd0a6168",
+  "testflight_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36859956512",
+  "testflight_build": "0.1.0 (27.1)",
+  "testflight_uploaded_code_sha": "513f12915cf4cfb13df91c97105bcc81a7e476cc",
+  "checks": {
+    "safe_schema_path_keyword_only": "PASS: ArchiveCore unit test and App catch path",
+    "selection_index_above_200_valid": "PASS: exact 200-page archive includes historical index 201",
+    "ocr_bbox_confidence_finite_unit_contract": "PASS: focused ArchiveCore unit test",
+    "retained_ocr_checkpoint_manifest_normalization": "PASS: focused package unit test; real retained job NOT_RUN",
+    "synthetic_200_page_archive_schema_zip_pdf": "PASS: exact 200 pages, 202 files, ZIP and PDF validated",
+    "independent_schema_crc_hash_whitelist": "PASS: Python validator on synthetic 20 and 200 page ZIPs",
+    "s00_s03_regression": "PASS: macOS CI simulator and PhotoKit tests",
+    "xcodegen_simulator_unsigned_device_build": "PASS: XcodeGen 2.46.0, simulator and generic iPhone Release",
+    "testflight_upload_processing": "PASS: upload accepted, App Store Connect processing VALID",
+    "retained_real_iphone_archive_retry": "NOT_RUN: owner will update TestFlight and retry later",
+    "new_200_photo_selection_or_jpeg_ocr_processing": "NOT_RUN: prohibited; retained job preserved"
+  }
+}
