@@ -4,6 +4,31 @@ import Foundation
 public enum SchemaError: Error, CustomStringConvertible {
     case invalid(String)
     public var description: String { if case let .invalid(message) = self { message } else { "schema error" } }
+
+    /// A public diagnostic may include only a schema JSON path and validation
+    /// keyword. Never forward the original message or a document value.
+    public var safeDiagnostic: String {
+        guard case let .invalid(message) = self else { return "validation" }
+        let pieces = message.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: false)
+        guard pieces.count == 2 else { return "schema_definition" }
+        let path = String(pieces[0])
+        guard path.utf8.count <= 160,
+              path.range(of: #"^\$(?:\.[A-Za-z_][A-Za-z0-9_]*|\[[0-9]{1,6}\]){0,24}$"#,
+                         options: .regularExpression) != nil else { return "validation" }
+        let reason = pieces[1].trimmingCharacters(in: .whitespaces)
+        let keyword: String
+        switch reason {
+        case "type", "const", "enum", "minLength", "maxLength", "minimum", "maximum",
+             "minItems", "maxItems", "uniqueItems", "pattern", "uuid", "date-time":
+            keyword = reason
+        case "unexpected property": keyword = "additionalProperties"
+        default:
+            if reason.hasPrefix("missing ") { keyword = "required" }
+            else if reason.hasPrefix("expected ") { keyword = "type" }
+            else { keyword = "validation" }
+        }
+        return "\(path):\(keyword)"
+    }
 }
 
 /// Evaluates the keywords used by schemas/manifest-v1.schema.json. Unknown validation keywords fail closed.

@@ -1,0 +1,126 @@
+name: S04 schema repair macOS verification
+
+on:
+  push:
+    branches: [codex/s04-device-qa]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Toolchain and source checks
+        run: |
+          set -euo pipefail
+          sw_vers
+          xcodebuild -version
+          swift --version
+          python3 scripts/check_foundation.py
+          swift test --package-path Packages/SelectionCore
+      - name: ArchiveCore 1, 20 and exact 200 page synthetic tests
+        env:
+          S02_ARTIFACT_DIRECTORY: ${{ runner.temp }}/s02-artifacts
+        run: |
+          set -euo pipefail
+          swift test --package-path Packages/ArchiveCore
+          shasum -a 256 "$S02_ARTIFACT_DIRECTORY"/*
+      - name: Independently validate synthetic manifest against canonical JSON Schema
+        env:
+          S02_ARTIFACT_DIRECTORY: ${{ runner.temp }}/s02-artifacts
+        run: |
+          set -euo pipefail
+          python3 -m venv "$RUNNER_TEMP/schema-venv"
+          "$RUNNER_TEMP/schema-venv/bin/pip" install --quiet 'jsonschema==4.25.1'
+          "$RUNNER_TEMP/schema-venv/bin/python" scripts/s02_validate_synthetic.py \
+            "$S02_ARTIFACT_DIRECTORY/synthetic-20_AI.zip"
+          "$RUNNER_TEMP/schema-venv/bin/python" scripts/s02_validate_synthetic.py \
+            "$S02_ARTIFACT_DIRECTORY/synthetic-200_AI.zip" 200
+      - name: Install verified XcodeGen 2.46.0
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
+            --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version
+      - name: Generate project and build simulator and unsigned device
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/S02DeviceDerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
+      - name: S00-S03 simulator and PhotoKit regressions
+        run: |
+          set -euo pipefail
+          device=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; data=json.load(sys.stdin); print(next(d["udid"] for runtime, devices in data["devices"].items() if "iOS" in runtime for d in devices if d["name"].startswith("iPhone") and d.get("isAvailable", True)))')
+          xcrun simctl boot "$device" >/dev/null 2>&1
+          xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
+            -parallel-testing-enabled NO \
+            -only-testing:LectureAssetTests/S01RecoveryTests \
+            CODE_SIGNING_ALLOWED=NO test
+          swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/s02-synthetic"
+          xcrun simctl addmedia "$device" "$RUNNER_TEMP/s02-synthetic"/*.jpg >/dev/null
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
+            -parallel-testing-enabled NO \
+            -only-testing:LectureAssetUITests/PhotoLibraryPermissionUITests \
+            CODE_SIGNING_ALLOWED=NO test
+          # The S01 UI test intentionally checks a fresh Photos permission request.
+          # Reset the S00 test's grant while retaining imported synthetic media.
+          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
+          xcrun simctl privacy "$device" reset all com.zhangsfish.lectureasset
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
+            -parallel-testing-enabled NO \
+            -only-testing:LectureAssetUITests/S01ProcessingUITests \
+            CODE_SIGNING_ALLOWED=NO test
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
+            -parallel-testing-enabled NO \
+            -only-testing:LectureAssetUITests/S02ArchiveUITests \
+            CODE_SIGNING_ALLOWED=NO test
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
+            -parallel-testing-enabled NO \
+            -only-testing:LectureAssetTests/S03CleanupTests \
+            CODE_SIGNING_ALLOWED=NO test
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S02SimulatorDerivedData" \
+            -parallel-testing-enabled NO \
+            -only-testing:LectureAssetUITests/S03ExportUITests \
+            CODE_SIGNING_ALLOWED=NO test
+          container=$(xcrun simctl get_app_container "$device" com.zhangsfish.lectureasset data)
+          python3 scripts/s02_check_simulator.py "$container/Library/Application Support/LectureAsset/jobs"
+      - name: Upload safe synthetic archive only
+        uses: actions/upload-artifact@v4
+        with:
+          name: s04-synthetic-archives
+          path: ${{ runner.temp }}/s02-artifacts/
+          if-no-files-found: error
+          retention-days: 14

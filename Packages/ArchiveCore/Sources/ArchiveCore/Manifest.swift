@@ -24,6 +24,19 @@ public struct OCRResult: Codable, Sendable {
         self.languages = languages; self.errorCode = errorCode
     }
 
+    /// Reuses persisted OCR text while enforcing the portable numeric contract.
+    /// A rejected geometry omits only that index block, never its source JPEG.
+    public func normalizedForManifest() -> OCRResult {
+        let safeBlocks = blocks.compactMap { block -> OCRBlock? in
+            guard let confidence = OCRGeometry.confidence(block.confidence),
+                  let bbox = OCRGeometry.storedBBox(block.bbox) else { return nil }
+            return OCRBlock(text: block.text, confidence: confidence, bbox: bbox)
+        }
+        return OCRResult(status: status, text: text, blocks: safeBlocks,
+                         requestRevision: requestRevision, languages: languages,
+                         errorCode: errorCode)
+    }
+
     private enum CodingKeys: String, CodingKey {
         case status, text, blocks, engine, requestRevision, languages, errorCode
     }

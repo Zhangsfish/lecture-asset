@@ -98,6 +98,106 @@ final class ArchiveCoreTests: XCTestCase {
         XCTAssertThrowsError(try validator.validate(Data("{\"unexpected\":true}".utf8)))
     }
 
+    func testSafeSchemaDiagnosticContainsOnlyPathAndKeyword() {
+        let error = SchemaError.invalid("$.pages[104].ocr.blocks[7].bbox[1]: minimum")
+        XCTAssertEqual(error.safeDiagnostic, "$.pages[104].ocr.blocks[7].bbox[1]:minimum")
+        XCTAssertEqual(SchemaError.invalid("$.pages[199].selection_index: maximum").safeDiagnostic,
+                       "$.pages[199].selection_index:maximum")
+        XCTAssertEqual(SchemaError.invalid("$.pages[1].ocr.text: private OCR content").safeDiagnostic,
+                       "$.pages[1].ocr.text:validation")
+        XCTAssertEqual(SchemaError.invalid("C:/private/photo.jpg: minimum").safeDiagnostic,
+                       "validation")
+        XCTAssertEqual(SchemaError.invalid("$.pages[1].ocr.私人内容: minimum").safeDiagnostic,
+                       "validation")
+    }
+
+    func testOCRGeometryClipsAndRejectsInvalidValues() throws {
+        let first = try XCTUnwrap(OCRGeometry.visionBBox(minX: -0.2, minY: 0.8, maxX: 0.3, maxY: 1.2))
+        XCTAssertEqual(first.count, 4)
+        XCTAssertEqual(first[0], 0, accuracy: 0.000001)
+        XCTAssertEqual(first[1], 0, accuracy: 0.000001)
+        XCTAssertEqual(first[2], 0.3, accuracy: 0.000001)
+        XCTAssertEqual(first[3], 0.2, accuracy: 0.000001)
+        let second = try XCTUnwrap(OCRGeometry.visionBBox(minX: 0.7, minY: -0.1, maxX: 1.2, maxY: 0.4))
+        XCTAssertEqual(second.count, 4)
+        XCTAssertEqual(second[0], 0.7, accuracy: 0.000001)
+        XCTAssertEqual(second[1], 0.6, accuracy: 0.000001)
+        XCTAssertEqual(second[2], 0.3, accuracy: 0.000001)
+        XCTAssertEqual(second[3], 0.4, accuracy: 0.000001)
+        XCTAssertNil(OCRGeometry.visionBBox(minX: .nan, minY: 0, maxX: 1, maxY: 1))
+        XCTAssertNil(OCRGeometry.visionBBox(minX: 1.1, minY: 0, maxX: 1.2, maxY: 1))
+        XCTAssertNil(OCRGeometry.visionBBox(minX: 0.7, minY: 0, maxX: 0.6, maxY: 1))
+        XCTAssertEqual(OCRGeometry.confidence(-0.1), 0)
+        XCTAssertEqual(OCRGeometry.confidence(1.1), 1)
+        XCTAssertNil(OCRGeometry.confidence(.infinity))
+        XCTAssertNil(OCRGeometry.confidence(.nan))
+
+        let saved = OCRResult(status: "ok", text: "kept raw text", blocks: [
+            OCRBlock(text: "edge", confidence: 1.2, bbox: [-0.1, 0.8, 0.4, 0.4]),
+            OCRBlock(text: "invalid", confidence: 0.5, bbox: [.nan, 0, 1, 1]),
+            OCRBlock(text: "outside", confidence: 0.5, bbox: [2, 2, 1, 1])
+        ], requestRevision: 3, languages: ["en-US"])
+        let normalized = saved.normalizedForManifest()
+        XCTAssertEqual(normalized.text, "kept raw text")
+        XCTAssertEqual(normalized.blocks.count, 1)
+        XCTAssertEqual(normalized.blocks[0].confidence, 1)
+        XCTAssertEqual(normalized.blocks[0].bbox.count, 4)
+        for (actual, expected) in zip(normalized.blocks[0].bbox, [0, 0.8, 0.3, 0.2]) {
+            XCTAssertEqual(actual, expected, accuracy: 0.000001)
+        }
+    }
+
+    func testExactTwoHundredPageArchiveBoundary() throws {
+        let root = FileManager.default.temporaryDirectory.appending(path: "s04-200-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: root) }
+        let edge = try XCTUnwrap(OCRGeometry.visionBBox(
+            minX: -0.1, minY: -0.1, maxX: 1.1, maxY: 1.1))
+        let pages = try (1...200).map { number -> ArchiveInputPage in
+            let image = root.appending(path: String(format: "%04d.jpg", number))
+            try makeJPEG(at: image, index: number)
+            let measured = try ArchiveBuilder.measure(image)
+            let status = number % 3 == 0 ? "failed" : (number % 3 == 1 ? "empty" : "ok")
+            let blocks = status == "ok" ? [OCRBlock(text: "synthetic", confidence: 1,
+                                                      bbox: edge)] : []
+            let ocr = OCRResult(status: status, text: status == "ok" ? "synthetic" : "",
+                                blocks: blocks, requestRevision: 3, languages: ["en-US"],
+                                errorCode: status == "failed" ? "synthetic_failure" : nil)
+            let record = ArchivePage(number: number,
+                selectionIndex: number == 200 ? 201 : number,
+                capturedAt: ArchiveDate.iso(Date(timeIntervalSince1970: TimeInterval(number))),
+                width: 240 + number, height: 180 + number,
+                bytes: measured.bytes, sha256: measured.hash,
+                isLivePhoto: number.isMultiple(of: 2), ocr: ocr)
+            return ArchiveInputPage(sourceURL: image, record: record)
+        }
+        let output = try ArchiveBuilder.build(pages: pages, archiveID: UUID(),
+            title: "Lecture 2026-09-29", jobCreatedAt: Date(timeIntervalSince1970: 1),
+            destination: root.appending(path: "exports"), schemaURL: schema)
+        XCTAssertEqual(output.manifest.pageCount, 200)
+        XCTAssertEqual(output.manifest.files.count, 202)
+        XCTAssertEqual(output.manifest.pages.map(\.number), Array(1...200))
+        XCTAssertEqual(output.manifest.pages.last?.selectionIndex, 201)
+        XCTAssertEqual(Set(output.manifest.pages.map { $0.ocr.status }), ["ok", "empty", "failed"])
+        let data = try ArchiveJSON.encoder().encode(output.manifest)
+        try SchemaValidator(schemaURL: schema).validate(data)
+        let name = String(output.zipURL.deletingPathExtension().lastPathComponent.dropLast(3))
+        try ArchiveValidator.validateZIP(at: output.zipURL, rootName: name,
+                                         expected: output.manifest, schemaURL: schema)
+        XCTAssertEqual(CGPDFDocument(output.pdfURL as CFURL)?.numberOfPages, 200)
+        try CompanionPDF.validate(at: output.pdfURL, pages: pages,
+                                  embeddedJPEGHashes: output.pdfImageSHA256ByPage)
+        if let artifactPath = ProcessInfo.processInfo.environment["S02_ARTIFACT_DIRECTORY"] {
+            let target = URL(fileURLWithPath: artifactPath, isDirectory: true)
+            try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
+            try FileManager.default.copyItem(at: output.zipURL,
+                to: target.appending(path: "synthetic-200_AI.zip"))
+            try FileManager.default.copyItem(at: output.pdfURL,
+                to: target.appending(path: "synthetic-200.pdf"))
+        }
+        print("S04_SYNTHETIC_200_PASS pages=200 files=202 zip_pdf_validated=true")
+    }
+
     func testMissingOrChangedCanonicalJPEGIsRejected() throws {
         let root = FileManager.default.temporaryDirectory.appending(path: "s02-corrupt-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)

@@ -59,7 +59,7 @@
       "required": ["number", "selection_index", "captured_at", "capture_time_source", "image", "width", "height", "bytes", "sha256", "source_representation", "ocr", "warnings"],
       "properties": {
         "number": {"type": "integer", "minimum": 1, "maximum": 200},
-        "selection_index": {"type": "integer", "minimum": 1, "maximum": 200},
+        "selection_index": {"type": "integer", "minimum": 1},
         "captured_at": {"type": ["string", "null"], "format": "date-time"},
         "capture_time_source": {"enum": ["photokit", "unavailable"]},
         "image": {"type": "string", "pattern": "^slides/[0-9]{4}\\.jpg$"},
