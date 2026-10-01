@@ -8,4 +8,4 @@ Files: `DELIVERY.md` is the audit summary; `ENVIRONMENT.md` records device and b
 
 Do not commit private photos, OCR text, asset identifiers, ZIP/PDF, device identifiers, or private file paths. Desktop ZIP inspection is read-only. The owner explicitly permitted one system Share Sheet ZIP transfer for inspection, without confirming external save or deleting Photos.
 
-TestFlight 0.1.0 (26.1) is the candidate. Its implementation SHA is `a1f47c0c7c30467f9adf41d2101d9cb54b467f51`; latest S04 base main is `9a7484c3d152568f00bb7ea6a4f2c14b55fa36df`. Verify the displayed TestFlight build and record the one-run results before claiming S04_LITE_PASS. Stop at READY_FOR_AUDIT and do not merge.
+The one TestFlight 0.1.0 (26.1) 200-page run failed at archive build after 200 JPEGs and 200 OCR pages. Its implementation SHA is `a1f47c0c7c30467f9adf41d2101d9cb54b467f51`; S04 base main is `9a7484c3d152568f00bb7ea6a4f2c14b55fa36df`. The report is `S04_LITE_FAIL / READY_FOR_AUDIT` in draft PR #5. Do not repeat the device run, merge, or start S05 pending independent audit.
