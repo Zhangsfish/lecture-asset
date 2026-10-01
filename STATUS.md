@@ -24,7 +24,7 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 | S02 | PASS — PR #3 merged | [round-01 audit](audits/S02/round-01.md) |
 | S03 | PASS — PR #4 merged | [round-01 audit](audits/S03/round-01.md) |
 | S04 | PASS — PR #5 merged; owner-approved S04-lite verified | [round-02 audit](audits/S04/round-02.md) |
-| S05 | WAITING_OWNER_RELEASE_AUTHORIZATION | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
+| S05 | READY — China-mainland-first release prep; owner authorized release preparation | [China prep](tasks/S05_CHINA_PREP.md) |
 
 ## S00 round-03 accepted evidence
 
@@ -205,3 +205,25 @@ Audit: [S04 round-02](audits/S04/round-02.md).
 Pause here.
 
 S05 release/compliance preparation may begin only when the owner asks for it. App Store submission/public release requires explicit owner authorization.
+
+
+## S05 China-mainland-first preparation
+
+Owner authorized App Store release preparation and asked to evaluate China mainland before the United States.
+
+Current plan:
+
+- first clean the public UI and remove S01-S04 engineering telemetry from the normal Release UI;
+- add public privacy/support pages and app privacy manifest;
+- add an owner-approved public contact email card;
+- prepare Simplified Chinese App Store metadata/screenshots;
+- then inspect App Store Connect China-mainland availability/ICP status before submission.
+
+Task: [S05 China prep](tasks/S05_CHINA_PREP.md).
+
+Current owner blockers before final release-candidate upload:
+
+- exact public email to display in the App/support page;
+- final visual screenshots after the cleanup build.
+
+Do not submit App Review until those are resolved and owner reviews the China availability status.
