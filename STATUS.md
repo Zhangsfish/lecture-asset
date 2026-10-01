@@ -227,3 +227,12 @@ Current owner blockers before final release-candidate upload:
 - final visual screenshots after the cleanup build.
 
 Do not submit App Review until those are resolved and owner reviews the China availability status.
+
+
+## ChatGPT restart handoff
+
+For a fresh conversation, read:
+
+`handoff/CHATGPT_RESTART_S05.md`
+
+It contains the durable S00–S04 completion summary, current S05 China-mainland-first goal, public-UI cleanup findings, release blockers and exact next actions.
