@@ -23,7 +23,7 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 | S01 | PASS — PR #2 merged | [round-01 audit](audits/S01/round-01.md) |
 | S02 | PASS — PR #3 merged | [round-01 audit](audits/S02/round-01.md) |
 | S03 | PASS — PR #4 merged | [round-01 audit](audits/S03/round-01.md) |
-| S04 | READY | [Real-device end-to-end QA](tasks/S04_DEVICE_QA.md) |
+| S04 | CHANGES_REQUESTED — retained 200-page job failed schema build | [round-02 repair](tasks/S04_ROUND2_SCHEMA_REPAIR.md) |
 | S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
 
 ## S00 round-03 accepted evidence
@@ -164,3 +164,24 @@ Start S04 from latest main on branch `codex/s04-device-qa` and execute only:
 S04 is final real-device MVP stress/QA: 1/20/100/200 pages, two consecutive 200-page runs, fault/relaunch/permission/share/delete-cancel checks, resource peaks, external-agent archive read, and one small disposable destructive cleanup.
 
 Do not start S05 until S04 is audited PASS.
+
+
+## S04-lite round-01 audit
+
+The first 200-page real-device smoke run reached 200/200 JPEG and 200/200 OCR, then failed at manifest/schema validation before ZIP/PDF generation.
+
+Audit: [S04 round-01](audits/S04/round-01.md).
+
+Important conclusion:
+
+- do **not** ask the owner to select/process 200 photos again;
+- preserve the existing failed task and its 200 JPEG/OCR checkpoints;
+- improve safe schema diagnostics, fix the latent selection_index contract, harden OCR numeric normalization, add an exact 200-page synthetic regression, then retry only the archive-build stage on the retained device job.
+
+## Next action
+
+Continue PR #5 with:
+
+`tasks/S04_ROUND2_SCHEMA_REPAIR.md`
+
+S05 remains locked.
