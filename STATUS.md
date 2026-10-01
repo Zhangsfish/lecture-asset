@@ -23,8 +23,8 @@ PR #1 S00 round-03 audit verdict: **ROUND-03 REPAIR PASS / S00 BLOCKED_DEVICE**.
 | S01 | PASS — PR #2 merged | [round-01 audit](audits/S01/round-01.md) |
 | S02 | PASS — PR #3 merged | [round-01 audit](audits/S02/round-01.md) |
 | S03 | PASS — PR #4 merged | [round-01 audit](audits/S03/round-01.md) |
-| S04 | CHANGES_REQUESTED — retained 200-page job failed schema build | [round-02 repair](tasks/S04_ROUND2_SCHEMA_REPAIR.md) |
-| S05 | LOCKED | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
+| S04 | PASS — PR #5 merged; owner-approved S04-lite verified | [round-02 audit](audits/S04/round-02.md) |
+| S05 | WAITING_OWNER_RELEASE_AUTHORIZATION | [TestFlight + US App Store](tasks/S05_RELEASE.md) |
 
 ## S00 round-03 accepted evidence
 
@@ -185,3 +185,23 @@ Continue PR #5 with:
 `tasks/S04_ROUND2_SCHEMA_REPAIR.md`
 
 S05 remains locked.
+
+
+## S04 round-02 final
+
+PR #5 merged to main at `9f7257c4d7f1f7f1d5de676df98da6d8123e61fc`.
+
+The owner-approved S04-lite scope is complete:
+
+- repaired 200-page retained job passed on TestFlight `0.1.0 (27.1)`;
+- desktop validation confirmed 200 JPEGs, 200 manifest pages, 200 Markdown page blocks and 200 PDF pages;
+- root cause was the invalid historical `selection_index <= 200` schema bound;
+- no further functional stress testing is required unless release work changes runtime behavior.
+
+Audit: [S04 round-02](audits/S04/round-02.md).
+
+## Next action
+
+Pause here.
+
+S05 release/compliance preparation may begin only when the owner asks for it. App Store submission/public release requires explicit owner authorization.
