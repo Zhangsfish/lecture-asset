@@ -1,0 +1,27 @@
+{
+  "stage": "S04-lite",
+  "round": "01",
+  "status": "IN_PROGRESS",
+  "base_main_sha": "9a7484c3d152568f00bb7ea6a4f2c14b55fa36df",
+  "candidate_tested_code_sha": "a1f47c0c7c30467f9adf41d2101d9cb54b467f51",
+  "testflight_build": "0.1.0 (26.1), owner recheck pending",
+  "prior_ci_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36662386116",
+  "prior_testflight_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36663496149",
+  "checks": {
+    "one_real_iphone_200_page_run": "NOT_RUN",
+    "stage_times_and_total": "NOT_RUN",
+    "jpeg_count_200": "NOT_RUN",
+    "ocr_count_200": "NOT_RUN",
+    "archive_ready": "NOT_RUN",
+    "zip_pdf_sizes": "NOT_RUN",
+    "sampled_process_memory_high_water": "NOT_RUN",
+    "working_directory_disk_peak": "NOT_RUN: no existing telemetry",
+    "no_observed_crash_jetsam_or_stuck": "NOT_RUN",
+    "single_background_or_lock_check": "NOT_RUN: optional",
+    "desktop_zip_schema_count_hash_crc_paths_order": "NOT_RUN",
+    "pdf_page_count_and_order": "NOT_RUN",
+    "frozen_chronological_order": "NOT_RUN",
+    "no_source_deletion": "NOT_RUN: test procedure prohibits source deletion; device observation pending"
+  },
+  "privacy": "No private photos, OCR text, PHAsset identifiers, ZIP/PDF, device identifiers, Apple secrets or local private paths in this report."
+}
