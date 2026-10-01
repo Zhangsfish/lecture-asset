@@ -98,7 +98,8 @@ final class ArchiveModel: ObservableObject {
                                                 selectionIndex: page.selectionIndex,
                                                 capturedAt: page.capturedAt.map(ArchiveDate.iso),
                                                 width: width, height: height, bytes: bytes, sha256: sha,
-                                                isLivePhoto: page.isLivePhoto, ocr: ocr))
+                                                isLivePhoto: page.isLivePhoto,
+                                                ocr: ocr.normalizedForManifest()))
                 }
                 let date = ArchiveDate.titleDate(captured: job.pages.map(\.capturedAt), jobCreatedAt: job.createdAt)
                 let result = try ArchiveBuilder.build(pages: inputs, archiveID: saved.archiveId,
@@ -121,7 +122,9 @@ final class ArchiveModel: ObservableObject {
             } catch {
                 saved.phase = .failed
                 saved.failureStage = stage
-                if let archiveError = error as? ArchiveFailure {
+                if let schemaError = error as? SchemaError {
+                    saved.failureCode = "schema_validation_failed:\(schemaError.safeDiagnostic)"
+                } else if let archiveError = error as? ArchiveFailure {
                     saved.failureCode = archiveError.description
                 } else {
                     let problem = error as NSError

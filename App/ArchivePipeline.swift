@@ -105,7 +105,7 @@ enum ArchiveStore {
             let input = ArchivePage(number: page.pageIndex, selectionIndex: page.selectionIndex,
                                     capturedAt: page.capturedAt.map(ArchiveDate.iso), width: width,
                                     height: height, bytes: bytes, sha256: sha,
-                                    isLivePhoto: page.isLivePhoto, ocr: ocr)
+                                    isLivePhoto: page.isLivePhoto, ocr: ocr.normalizedForManifest())
             let archiveInput = ArchiveInputPage(sourceURL: try JobStore.imageURL(for: page, in: job), record: input)
             try ArchiveBuilder.verifyImage(archiveInput)
             return archiveInput
@@ -149,14 +149,12 @@ enum VisionOCR {
             let blocks: [OCRBlock] = (request.results ?? []).compactMap { observation in
                 guard let candidate = observation.topCandidates(1).first else { return nil }
                 let box = observation.boundingBox
-                func bounded(_ value: Double) -> Double { min(1, max(0, value)) }
-                let left = bounded(Double(box.minX))
-                let right = bounded(Double(box.maxX))
-                let top = bounded(Double(1 - box.maxY))
-                let bottom = bounded(Double(1 - box.minY))
+                guard let bbox = OCRGeometry.visionBBox(
+                    minX: Double(box.minX), minY: Double(box.minY),
+                    maxX: Double(box.maxX), maxY: Double(box.maxY)),
+                    let confidence = OCRGeometry.confidence(Double(candidate.confidence)) else { return nil }
                 return OCRBlock(text: candidate.string,
-                                confidence: bounded(Double(candidate.confidence)),
-                                bbox: [left, top, right - left, bottom - top])
+                                confidence: confidence, bbox: bbox)
             }
             return OCRResult(status: blocks.isEmpty ? "empty" : "ok",
                              text: blocks.map(\.text).joined(separator: "\n"), blocks: blocks,
