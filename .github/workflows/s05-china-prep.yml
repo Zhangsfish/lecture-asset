@@ -82,7 +82,7 @@ jobs:
             -configuration Release \
             -destination "platform=iOS Simulator,id=$device" \
             -derivedDataPath "$RUNNER_TEMP/S05SimulatorDerivedData" \
-            -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO)
+            -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES)
           "${base[@]}" -only-testing:LectureAssetTests/S01RecoveryTests \
             -only-testing:LectureAssetTests/S03CleanupTests test
           swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/s05-synthetic"
