@@ -4,7 +4,23 @@ Updated: 2026-10-02. Core image/archive/delete decisions remain frozen. The owne
 
 ## 产品目的
 
-把讲座后占据相册的一堆 PPT / Live Photo 变成电脑或用户自选存储可长期保存、AI 可读取的开放资产，然后由用户确认清理原照片。
+用户真正的问题不是“不会整理照片”，而是：
+
+> **这些讲座照片大概率以后也不会主动翻看，但又因为“万一以后有用”而舍不得删。**
+
+Lecture Asset 保留的是这批照片的**未来可用性**，而不是要求用户现在就消费内容。
+
+它把相册里低频但舍不得丢的一堆 PPT / Live Photo，变成：
+
+- 一份给人随时翻看的 PDF；
+- 一份保留高清 JPEG、顺序、OCR 索引和 manifest 的 AI-readable ZIP；
+- 然后让用户在确认未来仍可找回、可交给 AI 继续处理之后，心安理得地清理原照片。
+
+因此产品最核心的用户价值是：
+
+> **把“舍不得删的未来可能性”从相册里搬出来，让用户敢删。**
+
+“PDF 给人读，ZIP 给 AI 工作”是实现这个价值的核心机制，而不是产品终点。
 
 产品不是扫描器、笔记 App 或知识库，不提供 AI 总结。
 
@@ -25,7 +41,7 @@ Updated: 2026-10-02. Core image/archive/delete decisions remain frozen. The owne
 | 图像处理 | 不裁、不缩、不透视、不增强；方向正确；全分辨率 sRGB JPEG Q90；不宣传为无损原文件 |
 | OCR | Apple Vision accurate；中英优先；只作索引 |
 | AI/LLM | 不调用 |
-| AI ZIP | README.md + lecture.md + manifest.json + slides/*.jpg |
+| AI ZIP | README.md + lecture.md + manifest.json + slides/*.jpg；README 是跨 Agent 的 AI 使用合同，明确 JPEG 为视觉事实源、OCR 仅作索引、整场总结/局部问答的视觉核验规则 |
 | PDF | 独立人类浏览副本，不是事实源，不放入 AI ZIP；一图一页，保持照片宽高比，不强制 A4/Letter |
 | 分享 | 系统 Share Sheet；微信文件传输助手路径已有真机证据；AirDrop / Files 等由系统提供 |
 | 微信 SDK / GitHub 直传 | 均不做 |
