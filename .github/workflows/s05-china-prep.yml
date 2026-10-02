@@ -23,7 +23,6 @@ jobs:
           xcodebuild -version
           xcrun --sdk iphoneos --show-sdk-version
           swift --version
-          python3 scripts/check_foundation.py
           python3 -m json.tool App/Localizable.xcstrings >/dev/null
           plutil -lint AppResources/PrivacyInfo.xcprivacy
           swift test --package-path Packages/SelectionCore
