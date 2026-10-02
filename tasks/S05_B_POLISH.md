@@ -20,7 +20,8 @@ Read first:
 5. `docs/S05_EXECUTION_FRAMEWORK.md`
 6. `audits/S05/china-prep-01.md`
 7. `reports/S05/testflight-preview-01/DELIVERY.md`
-8. this task
+8. `docs/MOTION_AND_PROMO_PLAN.md`
+9. this task
 
 Do not begin S05-C StoreKit or S05-D App Review/region submission.
 
@@ -71,7 +72,21 @@ Requirements:
 
 If the existing discard action is also available in paused/failed pre-ready states, preserve safe abandonment behavior if useful, but do not make it compete visually with Retry/Resume. The owner's visibility request is specifically for the normal final/ready flow.
 
-## 2. Remove remaining ready-screen redundancy
+## 2. Reduce text across the normal UI + remove remaining ready-screen redundancy
+
+Owner feedback after TestFlight 0.1.0 (28.1): the flow is understandable, but normal screens still use more explanatory text than necessary.
+
+Follow `docs/MOTION_AND_PROMO_PLAN.md`:
+
+- motion/hierarchy should explain routine actions;
+- normal states get one title + at most one short helper line;
+- do not repeat in prose what the primary button already says;
+- move detailed explanation into About/Help;
+- preserve fuller wording only where safety/destructive consequences require it.
+
+At minimum review Selection, Review, JPEG-complete, Archive-ready, About and permission-gate copy.
+
+### Ready-screen redundancy
 
 The owner accepted the overall UI, but the S05-A audit noted redundant hierarchy such as:
 
@@ -92,12 +107,22 @@ Do not rewrite pipeline state or remove recovery information needed for correctn
 
 ## 3. Lightweight onboarding tutorial
 
-Implement the previously approved 3–4 step local tutorial matching the real UI:
+Implement the tutorial using the native motion route frozen in `docs/MOTION_AND_PROMO_PLAN.md`.
 
-1. sweep/select lecture photos;
-2. review and capture-time ordering;
-3. organize and create AI ZIP + PDF;
-4. save/verify ZIP, then choose whether to clean source Photos.
+Technical direction:
+
+- SwiftUI only; no Lottie/Rive/WebView/remote-video dependency;
+- prefer `PhaseAnimator` + `KeyframeAnimator`;
+- use local shapes/SF Symbols and, where useful, `Path`/`.trim` for a simple PPT-like guide-line / gesture path;
+- one action per scene;
+- almost no prose.
+
+The tutorial matches the real UI:
+
+1. **滑动选择** — sweep/select lecture photos;
+2. **自动排序** — review/capture-time order;
+3. **生成 ZIP + PDF** — organize/create files;
+4. **保存后再清理** — save/verify ZIP, then choose between deleting source Photos or keeping Photos and clearing App files.
 
 Requirements:
 
@@ -110,6 +135,8 @@ Requirements:
 - respect Reduce Motion with static/low-motion presentation;
 - usable with VoiceOver and enlarged text;
 - no countdown or required animation completion;
+- each scene should communicate through motion first; keep visible Chinese captions roughly one short phrase, not a paragraph;
+- tutorial scene 4 must teach both final cleanup choices so the App-only cleanup alternative is discoverable;
 - Photos permission prompt only occurs from the real explicit permission action, not tutorial completion.
 
 If a tutorial-seen flag uses `UserDefaults`, re-audit the actual Required Reason API requirement and privacy manifest. Do not add a declaration without checking current Apple-approved reason rules and actual API usage.
