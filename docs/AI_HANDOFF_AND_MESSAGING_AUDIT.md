@@ -14,9 +14,25 @@ Inputs reviewed:
 
 ## 1. Product truth that should unify UI, onboarding, archive and promotion
 
-The product is not mainly “turn lecture photos into a PDF”.
+The product is not mainly “turn lecture photos into a PDF”, and it is not mainly “help people read their old lecture photos”.
 
-The durable product statement is:
+The owner's deeper JTBD is:
+
+> **用户大概率不会再看这些照片，但因为“万一以后有用”而舍不得删。**
+
+The value of Lecture Asset is to preserve that future option outside the Photos library, so the user can delete the original clutter without feeling that the information has been lost.
+
+Therefore the hierarchy is:
+
+1. **Core user value:** 未来还找得回来，所以现在敢删。
+2. **Product mechanism:** PDF 给人读，AI 资料包 ZIP 给 AI 继续工作。
+3. **Operational flow:** 保存外部资料 → 确认 → 再选择如何清理。
+
+A useful internal shorthand:
+
+> **把“舍不得删的未来可能性”从相册里搬出来。**
+
+The durable mechanism statement remains:
 
 > **PDF 给人读，AI 资料包 ZIP 给 AI 继续工作。**
 
@@ -157,7 +173,51 @@ Then the four action scenes:
 
 Keep Skip immediately available.
 
-## 7. Promotional message — change the hook hierarchy
+## 7. Promotional message — lead with “won't read, won't delete”
+
+The strongest consumer pain is not “my photos are unordered”. It is:
+
+> **这些 PPT 照片，你大概率不会再看。可你又舍不得删。**
+
+That tension should be the first campaign idea. The dual-output reveal explains why the user can finally delete with confidence.
+
+A stronger opening hierarchy:
+
+### 0–3 s — emotional truth
+Visual: Photos library full of lecture/PPT images.
+
+Copy candidate A:
+**这些 PPT 照片，你大概率不会再看。**
+
+Then immediately:
+**但你又舍不得删。**
+
+Alternative compressed copy:
+**不看，又舍不得删。**
+
+### 3–7 s — preserve the future option
+Photos collapse into two durable outputs.
+
+Copy:
+**PDF 给你。ZIP 给 AI。**
+
+The meaning is: the information remains available even after the Photos originals are gone.
+
+### 7–12 s — AI continuation
+AI ZIP → agent → notes/questions/report.
+
+Copy:
+**以后想用，再交给 AI。**
+
+### 12–16 s — permission to delete
+Saved ✓ → source-photo cleanup.
+
+Copy:
+**留住内容，清空相册。**
+
+Then the existing operational story can continue.
+
+## 7B. Previous hook hierarchy retained as a secondary execution option
 
 The old promo concept “一场讲座，80 张 PPT 照片 → 一滑选完 → 自动排好” is clear but risks looking like another PDF/scanning organizer.
 
@@ -230,17 +290,22 @@ Before vendor-specific UI or final ads:
 
 Do not start promo production yet.
 
-Next implementation batch should first make the product itself express the same truth:
+The owner explicitly wants the next implementation batch to change the **human UI and the ZIP AI contract together**, so the product promise and the exported artifact cannot drift apart.
+
+Next implementation batch:
 
 1. reduce human UI copy;
-2. onboarding hero + four concise scenes;
-3. final ready screen says `PDF 给你看 · ZIP 给 AI`;
-4. make the App-only cleanup alternative visible;
-5. About/contact/homepage/public pages.
+2. onboarding hero should express the real value: preserve future usefulness so the user can clean Photos with confidence;
+3. onboarding then teaches the concise mechanism: `PDF 给你 · ZIP 给 AI`;
+4. final ready screen expresses the same split;
+5. make the App-only cleanup alternative visible;
+6. About/contact/homepage/public pages;
+7. strengthen archive `README.md` + `lecture.md` AI contract in the same PR;
+8. add targeted archive tests proving the generated instructions and ZIP structure.
 
-After that UI is frozen:
-6. strengthen archive README/lecture.md AI contract with targeted archive regression;
-7. test WorkBuddy and ChatGPT consumption;
-8. make the promotional video from the verified end-to-end flow.
+After that exact build/ZIP is verified:
+9. test the same real ZIP in WorkBuddy and ChatGPT;
+10. freeze the verified handoff story;
+11. make the promotional video from the real end-to-end flow.
 
-This prevents the ad/tutorial from teaching a product contract that the ZIP itself does not yet enforce.
+This keeps UI, onboarding, archive instructions and promotion on one product contract.
