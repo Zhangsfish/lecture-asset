@@ -34,7 +34,7 @@ final class S01ProcessingUITests: XCTestCase {
         reviewImage.lifetime = .keepAlways
         add(reviewImage)
         XCTAssertTrue(app.staticTexts.matching(NSPredicate(
-            format: "label CONTAINS %@", "Processing does not delete photos"
+            format: "label CONTAINS %@", "Tap to remove a mistake"
         )).firstMatch.exists)
         start.tap()
 
@@ -43,7 +43,7 @@ final class S01ProcessingUITests: XCTestCase {
             phase.waitForExistence(timeout: 20),
             "Expected processing screen; visible text: \(app.staticTexts.allElementsBoundByIndex.map(\.label))"
         )
-        let completed = NSPredicate(format: "label == %@", "Completed")
+        let completed = NSPredicate(format: "label == %@", "Photos prepared")
         expectation(for: completed, evaluatedWith: phase)
         waitForExpectations(timeout: 90)
         XCTAssertFalse(app.staticTexts["processing-progress"].exists)
@@ -57,11 +57,11 @@ final class S01ProcessingUITests: XCTestCase {
         app.launch()
         let recovered = app.staticTexts["processing-phase"]
         XCTAssertTrue(recovered.waitForExistence(timeout: 30))
-        XCTAssertEqual(recovered.label, "Completed", "The private per-page checkpoint must survive app restart")
+        XCTAssertEqual(recovered.label, "Photos prepared", "The private per-page checkpoint must survive app restart")
         app.buttons["about-open"].tap()
         XCTAssertTrue(app.staticTexts["Privacy"].waitForExistence(timeout: 5))
         app.buttons["about-close"].tap()
-        XCTAssertEqual(app.staticTexts["processing-phase"].label, "Completed",
+        XCTAssertEqual(app.staticTexts["processing-phase"].label, "Photos prepared",
                        "About must not replace the recovered processing job")
     }
 }

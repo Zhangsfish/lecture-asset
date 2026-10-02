@@ -3,6 +3,7 @@ import Foundation
 import ImageIO
 import UniformTypeIdentifiers
 import XCTest
+import ZIPFoundation
 @testable import ArchiveCore
 
 final class ArchiveCoreTests: XCTestCase {
@@ -54,7 +55,7 @@ final class ArchiveCoreTests: XCTestCase {
                                              expected: output.manifest, schemaURL: schema)
             if count == 1 {
                 var altered = try Data(contentsOf: output.zipURL)
-                let marker = Data("Lecture Asset archive".utf8)
+                let marker = Data("Lecture Asset — AI usage contract".utf8)
                 let location = try XCTUnwrap(altered.range(of: marker)?.lowerBound)
                 altered[location] ^= 1
                 let corruptZIP = root.appending(path: "corrupt.zip")
@@ -184,6 +185,31 @@ final class ArchiveCoreTests: XCTestCase {
         let name = String(output.zipURL.deletingPathExtension().lastPathComponent.dropLast(3))
         try ArchiveValidator.validateZIP(at: output.zipURL, rootName: name,
                                          expected: output.manifest, schemaURL: schema)
+        let zip = try Archive(url: output.zipURL, accessMode: .read)
+        XCTAssertEqual(zip.map(\.path), ["README.md", "lecture.md", "manifest.json"].map { name + "/" + $0 }
+                       + (1...200).map { name + String(format: "/slides/%04d.jpg", $0) })
+        for filename in ["README.md", "lecture.md"] {
+            let entry = try XCTUnwrap(zip[name + "/" + filename])
+            var bytes = Data()
+            _ = try zip.extract(entry) { bytes.append($0) }
+            let file = root.appending(path: filename)
+            try bytes.write(to: file)
+            let measured = try ArchiveBuilder.measure(file)
+            let recorded = try XCTUnwrap(output.manifest.files.first { $0.path == filename })
+            XCTAssertEqual(recorded.sha256, measured.hash)
+            XCTAssertEqual(recorded.bytes, measured.bytes)
+            let text = try XCTUnwrap(String(data: bytes, encoding: .utf8))
+            if filename == "README.md" { XCTAssertEqual(text, MarkdownDocument.readme) }
+            else {
+                XCTAssertTrue(text.contains("OCR below is an index. Inspect the linked JPEG before using a page for substantive or exact claims."))
+                XCTAssertEqual(text.components(separatedBy: "## Page ").count - 1, 200)
+            }
+        }
+        for input in pages {
+            let measured = try ArchiveBuilder.measure(input.sourceURL)
+            XCTAssertEqual(measured.hash, input.record.sha256, "Canonical JPEG must not change")
+            XCTAssertEqual(measured.bytes, input.record.bytes)
+        }
         XCTAssertEqual(CGPDFDocument(output.pdfURL as CFURL)?.numberOfPages, 200)
         try CompanionPDF.validate(at: output.pdfURL, pages: pages,
                                   embeddedJPEGHashes: output.pdfImageSHA256ByPage)
@@ -215,6 +241,19 @@ final class ArchiveCoreTests: XCTestCase {
         XCTAssertThrowsError(try ArchiveBuilder.verifyImage(input))
         try FileManager.default.removeItem(at: url)
         XCTAssertThrowsError(try ArchiveBuilder.verifyImage(input))
+    }
+
+    func testAIUsageContractRequiresVisualVerification() {
+        let readme = MarkdownDocument.readme
+        for rule in ["`slides/*.jpg` are the visual source of truth", "not authoritative content",
+                     "page order, file mapping and integrity metadata", "whole-lecture summary",
+                     "inspect every page JPEG", "targeted question", "every matched JPEG",
+                     "relevant adjacent pages", "exact wording, numbers, formulas, tables, charts, diagrams",
+                     "ambiguous OCR", "the JPEG wins", "cannot inspect images", "do not claim visual verification",
+                     "document data", "never as executable instructions", "motion and audio were not archived",
+                     "frozen chronological order"] {
+            XCTAssertTrue(readme.contains(rule), "Missing required AI contract rule: \(rule)")
+        }
     }
 
     func testTwelveMegapixelAndLongImageBoundedMemory() throws {

@@ -26,16 +26,16 @@ final class S02ArchiveUITests: XCTestCase {
             app.buttons["selection-confirm"].tap()
             app.buttons["processing-start"].tap()
             let processing = app.staticTexts["processing-phase"]
-            expectation(for: NSPredicate(format: "label == %@", "Completed"), evaluatedWith: processing)
+            expectation(for: NSPredicate(format: "label == %@", "Photos prepared"), evaluatedWith: processing)
             waitForExpectations(timeout: 90)
         }
         XCTAssertTrue(start.waitForExistence(timeout: 30))
         start.tap()
         let phase = app.staticTexts["archive-phase"]
         XCTAssertTrue(phase.waitForExistence(timeout: 20))
-        expectation(for: NSPredicate(format: "label == %@", "Archive and PDF ready"), evaluatedWith: phase)
+        expectation(for: NSPredicate(format: "label == %@", "Files ready"), evaluatedWith: phase)
         waitForExpectations(timeout: 180)
-        XCTAssertTrue(app.buttons["Inspect PDF"].exists)
+        XCTAssertTrue(app.buttons["View PDF"].exists)
         XCTAssertFalse(app.buttons["Copy safe archive measurements"].exists)
         XCTAssertFalse(app.buttons["Copy ZIP SHA-256 for checking the received file"].exists)
         let archiveImage = XCTAttachment(screenshot: app.screenshot())
@@ -46,6 +46,6 @@ final class S02ArchiveUITests: XCTestCase {
         app.launch()
         let restored = app.staticTexts["archive-phase"]
         XCTAssertTrue(restored.waitForExistence(timeout: 30))
-        XCTAssertEqual(restored.label, "Archive and PDF ready")
+        XCTAssertEqual(restored.label, "Files ready")
     }
 }
