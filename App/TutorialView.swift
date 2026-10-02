@@ -20,7 +20,7 @@ struct TutorialView: View {
                         illustration(stage: 2)
                             .accessibilityIdentifier("tutorial-static")
                     } else {
-                        PhaseAnimator([0, 1, 2], trigger: play) { stage in
+                        PhaseAnimator([2, 0, 1, 2], trigger: play) { stage in
                             illustration(stage: stage)
                         } animation: { _ in .easeInOut(duration: 1) }
                     }
@@ -80,7 +80,13 @@ struct TutorialView: View {
                     }
                     Image(systemName: "hand.point.up.left.fill")
                         .font(.largeTitle)
-                        .offset(x: reduceMotion ? 0 : stage == 0 ? -90 : stage == 1 ? 0 : 90)
+                        .keyframeAnimator(initialValue: CGFloat(0), trigger: play) { content, position in
+                            content.offset(x: reduceMotion ? 0 : position)
+                        } keyframes: { _ in
+                            LinearKeyframe(CGFloat(-90), duration: 0.2)
+                            LinearKeyframe(CGFloat(90), duration: 2.2)
+                            LinearKeyframe(CGFloat(90), duration: 0.4)
+                        }
                 }
             case 1:
                 VStack(spacing: 16) {
