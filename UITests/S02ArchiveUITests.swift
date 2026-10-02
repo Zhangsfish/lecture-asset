@@ -36,6 +36,12 @@ final class S02ArchiveUITests: XCTestCase {
         expectation(for: NSPredicate(format: "label == %@", "Archive and PDF ready"), evaluatedWith: phase)
         waitForExpectations(timeout: 180)
         XCTAssertTrue(app.buttons["Inspect PDF"].exists)
+        XCTAssertFalse(app.buttons["Copy safe archive measurements"].exists)
+        XCTAssertFalse(app.buttons["Copy ZIP SHA-256 for checking the received file"].exists)
+        let archiveImage = XCTAttachment(screenshot: app.screenshot())
+        archiveImage.name = "s05-synthetic-archive-ready"
+        archiveImage.lifetime = .keepAlways
+        add(archiveImage)
         app.terminate()
         app.launch()
         let restored = app.staticTexts["archive-phase"]

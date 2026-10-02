@@ -6,6 +6,7 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var model = PhotoLibraryModel()
     @StateObject private var processor = ProcessingModel()
+    @State private var showingAbout = false
 
     var body: some View {
         NavigationStack {
@@ -23,7 +24,14 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("app.title")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("about.title", systemImage: "info.circle") { showingAbout = true }
+                        .accessibilityIdentifier("about-open")
+                }
+            }
         }
+        .sheet(isPresented: $showingAbout) { AboutSupportView() }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active { model.refreshAuthorization() }
             if phase == .background { processor.pauseAfterCurrentPage() }
@@ -37,19 +45,25 @@ struct ContentView: View {
                 .foregroundStyle(.secondary)
                 .padding(8)
             PhotoGridView(model: model)
-            HStack {
-                Text("selection.selected") + Text(" \(model.selection.count)/200")
-                Spacer()
+        }
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 8) {
+                (Text("selection.selected") + Text(" \(model.selection.count)/200"))
+                    .font(.subheadline.monospacedDigit())
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 NavigationLink {
                     ConfirmationView(model: model, processor: processor)
                 } label: {
                     Text("selection.confirm")
+                        .frame(maxWidth: .infinity)
                 }
                 .disabled(model.selection.count == 0)
                 .buttonStyle(.borderedProminent)
+                .controlSize(.large)
                 .accessibilityIdentifier("selection-confirm")
             }
             .padding()
+            .background(.regularMaterial)
         }
         .overlay(alignment: .top) {
             if model.showsSelectionLimit {

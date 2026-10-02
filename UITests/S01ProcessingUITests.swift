@@ -25,9 +25,17 @@ final class S01ProcessingUITests: XCTestCase {
         firstCell.tap()
         let confirm = app.buttons["selection-confirm"]
         XCTAssertTrue(confirm.waitForExistence(timeout: 10))
+        XCTAssertEqual(confirm.label, "Next: Review photos")
         confirm.tap()
         let start = app.buttons["processing-start"]
         XCTAssertTrue(start.waitForExistence(timeout: 10))
+        let reviewImage = XCTAttachment(screenshot: app.screenshot())
+        reviewImage.name = "s05-synthetic-review"
+        reviewImage.lifetime = .keepAlways
+        add(reviewImage)
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(
+            format: "label CONTAINS %@", "Processing does not delete photos"
+        )).firstMatch.exists)
         start.tap()
 
         let phase = app.staticTexts["processing-phase"]
@@ -38,15 +46,22 @@ final class S01ProcessingUITests: XCTestCase {
         let completed = NSPredicate(format: "label == %@", "Completed")
         expectation(for: completed, evaluatedWith: phase)
         waitForExpectations(timeout: 90)
-        let finalProgress = app.staticTexts.matching(identifier: "processing-progress")
-            .matching(NSPredicate(format: "label == %@", "1 / 1")).firstMatch
-        XCTAssertTrue(finalProgress.exists)
-        XCTAssertTrue(app.buttons["Copy safe page measurements"].exists)
+        XCTAssertFalse(app.staticTexts["processing-progress"].exists)
+        XCTAssertFalse(app.buttons["Copy safe page measurements"].exists)
+        let processedImage = XCTAttachment(screenshot: app.screenshot())
+        processedImage.name = "s05-synthetic-jpeg-complete"
+        processedImage.lifetime = .keepAlways
+        add(processedImage)
 
         app.terminate()
         app.launch()
         let recovered = app.staticTexts["processing-phase"]
         XCTAssertTrue(recovered.waitForExistence(timeout: 30))
         XCTAssertEqual(recovered.label, "Completed", "The private per-page checkpoint must survive app restart")
+        app.buttons["about-open"].tap()
+        XCTAssertTrue(app.staticTexts["Privacy"].waitForExistence(timeout: 5))
+        app.buttons["about-close"].tap()
+        XCTAssertEqual(app.staticTexts["processing-phase"].label, "Completed",
+                       "About must not replace the recovered processing job")
     }
 }

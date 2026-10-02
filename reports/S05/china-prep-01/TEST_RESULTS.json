@@ -1,0 +1,76 @@
+{
+  "stage": "S05-A",
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "42f33cd7aaf21b6a493e2455fd600b4912b8cd9c",
+  "tested_code_sha": "e5f76a771b4cbb73983ac6c89b98caa527a17cff",
+  "final_ci": {
+    "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36967361233",
+    "result": "PASS",
+    "host": "standard GitHub-hosted macos-26 arm64; macOS 26.6.2; Xcode 26.6; iOS SDK 26.5; Swift 6.3.3",
+    "simulator": "iPhone 17 Pro / iOS 26.4.1",
+    "commands": [
+      "swift test --package-path Packages/SelectionCore",
+      "swift test --package-path Packages/ArchiveCore",
+      "xcodegen generate --spec project.yml",
+      "xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath '$RUNNER_TEMP/S05DeviceDerivedData' CODE_SIGNING_ALLOWED=NO clean build",
+      "plutil -lint AppResources/PrivacyInfo.xcprivacy and built App/ZIPFoundation manifests",
+      "xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'platform=iOS Simulator,id=<CI device>' -derivedDataPath '$RUNNER_TEMP/S05SimulatorDerivedData' -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES -only-testing:<focused test class> test",
+      "xcrun simctl privacy <CI device> reset all / revoke photos com.zhangsfish.lectureasset",
+      "xcrun xcresulttool export attachments --path <synthetic xcresult> --output-path <runner temporary directory>"
+    ],
+    "results": [
+      {"check": "SelectionCore", "result": "PASS", "tests": 5},
+      {"check": "ArchiveCore", "result": "PASS", "tests": 9},
+      {"check": "XcodeGen project generation and unsigned clean iPhone Release build", "result": "PASS"},
+      {"check": "App root privacy manifest bundled and reasons parsed", "result": "PASS", "reasons": ["E174.1", "C617.1"]},
+      {"check": "ZIPFoundation 0.9.20 resource manifest bundled and parsed", "result": "PASS", "reason": "0A2A.1"},
+      {"check": "S01 recovery and S03 cleanup unit tests", "result": "PASS", "tests": 8},
+      {"check": "PhotoLibraryPermissionUITests, including About before grant and synthetic grid", "result": "PASS", "tests": 1},
+      {"check": "S01ProcessingUITests, including review, no metrics, retained job and About", "result": "PASS", "tests": 1},
+      {"check": "S02ArchiveUITests, including explicit archive start and no metrics/hash controls", "result": "PASS", "tests": 1},
+      {"check": "S03ExportUITests, including separate ZIP/PDF controls and deletion locked across relaunch", "result": "PASS", "tests": 1},
+      {"check": "PhotoLibraryBlockedUITests with simctl Photos revoke", "result": "PASS", "tests": 1},
+      {"check": "Synthetic XCTest screenshot export and artifact upload", "result": "PASS", "screenshots_committed": 6}
+    ],
+    "synthetic_visual_artifact": {
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36967361233/artifacts/11210218538",
+      "sha256": "f339190168d60fac3f7a5916b4eef56723c41a6045ca6bea9b5eefb8858d7d8d",
+      "expires_at_utc": "2026-10-16T05:20:53Z",
+      "durable_copies": "reports/S05/china-prep-01/evidence/"
+    }
+  },
+  "earlier_ci_attempts": [
+    {
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36965077489",
+      "sha": "3061cde4b31560d01bf5f321e5bbdb90049452ba",
+      "result": "FAIL",
+      "reason": "Historical archived STATUS links caused unrelated scripts/check_foundation.py failure before build."
+    },
+    {
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36965198464",
+      "sha": "44a218fe12d4410cf111a4a01d849d45b8a96952",
+      "result": "FAIL",
+      "reason": "After clean Release build and passing permission/JPEG/archive/export tests, simctl rejected the unsupported action deny; corrected to revoke."
+    },
+    {
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36966605334",
+      "sha": "eac9bf122e2ee89eb931533edf2a5d6c48052519",
+      "result": "FAIL",
+      "reason": "Clean Release build and both built privacy manifests passed; test target @testable imports required ENABLE_TESTABILITY=YES in Release-configured simulator test build."
+    }
+  ],
+  "local_checks": [
+    {"command": "git diff --check", "result": "PASS"},
+    {"command": "python parse App/Localizable.xcstrings, AppResources/PrivacyInfo.xcprivacy and web/static/*.html", "result": "PASS"},
+    {"command": "review six exported synthetic PNGs against visible UI", "result": "PASS"}
+  ],
+  "not_run": [
+    "Real iPhone S05-A preview, actual private Photos and destructive source deletion. Prior S00-S04 audits remain the device baseline; no owner retest requested.",
+    "Limited-Photos authorization UI on simulator; denied was tested and the same ContentView switch handles limited in source.",
+    "A failed-archive UI visual screenshot; safe diagnostic sanitization was unit tested and its disclosure source reviewed.",
+    "Manual large-text layout sweep and VoiceOver screen-reader navigation.",
+    "Xcode Organizer combined privacy report and App Store Connect App Privacy labels.",
+    "TestFlight upload, App Store Connect region/account edit, App Review submission and public release."
+  ],
+  "secrets_in_repo_or_artifact": false
+}
