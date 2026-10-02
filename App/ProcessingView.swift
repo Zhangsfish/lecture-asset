@@ -19,8 +19,10 @@ struct ProcessingView: View {
             if let job = model.job {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(phaseKey(for: job.phase)).font(.title2.bold())
-                            .accessibilityIdentifier("processing-phase")
+                        if job.phase != .completed || archive.state?.jobId != job.id {
+                            Text(phaseKey(for: job.phase)).font(.title2.bold())
+                                .accessibilityIdentifier("processing-phase")
+                        }
                         if job.phase != .completed {
                             ProgressView(value: Double(job.completedCount), total: Double(job.totalCount))
                             HStack {
@@ -60,9 +62,9 @@ struct ProcessingView: View {
                             }
                         }
                         if job.phase == .completed && job.sourcesDeleted != true {
-                            Text("processing.completeDetail")
                             if let archiveState = archive.state, archiveState.jobId == job.id {
                                 Text(archiveKey(for: archiveState.phase))
+                                    .font(.title2.bold())
                                     .accessibilityIdentifier("archive-phase")
                                 if archiveState.phase == .processing {
                                     Text("archive.processingDetail")
@@ -117,14 +119,7 @@ struct ProcessingView: View {
                                         .disabled(archive.exportBusy)
                                         .accessibilityIdentifier("export-share-zip")
                                     }
-                                    if archiveState.zipShareReceipt?.reportedCompleted == true {
-                                        Text("export.shareCompleted")
-                                            .font(.footnote)
-                                            .foregroundStyle(.secondary)
-                                    }
                                     if archiveState.zipShareReceipt?.externalSaveConfirmed == true {
-                                        Text("export.savedConfirmed")
-                                            .font(.footnote)
                                         if archive.deletionSummary == nil {
                                             Text("export.cleanupLockedHint")
                                                 .font(.footnote)
@@ -147,6 +142,7 @@ struct ProcessingView: View {
                                     .accessibilityIdentifier("export-share-pdf")
                                 }
                             } else if !archive.isBusy {
+                                Text("processing.completeDetail")
                                 Button("archive.start") { archive.startOrRetry(job: job) }
                                     .buttonStyle(.borderedProminent)
                                     .accessibilityIdentifier("archive-start")
@@ -161,22 +157,19 @@ struct ProcessingView: View {
 
                         if job.phase != .processing && job.sourcesDeleted != true {
                             Divider()
-                            DisclosureGroup("export.workCopySection") {
-                                Text("export.workCopyHint")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                                Button("export.discardWorkCopy", role: .destructive) {
-                                    showingDiscardConfirmation = true
-                                }
-                                .disabled(archive.isBusy || archive.exportBusy)
+                            Button("export.discardWorkCopy") {
+                                showingDiscardConfirmation = true
                             }
+                            .buttonStyle(.bordered)
+                            .disabled(archive.isBusy || archive.exportBusy)
+                            .accessibilityIdentifier("export-discard-work")
                         }
                     }
                     .padding()
                 }
             }
         }
-        .navigationTitle("processing.title")
+        .navigationTitle(model.job?.phase == .completed ? "" : "processing.title")
         .confirmationDialog("processing.removeConfirm", isPresented: $showingRemoveConfirmation) {
             Button("processing.removeFailed", role: .destructive) {
                 model.removeFailedPage()

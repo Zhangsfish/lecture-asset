@@ -1,0 +1,2 @@
+# Preserve downloaded evidence bytes and their recorded hashes on every host.
+evidence/* -text

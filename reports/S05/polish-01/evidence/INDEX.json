@@ -1,0 +1,179 @@
+{
+  "source_sha": "b0ec51da44f23865a85509fd5dd1332e378ba4b0",
+  "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37034030150",
+  "synthetic_only": true,
+  "screenshots": [
+    {
+      "file": "s05-b-reduced-motion-large-text-1.png",
+      "source_test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+    },
+    {
+      "file": "s05-b-reduced-motion-large-text-2.png",
+      "source_test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+    },
+    {
+      "file": "s05-b-reduced-motion-large-text-3.png",
+      "source_test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+    },
+    {
+      "file": "s05-b-reduced-motion-large-text-4.png",
+      "source_test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+    },
+    {
+      "file": "s05-synthetic-archive-ready.png",
+      "source_test": "S02ArchiveUITests/testArchiveReadyAndRestoredForSyntheticPhoto()"
+    },
+    {
+      "file": "s05-b-ready-visible-cleanup-large-text.png",
+      "source_test": "S03ExportUITests/testReadyArchiveShowsSeparateSharesAndKeepsDeleteLockedAcrossRelaunch()"
+    },
+    {
+      "file": "s05-synthetic-selection.png",
+      "source_test": "PhotoLibraryPermissionUITests/testFullReadWritePermissionOpensSyntheticGrid()"
+    },
+    {
+      "file": "s05-about-before-photos-access.png",
+      "source_test": "PhotoLibraryPermissionUITests/testFullReadWritePermissionOpensSyntheticGrid()"
+    },
+    {
+      "file": "s05-photos-permission-gate.png",
+      "source_test": "PhotoLibraryPermissionUITests/testFullReadWritePermissionOpensSyntheticGrid()"
+    },
+    {
+      "file": "s05-synthetic-jpeg-complete.png",
+      "source_test": "S01ProcessingUITests/testSyntheticPhotoProcessesAndCheckpointSurvivesRelaunch()"
+    },
+    {
+      "file": "s05-synthetic-review.png",
+      "source_test": "S01ProcessingUITests/testSyntheticPhotoProcessesAndCheckpointSurvivesRelaunch()"
+    },
+    {
+      "file": "s05-b-tutorial-Save--then-clean-up.png",
+      "source_test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFourScenesWithoutRequestingPhotos()"
+    },
+    {
+      "file": "s05-b-tutorial-Generate-ZIP---PDF.png",
+      "source_test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFourScenesWithoutRequestingPhotos()"
+    },
+    {
+      "file": "s05-b-tutorial-Capture-time-order.png",
+      "source_test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFourScenesWithoutRequestingPhotos()"
+    },
+    {
+      "file": "s05-b-tutorial-Sweep-to-select.png",
+      "source_test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFourScenesWithoutRequestingPhotos()"
+    }
+  ],
+  "files": [
+    {
+      "file": "CI_SAFE_RESULT.txt",
+      "bytes": 6446,
+      "sha256": "aa3cb074e4613a017e034cfa9b15acdb03926d03b797381a21c5196be5b83833"
+    },
+    {
+      "file": "DESKTOP_VALIDATION.json",
+      "bytes": 1369,
+      "sha256": "06987b9d34f438c542fc3a823c678fc355ae31ee37ef1710cac96277f1680dc2"
+    },
+    {
+      "file": "README.generated.md",
+      "bytes": 1270,
+      "sha256": "b2a82d15359466ffe973a921a60b9ce0460c7df6c8285afcf6704173c9b2dd5b"
+    },
+    {
+      "file": "s05-about-before-photos-access.png",
+      "bytes": 232624,
+      "sha256": "de21298678882127974dd9e0f3a39c1b2e35e698b9ac6820f002fad23d95b21c"
+    },
+    {
+      "file": "s05-b-ready-visible-cleanup-large-text.png",
+      "bytes": 209676,
+      "sha256": "fa921d7aa5ff59c8bf477d9e2082e13ef4ab79a2e996935027cb2ca370e8d0f5"
+    },
+    {
+      "file": "s05-b-reduced-motion-large-text-1.png",
+      "bytes": 276847,
+      "sha256": "1c0a7b57c29aeba1fb8da6c07aacb11cb6ee00831b38b0dc880abaa11a873c42"
+    },
+    {
+      "file": "s05-b-reduced-motion-large-text-2.png",
+      "bytes": 280265,
+      "sha256": "8924219123cfcf02203d819c79d05787cb5da63bea073d2cb35bc9b7a0adf52f"
+    },
+    {
+      "file": "s05-b-reduced-motion-large-text-3.png",
+      "bytes": 391168,
+      "sha256": "be6650a571ee69162c8cb65a2bc6c9b63059f31b65db2dc74113206c5f90ad82"
+    },
+    {
+      "file": "s05-b-reduced-motion-large-text-4.png",
+      "bytes": 409678,
+      "sha256": "95bea26a11e18f60667657723b5d7577271a3be4c4ca936e93a8443e8baf97c6"
+    },
+    {
+      "file": "s05-b-tutorial-Capture-time-order.png",
+      "bytes": 208733,
+      "sha256": "e11776c7b5193897592cb21294cbd018be5bbc29eb9bdaced0815615ea97cc07"
+    },
+    {
+      "file": "s05-b-tutorial-Generate-ZIP---PDF.png",
+      "bytes": 210668,
+      "sha256": "5b0adb6f2a8f3f221bcbd20b9afc17cae2985bb65642e27559e47168c0f4fa14"
+    },
+    {
+      "file": "s05-b-tutorial-Save--then-clean-up.png",
+      "bytes": 221073,
+      "sha256": "befea56eeb3910ba128596cd51a072d768223b45cdd8d456eabb8c94ffc8f43f"
+    },
+    {
+      "file": "s05-b-tutorial-Sweep-to-select.png",
+      "bytes": 203879,
+      "sha256": "2d3c1e4b06c5f539624cec1f57a524e47e7ad7664b51fdf6debc31e60c762179"
+    },
+    {
+      "file": "s05-photos-permission-gate.png",
+      "bytes": 118359,
+      "sha256": "ff1cbf2b6203ad3de829686c0d6f1073f9200d9f440e2d737587a12d9109d6a2"
+    },
+    {
+      "file": "s05-synthetic-archive-ready.png",
+      "bytes": 113384,
+      "sha256": "5ff2f9137ab2b3b6ba6eca534381d46e0d6b7fa73d62791c7c46dc52760f6e28"
+    },
+    {
+      "file": "s05-synthetic-jpeg-complete.png",
+      "bytes": 107027,
+      "sha256": "ee99a83a032cd5301d3b8a09cfc41adc0098fb072974be86ac3bb658e369ed13"
+    },
+    {
+      "file": "s05-synthetic-review.png",
+      "bytes": 208362,
+      "sha256": "32467c7405ec29c9f9a57e83993013d749d60eb3658928db187857a8b88337a6"
+    },
+    {
+      "file": "s05-synthetic-selection.png",
+      "bytes": 544595,
+      "sha256": "46247ca4fd0dc396d26338c36e750a37c7685da91a16027ad55d71769e4dca41"
+    },
+    {
+      "file": "synthetic-20.pdf",
+      "bytes": 56079,
+      "sha256": "0e7bd3510cd7af3f9c8ddfdab68d49d914be3d6cd9eb99e63190c4381f912e3c"
+    },
+    {
+      "file": "synthetic-200_AI.zip",
+      "bytes": 883181,
+      "sha256": "b340194b960ca86881c033d5b6b696ed00e3c1762fe326b6ee7559a686581c4f"
+    },
+    {
+      "file": "synthetic-20_AI.zip",
+      "bytes": 71770,
+      "sha256": "281511eea2949cf328d40f9417dd4970ebdcc90198410e0b941223fedebf4f9d"
+    },
+    {
+      "file": "TESTFLIGHT_SAFE_RESULT.txt",
+      "bytes": 449,
+      "sha256": "06d6c40d6ea4a24e2b7ec5f95baa75f4158163fec1d567d2b3b97b76ca8f2282"
+    }
+  ]
+}

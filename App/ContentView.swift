@@ -4,9 +4,18 @@ import UIKit
 
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
-    @StateObject private var model = PhotoLibraryModel()
-    @StateObject private var processor = ProcessingModel()
+    @StateObject private var model: PhotoLibraryModel
+    @StateObject private var processor: ProcessingModel
     @State private var showingAbout = false
+    @State private var showingTutorial = false
+    @State private var firstVisit: Bool
+
+    init() {
+        // Reserve first visit before ProcessingModel restores any private job.
+        _firstVisit = State(initialValue: TutorialVisitStore.reserveFirstVisit())
+        _model = StateObject(wrappedValue: PhotoLibraryModel())
+        _processor = StateObject(wrappedValue: ProcessingModel())
+    }
 
     var body: some View {
         NavigationStack {
@@ -32,6 +41,12 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showingAbout) { AboutSupportView() }
+        .sheet(isPresented: $showingTutorial) { TutorialView() }
+        .task(id: processor.isRestoring) {
+            guard !processor.isRestoring, firstVisit else { return }
+            firstVisit = false
+            showingTutorial = processor.job == nil && !processor.storageFailed && model.authorization == .notDetermined
+        }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active { model.refreshAuthorization() }
             if phase == .background { processor.pauseAfterCurrentPage() }
@@ -91,7 +106,8 @@ struct ContentView: View {
                 .font(.system(size: 50))
             Text("permission.title")
                 .font(.title2.bold())
-            Text("permission.explanation")
+            Text(model.authorization == .notDetermined ? "permission.explanation" :
+                 model.authorization == .restricted ? "permission.restricted" : "permission.blocked")
                 .multilineTextAlignment(.center)
             switch model.authorization {
             case .notDetermined:
@@ -99,16 +115,13 @@ struct ContentView: View {
                     .buttonStyle(.borderedProminent)
                     .accessibilityIdentifier("permission-allow")
             case .limited, .denied:
-                Text("permission.blocked")
-                    .foregroundStyle(.secondary)
                 Button("permission.settings") {
                     guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                     UIApplication.shared.open(url)
                 }
                 .buttonStyle(.borderedProminent)
             case .restricted:
-                Text("permission.restricted")
-                    .foregroundStyle(.secondary)
+                EmptyView()
             case .authorized:
                 EmptyView()
             @unknown default:
