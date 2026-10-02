@@ -120,26 +120,11 @@ Do not rewrite pipeline state or remove recovery information needed for correctn
 
 ## 3. Lightweight onboarding tutorial
 
-Add one short value-reveal hero before the mechanics:
+**Onboarding is teaching, not marketing.**
 
-Visual:
-- messy lecture-photo tiles;
-- they collapse into two outputs: PDF + AI ZIP;
-- the Photos clutter can then disappear only after the outputs are visibly preserved.
+Do not add a value-proposition hero, “舍不得删” narrative, brand pitch or promotional opening inside the first-run tutorial.
 
-Very short Chinese copy:
-
-**留住内容，清理相册**
-
-Then reveal:
-
-**PDF 给你 · ZIP 给 AI**
-
-Do not use a paragraph explaining the philosophy.
-
-
-
-Implement the tutorial using the native motion route frozen in `docs/MOTION_AND_PROMO_PLAN.md`.
+Implement the previously approved pure instructional tutorial using the native motion route frozen in `docs/MOTION_AND_PROMO_PLAN.md`.
 
 Technical direction:
 
@@ -149,12 +134,14 @@ Technical direction:
 - one action per scene;
 - almost no prose.
 
-The tutorial matches the real UI:
+The tutorial matches the real UI and contains only four instructional scenes:
 
-1. **滑动选择** — sweep/select lecture photos;
-2. **自动排序** — review/capture-time order;
-3. **生成 ZIP + PDF** — organize/create files;
-4. **保存后再清理** — save/verify ZIP, then choose between deleting source Photos or keeping Photos and clearing App files.
+1. **滑动选择** — show the actual tap/press-and-sweep selection gesture;
+2. **自动排序** — show that selected pages are arranged by capture time and mistakes can be reviewed/removed;
+3. **生成 ZIP + PDF** — show the explicit second-stage file generation after photo processing;
+4. **保存后再清理** — show ZIP save confirmation first, then the two cleanup choices.
+
+Each scene teaches exactly one user action or system behavior.
 
 Requirements:
 
