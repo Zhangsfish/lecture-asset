@@ -4,11 +4,11 @@ Updated: 2026-10-02
 
 ## Now
 
-**S00–S04 PASS. S05-A READY: production UI and release foundation.**
+**S00–S04 PASS. S05-A READY_FOR_AUDIT: production UI and release foundation in PR #6.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
-This status update is documentation/research only. It does not claim a new App build, TestFlight upload, account check or legal clearance.
+S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed [macOS Release build and focused simulator CI](https://github.com/Zhangsfish/lecture-asset/actions/runs/36967361233). [Delivery report](reports/S05/china-prep-01/DELIVERY.md) contains the exact evidence and NOT_RUN items. This is not a TestFlight upload, account check, legal clearance or App Review submission.
 
 ## Dispatch — only one READY implementation task
 
@@ -20,7 +20,7 @@ This status update is documentation/research only. It does not claim a new App b
 | S02 | PASS — PR #3 merged | [audit](audits/S02/round-01.md) |
 | S03 | PASS — PR #4 merged | [audit](audits/S03/round-01.md) |
 | S04-lite | PASS — PR #5 merged; retained real 200-page job verified | [audit](audits/S04/round-02.md) |
-| S05-A | **READY** — clean core UI, About shell, privacy/release foundation | [current task](tasks/S05_CHINA_PREP.md) |
+| S05-A | **READY_FOR_AUDIT** — PR #6 open; clean core UI, About shell, privacy/release foundation | [current task](tasks/S05_CHINA_PREP.md), [report](reports/S05/china-prep-01/DELIVERY.md) |
 | S05-B | WAITING_A_AUDIT — optional animated tutorial, approved contact/homepage, public pages, visual review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
 | S05-C | PLANNED / BLOCKED_OWNER_COMMERCE — optional StoreKit tip jar, separate task and review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
