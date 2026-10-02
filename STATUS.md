@@ -4,7 +4,7 @@ Updated: 2026-10-02
 
 ## Now
 
-**S00–S04 PASS. S05-A PASS_WITH_NOTES and merged. S05-B READY: UI/onboarding polish + AI archive contract.**
+**S00–S04 PASS. S05-A PASS_WITH_NOTES. S05-B PASS_WITH_NOTES and merged. Next is owner/device + receiving-agent verification, not another broad QA stage.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -21,7 +21,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S03 | PASS — PR #4 merged | [audit](audits/S03/round-01.md) |
 | S04-lite | PASS — PR #5 merged; retained real 200-page job verified | [audit](audits/S04/round-02.md) |
 | S05-A | **PASS_WITH_NOTES** — PR #6 merged; core UI/About/privacy foundation accepted | [audit](audits/S05/china-prep-01.md), [report](reports/S05/china-prep-01/DELIVERY.md) |
-| S05-B | **READY** — reduce UI text, onboarding/value reveal, contact/homepage, visible cleanup alternative, and strengthened README/lecture AI usage contract in one audited implementation | [task](tasks/S05_B_POLISH.md), [AI/message audit](docs/AI_HANDOFF_AND_MESSAGING_AUDIT.md) |
+| S05-B | **PASS_WITH_NOTES** — PR #8 merged; instructional tutorial, visible App-only cleanup and AI ZIP contract accepted | [audit](audits/S05/polish-01.md), [report](reports/S05/polish-01/DELIVERY.md) |
 | S05-C | PLANNED / BLOCKED_OWNER_COMMERCE — optional StoreKit tip jar, separate task and review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
 
@@ -31,6 +31,7 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 
 - Latest accepted functional TestFlight baseline: `0.1.0 (27.1)`.
 - S05-A internal UI preview: `0.1.0 (28.1)` uploaded from checkout `307156fda2cd59b15699fe4590c42fa764e73c12`; workflow 36992542612 reached App Store Connect `VALID`. PR #7 contained workflow/report changes only and was audited/merged; no App runtime source changed for that preview.
+- S05-B internal preview: `0.1.0 (29.1)` uploaded from exact tested SHA `b0ec51da44f23865a85509fd5dd1332e378ba4b0`; workflow 37034103095 reached App Store Connect `VALID`. PR #8 was audited `PASS_WITH_NOTES` and squash-merged as `d61908a9c55330cf3532eb31d134da8ab8aea11d`.
 - Owner visually reviewed build 28.1 and found the main UI acceptable, with one required polish: the App-only work-copy cleanup must be a visible alternative rather than a collapsed `App work copy` disclosure.
 - S04 PR #5 merged at `9f7257c4d7f1f7f1d5de676df98da6d8123e61fc`.
 - S04 repaired the historical selection-index schema bound; the same retained 200-page job passed without reselection/reprocessing.
@@ -53,6 +54,7 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 2. [Product decisions](docs/PRODUCT_DECISIONS.md) + [Spec](docs/SPEC.md)
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
-5. [Current S05-B task](tasks/S05_B_POLISH.md) — owner accepted the AI/message audit; UI and ZIP AI contract now move together.
+5. [S05-B audit](audits/S05/polish-01.md)
+6. Next owner checks: update/install TestFlight 29.1, visually review Chinese UI/tutorial on-device, then test a newly generated AI ZIP with WorkBuddy and ChatGPT against the README contract. Public Privacy/Support hosting remains a release gate.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
