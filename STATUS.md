@@ -37,9 +37,9 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 
 ## Owner inputs / release gates
 
-- Exact public contact email: **NOT_PROVIDED**. Never infer from accounts/commits.
-- Exact personal homepage URL: **NOT_PROVIDED**. Do not invent or publish a guessed URL.
-- These values are now the owner inputs needed to finish the intended S05-B contact/homepage/public-page scope. Owner may explicitly choose to omit either item. No placeholder may enter a public page or final RC.
+- Exact public contact email: `zhangs.taq@gmail.com` — owner-approved for public Support/contact use.
+- Exact personal homepage URL: `https://zhang-shuo-portfolio.vercel.app/` — owner-approved public homepage.
+- Contact/homepage inputs for S05-B are now complete. No placeholder may enter a public page or final RC.
 - Paid Apps agreement, banking/tax readiness and real IAP products: **NOT_CHECKED**; existing TestFlight success proves none of these.
 - China mainland: first evaluate and prepare. Actual ASC availability/ICP fields: **NOT_CHECKED**. No-error UI is not statutory exemption or approval.
 - Other regions: [dated review](docs/REGIONAL_RELEASE_REVIEW_2026-10-02.md). No automatic all-country/future-country availability. US/state age-assurance and Brazil requirements need explicit preflight, not assumptions based on a free utility.
@@ -51,6 +51,6 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 2. [Product decisions](docs/PRODUCT_DECISIONS.md) + [Spec](docs/SPEC.md)
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
-5. Next: obtain owner-approved public email and homepage (or explicit omission), then publish the short S05-B task from the framework.
+5. Next: owner visually reviews the current S05-A UI; then publish the short S05-B task using the approved email/homepage above.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
