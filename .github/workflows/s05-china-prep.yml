@@ -1,0 +1,107 @@
+name: S05-A UI and privacy macOS verification
+
+on:
+  push:
+    branches: [codex/s05-china-prep]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Toolchain, resource and focused package checks
+        run: |
+          set -euo pipefail
+          sw_vers
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+          swift --version
+          python3 scripts/check_foundation.py
+          python3 -m json.tool App/Localizable.xcstrings >/dev/null
+          plutil -lint AppResources/PrivacyInfo.xcprivacy
+          swift test --package-path Packages/SelectionCore
+          swift test --package-path Packages/ArchiveCore
+      - name: Install verified XcodeGen 2.46.0
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
+            --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version
+      - name: Generate and clean build iPhone Release
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/S05DeviceDerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
+          app="$RUNNER_TEMP/S05DeviceDerivedData/Build/Products/Release-iphoneos/Lecture Asset.app"
+          test -f "$app/PrivacyInfo.xcprivacy"
+          plutil -lint "$app/PrivacyInfo.xcprivacy"
+          python3 - "$app/PrivacyInfo.xcprivacy" <<'PY'
+          import plistlib, sys
+          with open(sys.argv[1], 'rb') as source:
+              manifest = plistlib.load(source)
+          reasons = {entry['NSPrivacyAccessedAPIType']: set(entry['NSPrivacyAccessedAPITypeReasons'])
+                     for entry in manifest['NSPrivacyAccessedAPITypes']}
+          assert 'E174.1' in reasons['NSPrivacyAccessedAPICategoryDiskSpace']
+          assert 'C617.1' in reasons['NSPrivacyAccessedAPICategoryFileTimestamp']
+          print('App privacy manifest bundled with expected required-API reasons')
+          PY
+      - name: Focused simulator UI, recovery and deletion guard regression
+        run: |
+          set -euo pipefail
+          device=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; data=json.load(sys.stdin); print(next(d["udid"] for runtime, devices in data["devices"].items() if "iOS" in runtime for d in devices if d["name"].startswith("iPhone") and d.get("isAvailable", True)))')
+          xcrun simctl boot "$device" >/dev/null 2>&1
+          xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
+          base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S05SimulatorDerivedData" \
+            -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO)
+          "${base[@]}" -only-testing:LectureAssetTests/S01RecoveryTests \
+            -only-testing:LectureAssetTests/S03CleanupTests test
+          swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/s05-synthetic"
+          xcrun simctl addmedia "$device" "$RUNNER_TEMP/s05-synthetic"/*.jpg >/dev/null
+          "${base[@]}" -only-testing:LectureAssetUITests/PhotoLibraryPermissionUITests \
+            -resultBundlePath "$RUNNER_TEMP/S05Permission.xcresult" test
+          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
+          xcrun simctl privacy "$device" reset all com.zhangsfish.lectureasset
+          "${base[@]}" -only-testing:LectureAssetUITests/S01ProcessingUITests \
+            -resultBundlePath "$RUNNER_TEMP/S05Review.xcresult" test
+          "${base[@]}" -only-testing:LectureAssetUITests/S02ArchiveUITests \
+            -resultBundlePath "$RUNNER_TEMP/S05Archive.xcresult" test
+          "${base[@]}" -only-testing:LectureAssetUITests/S03ExportUITests \
+            -resultBundlePath "$RUNNER_TEMP/S05Export.xcresult" test
+          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
+          xcrun simctl uninstall "$device" com.zhangsfish.lectureasset
+          xcrun simctl privacy "$device" deny photos com.zhangsfish.lectureasset
+          "${base[@]}" -only-testing:LectureAssetUITests/PhotoLibraryBlockedUITests \
+            -resultBundlePath "$RUNNER_TEMP/S05Denied.xcresult" test
+          mkdir -p "$RUNNER_TEMP/s05-screenshots"
+          for bundle in S05Permission S05Review S05Archive; do
+            xcrun xcresulttool export attachments --path "$RUNNER_TEMP/$bundle.xcresult" \
+              --output-path "$RUNNER_TEMP/s05-screenshots/$bundle"
+          done
+          find "$RUNNER_TEMP/s05-screenshots" -type f -print
+      - name: Upload synthetic UI screenshots only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s05-a-synthetic-ui
+          path: ${{ runner.temp }}/s05-screenshots/
+          if-no-files-found: ignore
+          retention-days: 14

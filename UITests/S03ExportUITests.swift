@@ -10,8 +10,10 @@ final class S03ExportUITests: XCTestCase {
         XCTAssertTrue(phase.waitForExistence(timeout: 30))
         XCTAssertEqual(phase.label, "Archive and PDF ready")
         XCTAssertTrue(app.buttons["export-share-zip"].exists)
+        XCTAssertEqual(app.buttons["export-share-zip"].label, "Save AI ZIP")
         XCTAssertTrue(app.buttons["export-share-pdf"].exists)
         XCTAssertFalse(app.buttons["export-delete-sources"].exists)
+        XCTAssertFalse(app.buttons["export-confirm-saved"].exists)
 
         app.terminate()
         app.launch()

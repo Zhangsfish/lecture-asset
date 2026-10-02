@@ -166,13 +166,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Confirm selection"
+            "value": "Next: Review photos"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "确认选择"
+            "value": "下一步：检查照片"
           }
         }
       }
@@ -214,13 +214,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Photos are ordered by capture time. Tap any mistaken selection to remove it."
+            "value": "Photos are ordered by capture time. Tap a mistaken photo to remove it. Processing does not delete photos from your library."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "照片按拍摄时间排序。点按误选照片即可移除。"
+            "value": "照片按拍摄时间排序；点按误选照片即可移除。开始整理不会删除相册原照片。"
           }
         }
       }
@@ -598,13 +598,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "A saved JPEG did not pass its size, dimensions, or SHA-256 check. Retry this page."
+            "value": "A saved photo page failed verification. Retry this page; no photo was deleted."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已保存的 JPEG 未通过大小、尺寸或 SHA-256 检查。请重试本页。"
+            "value": "已保存的照片页面未通过校验。请重试本页；相册照片未被删除。"
           }
         }
       }
@@ -662,13 +662,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "All static JPEG pages are complete. Build the AI archive and PDF when ready. Sharing and photo deletion are not in this build."
+            "value": "Photos are ready. Continue when you are ready to create the AI ZIP and PDF. Your Photos originals are unchanged."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "所有静态 JPEG 页面已完成。可继续生成 AI 归档和 PDF；本版本尚无分享和照片删除。"
+            "value": "照片已整理好。准备好后再生成 AI 资料包和 PDF；相册原照片没有改变。"
           }
         }
       }
@@ -853,13 +853,13 @@
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
-            "value": "已验证的 AI ZIP 和配套 PDF 暂存于本 App。后续阶段才会提供分享。",
+            "value": "AI 资料包和 PDF 已生成。先保存并检查完整 ZIP，再决定是否清理相册。",
             "state": "translated"
           }
         },
         "en": {
           "stringUnit": {
-            "value": "Validated AI ZIP and companion PDF are stored privately in this app. Sharing comes in a later stage.",
+            "value": "The AI ZIP and PDF are ready. Save and check the complete ZIP before deciding whether to clean up Photos.",
             "state": "translated"
           }
         }
@@ -901,13 +901,13 @@
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
-            "value": "生成 AI 归档和 PDF",
+            "value": "下一步：生成 AI 资料包和 PDF",
             "state": "translated"
           }
         },
         "en": {
           "stringUnit": {
-            "value": "Build AI archive and PDF",
+            "value": "Next: Create AI ZIP and PDF",
             "state": "translated"
           }
         }
@@ -947,8 +947,8 @@
     },
     "export.shareZIP": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Share AI ZIP" } },
-        "zh-Hans": { "stringUnit": { "state": "translated", "value": "分享 AI ZIP" } }
+        "en": { "stringUnit": { "state": "translated", "value": "Save AI ZIP" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "保存 AI 资料包（ZIP）" } }
       }
     },
     "export.sharePDF": {
@@ -971,8 +971,8 @@
     },
     "export.confirmSaved": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Confirm complete ZIP saved externally" } },
-        "zh-Hans": { "stringUnit": { "state": "translated", "value": "确认完整 ZIP 已保存到外部" } }
+        "en": { "stringUnit": { "state": "translated", "value": "I have confirmed the complete ZIP is saved" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "我已确认 ZIP 保存成功" } }
       }
     },
     "export.savedConfirmed": {
@@ -995,8 +995,8 @@
     },
     "export.deleteSources": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Delete source photos" } },
-        "zh-Hans": { "stringUnit": { "state": "translated", "value": "删除原照片" } }
+        "en": { "stringUnit": { "state": "translated", "value": "Delete these source photos" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "删除这批原照片" } }
       }
     },
     "export.cleanupLockedHint": {
@@ -1117,6 +1117,102 @@
       "localizations": {
         "en": { "stringUnit": { "state": "translated", "value": "Photos deletion succeeded, but App file cleanup failed. Retry App cleanup; do not delete Photos again." } },
         "zh-Hans": { "stringUnit": { "state": "translated", "value": "相册删除已成功，但 App 文件清理失败。请重试清理 App 文件，不要再次删除相册。" } }
+      }
+    },
+    "about.title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "About & Support" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "关于与支持" } }
+      }
+    },
+    "about.usageTitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "How to use" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "使用说明" } }
+      }
+    },
+    "about.select": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Select 1–200 photos. Tap or sweep across the grid." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "选 1–200 张照片；可点选或在网格中连续扫选。" } }
+      }
+    },
+    "about.review": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Review capture-time order and remove mistaken selections." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "按拍摄时间检查页序，移除误选照片。" } }
+      }
+    },
+    "about.process": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Organize photos, then choose to create the AI ZIP and PDF." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "先整理照片，再主动生成 AI 资料包和 PDF。" } }
+      }
+    },
+    "about.save": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Save and inspect the ZIP. Confirm it is stored elsewhere before optional photo cleanup." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "保存并检查 ZIP，确认外部保存后才可选择清理原照片。" } }
+      }
+    },
+    "about.privacyTitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Privacy" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "隐私说明" } }
+      }
+    },
+    "about.privacyLocal": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Photos, text recognition and file creation stay on this iPhone. The developer does not automatically receive your photos or text." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "照片、文字识别和文件生成在本机完成；开发者不会自动收到你的照片或文字。" } }
+      }
+    },
+    "about.privacyShare": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Files leave the app only when you choose a destination in the system Share Sheet. Check that destination yourself before confirming a save." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "只有你在系统分享面板选择接收位置时，文件才会交给该目标；确认保存前请自行检查接收文件。" } }
+      }
+    },
+    "about.privacyDelete": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Photos are never deleted during processing or sharing. Deletion needs your separate action and the system's confirmation; Recently Deleted is not emptied." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "处理和分享不会删除相册照片。清理原照片需要你另行操作并通过系统确认；本 App 不清空“最近删除”。" } }
+      }
+    },
+    "about.privacyLive": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Live Photos are archived as still JPEGs only. Motion and sound are not kept; deleting the source removes the whole Live Photo." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "Live Photo 仅归档静态 JPEG，不保存动态和声音；删除原照片会删除整张 Live Photo。" } }
+      }
+    },
+    "about.versionTitle": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Version" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "版本" } }
+      }
+    },
+    "archive.processingDetail": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Recognizing text and creating files on this iPhone." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "正在本机识别文字并生成文件。" } }
+      }
+    },
+    "archive.technicalDetails": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Technical details" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "技术详情" } }
+      }
+    },
+    "export.workCopySection": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "App work copy" } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "本次 App 工作副本" } }
+      }
+    },
+    "export.workCopyHint": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Optional: discard this job's local files and recovery state while keeping all Photos originals." } },
+        "zh-Hans": { "stringUnit": { "state": "translated", "value": "可选：仅清理本次任务的本地文件及恢复状态，相册原照片保留。" } }
       }
     }
   },
