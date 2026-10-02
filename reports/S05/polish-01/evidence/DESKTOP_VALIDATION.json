@@ -1,0 +1,41 @@
+{
+  "source_sha": "b0ec51da44f23865a85509fd5dd1332e378ba4b0",
+  "zip": [
+    {
+      "file": "synthetic-20_AI.zip",
+      "pages": 20,
+      "zip_entries": 23,
+      "manifest_files": 22,
+      "bytes": 71770,
+      "sha256": "281511eea2949cf328d40f9417dd4970ebdcc90198410e0b941223fedebf4f9d",
+      "schema_crc_layout_order_jpeg_dimensions_hashes_contract": "PASS"
+    },
+    {
+      "file": "synthetic-200_AI.zip",
+      "pages": 200,
+      "zip_entries": 203,
+      "manifest_files": 202,
+      "bytes": 883181,
+      "sha256": "b340194b960ca86881c033d5b6b696ed00e3c1762fe326b6ee7559a686581c4f",
+      "schema_crc_layout_order_jpeg_dimensions_hashes_contract": "PASS"
+    }
+  ],
+  "pdf": [
+    {
+      "file": "synthetic-20.pdf",
+      "pages": 20,
+      "bytes": 56079,
+      "sha256": "0e7bd3510cd7af3f9c8ddfdab68d49d914be3d6cd9eb99e63190c4381f912e3c",
+      "page_count_ratios_single_image_and_no_extracted_text_layer": "PASS",
+      "embedded_image_order_hash_validation": "PASS in native ArchiveCore regression"
+    },
+    {
+      "file": "synthetic-200.pdf",
+      "pages": 200,
+      "bytes": 735851,
+      "sha256": "8a382c9103b7e7417386dab0e4e64806622cc837deea3437138e13f2414a4d95",
+      "page_count_ratios_single_image_and_no_extracted_text_layer": "PASS",
+      "embedded_image_order_hash_validation": "PASS in native ArchiveCore regression"
+    }
+  ]
+}

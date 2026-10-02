@@ -1,0 +1,13 @@
+# Accessibility verification scope
+
+Tutorial illustrations form one accessibility element with a concise localized explanation; decorative tiles/checkmarks/dots do not flood reading order. Titles precede illustrations, then navigation controls, with Skip always in the toolbar. Controls use native buttons/labels, intrinsic text sizing and scrollable layouts. About contact controls have explicit labels and stable test identifiers.
+
+CI targets: first-launch skip/replay without permission side effect, retained ready job precedence/replay, visible App-only cleanup confirmation/cancellation, denied-Photos help, enlarged-text ready/tutorial layouts, and an actual Reduce Motion static-path assertion. Large text is requested through the simulator's preferred content-size launch setting. Manual VoiceOver reading/order on a real iPhone remains NOT_RUN; automated labels and screenshots are not a substitute for that check.
+
+The initial run found a test assumption: the large-text native confirmation uses a popover without a Cancel button. The test now cancels by tapping outside when Cancel is absent; the production confirmation remains unchanged. Ready-screen controls are scrollable at Accessibility XXXL, with App-only cleanup directly discoverable without disclosure expansion. Final evidence and any remaining failures are listed in TEST_RESULTS.
+
+The next run passed the cancellation/retained-job regression and the actual Reduce Motion static-element assertion, but failed navigation hittability at Accessibility XXXL. This was treated as a real usability defect: tutorial Next/Back/Done were moved into a pinned safe-area footer, with scrollable teaching content and inline navigation title. Final CI verifies this production layout fix rather than weakening the hittability assertion.
+
+Final exact-SHA CI: **PASS** for all seven simulator UI cases. Static-path existence and Next/Done hittability passed at Accessibility XXXL; ready cleanup visibility/confirmation/cancel and retained-state replay passed. Evidence images are in `evidence/`, including four maximum-text static scenes and the visible ready alternative. Tall teaching content can scroll while navigation stays pinned. Ready controls can scroll at maximum text; no disclosure expansion is required.
+
+Limited-Photos picker interaction is NOT_RUN in this round. The shared permission branch continues to require `.authorized`, so `.limited` cannot enter the gallery; full-authorized and denied UI paths plus full-authorization source-cleanup regressions are exercised. This source check is not reported as a dynamic limited-picker pass. Physical VoiceOver, actual Mail-client dispatch, owner Chinese-locale UI review, and final receiving-agent trials are NOT_RUN.

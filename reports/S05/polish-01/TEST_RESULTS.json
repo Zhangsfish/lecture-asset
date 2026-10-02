@@ -1,0 +1,164 @@
+{
+  "stage": "S05-B",
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "a06a2924a63b6fb4fa467b147c6cdb77ea268c5a",
+  "tested_code_sha": "b0ec51da44f23865a85509fd5dd1332e378ba4b0",
+  "pr": "https://github.com/Zhangsfish/lecture-asset/pull/8",
+  "ci": {
+    "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37034030150",
+    "status": "SUCCESS",
+    "pre_upload_functional_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37031876931",
+    "pre_upload_functional_sha": "fbe6c17979dfdb2494cfa1c42ca319a739441ac2",
+    "pre_upload_functional_status": "SUCCESS",
+    "post_green_diff": [
+      "UITests/S05TutorialUITests.swift"
+    ],
+    "app_package_resource_release_sources_unchanged_after_green": true
+  },
+  "testflight": {
+    "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37034103095",
+    "source_sha": "b0ec51da44f23865a85509fd5dd1332e378ba4b0",
+    "version": "0.1.0",
+    "build": "29.1",
+    "internal_only": true,
+    "upload": "ACCEPTED",
+    "upload_accepted_utc": "2026-10-02T16:34:14Z",
+    "processing": "VALID",
+    "processing_valid_utc": "2026-10-02T16:39:51Z"
+  },
+  "results": {
+    "selection_core": {
+      "status": "PASS",
+      "tests": 5
+    },
+    "archive_core": {
+      "status": "PASS",
+      "tests": 10
+    },
+    "native_recovery_cleanup_tutorial": {
+      "status": "PASS",
+      "tests": 9
+    },
+    "simulator_ui": {
+      "status": "PASS",
+      "tests": 7
+    },
+    "clean_unsigned_release_build": "PASS",
+    "app_and_zipfoundation_privacy_manifest_packaging": "PASS",
+    "exact_200_page_schema_zip_pdf_and_unchanged_jpeg_regression": "PASS",
+    "first_use_skip_replay_no_permission_request": "PASS",
+    "retained_job_about_replay_and_relaunch": "PASS",
+    "visible_app_only_cleanup_confirmation_cancel": "PASS",
+    "full_and_denied_photos_ui": "PASS",
+    "maximum_text_and_actual_reduce_motion_static_path": "PASS",
+    "static_html_parse": "PASS",
+    "homepage_read_only_http": 200,
+    "desktop_fixtures": [
+      {
+        "file": "synthetic-20_AI.zip",
+        "pages": 20,
+        "zip_entries": 23,
+        "manifest_files": 22,
+        "bytes": 71770,
+        "sha256": "281511eea2949cf328d40f9417dd4970ebdcc90198410e0b941223fedebf4f9d",
+        "schema_crc_layout_order_jpeg_dimensions_hashes_contract": "PASS"
+      },
+      {
+        "file": "synthetic-200_AI.zip",
+        "pages": 200,
+        "zip_entries": 203,
+        "manifest_files": 202,
+        "bytes": 883181,
+        "sha256": "b340194b960ca86881c033d5b6b696ed00e3c1762fe326b6ee7559a686581c4f",
+        "schema_crc_layout_order_jpeg_dimensions_hashes_contract": "PASS"
+      }
+    ],
+    "desktop_pdf_validation": [
+      {
+        "file": "synthetic-20.pdf",
+        "pages": 20,
+        "bytes": 56079,
+        "sha256": "0e7bd3510cd7af3f9c8ddfdab68d49d914be3d6cd9eb99e63190c4381f912e3c",
+        "page_count_ratios_single_image_and_no_extracted_text_layer": "PASS",
+        "embedded_image_order_hash_validation": "PASS in native ArchiveCore regression"
+      },
+      {
+        "file": "synthetic-200.pdf",
+        "pages": 200,
+        "bytes": 735851,
+        "sha256": "8a382c9103b7e7417386dab0e4e64806622cc837deea3437138e13f2414a4d95",
+        "page_count_ratios_single_image_and_no_extracted_text_layer": "PASS",
+        "embedded_image_order_hash_validation": "PASS in native ArchiveCore regression"
+      }
+    ],
+    "synthetic_screenshot_visual_inspection": "PASS; English simulator samples, not a physical/VoiceOver substitute"
+  },
+  "not_run": [
+    {
+      "item": "Physical VoiceOver",
+      "reason": "No owner device interaction in this round; simulator labels/screenshots do not substitute."
+    },
+    {
+      "item": "Owner Chinese-locale S05-B visual review",
+      "reason": "Internal preview supplied for subsequent non-destructive owner review."
+    },
+    {
+      "item": "Dynamic limited-Photos picker",
+      "reason": "Full/denied UI paths executed; limited shares the strict authorized-only gallery branch, inspected only."
+    },
+    {
+      "item": "Actual Mail-client dispatch",
+      "reason": "Exact mailto and copy fallback implemented; no external mail client launched or message sent."
+    },
+    {
+      "item": "Receiving-agent interoperability",
+      "reason": "Archive contract/integrity tested; no actual WorkBuddy/ChatGPT image-reading trial."
+    },
+    {
+      "item": "Real 100/200-page, WeChat and destructive Photos QA",
+      "reason": "Explicitly excluded; S00-S04 audited baseline retained."
+    }
+  ],
+  "blocked": [
+    {
+      "item": "Public Privacy/Support hosting and anonymous live validation",
+      "status": "BLOCKED_OWNER_ACTION",
+      "reason": "Deploy-ready HTML sources prepared; hosting/account configuration not enabled in this PR."
+    }
+  ],
+  "boundaries": {
+    "canonical_jpeg_ocr_data_manifest_schema_pdf_and_photo_deletion_runtime_unchanged": true,
+    "existing_ready_archives_not_silently_regenerated": true,
+    "no_secret_material_in_repo_chat_or_artifacts": true,
+    "no_storekit_payment_promotional_video_review_external_testflight_or_region_change": true,
+    "no_merge_or_next_stage": true
+  },
+  "environment": {
+    "local": "Windows PowerShell / existing Anaconda Python, jsonschema, Pillow, pypdf",
+    "runner": "standard GitHub-hosted macos-26",
+    "macos": "26.6.2",
+    "xcode": "26.6 (17F113)",
+    "iphoneos_sdk": "26.5",
+    "swift": "6.3.3",
+    "simulator": "iPhone 17 Pro"
+  },
+  "evidence": {
+    "directory": "evidence",
+    "index": "evidence/INDEX.json",
+    "generated_readme": "evidence/README.generated.md",
+    "artifacts": [
+      {
+        "name": "s05-b-safe-archives",
+        "id": 11241390137,
+        "expires_utc": "2026-10-16T16:50:42Z",
+        "archive_sha256": "ac6454cf3b94f2e77184226cb94f2f9d5702bf11815263d806a5fd55fc236948"
+      },
+      {
+        "name": "s05-b-synthetic-ui",
+        "id": 11240795423,
+        "expires_utc": "2026-10-16T16:50:39Z",
+        "archive_sha256": "0033ce49c45ceb22296b102802acab46bba453d0aa87372984db0b7b817556b6"
+      }
+    ]
+  }
+}
