@@ -28,7 +28,7 @@ final class S03ExportUITests: XCTestCase {
         if app.buttons["Cancel"].exists {
             app.buttons["Cancel"].tap()
         } else {
-            phase.tap()
+            app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.98)).tap()
         }
         XCTAssertFalse(app.buttons["Discard App files only"].exists)
         XCTAssertTrue(app.buttons["export-share-zip"].exists)

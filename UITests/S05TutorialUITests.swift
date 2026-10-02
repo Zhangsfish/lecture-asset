@@ -10,6 +10,8 @@ final class S05TutorialUITests: XCTestCase {
         XCTAssertTrue(app.buttons["tutorial-skip"].isHittable)
         for title in ["Sweep to select", "Capture-time order", "Generate ZIP + PDF", "Save, then clean up"] {
             XCTAssertEqual(app.staticTexts["tutorial-title"].label, title)
+            // Capture the settled teaching scene, not its crossfade from the previous one.
+            _ = XCTWaiter.wait(for: [], timeout: 4)
             let screenshot = XCTAttachment(screenshot: app.screenshot())
             screenshot.name = "s05-b-tutorial-\(title)"
             screenshot.lifetime = .keepAlways
