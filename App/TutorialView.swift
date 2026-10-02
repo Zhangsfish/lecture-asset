@@ -30,21 +30,27 @@ struct TutorialView: View {
                                 .frame(width: 8, height: 8)
                         }
                     }.accessibilityHidden(true)
-                    HStack {
-                        if scene > 0 {
-                            Button("tutorial.previous") { changeScene(scene - 1) }
-                                .buttonStyle(.bordered)
-                                .accessibilityIdentifier("tutorial-previous")
-                        }
-                        Button(scene == 3 ? "common.done" : "tutorial.next") {
-                            if scene == 3 { dismiss() } else { changeScene(scene + 1) }
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .accessibilityIdentifier("tutorial-next")
-                    }
                 }.padding(24)
             }
+            .safeAreaInset(edge: .bottom) {
+                HStack {
+                    if scene > 0 {
+                        Button("tutorial.previous") { changeScene(scene - 1) }
+                            .buttonStyle(.bordered)
+                            .accessibilityIdentifier("tutorial-previous")
+                    }
+                    Button(scene == 3 ? "common.done" : "tutorial.next") {
+                        if scene == 3 { dismiss() } else { changeScene(scene + 1) }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .accessibilityIdentifier("tutorial-next")
+                }
+                .frame(maxWidth: .infinity)
+                .padding(16)
+                .background(.regularMaterial)
+            }
             .navigationTitle("tutorial.title")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("tutorial.skip") { dismiss() }
