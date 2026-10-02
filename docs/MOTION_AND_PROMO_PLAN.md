@@ -13,7 +13,12 @@ Use one visual language across the in-app tutorial and the promotional video so 
 - almost no explanatory paragraphs;
 - motion shows the action; text only names the action.
 
-But do **not** make the in-app tutorial cinematic. Tutorial = clarity and control. Promo = attention, rhythm and emotion.
+But do **not** mix their jobs:
+
+- **Tutorial = pure usage instruction, clarity and control.**
+- **Promo = product value, tension, attention, rhythm and emotion.**
+
+The promo may explain “不看又舍不得删” and “PDF 给人 / ZIP 给 AI”. The onboarding must not.
 
 ## 2. In-app onboarding — implementation decision
 
@@ -35,6 +40,8 @@ Do not add Lottie, Rive, remote video, WebView or a new animation SDK for v0.1. 
 Apple references used for this decision: SwiftUI phase/keyframe animation APIs and `accessibilityReduceMotion`.
 
 ### Scene structure
+
+There is **no marketing/value-proposition hero scene** in onboarding.
 
 Each scene communicates **one action**. Target 2.5–3.5 seconds per scene, with the important motion occurring immediately. Auto-play once; user can tap/swipe through at any time. Keep Skip visible.
 
