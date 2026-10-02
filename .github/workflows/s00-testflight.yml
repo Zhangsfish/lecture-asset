@@ -34,11 +34,13 @@ jobs:
           swift --version
           major=$(xcodebuild -version | awk '/^Xcode / {split($2, parts, "."); print parts[1]}')
           test "$major" -ge 26
-      - name: Check S00 foundation and SelectionCore
+      - name: Check current S05-A resources and core packages
         run: |
           set -euo pipefail
-          python3 scripts/check_foundation.py
+          python3 -m json.tool App/Localizable.xcstrings >/dev/null
+          plutil -lint AppResources/PrivacyInfo.xcprivacy
           swift test --package-path Packages/SelectionCore
+          swift test --package-path Packages/ArchiveCore
       - name: Install SHA-256 verified XcodeGen 2.46.0
         run: |
           set -euo pipefail
@@ -64,10 +66,33 @@ jobs:
         run: python3 scripts/s00_signing_settings.py
       - name: Clean unsigned iPhone Release build
         run: |
+          set -euo pipefail
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
             -configuration Release -destination 'generic/platform=iOS' \
             -derivedDataPath "$RUNNER_TEMP/S00DeviceDerivedData" \
             CODE_SIGNING_ALLOWED=NO clean build
+          app="$RUNNER_TEMP/S00DeviceDerivedData/Build/Products/Release-iphoneos/Lecture Asset.app"
+          test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist")" = 'com.zhangsfish.lectureasset'
+          test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app/Info.plist")" = '0.1.0'
+          test -f "$app/PrivacyInfo.xcprivacy"
+          plutil -lint "$app/PrivacyInfo.xcprivacy"
+          python3 - "$app" <<'PY'
+          from pathlib import Path
+          import plistlib, sys
+
+          app = Path(sys.argv[1])
+          bundled = sorted(app.rglob('PrivacyInfo.xcprivacy'))
+          assert app / 'PrivacyInfo.xcprivacy' in bundled, 'app privacy manifest missing'
+          assert any(
+              manifest != app / 'PrivacyInfo.xcprivacy'
+              and any(
+                  '0A2A.1' in entry.get('NSPrivacyAccessedAPITypeReasons', [])
+                  for entry in plistlib.loads(manifest.read_bytes()).get('NSPrivacyAccessedAPITypes', [])
+              )
+              for manifest in bundled
+          ), 'ZIPFoundation privacy manifest missing'
+          print('Bundled privacy manifests:', [str(path.relative_to(app)) for path in bundled])
+          PY
       - name: Sign and upload only on an explicit upload trigger
         if: github.event_name == 'workflow_dispatch' && inputs.operation == 'upload'
         env:
