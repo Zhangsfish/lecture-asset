@@ -1,45 +1,36 @@
-# S05 — TestFlight and United States App Store
+# S05-D — Region-confirmed release and owner-authorized submission
 
-Prerequisite: S04 PASS. Store preparation may begin, but **App Store submission requires explicit owner release authorization**. Branch `codex/s05-release`.
+Status: **BLOCKED_OWNER_RELEASE**. This is not the next implementation task.
+Prerequisite: S05-A/B audits; optional S05-C audit if the chosen release includes tips; applicable region gates resolved; exact release-candidate owner review.
 
-## Goal
+## Scope
 
-Ship the same verified free app through TestFlight and then the US App Store.
+Ship the verified free core through the existing TestFlight/App Store pipeline, only in storefronts explicitly approved by the owner. Evaluate China mainland first, then United States; do not silently substitute US or enable all/future regions.
 
-## Required
+Read STATUS, SPEC, S05_EXECUTION_FRAMEWORK, APP_STORE and REGIONAL_RELEASE_REVIEW_2026-10-02. Recheck primary-source requirements on actual submission day; the dated review is not permanent clearance.
 
-- recheck current Apple Xcode/SDK/submission requirements;
-- register/confirm Bundle ID `com.zhangsfish.lectureasset` or document necessary collision adjustment;
-- verify Developer Program/App Store Connect/signing;
-- final zh-Hans/en strings, icon, screenshots, support/privacy pages;
-- Info.plist full Photo Library Read & Write purpose wording;
-- privacy manifest and third-party notices;
-- MIT LICENSE and ZIPFoundation license;
-- store metadata says local OCR, full-library permission requirement, Live Photo static-only archive and user-confirmed cleanup;
-- upload Release archive, process, install via TestFlight;
-- do not repeat S04 stress/destructive testing when runtime behavior is unchanged. If S05 changes only release metadata, icon, screenshots, support/privacy pages or store text, require CI/build + installation/launch of the exact release candidate only. If S05 changes runtime code, run only targeted regression for the changed behavior;
-- owner authorizes submission;
-- record real review status; fix rejections rather than claim success;
-- only public US storefront URL means APP_STORE_LIVE.
+## Release evidence card — one per selected region
 
-No China mainland launch is required for v0.1. No IAP/ads/analytics/account/cloud features.
+Record storefront, candidate build/code SHA, review date, source links, local-law applicability assessment, actual ASC availability/required fields, content/age rating, privacy/contact requirements, commerce status if applicable, unresolved items, owner approval and later actual review/public URL.
 
-## Delivery
+Each starts NOT_CHECKED, not PASS. A portal with no warning is not proof of legal exemption. Record N/A only with a reason; do not infer seller domicile/tax residency from language, device locale or estimated location.
 
-reports/S05/round-NN with version/build, code SHA, TestFlight evidence, submission state and final public URL when it exists. Never publish credentials or signing material.
+China: distinguish APP filing, website filing and developer identity/tax reporting. Record actual ICP Filing Number Missing/Invalid if shown; stop China submission until resolved. Absence of the warning is evidence of the UI only. If service classification remains uncertain, get a targeted official/provider or qualified local clarification before treating filing as inapplicable. Do not fabricate ICP or request identity documents in chat/GitHub.
 
+US and other applicable regions: verify current age-assurance/parental-consent/significant-update requirements and court/effective-date changes. Do not assume a free local utility, no account, an age-rating label or an absent review warning removes those duties. Any necessary runtime adaptation needs a separately authorized narrow task and sandbox tests, not an unapproved backend.
 
-## Release-scope rule
+EU: owner makes truthful DSA trader assessment, supplies/verifies approved public trader details where required; map actual GDPR data flows. Other jurisdictions: follow the specific evidence card, not a China/EU blanket rule.
 
-The owner has explicitly said no more functional stress testing is needed.
+## Final checks
 
-S05 is therefore a release/compliance stage, not another QA stage:
+- Current accepted Xcode/SDK, iOS18 compatibility, correct bundle, existing signing path preserved.
+- Correct bundled PrivacyInfo + dependency notices, actual privacy answers and export-compliance response.
+- Public Privacy/Support pages accessible and truthful, owner-approved contact/homepage, no placeholders or nonfunctional support/tip controls.
+- Final zh-Hans/en strings, icon, actual iPhone UI screenshots at current accepted dimensions; current age questionnaire completed honestly.
+- Exact RC installed/launches; focused regression results for changed behavior. Do not repeat 100/200-page, WeChat or destructive real-photo tests solely to release.
+- If tips included: real products/availability, Paid Apps agreement/bank/tax readiness; sandbox purchase-state evidence; first consumable submitted alongside new app version; region/age/privacy review updated.
+- Owner separately approves submission of the exact build and region list. Do not accept legal agreements, spend money, submit or publish without authorization.
 
-- no new 100/200-page run;
-- no repeat destructive Photos cleanup solely for release;
-- no repeat WeChat transfer solely for release;
-- preserve the S04-verified runtime unless an App Store requirement forces a code change.
+## Delivery / public state
 
-If a runtime code change becomes necessary, stop and state exactly why; add only the smallest targeted regression needed for that change.
-
-Do not submit for App Review until the owner explicitly says to submit/release.
+Report under reports/S05/release-round-NN with actual version/build/code SHA, region cards, TestFlight and review evidence. SUBMITTED/APPROVED/LIVE must correspond to real states. Use owner-controlled manual public release unless owner expressly chooses otherwise. Only an actual public storefront URL with availability verifies APP_STORE_LIVE.
