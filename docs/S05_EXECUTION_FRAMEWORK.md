@@ -27,7 +27,7 @@ Baseline inspected: `86817cd4468f56e87611c03971dad315199f6c2b`.
 | ZIP 分享回报完成 | 用户需要自行检查外部文件 | 我已确认 ZIP 保存成功 |
 | 清理相册 | 精确数量、Live Photo 动态未归档、iCloud 同步删除提醒 | 删除这批原照片，另经系统确认 |
 
-“清除本次 App 工作文件（保留相册照片）”放在次级区，单独确认，并说明删除恢复文件/ZIP/PDF的后果；不是自动清理历史库。
+“清除本次 App 工作文件（保留相册照片）”是最终收尾的**可见第二路径**，不得藏在默认折叠的 DisclosureGroup 里。推荐文案“保留相册照片，仅清除 App 内文件 / Keep Photos, Clear App Files”。它视觉上次于“保存 AI 资料包（ZIP）”，但在 archive-ready 最终状态必须无需展开即可发现；仍需单独确认，并明确会删除本次 App 的恢复文件/本地 JPEG/ZIP/PDF/OCR 等工作副本（以实际存在为准）、未外部保存的文件无法从 App 恢复、相册原照片不受影响。该动作绝不调用 PhotoKit 删除，也不暗示会释放 Photos 图库空间。
 
 不要引入多余 landing page、四步可跳转 tab、复杂导航框架。四步是信息架构，不是要求重写四个 pipeline。
 
@@ -87,7 +87,7 @@ ZIP 校验、确切 ZIP 身份绑定、最终 asset 集、权限重检、外部�
 | 阶段 | 执行范围 | 最小验收与停止点 |
 |---|---|---|
 | S05-A / READY | 主流程 UI、About壳和本地文字帮助/隐私、manifest、网页与简中商店材料草稿 | focused CI/Release build/合成视觉证据；PR 等审；不做动画、StoreKit、外部支付、公开网页或商店提交 |
-| S05-B / WAITING_A_AUDIT | 真实主界面已稳定后加入可跳过动画、批准的邮箱/主页；完成 Privacy/Support public pages；真实截图 | 导航/恢复/首次教程针对性测试；exact build 内部 TestFlight 和三张 owner 截图；无占位信息 |
+| S05-B / READY | 真实主界面已稳定后加入可跳过动画、批准的邮箱/主页；把“保留相册照片，仅清除 App 内文件”提升为可见第二收尾路径；完成 Privacy/Support public pages；真实截图 | 导航/恢复/首次教程/两条清理路径针对性测试；exact build 内部 TestFlight 和三张 owner 截图；无占位信息 |
 | S05-C / BLOCKED_OWNER_COMMERCE | 独立 StoreKit 支持开发者模块 | StoreKit/sandbox 状态测试和地区复查；没有真实扣款测试授权不发起付费；单独 PR，不与核心大重构混合 |
 | S05-D / BLOCKED_OWNER_RELEASE | owner选定地区、当前法规/年龄确认/账户状态、最终 metadata/build | 完成地区证据卡，owner批准 exact RC + storefront 列表后方可提交；公开发布仍按明确授权 |
 
