@@ -61,6 +61,17 @@ jobs:
           assert 'C617.1' in reasons['NSPrivacyAccessedAPICategoryFileTimestamp']
           print('App privacy manifest bundled with expected required-API reasons')
           PY
+          python3 - "$app" <<'PY'
+          from pathlib import Path
+          import plistlib, sys
+          app = Path(sys.argv[1])
+          bundled = sorted(app.rglob('PrivacyInfo.xcprivacy'))
+          print('Bundled privacy manifests:', [str(p.relative_to(app)) for p in bundled])
+          assert any(p != app / 'PrivacyInfo.xcprivacy' and any(
+              '0A2A.1' in item['NSPrivacyAccessedAPITypeReasons']
+              for item in plistlib.loads(p.read_bytes()).get('NSPrivacyAccessedAPITypes', [])
+          ) for p in bundled), 'ZIPFoundation resource privacy manifest missing'
+          PY
       - name: Focused simulator UI, recovery and deletion guard regression
         run: |
           set -euo pipefail
@@ -68,6 +79,7 @@ jobs:
           xcrun simctl boot "$device" >/dev/null 2>&1
           xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
           base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -configuration Release \
             -destination "platform=iOS Simulator,id=$device" \
             -derivedDataPath "$RUNNER_TEMP/S05SimulatorDerivedData" \
             -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO)
@@ -87,11 +99,16 @@ jobs:
             -resultBundlePath "$RUNNER_TEMP/S05Export.xcresult" test
           xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
           xcrun simctl uninstall "$device" com.zhangsfish.lectureasset
-          xcrun simctl privacy "$device" deny photos com.zhangsfish.lectureasset
+          xcrun simctl privacy "$device" revoke photos com.zhangsfish.lectureasset
           "${base[@]}" -only-testing:LectureAssetUITests/PhotoLibraryBlockedUITests \
             -resultBundlePath "$RUNNER_TEMP/S05Denied.xcresult" test
+      - name: Export safe synthetic XCTest screenshots
+        if: always()
+        run: |
+          set -euo pipefail
           mkdir -p "$RUNNER_TEMP/s05-screenshots"
           for bundle in S05Permission S05Review S05Archive; do
+            test -d "$RUNNER_TEMP/$bundle.xcresult" || continue
             xcrun xcresulttool export attachments --path "$RUNNER_TEMP/$bundle.xcresult" \
               --output-path "$RUNNER_TEMP/s05-screenshots/$bundle"
           done
