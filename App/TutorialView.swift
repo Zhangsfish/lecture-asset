@@ -81,12 +81,14 @@ struct TutorialView: View {
                     Image(systemName: "hand.point.up.left.fill")
                         .font(.largeTitle)
                         .keyframeAnimator(initialValue: CGFloat(0), trigger: play) { content, position in
-                            content.offset(x: reduceMotion ? 0 : position)
+                            content.offset(x: reduceMotion ? 0 : position,
+                                           y: reduceMotion ? -160 : -220 + (position + 90) / 3)
                         } keyframes: { _ in
                             LinearKeyframe(CGFloat(-90), duration: 0.2)
                             LinearKeyframe(CGFloat(90), duration: 2.2)
                             LinearKeyframe(CGFloat(90), duration: 0.4)
                         }
+                        .frame(height: 0)
                 }
             case 1:
                 VStack(spacing: 16) {
