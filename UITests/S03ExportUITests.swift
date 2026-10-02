@@ -24,7 +24,13 @@ final class S03ExportUITests: XCTestCase {
         discard.tap()
         XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@",
             "cannot be recovered from the App")).firstMatch.waitForExistence(timeout: 5))
-        app.buttons["Cancel"].tap()
+        // Compact action sheets expose Cancel; a native popover dismisses outside.
+        if app.buttons["Cancel"].exists {
+            app.buttons["Cancel"].tap()
+        } else {
+            phase.tap()
+        }
+        XCTAssertFalse(app.buttons["Discard App files only"].exists)
         XCTAssertTrue(app.buttons["export-share-zip"].exists)
         app.buttons["about-open"].tap()
         app.buttons["tutorial-replay"].tap()
