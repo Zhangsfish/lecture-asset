@@ -4,7 +4,7 @@ Updated: 2026-10-02
 
 ## Now
 
-**S00–S04 PASS. S05-A PASS_WITH_NOTES and merged. S05-B READY for final UI/onboarding/contact polish.**
+**S00–S04 PASS. S05-A PASS_WITH_NOTES and merged. S05-B HOLD_OWNER_REVIEW after AI-handoff/message audit.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -21,7 +21,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S03 | PASS — PR #4 merged | [audit](audits/S03/round-01.md) |
 | S04-lite | PASS — PR #5 merged; retained real 200-page job verified | [audit](audits/S04/round-02.md) |
 | S05-A | **PASS_WITH_NOTES** — PR #6 merged; core UI/About/privacy foundation accepted | [audit](audits/S05/china-prep-01.md), [report](reports/S05/china-prep-01/DELIVERY.md) |
-| S05-B | **READY** — animated tutorial, approved contact/homepage, visible App-only cleanup alternative, public pages, exact-build TestFlight visual/accessibility pass | [task](tasks/S05_B_POLISH.md), [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
+| S05-B | **HOLD_OWNER_REVIEW** — UI/onboarding/contact scope must absorb the new `PDF 给人 · ZIP 给 AI` messaging audit before implementation | [AI/message audit](docs/AI_HANDOFF_AND_MESSAGING_AUDIT.md), [existing task](tasks/S05_B_POLISH.md) |
 | S05-C | PLANNED / BLOCKED_OWNER_COMMERCE — optional StoreKit tip jar, separate task and review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
 
@@ -53,6 +53,6 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 2. [Product decisions](docs/PRODUCT_DECISIONS.md) + [Spec](docs/SPEC.md)
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
-5. [Current S05-B task](tasks/S05_B_POLISH.md) — includes the owner-approved visible alternative: `保留相册照片，仅清除 App 内文件`.
+5. [AI handoff + messaging audit](docs/AI_HANDOFF_AND_MESSAGING_AUDIT.md) — owner reviews this first. Do not start S05-B implementation from the older task until this audit is accepted and folded into the task.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
