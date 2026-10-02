@@ -66,9 +66,14 @@
   ],
   "files": [
     {
+      "file": "CI_SAFE_RESULT.txt",
+      "bytes": 6446,
+      "sha256": "aa3cb074e4613a017e034cfa9b15acdb03926d03b797381a21c5196be5b83833"
+    },
+    {
       "file": "DESKTOP_VALIDATION.json",
-      "bytes": 1410,
-      "sha256": "1a2487f28a6f5a2e43640514df48ed55159d38304b97316652e4bdf49fdcab5c"
+      "bytes": 1369,
+      "sha256": "06987b9d34f438c542fc3a823c678fc355ae31ee37ef1710cac96277f1680dc2"
     },
     {
       "file": "README.generated.md",
@@ -169,11 +174,6 @@
       "file": "TESTFLIGHT_SAFE_RESULT.txt",
       "bytes": 449,
       "sha256": "06d6c40d6ea4a24e2b7ec5f95baa75f4158163fec1d567d2b3b97b76ca8f2282"
-    },
-    {
-      "file": "CI_SAFE_RESULT.txt",
-      "bytes": 6446,
-      "sha256": "aa3cb074e4613a017e034cfa9b15acdb03926d03b797381a21c5196be5b83833"
     }
   ]
 }
