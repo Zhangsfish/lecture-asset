@@ -1,0 +1,44 @@
+{
+  "stage": "S05-A-internal-testflight-preview",
+  "status": "VALID",
+  "distribution": "Internal TestFlight preview only",
+  "main_base_sha": "427975d18cfdb47791347236987381306822fb38",
+  "s05_a_merged_runtime_sha": "a0305a2945f79c061082bbff390596751b8b648e",
+  "uploaded_checkout_sha": "307156fda2cd59b15699fe4590c42fa764e73c12",
+  "runtime_source_changed_from_main": false,
+  "workflow_only_diff": [
+    ".github/workflows/s00-testflight.yml"
+  ],
+  "version": "0.1.0",
+  "build": "28.1",
+  "previous_build": "27.1",
+  "build_number_strictly_increased": true,
+  "workflow": {
+    "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/36992542612",
+    "run_id": 36992542612,
+    "job_id": 110791849175,
+    "result": "PASS",
+    "host": "GitHub-hosted macos-26 arm64; macOS 26.6.2; Xcode 26.6 (17F113); iOS SDK 26.5; Swift 6.3.3"
+  },
+  "checks": [
+    {"check": "Historical foundation-check failure reproduced and limited to frozen archive relative links", "result": "PASS"},
+    {"check": "App/Localizable.xcstrings JSON and AppResources/PrivacyInfo.xcprivacy lint", "result": "PASS"},
+    {"check": "SelectionCore Swift tests", "result": "PASS", "tests": 5},
+    {"check": "ArchiveCore Swift tests", "result": "PASS", "tests": 9},
+    {"check": "XcodeGen project generation", "result": "PASS"},
+    {"check": "Clean unsigned generic iPhone Release build", "result": "PASS"},
+    {"check": "Built app bundle identifier com.zhangsfish.lectureasset", "result": "PASS"},
+    {"check": "Built app marketing version 0.1.0", "result": "PASS"},
+    {"check": "App PrivacyInfo.xcprivacy bundled and valid", "result": "PASS"},
+    {"check": "ZIPFoundation privacy manifest bundled with 0A2A.1", "result": "PASS"},
+    {"check": "Unsigned archive and archive metadata", "result": "PASS"},
+    {"check": "Automatic App Store Connect distribution export/upload", "result": "PASS", "state": "accepted"},
+    {"check": "Exact build App Store Connect processing", "result": "PASS", "state": "VALID"}
+  ],
+  "not_run": [
+    "S04 100/200-page stress tests, WeChat transfer and destructive Photos cleanup were intentionally not repeated.",
+    "App Review submission, External TestFlight, storefront/region changes and public release were not performed.",
+    "S05-B tutorial, contact/homepage UI, hosted Privacy/Support pages and metadata changes were not implemented."
+  ],
+  "secrets_committed_or_artifacted": false
+}
