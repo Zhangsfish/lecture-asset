@@ -148,30 +148,22 @@ Archive ready:
 
 The safety confirmation screens can remain more explicit.
 
-## 6. Onboarding opening — explain value before mechanics
+## 6. Onboarding boundary — teaching only
 
-The previous plan starts immediately with “滑动选择”. That teaches mechanics but not why this app exists.
+The owner explicitly separates onboarding from promotion.
 
-Add a very short hero/opening state before the four mechanics scenes:
+The in-app first-run tutorial does **not** carry the emotional/JTBD story and does not open with “舍不得删”, “留住内容，清理相册”, or a product-value hero.
 
-Visual:
-- a messy group of lecture-photo tiles;
-- tiles converge and split into two clean outputs: PDF and AI ZIP.
-
-Copy:
-
-**一场讲座，两份资料**
-
-`PDF 给你 · ZIP 给 AI`
-
-Then the four action scenes:
+Its job is only to teach the workflow clearly with minimal text:
 
 1. `滑动选择`
 2. `自动排序`
 3. `生成 ZIP + PDF`
 4. `保存后再清理`
 
-Keep Skip immediately available.
+The tutorial should visually demonstrate the real gestures, ordering, explicit archive-generation step, save-confirm sequence and both cleanup choices.
+
+The deeper consumer tension — “大概率不看，但舍不得删” — belongs to marketing, App Store storytelling and later promotional video work, not onboarding.
 
 ## 7. Promotional message — lead with “won't read, won't delete”
 
@@ -295,13 +287,12 @@ The owner explicitly wants the next implementation batch to change the **human U
 Next implementation batch:
 
 1. reduce human UI copy;
-2. onboarding hero should express the real value: preserve future usefulness so the user can clean Photos with confidence;
-3. onboarding then teaches the concise mechanism: `PDF 给你 · ZIP 给 AI`;
-4. final ready screen expresses the same split;
-5. make the App-only cleanup alternative visible;
-6. About/contact/homepage/public pages;
-7. strengthen archive `README.md` + `lecture.md` AI contract in the same PR;
-8. add targeted archive tests proving the generated instructions and ZIP structure.
+2. keep onboarding purely instructional: select → order → generate → save/clean;
+3. simplify the final ready screen and make the human/AI output distinction clear where useful;
+4. make the App-only cleanup alternative visible;
+5. About/contact/homepage/public pages;
+6. strengthen archive `README.md` + `lecture.md` AI contract in the same PR;
+7. add targeted archive tests proving the generated instructions and ZIP structure.
 
 After that exact build/ZIP is verified:
 9. test the same real ZIP in WorkBuddy and ChatGPT;
