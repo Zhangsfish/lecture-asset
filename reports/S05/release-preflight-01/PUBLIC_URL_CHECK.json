@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+    "http_status": 200,
+    "final_url": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+    "content_sha256": "479d52c7cee7543898c4ce4a958b058fc217156e13e553429e28c1dae52890f4",
+    "anonymous": true,
+    "source_content_match": true,
+    "checked_at": "2026-10-03T11:37:06.543635+00:00"
+  },
+  {
+    "url": "https://zhangsfish.github.io/lecture-asset/support.html",
+    "http_status": 200,
+    "final_url": "https://zhangsfish.github.io/lecture-asset/support.html",
+    "content_sha256": "57d0b3c29268300ca8794daf91fe7aefffe0345223f4d603462c435fd73cc892",
+    "anonymous": true,
+    "source_content_match": true,
+    "checked_at": "2026-10-03T11:37:08.013290+00:00"
+  }
+]

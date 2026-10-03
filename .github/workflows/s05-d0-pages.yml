@@ -1,0 +1,31 @@
+name: S05-D0 public Privacy and Support
+on:
+  push:
+    branches: [codex/s05-d0-release-preflight, main]
+    paths: [web/static/**, .github/workflows/s05-d0-pages.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: lecture-asset-public-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/configure-pages@v5
+      - name: Validate public-only content
+        run: python3 scripts/s05_d0_check_release_prep.py --pages-only
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/static
+      - uses: actions/deploy-pages@v4
+        id: deploy

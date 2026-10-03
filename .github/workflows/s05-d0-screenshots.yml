@@ -1,0 +1,129 @@
+name: S05-D0 App Store screenshot capture
+
+on:
+  push:
+    branches: [codex/s05-d0-release-preflight]
+    paths:
+      - ".github/workflows/s05-d0-screenshots.yml"
+      - "scripts/s05_d0_make_store_media.swift"
+      - "UITests/S05D0StoreScreenshotUITests.swift"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Verify toolchain and install XcodeGen
+        run: |
+          set -euo pipefail
+          python3 scripts/s05_d0_check_release_prep.py
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
+            --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+
+      - name: Capture Chinese 6.9-inch Store story
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+
+          device=$(xcrun simctl list devices available -j | python3 -c '
+          import json,sys
+          data=json.load(sys.stdin)
+          matches=[d["udid"] for runtime,devices in data["devices"].items()
+                   if "iOS" in runtime for d in devices
+                   if d["name"] == "iPhone 17 Pro Max" and d.get("isAvailable", True)]
+          if not matches:
+              raise SystemExit("iPhone 17 Pro Max simulator not available")
+          print(matches[0])
+          ')
+          echo "S05_D0_SCREENSHOT_DEVICE iPhone_17_Pro_Max"
+          xcrun simctl boot "$device" >/dev/null 2>&1 || true
+          xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
+          xcrun simctl uninstall "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
+          xcrun simctl privacy "$device" reset all com.zhangsfish.lectureasset
+
+          swift scripts/s05_d0_make_store_media.swift "$RUNNER_TEMP/s05-d0-store-media"
+          xcrun simctl addmedia "$device" "$RUNNER_TEMP/s05-d0-store-media"/*.jpg >/dev/null
+
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -configuration Release \
+            -destination "platform=iOS Simulator,id=$device" \
+            -derivedDataPath "$RUNNER_TEMP/S05D0ScreenshotDerivedData" \
+            -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES \
+            -only-testing:LectureAssetUITests/S05D0StoreScreenshotUITests \
+            -resultBundlePath "$RUNNER_TEMP/D0StoreScreenshots.xcresult" test
+
+      - name: Export and validate screenshot attachments
+        if: always()
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/s05-d0-app-store-screenshots"
+          mkdir -p "$out"
+          test -d "$RUNNER_TEMP/D0StoreScreenshots.xcresult"
+          xcrun xcresulttool export attachments \
+            --path "$RUNNER_TEMP/D0StoreScreenshots.xcresult" \
+            --output-path "$out"
+
+          python3 - "$out" <<'PY'
+          import json
+          import pathlib
+          import struct
+          import sys
+
+          root = pathlib.Path(sys.argv[1])
+
+          def png_size(path):
+              with path.open("rb") as f:
+                  sig = f.read(24)
+              if len(sig) < 24 or sig[:8] != b"\x89PNG\r\n\x1a\n":
+                  return None
+              return struct.unpack(">II", sig[16:24])
+
+          entries = []
+          for path in sorted(root.rglob("*.png")):
+              size = png_size(path)
+              entries.append({
+                  "path": str(path.relative_to(root)),
+                  "width": size[0] if size else None,
+                  "height": size[1] if size else None,
+              })
+
+          if len(entries) != 5:
+              raise SystemExit(f"Expected exactly 5 Store screenshots, found {len(entries)}")
+          dims = {(e["width"], e["height"]) for e in entries}
+          allowed = {(1260, 2736), (1290, 2796), (1320, 2868)}
+          if not dims.issubset(allowed):
+              raise SystemExit(f"Unexpected 6.9-inch screenshot dimensions: {sorted(dims)}")
+
+          (root / "DIMENSIONS.json").write_text(
+              json.dumps(entries, indent=2) + "\n", encoding="utf-8"
+          )
+          print("S05_D0_SCREENSHOT_COUNT", len(entries))
+          print("S05_D0_SCREENSHOT_DIMENSIONS", sorted(dims))
+          PY
+
+      - name: Upload App Store screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s05-d0-app-store-screenshots-zh
+          path: ${{ runner.temp }}/s05-d0-app-store-screenshots/
+          if-no-files-found: error
+          retention-days: 14

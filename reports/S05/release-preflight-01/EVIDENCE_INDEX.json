@@ -1,0 +1,54 @@
+{
+  "screenshot_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37120289721",
+  "screenshot_source_sha": "ff2850812bc4f168fb08db553b2a89a1462a7216",
+  "artifact_id": 11273580611,
+  "artifact_sha256": "fbc4e06e9eb8770e73451cbc154db3b56969c3de7a864eb1aa61cbe7099c7518",
+  "artifact_expires_at": "2026-10-17T11:54:50Z",
+  "screenshots": [
+    {
+      "file": "screenshots/01-select-lecture-photos.png",
+      "width": 1320,
+      "height": 2868,
+      "color_type": "RGB",
+      "alpha": false,
+      "bytes": 457626,
+      "sha256": "7787c1c73d4aca1ad685982aa2a347cc3d87f0f4782d0d226c3dd6637cd45351"
+    },
+    {
+      "file": "screenshots/02-review-capture-order.png",
+      "width": 1320,
+      "height": 2868,
+      "color_type": "RGB",
+      "alpha": false,
+      "bytes": 289512,
+      "sha256": "04e20369b8d3b76df2a6df00c31d31197a78c54d2d013506f51fd0a8110c56a7"
+    },
+    {
+      "file": "screenshots/03-photos-prepared.png",
+      "width": 1320,
+      "height": 2868,
+      "color_type": "RGB",
+      "alpha": false,
+      "bytes": 119879,
+      "sha256": "e889f96c253100f9941288e6a3a9e2b9f99d06c1c54be7ccec5ab76c2e3d8c79"
+    },
+    {
+      "file": "screenshots/04-save-zip-pdf-cleanup.png",
+      "width": 1320,
+      "height": 2868,
+      "color_type": "RGB",
+      "alpha": false,
+      "bytes": 133113,
+      "sha256": "cb7a9a42905c677b824a657d693e14b12f38a187a4039c98b48e2641d97cb9e3"
+    },
+    {
+      "file": "screenshots/05-hand-off-to-ai.png",
+      "width": 1320,
+      "height": 2868,
+      "color_type": "RGB",
+      "alpha": false,
+      "bytes": 700809,
+      "sha256": "de72e9d22e012a8e58a325958b0d0d4ccfd86740eda65529436b2a18a3b5ebcf"
+    }
+  ]
+}
