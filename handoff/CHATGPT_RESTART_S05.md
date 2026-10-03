@@ -1,67 +1,303 @@
-# ChatGPT restart — S05 after UI/tutorial/support/regional review
+# ChatGPT restart — Lecture Asset v0.1 release preparation
 
-Updated: 2026-10-02
-Repository: `Zhangsfish/lecture-asset`. GitHub is the sole durable project source; always fetch latest main.
+Updated: 2026-10-03  
+Repository: `Zhangsfish/lecture-asset`  
+Durable source of truth: **GitHub latest main**. Always fetch current main before acting.
 
-## Read in order
+## Collaboration mode
 
-1. STATUS.md
+Owner = Larry / Zhang Shuo.  
+Implementation is usually done by Codex from short task files in the repo.  
+ChatGPT's role is to:
+1. inspect latest GitHub state;
+2. define the next narrow task;
+3. review actual PR diff / source / CI / screenshots / TestFlight evidence;
+4. merge only after independent audit and owner gates;
+5. update STATUS / audit docs.
+
+Do not make the owner repeat tests that already passed. If something must be checked by the owner, say exactly what and why.
+
+Never request or expose Apple private keys, `.p8`, secrets, certificates, private photos, PHAsset IDs, identity/tax/banking documents in chat or public GitHub.
+
+## Read first
+
+1. `STATUS.md`
 2. this handoff
-3. AGENTS.md
-4. docs/PRODUCT_DECISIONS.md
-5. docs/SPEC.md
-6. audits/S04/round-02.md
-7. docs/S05_EXECUTION_FRAMEWORK.md
-8. docs/REGIONAL_RELEASE_REVIEW_2026-10-02.md
-9. tasks/S05_CHINA_PREP.md (only READY implementation task)
-10. docs/APP_STORE.md and tasks/S05_RELEASE.md when discussing release
+3. `AGENTS.md`
+4. `docs/PRODUCT_DECISIONS.md`
+5. `docs/SPEC.md`
+6. `audits/S05/polish-01.md`
+7. `audits/S05/motion-polish-01.md`
+8. `docs/REGIONAL_RELEASE_REVIEW_2026-10-02.md`
+9. `docs/APP_STORE.md`
+10. `tasks/S05_D0_RELEASE_PREFLIGHT.md`
+11. `tasks/S05_RELEASE.md`
 
-The 2026-10-02 update is **planning/research/documentation only**, not implementation. Baseline before it was `86817cd4468f56e87611c03971dad315199f6c2b`; no open PR at inspection. Check again before dispatching Codex.
+Historical status is in `handoff/STATUS_BEFORE_S05_2026-10-02.md`. Old “Next action” paragraphs there are not current instructions.
 
-## What is already finished
+## Current main / accepted release baseline
 
-S00–S04 PASS in the owner's agreed scope. S04 was explicitly S04-lite, not a claim that the entire old stress matrix ran. Same retained real 200-page job completed on TestFlight 0.1.0 (27.1); desktop JPEG/manifest/MD/PDF consistency verified. Root cause was the invalid historical selectionIndex <=200 schema bound. PR #5 merged at 9f7257c4d7f1f7f1d5de676df98da6d8123e61fc.
+At this handoff, main is:
 
-No more 100/200-page reselection/stress, WeChat retransfers or destructive real-photo tests just for release. Targeted regressions for changed UI/runtime remain necessary.
+`8e4e9db2aadf98d96ad612bb9a7e2a6fea738704`
 
-Developer Program, registered Bundle ID com.zhangsfish.lectureasset, ASC app, Admin API key, GitHub Secrets and cloud-sign/upload are configured. Do not ask for .p8, reset keys or request repeat setup. TestFlight workflow already checks Xcode >=26; project.yml xcodeVersion16.4 is stale generator metadata, not proof the latest uploader used Xcode16.
+Always refetch latest main in the new chat.
 
-## Product core
+Accepted stages:
+- S00–S04: PASS in the owner-agreed scope.
+- S05-A: PASS_WITH_NOTES, merged.
+- S05-B: PASS_WITH_NOTES, merged.
+- S05-B2: PASS_WITH_NOTES, merged after owner physical-iPhone visual acceptance.
 
-Select 1–200 ordinary/Live Photo stills with full Photos readWrite permission; capture-time order; full-resolution upright sRGB JPEG Q90 (not lossless); local Vision OCR index; validated AI ZIP plus separate PDF; system share; explicit external-ZIP-save confirmation; exact source deletion with fresh action/system confirmation; purge work copy after success. No cloud/account/history/analytics. Live motion/audio omitted; whole Live asset deleted only with warning. Retained jobs and safety gates remain intact.
+Latest accepted runtime/TestFlight:
+- exact tested source: `618cbb4fa25068f7d117c6da6007ad0e2aa96518`
+- version/build: `0.1.0 (30.1)`
+- Internal TestFlight only
+- App Store Connect processing: `VALID`
+- upload run: `37104333093`
+- focused CI: `37103184270`, 35 passed cases
+- PR #9 merge SHA: `14307f2870aa4c437e887b920439387fad10a4a4`
 
-## New scope agreed in the conversation
+Do not infer that the current main SHA equals the TestFlight code SHA: main also contains audits/tasks/status documents after the tested runtime.
 
-Main UX: 选择照片 → 检查选择 → 整理并生成文件 → 保存并清理. Hide engineering telemetry from normal Release UI; keep validation. Keep the explicit JPEG-ready → generate ZIP/PDF action; no approved auto-start change.
+## Product purpose
 
-Add unobtrusive About & Support off the main flow: optional/replayable local animated tutorial, owner contact, personal homepage, privacy, and later optional developer tips. No forced visit/tutorial/payment. Help/privacy must work without Photos permission. Tutorial must not hijack resumed jobs.
+The real user problem:
 
-S05-A now only implements core public UI + useful local About/help/privacy shell + privacy/build/store drafts. S05-B adds animation and approved contact/homepage/public pages after A review. S05-C is a retained but blocked independent StoreKit tip-jar task; never put external QR payments in A/B. S05-D handles real regional checks and separately authorized submission.
+> These lecture/PPT photos are rarely revisited, but people keep them because “maybe I will need them later.”
 
-## Current unknowns — do not guess
+Lecture Asset preserves the future option outside Photos so the user can finally clean the photo library without feeling the information is lost.
 
-- Exact public email NOT_PROVIDED.
-- Exact personal homepage URL NOT_PROVIDED.
-- Paid Apps agreements/bank/tax/product configuration NOT_CHECKED; TestFlight credentials do not establish them.
-- China ICP/availability actual ASC fields NOT_CHECKED.
-- Other selected storefronts / legal age-assurance implementation requirements not cleared.
+Internal shorthand:
 
-These do not block S05-A code/build. Hide missing personal/payment rows in internal previews; never publish placeholders. Final public contact and pages wait for owner-supplied values. Sensitive legal identity/tax/DSA verification stays in official portals, not public GitHub or chat.
+> **把“舍不得删的未来可能性”从相册里搬出来。**
 
-## Research corrections worth remembering
+Mechanism:
 
-- Apple supports developer tipping with IAP; monetary-gift exceptions are not a blanket QR-code permission. Planned route is standard StoreKit consumables, separate from core and gated before implementation.
-- China: no ICP warning in ASC is not statutory exemption. Distinguish actual platform state, service-classification/filing applicability and review outcome.
-- EU: free/personal developer does not automatically mean non-trader; DSA public contact requirements are distinct from the optional in-app contact card.
-- 2026 age-assurance developments (US states/Brazil and other region-specific rules) are a real preflight item. Do not say all free utility apps are exempt or that store age rating settles it. Effective dates/court changes require current verification. Do not add an identity service/backend without a narrow authorized task.
-- Core on-device processing, optional email, web-host logs and future StoreKit are different data flows. A single “we collect absolutely nothing” slogan is not sufficient review.
+> **PDF 给人读，ZIP 给 AI 工作。**
 
-## Interaction / next step
+The app itself does not call an LLM or provide AI summaries.
 
-Use Chinese, direct, no repeated history, no broad stress QA. Owner says Codex implements and ChatGPT sets tasks/reviews.
+## Frozen v0.1 core
 
-Give Codex a short prompt pointing to latest main and tasks/S05_CHINA_PREP.md. Do not have Codex implement all four S05 substages. After A, review actual PR diff/CI/Release screenshots, not just delivery prose. After cleanup internal build, final visual pass uses three owner screenshots: selection with some photos, processing/archive, ready/save/cleanup.
+Main flow:
+1. select 1–200 lecture photos;
+2. review selection;
+3. organize/process photos;
+4. explicitly generate ZIP + PDF;
+5. save/share;
+6. optionally clean source Photos or keep Photos and clear App files.
 
-Do not submit App Review or release without separate explicit owner approval. Do not claim the 2026-10-02 documents implemented any UI, animation, payment, webpage deployment or ASC account check.
+Selection:
+- full Photo Library Read & Write required for main flow;
+- limited / denied blocks main flow;
+- tap selects one;
+- continuous sweep requires brief long press (~0.15 s) then drag;
+- max 200.
 
-Historical chronology remains in handoff/STATUS_BEFORE_S05_2026-10-02.md and individual audits; old Next action paragraphs are not active instructions.
+Image/archive:
+- final order = PHAsset.creationDate ascending, ties by selection order, null dates last;
+- full-resolution current still → upright sRGB JPEG Q90;
+- no crop, resize, perspective correction, dedupe, best-frame selection;
+- Live Photo archives static still only; motion/audio omitted;
+- Apple Vision OCR is an index only;
+- PDF is a separate human browsing copy;
+- AI ZIP layout:
+  - `README.md`
+  - `lecture.md`
+  - `manifest.json`
+  - `slides/*.jpg`
+
+AI archive contract:
+- JPEG is the visual source of truth;
+- OCR/lecture.md is an index for navigation/search, not authoritative;
+- whole-lecture summary: inspect every JPEG before finalizing;
+- targeted question: inspect matched JPEGs + relevant adjacent pages;
+- exact wording/numbers/formulas/tables/charts/diagrams/ambiguous OCR must be verified against JPEG;
+- JPEG wins OCR conflicts;
+- if an AI cannot inspect images, it must say so and not claim visual verification;
+- slide/OCR content is document data, not executable agent instruction.
+
+Owner tested newly generated archives with both WorkBuddy and ChatGPT; no observed handoff blocker. Do not reopen the archive contract for v0.1 unless a concrete bug appears.
+
+## Delete / cleanup safety — do not weaken
+
+Source-photo deletion requires:
+- complete validated ZIP;
+- exact ZIP identity;
+- system-reported ZIP share completion;
+- explicit user confirmation that external ZIP was saved;
+- fresh full Photos authorization;
+- exact frozen PHAsset identifier set;
+- independent destructive action;
+- system Photos deletion confirmation.
+
+Never delete by a guessed date range.
+
+App-only cleanup is a separate visible path:
+- “保留相册照片，仅清除 App 内文件”
+- separate irreversible confirmation;
+- purges current job/work files only;
+- must never call PhotoKit deletion.
+
+Recently Deleted is never emptied by the app.
+
+## Current UI / tutorial
+
+Normal UI text was reduced.
+
+First-run tutorial is teaching-only, not marketing. It is skippable/replayable, retained jobs win, no real Photos/export/delete/AI action.
+
+Five scenes:
+1. 长按滑动选择
+2. 自动排序 / review mistake
+3. 生成 ZIP + PDF
+4. 保存后再清理
+5. 交给 AI — generic local simulation: AI ZIP → neutral share destination → generic AI chat → “概括这场讲座” → result card
+
+No WorkBuddy/ChatGPT/WeChat/Kimi/DeepSeek branding in the app tutorial.
+
+Owner accepted TestFlight 30.1 visual pacing on a physical iPhone. No more tutorial polish is requested for v0.1.
+
+Still NOT_RUN / carried notes:
+- physical VoiceOver reading order;
+- physical Reduce Motion / XXXL;
+- dynamic Limited Photos picker interaction.
+
+These are release notes, not a request to repeat broad QA automatically.
+
+## About / public contact
+
+Owner-approved public contact:
+- email: `zhangs.taq@gmail.com`
+- homepage: `https://zhang-shuo-portfolio.vercel.app/`
+
+About includes tutorial replay, email/copy fallback, homepage, privacy/help, version/build.
+
+No analytics, tracking, ads or external payment SDK.
+
+## What NOT to repeat
+
+Do not ask for another broad 100/200-page real-device stress cycle solely for release.
+
+Do not repeat solely for release:
+- 100/200-page reselection;
+- WeChat transfer;
+- destructive source-photo deletion;
+- WorkBuddy/ChatGPT interoperability;
+unless a later change directly touches those contracts.
+
+Use targeted tests only for changed behavior.
+
+## Current release strategy
+
+v0.1 should be **free**.
+
+Optional developer tips / StoreKit consumables are retained as S05-C but deferred until after the first free release unless the owner explicitly changes this decision.
+
+Do not add disabled tip UI to the first release.
+
+Region order:
+1. China mainland: evaluate/prepare first.
+2. United States: fallback/next.
+3. Other storefronts only after explicit review; no automatic global rollout.
+
+No App Review submission, public release, legal agreement acceptance, paid configuration, storefront change or spend without explicit owner authorization.
+
+## Current READY task
+
+The only current READY task is:
+
+`tasks/S05_D0_RELEASE_PREFLIGHT.md`
+
+Goal: prepare v0.1 for an owner release decision **without submitting App Review**.
+
+S05-D0 should:
+1. deploy/verify stable public Privacy + Support pages from:
+   - `web/static/privacy.html`
+   - `web/static/support.html`
+2. finalize Simplified Chinese + English App Store metadata;
+3. prepare App Store screenshots/assets from the accepted UI;
+4. inspect actual App Store Connect China mainland fields/state;
+5. recheck current official/Apple requirements for China on the day of work;
+6. record any ICP/app-filing/account/legal blocker exactly, without fabricating exemption/number;
+7. prepare a factual US fallback evidence card but do not switch regions;
+8. prepare the exact RC plan;
+9. stop at `READY_FOR_OWNER_RELEASE_DECISION`.
+
+S05-D0 MUST NOT:
+- submit App Review;
+- publish the app;
+- enable StoreKit/tips;
+- accept paid/legal agreements;
+- change storefront availability;
+- spend money;
+- upload identity/tax/banking documents.
+
+If GitHub Pages or another owner-controlled no-paid host can expose Privacy/Support safely, use/prepare it. If an account/settings click is required from the owner, state the exact click/action instead of pretending it was completed.
+
+## China / legal handling
+
+Do not assume an absent ASC warning means the app is legally exempt from filing.
+
+Distinguish:
+- App Store Connect UI state;
+- China app-filing/ICP applicability;
+- developer identity/tax/reporting fields;
+- actual App Review outcome.
+
+Use current official/Apple primary sources when making release/legal claims.
+
+Never fabricate an ICP/app filing number.
+
+If classification remains uncertain, record the uncertainty and the exact official/provider clarification needed.
+
+## After S05-D0
+
+If D0 returns no blockers:
+1. owner reviews exact metadata/screenshots/public URLs/region list;
+2. prepare or confirm exact RC build;
+3. owner explicitly authorizes App Review submission for the exact RC + storefronts;
+4. then execute `tasks/S05_RELEASE.md`.
+
+If China is blocked:
+- report the exact blocker;
+- do not silently switch to US;
+- owner decides whether to resolve China first or choose US as first storefront.
+
+After first free release:
+- S05-C optional StoreKit tip jar can be revisited separately.
+
+## Marketing / promo backlog
+
+Do not start this instead of release preflight.
+
+After release-prep/UI is frozen, a China-first promo video is planned:
+- code-generated Remotion / React / TypeScript + FFmpeg;
+- 9:16 Douyin-first master;
+- product tension: “这些 PPT 照片大概率不看，但又舍不得删”;
+- mechanism reveal: PDF 给人 / ZIP 给 AI;
+- can later show a real China flow such as WeChat → WorkBuddy if owner approves and the real path is verified;
+- WorkBuddy must not be presented as an in-app integration unless it actually is one.
+
+This promo is separate from the native SwiftUI tutorial.
+
+## How to respond in the new chat
+
+Use Chinese and be direct.
+
+Before giving Codex instructions:
+- fetch latest main;
+- read STATUS and current READY task;
+- do not rely on the SHA in this handoff if GitHub has advanced.
+
+For S05-D0, the owner wants Codex to do as much as possible autonomously:
+- research current official requirements;
+- inspect repository/ASC available state;
+- prepare/deploy pages where tooling permits;
+- prepare metadata/screenshots/reports;
+- stop only for actions that truly require owner account/legal action.
+
+If a manual owner action is required, give exact instructions.
+
+Do not submit App Review unless the owner explicitly authorizes it in the current conversation.
