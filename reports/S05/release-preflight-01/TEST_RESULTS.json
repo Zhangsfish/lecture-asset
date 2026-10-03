@@ -1,6 +1,6 @@
 {
   "task": "S05-D0 release preflight",
-  "status": "READY_FOR_AUDIT",
+  "status": "READY_FOR_REAUDIT",
   "base_sha": "43e669b59f3a6135d21286bdecaa0444104b0575",
   "tested_implementation_sha": "ec58f5b6cde84da9324232ce1ff63abe22bb413e",
   "accepted_runtime_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
@@ -82,15 +82,17 @@
     },
     {
       "name": "China APP/ICP filing applicability",
-      "status": "UNRESOLVED",
+      "status": "BLOCKED_OWNER_ACTION",
       "evidence": "CHINA.md",
-      "reason": "primary sources do not establish this local utility exemption"
+      "reason": "MIIT105 plus official-site practical FAQ treating links as network behavior signals strong filing risk for this app with developer homepage/support links and user-directed mail/share. No product-specific official legal verdict; obtain authoritative classification or filing-provider confirmation. ASC warning absence is not exemption.",
+      "risk_status": "STRONG_FILING_RISK",
+      "release_gate": "LIKELY_RELEASE_BLOCKER_PENDING_AUTHORITATIVE_CLASSIFICATION"
     },
     {
       "name": "USA fallback age-assurance/legal clearance",
       "status": "UNRESOLVED",
       "evidence": "US.md",
-      "reason": "current state/platform duties require owner release decision; no automatic switch"
+      "reason": "Utah13-76-202 statutory start date confirmed2027-05-06 by current code amended Chapter157,2026; no inherited timing uncertainty. Texas/Louisiana applicability/enforcement, future Utah implementation/platform behavior and owner storefront decision remain unresolved; no auto-switch."
     },
     {
       "name": "official age/privacy/copyright/contact/identity and storefront declarations",
@@ -100,7 +102,7 @@
     {
       "name": "App Store version/release settings and submission-eligible RC",
       "status": "BLOCKED_OWNER_ACTION",
-      "reason": "ASC1.0 vs runtime0.1.0, missing metadata/questionnaire, AFTER_APPROVAL release default; INTERNAL_ONLY build cannot submit; no mutation authorized",
+      "reason": "Target0.1.0 AUTO_CONFIRMED_FROM_PRODUCT_BASELINE; ASC1.0 NEEDS_PORTAL_RECONCILIATION, not owner version choice. Missing declarations, AFTER_APPROVAL vs manual default and INTERNAL_ONLY distribution gate remain. No portal mutation or RC authorized.",
       "evidence": "RC_PLAN.md"
     },
     {
@@ -117,6 +119,41 @@
       "name": "StoreKit/tips/IAP/agreements",
       "status": "N/A",
       "reason": "first release free and S05-C deferred; no commerce task authorized"
+    },
+    {
+      "name": "Utah current developer-requirements timing",
+      "status": "PASS",
+      "effective_date": "2027-05-06",
+      "section": "13-76-202(1)-(6)",
+      "amendment": "Chapter157,2026 General Session",
+      "source": "https://le.utah.gov/xcode/Title13/Chapter76/C13-76_2025050720250507.pdf",
+      "scope": "statutory date confirmed, not nationwide clearance or product applicability conclusion"
+    },
+    {
+      "name": "China official-site practical FAQ current content",
+      "status": "PASS",
+      "source": "https://wxb.xzdw.gov.cn/qwfb/zyjs/202310/t20231018_406352.html",
+      "scope": "government-site publication credited to Guangming; hardware-companion question mentions fully offline and links; preserves separate SDK nuance, not product-specific ruling"
+    },
+    {
+      "name": "MIIT interpretation original URL refetch",
+      "status": "NOT_CHECKED",
+      "reason": "two fetch timeouts; same-title interpretation re-read on Shandong Communications Administration official site",
+      "fallback_source": "https://sdca.miit.gov.cn/zwgk/zcwj/zcjd/art/2023/art_d2403c10b72d48dcb944df6d8e44ee82.html"
+    },
+    {
+      "name": "Owner decision form and read-only portal checklist",
+      "status": "PASS",
+      "evidence": "OWNER_RELEASE_DECISION.md; OWNER_PORTAL_CHECKLIST.md",
+      "scope": "prepared blank owner fields; at most8 bundled response groups, no technical retest or sensitive values; RC and App Review locked"
+    },
+    {
+      "name": "Audit revision scope/JSON/links/screenshot byte identity",
+      "status": "PASS",
+      "evidence": "REAUDIT.md",
+      "scope": "local report checks only; no new runtime/CI/device evidence claimed"
     }
-  ]
+  ],
+  "reviewed_head": "ab811e713e5f1a71b42343e7fcb9f52ded858192",
+  "revision_scope": "report-only audit correction and owner decision framework; inherited implementation/CI/screenshots are unchanged, no CI rerun"
 }

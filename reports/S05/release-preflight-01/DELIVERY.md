@@ -1,6 +1,6 @@
 # S05-D0 release preflight delivery
 
-Status: **READY_FOR_AUDIT**. Preparation pack is ready for an owner release decision; **App Review submission is NOT ready**.
+Status: **READY_FOR_REAUDIT**. Preparation pack is ready for an owner release decision; **App Review submission is NOT ready**.
 Task: tasks/S05_D0_RELEASE_PREFLIGHT.md.
 Base main: 43e669b59f3a6135d21286bdecaa0444104b0575 (refetched before handoff, unchanged).
 D0 implementation/source SHA: ec58f5b6cde84da9324232ce1ff63abe22bb413e.
@@ -28,8 +28,8 @@ Experimental ChatGPT code was reviewed and narrowed: changed branch dispatch, re
 | Accepted runtime frozen | PASS | SOURCE_IDENTITY.json; no protected production diff |
 | Actual ASC API | PASS (read) | asc-preflight.json + run37120313730; no API mutation |
 | ASC China UI warnings/identity/privacy label | NOT_CHECKED | Login/connection limits; no fabricated absence of warning |
-| China filing applicability | UNRESOLVED | CHINA.md; current primary sources, targeted classification clarification required |
-| US fallback | UNRESOLVED | US.md; current age-assurance rules, no automatic switch |
+| China filing applicability | BLOCKED_OWNER_ACTION; STRONG_FILING_RISK / LIKELY_RELEASE_BLOCKER_PENDING_AUTHORITATIVE_CLASSIFICATION | CHINA.md; current official-site link/network risk evidence, classification confirmation required; no definitive legal verdict |
+| US fallback | UNRESOLVED (remaining applicability) | US.md; Utah statutory start date CONFIRMED2027-05-06; Texas/Louisiana/platform/applicability gates remain, no automatic switch |
 | Exact RC plan | PASS (plan) | RC_PLAN.md; 30.1 internal baseline is not submission-eligible; no upload |
 | Final legal/account declarations | BLOCKED_OWNER_ACTION | Age/privacy/copyright/contact/account identity only through official portal |
 | New signed distribution RC / App Review | NOT_RUN | Deliberately withheld pending gates and explicit authorization |
@@ -59,3 +59,7 @@ No private photos/OCR/PHAsset IDs, raw Apple responses, JWTs, P8 contents or sig
 Await independent audit and owner release decision. Do not merge, write STATUS PASS, start another stage or submit Review.
 
 Final screenshot run: https://github.com/Zhangsfish/lecture-asset/actions/runs/37120289721, SUCCESS; one Release simulator UI test, zero failures, 134.190 seconds. Artifact11273580611 SHA256 fbc4e06e9eb8770e73451cbc154db3b56969c3de7a864eb1aa61cbe7099c7518; exact five PNGs committed under screenshots/.
+
+## Report-only audit revision
+
+Independent PR review at ab811e713e5f1a71b42343e7fcb9f52ded858192 requested evidence corrections. Utah timing now confirmed from current13-76-202 as2027-05-06; China filing is a strong risk/likely blocker pending authoritative classification. See REAUDIT.md. OWNER_RELEASE_DECISION.md pre-fills technical facts and target0.1.0; OWNER_PORTAL_CHECKLIST.md limits owner work to read-only official status checks. No sensitive values requested. RC remains NOT YET AUTHORIZED; App Review DO NOT SUBMIT. This revision changes reports only; original CI/screenshots/ASC snapshot are inherited unchanged, not rerun/current portal claims. Await independent re-audit, do not merge.

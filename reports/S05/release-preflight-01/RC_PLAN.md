@@ -6,7 +6,7 @@ Accepted runtime: 618cbb4fa25068f7d117c6da6007ad0e2aa96518, Internal TestFlight 
 
 Only after owner reviews pages/metadata/screenshots and regional/account gates:
 
-1. Reconcile ASC's currently 1.0 version with chosen 0.1.0 marketing version. Do not silently bump app marketing version or assert current 30.1 matches ASC 1.0.
+1. Target App Store version **0.1.0 — AUTO_CONFIRMED_FROM_PRODUCT_BASELINE**. ASC's current1.0/PREPARE_FOR_SUBMISSION is **NEEDS_PORTAL_RECONCILIATION**, not a new owner choice between versions. Reconcile later only with explicit portal authorization; do not bump runtime or claim30.1 matches1.0.
 2. Obtain explicit authorization for a final App Store distribution-eligible RC upload. Minimal separate workflow/export change may remove Internal Only restriction **only for that authorized RC**, preserving existing internal preview default. Do not repurpose preview upload to submit review.
 3. Use the existing Admin API/cloud signing; no new key/cert/account changes. Query latest builds/run number, ensure unique strictly higher CFBundleVersion; do not hardcode a guessed value.
 4. Preserve byte-identical runtime, use then-current Xcode26+/iOS26+ SDK per [Apple requirements](https://developer.apple.com/news/upcoming-requirements/?id=02032026a); clean Release, packaging validation, signed archive/upload/processing evidence. Minimum iOS18 remains unchanged.

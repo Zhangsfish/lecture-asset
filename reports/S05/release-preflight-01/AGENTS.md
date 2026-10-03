@@ -14,3 +14,5 @@ Safe exact API evidence: asc-preflight.json. Source identity: SOURCE_IDENTITY.js
 Synthetic store media: screenshots/ and SCREENSHOTS.md/EVIDENCE_INDEX.json.
 Commands/environment: ENVIRONMENT.md; result matrix: TEST_RESULTS.json.
 No raw API/log/key/attachment metadata retained. Await independent audit; no STATUS PASS or merge.
+
+Report-only re-audit: REAUDIT.md records official Utah2027-05-06 correction and strong China filing risk. OWNER_RELEASE_DECISION.md is the single owner response form; OWNER_PORTAL_CHECKLIST.md gives read-only navigation. Blank owner fields remain unconfirmed; keep RC/review locked. Stop READY_FOR_REAUDIT.

@@ -1,6 +1,6 @@
 # 中国大陆 release evidence card
 
-核查日：2026-10-03（Asia/Shanghai）。状态：UNRESOLVED / BLOCKED_OWNER_ACTION，未放行提交。
+核查日：2026-10-03（Asia/Shanghai）。风险状态：**STRONG_FILING_RISK / LIKELY_RELEASE_BLOCKER_PENDING_AUTHORITATIVE_CLASSIFICATION**。最终法律适用性仍待主管部门/备案服务方确认，未放行提交；不是“法律上确定必须备案”的个案结论。
 
 ## 1. ASC API 已见事实
 
@@ -25,7 +25,11 @@
 
 Apple [App Information](https://developer.apple.com/help/app-store-connect/reference/app-information/app-information/) 要求适用 App 提供匹配的 ICP 信息，并在 App Information 中指定。它另外列游戏、出版、新闻、宗教许可。本产品不发行这些内容服务，不能凭讲座素材擅自申报这些许可证，也不能据此宣布备案豁免。
 
-工信部 [105 号通知](https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2023/art_920db564162e4312916a01bed6540ad8.html) 针对境内 APP 互联网信息服务主办者；[官方解读](https://www.miit.gov.cn/jgsj/xgj/hlwgl/art/2023/art_564bf0759d7e41d5b4aa8ce4996b9e84.html) 说明通过接入服务商/分发平台提交。当前核心仅本机处理、无 App 服务端，但有主动外部邮件/个人主页/分享。未找到明确覆盖此完整产品边界的官方个案豁免，**法律适用性 UNRESOLVED**。本次没有备案申请；网站托管与 APP 备案分别记录；不编造备案号。
+工信部 [105 号通知](https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2023/art_920db564162e4312916a01bed6540ad8.html) 针对境内 APP 互联网信息服务主办者。[官方解读原链接](https://www.miit.gov.cn/jgsj/xgj/hlwgl/art/2023/art_564bf0759d7e41d5b4aa8ce4996b9e84.html) 本轮两次读取超时；通过[山东省通信管理局官网所载同名工信部解读](https://sdca.miit.gov.cn/zwgk/zcwj/zcjd/art/2023/art_d2403c10b72d48dcb944df6d8e44ee82.html)重新核对，说明接入/分发提交方式及新业务先备案的要求。没有把读取失败写成当前原链接核查成功。
+
+西藏自治区党委网信办于2023-10-18发布的[《一文速览！APP备案实操“快问快答”》](https://wxb.xzdw.gov.cn/qwfb/zyjs/202310/t20231018_406352.html)目前正文仍在：针对联网硬件配套APP的问题，指出功能完全不联网才可能无需备案，并明确把链接和自动升级计作联网行为；另有针对部分第三方SDK、无需从主办者域名跳转情形的说明。该页面标注文章来源光明网，属于政府官网发布的实操风险证据，不冒充工信部给本产品出具的个案裁定，也不抹去FAQ的上下文/例外。
+
+**产品风险推断：STRONG_FILING_RISK / LIKELY_RELEASE_BLOCKER_PENDING_AUTHORITATIVE_CLASSIFICATION。**Lecture Asset核心处理在本机，无开发者服务器、云AI/OCR，但提供用户主动打开developer homepage、support/mail和系统share destinations的入口；尤其主办者主页链接，使“核心无HTTP”不足以证明整个产品完全离线。FAQ没有分别裁定本App的外部邮件或系统分享，因此不能断言每一个外部动作单独必然触发备案。结合通知和该链接风险信号，应按很可能阻塞大陆发布处理，等待主管部门/适用备案服务方针对完整边界确认，不能只标普通未知或据ASC无warning主张豁免。未找到适用此边界的明确官方个案豁免；没有申请或伪造备案，网站与APP备案仍分别记录。
 
 需要的分类核实可直接使用此问题：
 
