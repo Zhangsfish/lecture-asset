@@ -354,7 +354,7 @@ do {
             URLQueryItem(name: "limit", value: "10")
         ], bearer: bearer)
         output["acceptedBuild"] = dataArray(builds).map { item in
-            attributes(item).filter { ["version", "processingState", "expired", "usesNonExemptEncryption"].contains($0.key) }
+            attributes(item).filter { ["version", "processingState", "expired", "usesNonExemptEncryption", "buildAudienceType"].contains($0.key) }
         }
     } catch { output["acceptedBuildRead"] = "UNAVAILABLE" }
 
@@ -369,6 +369,22 @@ do {
             var result = attributes(item)
             return result
         }
+        var readiness: [[String: Any]] = []
+        for version in dataArray(versionsJSON) {
+            guard let id = version["id"] as? String else { continue }
+            do {
+                let localizations = try get("appStoreVersions/\(id)/appStoreVersionLocalizations", bearer: bearer)
+                readiness += dataArray(localizations).map { item in
+                    let values = attributes(item)
+                    var result: [String: Any] = ["locale": values["locale"] ?? NSNull()]
+                    for field in ["description", "keywords", "supportUrl", "promotionalText"] {
+                        result[field + "Present"] = !(values[field] as? String ?? "").isEmpty
+                    }
+                    return result
+                }
+            } catch { readiness.append(["read": "UNAVAILABLE"]) }
+        }
+        output["versionMetadataReadiness"] = readiness
     } catch {
         output["iosAppStoreVersionsRead"] = "UNAVAILABLE"
     }
