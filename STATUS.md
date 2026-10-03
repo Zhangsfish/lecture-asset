@@ -48,7 +48,7 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 - Exact personal homepage URL: `https://zhang-shuo-portfolio.vercel.app/` — owner-approved public homepage.
 - Contact/homepage inputs for S05-B are now complete. No placeholder may enter a public page or final RC.
 - Paid Apps agreement, banking/tax readiness and real IAP products: **NOT_CHECKED**; existing TestFlight success proves none of these.
-- China mainland: first evaluate and prepare. Actual ASC availability/ICP fields: **NOT_CHECKED**. No-error UI is not statutory exemption or approval.
+- China mainland: first evaluate and prepare. Apple Developer Support ICP/App-filing exemption/handling inquiry was submitted on 2026-10-03; case ID is kept private by the owner and not stored in the public repo. Awaiting Apple reply. Actual ASC availability/ICP fields remain **NOT_CHECKED**. No-error UI is not statutory exemption or approval.
 - Other regions: [dated review](docs/REGIONAL_RELEASE_REVIEW_2026-10-02.md). No automatic all-country/future-country availability. US/state age-assurance and Brazil requirements need explicit preflight, not assumptions based on a free utility.
 - No submission until the owner approves the exact release candidate and explicit region list.
 
