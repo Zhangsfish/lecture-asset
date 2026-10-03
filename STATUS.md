@@ -22,7 +22,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S04-lite | PASS — PR #5 merged; retained real 200-page job verified | [audit](audits/S04/round-02.md) |
 | S05-A | **PASS_WITH_NOTES** — PR #6 merged; core UI/About/privacy foundation accepted | [audit](audits/S05/china-prep-01.md), [report](reports/S05/china-prep-01/DELIVERY.md) |
 | S05-B | **PASS_WITH_NOTES** — PR #8 merged; instructional tutorial, visible App-only cleanup and AI ZIP contract accepted | [audit](audits/S05/polish-01.md), [report](reports/S05/polish-01/DELIVERY.md) |
-| S05-B2 | **READY** — correct long-press sweep wording and redesign the four tutorial scenes without changing their instructional scope | [task](tasks/S05_B2_MOTION_POLISH.md), [motion plan](docs/MOTION_AND_PROMO_PLAN.md) |
+| S05-B2 | **READY** — correct long-press sweep wording, redesign onboarding visually, and add a fifth generic `交给 AI` instructional scene with no third-party branding | [task](tasks/S05_B2_MOTION_POLISH.md), [motion plan](docs/MOTION_AND_PROMO_PLAN.md) |
 | S05-C | PLANNED / BLOCKED_OWNER_COMMERCE — optional StoreKit tip jar, separate task and review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
 
@@ -57,6 +57,6 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
 5. [S05-B audit](audits/S05/polish-01.md)
-6. [Current S05-B2 task](tasks/S05_B2_MOTION_POLISH.md) — narrow visual polish only: fix long-press sweep wording and improve the four tutorial scenes. Public Privacy/Support hosting remains a release gate.
+6. [Current S05-B2 task](tasks/S05_B2_MOTION_POLISH.md) — fix long-press sweep wording, polish five tutorial scenes, and teach the generic AI-ZIP handoff without WorkBuddy/ChatGPT branding. Public Privacy/Support hosting remains a release gate.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
