@@ -1,0 +1,37 @@
+[
+  {
+    "file": "reports/S05/motion-polish-01/screenshots/storyboard-first/storyboard-scene-5.png",
+    "sha256": "c5a1447fa652f7768e84923e7a2f2e1f28ad915340021df0bbdb6b2c0cd70536",
+    "source_sha": "c6475d5b1e529c6a4725b05ad5f64a251b194bc2",
+    "run": 37102294248,
+    "meaning": "native settled design, before playback (superseded by final screenshots)"
+  },
+  {
+    "file": "reports/S05/motion-polish-01/screenshots/storyboard-first/storyboard-scene-4.png",
+    "sha256": "f054ebe30f72256f132e641a99163e82dc15578d0c487f45a08e873065de5bc6",
+    "source_sha": "c6475d5b1e529c6a4725b05ad5f64a251b194bc2",
+    "run": 37102294248,
+    "meaning": "native settled design, before playback (superseded by final screenshots)"
+  },
+  {
+    "file": "reports/S05/motion-polish-01/screenshots/storyboard-first/storyboard-scene-3.png",
+    "sha256": "cb6d7ac999cd0fce2260142cd5db73685eb653485f6d8d75f066778adb2c9a32",
+    "source_sha": "c6475d5b1e529c6a4725b05ad5f64a251b194bc2",
+    "run": 37102294248,
+    "meaning": "native settled design, before playback (superseded by final screenshots)"
+  },
+  {
+    "file": "reports/S05/motion-polish-01/screenshots/storyboard-first/storyboard-scene-2.png",
+    "sha256": "dc99b40cf0a06f53a7a7d2a995bb7e43b1982da019a47c4e83613f9195b46c47",
+    "source_sha": "c6475d5b1e529c6a4725b05ad5f64a251b194bc2",
+    "run": 37102294248,
+    "meaning": "native settled design, before playback (superseded by final screenshots)"
+  },
+  {
+    "file": "reports/S05/motion-polish-01/screenshots/storyboard-first/storyboard-scene-1.png",
+    "sha256": "a012623085640b65fb65c228ddf7b20070d76cc728cfd5e065b60372f3025fa4",
+    "source_sha": "c6475d5b1e529c6a4725b05ad5f64a251b194bc2",
+    "run": 37102294248,
+    "meaning": "native settled design, before playback (superseded by final screenshots)"
+  }
+]

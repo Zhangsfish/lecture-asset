@@ -1,0 +1,370 @@
+[
+  {
+    "file": "animation/native-five-scenes.mp4",
+    "bytes": 1329314,
+    "sha256": "c2d37231f4ee03123c03b0c478c09fdae61500d0c01f41c45179bed58be404a8",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionAnimationTests/testRenderFiveNativeMicroShots()"
+  },
+  {
+    "file": "animation/phases/scene-5-t3.0.png",
+    "bytes": 72846,
+    "sha256": "9aec31cda069b0377cb460d5cd92382f83fab44996676d0356d365438bf177f4",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-5-t2.1.png",
+    "bytes": 66086,
+    "sha256": "df213f1a04062a47f96d453940cefa1ea6dab58832ba81bd8e83a009dfccf908",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-5-t1.6.png",
+    "bytes": 51102,
+    "sha256": "fd3c73e375bc328032ff717352ba11518b4ca22f87ec19f6df99cc06c38a0fe1",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-5-t1.0.png",
+    "bytes": 91166,
+    "sha256": "eafe9cc103fdc6812f6d82a284327863419e856f16f6af78d6a61cda9a1b1a1a",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-5-t0.6.png",
+    "bytes": 93576,
+    "sha256": "73750a762a5d70df9686e6fa3541df4ebaa912993390c6cc57515c6747473281",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-5-t0.4.png",
+    "bytes": 96549,
+    "sha256": "108884918805bb1d7d3d0962ba7ab95a0147144d908ab90bf7f847728c111171",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-4-t3.0.png",
+    "bytes": 131962,
+    "sha256": "65b09c05cbe8622a0dbe4ea746ae9d7fff6b25e66facbf2ce8675df82a61841c",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-4-t2.1.png",
+    "bytes": 132413,
+    "sha256": "f521ff112c64ef6efb89c9ad1c406867ce5251f0f022c9c6b06bf11998de2d8a",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-4-t1.6.png",
+    "bytes": 123354,
+    "sha256": "c4aa0a620c0aad2041065517daae2ca8f26e602c1d16cd61c2bf4cbbbb3d593e",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-4-t1.0.png",
+    "bytes": 111071,
+    "sha256": "b11a3e6e424cdb7ecddad99ebe06688929c404e4d2a5b273cad92fbb2d134af4",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-4-t0.6.png",
+    "bytes": 119737,
+    "sha256": "87d279b974b1ed0a03895372627a1d99ee292402b08747fde2e819b070e431a8",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-4-t0.4.png",
+    "bytes": 123063,
+    "sha256": "84d0fd6d0e76cb16a6183e58eaf71d1e1152376ba408d3bb39eaf466cdc64caf",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-3-t3.0.png",
+    "bytes": 127247,
+    "sha256": "02a6de94303c2cb681c6e21f6c69a4cdb2f950737dfa267bfd62cac5e0d155a2",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-3-t2.1.png",
+    "bytes": 118666,
+    "sha256": "b4ca17b127e387916bc021bc9e8bb32819ffe2779dc54e19a953187dcabde4a4",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-3-t1.6.png",
+    "bytes": 77482,
+    "sha256": "0732228243c7985d9b93cfc5efc718986177e8cd7828c87380bdedea42b28310",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-3-t1.0.png",
+    "bytes": 82176,
+    "sha256": "57cae86c5e9f95808b10892b2b0462ccbb8a94d186e339b34ccfa958b433f57e",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-3-t0.6.png",
+    "bytes": 87470,
+    "sha256": "f51532266251c110b500b3567c82f601ff2a4667dbd2c276254157d2bb5acf0b",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-3-t0.4.png",
+    "bytes": 87503,
+    "sha256": "340d20a39b4b9c55892916929eaba4ccf7ceb8cf02187330c730de52f871ebed",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-2-t3.0.png",
+    "bytes": 89990,
+    "sha256": "b47ccc87f9bd5a9c079496fc3e80b69007a36251348832b9cabc1b846b66c9ad",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-2-t2.1.png",
+    "bytes": 95012,
+    "sha256": "4323d8ed00894f135d5b89d8fe10c42b3e288d4251819f823f2a6af9a4f86c59",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-2-t1.6.png",
+    "bytes": 92085,
+    "sha256": "62f2a6dbd2f6cc6d72e5a1294201b7fd114c27c70f44ba6d102c0e94ed11d075",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-2-t1.0.png",
+    "bytes": 97891,
+    "sha256": "3805066ef8b774c84d6ae27034309a0a89cd8728857be2e89437a4333b078d01",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-2-t0.6.png",
+    "bytes": 111505,
+    "sha256": "53cda673b1a2c8ed718cd1e50ffa14d136a1ce181fca643d6d9e85482e41327d",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-2-t0.4.png",
+    "bytes": 132667,
+    "sha256": "4672331eb9b55ec1daa719d8e0a80095654fb5ab824fe666812a6cb92cbff2ed",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-1-t3.0.png",
+    "bytes": 111247,
+    "sha256": "bf70fdb58945fa54d766e01b642a0593f07759ab8ef6efd5c7dd91eaeede6d8f",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-1-t2.1.png",
+    "bytes": 122670,
+    "sha256": "d13f19623b9866ab5609ccab57b346a6a2f522d095299dec893ad860b0c66a52",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-1-t1.6.png",
+    "bytes": 118817,
+    "sha256": "2c3adc1f9888595ff07bb0446f4620a8afc3b9dd2e2f7fe29b61cddecc77c816",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-1-t1.0.png",
+    "bytes": 113072,
+    "sha256": "ad2bd8e5bbcef733083e9414fb8ca0a51cfa9381caf6d154ff6a64d57e0637a4",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-1-t0.6.png",
+    "bytes": 113864,
+    "sha256": "ce04ad2721319c40e3381fd21182d10f58e7d078f24739c97461de7ac9bc6d82",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "animation/phases/scene-1-t0.4.png",
+    "bytes": 114178,
+    "sha256": "87b109b6cc752f3c695051e917442ee71b54ac6125006c9702b92615caf46741",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testAnticipationActionAndSettleEvidence()"
+  },
+  {
+    "file": "screenshots/scene-5.png",
+    "bytes": 154575,
+    "sha256": "9a40c000f0f73f1e09036598d10f2c19df5830b205bbe73e635bfc6801f86258",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testFiveSettledNativeStoryboards()"
+  },
+  {
+    "file": "screenshots/scene-4.png",
+    "bytes": 261541,
+    "sha256": "f054ebe30f72256f132e641a99163e82dc15578d0c487f45a08e873065de5bc6",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testFiveSettledNativeStoryboards()"
+  },
+  {
+    "file": "screenshots/scene-3.png",
+    "bytes": 256593,
+    "sha256": "cb6d7ac999cd0fce2260142cd5db73685eb653485f6d8d75f066778adb2c9a32",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testFiveSettledNativeStoryboards()"
+  },
+  {
+    "file": "screenshots/scene-2.png",
+    "bytes": 183349,
+    "sha256": "dc99b40cf0a06f53a7a7d2a995bb7e43b1982da019a47c4e83613f9195b46c47",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testFiveSettledNativeStoryboards()"
+  },
+  {
+    "file": "screenshots/scene-1.png",
+    "bytes": 222927,
+    "sha256": "a012623085640b65fb65c228ddf7b20070d76cc728cfd5e065b60372f3025fa4",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05MotionStoryboardTests/testFiveSettledNativeStoryboards()"
+  },
+  {
+    "file": "screenshots/full-screen/scene-5.png",
+    "bytes": 699932,
+    "sha256": "c22d5374c8e1e1884fc9113207cdf422234c343dce5277368d0592a842caadac",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFiveScenesWithoutRequestingPhotos()"
+  },
+  {
+    "file": "screenshots/full-screen/scene-4.png",
+    "bytes": 454763,
+    "sha256": "2910e5882cd656b91de1094bf3e7b7313e1bfe24ce24652af6f07b3b93669071",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFiveScenesWithoutRequestingPhotos()"
+  },
+  {
+    "file": "screenshots/full-screen/scene-3.png",
+    "bytes": 750542,
+    "sha256": "465386bd4e81885caa682ed6a454e7b8b8127f2c8be733cfab343dbff8c9c3cd",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFiveScenesWithoutRequestingPhotos()"
+  },
+  {
+    "file": "screenshots/full-screen/scene-2.png",
+    "bytes": 453835,
+    "sha256": "b4e84fc5204c64f450d2fcc64bcb5d6c0c9b368f464bce96023ea3cbf7e9fb6a",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFiveScenesWithoutRequestingPhotos()"
+  },
+  {
+    "file": "screenshots/full-screen/scene-1.png",
+    "bytes": 519348,
+    "sha256": "eb6aa0cc941069053eaba9ea5400b7ea4c64f148644ccb5e3f056c21df4b9bc5",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05TutorialUITests/testFreshTutorialIsSkippableAndTeachesFiveScenesWithoutRequestingPhotos()"
+  },
+  {
+    "file": "screenshots/accessibility-xxxl/scene-5.png",
+    "bytes": 760363,
+    "sha256": "077bff40d77c9e432600521a54f48c3e9b3e0d1292b3f68ea3f0000f7c48adb1",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+  },
+  {
+    "file": "screenshots/accessibility-xxxl/scene-4.png",
+    "bytes": 553235,
+    "sha256": "d4cb5909ce2b401de663afdbaf296c96960af25b577243b5187e4c74bca19ab3",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+  },
+  {
+    "file": "screenshots/accessibility-xxxl/scene-3.png",
+    "bytes": 810146,
+    "sha256": "030eac390634a2dc54dd1b2902c7ad7ba3d406d8e3f6b2ced16f65aa18f79548",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+  },
+  {
+    "file": "screenshots/accessibility-xxxl/scene-2.png",
+    "bytes": 516499,
+    "sha256": "c2a3649c3ca721af669fd71f07354f7a13cf05b391d4d76400a8a63bd2cdef36",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+  },
+  {
+    "file": "screenshots/accessibility-xxxl/scene-1.png",
+    "bytes": 576985,
+    "sha256": "0ffac86e32e4658a08f6a72ebbd04e5e95f8929683681e9e349d25511ffb0b86",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "run": 37103184270,
+    "test": "S05ReducedMotionUITests/testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess()"
+  }
+]

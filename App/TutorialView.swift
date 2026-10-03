@@ -1,144 +1,89 @@
 import SwiftUI
 
-/// Decorative teaching only: no PhotoKit, processing model or export actions.
+/// Teaching only. Job restoration, Photos permission and export state live outside this view.
 struct TutorialView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var scene = 0
-    @State private var play = false
-    private let titles = ["tutorial.select", "tutorial.order", "tutorial.generate", "tutorial.clean"]
-    private let descriptions = ["tutorial.selectVoice", "tutorial.orderVoice", "tutorial.generateVoice", "tutorial.cleanVoice"]
+    static let titles = ["tutorial.select", "tutorial.order", "tutorial.generate", "tutorial.clean", "tutorial.ai"]
+    static let descriptions = ["tutorial.selectVoice", "tutorial.orderVoice", "tutorial.generateVoice", "tutorial.cleanVoice", "tutorial.aiVoice"]
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 24) {
-                    Text(LocalizedStringKey(titles[scene])).font(.largeTitle.bold())
+                VStack(spacing: 18) {
+                    Text(LocalizedStringKey(Self.titles[scene])).font(.title2.bold())
                         .multilineTextAlignment(.center)
                         .accessibilityIdentifier("tutorial-title")
-                    if reduceMotion {
-                        illustration(stage: 2)
-                            .accessibilityIdentifier("tutorial-static")
-                    } else {
-                        PhaseAnimator([2, 0, 1, 2], trigger: play) { stage in
-                            illustration(stage: stage)
-                        } animation: { _ in .easeInOut(duration: 1) }
-                    }
-                    HStack {
-                        ForEach(0..<4) { number in
-                            Circle().fill(number == scene ? Color.accentColor : Color.secondary.opacity(0.3))
-                                .frame(width: 8, height: 8)
+                    GeometryReader { geometry in
+                        Group {
+                            if reduceMotion {
+                                TutorialArtwork(scene: scene, time: TutorialArtwork.duration)
+                            } else {
+                                TutorialPlayback(scene: scene).id(scene)
+                            }
                         }
-                    }.accessibilityHidden(true)
-                }.padding(24)
+                            .scaleEffect(min(1, geometry.size.width / 340), anchor: .top)
+                            .frame(width: geometry.size.width, height: 390, alignment: .top)
+                    }.frame(height: 390)
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(LocalizedStringKey(Self.descriptions[scene]))
+                        .accessibilityIdentifier(reduceMotion ? "tutorial-static" : "tutorial-artwork")
+                        .contentShape(Rectangle())
+                        .gesture(DragGesture().onEnded { value in
+                            if value.translation.width < -40 && scene < Self.titles.count - 1 { scene += 1 }
+                            if value.translation.width > 40 && scene > 0 { scene -= 1 }
+                        })
+                    HStack(spacing: 8) {
+                        ForEach(Self.titles.indices, id: \.self) { number in
+                            Capsule().fill(number == scene ? Color.accentColor : Color.secondary.opacity(0.25))
+                                .frame(width: number == scene ? 20 : 6, height: 6)
+                        }
+                    }.accessibilityElement(children: .ignore)
+                        .accessibilityLabel(Text("\(scene + 1) / \(Self.titles.count)"))
+                        .accessibilityIdentifier("tutorial-page")
+                }.padding(.horizontal, 24).padding(.top, 24).padding(.bottom, 18)
             }
             .safeAreaInset(edge: .bottom) {
-                HStack {
+                HStack(spacing: 16) {
                     if scene > 0 {
-                        Button("tutorial.previous") { changeScene(scene - 1) }
-                            .buttonStyle(.bordered)
-                            .accessibilityIdentifier("tutorial-previous")
+                        Button("tutorial.previous") { scene -= 1 }
+                            .buttonStyle(.bordered).accessibilityIdentifier("tutorial-previous")
                     }
-                    Button(scene == 3 ? "common.done" : "tutorial.next") {
-                        if scene == 3 { dismiss() } else { changeScene(scene + 1) }
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .accessibilityIdentifier("tutorial-next")
-                }
-                .frame(maxWidth: .infinity)
-                .padding(16)
-                .background(.regularMaterial)
+                    Button(scene == Self.titles.count - 1 ? "common.done" : "tutorial.next") {
+                        if scene == Self.titles.count - 1 { dismiss() } else { scene += 1 }
+                    }.buttonStyle(.borderedProminent).accessibilityIdentifier("tutorial-next")
+                }.frame(maxWidth: .infinity).padding(16).background(.regularMaterial)
             }
-            .navigationTitle("tutorial.title")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("tutorial.title").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("tutorial.skip") { dismiss() }
-                        .accessibilityIdentifier("tutorial-skip")
+                    Button("tutorial.skip") { dismiss() }.accessibilityIdentifier("tutorial-skip")
                 }
             }
         }
-        .onAppear { play.toggle() }
     }
+}
 
-    private func changeScene(_ next: Int) {
-        scene = next
-        play.toggle()
-    }
+/// Plays once per scene, then stops scheduling frames. Skip and navigation never
+/// wait for playback. Disappearing cancels the sleep; no processing state is touched.
+private struct TutorialPlayback: View {
+    let scene: Int
+    @State private var start = Date()
+    @State private var settled = false
 
-    private func illustration(stage: Int) -> some View {
-        Group {
-            switch scene {
-            case 0:
-                VStack(spacing: 8) {
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4)) {
-                        ForEach(0..<16) { number in
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(number < (stage == 2 ? 12 : stage == 1 ? 6 : 1) ? Color.accentColor.opacity(0.25) : Color.secondary.opacity(0.1))
-                                .aspectRatio(1, contentMode: .fit)
-                                .overlay(alignment: .bottomTrailing) {
-                                    if number < (stage == 2 ? 12 : stage == 1 ? 6 : 1) {
-                                        Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.accentColor).padding(4)
-                                    }
-                                }
-                                .animation(reduceMotion ? nil : .easeInOut.delay(Double(number) * 0.04), value: stage)
-                        }
-                    }
-                    Image(systemName: "hand.point.up.left.fill")
-                        .font(.largeTitle)
-                        .keyframeAnimator(initialValue: CGFloat(0), trigger: play) { content, position in
-                            content.offset(x: reduceMotion ? 0 : position,
-                                           y: reduceMotion ? -160 : -220 + (position + 90) / 3)
-                        } keyframes: { _ in
-                            LinearKeyframe(CGFloat(-90), duration: 0.2)
-                            LinearKeyframe(CGFloat(90), duration: 2.2)
-                            LinearKeyframe(CGFloat(90), duration: 0.4)
-                        }
-                        .frame(height: 0)
-                }
-            case 1:
-                VStack(spacing: 16) {
-                    HStack {
-                        ForEach(stage == 0 ? [3, 1, 2] : [1, 2, 3], id: \.self) { number in
-                            Label("\(number)", systemImage: "photo")
-                                .font(.title).padding(12)
-                                .background(.quaternary, in: RoundedRectangle(cornerRadius: 10))
-                        }
-                    }
-                    Image(systemName: "clock.arrow.circlepath").font(.largeTitle)
-                    Image(systemName: "xmark.circle").font(.title2)
-                }
-            case 2:
-                VStack(spacing: 24) {
-                    Image(systemName: "photo.stack").font(.system(size: 50))
-                    Label("tutorial.generateAction", systemImage: "hand.tap")
-                        .padding(12).background(Color.accentColor.opacity(0.15), in: Capsule())
-                    HStack(spacing: 32) {
-                        Label("ZIP", systemImage: "doc.zipper")
-                        Label("PDF", systemImage: "doc.richtext")
-                    }.font(.title2).opacity(stage == 0 ? 0.2 : 1)
-                }
-            default:
-                VStack(spacing: 18) {
-                    Label("ZIP", systemImage: stage == 0 ? "square.and.arrow.up" : "checkmark.seal.fill")
-                        .font(.largeTitle).foregroundStyle(stage == 0 ? Color.primary : Color.green)
-                    Text("tutorial.saved").font(.headline)
-                    VStack(spacing: 12) {
-                        Label("tutorial.deletePhotos", systemImage: "photo.badge.minus")
-                        Label("tutorial.keepPhotos", systemImage: "folder.badge.minus")
-                    }.opacity(stage == 0 ? 0.2 : 1)
-                }
-            }
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 60.0, paused: settled)) { context in
+            TutorialArtwork(scene: scene, time: settled ? TutorialArtwork.duration :
+                min(TutorialArtwork.duration, max(0, context.date.timeIntervalSince(start))))
         }
-        .frame(maxWidth: 340).frame(minHeight: 260)
-        .padding(12)
-        .background(Color.secondary.opacity(0.08), in: RoundedRectangle(cornerRadius: 24))
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel(LocalizedStringKey(descriptions[scene]))
-        .gesture(DragGesture().onEnded { value in
-            if value.translation.width < -40 && scene < 3 { changeScene(scene + 1) }
-            if value.translation.width > 40 && scene > 0 { changeScene(scene - 1) }
-        })
+        .task {
+            start = Date()
+            settled = false
+            do { try await Task.sleep(for: .seconds(TutorialArtwork.duration)) }
+            catch { return }
+            settled = true
+        }
     }
 }
 

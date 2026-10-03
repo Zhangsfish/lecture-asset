@@ -1,0 +1,4 @@
+screenshots/** -text
+animation/** -text
+*.json -text
+*_RESULT.txt -text

@@ -1,0 +1,113 @@
+{
+  "task": "S05-B2",
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "b95af078d8eaba4da620107ecc15982682d7f309",
+  "tested_code_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+  "pr": "https://github.com/Zhangsfish/lecture-asset/pull/9",
+  "design_first": {
+    "sha": "c6475d5b1e529c6a4725b05ad5f64a251b194bc2",
+    "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37102294248",
+    "result": "PASS",
+    "visually_inspected_before_playback": true
+  },
+  "ci": {
+    "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37103184270",
+    "result": "PASS",
+    "selection_core_tests": 5,
+    "archive_core_tests": 10,
+    "native_tests": 12,
+    "ui_tests": 8,
+    "total_passed": 35
+  },
+  "environment": {
+    "local": "Windows / PowerShell; no local Xcode",
+    "runner": "GitHub-hosted macos-26",
+    "macos": "26.6.2 (25G83)",
+    "xcode": "26.6 (17F113)",
+    "sdk": "26.5",
+    "swift": "6.3.3",
+    "xcodegen": "2.46.0",
+    "simulator": "iPhone 17 Pro"
+  },
+  "checks": {
+    "selection_copy_actual_015s_gesture": "PASS",
+    "five_scene_order_and_navigation": "PASS",
+    "fresh_first_run_skip": "PASS",
+    "replay_back_swipe_done": "PASS",
+    "no_tutorial_photos_permission_prompt": "PASS",
+    "retained_job_precedence": "PASS",
+    "scene1_hold_then_sweep_visual": "PASS",
+    "scene5_local_generic_brand_free": "PASS",
+    "reduce_motion_static": "PASS",
+    "accessibility_xxxl_navigation": "PASS",
+    "voiceover_source_labels": "PASS",
+    "clean_iphone_release_build": "PASS",
+    "app_and_zipfoundation_privacy_bundled": "PASS",
+    "frozen_runtime_source_unchanged": "PASS",
+    "existing_recovery_cleanup_safety_regression": "PASS",
+    "five_settled_storyboard_images": "PASS",
+    "native_deterministic_animation": "PASS"
+  },
+  "animation": {
+    "file": "animation/native-five-scenes.mp4",
+    "provenance": "Production SwiftUI ImageRenderer frames on iOS Simulator; test-only AVAssetWriter; NOT a physical-device screen recording",
+    "duration_seconds": 17.5,
+    "fps": 20,
+    "width": 780,
+    "height": 1060,
+    "bytes": 1329314,
+    "runtime_playback_seconds_per_scene": 3.0,
+    "evidence_extra_settle_seconds_per_scene": 0.5,
+    "phases_per_scene": [
+      0.4,
+      0.6,
+      1.0,
+      1.6,
+      2.1,
+      3.0
+    ]
+  },
+  "artifacts": [
+    {
+      "id": 11267665727,
+      "name": "s05-b2-synthetic-ui",
+      "sha256": "9f1aa7476ba02fa91b4e5d38e3e1d361aaa0889950a3aba33ca7fb7841a06964",
+      "expires_at": "2026-10-17T06:45:09Z"
+    },
+    {
+      "id": 11267176141,
+      "name": "s05-b2-safe-archives",
+      "sha256": "a542cc558963c1ff7bde0dc845c8fe54d301a063d28c871389ee466681ed66cc",
+      "expires_at": "2026-10-17T06:45:11Z"
+    }
+  ],
+  "testflight": {
+    "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37104333093",
+    "source_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+    "workflow_run_number": 30,
+    "workflow_attempt": 1,
+    "internal_only": true,
+    "upload": "ACCEPTED",
+    "processing": "VALID",
+    "version": "0.1.0",
+    "build": "30.1",
+    "upload_accepted_at": "2026-10-03T06:55:51Z",
+    "processing_valid_at": "2026-10-03T07:02:59Z",
+    "result": "SUCCESS"
+  },
+  "not_run": [
+    "owner_physical_iphone_visual_and_pacing_review",
+    "physical_voiceover_reading_order",
+    "physical_reduce_motion_and_xxxl_review",
+    "os_network_packet_capture",
+    "dynamic_limited_picker_interaction",
+    "real_100_200_page_stress_excluded",
+    "wechat_and_ai_vendor_interoperability_excluded",
+    "destructive_source_photos_cleanup_excluded",
+    "public_privacy_support_hosting_excluded",
+    "storekit_appreview_storefront_excluded"
+  ],
+  "blocked": [],
+  "secrets": "No secret values accessed/printed locally or committed. Existing Actions Secrets only; no raw signing log/key/certificate artifacts.",
+  "audit": "READY_FOR_AUDIT; independent audit pending; no self-approval/merge/next task"
+}

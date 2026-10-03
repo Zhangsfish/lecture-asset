@@ -1,0 +1,96 @@
+2026-10-03T06:28:52.6094090Z S05_B2_SCOPE_PASS: copy/5 scenes/local artwork; protected sources unchanged
+2026-10-03T06:28:52.6229560Z ProductName:		macOS
+2026-10-03T06:28:52.6236330Z ProductVersion:		26.6.2
+2026-10-03T06:28:52.6238760Z BuildVersion:		25G83
+2026-10-03T06:28:52.7222900Z Xcode 26.6
+2026-10-03T06:28:52.7223530Z Build version 17F113
+2026-10-03T06:28:54.4247610Z 26.5
+2026-10-03T06:28:57.2371510Z Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+2026-10-03T06:29:29.0915170Z Test Case '-[SelectionCoreTests.SelectionStateTests testChronologicalOrderingKeepsSelectionOrderForTiesAndNil]' passed (0.003 seconds).
+2026-10-03T06:29:29.1122860Z Test Case '-[SelectionCoreTests.SelectionStateTests testFrozenPagesNumberChronologicallyAndStayIndependentOfSelectionChanges]' passed (0.001 seconds).
+2026-10-03T06:29:29.1274630Z Test Case '-[SelectionCoreTests.SelectionStateTests testSelectionLimitAndDeselectReleasesSlot]' passed (0.002 seconds).
+2026-10-03T06:29:29.1450460Z Test Case '-[SelectionCoreTests.SelectionStateTests testSweepActionIsFixedAndRevisitedCellIsIdempotent]' passed (0.001 seconds).
+2026-10-03T06:29:29.1499970Z Test Case '-[SelectionCoreTests.SelectionStateTests testToggleAndConfirmRemovalAffectFinalSourceSet]' passed (0.000 seconds).
+2026-10-03T06:29:29.1516560Z 	 Executed 5 tests, with 0 failures (0 unexpected) in 0.007 (0.008) seconds
+2026-10-03T06:29:29.1521010Z 	 Executed 5 tests, with 0 failures (0 unexpected) in 0.007 (0.009) seconds
+2026-10-03T06:29:29.1559170Z 	 Executed 5 tests, with 0 failures (0 unexpected) in 0.007 (0.010) seconds
+2026-10-03T06:30:04.0140990Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testAIUsageContractRequiresVisualVerification]' passed (0.001 seconds).
+2026-10-03T06:30:04.0142860Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testExactTwoHundredPageArchiveBoundary]' passed (1.424 seconds).
+2026-10-03T06:30:04.0144610Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testFrozenDateAndOCRFence]' passed (0.000 seconds).
+2026-10-03T06:30:04.0146570Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testMissingOrChangedCanonicalJPEGIsRejected]' passed (0.002 seconds).
+2026-10-03T06:30:04.0149700Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testOCRGeometryClipsAndRejectsInvalidValues]' passed (0.000 seconds).
+2026-10-03T06:30:04.0151790Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testOneAndTwentyPageArchivesWithEmptyAndFailedOCR]' passed (0.131 seconds).
+2026-10-03T06:30:04.0153810Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testSafeSchemaDiagnosticContainsOnlyPathAndKeyword]' passed (0.001 seconds).
+2026-10-03T06:30:04.0155560Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testSchemaRejectsUnknownField]' passed (0.000 seconds).
+2026-10-03T06:30:04.0159750Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testTwelveMegapixelAndLongImageBoundedMemory]' passed (0.811 seconds).
+2026-10-03T06:30:04.0170440Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testTwentyTwelveMegapixelPDFPagesStreamWithoutRetainingDocumentImages]' passed (3.066 seconds).
+2026-10-03T06:30:04.0171750Z 	 Executed 10 tests, with 0 failures (0 unexpected) in 5.438 (5.440) seconds
+2026-10-03T06:30:04.0172950Z 	 Executed 10 tests, with 0 failures (0 unexpected) in 5.438 (5.440) seconds
+2026-10-03T06:30:04.0173980Z 	 Executed 10 tests, with 0 failures (0 unexpected) in 5.438 (5.441) seconds
+2026-10-03T06:30:04.5217910Z Version: 2.46.0
+2026-10-03T06:31:05.7230510Z ** BUILD SUCCEEDED **
+2026-10-03T06:31:05.8639530Z App privacy manifest bundled with expected required-API reasons
+2026-10-03T06:31:05.9012300Z Bundled privacy manifests: ['PrivacyInfo.xcprivacy', 'ZIPFoundation_ZIPFoundation.bundle/PrivacyInfo.xcprivacy']
+2026-10-03T06:38:19.4771260Z Test Case '-[LectureAssetTests.S05MotionAnimationTests testRenderFiveNativeMicroShots]' passed (23.618 seconds).
+2026-10-03T06:38:19.4988170Z 	 Executed 1 test, with 0 failures (0 unexpected) in 23.618 (23.619) seconds
+2026-10-03T06:38:20.1399680Z Test Case '-[LectureAssetTests.S05MotionStoryboardTests testAnticipationActionAndSettleEvidence]' passed (0.661 seconds).
+2026-10-03T06:38:20.3639370Z Test Case '-[LectureAssetTests.S05MotionStoryboardTests testFiveSettledNativeStoryboards]' passed (0.216 seconds).
+2026-10-03T06:38:20.3780730Z 	 Executed 2 tests, with 0 failures (0 unexpected) in 0.876 (0.877) seconds
+2026-10-03T06:38:20.4162270Z 	 Executed 3 tests, with 0 failures (0 unexpected) in 24.494 (24.497) seconds
+2026-10-03T06:38:20.4267170Z 	 Executed 3 tests, with 0 failures (0 unexpected) in 24.494 (24.498) seconds
+2026-10-03T06:38:22.2098720Z ** TEST SUCCEEDED **
+2026-10-03T06:38:44.9524510Z Test Case '-[LectureAssetTests.S01RecoveryTests testArchiveCheckpointRoundTripsAcrossRelaunch]' passed (0.011 seconds).
+2026-10-03T06:38:44.9733880Z Test Case '-[LectureAssetTests.S01RecoveryTests testDeterministicFailureThenCauseRestoredAndRetry]' passed (0.066 seconds).
+2026-10-03T06:38:45.0239380Z Test Case '-[LectureAssetTests.S01RecoveryTests testExplicitFailedPageRemovalExcludesAssetAndRenumbers]' passed (0.060 seconds).
+2026-10-03T06:38:45.0445980Z 	 Executed 3 tests, with 0 failures (0 unexpected) in 0.138 (0.140) seconds
+2026-10-03T06:38:45.0749490Z Test Case '-[LectureAssetTests.S03CleanupTests testDeletionCancellationOrFailureRetainsJobAndSuccessPurgesOnlyItsFiles]' passed (0.005 seconds).
+2026-10-03T06:38:45.0953420Z Test Case '-[LectureAssetTests.S03CleanupTests testFrozenExactSetRejectsDuplicatesMissingAndUnrelatedAssets]' passed (0.001 seconds).
+2026-10-03T06:38:45.1898330Z Test Case '-[LectureAssetTests.S03CleanupTests testPhotoKitSuccessMarkerPurgesActualJobStoreAndDiscardNeverTouchesPhotos]' passed (0.163 seconds).
+2026-10-03T06:38:45.2205520Z Test Case '-[LectureAssetTests.S03CleanupTests testShareGateCancellationPDFOnlyAndExplicitConfirmation]' passed (0.001 seconds).
+2026-10-03T06:38:45.2312390Z Test Case '-[LectureAssetTests.S03CleanupTests testStaleZIPJobArchiveFilenameHashOrReplacementLocksDeletion]' passed (0.002 seconds).
+2026-10-03T06:38:45.2642300Z 	 Executed 5 tests, with 0 failures (0 unexpected) in 0.172 (0.173) seconds
+2026-10-03T06:38:45.3135620Z Test Case '-[LectureAssetTests.S05TutorialTests testFirstVisitIsOnceAndLegacyJobRootSuppressesAutomaticTutorial]' passed (0.002 seconds).
+2026-10-03T06:38:45.3304730Z 	 Executed 1 test, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+2026-10-03T06:38:45.3605880Z 	 Executed 9 tests, with 0 failures (0 unexpected) in 0.312 (0.318) seconds
+2026-10-03T06:38:45.3812190Z 	 Executed 9 tests, with 0 failures (0 unexpected) in 0.312 (0.318) seconds
+2026-10-03T06:38:45.8150910Z ** TEST SUCCEEDED **
+2026-10-03T06:40:03.6013390Z Test Case '-[LectureAssetUITests.S05FirstSkipUITests testFreshFirstRunCanBeSkippedImmediatelyWithoutPhotosPrompt]' passed (24.408 seconds).
+2026-10-03T06:40:03.6648750Z 	 Executed 1 test, with 0 failures (0 unexpected) in 24.408 (24.410) seconds
+2026-10-03T06:40:03.7357010Z 	 Executed 1 test, with 0 failures (0 unexpected) in 24.408 (24.410) seconds
+2026-10-03T06:40:03.7943650Z 	 Executed 1 test, with 0 failures (0 unexpected) in 24.408 (24.411) seconds
+2026-10-03T06:40:09.0109650Z ** TEST SUCCEEDED **
+2026-10-03T06:41:34.8331340Z Test Case '-[LectureAssetUITests.S05TutorialUITests testFreshTutorialIsSkippableAndTeachesFiveScenesWithoutRequestingPhotos]' passed (53.018 seconds).
+2026-10-03T06:41:34.8369110Z 	 Executed 1 test, with 0 failures (0 unexpected) in 53.018 (53.021) seconds
+2026-10-03T06:41:34.8372190Z 	 Executed 1 test, with 0 failures (0 unexpected) in 53.018 (53.021) seconds
+2026-10-03T06:41:34.8373490Z 	 Executed 1 test, with 0 failures (0 unexpected) in 53.018 (53.023) seconds
+2026-10-03T06:41:35.8540390Z ** TEST SUCCEEDED **
+2026-10-03T06:42:13.7012720Z Test Case '-[LectureAssetUITests.PhotoLibraryPermissionUITests testFullReadWritePermissionOpensSyntheticGrid]' passed (19.188 seconds).
+2026-10-03T06:42:13.7031820Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.188 (19.189) seconds
+2026-10-03T06:42:13.7754060Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.188 (19.190) seconds
+2026-10-03T06:42:13.7755440Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.188 (19.191) seconds
+2026-10-03T06:42:14.4509500Z ** TEST SUCCEEDED **
+2026-10-03T06:42:55.6136240Z Test Case '-[LectureAssetUITests.S01ProcessingUITests testSyntheticPhotoProcessesAndCheckpointSurvivesRelaunch]' passed (27.394 seconds).
+2026-10-03T06:42:55.6178340Z 	 Executed 1 test, with 0 failures (0 unexpected) in 27.394 (27.396) seconds
+2026-10-03T06:42:55.6654400Z 	 Executed 1 test, with 0 failures (0 unexpected) in 27.394 (27.397) seconds
+2026-10-03T06:42:55.6656840Z 	 Executed 1 test, with 0 failures (0 unexpected) in 27.394 (27.399) seconds
+2026-10-03T06:42:56.1488380Z ** TEST SUCCEEDED **
+2026-10-03T06:43:33.1368930Z Test Case '-[LectureAssetUITests.S02ArchiveUITests testArchiveReadyAndRestoredForSyntheticPhoto]' passed (19.620 seconds).
+2026-10-03T06:43:33.1411250Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.620 (19.621) seconds
+2026-10-03T06:43:33.2059150Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.620 (19.622) seconds
+2026-10-03T06:43:33.2060810Z 	 Executed 1 test, with 0 failures (0 unexpected) in 19.620 (19.623) seconds
+2026-10-03T06:43:33.7189620Z ** TEST SUCCEEDED **
+2026-10-03T06:44:13.4549690Z Test Case '-[LectureAssetUITests.S03ExportUITests testReadyArchiveShowsSeparateSharesAndKeepsDeleteLockedAcrossRelaunch]' passed (23.905 seconds).
+2026-10-03T06:44:13.4580230Z 	 Executed 1 test, with 0 failures (0 unexpected) in 23.905 (23.907) seconds
+2026-10-03T06:44:13.4819370Z 	 Executed 1 test, with 0 failures (0 unexpected) in 23.905 (23.907) seconds
+2026-10-03T06:44:13.4821110Z 	 Executed 1 test, with 0 failures (0 unexpected) in 23.905 (23.908) seconds
+2026-10-03T06:44:13.9394270Z ** TEST SUCCEEDED **
+2026-10-03T06:44:36.3871350Z Test Case '-[LectureAssetUITests.PhotoLibraryBlockedUITests testDeniedPhotosBlocksProcessingButKeepsLocalHelp]' passed (10.890 seconds).
+2026-10-03T06:44:36.3998300Z 	 Executed 1 test, with 0 failures (0 unexpected) in 10.890 (10.893) seconds
+2026-10-03T06:44:36.3999710Z 	 Executed 1 test, with 0 failures (0 unexpected) in 10.890 (10.894) seconds
+2026-10-03T06:44:36.4000680Z 	 Executed 1 test, with 0 failures (0 unexpected) in 10.890 (10.897) seconds
+2026-10-03T06:44:36.8598450Z ** TEST SUCCEEDED **
+2026-10-03T06:45:04.1529750Z Test Case '-[LectureAssetUITests.S05ReducedMotionUITests testLargeTextAndReducedMotionReplayRemainUsableWithoutPhotosAccess]' passed (16.238 seconds).
+2026-10-03T06:45:04.1885220Z 	 Executed 1 test, with 0 failures (0 unexpected) in 16.238 (16.239) seconds
+2026-10-03T06:45:04.2123150Z 	 Executed 1 test, with 0 failures (0 unexpected) in 16.238 (16.240) seconds
+2026-10-03T06:45:04.2124520Z 	 Executed 1 test, with 0 failures (0 unexpected) in 16.238 (16.241) seconds
+2026-10-03T06:45:04.7125750Z ** TEST SUCCEEDED **

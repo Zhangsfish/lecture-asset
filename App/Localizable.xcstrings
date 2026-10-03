@@ -134,13 +134,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap or sweep to select up to 200 photos."
+            "value": "Tap to select; press and drag to sweep, up to 200 photos."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点按或滑动选择，最多 200 张"
+            "value": "点按选择；长按并滑动可连续选择，最多 200 张"
           }
         }
       }
@@ -1446,13 +1446,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Select 1–200 photos. Tap or sweep across the grid."
+            "value": "Select 1–200 photos. Tap to select; briefly press, then drag to sweep."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "选 1–200 张照片；可点选或在网格中连续扫选。"
+            "value": "选择 1–200 张照片。点按选择；短暂长按后滑动可连续选择。"
           }
         }
       }
@@ -1750,13 +1750,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sweep to select"
+            "value": "Press and drag to select"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "滑动选择"
+            "value": "长按滑动选择"
           }
         }
       }
@@ -1942,13 +1942,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap to select, then press and sweep across the photo grid. Up to 200 photos."
+            "value": "Briefly press a photo, hold, then drag across the grid to select continuously. You can also tap to select. Up to 200 photos."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点按选择，再按住滑过照片网格连续选择，最多 200 张。"
+            "value": "先短暂按住一张照片，再滑动连续选择；也可以点按选择，最多 200 张。"
           }
         }
       }
@@ -1997,6 +1997,134 @@
           "stringUnit": {
             "state": "translated",
             "value": "先保存 ZIP 并确认外部文件完整，再选择删除原照片，或保留相册照片只清除 App 文件。两种清理都需要单独确认。"
+          }
+        }
+      }
+    },
+    "tutorial.ai": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hand it to AI"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "交给 AI"
+          }
+        }
+      }
+    },
+    "tutorial.aiVoice": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A saved AI ZIP can be shared to an AI conversation. Ask it to summarize, organize or continue working with the lecture. This is a local teaching illustration, not a real share or AI response."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存后的 AI ZIP 可以分享给 AI，并继续让它总结、整理或处理讲座内容。这是本地教学示意，不会真实分享或调用 AI。"
+          }
+        }
+      }
+    },
+    "tutorial.aiPrompt": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Summarize this lecture"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "概括这场讲座"
+          }
+        }
+      }
+    },
+    "tutorial.aiResult": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lecture highlights"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "讲座重点"
+          }
+        }
+      }
+    },
+    "tutorial.hold": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hold"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按住"
+          }
+        }
+      }
+    },
+    "tutorial.files": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Files"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文件"
+          }
+        }
+      }
+    },
+    "tutorial.confirmSaved": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confirm saved"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "确认已保存"
+          }
+        }
+      }
+    },
+    "tutorial.example": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Example"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "示例"
           }
         }
       }
