@@ -25,4 +25,21 @@ final class S05MotionStoryboardTests: XCTestCase {
             add(attachment)
         }
     }
+
+    @MainActor
+    func testAnticipationActionAndSettleEvidence() throws {
+        for scene in 0..<5 {
+            for time in [0.4, 0.6, 1.0, 1.6, 2.1, 3.0] {
+                let renderer = ImageRenderer(content: TutorialArtwork(scene: scene, time: time)
+                    .background(Color(.systemBackground))
+                    .environment(\.locale, Locale(identifier: "zh-Hans"))
+                    .environment(\.colorScheme, .light))
+                renderer.scale = 2
+                let attachment = XCTAttachment(image: try XCTUnwrap(renderer.uiImage))
+                attachment.name = "phase-scene-\(scene + 1)-t\(time)"
+                attachment.lifetime = .keepAlways
+                add(attachment)
+            }
+        }
+    }
 }

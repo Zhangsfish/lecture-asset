@@ -1446,13 +1446,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Select 1–200 photos. Tap or sweep across the grid."
+            "value": "Select 1–200 photos. Tap to select; briefly press, then drag to sweep."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "选 1–200 张照片；可点选或在网格中连续扫选。"
+            "value": "选择 1–200 张照片。点按选择；短暂长按后滑动可连续选择。"
           }
         }
       }
@@ -1997,22 +1997,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "先保存 ZIP 并确认外部文件完整，再选择删除原照片，或保留相册照片只清除 App 文件。两种清理都需要单独确认。"
-          }
-        }
-      }
-    },
-    "help.selection": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Select 1–200 photos. Tap to select; briefly press, then drag to sweep."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "选择 1–200 张照片。点按选择；短暂长按后滑动可连续选择。"
           }
         }
       }

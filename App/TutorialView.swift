@@ -16,7 +16,13 @@ struct TutorialView: View {
                         .multilineTextAlignment(.center)
                         .accessibilityIdentifier("tutorial-title")
                     GeometryReader { geometry in
-                        TutorialArtwork(scene: scene, time: TutorialArtwork.duration)
+                        Group {
+                            if reduceMotion {
+                                TutorialArtwork(scene: scene, time: TutorialArtwork.duration)
+                            } else {
+                                TutorialPlayback(scene: scene).id(scene)
+                            }
+                        }
                             .scaleEffect(min(1, geometry.size.width / 340), anchor: .top)
                             .frame(width: geometry.size.width, height: 390, alignment: .top)
                     }.frame(height: 390)
@@ -55,6 +61,28 @@ struct TutorialView: View {
                     Button("tutorial.skip") { dismiss() }.accessibilityIdentifier("tutorial-skip")
                 }
             }
+        }
+    }
+}
+
+/// Plays once per scene, then stops scheduling frames. Skip and navigation never
+/// wait for playback. Disappearing cancels the sleep; no processing state is touched.
+private struct TutorialPlayback: View {
+    let scene: Int
+    @State private var start = Date()
+    @State private var settled = false
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 60.0, paused: settled)) { context in
+            TutorialArtwork(scene: scene, time: settled ? TutorialArtwork.duration :
+                min(TutorialArtwork.duration, max(0, context.date.timeIntervalSince(start))))
+        }
+        .task {
+            start = Date()
+            settled = false
+            do { try await Task.sleep(for: .seconds(TutorialArtwork.duration)) }
+            catch { return }
+            settled = true
         }
     }
 }

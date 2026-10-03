@@ -6,7 +6,7 @@ import SwiftUI
 struct TutorialArtwork: View {
     let scene: Int
     let time: Double
-    static let duration = 3.4
+    static let duration = 3.0
     private let ink = Color(red: 0.15, green: 0.30, blue: 0.80)
     private let mint = Color(red: 0.18, green: 0.57, blue: 0.43)
 
@@ -33,10 +33,17 @@ struct TutorialArtwork: View {
 
     private func shown(_ start: Double) -> Double { Double(progress(start, start + 0.24)) }
 
+    private func snap(_ start: Double, _ end: Double) -> CGFloat {
+        let x = min(1, max(0, (time - start) / (end - start)))
+        if x == 0 || x == 1 { return CGFloat(x) }
+        return CGFloat(1 - exp(-7 * x) * cos(11 * x))
+    }
+
     private var selection: some View {
         ZStack {
             ForEach(0..<16) { index in
-                let threshold = 0.68 + Double(index - 4) * 0.18
+                let arrivals: [Double] = [0.68, 1.00, 1.15, 1.26, 2.02, 1.85, 1.70, 1.55]
+                let threshold = arrivals[min(7, max(0, index - 4))]
                 let selected = index >= 4 && index <= 11 ? progress(threshold, threshold + 0.2) : 0
                 let x = CGFloat(index % 4) * 78 + 53
                 let y = CGFloat(index / 4) * 78 + 70
@@ -67,7 +74,7 @@ struct TutorialArtwork: View {
     private var order: some View {
         ZStack {
             ForEach(0..<4) { index in
-                let snap = progress(0.45 + Double(index) * 0.10, 1.35 + Double(index) * 0.10)
+                let snap = snap(0.45 + Double(index) * 0.10, 1.35 + Double(index) * 0.10)
                 let originY: [CGFloat] = [210, 65, 140, 286]
                 let finalY = CGFloat(index) * 78 + 76
                 let removed = index == 3 ? progress(2.0, 2.5) : 0
@@ -173,6 +180,7 @@ struct TutorialArtwork: View {
             FileCard(kind: "ZIP", tint: ink).frame(width: 66, height: 82)
                 .rotationEffect(.degrees(-6 * Double(1 - progress(0.8, 1.3))))
                 .position(x: 76 + 29 * progress(0.8, 1.3), y: 70 + 21 * progress(0.8, 1.3))
+                .opacity(1 - shown(1.15))
             VStack(spacing: 12) {
                 Capsule().fill(Color.secondary.opacity(0.25)).frame(width: 28, height: 3)
                 HStack(spacing: 20) {

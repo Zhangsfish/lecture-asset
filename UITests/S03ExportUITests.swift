@@ -44,6 +44,7 @@ final class S03ExportUITests: XCTestCase {
         let restored = app.staticTexts["archive-phase"]
         XCTAssertTrue(restored.waitForExistence(timeout: 30))
         XCTAssertEqual(restored.label, "Files ready")
+        XCTAssertFalse(app.buttons["tutorial-skip"].exists, "Retained job takes precedence over tutorial")
         XCTAssertFalse(app.buttons["export-delete-sources"].exists)
     }
 }
