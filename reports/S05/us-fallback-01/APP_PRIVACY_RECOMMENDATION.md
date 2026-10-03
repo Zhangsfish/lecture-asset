@@ -1,39 +1,43 @@
-# App Privacy — recommended owner answer
+# App Privacy — NEEDS_FINAL_CONFIRMATION
 
-**Recommendation: disclose Email Address + Customer Support; App Functionality; Linked to User = Yes; Tracking = No. Do not select Data Not Collected for the assumed support workflow.**
+**ASC label status: NEEDS_FINAL_CONFIRMATION. Data Not Collected is a reasonable candidate interpretation of the current code structure, not an approved or definitely correct final answer.**
 
-The owner supplied the policy premise: after a user voluntarily sends support mail, the developer may retain the address and message to reply. This is a proposed declaration, not proof of the contents of an actual inbox or an ASC update.
+Revision addresses the [independent review of PR #11](https://github.com/Zhangsfish/lecture-asset/pull/11#pullrequestreview-5401135314) at `1a7c38208705f13063e35ed11b103e7d84323f61`. The earlier recommendation conflated app-originated collection with subsequent external support correspondence. No runtime or public policy was changed.
 
-## Paste / select these answers
+## 1. What Lecture Asset itself does
 
-| ASC item | Recommended answer | Reason |
+`App/AboutSupportView.swift` invokes `openURL(mailto:zhangs.taq@gmail.com)`. It provides no support form, reads no user email address or message body, and pre-fills no user data, photos, OCR or logs. It uploads no mail contents and sends no support data to a developer backend. The user composes and sends any message in the external system Mail app.
+
+Photos, OCR, JPEG, ZIP and PDF processing remain on device, with no developer upload, account, analytics, tracking or advertising. User-initiated system sharing is not automatic developer collection. External browser hosting logs are separate website data flows; they do not by themselves establish App Privacy collection by Lecture Asset.
+
+**Current code evidence therefore supports no app-originated support-data collection.** A developer receiving a later voluntary message through Mail does not, without further interpretation, prove that Lecture Asset collected it from the app.
+
+## 2. External support correspondence remains real
+
+If the user actually sends mail, the developer may receive and retain the sender address, message body and possibly display name/signature to reply. That external support practice must be described truthfully in the public Privacy Policy regardless of the final ASC label. `web/static/privacy.html` already distinguishes voluntary mail and its support purpose; it was only read, not modified this round. Retention, deletion requests and any later change in support use must remain accurately described.
+
+This report does not inspect the inbox, claim that names are stripped, or approve marketing/analytics use of support correspondence.
+
+## 3. Apple definitions and the remaining interpretation
+
+Rechecked 2026-10-03 against [Apple's primary App Privacy definitions](https://developer.apple.com/app-store/app-privacy-details/), not forum opinions. Apple frames labels around data collected from the app and defines collection by off-device transmission with access beyond immediate servicing. Its optional-disclosure criteria are cumulative and include user data provided through the app's own submission interface. Customer Support is a defined data type; App Functionality can include support.
+
+Those definitions do not explicitly settle this bare `mailto:` handoff. Failure to demonstrate an in-app optional-feedback exception does **not** establish that an app with no support-data collection must disclose external Mail correspondence. The first question is whether this external flow falls within collection **from Lecture Asset** at all. Conversely, absence of an app uploader does not constitute Apple's final approval of a label.
+
+**Minimum final confirmation:** in the portal guidance or a written Apple answer, confirm whether an app that only opens a bare `mailto:` URL, without collecting/pre-filling/transmitting user data, should count independently composed external support mail as collection from that app. Portal entry and Apple confirmation are **NOT_RUN** here. Do not submit a declaration on the strength of this report alone.
+
+## 4. Two possible declaration routes
+
+| Route | Proposed interpretation / fields | Authority and limit |
 |---|---|---|
-| Do you or third-party partners collect data from this app? | Yes, conservatively for retained support correspondence | Optional external mail is deliberately offered by the app |
-| Contact Info → Email Address | Selected | Needed to respond; retention allowed by owner premise |
-| User Content → Customer Support | Selected | Support request body / voluntarily supplied support context |
-| Purpose, for each selected type | App Functionality only | Replying to support; not marketing or analytics |
-| Linked to user's identity, for each | Yes | Correspondence is linked through the sender address, even without an app account |
-| Used for tracking, for each | No | No ad measurement, broker or cross-company tracking in this workflow |
-| Other User Content | Not selected merely to duplicate the same support body | Customer Support is the more specific category |
-| Emails or Text Messages | Not selected as a general mailbox/message-reader feature | The app does not read or upload a user's mail store; support request is classified above |
-| Name | Select **if** sender display names / signatures are retained | Email-only/body-only premise does not prove named headers are stripped; see owner confirmation below |
-| Photos/Videos, Audio, Location, identifiers, usage, diagnostics | Not selected for current local processing | No developer upload/collection code; no automatic mail attachment |
+| Data Not Collected | Reasonable candidate under the present app code and external-Mail separation | NEEDS_FINAL_CONFIRMATION; not “definitely correct” |
+| **CONSERVATIVE OWNER DISCLOSURE OPTION** | Email Address + Customer Support; App Functionality; Linked to User = Yes; Tracking = No | Optional conservative owner policy if chosen after final guidance; **not required by current code** |
 
-Apple defines collection as off-device transmission allowing access beyond immediate servicing, recognizes Customer Support as a data type, and includes support under App Functionality. Optional feedback may be omitted only when **all** exception conditions hold, including clear identity in an in-app submission interface. `mailto:` opens another app; this implementation does not prove that exception. Hence conservative disclosure. [Apple privacy definitions and optional-disclosure conditions](https://developer.apple.com/app-store/app-privacy-details/).
+For the conservative option only, retain Name as a conditional addition if sender display names/signatures are actually retained. Customer Support is the specific support-body category; do not automatically duplicate it as Other User Content or treat this app as a general mailbox reader. Do not add Photos, Location, Device ID or website IP logs merely because local images exist or external services are used.
 
-## Code / workflow evidence
+## Owner confirmation, after the label interpretation is resolved
 
-- `App/AboutSupportView.swift`: user taps `mailto:zhangs.taq@gmail.com`; copy-email alternative; user-initiated external homepage. No attached photo, OCR, log or device information is prepared.
-- `web/static/privacy.html`: support mail used only for replies; request deletion by email; no analytics/tracking scripts; separate GitHub hosting disclosure.
-- Core photo/OCR/archive processing is local. The same local records being present on device does not mean the developer collects them. Photo Library permission and privacy manifests do not replace the ASC declaration.
-- GitHub Pages and the external portfolio host may retain request IP logs. They are external website flows, with no embedded analytics/web SDK in this app. Do not mechanically add IP/coarse location, device ID or browsing history to the App Privacy label on that basis.
-- System sharing goes to a user-chosen destination, not an automatic upload to the developer. Do not classify all shared lecture photos as developer collection.
+1. **Yes/No:** “Voluntary support correspondence is used only to reply/manage support, with no mailing list, advertising, analytics, sale or tracking.” This confirms a support policy fact, not an ASC label.
+2. **Yes/No:** “Retained support mail includes sender names/signatures.” This informs the policy and any chosen conservative Name declaration; it does not automatically establish app-originated collection.
 
-## Owner final confirmation — two Yes/No items, no taxonomy research
-
-1. **Yes/No:** “I will use and retain voluntary support correspondence only to reply/manage support; no mailing list, analytics, advertising, sale or tracking. I approve Email Address + Customer Support, App Functionality, linked, no tracking.”
-2. **Yes/No:** “My retained support email includes sender names or signatures.” **Yes → also select Name with the same purpose/linkage/tracking answers. No → leave Name unselected only if names really are not retained.** This is an operational fact, not a reason to inspect or publish the inbox here.
-
-No response was obtained this round. Do not turn the recommendation into an approved declaration. If optional attachments or diagnostic collection later becomes an actual support practice, review those data types rather than silently treating the two-category answer as permanent. A future age-assurance implementation also requires a fresh data-flow assessment; do not disclose nonexistent age collection today.
-
-ASC path for later authorized action: My Apps → Lecture Asset → App Privacy → Edit. Owner selects the above types/uses; final preview must agree with the public privacy policy. [Apple ASC entry instructions](https://developer.apple.com/help/app-store-connect/manage-app-information/manage-app-privacy/).
+Then the owner selects the final label route using portal/Apple guidance. Neither route is approved or applied here. Any future age-assurance or support implementation needs a fresh assessment of its actual data flow. No App Privacy answer, account setting or public Privacy Policy was edited this round.

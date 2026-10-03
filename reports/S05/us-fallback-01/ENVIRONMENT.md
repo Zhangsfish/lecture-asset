@@ -23,3 +23,7 @@ Today's public primary-source research used web search/open and official Apple d
 Visual review: current 1024px icon and all five D0 1320×2868 synthetic Chinese screenshots were opened as images. English screenshot production, small-icon user study, conversion experiment and video rendering are NOT_RUN.
 
 The accepted runtime SHA and internal build status come from the existing audited D0 records, not a new device test or fresh ASC authentication. Current repo source directories are checked for equality with the fetched base and accepted runtime. S00–S04 build/stress/delete results are inherited evidence, not re-executed tests. No new Release build is needed for a report-only branch; runtime compliance tests remain NOT_RUN until separately authorized implementation.
+
+## Privacy report revision, 2026-10-03
+
+Fetched main and PR #11 branch; confirmed reviewed head `1a7c38208705f13063e35ed11b103e7d84323f61`, open / draft=false. Read review 5401135314 via GitHub REST. Re-opened Apple's primary App Privacy page and read `App/AboutSupportView.swift`. GitHub inline-comment-list reads had network timeouts; the actual requested review body was retrieved. No declaration was entered or confirmed with Apple. Re-ran only the report validator and `git diff --check`; compared this revision against the reviewed head to confirm report-only scope and unchanged legal/creative/listing files. No new CI or device/build/screenshot run.

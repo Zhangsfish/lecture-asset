@@ -68,14 +68,16 @@ api_present = git("grep", "-n", "-E", "DeclaredAgeRange|PermissionKit|AgeRangeSe
 check("current_age_api_gap_confirmed", not api_present, "No age-assurance integration in current App source")
 
 results = {
-    "stage": "S05-D1", "date": "2026-10-03", "status": "READY_FOR_AUDIT",
+    "stage": "S05-D1", "date": "2026-10-03", "status": "READY_FOR_REAUDIT",
+    "report_revision": {"reviewed_head": "1a7c38208705f13063e35ed11b103e7d84323f61", "scope": "App Privacy report-only correction", "review_url": "https://github.com/Zhangsfish/lecture-asset/pull/11#pullrequestreview-5401135314"},
+    "app_privacy": {"status": "NEEDS_FINAL_CONFIRMATION", "app_originated_support_collection_established": False, "data_not_collected": "reasonable current-code candidate; not a confirmed final label", "conservative_disclosure": "CONSERVATIVE OWNER DISCLOSURE OPTION: Email Address + Customer Support / App Functionality / Linked to User / Not Tracking; not required by current code", "external_support_correspondence": "Must remain truthfully described in public Privacy Policy", "portal_or_apple_confirmation": "NOT_RUN"},
     "preparation_status": "READY_FOR_OWNER_US_DECISION", "us_release_clearance": "BLOCKED",
     "base_sha": BASE, "tested_code_sha": BASE, "accepted_runtime_sha": ACCEPTED,
     "runtime_source_changed": False, "us_launch_runtime_change_required": "YES",
     "existing_testflight": {"version": "0.1.0", "build": "30.1", "state": "VALID", "audience": "INTERNAL_ONLY", "evidence": "D0 snapshot; not re-queried this round"},
     "checks": checks, "reviewed_assets": asset_hashes,
     "not_run": ["Xcode build", "new CI", "new TestFlight upload", "new device QA", "complete live court docket", "ASC questionnaire entry", "English screenshot production", "conversion experiment", "Remotion render", "distribution RC", "App Review", "public release"],
-    "unresolved": ["Texas older-OS/new-account age API coverage and consent handling", "Louisiana platform rollout clarification after 2027 statutory postponement", "complete current litigation docket / pre-release legal confirmation", "owner privacy and identity/rights/release decisions", "final English screenshot set and public English help/policy usability"],
+    "unresolved": ["Texas older-OS/new-account age API coverage and consent handling", "Louisiana platform rollout clarification after 2027 statutory postponement", "complete current litigation docket / pre-release legal confirmation", "App Privacy label treatment of external mailto support flow: NEEDS_FINAL_CONFIRMATION", "owner privacy and identity/rights/release decisions", "final English screenshot set and public English help/policy usability"],
     "china_support_case_id_recorded": False,
 }
 (FOLDER / "TEST_RESULTS.json").write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

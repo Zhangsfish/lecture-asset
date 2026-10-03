@@ -1,6 +1,6 @@
 # US ASC field matrix — ready to paste after owner decision
 
-**Preparation only: READY_FOR_OWNER_US_DECISION. No ASC edit, RC, review or availability action.** Values below propose US English material for the current app. They must be reviewed again if a US compliance runtime changes the product.
+**READY_FOR_REAUDIT. Preparation only: READY_FOR_OWNER_US_DECISION. No ASC edit, RC, review or availability action.** Values below propose US English material for the current app. They must be reviewed again if a US compliance runtime changes the product.
 
 Actual backend evidence is the previous read-only snapshot, **2026-10-03T11:39:01Z**, [asc-preflight.json](../release-preflight-01/asc-preflight.json); not a fresh authenticated query this round. Snapshot: editable iOS version **1.0 / PREPARE_FOR_SUBMISSION**, name Lecture Asset / en-US, subtitle/privacy URL empty, version listing fields absent, AFTER_APPROVAL. USA being present in Apple's territory catalog does not prove the app is available there; app availability was NOT_CREATED_OR_NOT_VISIBLE. Privacy UI and reviewer identity were not checked.
 
@@ -23,7 +23,7 @@ The complete exact strings are also in [listing-en.json](listing-en.json), gener
 | Secondary Category | None | No additional category needed |
 | Copyright | `2026 Lecture Asset` | **Owner must confirm actual rights-holder wording** before entry |
 | Price | Free | No IAP/subscription/tip products |
-| App Privacy answers | Email Address + Customer Support; App Functionality; linked; no tracking | Owner Yes/No and conditional Name in [privacy sheet](APP_PRIVACY_RECOMMENDATION.md) |
+| App Privacy answers | **NEEDS_FINAL_CONFIRMATION.** Data Not Collected is a reasonable current-code candidate; not a final answer. Email Address + Customer Support / App Functionality / linked / no tracking is a **CONSERVATIVE OWNER DISCLOSURE OPTION** | Bare `mailto:` does not establish app collection; external support mail still needs truthful policy disclosure. Resolve the label using portal/Apple guidance; see [privacy sheet](APP_PRIVACY_RECOMMENDATION.md). No label applied |
 | Age Rating | All current-runtime answers in [answer sheet](AGE_RATING_US.md) | Owner attestation; ASC generated result not yet checked |
 | App Review → Sign-in required | No | No app account/demo credentials |
 | Reviewer contact first/last name and phone | Owner's real reachable details, entered **privately in ASC** | BLOCKED_OWNER_ACTION; never copy identity/phone into this public report |
