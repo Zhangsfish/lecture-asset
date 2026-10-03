@@ -1,0 +1,95 @@
+{
+  "acceptedBuild" : [
+    {
+      "buildAudienceType" : "INTERNAL_ONLY",
+      "expired" : false,
+      "processingState" : "VALID",
+      "usesNonExemptEncryption" : false,
+      "version" : "30.1"
+    }
+  ],
+  "app" : {
+    "isOrEverWasMadeForKids" : false,
+    "name" : "Lecture Asset",
+    "primaryLocale" : "en-US"
+  },
+  "appInfos" : [
+    {
+      "ageRatingDeclaration" : {
+        "advertising" : null,
+        "ageAssurance" : null,
+        "ageRatingOverride" : "NONE",
+        "ageRatingOverrideV2" : "NONE",
+        "alcoholTobaccoOrDrugUseOrReferences" : null,
+        "contests" : null,
+        "developerAgeRatingInfoUrl" : null,
+        "gambling" : null,
+        "gamblingSimulated" : null,
+        "gracRatingClassificationNumber" : null,
+        "gunsOrOtherWeapons" : null,
+        "healthOrWellnessTopics" : null,
+        "horrorOrFearThemes" : null,
+        "kidsAgeBand" : null,
+        "koreaAgeRatingOverride" : "NONE",
+        "lootBox" : null,
+        "matureOrSuggestiveThemes" : null,
+        "medicalOrTreatmentInformation" : null,
+        "messagingAndChat" : null,
+        "parentalControls" : null,
+        "profanityOrCrudeHumor" : null,
+        "sexualContentGraphicAndNudity" : null,
+        "sexualContentOrNudity" : null,
+        "socialMedia" : null,
+        "socialMediaAgeRestricted" : null,
+        "unrestrictedWebAccess" : null,
+        "userGeneratedContent" : null,
+        "violenceCartoonOrFantasy" : null,
+        "violenceRealistic" : null,
+        "violenceRealisticProlongedGraphicOrSadistic" : null
+      },
+      "ageRatingDeclarationPresent" : true,
+      "localizations" : [
+        {
+          "locale" : "en-US",
+          "name" : "Lecture Asset",
+          "privacyChoicesUrl" : null,
+          "privacyPolicyUrl" : null,
+          "subtitle" : null
+        }
+      ],
+      "state" : "PREPARE_FOR_SUBMISSION"
+    }
+  ],
+  "availabilityResource" : "NOT_CREATED_OR_NOT_VISIBLE",
+  "bundleId" : "com.zhangsfish.lectureasset",
+  "capturedAt" : "2026-10-03T11:39:01Z",
+  "iosAppStoreVersions" : [
+    {
+      "appVersionState" : "PREPARE_FOR_SUBMISSION",
+      "platform" : "IOS",
+      "releaseType" : "AFTER_APPROVAL",
+      "reviewType" : "APP_STORE",
+      "versionString" : "1.0"
+    }
+  ],
+  "legacyAvailableTerritories" : {
+    "read" : "NOT_CREATED_OR_NOT_VISIBLE"
+  },
+  "regions" : {
+
+  },
+  "storefrontCatalog" : {
+    "CHN" : true,
+    "count" : 175,
+    "USA" : true
+  },
+  "versionMetadataReadiness" : [
+    {
+      "descriptionPresent" : false,
+      "keywordsPresent" : false,
+      "locale" : "en-US",
+      "promotionalTextPresent" : false,
+      "supportUrlPresent" : false
+    }
+  ]
+}

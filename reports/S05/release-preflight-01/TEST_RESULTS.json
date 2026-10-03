@@ -1,0 +1,122 @@
+{
+  "task": "S05-D0 release preflight",
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "43e669b59f3a6135d21286bdecaa0444104b0575",
+  "tested_implementation_sha": "ec58f5b6cde84da9324232ce1ff63abe22bb413e",
+  "accepted_runtime_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+  "accepted_build": "0.1.0 (30.1)",
+  "accepted_build_processing": "VALID",
+  "accepted_build_audience": "INTERNAL_ONLY",
+  "runtime_changed": false,
+  "app_review_ready": false,
+  "app_review_submitted": false,
+  "checks": [
+    {
+      "name": "production Git object identity against accepted runtime and latest main",
+      "status": "PASS",
+      "evidence": "SOURCE_IDENTITY.json"
+    },
+    {
+      "name": "public HTTPS content, email/homepage/sibling links, no login or scripts/analytics/placeholders",
+      "status": "PASS",
+      "evidence": "PUBLIC_URL_CHECK.json; scripts/s05_d0_check_release_prep.py",
+      "scope": "anonymous requests from current host, not all mainland networks"
+    },
+    {
+      "name": "static Pages deploy",
+      "status": "PASS",
+      "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37120095070",
+      "attempt": 2,
+      "source_sha": "ab6d569f556c8bcf6c2b0a9eddbc25fb3384b4b4",
+      "prior_attempt": "Rejected before job steps by new github-pages environment main-only default; exact D0 branch allowlist added for authorized deploy"
+    },
+    {
+      "name": "read-only ASC sanitized query",
+      "status": "PASS",
+      "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37120313730",
+      "evidence": "asc-preflight.json",
+      "source_sha": "ec58f5b6cde84da9324232ce1ff63abe22bb413e"
+    },
+    {
+      "name": "fresh real Release simulator build and screenshot UI test",
+      "status": "PASS",
+      "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37120289721",
+      "source_sha": "ff2850812bc4f168fb08db553b2a89a1462a7216",
+      "tests": 1,
+      "failures": 0,
+      "test_seconds": 134.19,
+      "toolchain": "Xcode 26.6 / SDK 26.5 / iPhone 17 Pro Max",
+      "evidence": "SCREENSHOT_CI_SAFE_RESULT.txt"
+    },
+    {
+      "name": "five screenshot dimensions/no-alpha and visual review",
+      "status": "PASS",
+      "evidence": "SCREENSHOTS.md; EVIDENCE_INDEX.json; screenshots/*.png"
+    },
+    {
+      "name": "bilingual metadata limits and truthful prepared copy",
+      "status": "PASS",
+      "evidence": "METADATA_ZH.md; METADATA_EN.md",
+      "scope": "drafted, not applied to ASC"
+    },
+    {
+      "name": "existing icon dimensions/no-alpha",
+      "status": "PASS",
+      "dimensions": "1024x1024",
+      "sha256": "a4b796e66c086b08c826bc8cfbd12c4065fa9e92d57069f8dc55e6cb89af625d"
+    },
+    {
+      "name": "mainland ISP reachability",
+      "status": "NOT_CHECKED",
+      "reason": "current host HTTPS success does not cover all China networks"
+    },
+    {
+      "name": "actual ASC UI China warning/privacy/contact/identity state",
+      "status": "NOT_CHECKED",
+      "reason": "browser login/connection unavailable; API query does not establish UI warning absence"
+    },
+    {
+      "name": "China storefront app availability",
+      "status": "NOT_CHECKED",
+      "reason": "availability resource HTTP404; CHN valid territory catalog does not establish app availability"
+    },
+    {
+      "name": "China APP/ICP filing applicability",
+      "status": "UNRESOLVED",
+      "evidence": "CHINA.md",
+      "reason": "primary sources do not establish this local utility exemption"
+    },
+    {
+      "name": "USA fallback age-assurance/legal clearance",
+      "status": "UNRESOLVED",
+      "evidence": "US.md",
+      "reason": "current state/platform duties require owner release decision; no automatic switch"
+    },
+    {
+      "name": "official age/privacy/copyright/contact/identity and storefront declarations",
+      "status": "BLOCKED_OWNER_ACTION",
+      "reason": "owner must confirm actual legal/account declarations through official portal"
+    },
+    {
+      "name": "App Store version/release settings and submission-eligible RC",
+      "status": "BLOCKED_OWNER_ACTION",
+      "reason": "ASC1.0 vs runtime0.1.0, missing metadata/questionnaire, AFTER_APPROVAL release default; INTERNAL_ONLY build cannot submit; no mutation authorized",
+      "evidence": "RC_PLAN.md"
+    },
+    {
+      "name": "new RC upload, App Review, public App release",
+      "status": "NOT_RUN",
+      "reason": "explicitly excluded; only public static pages authorized"
+    },
+    {
+      "name": "repeat device stress/WeChat/destructive cleanup tests",
+      "status": "NOT_RUN",
+      "reason": "accepted runtime unchanged; user expressly excludes broad retests"
+    },
+    {
+      "name": "StoreKit/tips/IAP/agreements",
+      "status": "N/A",
+      "reason": "first release free and S05-C deferred; no commerce task authorized"
+    }
+  ]
+}

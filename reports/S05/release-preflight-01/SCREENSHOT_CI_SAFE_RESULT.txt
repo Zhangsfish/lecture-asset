@@ -1,0 +1,8 @@
+2026-10-03T11:38:31.7853800Z Xcode 26.6
+2026-10-03T11:38:31.7872550Z Build version 17F113
+2026-10-03T11:38:34.4001130Z 26.5
+2026-10-03T11:54:39.9480210Z Test Case '-[LectureAssetUITests.S05D0StoreScreenshotUITests testChineseStoreStoryOnSyntheticLectureMedia]' passed (134.190 seconds).
+2026-10-03T11:54:39.9770150Z 	 Executed 1 test, with 0 failures (0 unexpected) in 134.190 (134.193) seconds
+2026-10-03T11:54:39.9773530Z 	 Executed 1 test, with 0 failures (0 unexpected) in 134.190 (134.194) seconds
+2026-10-03T11:54:39.9777220Z 	 Executed 1 test, with 0 failures (0 unexpected) in 134.190 (134.196) seconds
+2026-10-03T11:54:42.6015020Z ** TEST SUCCEEDED **
