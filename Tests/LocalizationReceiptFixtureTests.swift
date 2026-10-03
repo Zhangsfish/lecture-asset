@@ -11,8 +11,20 @@ final class LocalizationReceiptFixtureTests: XCTestCase {
         let job = try XCTUnwrap(JobStore.loadLatest())
         XCTAssertEqual(job.totalCount, 2)
         XCTAssertEqual(job.phase, .completed)
-        XCTAssertEqual(PHAsset.fetchAssets(with: .image, options: nil).count, 6,
-                       "Only the six CI synthetic photos may exist in this simulator")
+        let sourceIDs = try ExactSourceSet.identifiers(in: job)
+        let sources = PHAsset.fetchAssets(withLocalIdentifiers: sourceIDs, options: nil)
+        XCTAssertEqual(sources.count, 2)
+        let fixtureNames = Set((1...6).map { String(format: "%02d.jpg", $0) })
+        sources.enumerateObjects { asset, _, _ in
+            XCTAssertTrue(PHAssetResource.assetResources(for: asset).contains {
+                fixtureNames.contains($0.originalFilename)
+            }, "Frozen sources must be the imported numbered synthetic fixtures")
+        }
+        // Fresh iOS simulators also contain Apple's stock demonstration photos.
+        // Record the actual total, then verify cancellation did not change it.
+        let sourceCount = PHAsset.fetchAssets(with: .image, options: nil).count
+        try Data(String(sourceCount).utf8).write(to: JobStore.directory(for: job)
+            .appending(path: ".localization-test-source-count"), options: .atomic)
         var state = try XCTUnwrap(ArchiveStore.load(job: job))
         XCTAssertTrue(try ArchiveStore.verifyReady(state, job: job))
         let identity = try ArchiveStore.verifiedZIPIdentity(state, job: job).0
@@ -30,7 +42,9 @@ final class LocalizationReceiptFixtureTests: XCTestCase {
         #if targetEnvironment(simulator)
         let job = try XCTUnwrap(JobStore.loadLatest())
         XCTAssertEqual(job.totalCount, 2)
-        XCTAssertEqual(PHAsset.fetchAssets(with: .image, options: nil).count, 6)
+        let baseline = try String(contentsOf: JobStore.directory(for: job)
+            .appending(path: ".localization-test-source-count"), encoding: .utf8)
+        XCTAssertEqual(PHAsset.fetchAssets(with: .image, options: nil).count, Int(baseline))
         var state = try XCTUnwrap(ArchiveStore.load(job: job))
         state.phase = .failed
         state.zipShareReceipt = nil
