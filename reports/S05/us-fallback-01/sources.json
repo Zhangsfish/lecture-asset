@@ -1,0 +1,172 @@
+{
+  "research_date": "2026-10-03",
+  "direct_https_checks": [
+    {
+      "key": "privacy_page",
+      "url": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+      "checked_at_utc": "2026-10-03T13:47:50.225470+00:00",
+      "status": 200,
+      "final_url": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+      "bytes": 3070,
+      "sha256": "479d52c7cee7543898c4ce4a958b058fc217156e13e553429e28c1dae52890f4",
+      "language": "zh-Hans",
+      "support_mail_present": true
+    },
+    {
+      "key": "support_page",
+      "url": "https://zhangsfish.github.io/lecture-asset/support.html",
+      "checked_at_utc": "2026-10-03T13:47:51.910797+00:00",
+      "status": 200,
+      "final_url": "https://zhangsfish.github.io/lecture-asset/support.html",
+      "bytes": 2053,
+      "sha256": "57d0b3c29268300ca8794daf91fe7aefffe0345223f4d603462c435fd73cc892",
+      "language": "zh-Hans",
+      "support_mail_present": true
+    },
+    {
+      "key": "dar_api",
+      "url": "https://developer.apple.com/documentation/declaredagerange.md",
+      "checked_at_utc": "2026-10-03T13:51:24.711878+00:00",
+      "status": 200,
+      "final_url": "https://developer.apple.com/documentation/declaredagerange.md",
+      "bytes": 3166,
+      "sha256": "f6a963e40e5cbeb988aa1fa5ffc7e7f14c31277be6c880c8425182a5cb20abc5",
+      "availability_metadata": []
+    },
+    {
+      "key": "regulatory_features_api",
+      "url": "https://developer.apple.com/documentation/declaredagerange/agerangeservice/requiredregulatoryfeatures.md",
+      "checked_at_utc": "2026-10-03T13:51:25.420802+00:00",
+      "status": 200,
+      "final_url": "https://developer.apple.com/documentation/declaredagerange/agerangeservice/requiredregulatoryfeatures.md",
+      "bytes": 1743,
+      "sha256": "9ee48c2609101d1a6b83aaba44e32e266f0ac716d0ead1ccc7173360dc08f506",
+      "availability_metadata": [
+        "iOS: 26.4.0 -",
+        "iPadOS: 26.4.0 -",
+        "macCatalyst: 26.4.0 -",
+        "macOS: 26.4.0 -"
+      ]
+    },
+    {
+      "key": "significant_update_api",
+      "url": "https://developer.apple.com/documentation/permissionkit/significantappupdatetopic.md",
+      "checked_at_utc": "2026-10-03T13:51:26.086796+00:00",
+      "status": 200,
+      "final_url": "https://developer.apple.com/documentation/permissionkit/significantappupdatetopic.md",
+      "bytes": 2482,
+      "sha256": "73fa54f34d8e22ace6522b31c791b646004ad193d6e3fdc203f560c75e54fa28",
+      "availability_metadata": [
+        "iOS: 26.2.0 -",
+        "iPadOS: 26.2.0 -",
+        "macCatalyst: 26.2.0 -",
+        "macOS: 26.2.0 -",
+        "visionOS: 26.2.0 -"
+      ]
+    },
+    {
+      "key": "age_range_service_api",
+      "url": "https://developer.apple.com/documentation/declaredagerange/agerangeservice.md",
+      "status": 200,
+      "final_url": "https://developer.apple.com/documentation/declaredagerange/agerangeservice.md",
+      "bytes": 5876,
+      "sha256": "91ec8010b87c7e7d1ec3f9769ed1dc0604f00114717ebdb0c29b5b075a7c4b3d",
+      "checked_at_utc": "2026-10-03T13:51:27.589177+00:00",
+      "availability_metadata": [
+        "iOS: 26.0.0 -",
+        "iPadOS: 26.0.0 -",
+        "macCatalyst: 26.0.0 -",
+        "macOS: 26.0.0 -"
+      ]
+    }
+  ],
+  "full_court_docket": "NOT_RUN",
+  "new_asc_query": "NOT_RUN",
+  "notes": "Other legal and Apple primary sources were opened in the web research tool and cited directly in US_LEGAL.md and declaration sheets. Direct HTTPS records describe document bytes, not legal approval.",
+  "primary_source_register": [
+    {
+      "topic": "Texas statute: SB2420 Chapter121 variant",
+      "url": "https://tcss.legis.texas.gov/resources/BC/htm/BC.121.v3.htm",
+      "read_date": "2026-10-03",
+      "method": "web open"
+    },
+    {
+      "topic": "Texas injunction stay, not final merits",
+      "url": "https://www.ca5.uscourts.gov/opinions/pub/26/26-50001-CV0.pdf",
+      "read_date": "2026-10-03",
+      "method": "web PDF text",
+      "document_date": "2026-06-04"
+    },
+    {
+      "topic": "Texas Apple implementation",
+      "url": "https://developer.apple.com/news/?id=sg176nne",
+      "read_date": "2026-10-03",
+      "method": "web open",
+      "document_date": "2026-06-03"
+    },
+    {
+      "topic": "Louisiana superseding signed Act185",
+      "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1475238",
+      "read_date": "2026-10-03",
+      "method": "web full PDF text",
+      "future_start": "2027-07-01"
+    },
+    {
+      "topic": "Louisiana signed status and date",
+      "url": "https://www.legis.la.gov/legis/BillInfo.aspx?b=HB977&s=26rs&sbi=y",
+      "read_date": "2026-10-03",
+      "method": "official indexed bill history",
+      "signed_date": "2026-05-15"
+    },
+    {
+      "topic": "Louisiana superseded consolidated definitions (not used as current operative date)",
+      "url": "https://legis.la.gov/legis/Law.aspx?d=1428942",
+      "read_date": "2026-10-03",
+      "method": "web open"
+    },
+    {
+      "topic": "Louisiana superseded consolidated developer duties (not used as current operative date)",
+      "url": "https://legis.la.gov/legis/Law.aspx?d=1428945",
+      "read_date": "2026-10-03",
+      "method": "web open"
+    },
+    {
+      "topic": "Utah current amended chapter",
+      "url": "https://le.utah.gov/xcode/Title13/Chapter76/C13-76_2025050720250507.pdf",
+      "read_date": "2026-10-03",
+      "method": "web PDF text",
+      "developer_start": "2027-05-06"
+    },
+    {
+      "topic": "Apple age assurance FAQ",
+      "url": "https://developer.apple.com/support/age-assurance/",
+      "read_date": "2026-10-03",
+      "method": "web open"
+    },
+    {
+      "topic": "Older Apple Louisiana/Utah announcement: dates superseded by 2026 statutes",
+      "url": "https://developer.apple.com/news/?id=f5zj08ey",
+      "read_date": "2026-10-03",
+      "method": "web open",
+      "document_date": "2026-02-24"
+    },
+    {
+      "topic": "Apple privacy definitions",
+      "url": "https://developer.apple.com/app-store/app-privacy-details/",
+      "read_date": "2026-10-03",
+      "method": "web open"
+    },
+    {
+      "topic": "Apple rating definitions",
+      "url": "https://developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions/",
+      "read_date": "2026-10-03",
+      "method": "web open"
+    },
+    {
+      "topic": "Apple review and marketing asset rules",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "read_date": "2026-10-03",
+      "method": "web open"
+    }
+  ]
+}
