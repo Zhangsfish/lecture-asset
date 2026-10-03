@@ -77,10 +77,15 @@ struct ProcessingView: View {
                                 if archiveState.phase == .failed {
                                     Text("archive.failedDetail").foregroundStyle(.red)
                                     DisclosureGroup("archive.technicalDetails") {
-                                        Text(archive.safeFailureDiagnostics(job: job))
-                                            .font(.caption.monospaced())
-                                            .textSelection(.enabled)
-                                            .accessibilityIdentifier("archive-safe-failure")
+                                        VStack(alignment: .leading, spacing: 8) {
+                                            Text("archive.diagnosticStage")
+                                            Text(verbatim: archiveState.failureStage ?? "—")
+                                            Text("archive.diagnosticCode")
+                                            Text(verbatim: archiveState.failureCode ?? "—")
+                                        }
+                                        .font(.caption.monospaced())
+                                        .textSelection(.enabled)
+                                        .accessibilityIdentifier("archive-safe-failure")
                                     }
                                     Button("archive.retry") { archive.startOrRetry(job: job) }
                                         .buttonStyle(.borderedProminent)

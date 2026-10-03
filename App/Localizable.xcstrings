@@ -198,13 +198,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Review selection"
+            "value": "Review photos"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "检查已选照片"
+            "value": "检查照片"
           }
         }
       }
@@ -1164,7 +1164,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "其中 Live Photo 的动态与声音没有归档。数量："
+            "value": "其中实况照片的动态与声音没有归档。数量："
           }
         }
       }
@@ -1190,7 +1190,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Keep Photos, Clear App Files"
+            "value": "Keep Photos, clear App files"
           }
         },
         "zh-Hans": {
@@ -1580,7 +1580,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Live Photo 仅归档静态 JPEG，不保存动态和声音；删除原照片会删除整张 Live Photo。"
+            "value": "实况照片仅归档静态 JPEG，不保存动态和声音；删除原照片会删除整张实况照片。"
           }
         }
       }
@@ -1772,7 +1772,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "自动排序"
+            "value": "按拍摄时间排序"
           }
         }
       }
@@ -2125,6 +2125,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "示例"
+          }
+        }
+      }
+    },
+    "selection.liveBadge": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LIVE"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实况"
+          }
+        }
+      }
+    },
+    "archive.diagnosticStage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Failure stage"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "失败阶段"
+          }
+        }
+      }
+    },
+    "archive.diagnosticCode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Error code (for support)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "错误代码（供支持排查）"
           }
         }
       }
