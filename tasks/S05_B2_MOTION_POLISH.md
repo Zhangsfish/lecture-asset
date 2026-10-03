@@ -14,7 +14,8 @@ This is a narrow product-polish task after S05-B. Do not reopen archive, cleanup
 - Owner reports overall UI is acceptable.
 - Remaining requested changes:
   1. selection helper must state that sweep starts with a brief long press;
-  2. four-page onboarding is understandable but aesthetically too plain/prototype-like.
+  2. current four-page onboarding is understandable but aesthetically too plain/prototype-like;
+  3. onboarding should add a fifth instructional scene showing how the saved AI ZIP can be handed to a generic AI for further work.
 
 Read:
 - STATUS.md
@@ -46,14 +47,19 @@ The animation must visibly show a short press/hold cue before sweep movement.
 
 Do not change the selection gesture implementation itself unless a concrete bug is found.
 
-## 2. Redesign the four instructional scenes visually
+## 2. Redesign the onboarding visually and extend it to five instructional scenes
 
-Teaching sequence remains exactly:
+Teaching sequence is now exactly:
 
 1. long-press + sweep selection;
 2. capture-time order + review/remove mistake;
 3. explicit ZIP + PDF generation;
-4. save ZIP first, then choose one of two cleanup paths.
+4. save ZIP first, then choose one of two cleanup paths;
+5. hand the AI ZIP to a generic AI and ask it to continue the work.
+
+Scene 5 is still instructional: it teaches what the AI ZIP is for. It is not a brand endorsement or promotional hero.
+
+Do not mention or render WorkBuddy, ChatGPT, Kimi, DeepSeek, WeChat or any third-party AI brand in the in-app tutorial.
 
 No promo/JTBD hero, no “舍不得删” message, no ad copy.
 
@@ -87,7 +93,8 @@ Replace the current flat gray-demo-card look with four polished micro-shots:
 - fewer literal generic SF Symbol stacks;
 - smooth anticipation → action → settle rhythm;
 - illustration occupies more visual attention than text;
-- one short title only.
+- one short title only;
+- page indicator/navigation must support 5 scenes cleanly.
 
 Preserve:
 - Skip;
@@ -97,13 +104,46 @@ Preserve:
 - Reduce Motion static/low-motion fallback;
 - Accessibility XXXL usability.
 
+### Scene 5 — Hand to AI
+
+Preferred Chinese title:
+`交给 AI`
+
+English:
+`Hand it to AI`
+
+Visual sequence:
+- the already-saved AI ZIP card becomes the focal object;
+- a lightweight, generic share sheet rises from the bottom;
+- the ZIP is handed to a neutral AI-chat destination with no third-party logo/name;
+- a user chat bubble appears: `概括这场讲座`;
+- the AI produces a compact result card:
+  - `讲座重点`
+  - `01 …`
+  - `02 …`
+  - `03 …`
+- optionally, a final very light row can show output possibilities such as:
+  `笔记 · 报告 · HTML`
+
+Rules:
+- no real external app is opened;
+- no real network request is made;
+- no ShareLink/Share Sheet action is triggered from the tutorial;
+- no brand marks;
+- do not imply every AI always produces HTML;
+- this is a local teaching simulation only.
+
+VoiceOver should explain that the generated ZIP can be shared to an AI, where the user can ask for a summary or other follow-up work.
+
+Reduce Motion should show static states: AI ZIP → generic AI conversation → result card.
+
 ## 3. Design-first workflow
 
 Before finalizing production timing:
 
-1. make deterministic static storyboard states for all 4 scenes;
+1. make deterministic static storyboard states for all 5 scenes;
 2. capture screenshots;
-3. produce one simulator screen recording or deterministic animation evidence covering all four;
+3. produce one simulator screen recording or deterministic animation evidence covering all five;
 4. visually inspect it before declaring DONE.
 
 The goal is not merely “tests pass”; the visual artifact itself is part of acceptance.
@@ -115,6 +155,7 @@ Run:
 - no Photos permission side effect;
 - retained job precedence;
 - scene 1 press-then-sweep teaching semantics;
+- scene 5 generic AI handoff remains local-only, brand-free and performs no external/network action;
 - Reduce Motion;
 - large text;
 - VoiceOver labels/source inspection;
@@ -139,7 +180,7 @@ Create:
 - DELIVERY.md
 - VISUAL_REVIEW.md
 - TEST_RESULTS.json
-- screenshots of all four final scenes
+- screenshots of all five final scenes
 - one short animation/video evidence artifact if practical
 
 Open PR to main. Stop at READY_FOR_AUDIT; do not self-merge.
