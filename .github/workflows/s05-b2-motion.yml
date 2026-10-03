@@ -1,0 +1,96 @@
+name: S05-B2 native storyboard design
+
+on:
+  push:
+    branches: [codex/s05-b2-motion-polish]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Toolchain, resource and focused package checks
+        run: |
+          set -euo pipefail
+          sw_vers
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+          swift --version
+          python3 -m json.tool App/Localizable.xcstrings >/dev/null
+          plutil -lint AppResources/PrivacyInfo.xcprivacy
+          swift test --package-path Packages/SelectionCore
+          S02_ARTIFACT_DIRECTORY="$RUNNER_TEMP/s05-safe-archives" swift test --package-path Packages/ArchiveCore
+      - name: Install verified XcodeGen 2.46.0
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
+            --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version
+      - name: Generate and clean build iPhone Release
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/S05DeviceDerivedData" \
+            CODE_SIGNING_ALLOWED=NO clean build
+          app="$RUNNER_TEMP/S05DeviceDerivedData/Build/Products/Release-iphoneos/Lecture Asset.app"
+          test -f "$app/PrivacyInfo.xcprivacy"
+          plutil -lint "$app/PrivacyInfo.xcprivacy"
+          python3 - "$app/PrivacyInfo.xcprivacy" <<'PY'
+          import plistlib, sys
+          with open(sys.argv[1], 'rb') as source:
+              manifest = plistlib.load(source)
+          reasons = {entry['NSPrivacyAccessedAPIType']: set(entry['NSPrivacyAccessedAPITypeReasons'])
+                     for entry in manifest['NSPrivacyAccessedAPITypes']}
+          assert 'E174.1' in reasons['NSPrivacyAccessedAPICategoryDiskSpace']
+          assert 'C617.1' in reasons['NSPrivacyAccessedAPICategoryFileTimestamp']
+          print('App privacy manifest bundled with expected required-API reasons')
+          PY
+          python3 - "$app" <<'PY'
+          from pathlib import Path
+          import plistlib, sys
+          app = Path(sys.argv[1])
+          bundled = sorted(app.rglob('PrivacyInfo.xcprivacy'))
+          print('Bundled privacy manifests:', [str(p.relative_to(app)) for p in bundled])
+          assert any(p != app / 'PrivacyInfo.xcprivacy' and any(
+              '0A2A.1' in item['NSPrivacyAccessedAPITypeReasons']
+              for item in plistlib.loads(p.read_bytes()).get('NSPrivacyAccessedAPITypes', [])
+          ) for p in bundled), 'ZIPFoundation resource privacy manifest missing'
+          PY
+      - name: Render deterministic native storyboards before timing work
+        run: |
+          set -euo pipefail
+          device=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(next(x["udid"] for r,v in d["devices"].items() if "iOS" in r for x in v if x["name"].startswith("iPhone")))')
+          xcrun simctl boot "$device" >/dev/null 2>&1
+          xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release \
+            -destination "platform=iOS Simulator,id=$device" -parallel-testing-enabled NO \
+            -derivedDataPath "$RUNNER_TEMP/S05B2Simulator" CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES \
+            -only-testing:LectureAssetTests/S05MotionStoryboardTests \
+            -resultBundlePath "$RUNNER_TEMP/Storyboards.xcresult" test
+      - name: Export safe native art
+        if: always()
+        run: |
+          test -d "$RUNNER_TEMP/Storyboards.xcresult" || exit 0
+          xcrun xcresulttool export attachments --path "$RUNNER_TEMP/Storyboards.xcresult" --output-path "$RUNNER_TEMP/storyboard-art"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: s05-b2-storyboards
+          path: ${{ runner.temp }}/storyboard-art/
+          retention-days: 14
