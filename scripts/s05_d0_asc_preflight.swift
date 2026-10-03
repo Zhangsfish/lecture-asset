@@ -9,6 +9,12 @@ struct PreflightError: Error, CustomStringConvertible {
     let description: String
 }
 
+struct HTTPStatusError: Error, CustomStringConvertible {
+    let statusCode: Int
+    let path: String
+    var description: String { "ASC HTTP \(statusCode) for \(path)" }
+}
+
 func base64URL(_ data: Data) -> String {
     data.base64EncodedString()
         .replacingOccurrences(of: "+", with: "-")
@@ -60,7 +66,7 @@ func requestJSON(_ url: URL, bearer: String) throws -> [String: Any] {
     }
     guard (200..<300).contains(http.statusCode) else {
         // Do not print raw response bodies. They can contain account-specific details.
-        throw PreflightError(description: "ASC HTTP \(http.statusCode) for \(url.path)")
+        throw HTTPStatusError(statusCode: http.statusCode, path: url.path)
     }
     guard let object = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
         throw PreflightError(description: "ASC returned unexpected JSON")
@@ -196,32 +202,40 @@ do {
 
     // Region availability: GET only. contentStatuses surfaces App Store Connect
     // blockers such as ICP_NUMBER_MISSING / ICP_NUMBER_INVALID when Apple reports them.
-    let availabilityJSON = try get("apps/\(appID)/appAvailabilityV2", bearer: bearer)
-    guard let availability = dataObject(availabilityJSON) else {
-        throw PreflightError(description: "App availability response missing")
-    }
-
-    var territoryItems: [[String: Any]] = []
-    if let url = relatedURL(availability, relationship: "territoryAvailabilities") {
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-        var queryItems = components?.queryItems ?? []
-        queryItems.append(URLQueryItem(name: "fields[territoryAvailabilities]", value: "available,contentStatuses,territory"))
-        queryItems.append(URLQueryItem(name: "limit", value: "50"))
-        components?.queryItems = queryItems
-        if let pagedURL = components?.url {
-            territoryItems = try paginatedData(startURL: pagedURL, bearer: bearer)
-        }
-    }
-
+    // A 404 is meaningful for a new app: the availability-v2 resource is not created
+    // or not visible yet. Record that state instead of treating it as an API failure.
     var regions: [String: Any] = [:]
-    for item in territoryItems {
-        let code = relatedID(item, relationship: "territory") ?? ""
-        guard code == "CHN" || code == "USA" else { continue }
-        let attrs = attributes(item)
-        regions[code] = [
-            "available": attrs["available"] ?? NSNull(),
-            "contentStatuses": attrs["contentStatuses"] ?? []
-        ]
+    do {
+        let availabilityJSON = try get("apps/\(appID)/appAvailabilityV2", bearer: bearer)
+        guard let availability = dataObject(availabilityJSON) else {
+            throw PreflightError(description: "App availability response missing")
+        }
+
+        var territoryItems: [[String: Any]] = []
+        if let url = relatedURL(availability, relationship: "territoryAvailabilities") {
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            var queryItems = components?.queryItems ?? []
+            queryItems.append(URLQueryItem(name: "fields[territoryAvailabilities]", value: "available,contentStatuses,territory"))
+            queryItems.append(URLQueryItem(name: "limit", value: "50"))
+            components?.queryItems = queryItems
+            if let pagedURL = components?.url {
+                territoryItems = try paginatedData(startURL: pagedURL, bearer: bearer)
+            }
+        }
+
+        for item in territoryItems {
+            let code = relatedID(item, relationship: "territory") ?? ""
+            guard code == "CHN" || code == "USA" else { continue }
+            let attrs = attributes(item)
+            regions[code] = [
+                "available": attrs["available"] ?? NSNull(),
+                "contentStatuses": attrs["contentStatuses"] ?? []
+            ]
+        }
+        output["availabilityResource"] = "AVAILABLE"
+    } catch let error as HTTPStatusError where error.statusCode == 404 {
+        output["availabilityResource"] = "NOT_CREATED_OR_NOT_VISIBLE"
+        print("S05_D0_ASC_AVAILABILITY resource=NOT_CREATED_OR_NOT_VISIBLE")
     }
     output["regions"] = regions
 
@@ -231,7 +245,7 @@ do {
             let statuses = (region["contentStatuses"] as? [String] ?? []).joined(separator: ",")
             print("S05_D0_ASC_REGION code=\(code) available=\(available) statuses=\(statuses.isEmpty ? "NONE" : statuses)")
         } else {
-            print("S05_D0_ASC_REGION code=\(code) unavailable_in_response")
+            print("S05_D0_ASC_REGION code=\(code) status=UNKNOWN_AVAILABILITY_NOT_CONFIGURED")
         }
     }
 
