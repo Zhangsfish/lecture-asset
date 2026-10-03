@@ -4,7 +4,7 @@ Updated: 2026-10-02
 
 ## Now
 
-**S00–S04 PASS. S05-A PASS_WITH_NOTES. S05-B PASS_WITH_NOTES. S05-B2 PASS_WITH_NOTES and merged after owner visual acceptance. Product UI/AI archive work is frozen for v0.1; next is release preparation.**
+**S00–S04 PASS. S05-A/B/B2 PASS_WITH_NOTES. S05-D0 PASS_WITH_NOTES and merged. v0.1 product/runtime remains frozen; current gate is owner release decision, not further implementation.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -24,7 +24,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-B | **PASS_WITH_NOTES** — PR #8 merged; instructional tutorial, visible App-only cleanup and AI ZIP contract accepted | [audit](audits/S05/polish-01.md), [report](reports/S05/polish-01/DELIVERY.md) |
 | S05-B2 | **PASS_WITH_NOTES** — PR #9 merged after owner physical-iPhone visual acceptance; tutorial motion/copy frozen for v0.1 | [audit](audits/S05/motion-polish-01.md), [report](reports/S05/motion-polish-01/DELIVERY.md) |
 | S05-C | PLANNED / BLOCKED_OWNER_COMMERCE — optional StoreKit tip jar, separate task and review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
-| S05-D0 | **READY** — China-first release preflight: public Privacy/Support URLs, metadata/screenshots, ASC/legal/region checks; no submission | [task](tasks/S05_D0_RELEASE_PREFLIGHT.md) |
+| S05-D0 | **PASS_WITH_NOTES / READY_FOR_OWNER_RELEASE_DECISION** — PR #10 merged; public pages, metadata/screenshots, read-only ASC evidence and region cards complete; China filing likely blocker remains | [audit](audits/S05/release-preflight-01.md), [report](reports/S05/release-preflight-01/DELIVERY.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
 
 S05-C is a retained requirement, not silently cancelled. It may follow the first free release; its absence must not create a fake/disabled payment page. The owner decides whether the first public build includes tips after commerce prerequisites are known.
@@ -59,6 +59,6 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
 5. [S05-B audit](audits/S05/polish-01.md)
-6. [S05-D0 release preflight](tasks/S05_D0_RELEASE_PREFLIGHT.md) — deploy/verify public Privacy + Support pages, finalize metadata/screenshots, then complete China-first App Store Connect / legal / region preflight. Do not start App Review until the owner explicitly approves the exact RC and storefront list.
+6. [Owner release decision](reports/S05/release-preflight-01/OWNER_RELEASE_DECISION.md) + [portal checklist](reports/S05/release-preflight-01/OWNER_PORTAL_CHECKLIST.md). Complete only the owner-visible/legal/account checks, choose the initial storefront, then decide whether to authorize a distribution-eligible RC. Do not submit App Review yet.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
