@@ -50,6 +50,7 @@ jobs:
           swift scripts/s05_d0_asc_preflight.swift "$key_file" "$RUNNER_TEMP/asc-preflight.json"
 
       - name: Probe GitHub Pages state without enabling or changing it
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
