@@ -5,6 +5,8 @@ on:
     branches: [chatgpt/s05-d0-readonly-preflight]
     paths:
       - ".github/workflows/s05-d0-screenshots.yml"
+      - "scripts/s05_d0_make_store_media.swift"
+      - "UITests/S05D0StoreScreenshotUITests.swift"
   workflow_dispatch:
 
 permissions:
@@ -13,7 +15,7 @@ permissions:
 jobs:
   capture:
     runs-on: macos-26
-    timeout-minutes: 60
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,7 +36,7 @@ jobs:
           chmod +x "$tool"
           echo "$(dirname "$tool")" >> "$GITHUB_PATH"
 
-      - name: Generate project and capture 6.9-inch synthetic UI
+      - name: Capture Chinese 6.9-inch Store story
         run: |
           set -euo pipefail
           xcodegen generate --spec project.yml
@@ -52,48 +54,32 @@ jobs:
           echo "S05_D0_SCREENSHOT_DEVICE iPhone_17_Pro_Max"
           xcrun simctl boot "$device" >/dev/null 2>&1 || true
           xcrun simctl bootstatus "$device" -b >/dev/null 2>&1
+          xcrun simctl uninstall "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
+          xcrun simctl privacy "$device" reset all com.zhangsfish.lectureasset
 
-          base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+          swift scripts/s05_d0_make_store_media.swift "$RUNNER_TEMP/s05-d0-store-media"
+          xcrun simctl addmedia "$device" "$RUNNER_TEMP/s05-d0-store-media"/*.jpg >/dev/null
+
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
             -configuration Release \
             -destination "platform=iOS Simulator,id=$device" \
             -derivedDataPath "$RUNNER_TEMP/S05D0ScreenshotDerivedData" \
-            -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES)
+            -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES \
+            -only-testing:LectureAssetUITests/S05D0StoreScreenshotUITests \
+            -resultBundlePath "$RUNNER_TEMP/D0StoreScreenshots.xcresult" test
 
-          swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/s05-d0-synthetic"
-          xcrun simctl addmedia "$device" "$RUNNER_TEMP/s05-d0-synthetic"/*.jpg >/dev/null
-
-          "${base[@]}" -only-testing:LectureAssetUITests/PhotoLibraryPermissionUITests \
-            -resultBundlePath "$RUNNER_TEMP/D0Selection.xcresult" test
-
-          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
-          xcrun simctl privacy "$device" reset all com.zhangsfish.lectureasset
-
-          "${base[@]}" -only-testing:LectureAssetUITests/S01ProcessingUITests \
-            -resultBundlePath "$RUNNER_TEMP/D0Review.xcresult" test
-          "${base[@]}" -only-testing:LectureAssetUITests/S02ArchiveUITests \
-            -resultBundlePath "$RUNNER_TEMP/D0Archive.xcresult" test
-          "${base[@]}" -only-testing:LectureAssetUITests/S03ExportUITests \
-            -resultBundlePath "$RUNNER_TEMP/D0Export.xcresult" test
-
-          xcrun simctl terminate "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
-          xcrun simctl uninstall "$device" com.zhangsfish.lectureasset >/dev/null 2>&1 || true
-
-          "${base[@]}" -only-testing:LectureAssetUITests/S05TutorialUITests \
-            -resultBundlePath "$RUNNER_TEMP/D0Tutorial.xcresult" test
-
-      - name: Export screenshot attachments
+      - name: Export and validate screenshot attachments
         if: always()
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/s05-d0-app-store-screenshots"
-          for bundle in D0Selection D0Review D0Archive D0Export D0Tutorial; do
-            test -d "$RUNNER_TEMP/$bundle.xcresult" || continue
-            xcrun xcresulttool export attachments \
-              --path "$RUNNER_TEMP/$bundle.xcresult" \
-              --output-path "$RUNNER_TEMP/s05-d0-app-store-screenshots/$bundle"
-          done
+          out="$RUNNER_TEMP/s05-d0-app-store-screenshots"
+          mkdir -p "$out"
+          test -d "$RUNNER_TEMP/D0StoreScreenshots.xcresult"
+          xcrun xcresulttool export attachments \
+            --path "$RUNNER_TEMP/D0StoreScreenshots.xcresult" \
+            --output-path "$out"
 
-          python3 - "$RUNNER_TEMP/s05-d0-app-store-screenshots" <<'PY'
+          python3 - "$out" <<'PY'
           import json
           import pathlib
           import struct
@@ -117,18 +103,25 @@ jobs:
                   "height": size[1] if size else None,
               })
 
+          if len(entries) != 5:
+              raise SystemExit(f"Expected exactly 5 Store screenshots, found {len(entries)}")
+          dims = {(e["width"], e["height"]) for e in entries}
+          allowed = {(1260, 2736), (1290, 2796), (1320, 2868)}
+          if not dims.issubset(allowed):
+              raise SystemExit(f"Unexpected 6.9-inch screenshot dimensions: {sorted(dims)}")
+
           (root / "DIMENSIONS.json").write_text(
               json.dumps(entries, indent=2) + "\n", encoding="utf-8"
           )
           print("S05_D0_SCREENSHOT_COUNT", len(entries))
-          print("S05_D0_SCREENSHOT_DIMENSIONS", sorted({(e["width"], e["height"]) for e in entries}))
+          print("S05_D0_SCREENSHOT_DIMENSIONS", sorted(dims))
           PY
 
-      - name: Upload synthetic App Store screenshot evidence
+      - name: Upload App Store screenshot evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: s05-d0-app-store-screenshots
+          name: s05-d0-app-store-screenshots-zh
           path: ${{ runner.temp }}/s05-d0-app-store-screenshots/
           if-no-files-found: error
           retention-days: 14
