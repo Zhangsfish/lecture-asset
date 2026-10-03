@@ -1,0 +1,109 @@
+name: S05-D0 read-only release preflight
+
+on:
+  push:
+    branches: [chatgpt/s05-d0-readonly-preflight]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  readonly-preflight:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Toolchain
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          swift --version
+
+      - name: Read App Store Connect state without mutation
+        env:
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          set +x
+          umask 077
+
+          for name in APP_STORE_CONNECT_KEY_ID APP_STORE_CONNECT_ISSUER_ID APP_STORE_CONNECT_PRIVATE_KEY; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "S05_D0_ASC_NOT_VERIFIED missing_setting=$name"
+              exit 2
+            fi
+          done
+
+          secret_dir=$(mktemp -d "$RUNNER_TEMP/s05-d0-apple.XXXXXX")
+          key_file="$secret_dir/AuthKey.p8"
+          trap 'rm -rf "$secret_dir"' EXIT
+          printf '%s' "$APP_STORE_CONNECT_PRIVATE_KEY" > "$key_file"
+          chmod 600 "$key_file"
+
+          swift scripts/s05_d0_asc_preflight.swift "$key_file" "$RUNNER_TEMP/asc-preflight.json"
+
+      - name: Probe GitHub Pages state without enabling or changing it
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          set +x
+
+          response="$RUNNER_TEMP/pages-response.json"
+          code=$(curl --silent --show-error             --output "$response"             --write-out '%{http_code}'             --header "Accept: application/vnd.github+json"             --header "Authorization: Bearer $GH_TOKEN"             --header "X-GitHub-Api-Version: 2022-11-28"             "https://api.github.com/repos/$GITHUB_REPOSITORY/pages")
+
+          python3 - "$code" "$response" "$RUNNER_TEMP/pages-preflight.json" <<'PY'
+          import json
+          import pathlib
+          import sys
+
+          status = int(sys.argv[1])
+          response_path = pathlib.Path(sys.argv[2])
+          output_path = pathlib.Path(sys.argv[3])
+
+          out = {"httpStatus": status}
+          if status == 200:
+              raw = json.loads(response_path.read_text())
+              out.update({
+                  "state": "ENABLED",
+                  "htmlUrl": raw.get("html_url"),
+                  "buildType": raw.get("build_type"),
+                  "status": raw.get("status"),
+                  "cname": raw.get("cname"),
+                  "source": raw.get("source"),
+              })
+              print(
+                  "S05_D0_PAGES_STATE enabled"
+                  f" build_type={raw.get('build_type', 'unknown')}"
+                  f" url={raw.get('html_url', 'unknown')}"
+              )
+          elif status == 404:
+              out["state"] = "NOT_ENABLED_OR_NOT_VISIBLE"
+              print("S05_D0_PAGES_STATE not_enabled_or_not_visible")
+          elif status == 403:
+              out["state"] = "READ_PERMISSION_UNAVAILABLE"
+              print("S05_D0_PAGES_STATE read_permission_unavailable")
+          else:
+              out["state"] = "UNKNOWN"
+              print(f"S05_D0_PAGES_STATE unknown http={status}")
+
+          output_path.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+          PY
+
+      - name: Upload sanitized preflight evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s05-d0-readonly-preflight
+          path: |
+            ${{ runner.temp }}/asc-preflight.json
+            ${{ runner.temp }}/pages-preflight.json
+          if-no-files-found: warn
+          retention-days: 14
