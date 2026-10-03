@@ -1,0 +1,175 @@
+{
+  "stage": "S05-D1",
+  "date": "2026-10-03",
+  "status": "READY_FOR_AUDIT",
+  "preparation_status": "READY_FOR_OWNER_US_DECISION",
+  "us_release_clearance": "BLOCKED",
+  "base_sha": "72e194c0b4ce87485f70288202dbd70d91365d2a",
+  "tested_code_sha": "72e194c0b4ce87485f70288202dbd70d91365d2a",
+  "accepted_runtime_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+  "runtime_source_changed": false,
+  "us_launch_runtime_change_required": "YES",
+  "existing_testflight": {
+    "version": "0.1.0",
+    "build": "30.1",
+    "state": "VALID",
+    "audience": "INTERNAL_ONLY",
+    "evidence": "D0 snapshot; not re-queried this round"
+  },
+  "checks": [
+    {
+      "name": "delivery_files",
+      "status": "PASS",
+      "detail": [
+        "AGENTS.md",
+        "DELIVERY.md",
+        "ENVIRONMENT.md",
+        "US_LEGAL.md",
+        "US_ASC_FIELDS.md",
+        "APP_PRIVACY_RECOMMENDATION.md",
+        "AGE_RATING_US.md",
+        "STORE_CONVERSION_AUDIT.md",
+        "PROMO_READY.md",
+        "listing-en.json",
+        "sources.json"
+      ]
+    },
+    {
+      "name": "only_report_scope",
+      "status": "PASS",
+      "detail": [
+        "reports/S05/us-fallback-01/AGENTS.md",
+        "reports/S05/us-fallback-01/AGE_RATING_US.md",
+        "reports/S05/us-fallback-01/APP_PRIVACY_RECOMMENDATION.md",
+        "reports/S05/us-fallback-01/DELIVERY.md",
+        "reports/S05/us-fallback-01/ENVIRONMENT.md",
+        "reports/S05/us-fallback-01/PROMO_READY.md",
+        "reports/S05/us-fallback-01/STORE_CONVERSION_AUDIT.md",
+        "reports/S05/us-fallback-01/TEST_RESULTS.json",
+        "reports/S05/us-fallback-01/US_ASC_FIELDS.md",
+        "reports/S05/us-fallback-01/US_LEGAL.md",
+        "reports/S05/us-fallback-01/listing-en.json",
+        "reports/S05/us-fallback-01/sources.json",
+        "reports/S05/us-fallback-01/validate_reports.py"
+      ]
+    },
+    {
+      "name": "accepted_runtime_unchanged",
+      "status": "PASS",
+      "detail": {
+        "compared_sha": "618cbb4fa25068f7d117c6da6007ad0e2aa96518",
+        "paths": [
+          "App",
+          "AppResources",
+          "Packages",
+          "project.yml",
+          "schemas"
+        ]
+      }
+    },
+    {
+      "name": "base_ancestry",
+      "status": "PASS",
+      "detail": "72e194c0b4ce87485f70288202dbd70d91365d2a"
+    },
+    {
+      "name": "listing_field_limits",
+      "status": "PASS",
+      "detail": {
+        "name": 13,
+        "subtitle": 29,
+        "keywords": 57,
+        "promotional_text": 154,
+        "description": 1932
+      }
+    },
+    {
+      "name": "listing_is_proposed_only",
+      "status": "PASS",
+      "detail": "No ASC mutation"
+    },
+    {
+      "name": "paste_blocks_exact",
+      "status": "PASS",
+      "detail": "JSON and Markdown match"
+    },
+    {
+      "name": "existing_english_description_reused",
+      "status": "PASS",
+      "detail": "D0 draft reused verbatim"
+    },
+    {
+      "name": "local_report_links",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "reviewed_asset_set",
+      "status": "PASS",
+      "detail": "Icon + five Chinese screenshots"
+    },
+    {
+      "name": "public_pages_reachable",
+      "status": "PASS",
+      "detail": "Direct HTTPS, no login; Chinese pages"
+    },
+    {
+      "name": "official_api_documents_fetched",
+      "status": "PASS",
+      "detail": "Official Apple Markdown read"
+    },
+    {
+      "name": "current_age_api_gap_confirmed",
+      "status": "PASS",
+      "detail": "No age-assurance integration in current App source"
+    }
+  ],
+  "reviewed_assets": [
+    {
+      "path": "App/Assets.xcassets/AppIcon.appiconset/AppIcon.png",
+      "sha256": "a4b796e66c086b08c826bc8cfbd12c4065fa9e92d57069f8dc55e6cb89af625d"
+    },
+    {
+      "path": "reports/S05/release-preflight-01/screenshots/01-select-lecture-photos.png",
+      "sha256": "7787c1c73d4aca1ad685982aa2a347cc3d87f0f4782d0d226c3dd6637cd45351"
+    },
+    {
+      "path": "reports/S05/release-preflight-01/screenshots/02-review-capture-order.png",
+      "sha256": "04e20369b8d3b76df2a6df00c31d31197a78c54d2d013506f51fd0a8110c56a7"
+    },
+    {
+      "path": "reports/S05/release-preflight-01/screenshots/03-photos-prepared.png",
+      "sha256": "e889f96c253100f9941288e6a3a9e2b9f99d06c1c54be7ccec5ab76c2e3d8c79"
+    },
+    {
+      "path": "reports/S05/release-preflight-01/screenshots/04-save-zip-pdf-cleanup.png",
+      "sha256": "cb7a9a42905c677b824a657d693e14b12f38a187a4039c98b48e2641d97cb9e3"
+    },
+    {
+      "path": "reports/S05/release-preflight-01/screenshots/05-hand-off-to-ai.png",
+      "sha256": "de72e9d22e012a8e58a325958b0d0d4ccfd86740eda65529436b2a18a3b5ebcf"
+    }
+  ],
+  "not_run": [
+    "Xcode build",
+    "new CI",
+    "new TestFlight upload",
+    "new device QA",
+    "complete live court docket",
+    "ASC questionnaire entry",
+    "English screenshot production",
+    "conversion experiment",
+    "Remotion render",
+    "distribution RC",
+    "App Review",
+    "public release"
+  ],
+  "unresolved": [
+    "Texas older-OS/new-account age API coverage and consent handling",
+    "Louisiana platform rollout clarification after 2027 statutory postponement",
+    "complete current litigation docket / pre-release legal confirmation",
+    "owner privacy and identity/rights/release decisions",
+    "final English screenshot set and public English help/policy usability"
+  ],
+  "china_support_case_id_recorded": false
+}
