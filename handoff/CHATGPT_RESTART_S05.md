@@ -208,9 +208,9 @@ No App Review submission, public release, legal agreement acceptance, paid confi
 
 The only current READY task is:
 
-`tasks/S05_D0_RELEASE_PREFLIGHT.md`
+`tasks/S05_D0_RELEASE_PREFLIGHT.md` is now complete and merged as PR #10.
 
-Goal: prepare v0.1 for an owner release decision **without submitting App Review**.
+Current gate: `reports/S05/release-preflight-01/OWNER_RELEASE_DECISION.md` — owner release decision and portal/legal checks. App Review remains blocked.
 
 S05-D0 should:
 1. deploy/verify stable public Privacy + Support pages from:
@@ -254,16 +254,16 @@ If classification remains uncertain, record the uncertainty and the exact offici
 
 ## After S05-D0
 
-If D0 returns no blockers:
-1. owner reviews exact metadata/screenshots/public URLs/region list;
-2. prepare or confirm exact RC build;
-3. owner explicitly authorizes App Review submission for the exact RC + storefronts;
-4. then execute `tasks/S05_RELEASE.md`.
+S05-D0 was accepted PASS_WITH_NOTES and PR #10 squash-merged as `38801a8f19f3c511b518807800a6a1e0140195ca`.
 
-If China is blocked:
-- report the exact blocker;
-- do not silently switch to US;
-- owner decides whether to resolve China first or choose US as first storefront.
+Current owner gate:
+1. use `reports/S05/release-preflight-01/OWNER_PORTAL_CHECKLIST.md` for read-only ASC checks;
+2. resolve/confirm China APP filing classification; current state is STRONG_FILING_RISK / likely China release blocker;
+3. complete `OWNER_RELEASE_DECISION.md` with initial storefront and owner-only declarations;
+4. only after that may owner authorize creation/upload of a distribution-eligible RC;
+5. App Review submission remains a separate explicit authorization.
+
+Do not silently switch to US.
 
 After first free release:
 - S05-C optional StoreKit tip jar can be revisited separately.
@@ -288,7 +288,8 @@ Use Chinese and be direct.
 
 Before giving Codex instructions:
 - fetch latest main;
-- read STATUS and current READY task;
+- read STATUS and the current owner-decision gate;
+- do not reopen S05-D0 as an implementation task;
 - do not rely on the SHA in this handoff if GitHub has advanced.
 
 For S05-D0, the owner wants Codex to do as much as possible autonomously:
