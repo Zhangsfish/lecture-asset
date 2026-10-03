@@ -329,3 +329,111 @@ S05-B owns:
 - final TestFlight visual/accessibility pass.
 
 Marketing video work starts after S05-B visuals are stable. It is not an App Store submission blocker and must not delay core product acceptance if the video takes more iteration.
+
+
+## 8. S05-B2 tutorial visual-polish decision
+
+Owner device review of TestFlight 0.1.0 (29.1):
+
+- instructional structure is correct;
+- Chinese tutorial is understandable;
+- visual treatment feels too prototype-like / engineer-demo-like;
+- selection copy is inaccurate because continuous sweep actually begins with a UILongPressGestureRecognizer (minimum press duration 0.15 s), not an immediate drag.
+
+### Interaction-copy correction
+
+Home helper should describe the real gesture:
+
+Chinese:
+`点按选择；长按并滑动可连续选择，最多 200 张`
+
+English:
+`Tap to select; press and drag to sweep, up to 200 photos.`
+
+Tutorial scene 1 title may be:
+`长按滑动选择`
+with a short press pulse before motion.
+
+### Visual diagnosis
+
+Current tutorial succeeds functionally but looks mechanical because it relies on:
+
+- flat gray container;
+- generic SF Symbols as the dominant artwork;
+- discrete state swaps;
+- little depth, rhythm or anticipation;
+- no strong visual focal point;
+- scene 1 shows motion but not the required press/hold before sweep.
+
+### Technical direction
+
+Keep the runtime implementation native SwiftUI. Do not replace onboarding with embedded video.
+
+Use:
+- SwiftUI `Canvas` / custom `Shape` for richer local graphics;
+- `KeyframeAnimator` for motion choreography;
+- `PhaseAnimator` only for coarse scene phases;
+- `matchedGeometryEffect` where objects morph between semantic states;
+- subtle `symbolEffect` for confirmation moments;
+- scale/blur/opacity/depth transitions and spring timing;
+- local synthetic thumbnail cards, not real Photos and not remote assets.
+
+Do **not** add Lottie/Rive/remote video/WebView for v0.1.
+
+Reason:
+- native localization remains trivial;
+- VoiceOver/Reduce Motion stay first-class;
+- no new SDK/privacy/runtime dependency;
+- four scenes are small enough that the quality problem is art direction, not capability.
+
+### Motion-design rule
+
+Design each tutorial scene as a 2–3 second micro-shot, like a small product-film shot rather than an animated settings panel.
+
+Scene 1 — press + sweep:
+- finger lands;
+- brief 0.15–0.25 s press pulse/ripple;
+- then drags through a curved path;
+- selected cells lift slightly and gain checks with staggered timing;
+- motion path is visible only as a subtle temporary guide.
+
+Scene 2 — review/order:
+- three or four photo cards arrive misordered and slightly rotated;
+- timestamps / numbers briefly appear;
+- cards snap into chronological order with spring;
+- one mistaken card is tapped and exits cleanly.
+
+Scene 3 — generate:
+- ordered stack compresses into a centered processing node;
+- lightweight OCR/text-line accents appear briefly;
+- node splits into two polished file cards: ZIP and PDF;
+- avoid literal “clipboard icon + labels” layout.
+
+Scene 4 — save/clean:
+- ZIP card moves into a Files/folder destination;
+- success state lands with a quiet seal/check;
+- only after save confirmation do two cleanup paths fan out:
+  1. delete source Photos;
+  2. keep Photos / clear App files.
+- keep the safety sequence visually causal.
+
+### Layout / typography
+
+- smaller scene title than the current oversized headline;
+- illustration gets more screen priority;
+- remove the heavy gray “demo panel” feel;
+- use system background/material/depth rather than a single large gray rectangle;
+- keep text to one short title; no explanatory body copy;
+- preserve pinned Back/Next controls and Skip.
+
+### Design workflow
+
+For S05-B2:
+1. first build static storyboard previews for all four scenes;
+2. render/record one short animatic from those scenes;
+3. inspect screenshots/video for visual rhythm;
+4. only then wire final SwiftUI timing;
+5. run focused tutorial/large-text/Reduce Motion regression;
+6. ship one Internal TestFlight preview.
+
+The separate promotional-video project may use Remotion later, but onboarding remains native SwiftUI.
