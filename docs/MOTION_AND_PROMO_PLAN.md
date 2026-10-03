@@ -43,7 +43,7 @@ Apple references used for this decision: SwiftUI phase/keyframe animation APIs a
 
 There is **no marketing/value-proposition hero scene** in onboarding.
 
-Each scene communicates **one action**. Target 2.5–3.5 seconds per scene, with the important motion occurring immediately. Auto-play once; user can tap/swipe through at any time. Keep Skip visible.
+Each scene communicates **one action**. The onboarding now has **five** scenes. Target 2.5–3.5 seconds per scene, with the important motion occurring immediately. Auto-play once; user can tap/swipe through at any time. Keep Skip visible.
 
 #### Scene 1 — select
 
@@ -109,6 +109,31 @@ Copy:
 **保存后再清理**
 
 This scene teaches the safety model and the newly promoted second cleanup path.
+
+#### Scene 5 — hand to AI
+
+Visual:
+
+- saved AI ZIP is shown as the starting object;
+- a generic share sheet rises;
+- the ZIP is handed to a neutral AI-chat destination;
+- user bubble: **概括这场讲座**;
+- AI result card appears with **讲座重点 / 01 / 02 / 03**;
+- optional final output hints: **笔记 · 报告 · HTML**.
+
+Copy:
+
+**交给 AI**
+
+This scene teaches the purpose of the AI ZIP after export. It is not a promotional endorsement.
+
+Strict boundaries:
+
+- no WorkBuddy, ChatGPT or other vendor branding in the App;
+- no WeChat logo or direct-brand path in onboarding;
+- no network call or real share action from the tutorial;
+- use a generic local AI conversation simulation only;
+- vendor-specific China flow may be shown later in the promotional video after separate creative review.
 
 ### Accessibility behavior
 
@@ -388,7 +413,7 @@ Reason:
 
 ### Motion-design rule
 
-Design each tutorial scene as a 2–3 second micro-shot, like a small product-film shot rather than an animated settings panel.
+Design each tutorial scene as a 2–3 second micro-shot, like a small product-film shot rather than an animated settings panel. There are now five scenes.
 
 Scene 1 — press + sweep:
 - finger lands;
@@ -417,6 +442,15 @@ Scene 4 — save/clean:
   2. keep Photos / clear App files.
 - keep the safety sequence visually causal.
 
+Scene 5 — handoff to AI:
+- reuse the saved ZIP card from scene 4 as continuity;
+- generic share sheet rises with restrained depth;
+- ZIP lands in a neutral chat canvas;
+- user prompt `概括这场讲座` types in quickly;
+- result card expands with three concise bullet rows;
+- optionally end with subtle chips `笔记 · 报告 · HTML`;
+- no third-party brand or logo.
+
 ### Layout / typography
 
 - smaller scene title than the current oversized headline;
@@ -429,7 +463,7 @@ Scene 4 — save/clean:
 ### Design workflow
 
 For S05-B2:
-1. first build static storyboard previews for all four scenes;
+1. first build static storyboard previews for all five scenes;
 2. render/record one short animatic from those scenes;
 3. inspect screenshots/video for visual rhythm;
 4. only then wire final SwiftUI timing;
