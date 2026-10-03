@@ -12,7 +12,7 @@ struct PreflightError: Error, CustomStringConvertible {
 struct HTTPStatusError: Error, CustomStringConvertible {
     let statusCode: Int
     let path: String
-    var description: String { "ASC HTTP \(statusCode) for \(path)" }
+    var description: String { "ASC HTTP \(statusCode)" }
 }
 
 func base64URL(_ data: Data) -> String {
@@ -21,6 +21,16 @@ func base64URL(_ data: Data) -> String {
         .replacingOccurrences(of: "/", with: "_")
         .replacingOccurrences(of: "=", with: "")
 }
+
+final class NoRedirect: NSObject, URLSessionTaskDelegate {
+    func urlSession(_ session: URLSession, task: URLSessionTask,
+                    willPerformHTTPRedirection response: HTTPURLResponse,
+                    newRequest request: URLRequest,
+                    completionHandler: @escaping (URLRequest?) -> Void) {
+        completionHandler(nil)
+    }
+}
+let ascSession = URLSession(configuration: .ephemeral, delegate: NoRedirect(), delegateQueue: nil)
 
 func makeToken(key: P256.Signing.PrivateKey, keyID: String, issuerID: String) throws -> String {
     let now = Int(Date().timeIntervalSince1970)
@@ -51,7 +61,7 @@ func requestJSON(_ url: URL, bearer: String) throws -> [String: Any] {
     var response: URLResponse?
     var requestError: Error?
 
-    URLSession.shared.dataTask(with: request) { data, result, error in
+    ascSession.dataTask(with: request) { data, result, error in
         responseData = data
         response = result
         requestError = error
@@ -371,6 +381,8 @@ do {
 
     print("S05_D0_ASC_PREFLIGHT_OK output=asc-preflight.json")
 } catch {
-    print("S05_D0_ASC_NOT_VERIFIED " + String(describing: error))
+    if let safe = error as? PreflightError { print("S05_D0_ASC_NOT_VERIFIED " + safe.description) }
+    else if let safe = error as? HTTPStatusError { print("S05_D0_ASC_NOT_VERIFIED " + safe.description) }
+    else { print("S05_D0_ASC_NOT_VERIFIED local_crypto_or_json_error") }
     exit(1)
 }

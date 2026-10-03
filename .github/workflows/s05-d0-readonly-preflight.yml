@@ -3,6 +3,7 @@ name: S05-D0 read-only release preflight
 on:
   push:
     branches: [codex/s05-d0-release-preflight]
+    paths: [.github/workflows/s05-d0-readonly-preflight.yml, scripts/s05_d0_asc_preflight.swift]
   workflow_dispatch:
 
 permissions:
