@@ -239,6 +239,47 @@ do {
     }
     output["regions"] = regions
 
+    // Older App Store Connect records can expose the legacy availableTerritories
+    // relationship before AppAvailabilityV2 exists. Read it only as an additional
+    // signal; it cannot expose the v2 contentStatuses/ICP status.
+    do {
+        let legacyJSON = try get("apps/\(appID)/availableTerritories", queries: [
+            URLQueryItem(name: "limit", value: "200")
+        ], bearer: bearer)
+        let ids = Set(dataArray(legacyJSON).compactMap { $0["id"] as? String })
+        output["legacyAvailableTerritories"] = [
+            "read": "AVAILABLE",
+            "CHN": ids.contains("CHN"),
+            "USA": ids.contains("USA"),
+            "count": ids.count
+        ]
+        print("S05_D0_ASC_LEGACY_AVAILABILITY CHN=\(ids.contains("CHN")) USA=\(ids.contains("USA")) count=\(ids.count)")
+    } catch let error as HTTPStatusError where error.statusCode == 404 {
+        output["legacyAvailableTerritories"] = ["read": "NOT_CREATED_OR_NOT_VISIBLE"]
+        print("S05_D0_ASC_LEGACY_AVAILABILITY resource=NOT_CREATED_OR_NOT_VISIBLE")
+    } catch {
+        output["legacyAvailableTerritories"] = ["read": "UNAVAILABLE"]
+        print("S05_D0_ASC_LEGACY_AVAILABILITY read=UNAVAILABLE")
+    }
+
+    // Territory catalog is read-only and answers whether CHN/USA are valid current
+    // App Store territories independently of this app's own availability config.
+    do {
+        let catalogJSON = try get("territories", queries: [
+            URLQueryItem(name: "limit", value: "200")
+        ], bearer: bearer)
+        let ids = Set(dataArray(catalogJSON).compactMap { $0["id"] as? String })
+        output["storefrontCatalog"] = [
+            "CHN": ids.contains("CHN"),
+            "USA": ids.contains("USA"),
+            "count": ids.count
+        ]
+        print("S05_D0_ASC_STOREFRONT_CATALOG CHN=\(ids.contains("CHN")) USA=\(ids.contains("USA")) count=\(ids.count)")
+    } catch {
+        output["storefrontCatalog"] = ["read": "UNAVAILABLE"]
+        print("S05_D0_ASC_STOREFRONT_CATALOG read=UNAVAILABLE")
+    }
+
     for code in ["CHN", "USA"] {
         if let region = regions[code] as? [String: Any] {
             let available = String(describing: region["available"] ?? "unknown")
