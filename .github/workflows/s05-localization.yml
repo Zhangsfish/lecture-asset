@@ -1,0 +1,122 @@
+name: S05 bilingual Release localization
+
+on:
+  push:
+    branches: [codex/s05-localization]
+    paths: [App/**, Tests/**, UITests/**, project.yml, scripts/check_localization.py, .github/workflows/s05-localization.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  focused:
+    runs-on: macos-26
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Catalog audit and toolchain
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          sw_vers
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+          python3 scripts/check_localization.py --output "$RUNNER_TEMP/localization/string-audit.json"
+      - name: Verified XcodeGen 2.46.0
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          test -n "$tool"
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version
+      - name: Real clean Release device build and bundled locales
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release \
+            -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/LocalizationDevice" CODE_SIGNING_ALLOWED=NO clean build
+          app="$RUNNER_TEMP/LocalizationDevice/Build/Products/Release-iphoneos/Lecture Asset.app"
+          python3 - "$app" <<'PY'
+          import pathlib, plistlib, subprocess, sys
+          app = pathlib.Path(sys.argv[1])
+          locales = sorted(p.name for p in app.glob('*.lproj'))
+          assert locales == ['en.lproj', 'zh-Hans.lproj'], locales
+          for locale, name in [('en', 'Lecture Asset'), ('zh-Hans', '讲座照片整理')]:
+              raw = subprocess.check_output(['plutil', '-convert', 'xml1', '-o', '-', str(app / f'{locale}.lproj/InfoPlist.strings')])
+              info = plistlib.loads(raw)
+              assert info['CFBundleDisplayName'] == name
+              assert info['NSPhotoLibraryUsageDescription']
+              assert (app / f'{locale}.lproj/Localizable.strings').exists()
+          info = plistlib.loads((app / 'Info.plist').read_bytes())
+          assert info['CFBundleIdentifier'] == 'com.zhangsfish.lectureasset'
+          print('Release bundle: exactly en / zh-Hans; both display names and permission descriptions present')
+          PY
+      - name: Release simulator bilingual navigation and confirmation visuals
+        run: |
+          set -euo pipefail
+          runtime=$(xcrun simctl list runtimes -j | python3 -c 'import json,sys; print(next(r["identifier"] for r in json.load(sys.stdin)["runtimes"] if r["name"].startswith("iOS") and r["isAvailable"]))')
+          type=com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max
+          swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/localization-media"
+          for locale in en zh-Hans; do
+            device=$(xcrun simctl create "Localization $locale 6.9 inch" "$type" "$runtime")
+            xcrun simctl boot "$device"
+            xcrun simctl bootstatus "$device" -b
+            xcrun simctl spawn "$device" defaults write NSGlobalDomain AppleLanguages -array "$locale"
+            if [ "$locale" = en ]; then
+              class=EnglishLocalizationUITests
+              xcrun simctl spawn "$device" defaults write NSGlobalDomain AppleLocale -string en_US
+            else
+              class=ChineseLocalizationUITests
+              xcrun simctl spawn "$device" defaults write NSGlobalDomain AppleLocale -string zh_CN
+            fi
+            xcrun simctl shutdown "$device"
+            xcrun simctl boot "$device"
+            xcrun simctl bootstatus "$device" -b
+            base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release \
+              -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/LocalizationSimulator" \
+              -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES)
+            if [ "$locale" = en ]; then
+              "${base[@]}" -only-testing:LectureAssetTests/LocalizationResourceTests \
+                -only-testing:LectureAssetTests/S05TutorialTests -only-testing:LectureAssetTests/S01RecoveryTests \
+                -only-testing:LectureAssetTests/S03CleanupTests -resultBundlePath "$RUNNER_TEMP/LocalizationResources.xcresult" test
+              xcrun simctl terminate "$device" com.zhangsfish.lectureasset || true
+              xcrun simctl uninstall "$device" com.zhangsfish.lectureasset
+            fi
+            for number in 01 02 03 04 05 06; do
+              xcrun simctl addmedia "$device" "$RUNNER_TEMP/localization-media/$number.jpg"
+            done
+            "${base[@]}" -only-testing:"LectureAssetUITests/$class/testNormalFlow" \
+              -resultBundlePath "$RUNNER_TEMP/Localization-$locale-flow.xcresult" test
+            "${base[@]}" -only-testing:LectureAssetTests/LocalizationReceiptFixtureTests/testStageSyntheticReceiptForConfirmationVisualOnly test
+            "${base[@]}" -only-testing:"LectureAssetUITests/$class/testDeletionConfirmationCancelOnly" \
+              -only-testing:"LectureAssetUITests/$class/testLargeText" \
+              -resultBundlePath "$RUNNER_TEMP/Localization-$locale-confirmation.xcresult" test
+            "${base[@]}" -only-testing:LectureAssetTests/LocalizationReceiptFixtureTests/testStageSafeFailureForLocalizedDetails test
+            "${base[@]}" -only-testing:"LectureAssetUITests/$class/testSafeFailureDetails" \
+              -resultBundlePath "$RUNNER_TEMP/Localization-$locale-failure.xcresult" test
+            xcrun simctl shutdown "$device"
+          done
+      - name: Export synthetic evidence
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/localization/screenshots"
+          for bundle in "$RUNNER_TEMP"/Localization*.xcresult; do
+            test -d "$bundle" || continue
+            name=$(basename "$bundle" .xcresult)
+            xcrun xcresulttool export attachments --path "$bundle" --output-path "$RUNNER_TEMP/localization/screenshots/$name"
+            xcrun xcresulttool get test-results summary --path "$bundle" > "$RUNNER_TEMP/localization/$name-summary.json"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: s05-localization-safe-evidence
+          path: ${{ runner.temp }}/localization/
+          retention-days: 14
