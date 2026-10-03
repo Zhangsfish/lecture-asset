@@ -1,0 +1,57 @@
+name: S05-D0 read-only release preflight
+
+on:
+  push:
+    branches: [codex/s05-d0-release-preflight]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  readonly-preflight:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Toolchain
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          swift --version
+
+      - name: Read App Store Connect state without mutation
+        env:
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          set +x
+          umask 077
+
+          for name in APP_STORE_CONNECT_KEY_ID APP_STORE_CONNECT_ISSUER_ID APP_STORE_CONNECT_PRIVATE_KEY; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "S05_D0_ASC_NOT_VERIFIED missing_setting=$name"
+              exit 2
+            fi
+          done
+
+          secret_dir=$(mktemp -d "$RUNNER_TEMP/s05-d0-apple.XXXXXX")
+          key_file="$secret_dir/AuthKey.p8"
+          trap 'rm -rf "$secret_dir"' EXIT
+          printf '%s' "$APP_STORE_CONNECT_PRIVATE_KEY" > "$key_file"
+          chmod 600 "$key_file"
+
+          swift scripts/s05_d0_asc_preflight.swift "$key_file" "$RUNNER_TEMP/asc-preflight.json"
+
+      - name: Upload sanitized preflight evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: s05-d0-readonly-preflight
+          path: ${{ runner.temp }}/asc-preflight.json
+          if-no-files-found: error
+          retention-days: 14
