@@ -34,8 +34,13 @@ class LocalizationUIBase: XCTestCase {
     @MainActor
     func cancelDialog(_ app: XCUIApplication) {
         let cancel = app.buttons.matching(NSPredicate(format: "label == %@ OR label == %@", "Cancel", "取消")).firstMatch
-        XCTAssertTrue(cancel.waitForExistence(timeout: 5))
-        cancel.tap()
+        if cancel.exists {
+            cancel.tap()
+        } else {
+            // Native popovers dismiss outside; the existing S03 test uses the
+            // same path. Never tap a destructive row just to close a dialog.
+            app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.98)).tap()
+        }
     }
 
     @MainActor

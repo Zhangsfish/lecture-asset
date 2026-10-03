@@ -81,7 +81,7 @@ jobs:
             xcrun simctl bootstatus "$device" -b
             base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release \
               -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/LocalizationSimulator" \
-              -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES)
+              -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES)
             if [ "$locale" = en ]; then
               "${base[@]}" -only-testing:LectureAssetTests/LocalizationResourceTests \
                 -only-testing:LectureAssetTests/S05TutorialTests -only-testing:LectureAssetTests/S01RecoveryTests \
