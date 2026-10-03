@@ -1,0 +1,67 @@
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/37138365560
+Tested implementation SHA: 28e2ec53f61bd2607df2ac79f07320cb55b03664
+Selected public toolchain / result lines only; not raw build log.
+2026-10-03T16:51:14.9375880Z ProductName:		macOS
+2026-10-03T16:51:14.9377200Z ProductVersion:		26.6.2
+2026-10-03T16:51:15.7257770Z Xcode 26.6
+2026-10-03T16:51:15.7273800Z Build version 17F113
+2026-10-03T16:51:20.0425280Z [36;1mprint('Release bundle: exactly en / zh-Hans; both display names and permission descriptions present')[0m
+2026-10-03T16:52:52.4285170Z ** BUILD SUCCEEDED **
+2026-10-03T16:52:52.6838230Z Release bundle: exactly en / zh-Hans; both display names and permission descriptions present
+2026-10-03T17:01:28.7510670Z Test Suite 'LocalizationResourceTests' passed at 2026-10-03 17:01:28.129.
+2026-10-03T17:01:31.8537560Z Test Suite 'S01RecoveryTests' passed at 2026-10-03 17:01:28.283.
+2026-10-03T17:01:31.8646850Z 	 Executed 3 tests, with 0 failures (0 unexpected) in 0.149 (0.153) seconds
+2026-10-03T17:01:32.2842380Z Test Suite 'S03CleanupTests' passed at 2026-10-03 17:01:30.153.
+2026-10-03T17:01:32.3081350Z 	 Executed 5 tests, with 0 failures (0 unexpected) in 1.867 (1.870) seconds
+2026-10-03T17:01:32.9423840Z Test Suite 'S05TutorialTests' passed at 2026-10-03 17:01:31.822.
+2026-10-03T17:01:32.9747910Z Test Suite 'LectureAssetTests.xctest' passed at 2026-10-03 17:01:31.823.
+2026-10-03T17:01:33.0210200Z 	 Executed 10 tests, with 0 failures (0 unexpected) in 2.031 (3.705) seconds
+2026-10-03T17:01:33.0313930Z Test Suite 'Selected tests' passed at 2026-10-03 17:01:31.824.
+2026-10-03T17:01:33.0420750Z 	 Executed 10 tests, with 0 failures (0 unexpected) in 2.031 (3.707) seconds
+2026-10-03T17:01:33.7065940Z ** TEST SUCCEEDED **
+2026-10-03T17:05:22.8450130Z Test Suite 'EnglishLocalizationUITests' passed at 2026-10-03 17:05:22.822.
+2026-10-03T17:05:22.8463200Z Test Suite 'LectureAssetUITests.xctest' passed at 2026-10-03 17:05:22.824.
+2026-10-03T17:05:22.8569020Z Test Suite 'Selected tests' passed at 2026-10-03 17:05:22.825.
+2026-10-03T17:05:24.4666770Z ** TEST SUCCEEDED **
+2026-10-03T17:05:54.3760910Z Test Suite 'LocalizationReceiptFixtureTests' passed at 2026-10-03 17:05:54.356.
+2026-10-03T17:05:54.4037030Z Test Suite 'LectureAssetTests.xctest' passed at 2026-10-03 17:05:54.356.
+2026-10-03T17:05:54.4273060Z Test Suite 'Selected tests' passed at 2026-10-03 17:05:54.356.
+2026-10-03T17:05:55.5570650Z ** TEST SUCCEEDED **
+2026-10-03T17:07:21.0575420Z Test Suite 'EnglishLocalizationUITests' passed at 2026-10-03 17:07:21.004.
+2026-10-03T17:07:21.0741400Z 	 Executed 2 tests, with 0 failures (0 unexpected) in 55.460 (55.481) seconds
+2026-10-03T17:07:21.0836350Z Test Suite 'LectureAssetUITests.xctest' passed at 2026-10-03 17:07:21.005.
+2026-10-03T17:07:21.1099350Z 	 Executed 2 tests, with 0 failures (0 unexpected) in 55.460 (55.482) seconds
+2026-10-03T17:07:21.1209260Z Test Suite 'Selected tests' passed at 2026-10-03 17:07:21.005.
+2026-10-03T17:07:21.1330580Z 	 Executed 2 tests, with 0 failures (0 unexpected) in 55.460 (55.484) seconds
+2026-10-03T17:07:23.5627550Z ** TEST SUCCEEDED **
+2026-10-03T17:07:50.9983370Z Test Suite 'LocalizationReceiptFixtureTests' passed at 2026-10-03 17:07:50.978.
+2026-10-03T17:07:51.0195280Z Test Suite 'LectureAssetTests.xctest' passed at 2026-10-03 17:07:50.979.
+2026-10-03T17:07:51.0486630Z Test Suite 'Selected tests' passed at 2026-10-03 17:07:50.979.
+2026-10-03T17:07:52.0558740Z ** TEST SUCCEEDED **
+2026-10-03T17:08:29.7373370Z Test Suite 'EnglishLocalizationUITests' passed at 2026-10-03 17:08:29.729.
+2026-10-03T17:08:29.7820030Z Test Suite 'LectureAssetUITests.xctest' passed at 2026-10-03 17:08:29.730.
+2026-10-03T17:08:29.7825890Z Test Suite 'Selected tests' passed at 2026-10-03 17:08:29.730.
+2026-10-03T17:08:30.3918950Z ** TEST SUCCEEDED **
+2026-10-03T17:15:26.0676830Z Test Suite 'ChineseLocalizationUITests' passed at 2026-10-03 17:15:26.050.
+2026-10-03T17:15:26.2151580Z Test Suite 'LectureAssetUITests.xctest' passed at 2026-10-03 17:15:26.051.
+2026-10-03T17:15:26.2155410Z Test Suite 'Selected tests' passed at 2026-10-03 17:15:26.051.
+2026-10-03T17:15:26.8352190Z ** TEST SUCCEEDED **
+2026-10-03T17:15:45.8947150Z Test Suite 'LocalizationReceiptFixtureTests' passed at 2026-10-03 17:15:45.846.
+2026-10-03T17:15:45.9175920Z Test Suite 'LectureAssetTests.xctest' passed at 2026-10-03 17:15:45.846.
+2026-10-03T17:15:45.9617310Z Test Suite 'Selected tests' passed at 2026-10-03 17:15:45.846.
+2026-10-03T17:15:46.5647040Z ** TEST SUCCEEDED **
+2026-10-03T17:16:36.3603870Z Test Suite 'ChineseLocalizationUITests' passed at 2026-10-03 17:16:36.329.
+2026-10-03T17:16:36.3605940Z 	 Executed 2 tests, with 0 failures (0 unexpected) in 36.668 (36.670) seconds
+2026-10-03T17:16:36.3607550Z Test Suite 'LectureAssetUITests.xctest' passed at 2026-10-03 17:16:36.330.
+2026-10-03T17:16:36.3609020Z 	 Executed 2 tests, with 0 failures (0 unexpected) in 36.668 (36.670) seconds
+2026-10-03T17:16:36.3609650Z Test Suite 'Selected tests' passed at 2026-10-03 17:16:36.330.
+2026-10-03T17:16:36.3610420Z 	 Executed 2 tests, with 0 failures (0 unexpected) in 36.668 (36.671) seconds
+2026-10-03T17:16:36.9683460Z ** TEST SUCCEEDED **
+2026-10-03T17:16:49.0838610Z Test Suite 'LocalizationReceiptFixtureTests' passed at 2026-10-03 17:16:49.028.
+2026-10-03T17:16:49.1719090Z Test Suite 'LectureAssetTests.xctest' passed at 2026-10-03 17:16:49.028.
+2026-10-03T17:16:49.1773620Z Test Suite 'Selected tests' passed at 2026-10-03 17:16:49.029.
+2026-10-03T17:16:49.6894860Z ** TEST SUCCEEDED **
+2026-10-03T17:17:05.2896200Z Test Suite 'ChineseLocalizationUITests' passed at 2026-10-03 17:17:05.276.
+2026-10-03T17:17:05.3080340Z Test Suite 'LectureAssetUITests.xctest' passed at 2026-10-03 17:17:05.277.
+2026-10-03T17:17:05.3258440Z Test Suite 'Selected tests' passed at 2026-10-03 17:17:05.277.
+2026-10-03T17:17:05.8155240Z ** TEST SUCCEEDED **
