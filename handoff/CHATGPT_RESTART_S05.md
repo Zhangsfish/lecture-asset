@@ -257,16 +257,23 @@ If classification remains uncertain, record the uncertainty and the exact offici
 S05-D0 was accepted PASS_WITH_NOTES and PR #10 squash-merged as `38801a8f19f3c511b518807800a6a1e0140195ca`.
 
 Current owner gate:
-1. use `reports/S05/release-preflight-01/OWNER_PORTAL_CHECKLIST.md` for read-only ASC checks;
-2. resolve/confirm China APP filing classification; current state is STRONG_FILING_RISK / likely China release blocker;
-3. complete `OWNER_RELEASE_DECISION.md` with initial storefront and owner-only declarations;
-4. only after that may owner authorize creation/upload of a distribution-eligible RC;
-5. App Review submission remains a separate explicit authorization.
+1. China: Apple Developer Support filing/exemption inquiry has been submitted; wait for the reply. Case ID is private and must not be stored in public GitHub.
+2. US fallback: S05-D1 was accepted PASS_WITH_NOTES and PR #11 squash-merged as `f50c027da489ee6e9c0dabc18c6cfdf1ab7c72b6`.
+3. The unchanged runtime is not considered nationwide-US release-ready because Texas currently creates an age-assurance/runtime gap; exact older-iOS/new-account handling remains unresolved.
+4. App Privacy treatment of bare external `mailto:` support is NEEDS_FINAL_CONFIRMATION; Data Not Collected remains a reasonable candidate, conservative support disclosure remains an owner option.
+5. Current icon may remain for v0.1; highest-value creative work is store screenshot conversion framing, English localization, and real PDF preview.
+6. Do not authorize a distribution RC or App Review yet.
 
 Do not silently switch to US.
 
 After first free release:
 - S05-C optional StoreKit tip jar can be revisited separately.
+
+US fallback evidence:
+- `reports/S05/us-fallback-01/DELIVERY.md`
+- `reports/S05/us-fallback-01/US_LEGAL.md`
+- `reports/S05/us-fallback-01/STORE_CONVERSION_AUDIT.md`
+- `audits/S05/us-fallback-01.md`
 
 ## Marketing / promo backlog
 
