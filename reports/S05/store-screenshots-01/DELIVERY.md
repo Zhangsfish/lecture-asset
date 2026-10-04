@@ -7,6 +7,7 @@
 
 - Base main: `4afd804ff2bdedec0a181181d768932a01b52b1b`.
 - Exact Release capture/test SHA: `d7a65e878df94c2ac24ebaa47793bac5294719f9`.
+- Exact current static-validation implementation SHA: `d6ad38e4836bae94bae8e881611ef7fee01b412d`.
 - Prior static-render/validation SHA: `74e9d376ddc51cbb728a642ebac85128973ad093`.
 - App tree `eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5`: identical to base main.
 - [Successful focused CI](https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310):

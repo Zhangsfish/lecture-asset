@@ -326,5 +326,6 @@
     "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/render_store.py",
     "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/validate_store.py",
     "git diff --check"
-  ]
+  ],
+  "exact_render_tested_sha": "d6ad38e4836bae94bae8e881611ef7fee01b412d"
 }
