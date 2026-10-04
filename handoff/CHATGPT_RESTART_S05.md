@@ -262,7 +262,9 @@ Current owner gate:
 3. The unchanged runtime is not considered nationwide-US release-ready because Texas currently creates an age-assurance/runtime gap; exact older-iOS/new-account handling remains unresolved.
 4. App Privacy treatment of bare external `mailto:` support is NEEDS_FINAL_CONFIRMATION; Data Not Collected remains a reasonable candidate, conservative support disclosure remains an owner option.
 5. Current icon may remain for v0.1; highest-value creative work is store screenshot conversion framing, English localization, and real PDF preview.
-6. Do not authorize a distribution RC or App Review yet.
+6. Bilingual localization (English + zh-Hans) was accepted PASS_WITH_NOTES and PR #12 squash-merged as `24714d3b75f2620aa0f9b2d10524e9518303f501`. The same binary follows standard iOS language selection; no storefront-specific language fork exists.
+7. Current owner-facing creative work: keep the original icon composition, compare revised blue color treatments, then prepare only the minimum App Store screenshot set. No extra landing-page project is required.
+8. Do not authorize a distribution RC or App Review yet.
 
 Do not silently switch to US.
 
