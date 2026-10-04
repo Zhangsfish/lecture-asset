@@ -11,8 +11,22 @@ final class S05StoreScreenshotsUITests: XCTestCase {
         if app.buttons["tutorial-skip"].waitForExistence(timeout: 15) {
             app.buttons["tutorial-skip"].tap()
         }
-        // Capture setup grants full Photos access on this disposable simulator.
-        // The production permission gate is unchanged; this is not new permission QA.
+        let allow = app.buttons["permission-allow"]
+        if allow.waitForExistence(timeout: 10) {
+            allow.tap()
+            let predicate = NSPredicate(format:
+                "label CONTAINS[c] %@ OR label CONTAINS[c] %@", "Full Access", "All Photos")
+            let appFull = app.buttons.matching(predicate).firstMatch
+            let systemFull = XCUIApplication(bundleIdentifier: "com.apple.springboard").buttons.matching(predicate).firstMatch
+            // On current runtimes Photos permission can be hosted in the App,
+            // rather than as a SpringBoard Alert. Search actual button labels.
+            if appFull.waitForExistence(timeout: 10) {
+                appFull.tap()
+            } else {
+                XCTAssertTrue(systemFull.waitForExistence(timeout: 15))
+                systemFull.tap()
+            }
+        }
         XCTAssertTrue(app.cells["photo-cell-0"].waitForExistence(timeout: 30))
         for index in 0..<12 { app.cells["photo-cell-\(index)"].tap() }
         keep(app, "selection")
