@@ -50,3 +50,5 @@ Third-party artwork identification is recorded in illustrative-assets/SOURCES.js
 publication/brand clearance NOT_RUN. No private device screenshot is published.
 No new Xcode/device test, ASC, TestFlight, App Review, sharing/deletion or broad QA.
 Final files: store/en/*.png; review aid: CONTACT_SHEET.png.
+
+Tested illustration implementation SHA: `ebcc2baec6a4a797073f567891dcffce45c5c189`. Both commands PASS at this SHA; subsequent commit records evidence only.

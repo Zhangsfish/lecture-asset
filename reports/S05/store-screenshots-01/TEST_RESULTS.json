@@ -5,7 +5,7 @@
   "base_main_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
   "starting_pr_head": "79c344446c603019c4687500f475196c42d4f6ad",
   "comparison_baseline": "b260bedc40c0ddc715f53ee46b67a2112313747f",
-  "tested_implementation_sha": "PENDING",
+  "tested_implementation_sha": "ebcc2baec6a4a797073f567891dcffce45c5c189",
   "exact_capture_tested_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
   "prior_capture_ci": {
     "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885",
