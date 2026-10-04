@@ -1,1 +1,2 @@
 "NSPhotoLibraryUsageDescription" = "Lecture Asset needs full photo library access to select lecture photos and, only after separate sharing and confirmation steps, delete the exact selected sources.";
+"CFBundleDisplayName" = "Lecture Asset";

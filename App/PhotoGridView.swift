@@ -263,7 +263,7 @@ private final class PhotoCell: UICollectionViewCell {
         selectionBadge.frame = CGRect(x: 4, y: 4, width: 24, height: 24)
         contentView.addSubview(selectionBadge)
 
-        liveBadge.text = "LIVE"
+        liveBadge.text = String(localized: "selection.liveBadge")
         liveBadge.font = .systemFont(ofSize: 9, weight: .bold)
         liveBadge.textColor = .white
         liveBadge.backgroundColor = UIColor.black.withAlphaComponent(0.6)

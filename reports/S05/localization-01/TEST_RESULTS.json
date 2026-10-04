@@ -1,0 +1,82 @@
+{
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "fcb49f70026f37622612736dacd7f8426628dce5",
+  "tested_code_sha": "28e2ec53f61bd2607df2ac79f07320cb55b03664",
+  "app_tree_git_object": "5a54e80ef08bbb1c4092bd85d99ac2c4c98e73ec",
+  "supported_locales": ["en", "zh-Hans"],
+  "ci": {
+    "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37138365560",
+    "conclusion": "success",
+    "host": "GitHub-hosted macos-26",
+    "macos": "26.6.2 (25G83)",
+    "xcode": "26.6 (17F113)",
+    "ios_device_sdk": "26.5",
+    "xcodegen": "2.46.0",
+    "device_build": "PASS: unsigned generic iOS clean Release build",
+    "compiled_locales_and_bundle_id": "PASS",
+    "simulator": "iPhone 17 Pro Max 6.9-inch / iOS 26.2 (23C54) / arm64",
+    "configuration": "Release with XCTest testability; ONLY_ACTIVE_ARCH=YES",
+    "executions": 22,
+    "unit_and_fixture_executions": 14,
+    "ui_executions": 8,
+    "failures": 0,
+    "skipped": 0,
+    "groups": {
+      "LocalizationResourceTests": 1,
+      "S01RecoveryTests": 3,
+      "S03CleanupTests": 5,
+      "S05TutorialTests": 1,
+      "LocalizationReceiptFixtureTests_per_locale": 2,
+      "EnglishLocalizationUITests": 4,
+      "ChineseLocalizationUITests": 4
+    }
+  },
+  "catalog": {
+    "result": "PASS",
+    "keys": 136,
+    "english_translations": 136,
+    "zh_hans_translations": 136,
+    "missing_english": 0,
+    "missing_zh_hans": 0,
+    "missing_referenced_keys": 0,
+    "not_translated": 0,
+    "unsupported_locales": 0,
+    "unreferenced_keys_retained": 15,
+    "duplicate_exact_string_groups_en": 3,
+    "duplicate_exact_string_groups_zh_hans": 2,
+    "identical_en_zh_hans_values": 0,
+    "residual_hardcoded_natural_language_sentences_found": 0,
+    "limitation": "Quoted-key scan plus manual Swift UI/data-path review; not an exhaustive compiler data-flow proof"
+  },
+  "targeted_results": {
+    "five_tutorial_scenes_both_locales": "PASS",
+    "about_before_photos_permission": "PASS",
+    "system_photos_full_authorization_prompt_both_locales": "PASS (simulator)",
+    "selection_review_frozen_order": "PASS (two generated sources)",
+    "real_synthetic_jpeg_ocr_archive_ready": "PASS",
+    "app_only_cleanup_confirmation_cancel": "PASS",
+    "fresh_exact_source_delete_preflight_confirmation_cancel": "PASS (test-host synthetic receipt only)",
+    "complete_photos_count_unchanged_after_cancel": "PASS",
+    "relaunch_retains_ready_job_conservative_delete_gate": "PASS",
+    "about_navigation_replay_preserves_job": "PASS",
+    "accessibility_xxxl_ready_about_tutorial_navigation": "PASS",
+    "safe_failure_labels_and_verbatim_codes": "PASS (synthetic checkpoint)",
+    "visual_review": "See UI_REVIEW.md and EVIDENCE_INDEX.json",
+    "git_diff_whitespace": "PASS",
+    "frozen_engine_contract_source_diff": "PASS: unchanged against base"
+  },
+  "earlier_ci_failures": [
+    {"run": 37136374714, "sha": "b91f7e27e8b073a1fc1dc4f8a700cfad30ea76a7", "cause": "Test-only Cancel lookup on native popover without Cancel row", "resolution": "Outside-dismiss fallback consistent with existing S03 test; no App change"},
+    {"run": 37137511790, "sha": "49d22f2d052d3affdacf06603b4fb5d067bcf17e", "cause": "Test-only fresh simulator Photos count assumed six; actually six stock plus six generated", "resolution": "Verify generated filenames and record/compare actual whole-library count; no App change"}
+  ],
+  "not_run": [
+    {"check": "Physical iPhone permission prompt / localized desktop icon label / spoken VoiceOver", "status": "NOT_RUN", "reason": "BLOCKED_ENV: Windows host with no attached macOS/iPhone test path; no new TestFlight upload authorized"},
+    {"check": "Restricted/limited/iCloud-only/single-page failure-removal rare branch visuals", "status": "NOT_RUN", "reason": "Source/catalog/compiled translations reviewed; no extra scenario injection beyond focused locale cases"},
+    {"check": "Live Photo badge visual", "status": "NOT_RUN", "reason": "Synthetic source photos are ordinary stills; string/resource review only"},
+    {"check": "100/200-page stress / WeChat / source deletion / interoperability", "status": "NOT_RUN", "reason": "Explicitly out of scope; validated engines unchanged"},
+    {"check": "ASC / TestFlight / distribution RC / App Review / public release", "status": "NOT_RUN", "reason": "Not authorized for this localization task"}
+  ],
+  "localization_release_blocker_found": false,
+  "release_clearance": "NOT_GRANTED: existing legal/owner/App Privacy gates unchanged",
+  "source_identity_note": "Final report-only commit may change PR head; tested App and test/workflow source remain exactly the tested checkout. No runtime changes after first implementation commit."
+}

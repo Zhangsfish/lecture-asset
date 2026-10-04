@@ -1,0 +1,486 @@
+{
+  "tested_code_sha": "28e2ec53f61bd2607df2ac79f07320cb55b03664",
+  "workflow_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37138365560",
+  "artifact_id": 11279209869,
+  "artifact_digest": "sha256:eb2ac81e8f11072a52d53c52db9a19a242655511e2f5c7cfa3e03c01f476fc73",
+  "original_artifact_digest_verification": "NOT_RUN (selected ZIP entries downloaded with CRC checks; full artifact not downloaded)",
+  "screenshot_count": 42,
+  "screenshots": [
+    {
+      "file": "screenshots/localization-en-source-deletion-confirmation-CANCELLED.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 354255,
+      "sha256": "002f4ba785b58afdeab67356192636dc1a36d68c0574d26cb43d6df603eb8379",
+      "test": "EnglishLocalizationUITests/testDeletionConfirmationCancelOnly()"
+    },
+    {
+      "file": "screenshots/localization-en-large-text-tutorial.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 606389,
+      "sha256": "4fea7fa9916dc729b93791276510b906e4e8c5dc614d9a8070e07380acb9eb88",
+      "test": "EnglishLocalizationUITests/testLargeText()"
+    },
+    {
+      "file": "screenshots/localization-en-large-text-about.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 264319,
+      "sha256": "70e2e66a6c89799f2a54cfd65e0848b76baca7bc8ae39b4e16b084b55368ddab",
+      "test": "EnglishLocalizationUITests/testLargeText()"
+    },
+    {
+      "file": "screenshots/localization-en-large-text-ready.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 243160,
+      "sha256": "93ec115ad51bd493df19872c6613a450c1c91d662b6c20f4c7202d55666fa173",
+      "test": "EnglishLocalizationUITests/testLargeText()"
+    },
+    {
+      "file": "screenshots/localization-en-safe-failure-details.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 157749,
+      "sha256": "a2fe34530e52d63d19c62fe28b6d212aff2e81e9adbfed1f55805a35a0f19d2d",
+      "test": "EnglishLocalizationUITests/testSafeFailureDetails()"
+    },
+    {
+      "file": "screenshots/localization-en-recovered-ready.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 124142,
+      "sha256": "d97e49daf3a8358e80684e928786af6121529464c4e8d2096ec5b03a1c9426c8",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-about-privacy-version.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 395019,
+      "sha256": "e9d6c2bde537255843a1d9b368168cdedad52a6b250727675ffac0a554cdd98f",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-about-top.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 276156,
+      "sha256": "b88b6463b0d1032957138af2fcd125535ee1689848ef04f9ff4a6c49e94181ed",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-app-only-confirmation.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 307518,
+      "sha256": "92cea3166c0932d45dbe66602d413a9028eb5ab69f1106d15fb577bd1f8f3140",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-archive-ready-cleanup.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 125328,
+      "sha256": "780860d6a4f5578e83771f55a7f9055b82429d4a32485f409b4a69da635a15d3",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-photos-prepared.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 117122,
+      "sha256": "5066714c66c32833e6f9d7cf84fe3907cceac6b13a40ff50e26392fd8da0ae58",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-review.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 266185,
+      "sha256": "dd0b3280204c9aece4f033f7b17c469bc7404c1ecf38887944d0946377c2df0e",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-selection.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 1461693,
+      "sha256": "7bfdb1c48bdff8061c381f14d929904b992a08575a5381efb1c7fc77099b9d90",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-system-permission.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 753233,
+      "sha256": "2a000089a140ab6fe0ed58a6087e9e0a2eab80ead255744da0e13f20ca5b9a6d",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-about-before-permission.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 276531,
+      "sha256": "3a8899639f506e5ff0eb91ad04b5d2c1f72e081c0927484cdfb643ace4549200",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-permission-gate.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 130414,
+      "sha256": "5a4af16e47d6376a01c477b2be72f683bef570a498632d7bbadc39aa64c16e35",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-tutorial-5.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 703844,
+      "sha256": "c3b04fadc19fdea72d8a80fbc0553464a0e175a9ab9c8262f00e14f77119f837",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-tutorial-4.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 460972,
+      "sha256": "1b82514ee665c9a886d28d6a1b8982693d23110656dd7cf4b920e8f509cac6b3",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-tutorial-3.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 757535,
+      "sha256": "a60a86cdfd1c047c508dadf4c92907c71c855ca474bd95c42fc704394ba152a5",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-tutorial-2.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 458667,
+      "sha256": "fff39d5b31af02fa60b3933ad4efb3e8d2f8787d58dc74c07e39cf1bd2192671",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-en-tutorial-1.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 526258,
+      "sha256": "97f64d8027eea7b511b0ac9e49bbaaa7db44352d2a010a81224052bae5555c1e",
+      "test": "EnglishLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-source-deletion-confirmation-CANCELLED.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 381437,
+      "sha256": "3cc750609391438bec40fcb59b1813f7b014a323db09c9d90a5d52e87c7f0b86",
+      "test": "ChineseLocalizationUITests/testDeletionConfirmationCancelOnly()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-large-text-tutorial.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 491433,
+      "sha256": "6e628582952d2f5cea73bd415db0aaee3c195c2a94632dcb6389611a8c6659aa",
+      "test": "ChineseLocalizationUITests/testLargeText()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-large-text-about.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 293645,
+      "sha256": "24b737492be4717d7cc9841ee3f8e5107cad3a76c67dae1c9f627292ea4db194",
+      "test": "ChineseLocalizationUITests/testLargeText()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-large-text-ready.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 250161,
+      "sha256": "16d4395bb4d844c92b5c7c334f5fffac4f7f97e1472925a6ce9e3898e7fdd7d6",
+      "test": "ChineseLocalizationUITests/testLargeText()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-safe-failure-details.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 172120,
+      "sha256": "3cc349abf2b3de5440c7bdc9b84f1afcd475f33336f751ea2da4fd622bf71a97",
+      "test": "ChineseLocalizationUITests/testSafeFailureDetails()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-recovered-ready.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 132678,
+      "sha256": "7112a8e242f1c0fe1371e2d70739ea9d6fcbf6bee01cd860265b9f251539ed50",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-about-privacy-version.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 451192,
+      "sha256": "adbf9c3bde1a88e107135fe33adb68efe3f0d8907356cac51824c9b2257d64ba",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-about-top.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 316404,
+      "sha256": "a241146e493ac6e63b2e8b9424360c0dd6bf89575cea59c0b6b7c9d1a9642ec8",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-app-only-confirmation.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 303471,
+      "sha256": "c96d29fd6f76032e0ba6610190281f5e271356067c4c2241b3e4e9ae79d1d2ca",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-archive-ready-cleanup.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 133082,
+      "sha256": "a742850587b936d849f6725d1f47473a6bfe09d04fe2171a27fce71b780d283a",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-photos-prepared.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 119425,
+      "sha256": "b21c2a5014315e3f31e8cb730fa792cd4d53b368a8406a0693af5dc500aeac6f",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-review.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 265258,
+      "sha256": "dbd0df6f0098ad2f6f4945c8090637ef9e83e4344a77d99eda02ba16f85bf401",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-selection.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 1469735,
+      "sha256": "0546640952b66a6d7c65f2f8b45cdb8ba1fa47d65f88f3ae922d510e0eb90dd6",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-system-permission.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 753079,
+      "sha256": "df24c850066377853ba19dfe0e29f0aa155f46bdfd39db381d90e44ced082a80",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-about-before-permission.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 315998,
+      "sha256": "af8e80f90eceedef2b6ae5727b0c8b06e8fc51b52721d7520a8631688a368488",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-permission-gate.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 138731,
+      "sha256": "4d06d23da531c2a002ced644b6c156391a81022f9de6483f58bcc3a27cb8bbfd",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-tutorial-5.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 698448,
+      "sha256": "61c29ce089e5f3030aece093613990f23217d4f50d2f117881a9ae2dac6ad2a0",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-tutorial-4.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 462021,
+      "sha256": "06ea3a91cb013d3978d2d2e52ac5f2e4130d93c5d5367ccc2ae8b6c8e61c5373",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-tutorial-3.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 753563,
+      "sha256": "b7b03d6700a550dff7f6a39bb5b8e94d70cf2162cc0025210a372fd31e8ab965",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-tutorial-2.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 457449,
+      "sha256": "0812debf2e20bcf23bee208376228bb6632afc4f3678dae4da3c807eedbdc6a4",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    },
+    {
+      "file": "screenshots/localization-zh-Hans-tutorial-1.png",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "bytes": 526038,
+      "sha256": "32b37a4c273550a4b11e33dbf5f1de57bb700be75452665e36872128bf2c2860",
+      "test": "ChineseLocalizationUITests/testNormalFlow()"
+    }
+  ],
+  "xcresult_summaries": {
+    "Localization-en-confirmation-summary": {
+      "result": "Passed",
+      "totalTestCount": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    "Localization-en-failure-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    "Localization-en-flow-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    "Localization-zh-Hans-confirmation-summary": {
+      "result": "Passed",
+      "totalTestCount": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    "Localization-zh-Hans-failure-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    "Localization-zh-Hans-flow-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    "LocalizationResources-summary": {
+      "result": "Passed",
+      "totalTestCount": 10,
+      "passedTests": 10,
+      "failedTests": 0,
+      "skippedTests": 0
+    }
+  },
+  "fixture_executions": {
+    "count": 4,
+    "failures": 0,
+    "evidence": "CI_SAFE_RESULT.txt"
+  }
+}

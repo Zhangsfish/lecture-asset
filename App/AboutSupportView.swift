@@ -21,7 +21,9 @@ struct AboutSupportView: View {
                 }
                 Section("about.contactTitle") {
                     Button { openURL(URL(string: "mailto:zhangs.taq@gmail.com")!) } label: {
-                        Label("zhangs.taq@gmail.com", systemImage: "envelope")
+                        Label { Text(verbatim: "zhangs.taq@gmail.com") } icon: {
+                            Image(systemName: "envelope")
+                        }
                     }.accessibilityIdentifier("about-email")
                     Button(emailCopied ? "about.emailCopied" : "about.copyEmail", systemImage: "doc.on.doc") {
                         UIPasteboard.general.string = "zhangs.taq@gmail.com"
