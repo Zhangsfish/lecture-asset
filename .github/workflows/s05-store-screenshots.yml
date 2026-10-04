@@ -49,6 +49,13 @@ jobs:
           xcrun simctl spawn "$device" defaults write NSGlobalDomain AppleLocale en_US
           xcrun simctl status_bar "$device" override --time '9:41' --dataNetwork wifi --wifiMode active --wifiBars 3 --batteryState charged --batteryLevel 100
           xcrun simctl addmedia "$device" reports/S05/store-screenshots-01/fixtures/*.jpg
+          # Deterministic synthetic capture setup, not a new permission-dialog test.
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release \
+            -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/StoreDerived" \
+            CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES build-for-testing
+          xcrun simctl install "$device" "$RUNNER_TEMP/StoreDerived/Build/Products/Release-iphonesimulator/Lecture Asset.app"
+          xcrun simctl privacy "$device" grant photos com.zhangsfish.lectureasset
+          xcrun simctl privacy "$device" grant photos-add com.zhangsfish.lectureasset
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release \
             -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/StoreDerived" \
             CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES -parallel-testing-enabled NO \
