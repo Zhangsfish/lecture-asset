@@ -26,6 +26,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-C | PLANNED / BLOCKED_OWNER_COMMERCE — optional StoreKit tip jar, separate task and review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
 | S05-D0 | **PASS_WITH_NOTES / READY_FOR_OWNER_RELEASE_DECISION** — PR #10 merged; public pages, metadata/screenshots, read-only ASC evidence and region cards complete; China filing likely blocker remains | [audit](audits/S05/release-preflight-01.md), [report](reports/S05/release-preflight-01/DELIVERY.md) |
 | S05-D1 | **PASS_WITH_NOTES / READY_FOR_OWNER_US_DECISION** — PR #11 merged; US legal/runtime and store-conversion audit complete; unchanged runtime is not US release-ready | [audit](audits/S05/us-fallback-01.md), [report](reports/S05/us-fallback-01/DELIVERY.md) |
+| S05-L10N | **PASS_WITH_NOTES** — PR #12 merged; same binary now has complete English + zh-Hans UI/InfoPlist localization | [audit](audits/S05/localization-01.md), [report](reports/S05/localization-01/DELIVERY.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
 
 S05-C is a retained requirement, not silently cancelled. It may follow the first free release; its absence must not create a fake/disabled payment page. The owner decides whether the first public build includes tips after commerce prerequisites are known.
@@ -60,6 +61,6 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
 5. [S05-B audit](audits/S05/polish-01.md)
-6. Current gate: wait for Apple’s China filing/exemption reply while keeping the [owner release decision](reports/S05/release-preflight-01/OWNER_RELEASE_DECISION.md) open. US fallback research is complete in [S05-D1](reports/S05/us-fallback-01/DELIVERY.md), but the unchanged runtime is not US release-ready. Do not authorize a distribution RC or App Review yet.
+6. Localization is complete (en + zh-Hans). Current owner-facing work may proceed on the existing icon color treatment and minimum App Store screenshots. China filing inquiry remains pending; US fallback research is complete but Texas age-assurance/runtime work remains unresolved. Do not authorize a distribution RC or App Review yet.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
