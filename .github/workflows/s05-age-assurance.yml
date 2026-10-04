@@ -2,7 +2,7 @@ name: S05-D2 focused age assurance
 on:
   push:
     branches: [codex/s05-d2-age-assurance]
-    paths: ["App/**", "Tests/AgeAssuranceTests.swift", "project.yml", ".github/workflows/s05-age-assurance.yml"]
+    paths: ["App/**", "Tests/AgeAssuranceTests.swift", "project.yml", "scripts/check_age_release.py", ".github/workflows/s05-age-assurance.yml"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -35,7 +35,7 @@ jobs:
           set -euo pipefail
           xcodegen generate --spec project.yml
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/AgeDevice" CODE_SIGNING_ALLOWED=NO clean build
-      - name: Release simulator tests and final signature entitlement
+      - name: Release simulator tests and final embedded entitlement
         run: |
           set -euo pipefail
           runtime=$(xcrun simctl list runtimes -j | python3 -c 'import json,sys; print(next(r["identifier"] for r in json.load(sys.stdin)["runtimes"] if r["name"].startswith("iOS") and r["isAvailable"]))')
@@ -44,14 +44,8 @@ jobs:
           xcrun simctl bootstatus "$device" -b
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/AgeSim" ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -parallel-testing-enabled NO -only-testing:LectureAssetTests/AgeAssuranceTests -only-testing:LectureAssetTests/S01RecoveryTests -only-testing:LectureAssetTests/S03CleanupTests -only-testing:LectureAssetTests/LocalizationResourceTests -resultBundlePath "$RUNNER_TEMP/AgeTests.xcresult" test
           app="$RUNNER_TEMP/AgeSim/Build/Products/Release-iphonesimulator/Lecture Asset.app"
-          codesign --display --entitlements - "$app" > "$RUNNER_TEMP/age-entitlements.plist"
-          python3 - "$RUNNER_TEMP/age-entitlements.plist" "$RUNNER_TEMP/age-evidence/entitlement.json" <<'PY'
-          import json,plistlib,sys
-          d=plistlib.load(open(sys.argv[1],'rb'))
-          assert d.get('com.apple.developer.declared-age-range') is True
-          json.dump({'release_simulator_signature_declared_age_range': True, 'signing': 'Xcode ad-hoc, not Apple distribution provisioning'},open(sys.argv[2],'w'),indent=2)
-          PY
           xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/AgeTests.xcresult" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(json.dumps({k:d[k] for k in ["result","totalTestCount","passedTests","failedTests","skippedTests"]},indent=2))' > "$RUNNER_TEMP/age-evidence/tests.json"
+          python3 scripts/check_age_release.py "$app" "$RUNNER_TEMP/age-evidence/entitlement.json"
           xcrun simctl shutdown "$device"
       - uses: actions/upload-artifact@v4
         if: always()
