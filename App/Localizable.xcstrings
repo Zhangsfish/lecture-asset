@@ -2176,6 +2176,70 @@
           }
         }
       }
+    },
+    "age.unresolvedTitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Age confirmation unavailable"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂时无法完成年龄确认"
+          }
+        }
+      }
+    },
+    "age.unsupported": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regional age confirmation is unavailable on this iOS version. Help remains available."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此 iOS 版本不支持地区年龄确认。你仍可阅读帮助。"
+          }
+        }
+      }
+    },
+    "age.unresolved": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple could not complete age confirmation. Try again before starting photo work."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple 未能完成年龄确认。请重试后再开始整理照片。"
+          }
+        }
+      }
+    },
+    "age.retry": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retry"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
