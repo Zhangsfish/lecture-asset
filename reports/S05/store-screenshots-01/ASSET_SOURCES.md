@@ -21,7 +21,9 @@ the product presents those actions in the same state.
 
 Source provenance, workflow and test summary are preserved with these captures.
 Raw screenshots carry the PNG sRGB tag. They are not retouched or relabeled; the renderer only uniformly
-resizes them and masks physical frame corners. Overlay text remains outside.
+resizes them, masks physical frame corners, and crops the bottom at the canvas
+edge on frames 3/5/6. Overlay text remains outside. All original capture hashes
+remain identical to reviewed PR head c8d2d8f; no recapture was performed.
 Only Release simulator evidence is claimed, not owner/device screenshots.
 
 ## Fictional content / illustrations

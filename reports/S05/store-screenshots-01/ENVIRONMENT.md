@@ -47,6 +47,6 @@ python3 reports/S05/store-screenshots-01/scripts/export_captures.py \
 
 Physical-device visual review, conversion experiment, App Store upload/approval,
 Chinese final images, 100/200-photo QA and destructive Photos tests: NOT_RUN.
-These are outside the authorized screenshot scope. This is READY_FOR_AUDIT for
+These are outside the authorized screenshot scope. This is READY_FOR_REAUDIT for
 assets; regional compliance and exact distribution RC authorization remain
 separate unresolved release gates, unchanged by this task.

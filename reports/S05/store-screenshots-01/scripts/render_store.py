@@ -22,13 +22,13 @@ BLUE, INK, MUTED, MINT = '#4772A8', '#203247', '#6C7A89', '#4B907C'
 STORY = [
     ('01-lecture-photos', 'selection', ['One lecture.', 'Dozens of slide photos.'],
      'Rarely revisited. Hard to delete.', '一场讲座，几十张 PPT 照片。'),
-    ('02-select-and-sort', 'review', ['Select a batch.', 'Keep capture order.'],
-     'Press, then drag to select.', '批量选择，按拍摄时间排好。'),
+    ('02-select-and-sort', 'review', ['Select a batch.', 'Sorted by capture time.'],
+     'Press, then drag to select.', '批量选好，按拍摄时间排好。'),
     ('03-generate-pdf-zip', 'ready', ['Generate ZIP and PDF', 'in one go.'],
      '', '一次生成 ZIP 和 PDF。'),
-    ('04-pdf-for-review', 'pdf', ['Save it as a PDF', 'for later review.'],
-     '', '保存为 PDF，方便以后回看。'),
-    ('05-ai-zip-to-ai', 'ready', ['Hand the AI ZIP to AI.', 'Keep exploring the lecture.'],
+    ('04-pdf-for-review', 'pdf', ['Keep a PDF', 'for later review.'],
+     '', 'PDF 留着，以后随时回看。'),
+    ('05-ai-zip-to-ai', 'ready', ['Share the AI ZIP with an AI tool.', 'Keep exploring the lecture.'],
      '', '把 AI ZIP 交给 AI，继续理解这场讲座。'),
     ('06-save-then-clean', 'ready', ['Save first.', 'Choose what to clear.'],
      '', '先保存，再决定清理什么。'),
@@ -99,20 +99,25 @@ def file_card(im, x, y, label, color, width=245, height=310):
 def phone(im, capture, y=1160, width=748):
     raw = Image.open(ROOT/'captures'/f'store-en-{capture}.png').convert('RGB')
     assert raw.size == (1320,2868)
-    border = 14
+    frame_scale = width/748
+    border = round(14*frame_scale)
+    corner = round(83*frame_scale)
     sw = width-2*border
     sh = round(sw*raw.height/raw.width)
     height = sh+2*border
     x = (W-width)//2
-    panel(im,(x,y,x+width,y+height),radius=98,color='#20252B',shadow=55)
+    panel(im,(x,y,x+width,y+height),radius=round(98*frame_scale),color='#20252B',shadow=55)
     screen = raw.resize((sw,sh),Image.Resampling.LANCZOS).convert('RGBA')
     mask = Image.new('L',screen.size)
-    ImageDraw.Draw(mask).rounded_rectangle((0,0,sw,sh),radius=83,fill=255)
+    ImageDraw.Draw(mask).rounded_rectangle((0,0,sw,sh),radius=corner,fill=255)
     screen.putalpha(mask)
     im.alpha_composite(screen,(x+border,y+border))
     # No replacement status bar, synthesized controls or fictional app screen.
     return {'raw':f'store-en-{capture}.png','screen_rect':[x+border,y+border,sw,sh],
-            'transform':'uniform LANCZOS resize; rounded corner mask only'}
+            'phone_rect':[x,y,width,height],
+            'screen_corner_radius':corner,
+            'phone_bottom_cropped':y+height>H,
+            'transform':'uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds'}
 
 def background():
     yy, xx = np.mgrid[0:H,0:W]
@@ -162,15 +167,15 @@ def render(index, item):
         d.line([(502,836),(611,836),(611,649),(1090,649),(1090,690)],fill='#AABFD5',width=6,joint='curve')
         d.line([(611,836),(668,836),(668,690),(804,690)],fill='#AABFD5',width=6,joint='curve')
         # A stack branches to two distinct outputs, never a native UI control.
-        file_card(im,713,686,'AI ZIP',BLUE,215,307)
-        file_card(im,980,717,'PDF',MINT,215,307)
+        file_card(im,713,686,'PDF',MINT,215,307)
+        file_card(im,980,717,'AI ZIP',BLUE,215,307)
     elif index==4:
         # A legible enlarged fictional slide, outside the real PDF viewer.
         slide_card(im,13,195,697,884,angle=0)
         panel(im,(804,1111,1119,1182),20)
         text(im,(833,1125),'PDF · 12 pages',29,fill=MINT,bold=True)
     elif index==5:
-        text(im,(112,606),'AFTER EXPORT · OUTSIDE LECTURE ASSET',38,fill=BLUE,bold=True)
+        text(im,(466,646),'After export · AI tool example',28,fill='#7B8999')
         file_card(im,115,733,'AI ZIP',BLUE,228,310)
         d=ImageDraw.Draw(im)
         d.line((371,888,421,888),fill='#AABFD5',width=7)
@@ -184,11 +189,11 @@ def render(index, item):
                 x,y=504+k*326,855+j*105
                 d.rounded_rectangle((x,y,x+301,y+75),18,fill='#F3F7FB')
                 text(im,(x+19,y+17),value,29,fill=BLUE,bold=True)
-        text(im,(116,1150),'Use an AI tool that can inspect the ZIP’s images.',28,fill=MUTED)
+        text(im,(466,1150),'Use an AI tool that can read images.',24,fill='#7B8999')
     elif index==6:
         panel(im,(402,668,918,774),28)
         check(im,436,696,47,MINT)
-        text(im,(509,690),'Confirm saved',37,bold=True)
+        text(im,(499,693),'Confirm ZIP saved',33,bold=True)
         d=ImageDraw.Draw(im)
         d.line([(660,795),(660,828),(368,828),(368,862)],fill='#AABFD5',width=5)
         d.line([(660,828),(952,828),(952,862)],fill='#AABFD5',width=5)
@@ -200,8 +205,9 @@ def render(index, item):
         text(im,(126,1065),'Source deletion needs separate confirmation.',29,fill=MUTED)
     # Draw the native screen last: even a soft illustrative shadow may not
     # recolor screenshot pixels. Scene 4's bigger paper sits above the bezel.
-    info = phone(im,capture,y=1212 if index==5 else 1240 if index==4 else 1160,
-                 width=724 if index==5 else 748)
+    ready_window = index in (3,5,6)
+    info = phone(im,capture,y=1360 if ready_window else 1240 if index==4 else 1160,
+                 width=1160 if ready_window else 748)
     output=ROOT/'store'/'en'/(name+'.png')
     output.parent.mkdir(parents=True,exist_ok=True)
     im.convert('RGB').save(output,icc_profile=ICC,optimize=True)

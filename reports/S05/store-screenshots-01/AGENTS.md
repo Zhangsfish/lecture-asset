@@ -22,5 +22,9 @@ No real share completion, Photos deletion, ASC changes or TestFlight upload.
 Chinese headlines recorded; Chinese final images are optional, not claimed delivered.
 WorkBuddy reference is owner's written description, not an inspected source image.
 
-Final state: READY_FOR_AUDIT. Real capture/test SHA d7a65e878df94c2ac24ebaa47793bac5294719f9; static render/validation SHA 74e9d376ddc51cbb728a642ebac85128973ad093.
+Final state: READY_FOR_REAUDIT. Real capture/test SHA d7a65e878df94c2ac24ebaa47793bac5294719f9 is unchanged; prior static render SHA 74e9d376ddc51cbb728a642ebac85128973ad093 is superseded for final composition.
 Current canonical outputs are six store/en PNGs; CONTACT_SHEET.png is a review aid.
+Focused polish changes only renderer/validator/reports/artwork. Raw captures, fixtures,
+App and capture workflow are unchanged; no Capture CI or Chinese PNG generation.
+Frames 3/5/6 use an enlarged phone cropped at the canvas bottom; validator checks
+the visible intersection of each raw uniform resize. Frame 1 is byte-identical.

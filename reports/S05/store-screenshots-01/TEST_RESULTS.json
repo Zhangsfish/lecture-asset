@@ -1,7 +1,7 @@
 {
-  "status": "READY_FOR_AUDIT",
+  "status": "READY_FOR_REAUDIT",
   "date": "2026-10-04",
-  "scope": "six English App Store stills; no release change",
+  "scope": "PR #14 focused static copy/composition polish only",
   "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
   "exact_capture_tested_sha": "d7a65e878df94c2ac24ebaa47793bac5294719f9",
   "app_tree": "eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5",
@@ -10,55 +10,79 @@
     "source_sha": "d7a65e878df94c2ac24ebaa47793bac5294719f9",
     "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310/artifacts/11294227664",
     "artifact_sha256": "5be76e43e5f6677be00df47d663882b3f09c3139e33e8b3ceb7b7be948726a7a",
-    "conclusion": "success"
+    "conclusion": "success",
+    "evidence_use": "Reused original capture evidence; not rerun for this polish"
   },
   "release_ui_test": {
     "result": "Passed",
     "totalTestCount": 1,
     "passedTests": 1,
     "failedTests": 0,
-    "skippedTests": 0
+    "skippedTests": 0,
+    "evidence_use": "Original capture test; not rerun"
   },
   "image_validation": {
     "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
     "production_app_tree": "eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5",
     "production_changes": [],
+    "reviewed_head": "c8d2d8f7824e379d41d9aa091f7c36b0107d42a1",
+    "raw_captures_unchanged": true,
+    "frame_1_byte_identical": true,
+    "frame_2_and_4_body_pixels_unchanged": true,
     "six_image_checks": [
       {
         "file": "store/en/01-lecture-photos.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0
+        "all_opaque_phone_pixels_changed": 0,
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_unchanged_since_review": true
       },
       {
         "file": "store/en/02-select-and-sort.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0
+        "all_opaque_phone_pixels_changed": 0,
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_unchanged_since_review": true
       },
       {
         "file": "store/en/03-generate-pdf-zip.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0
+        "all_opaque_phone_pixels_changed": 0,
+        "visible_opaque_phone_pixel_count": 1651274,
+        "phone_bottom_cropped": true,
+        "raw_hash_unchanged_since_review": true
       },
       {
         "file": "store/en/04-pdf-for-review.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0
+        "all_opaque_phone_pixels_changed": 0,
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_unchanged_since_review": true
       },
       {
         "file": "store/en/05-ai-zip-to-ai.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0
+        "all_opaque_phone_pixels_changed": 0,
+        "visible_opaque_phone_pixel_count": 1651274,
+        "phone_bottom_cropped": true,
+        "raw_hash_unchanged_since_review": true
       },
       {
         "file": "store/en/06-save-then-clean.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0
+        "all_opaque_phone_pixels_changed": 0,
+        "visible_opaque_phone_pixel_count": 1651274,
+        "phone_bottom_cropped": true,
+        "raw_hash_unchanged_since_review": true
       }
     ],
     "phone_repaint_check": "PASS",
@@ -75,10 +99,13 @@
     "no_fake_native_controls": "PASS",
     "no_third_party_logos": "PASS",
     "soft_shadow_edges": "PASS",
-    "all_opaque_phone_pixels_unchanged": "PASS"
+    "all_opaque_phone_pixels_unchanged": "PASS",
+    "frames_3_5_6_enlarged_bottom_cropped": "PASS",
+    "frame_1_byte_identical": "PASS",
+    "frames_2_4_body_unchanged": "PASS",
+    "frame_5_small_muted_boundary_and_qualifier": "PASS"
   },
   "production_runtime_icon_localization_contract_changes": false,
-  "new_capture_CI_and_UI_test": true,
   "synthetic_fixtures": {
     "count": 24,
     "selected_for_capture": 12,
@@ -99,7 +126,15 @@
         720,
         1564
       ],
-      "transform": "uniform LANCZOS resize; rounded corner mask only",
+      "phone_rect": [
+        286,
+        1160,
+        748,
+        1592
+      ],
+      "screen_corner_radius": 83,
+      "phone_bottom_cropped": false,
+      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
       "file": "store/en/01-lecture-photos.png",
       "headline": "One lecture. Dozens of slide photos.",
       "headline_zh_Hans": "一场讲座，几十张 PPT 照片。",
@@ -120,12 +155,20 @@
         720,
         1564
       ],
-      "transform": "uniform LANCZOS resize; rounded corner mask only",
+      "phone_rect": [
+        286,
+        1160,
+        748,
+        1592
+      ],
+      "screen_corner_radius": 83,
+      "phone_bottom_cropped": false,
+      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
       "file": "store/en/02-select-and-sort.png",
-      "headline": "Select a batch. Keep capture order.",
-      "headline_zh_Hans": "批量选择，按拍摄时间排好。",
+      "headline": "Select a batch. Sorted by capture time.",
+      "headline_zh_Hans": "批量选好，按拍摄时间排好。",
       "subtitle": "Press, then drag to select.",
-      "sha256": "6e39e027cf6a30c19c3f90942be02c1e8e21e2f20c2cc4c12f80a3892d4fa979",
+      "sha256": "87d2deb151e77ffa49ebf46a596092218bfbfff0dcb2f2e4b02bb259bb944ff1",
       "pixels": [
         1320,
         2868
@@ -136,17 +179,25 @@
     {
       "raw": "store-en-ready.png",
       "screen_rect": [
-        300,
-        1174,
-        720,
-        1564
+        102,
+        1382,
+        1116,
+        2425
       ],
-      "transform": "uniform LANCZOS resize; rounded corner mask only",
+      "phone_rect": [
+        80,
+        1360,
+        1160,
+        2469
+      ],
+      "screen_corner_radius": 129,
+      "phone_bottom_cropped": true,
+      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
       "file": "store/en/03-generate-pdf-zip.png",
       "headline": "Generate ZIP and PDF in one go.",
       "headline_zh_Hans": "一次生成 ZIP 和 PDF。",
       "subtitle": "",
-      "sha256": "7d8414a5ac54d556bf7751dee009ccee481415571783c4c166cc755c37d751de",
+      "sha256": "a9cd29aab53e25375575852555d852e86f2bed2cafb3bf57713cb079cdfb08a4",
       "pixels": [
         1320,
         2868
@@ -162,12 +213,20 @@
         720,
         1564
       ],
-      "transform": "uniform LANCZOS resize; rounded corner mask only",
+      "phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "screen_corner_radius": 83,
+      "phone_bottom_cropped": false,
+      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
       "file": "store/en/04-pdf-for-review.png",
-      "headline": "Save it as a PDF for later review.",
-      "headline_zh_Hans": "保存为 PDF，方便以后回看。",
+      "headline": "Keep a PDF for later review.",
+      "headline_zh_Hans": "PDF 留着，以后随时回看。",
       "subtitle": "",
-      "sha256": "228f12c20907bfe17da1d44d19da3e7448941a112d3a713cd5ecfaf99a92981a",
+      "sha256": "50b9f7611c8cd2eb794c6b73895c987d599b58bb555ce04321837327354860ff",
       "pixels": [
         1320,
         2868
@@ -178,17 +237,25 @@
     {
       "raw": "store-en-ready.png",
       "screen_rect": [
-        312,
-        1226,
-        696,
-        1512
+        102,
+        1382,
+        1116,
+        2425
       ],
-      "transform": "uniform LANCZOS resize; rounded corner mask only",
+      "phone_rect": [
+        80,
+        1360,
+        1160,
+        2469
+      ],
+      "screen_corner_radius": 129,
+      "phone_bottom_cropped": true,
+      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
       "file": "store/en/05-ai-zip-to-ai.png",
-      "headline": "Hand the AI ZIP to AI. Keep exploring the lecture.",
+      "headline": "Share the AI ZIP with an AI tool. Keep exploring the lecture.",
       "headline_zh_Hans": "把 AI ZIP 交给 AI，继续理解这场讲座。",
       "subtitle": "",
-      "sha256": "a693e973ebdef590b727ad00b96c38898480ea3e04a8c9c3ea3a20f5883d4330",
+      "sha256": "9590a685b6b57be26a407708e1502b351b03cabf65ee60873e8d9dd0719cb0f4",
       "pixels": [
         1320,
         2868
@@ -199,17 +266,25 @@
     {
       "raw": "store-en-ready.png",
       "screen_rect": [
-        300,
-        1174,
-        720,
-        1564
+        102,
+        1382,
+        1116,
+        2425
       ],
-      "transform": "uniform LANCZOS resize; rounded corner mask only",
+      "phone_rect": [
+        80,
+        1360,
+        1160,
+        2469
+      ],
+      "screen_corner_radius": 129,
+      "phone_bottom_cropped": true,
+      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
       "file": "store/en/06-save-then-clean.png",
       "headline": "Save first. Choose what to clear.",
       "headline_zh_Hans": "先保存，再决定清理什么。",
       "subtitle": "",
-      "sha256": "c5d00c5b108a3d5195d8d694ddef8ae270b0f6e805fa00f7f054b2f92db766b8",
+      "sha256": "43b1e9f72779db3c91bdb5636edff6fcade089a3ea4dc3cddb314b157042aded",
       "pixels": [
         1320,
         2868
@@ -243,5 +318,13 @@
     "device": "iPhone 17 Pro Max",
     "arch": "arm64"
   },
-  "exact_render_tested_sha": "74e9d376ddc51cbb728a642ebac85128973ad093"
+  "reviewed_head": "c8d2d8f7824e379d41d9aa091f7c36b0107d42a1",
+  "previous_render_tested_sha": "74e9d376ddc51cbb728a642ebac85128973ad093",
+  "initial_capture_CI_and_UI_test": true,
+  "new_capture_CI_and_UI_test": false,
+  "static_polish_commands": [
+    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/render_store.py",
+    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/validate_store.py",
+    "git diff --check"
+  ]
 }
