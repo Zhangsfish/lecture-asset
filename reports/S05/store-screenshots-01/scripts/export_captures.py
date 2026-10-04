@@ -8,7 +8,7 @@ import sys
 
 source, dest = map(Path, sys.argv[1:3])
 dest.mkdir(parents=True, exist_ok=True)
-names = {'store-en-'+n for n in ['selection', 'review', 'prepared', 'ready', 'pdf']}
+names = {'store-en-'+n for n in ['selection', 'review', 'prepared', 'ready', 'pdf', 'building', 'share', 'delete-confirmation']}
 found = {}
 def walk(node):
     if isinstance(node, list):
@@ -23,6 +23,9 @@ def walk(node):
                     found[name] = source / file
         for value in node.values(): walk(value)
 walk(json.loads((source / 'manifest.json').read_text()))
+for extra in sys.argv[3:]:
+    source = Path(extra)
+    walk(json.loads((source / 'manifest.json').read_text()))
 if set(found) != names:
     raise SystemExit('Missing named capture(s): '+str(sorted(names-set(found))))
 records = []

@@ -52,16 +52,26 @@ jobs:
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release \
             -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/StoreDerived" \
             CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES -parallel-testing-enabled NO \
-            -only-testing:LectureAssetUITests/S05StoreScreenshotsUITests \
+            -only-testing:LectureAssetUITests/S05StoreScreenshotsUITests/testEnglishStoreScreensOnFictionalSlides \
             -resultBundlePath "$RUNNER_TEMP/StoreCaptures.xcresult" test
           xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/StoreCaptures.xcresult" | \
             python3 -c 'import json,sys; d=json.load(sys.stdin); print(json.dumps({k:d[k] for k in ["result","totalTestCount","passedTests","failedTests","skippedTests"]},indent=2))' > "$RUNNER_TEMP/store-evidence/test-summary.json"
+          base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release
+            -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/StoreDerived"
+            CODE_SIGNING_ALLOWED=NO ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES -parallel-testing-enabled NO)
+          "${base[@]}" -only-testing:LectureAssetTests/S05StoreReceiptTests/testStageSyntheticReceiptForStoreVisualOnly test
+          "${base[@]}" -only-testing:LectureAssetUITests/S05StoreScreenshotsUITests/testSourceDeletionConfirmationCancelOnly \
+            -resultBundlePath "$RUNNER_TEMP/StoreConfirmation.xcresult" test
+          "${base[@]}" -only-testing:LectureAssetTests/S05StoreReceiptTests/testCancellationRetainsSyntheticPhotosAndJob \
+            -only-testing:LectureAssetTests/LocalizationResourceTests -only-testing:LectureAssetTests/S03CleanupTests test
+          python3 scripts/check_localization.py --output "$RUNNER_TEMP/store-evidence/string-audit.json"
           xcrun simctl shutdown "$device"
       - name: Export only safe screenshot evidence
         run: |
           set -euo pipefail
           xcrun xcresulttool export attachments --path "$RUNNER_TEMP/StoreCaptures.xcresult" --output-path "$RUNNER_TEMP/store-attachments"
-          python3 reports/S05/store-screenshots-01/scripts/export_captures.py "$RUNNER_TEMP/store-attachments" "$RUNNER_TEMP/store-evidence"
+          xcrun xcresulttool export attachments --path "$RUNNER_TEMP/StoreConfirmation.xcresult" --output-path "$RUNNER_TEMP/store-confirmation-attachments"
+          python3 reports/S05/store-screenshots-01/scripts/export_captures.py "$RUNNER_TEMP/store-attachments" "$RUNNER_TEMP/store-evidence" "$RUNNER_TEMP/store-confirmation-attachments"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

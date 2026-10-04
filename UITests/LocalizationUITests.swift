@@ -95,7 +95,7 @@ class LocalizationUIBase: XCTestCase {
         app.buttons["archive-start"].tap()
         XCTAssertTrue(app.buttons["export-share-zip"].waitForExistence(timeout: 180))
         XCTAssertEqual(app.staticTexts["archive-phase"].label, chinese ? "文件已生成" : "Files ready")
-        XCTAssertEqual(app.buttons["export-share-zip"].label, chinese ? "保存 AI 资料包（ZIP）" : "Save AI ZIP")
+        XCTAssertEqual(app.buttons["export-share-zip"].label, chinese ? "分享 AI 资料包（ZIP）" : "Share AI ZIP")
         XCTAssertEqual(app.buttons["export-discard-work"].label,
                        chinese ? "保留相册照片，仅清除 App 内文件" : "Keep Photos, clear App files")
         XCTAssertFalse(app.buttons["export-delete-sources"].exists)

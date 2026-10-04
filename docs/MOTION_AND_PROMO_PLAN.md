@@ -471,3 +471,33 @@ For S05-B2:
 6. ship one Internal TestFlight preview.
 
 The separate promotional-video project may use Remotion later, but onboarding remains native SwiftUI.
+
+## 9. Owner screenshot-to-promo narrative — 2026-10-05
+
+Future promo creative input only; no video production or new runtime feature is
+started by these notes. Onboarding remains instructional and unchanged.
+
+- Keep one coherent headline/phone/background/card language across the six shots.
+- Show real interaction states, rather than repeat a mostly empty ready screen.
+- Generate: ordered slide stack → two actual outputs (PDF + AI ZIP). Current App
+  has no View ZIP browser; use actual generation/ready evidence, never invent one.
+- Read: PDF is for later review. Keep the enlarged PPT example visually separated
+  from the real viewer, with roughly 2:1 headline-to-card / card-to-phone spacing.
+- Handoff: Share AI ZIP → Apple's real Share Sheet → external image-capable AI
+  workflow. ZIP button wording is Share, since it opens the system sharing UI.
+  AI can continue with summarizing, questions, notes and lecture context.
+- Owner's personal share screenshot shows installed app extensions. It is a visual
+  reference, not a distributable Store asset or proof of universal compatibility.
+  ChatGPT/Gemini/WhatsApp/Claude are possible owner-suggested destinations, not
+  promised integrations. Future footage must show only actually available targets,
+  protect private filename/content, and receive separate branding/creative review.
+- Cleanup: confirm the complete ZIP is externally saved → choose source deletion
+  or keeping Photos/clearing App files → show explicit confirmation. No automatic
+  deletion; actual PhotoKit confirmation/success remains a separate safety gate.
+- Film generation, share and cleanup as three different actions/states. Never
+  repaint native screens or pad them with fake controls to reduce whitespace.
+
+For static assets, source-delete dialog may be captured from a test-host-only
+synthetic receipt fixture, always marked as staged evidence in reports. It proves
+UI rendering/cancellation only, not an actual external save or deletion. A final
+promo is separately authorized and should use authentic, safely staged recordings.
