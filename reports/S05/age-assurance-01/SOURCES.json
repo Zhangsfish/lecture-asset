@@ -1,0 +1,194 @@
+[
+  {
+    "url": "https://developer.apple.com/documentation/declaredagerange/agerangeservice/iseligibleforagefeatures",
+    "retrieved_via": "https://developer.apple.com/tutorials/data/documentation/declaredagerange/agerangeservice/iseligibleforagefeatures.json",
+    "query_date": "2026-10-05",
+    "http_status": 200,
+    "source_sha256": "855c2ecbb1a24e79ba5b55159b46d67c6327db6c1c7e89eee1d5ff03a1c250c7",
+    "title": "isEligibleForAgeFeatures",
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "iPadOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "Mac Catalyst",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "macOS",
+        "unavailable": false
+      }
+    ]
+  },
+  {
+    "url": "https://developer.apple.com/documentation/declaredagerange/agerangeservice",
+    "retrieved_via": "https://developer.apple.com/tutorials/data/documentation/declaredagerange/agerangeservice.json",
+    "query_date": "2026-10-05",
+    "http_status": 200,
+    "source_sha256": "963a3adb62af3df5312053c38ff97e7a201818cf7c63bd25ededb04d292e10c8",
+    "title": "AgeRangeService",
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iPadOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "Mac Catalyst",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "macOS",
+        "unavailable": false
+      }
+    ]
+  },
+  {
+    "url": "https://developer.apple.com/documentation/declaredagerange/agerangeservice/requestagerange(agegates:_:_:in:)-2go8c",
+    "retrieved_via": "https://developer.apple.com/tutorials/data/documentation/declaredagerange/agerangeservice/requestagerange(agegates:_:_:in:)-2go8c.json",
+    "query_date": "2026-10-05",
+    "http_status": 200,
+    "source_sha256": "e7b0ef3ac692f96d2889b4eb27806b97bbdd670f95b7d68b14720fbe8f4cab66",
+    "title": "requestAgeRange(ageGates:_:_:in:)",
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iPadOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "Mac Catalyst",
+        "unavailable": false
+      }
+    ]
+  },
+  {
+    "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.declared-age-range",
+    "retrieved_via": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.declared-age-range.json",
+    "query_date": "2026-10-05",
+    "http_status": 200,
+    "source_sha256": "5f2f0eb012456cf61fde563ba24921737e3958cf5b8c3339bcdf9e37cc83c16e",
+    "title": "com.apple.developer.declared-age-range",
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iPadOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "macOS",
+        "unavailable": false
+      }
+    ]
+  },
+  {
+    "url": "https://developer.apple.com/documentation/storekit/testing-age-assurance-in-sandbox",
+    "retrieved_via": "https://developer.apple.com/tutorials/data/documentation/storekit/testing-age-assurance-in-sandbox.json",
+    "query_date": "2026-10-05",
+    "http_status": 200,
+    "source_sha256": "0b491bc61366a2b4f240b315f6e87030c5bd543a5177d90fa600bfd316241ac9",
+    "title": "Testing age assurance in sandbox",
+    "platforms": []
+  },
+  {
+    "url": "https://developer.apple.com/documentation/permissionkit/significantappupdatetopic",
+    "retrieved_via": "https://developer.apple.com/tutorials/data/documentation/permissionkit/significantappupdatetopic.json",
+    "query_date": "2026-10-05",
+    "http_status": 200,
+    "source_sha256": "2a8f6549df54c2829d0b6b82ecd2af15c400c490b86f29082f4c5cf19f60a341",
+    "title": "SignificantAppUpdateTopic",
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "iPadOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "Mac Catalyst",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "macOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.2",
+        "name": "visionOS",
+        "unavailable": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "release_simulator_macho_declared_age_range": true,
+  "minimum_os": "18.0",
+  "bundle_id_correct": true,
+  "apple_signed_device_entitlement": "NOT_RUN",
+  "evidence_scope": "Final Release simulator __TEXT,__entitlements; not distribution provisioning"
+}

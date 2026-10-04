@@ -1,0 +1,59 @@
+{
+  "status": "HOLD_OWNER_DECISION",
+  "base_sha": "0e6c1670ffe1464532c11356d3d5824e459aff39",
+  "tested_code_sha": "b775f7511a3e6e8a2f2c6ad1ee202a4c6ba4d988",
+  "query_date": "2026-10-05",
+  "local_catalog_check": "PASS",
+  "source_scope_check": "PASS",
+  "release_iphoneos_compile": "PASS (unsigned)",
+  "release_simulator_tests": "PASS",
+  "apple_distribution_provisioning": "NOT_RUN",
+  "physical_iphone_sandbox": {
+    "Under 13": "NOT_RUN",
+    "13-15": "NOT_RUN",
+    "16-17": "NOT_RUN",
+    "18+": "NOT_RUN"
+  },
+  "old_os_device_execution": "NOT_RUN",
+  "unsupported_os_policy": "UNRESOLVED; old OS work blocked, not authorized for public release",
+  "significant_update": "NOT_APPLICABLE_FOR_INITIAL_V0.1 \u2014 applicability inference; future versions require reassessment",
+  "workflow_runs": [
+    {
+      "id": 37227886705,
+      "result": "FAIL \u2014 eligibility non-Sendable receiver compile error"
+    },
+    {
+      "id": 37228171571,
+      "result": "FAIL \u2014 SwiftUI action missing Sendable annotation"
+    },
+    {
+      "id": 37228418831,
+      "result": "FAIL evidence extractor; Release build PASS, XCTest 16/16 PASS"
+    },
+    {
+      "id": 37229482864,
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37229482864",
+      "result": "PASS"
+    }
+  ],
+  "secrets_used": false,
+  "new_network_or_age_storage": false,
+  "testflight_asc_review_rc": "NOT_RUN / not authorized",
+  "app_runtime_sha": "88b78d417582f227bdaaba8baecd5695909e2984",
+  "release_simulator_embedded_entitlement": "PASS",
+  "signed_device_entitlement": "NOT_RUN",
+  "evidence_reader_synthetic_smoke": "PASS; not an iOS build",
+  "navigation_about_physical_device": "NOT_RUN",
+  "focused_archive_tests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "xctest": {
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0
+  },
+  "xcode": "26.6 (17F113)",
+  "iphoneos_sdk": "26.5",
+  "final_workflow_result": "PASS"
+}

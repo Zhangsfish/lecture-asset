@@ -1,0 +1,10 @@
+{
+  "base_sha": "0e6c1670ffe1464532c11356d3d5824e459aff39",
+  "archive_packages_schema_assets_screenshots_privacy_unchanged": true,
+  "minimum_ios": "18.0",
+  "age_service_persistence_network_logging": "none (source review)",
+  "localization_check": "PASS",
+  "unsupported_policy": "unresolved; blocks main work until owner-approved compatibility policy",
+  "source_signing_secrets_used": false,
+  "protected_existing_app_files_unchanged": 19
+}
