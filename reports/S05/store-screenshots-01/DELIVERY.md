@@ -30,7 +30,9 @@ F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/render_store.py
 F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/validate_store.py
 ```
 
-Result / tested implementation SHA: recorded in TEST_RESULTS.json after execution.
+Result: **PASS**. Tested implementation SHA: `2698e65c14fe3d0907e23751ca9875d4db0fe085`.
+Both commands passed at this implementation; deterministic rerender left PNGs,
+contact sheet and validation/render manifests byte-identical.
 Validation covers six 1320×2868 RGB/sRGB PNG hashes, protected frame bytes, phone
 exteriors, allowed overlay-change bounds, plural text contract, exact unchanged
 lecture preview, unchanged raw capture hashes and production/workflow trees.

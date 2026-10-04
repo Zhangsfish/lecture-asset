@@ -5,7 +5,7 @@
   "base_main_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
   "starting_pr_head": "adc6c2716b7e53451c6c2f390a672f7d7ab7e622",
   "comparison_baseline": "adc6c2716b7e53451c6c2f390a672f7d7ab7e622",
-  "tested_implementation_sha": "PENDING",
+  "tested_implementation_sha": "2698e65c14fe3d0907e23751ca9875d4db0fe085",
   "exact_capture_tested_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
   "prior_capture_ci": {
     "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885",
@@ -155,5 +155,8 @@
   "runtime_localization_workflow_asc_testflight_changes": false,
   "real_device_visual_review": "NOT_RUN",
   "app_store_upload": "NOT_RUN",
-  "third_party_artwork": "REMOVED — generic renderer pictograms only"
+  "third_party_artwork": "REMOVED — generic renderer pictograms only",
+  "static_render": "PASS",
+  "static_validation": "PASS",
+  "deterministic_rerender": "PASS — final PNGs/contact sheet/manifests byte-identical on rerun"
 }
