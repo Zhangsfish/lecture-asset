@@ -1,10 +1,10 @@
 # Current status
 
-Updated: 2026-10-02
+Updated: 2026-10-05
 
 ## Now
 
-**S00–S04 PASS. S05-A/B/B2 PASS_WITH_NOTES. S05-D0 PASS_WITH_NOTES and merged. v0.1 product/runtime remains frozen; current gate is owner release decision, not further implementation.**
+**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English App Store screenshots are final and merged. US-first v0.1 is now blocked on the narrow S05-D2 age-assurance runtime gate; no distribution RC or App Review is authorized yet.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -23,14 +23,16 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-A | **PASS_WITH_NOTES** — PR #6 merged; core UI/About/privacy foundation accepted | [audit](audits/S05/china-prep-01.md), [report](reports/S05/china-prep-01/DELIVERY.md) |
 | S05-B | **PASS_WITH_NOTES** — PR #8 merged; instructional tutorial, visible App-only cleanup and AI ZIP contract accepted | [audit](audits/S05/polish-01.md), [report](reports/S05/polish-01/DELIVERY.md) |
 | S05-B2 | **PASS_WITH_NOTES** — PR #9 merged after owner physical-iPhone visual acceptance; tutorial motion/copy frozen for v0.1 | [audit](audits/S05/motion-polish-01.md), [report](reports/S05/motion-polish-01/DELIVERY.md) |
-| S05-C | PLANNED / BLOCKED_OWNER_COMMERCE — optional StoreKit tip jar, separate task and review | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
+| S05-C | **DEFERRED_POST_V0.1** — owner does not want StoreKit tips in the initial release | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
 | S05-D0 | **PASS_WITH_NOTES / READY_FOR_OWNER_RELEASE_DECISION** — PR #10 merged; public pages, metadata/screenshots, read-only ASC evidence and region cards complete; China filing likely blocker remains | [audit](audits/S05/release-preflight-01.md), [report](reports/S05/release-preflight-01/DELIVERY.md) |
 | S05-D1 | **PASS_WITH_NOTES / READY_FOR_OWNER_US_DECISION** — PR #11 merged; US legal/runtime and store-conversion audit complete; unchanged runtime is not US release-ready | [audit](audits/S05/us-fallback-01.md), [report](reports/S05/us-fallback-01/DELIVERY.md) |
 | S05-L10N | **PASS_WITH_NOTES** — PR #12 merged; same binary now has complete English + zh-Hans UI/InfoPlist localization | [audit](audits/S05/localization-01.md), [report](reports/S05/localization-01/DELIVERY.md) |
 | S05-ICON | **PASS_WITH_NOTES** — PR #13 merged; final V1 Calm cobalt icon accepted and packaged correctly | [audit](audits/S05/icon-final-01.md), [report](reports/S05/icon-final-01/DELIVERY.md) |
+| S05-SHOTS | **PASS** — PR #14 squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`; six English Store screenshots frozen for v0.1 | [audit](audits/S05/store-screenshots-01.md), [report](reports/S05/store-screenshots-01/DELIVERY.md) |
+| S05-D2 | **READY_FOR_CODEX** — minimal US age-assurance runtime gate; no RC/ASC/submission | [task](tasks/S05_D2_AGE_ASSURANCE.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
 
-S05-C is a retained requirement, not silently cancelled. It may follow the first free release; its absence must not create a fake/disabled payment page. The owner decides whether the first public build includes tips after commerce prerequisites are known.
+S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
 
 ## Verified baseline / do not repeat
 
@@ -44,6 +46,7 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 - S04 repaired the historical selection-index schema bound; the same retained 200-page job passed without reselection/reprocessing.
 - No new 100/200-page device run, repeated WeChat transfer or destructive real-photo cleanup solely for release. UI changes require focused navigation/safety regressions, not zero testing.
 - Developer Program, Bundle ID `com.zhangsfish.lectureasset`, App Store Connect app, Admin Team API key, GitHub Secrets and TestFlight upload workflow already exist. Do not reconfigure or request `.p8`.
+- PR #14 was final-audited at `ffd07883ede26e90ec29729eff0cb82b4c8837f8` and squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`. English 1320×2868 Store screenshots are frozen; do not reopen visual polish without a concrete App Review issue.
 
 ## Owner inputs / release gates
 
@@ -62,6 +65,6 @@ S05-C is a retained requirement, not silently cancelled. It may follow the first
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
 5. [S05-B audit](audits/S05/polish-01.md)
-6. Localization and final icon are complete. Current owner-facing work may proceed on the minimum App Store screenshot set. China filing inquiry remains pending; US fallback research is complete but Texas age-assurance/runtime work remains unresolved. Do not authorize a distribution RC or App Review yet.
+6. Store screenshots are complete and merged. Next implementation task: [S05-D2 age assurance](tasks/S05_D2_AGE_ASSURANCE.md). China filing inquiry remains pending and separate. Do not authorize a distribution RC or App Review yet.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
