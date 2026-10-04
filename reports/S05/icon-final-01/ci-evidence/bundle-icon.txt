@@ -1,0 +1,2 @@
+PASS compiled AppIcon60x60@2x.png: 120x120, sRGB rendered RGB mean error 0.0000, opaque
+PASS primary AppIcon / Assets.car / Bundle ID / App name / no alternate icons

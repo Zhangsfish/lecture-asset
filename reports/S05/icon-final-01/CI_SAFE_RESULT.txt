@@ -1,0 +1,17 @@
+Exact tested SHA: f8f7459898553614fd449ccd5f35be000f8f2d27
+Run: https://github.com/Zhangsfish/lecture-asset/actions/runs/37176957528
+Filtered public toolchain / result markers only.
+2026-10-04T04:25:47.9396230Z ProductName:		macOS
+2026-10-04T04:25:47.9397190Z ProductVersion:		26.6.2
+2026-10-04T04:25:47.9397810Z BuildVersion:		25G83
+2026-10-04T04:25:48.4920770Z Xcode 26.6
+2026-10-04T04:25:48.4936530Z Build version 17F113
+2026-10-04T04:25:51.6981260Z 26.5
+2026-10-04T04:27:33.7742780Z ** BUILD SUCCEEDED **
+2026-10-04T04:27:44.3067420Z PASS compiled AppIcon60x60@2x.png: 120x120, sRGB rendered RGB mean error 0.0000, opaque
+2026-10-04T04:27:44.3068900Z PASS primary AppIcon / Assets.car / Bundle ID / App name / no alternate icons
+2026-10-04T04:35:46.3994840Z Test Case '-[LectureAssetUITests.S05TutorialUITests testFreshTutorialIsSkippableAndTeachesFiveScenesWithoutRequestingPhotos]' passed (74.703 seconds).
+2026-10-04T04:35:46.4014350Z 	 Executed 1 test, with 0 failures (0 unexpected) in 74.703 (74.706) seconds
+2026-10-04T04:35:46.4031290Z 	 Executed 1 test, with 0 failures (0 unexpected) in 74.703 (74.709) seconds
+2026-10-04T04:35:46.4034030Z 	 Executed 1 test, with 0 failures (0 unexpected) in 74.703 (74.710) seconds
+2026-10-04T04:35:47.8031150Z ** TEST SUCCEEDED **
