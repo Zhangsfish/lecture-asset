@@ -80,8 +80,13 @@ final class S05StoreScreenshotsUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Continue to Photos deletion confirmation"].waitForExistence(timeout: 20))
         keep(app, "delete-confirmation")
         // Do not proceed into PhotoKit: capture the genuine App safety dialog only.
-        XCTAssertTrue(app.buttons["Cancel"].exists)
-        app.buttons["Cancel"].tap()
+        if app.buttons["Cancel"].exists {
+            app.buttons["Cancel"].tap()
+        } else {
+            // Current compact popover dismisses outside; same safe pattern as
+            // the accepted localization confirmation tests. Never tap Continue.
+            app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.98)).tap()
+        }
         XCTAssertTrue(delete.exists)
         app.terminate()
         app.launch()
