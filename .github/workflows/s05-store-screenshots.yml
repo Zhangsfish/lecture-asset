@@ -67,10 +67,13 @@ jobs:
           python3 scripts/check_localization.py --output "$RUNNER_TEMP/store-evidence/string-audit.json"
           xcrun simctl shutdown "$device"
       - name: Export only safe screenshot evidence
+        if: always()
         run: |
           set -euo pipefail
           xcrun xcresulttool export attachments --path "$RUNNER_TEMP/StoreCaptures.xcresult" --output-path "$RUNNER_TEMP/store-attachments"
-          xcrun xcresulttool export attachments --path "$RUNNER_TEMP/StoreConfirmation.xcresult" --output-path "$RUNNER_TEMP/store-confirmation-attachments"
+          if [ -d "$RUNNER_TEMP/StoreConfirmation.xcresult" ]; then
+            xcrun xcresulttool export attachments --path "$RUNNER_TEMP/StoreConfirmation.xcresult" --output-path "$RUNNER_TEMP/store-confirmation-attachments"
+          fi
           python3 reports/S05/store-screenshots-01/scripts/export_captures.py "$RUNNER_TEMP/store-attachments" "$RUNNER_TEMP/store-evidence" "$RUNNER_TEMP/store-confirmation-attachments"
       - uses: actions/upload-artifact@v4
         if: always()

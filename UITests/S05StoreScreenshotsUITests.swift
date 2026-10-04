@@ -11,11 +11,15 @@ final class S05StoreScreenshotsUITests: XCTestCase {
         if app.buttons["tutorial-skip"].waitForExistence(timeout: 15) {
             app.buttons["tutorial-skip"].tap()
         }
+        Thread.sleep(forTimeInterval: 2)
+        keep(app, "setup")
         let allow = app.buttons["permission-allow"]
         if allow.waitForExistence(timeout: 10) {
             allow.tap()
+            Thread.sleep(forTimeInterval: 2)
+            keep(app, "permission-prompt")
             let predicate = NSPredicate(format:
-                "label CONTAINS[c] %@ OR label CONTAINS[c] %@", "Full Access", "All Photos")
+                "(label CONTAINS[c] %@ OR label CONTAINS[c] %@) AND identifier != %@", "Full Access", "All Photos", "permission-allow")
             let appFull = app.buttons.matching(predicate).firstMatch
             let systemFull = XCUIApplication(bundleIdentifier: "com.apple.springboard").buttons.matching(predicate).firstMatch
             // On current runtimes Photos permission can be hosted in the App,

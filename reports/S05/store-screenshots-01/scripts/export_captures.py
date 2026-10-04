@@ -8,7 +8,7 @@ import sys
 
 source, dest = map(Path, sys.argv[1:3])
 dest.mkdir(parents=True, exist_ok=True)
-names = {'store-en-'+n for n in ['selection', 'review', 'prepared', 'ready', 'pdf', 'building', 'share', 'delete-confirmation']}
+names = {'store-en-'+n for n in ['selection', 'review', 'prepared', 'ready', 'pdf', 'building', 'share', 'delete-confirmation', 'setup', 'permission-prompt']}
 found = {}
 def walk(node):
     if isinstance(node, list):
@@ -25,9 +25,11 @@ def walk(node):
 walk(json.loads((source / 'manifest.json').read_text()))
 for extra in sys.argv[3:]:
     source = Path(extra)
-    walk(json.loads((source / 'manifest.json').read_text()))
-if set(found) != names:
-    raise SystemExit('Missing named capture(s): '+str(sorted(names-set(found))))
+    if (source/'manifest.json').exists():
+        walk(json.loads((source / 'manifest.json').read_text()))
+missing=sorted(names-set(found))
+if missing:
+    (dest/'MISSING_CAPTURES.json').write_text(json.dumps(missing,indent=2)+'\n')
 records = []
 for name in sorted(found):
     raw = found[name].read_bytes()
@@ -39,3 +41,5 @@ for name in sorted(found):
                     'sha256':hashlib.sha256(raw).hexdigest()})
 (dest/'CAPTURES.json').write_text(json.dumps(records, indent=2)+'\n')
 print('Exported synthetic real-UI captures:', len(records))
+
+if missing: raise SystemExit('Incomplete capture; available safe diagnostic images exported')
