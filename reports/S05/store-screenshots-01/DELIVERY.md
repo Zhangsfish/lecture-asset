@@ -116,3 +116,5 @@ No failed attempt is hidden or relabeled as PASS. No private photos/signing keys
 - Static native-pixel/format/hash/authorized-production-diff validation: **PASS**.
 - Full scenes/contact sheet visually inspected. Real system share sheet and real
   source-delete App dialog (cancel only); no provider target repaint.
+
+- Exact static-validation implementation SHA: `9b89c9f069759af825745ec6773dba52e33a4ad4`.
