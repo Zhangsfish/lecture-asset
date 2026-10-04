@@ -49,7 +49,7 @@ final class S05StoreScreenshotsUITests: XCTestCase {
         XCTAssertEqual(app.buttons["export-share-zip"].label, "Share AI ZIP")
         keep(app, "ready")
         app.buttons["export-share-zip"].tap()
-        XCTAssertTrue(app.buttons["Copy"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label == %@", "Copy")).firstMatch.waitForExistence(timeout: 20))
         keep(app, "share")
         // Cancel the native sheet; never copy/send or pretend it completed.
         let close = app.buttons.matching(NSPredicate(format: "label == %@ OR label == %@", "Close", "Cancel")).firstMatch
