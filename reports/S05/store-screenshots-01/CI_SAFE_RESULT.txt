@@ -1,0 +1,18 @@
+Workflow: https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310
+Exact capture SHA: d7a65e878df94c2ac24ebaa47793bac5294719f9
+App tree: eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5 (identical to base main)
+Standard GitHub-hosted macos-26; actual macOS 26.6.2, Xcode 26.6 (17F113), simulator SDK 26.5.
+Actual test destination: iPhone 17 Pro Max, iOS 26.2, arm64.
+Release, CODE_SIGNING_ALLOWED=NO, ENABLE_TESTABILITY=YES, ONLY_ACTIVE_ARCH=YES.
+S05StoreScreenshotsUITests/testEnglishStoreScreensOnFictionalSlides passed, 102.232 seconds.
+Executed 1 test; 0 failures; TEST SUCCEEDED.
+Five named 1320x2868 PNG attachments exported successfully.
+Safe evidence artifact SHA256: 5be76e43e5f6677be00df47d663882b3f09c3139e33e8b3ceb7b7be948726a7a
+Artifact digest verified on download; ZIP CRC and exact nine-file allowlist passed.
+Only synthetic content. No signing secrets, account changes, upload or deletion.
+
+Earlier run: https://github.com/Zhangsfish/lecture-asset/actions/runs/37179271853
+Capture SHA d668ba63115205e1f3428e26a040efbbdd13642c.
+Release test passed (134.932 seconds), five attachments captured.
+Run failed ONLY at exporter: Xcode 26 uses exportedFileName and suffix-bearing suggested names.
+Exporter was corrected at d7a65e8; no App source changes. Final successful run is authoritative.

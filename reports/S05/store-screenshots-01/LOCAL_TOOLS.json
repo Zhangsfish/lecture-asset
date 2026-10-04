@@ -1,0 +1,10 @@
+{
+  "python": "3.11.7",
+  "Pillow": "10.2.0",
+  "numpy": "1.26.4",
+  "font_hashes": {
+    "segoeui.ttf": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd",
+    "segoeuib.ttf": "aeb9e4a6ec5cc59f4d72df8189032d7dbb28f45161cf1552174818b5465dac4e"
+  },
+  "fixture_count": 24
+}
