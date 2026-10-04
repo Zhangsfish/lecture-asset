@@ -5,10 +5,12 @@ import hashlib
 import json
 import numpy as np
 import subprocess
+import io
+from phone_overlays import apply_overlay, NAMES
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = '4afd804ff2bdedec0a181181d768932a01b52b1b'
-PREVIOUS = '3a8a5a0b67d7a1c316b775302ebc06b19adc3880'
+PREVIOUS = 'b260bedc40c0ddc715f53ee46b67a2112313747f'
 provenance = json.loads((ROOT/'captures/PROVENANCE.json').read_text(encoding='utf-8'))
 CAPTURE_SHA = provenance['source_sha']
 records = json.loads((ROOT/'RENDER_MANIFEST.json').read_text(encoding='utf-8'))
@@ -27,6 +29,18 @@ for record in records:
         raw=Image.open(rawpath).convert('RGB')
         x,y,w,h=record['screen_rect']
         expected=raw.resize((w,h),Image.Resampling.LANCZOS)
+        base_expected = expected
+        overlay = record.get('illustrative_overlay')
+        coverage = np.zeros((h,w),dtype=bool)
+        if overlay:
+            assert record['raw']=='store-en-ready.png'
+            expected,alpha=apply_overlay(expected,overlay['kind'],ROOT)
+            coverage=np.asarray(alpha)>0
+            assert overlay['actual_system_capture'] is False
+            if overlay['kind']=='share':
+                assert overlay['first_row']==NAMES
+                assert overlay['filename']=='Lecture_2026-10-04_AI_ZIP.zip'
+            else: assert overlay['preview']=='fixtures/lecture-13.jpg'
         # Intersect the original screen geometry with the canvas, including
         # any screen edge at the canvas boundary; current phones are fully visible.
         left,top,right,bottom=max(0,x),max(0,y),min(im.width,x+w),min(im.height,y+h)
@@ -44,9 +58,22 @@ for record in records:
         visible_mask=np.asarray(mask)[sy:sy+vh,sx:sx+vw]==255
         full_changed=int(np.count_nonzero(delta & visible_mask))
         assert full_changed==0, (record['file'],full_changed)
+        base_delta=np.any(np.asarray(im)[top:bottom,left:right]!=np.asarray(base_expected),axis=2)
+        actual_changes=int(np.count_nonzero(base_delta & visible_mask))
+        assert np.count_nonzero(base_delta & visible_mask & ~coverage)==0
+        old_bytes=subprocess.check_output(['git','show',PREVIOUS+':'+path.relative_to(Path.cwd()).as_posix()])
+        if records.index(record) in (0,1,3):
+            assert path.read_bytes()==old_bytes, 'protected frame changed'
+        if records.index(record) in (2,4,5):
+            old=np.asarray(Image.open(io.BytesIO(old_bytes)).convert('RGB'))
+            outside=np.any(np.asarray(im)!=old,axis=2); outside[y:y+h,x:x+w]=False
+            assert not np.any(outside), 'phone exterior changed'
         result.append({'file':record['file'],'size_mode_profile_hash':'PASS',
                        'central_phone_pixels_changed':changed,
-                       'all_opaque_phone_pixels_changed':full_changed,
+                       'composite_expected_pixels_changed':full_changed,
+                       'all_opaque_phone_pixels_changed':actual_changes,
+                       'uncovered_base_pixels_changed':0,
+                       'illustrative_overlay':overlay,
                        'visible_opaque_phone_pixel_count':int(np.count_nonzero(visible_mask)),
                        'phone_bottom_cropped':record['phone_bottom_cropped'],
                        'raw_hash_matches_capture_inventory':True})
@@ -65,6 +92,8 @@ app_tree=subprocess.check_output(['git','rev-parse','HEAD:App'],text=True).strip
 capture_tree=subprocess.check_output(['git','rev-parse',CAPTURE_SHA+':App'],text=True).strip()
 assert app_tree==capture_tree
 assert subprocess.check_output(['git','diff','--name-only',CAPTURE_SHA,'--','App'],text=True).strip()==''
+assert [records[i]['raw'] for i in (2,4,5)]==['store-en-ready.png']*3
+assert subprocess.check_output(['git','diff','--name-only',PREVIOUS,'--','App','AppResources','Packages','schemas','project.yml','.github','UITests','Tests'],text=True).strip()==''
 assert len({tuple(r['phone_rect']) for r in records})==1
 assert all(r['phone_rect'][2]==748 and r['phone_rect'][1]==1240 for r in records)
 assert all(r['phone_rect'][1]+r['phone_rect'][3]<=2868 for r in records)
@@ -74,11 +103,11 @@ assert all(r['subtitle_style']=={'size':42,'color':'#5D6B7A','origin':[113,518]}
 assert records[4]['headline_lines']==['Share the AI ZIP.','Keep exploring the lecture.']
 summary={'base_sha':BASE,'production_app_tree':app_tree,'production_changes':production_diff,
          'previous_composition_head':PREVIOUS,'exact_capture_sha':CAPTURE_SHA,
-         'recaptured_authorized_interaction_states':True,
+         'new_capture_this_round':False, 'common_ready_base':'PASS', 'protected_frames_1_2_4_byte_identical':'PASS', 'phone_exteriors_3_5_6_pixel_identical':'PASS', 'runtime_workflow_tests_unchanged_this_round':'PASS',
          'uniform_headline_style':'PASS','uniform_subtitle_style':'PASS',
          'uniform_full_phone_geometry':'PASS',
          'six_image_checks':result,'phone_repaint_check':'PASS',
          'china_final_images':'NOT_RUN','app_store_upload':'NOT_RUN',
          'real_device_visual_review':'NOT_RUN'}
 (ROOT/'IMAGE_VALIDATION.json').write_text(json.dumps(summary,indent=2)+'\n')
-print('PASS: six PNGs, ICC/hashes, all opaque phone pixels unchanged, only authorized bilingual ZIP label changed; capture App tree matches.')
+print('PASS: common ready base; illustrative overlays; protected frames byte-identical; phone exteriors and runtime/workflow unchanged.')

@@ -4,9 +4,13 @@
   "production_changes": [
     "App/Localizable.xcstrings"
   ],
-  "previous_composition_head": "3a8a5a0b67d7a1c316b775302ebc06b19adc3880",
+  "previous_composition_head": "b260bedc40c0ddc715f53ee46b67a2112313747f",
   "exact_capture_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
-  "recaptured_authorized_interaction_states": true,
+  "new_capture_this_round": false,
+  "common_ready_base": "PASS",
+  "protected_frames_1_2_4_byte_identical": "PASS",
+  "phone_exteriors_3_5_6_pixel_identical": "PASS",
+  "runtime_workflow_tests_unchanged_this_round": "PASS",
   "uniform_headline_style": "PASS",
   "uniform_subtitle_style": "PASS",
   "uniform_full_phone_geometry": "PASS",
@@ -15,7 +19,10 @@
       "file": "store/en/01-lecture-photos.png",
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
+      "composite_expected_pixels_changed": 0,
       "all_opaque_phone_pixels_changed": 0,
+      "uncovered_base_pixels_changed": 0,
+      "illustrative_overlay": null,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
       "raw_hash_matches_capture_inventory": true
@@ -24,7 +31,10 @@
       "file": "store/en/02-select-and-sort.png",
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
+      "composite_expected_pixels_changed": 0,
       "all_opaque_phone_pixels_changed": 0,
+      "uncovered_base_pixels_changed": 0,
+      "illustrative_overlay": null,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
       "raw_hash_matches_capture_inventory": true
@@ -33,7 +43,10 @@
       "file": "store/en/03-generate-pdf-zip.png",
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
+      "composite_expected_pixels_changed": 0,
       "all_opaque_phone_pixels_changed": 0,
+      "uncovered_base_pixels_changed": 0,
+      "illustrative_overlay": null,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
       "raw_hash_matches_capture_inventory": true
@@ -42,7 +55,10 @@
       "file": "store/en/04-pdf-for-review.png",
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
+      "composite_expected_pixels_changed": 0,
       "all_opaque_phone_pixels_changed": 0,
+      "uncovered_base_pixels_changed": 0,
+      "illustrative_overlay": null,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
       "raw_hash_matches_capture_inventory": true
@@ -51,7 +67,23 @@
       "file": "store/en/05-ai-zip-to-ai.png",
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
-      "all_opaque_phone_pixels_changed": 0,
+      "composite_expected_pixels_changed": 0,
+      "all_opaque_phone_pixels_changed": 540223,
+      "uncovered_base_pixels_changed": 0,
+      "illustrative_overlay": {
+        "kind": "share",
+        "actual_system_capture": false,
+        "base_capture": "store-en-ready.png",
+        "first_row": [
+          "ChatGPT",
+          "Gemini",
+          "Claude",
+          "WorkBuddy"
+        ],
+        "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+        "preview": null,
+        "note": "Illustration only; provider share-extension availability not verified."
+      },
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
       "raw_hash_matches_capture_inventory": true
@@ -60,7 +92,18 @@
       "file": "store/en/06-save-then-clean.png",
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
-      "all_opaque_phone_pixels_changed": 0,
+      "composite_expected_pixels_changed": 0,
+      "all_opaque_phone_pixels_changed": 1114622,
+      "uncovered_base_pixels_changed": 0,
+      "illustrative_overlay": {
+        "kind": "delete",
+        "actual_system_capture": false,
+        "base_capture": "store-en-ready.png",
+        "first_row": null,
+        "filename": null,
+        "preview": "fixtures/lecture-13.jpg",
+        "note": "Illustration only; provider share-extension availability not verified."
+      },
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
       "raw_hash_matches_capture_inventory": true

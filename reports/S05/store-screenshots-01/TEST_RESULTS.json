@@ -1,11 +1,13 @@
 {
   "status": "READY_FOR_REAUDIT",
   "date": "2026-10-05",
-  "scope": "owner-authorized bilingual ZIP share label, authentic interaction captures, focused Store layout and future promo notes",
-  "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
-  "previous_head": "3a8a5a0b67d7a1c316b775302ebc06b19adc3880",
+  "scope": "Only phone regions 3/5/6; owner-approved illustrative system overlays",
+  "base_main_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
+  "starting_pr_head": "79c344446c603019c4687500f475196c42d4f6ad",
+  "comparison_baseline": "b260bedc40c0ddc715f53ee46b67a2112313747f",
+  "tested_implementation_sha": "PENDING",
   "exact_capture_tested_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
-  "ci": {
+  "prior_capture_ci": {
     "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885",
     "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
     "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885/artifacts/11310506797",
@@ -14,18 +16,10 @@
     "internal_testflight_upload": false,
     "source_delete_visual": "test-host-only synthetic receipt, real UI, CANCELLED; no PhotoKit deletion"
   },
-  "release_build": "PASS — actual Release simulator build",
-  "test_case_outcomes": [
-    "Test Case '-[LectureAssetUITests.S05StoreScreenshotsUITests testEnglishStoreScreensOnFictionalSlides]' passed (102.391 seconds).",
-    "Test Case '-[LectureAssetTests.S05StoreReceiptTests testStageSyntheticReceiptForStoreVisualOnly]' passed (0.585 seconds).",
-    "Test Case '-[LectureAssetUITests.S05StoreScreenshotsUITests testSourceDeletionConfirmationCancelOnly]' passed (20.670 seconds).",
-    "Test Case '-[LectureAssetTests.LocalizationResourceTests testReleaseBundleHasCompleteMatchingCatalogsAndLocalizedInfo]' passed (0.003 seconds).",
-    "Test Case '-[LectureAssetTests.S03CleanupTests testDeletionCancellationOrFailureRetainsJobAndSuccessPurgesOnlyItsFiles]' passed (0.004 seconds).",
-    "Test Case '-[LectureAssetTests.S03CleanupTests testFrozenExactSetRejectsDuplicatesMissingAndUnrelatedAssets]' passed (0.002 seconds).",
-    "Test Case '-[LectureAssetTests.S03CleanupTests testPhotoKitSuccessMarkerPurgesActualJobStoreAndDiscardNeverTouchesPhotos]' passed (0.184 seconds).",
-    "Test Case '-[LectureAssetTests.S03CleanupTests testShareGateCancellationPDFOnlyAndExplicitConfirmation]' passed (0.001 seconds).",
-    "Test Case '-[LectureAssetTests.S03CleanupTests testStaleZIPJobArchiveFilenameHashOrReplacementLocksDeletion]' passed (0.006 seconds).",
-    "Test Case '-[LectureAssetTests.S05StoreReceiptTests testCancellationRetainsSyntheticPhotosAndJob]' passed (0.162 seconds)."
+  "new_ci": "NOT_RUN — no runtime/workflow change",
+  "commands": [
+    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/render_store.py",
+    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/validate_store.py"
   ],
   "image_validation": {
     "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
@@ -33,9 +27,13 @@
     "production_changes": [
       "App/Localizable.xcstrings"
     ],
-    "previous_composition_head": "3a8a5a0b67d7a1c316b775302ebc06b19adc3880",
+    "previous_composition_head": "b260bedc40c0ddc715f53ee46b67a2112313747f",
     "exact_capture_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
-    "recaptured_authorized_interaction_states": true,
+    "new_capture_this_round": false,
+    "common_ready_base": "PASS",
+    "protected_frames_1_2_4_byte_identical": "PASS",
+    "phone_exteriors_3_5_6_pixel_identical": "PASS",
+    "runtime_workflow_tests_unchanged_this_round": "PASS",
     "uniform_headline_style": "PASS",
     "uniform_subtitle_style": "PASS",
     "uniform_full_phone_geometry": "PASS",
@@ -44,7 +42,10 @@
         "file": "store/en/01-lecture-photos.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
         "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
         "raw_hash_matches_capture_inventory": true
@@ -53,7 +54,10 @@
         "file": "store/en/02-select-and-sort.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
         "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
         "raw_hash_matches_capture_inventory": true
@@ -62,7 +66,10 @@
         "file": "store/en/03-generate-pdf-zip.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
         "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
         "raw_hash_matches_capture_inventory": true
@@ -71,7 +78,10 @@
         "file": "store/en/04-pdf-for-review.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
         "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
         "raw_hash_matches_capture_inventory": true
@@ -80,7 +90,23 @@
         "file": "store/en/05-ai-zip-to-ai.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 540223,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": {
+          "kind": "share",
+          "actual_system_capture": false,
+          "base_capture": "store-en-ready.png",
+          "first_row": [
+            "ChatGPT",
+            "Gemini",
+            "Claude",
+            "WorkBuddy"
+          ],
+          "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+          "preview": null,
+          "note": "Illustration only; provider share-extension availability not verified."
+        },
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
         "raw_hash_matches_capture_inventory": true
@@ -89,7 +115,18 @@
         "file": "store/en/06-save-then-clean.png",
         "size_mode_profile_hash": "PASS",
         "central_phone_pixels_changed": 0,
-        "all_opaque_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 1114622,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": {
+          "kind": "delete",
+          "actual_system_capture": false,
+          "base_capture": "store-en-ready.png",
+          "first_row": null,
+          "filename": null,
+          "preview": "fixtures/lecture-13.jpg",
+          "note": "Illustration only; provider share-extension availability not verified."
+        },
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
         "raw_hash_matches_capture_inventory": true
@@ -100,366 +137,10 @@
     "app_store_upload": "NOT_RUN",
     "real_device_visual_review": "NOT_RUN"
   },
-  "outputs": [
-    {
-      "raw": "store-en-selection.png",
-      "screen_rect": [
-        300,
-        1254,
-        720,
-        1564
-      ],
-      "phone_rect": [
-        286,
-        1240,
-        748,
-        1592
-      ],
-      "screen_corner_radius": 83,
-      "phone_bottom_cropped": false,
-      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
-      "file": "store/en/01-lecture-photos.png",
-      "headline": "One lecture. Dozens of slide photos.",
-      "headline_lines": [
-        "One lecture.",
-        "Dozens of slide photos."
-      ],
-      "headline_zh_Hans": "一场讲座，几十张 PPT 照片。",
-      "subtitle": "Rarely revisited. Hard to delete.",
-      "headline_style": {
-        "size": 84,
-        "line_height": 126,
-        "origin": [
-          108,
-          222
-        ]
-      },
-      "subtitle_style": {
-        "size": 42,
-        "color": "#5D6B7A",
-        "origin": [
-          113,
-          518
-        ]
-      },
-      "sha256": "c0f3044998704092c6fdb6e015e76f95364954eb641be1989a30267398f3ee8c",
-      "pixels": [
-        1320,
-        2868
-      ],
-      "mode": "RGB",
-      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
-    },
-    {
-      "raw": "store-en-review.png",
-      "screen_rect": [
-        300,
-        1254,
-        720,
-        1564
-      ],
-      "phone_rect": [
-        286,
-        1240,
-        748,
-        1592
-      ],
-      "screen_corner_radius": 83,
-      "phone_bottom_cropped": false,
-      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
-      "file": "store/en/02-select-and-sort.png",
-      "headline": "Select a batch. Sorted by capture time.",
-      "headline_lines": [
-        "Select a batch.",
-        "Sorted by capture time."
-      ],
-      "headline_zh_Hans": "批量选好，按拍摄时间排好。",
-      "subtitle": "Press, then drag to select.",
-      "headline_style": {
-        "size": 84,
-        "line_height": 126,
-        "origin": [
-          108,
-          222
-        ]
-      },
-      "subtitle_style": {
-        "size": 42,
-        "color": "#5D6B7A",
-        "origin": [
-          113,
-          518
-        ]
-      },
-      "sha256": "bc98ce5fd8148ef0c50a7f186a76914ec7f6e00e941ac4796f34986be8cd66e7",
-      "pixels": [
-        1320,
-        2868
-      ],
-      "mode": "RGB",
-      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
-    },
-    {
-      "raw": "store-en-building.png",
-      "screen_rect": [
-        300,
-        1254,
-        720,
-        1564
-      ],
-      "phone_rect": [
-        286,
-        1240,
-        748,
-        1592
-      ],
-      "screen_corner_radius": 83,
-      "phone_bottom_cropped": false,
-      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
-      "file": "store/en/03-generate-pdf-zip.png",
-      "headline": "Generate ZIP and PDF in one go.",
-      "headline_lines": [
-        "Generate ZIP and PDF",
-        "in one go."
-      ],
-      "headline_zh_Hans": "一次生成 ZIP 和 PDF。",
-      "subtitle": "",
-      "headline_style": {
-        "size": 84,
-        "line_height": 126,
-        "origin": [
-          108,
-          222
-        ]
-      },
-      "subtitle_style": {
-        "size": 42,
-        "color": "#5D6B7A",
-        "origin": [
-          113,
-          518
-        ]
-      },
-      "sha256": "0bae4388c8c2bee3c156cc516286ff6290955a0334c79e0d2cc1e27a4d8d22bf",
-      "pixels": [
-        1320,
-        2868
-      ],
-      "mode": "RGB",
-      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
-    },
-    {
-      "raw": "store-en-pdf.png",
-      "screen_rect": [
-        300,
-        1254,
-        720,
-        1564
-      ],
-      "phone_rect": [
-        286,
-        1240,
-        748,
-        1592
-      ],
-      "screen_corner_radius": 83,
-      "phone_bottom_cropped": false,
-      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
-      "file": "store/en/04-pdf-for-review.png",
-      "headline": "Keep a PDF for later review.",
-      "headline_lines": [
-        "Keep a PDF",
-        "for later review."
-      ],
-      "headline_zh_Hans": "PDF 留着，以后随时回看。",
-      "subtitle": "",
-      "headline_style": {
-        "size": 84,
-        "line_height": 126,
-        "origin": [
-          108,
-          222
-        ]
-      },
-      "subtitle_style": {
-        "size": 42,
-        "color": "#5D6B7A",
-        "origin": [
-          113,
-          518
-        ]
-      },
-      "sha256": "b30e528a12bf4364b7c19e86b917ce99dfa4e9c900374ac6b95500b6268e784a",
-      "pixels": [
-        1320,
-        2868
-      ],
-      "mode": "RGB",
-      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
-    },
-    {
-      "raw": "store-en-share.png",
-      "screen_rect": [
-        300,
-        1254,
-        720,
-        1564
-      ],
-      "phone_rect": [
-        286,
-        1240,
-        748,
-        1592
-      ],
-      "screen_corner_radius": 83,
-      "phone_bottom_cropped": false,
-      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
-      "file": "store/en/05-ai-zip-to-ai.png",
-      "headline": "Share the AI ZIP. Keep exploring the lecture.",
-      "headline_lines": [
-        "Share the AI ZIP.",
-        "Keep exploring the lecture."
-      ],
-      "headline_zh_Hans": "把 AI ZIP 交给 AI，继续理解这场讲座。",
-      "subtitle": "",
-      "headline_style": {
-        "size": 84,
-        "line_height": 126,
-        "origin": [
-          108,
-          222
-        ]
-      },
-      "subtitle_style": {
-        "size": 42,
-        "color": "#5D6B7A",
-        "origin": [
-          113,
-          518
-        ]
-      },
-      "sha256": "06207e65363e3b6b36fb5c25bfdb8967f8df64bad9a45eff05cc94bc69b90c9c",
-      "pixels": [
-        1320,
-        2868
-      ],
-      "mode": "RGB",
-      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
-    },
-    {
-      "raw": "store-en-delete-confirmation.png",
-      "screen_rect": [
-        300,
-        1254,
-        720,
-        1564
-      ],
-      "phone_rect": [
-        286,
-        1240,
-        748,
-        1592
-      ],
-      "screen_corner_radius": 83,
-      "phone_bottom_cropped": false,
-      "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
-      "file": "store/en/06-save-then-clean.png",
-      "headline": "Save first. Choose what to clear.",
-      "headline_lines": [
-        "Save first.",
-        "Choose what to clear."
-      ],
-      "headline_zh_Hans": "先保存，再决定清理什么。",
-      "subtitle": "",
-      "headline_style": {
-        "size": 84,
-        "line_height": 126,
-        "origin": [
-          108,
-          222
-        ]
-      },
-      "subtitle_style": {
-        "size": 42,
-        "color": "#5D6B7A",
-        "origin": [
-          113,
-          518
-        ]
-      },
-      "sha256": "e27df88cd8bc3b56e1795a809fe071a537f017ed673cf69920bd2b56568e9876",
-      "pixels": [
-        1320,
-        2868
-      ],
-      "mode": "RGB",
-      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
-    }
-  ],
-  "visual_inspection": {
-    "full_six_and_contact_sheet": "PASS",
-    "actual_generation_share_source_confirmation": "PASS",
-    "share_extensions_not_fabricated": "PASS",
-    "fourth_PPT_gap_ratio": 2.07,
-    "timeline_down_px": 40,
-    "PPT_up_px": 77,
-    "all_opaque_native_pixels_unchanged": "PASS"
-  },
-  "production_change": {
-    "file": "App/Localizable.xcstrings",
-    "key": "export.shareZIP",
-    "en": "Share AI ZIP",
-    "zh-Hans": "分享 AI 资料包（ZIP）",
-    "Swift_logic_changed": false,
-    "icon_tutorial_archive_delete_contract_changed": false
-  },
-  "source_confirmation_evidence": "Simulator-only test-host staged receipt, actual App dialog, CANCELLED; no PhotoKit request",
-  "native_share_evidence": "Actual system screen opened/dismissed, no completion/external-save claim",
-  "retention_verification": "PASS — unchanged Photos count, 12-page retained job, verified ready archive",
-  "future_promo_notes": "docs/MOTION_AND_PROMO_PLAN.md section 9",
-  "failed_attempts": [
-    {
-      "run": 37216496564,
-      "reason": "SpringBoard alert lookup"
-    },
-    {
-      "run": 37217299416,
-      "reason": "pregrant insufficient, grid not reached"
-    },
-    {
-      "run": 37218031109,
-      "reason": "permission App button mistaken for system option"
-    },
-    {
-      "run": 37218749664,
-      "reason": "Copy button type locator, real panel captured"
-    },
-    {
-      "run": 37219675151,
-      "reason": "Copy App accessibility locator, real panel captured"
-    },
-    {
-      "run": 37220553330,
-      "reason": "normal capture/staging passed; popover has no Cancel button"
-    }
-  ],
-  "NOT_RUN": [
-    "real iPhone visual review",
-    "Chinese UI device navigation and final Store PNGs",
-    "third-party AI share extension destinations",
-    "real external-save confirmation or source deletion",
-    "100/200-page stress",
-    "App Store metadata/review/release",
-    "TestFlight upload / distribution RC",
-    "promo video production / website / StoreKit"
-  ],
-  "release_ready_claim": false,
-  "toolchain": {
-    "macOS": "26.6.2",
-    "Xcode": "26.6 (17F113)",
-    "simulator_SDK": "26.5",
-    "runtime": "iOS 26.2",
-    "device": "iPhone 17 Pro Max"
-  },
-  "exact_render_tested_sha": "9b89c9f069759af825745ec6773dba52e33a4ad4"
+  "visual_review": "PASS — rendered frames 5/6 and contact sheet",
+  "runtime_localization_workflow_asc_testflight_changes": false,
+  "provider_share_extensions": "NOT_VERIFIED; illustrative destinations only",
+  "brand_publication_clearance": "NOT_RUN",
+  "real_device_visual_review": "NOT_RUN",
+  "app_store_upload": "NOT_RUN"
 }

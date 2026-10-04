@@ -19,19 +19,10 @@ Current source: Release capture CI 37221416885 at
 `b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9`. Ten original PNGs cover selection,
 review, prepared, building, ready, PDF, native share, source-confirmation, setup
 and permission prompt. Exact names/dimensions/hashes are in captures/CAPTURES.json.
-Final frames 3/5/6 use building/share/delete-confirmation, not a reused ready image.
-
-The workflow source SHA, artifact SHA256/CRC and safe allowlist were checked.
-Raw PNGs remain unretouched. Renderer uniformly resizes and masks frame corners;
-all six complete phones fit within the canvas. Overlay text is outside the phone.
-Final opaque phone pixels match each current raw resize exactly (changed count 0).
-Earlier unchanged-capture claims are superseded; originals remain in Git history.
-No owner device screenshot/private filename is published. Native share shows only
-actually available system extensions, not invented third-party service targets.
-
-Source-delete UI uses a test-host-only synthetic receipt and actual App dialog,
-then cancellation verified against Photos count/job integrity. This is simulator
-visual/cancellation evidence, not actual external save or PhotoKit deletion.
+Final frames 3/5/6 now share store-en-ready.png, unchanged and not recaptured.
+Frames 5/6 have explicit illustrative system layers; they are not native system
+capture evidence. No owner private screenshot is published. Phone exterior and
+protected frame identity are verified in IMAGE_VALIDATION.json.
 
 ## Fictional content / illustrations
 
@@ -48,8 +39,12 @@ Outside slide cards reuse these same fixtures. File cards/checks/arrows/AI actio
 chips are drawn by Pillow, never by generative AI. The generic AI workspace shows
 possible actions only and is labeled external/example, with no provider identity.
 
-The brand chip uses only the repository's production App icon/name. No WorkBuddy,
-ChatGPT, other AI, messaging or commercial third-party logo is used.
+The brand chip remains the accepted App icon. Frame 5 uses provider identification
+artwork: ChatGPT/Gemini/Claude official App Store artwork from Apple lookup URLs;
+WorkBuddy SVG from its official website favicon. Exact URLs/PNG hashes are in
+illustrative-assets/SOURCES.json. These are illustrative destination examples,
+not proof of share-extension availability or partnership. Publication/brand
+clearance is NOT_RUN; do not infer permission from asset accessibility.
 
 ## Local rendering dependencies
 

@@ -1,6 +1,6 @@
 """Six static Store compositions. Real captures are only uniformly scaled/clipped.
 
-No generated/fabricated App UI. Illustrations live outside the phone screen.
+Real App base unchanged. Frames 5/6 add explicitly illustrative system layers.
 Run on Windows with installed Pillow/numpy and Segoe UI fonts; see VISUAL_SYSTEM.
 """
 from pathlib import Path
@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 import numpy as np
+from phone_overlays import apply_overlay, NAMES
 
 ROOT = Path(__file__).resolve().parents[1]
 P = argparse.ArgumentParser()
@@ -28,13 +29,13 @@ STORY = [
      'Rarely revisited. Hard to delete.', '一场讲座，几十张 PPT 照片。'),
     ('02-select-and-sort', 'review', ['Select a batch.', 'Sorted by capture time.'],
      'Press, then drag to select.', '批量选好，按拍摄时间排好。'),
-    ('03-generate-pdf-zip', 'building', ['Generate ZIP and PDF', 'in one go.'],
+    ('03-generate-pdf-zip', 'ready', ['Generate ZIP and PDF', 'in one go.'],
      '', '一次生成 ZIP 和 PDF。'),
     ('04-pdf-for-review', 'pdf', ['Keep a PDF', 'for later review.'],
      '', 'PDF 留着，以后随时回看。'),
-    ('05-ai-zip-to-ai', 'share', ['Share the AI ZIP.', 'Keep exploring the lecture.'],
+    ('05-ai-zip-to-ai', 'ready', ['Share the AI ZIP.', 'Keep exploring the lecture.'],
      '', '把 AI ZIP 交给 AI，继续理解这场讲座。'),
-    ('06-save-then-clean', 'delete-confirmation', ['Save first.', 'Choose what to clear.'],
+    ('06-save-then-clean', 'ready', ['Save first.', 'Choose what to clear.'],
      '', '先保存，再决定清理什么。'),
 ]
 
@@ -210,6 +211,21 @@ def render(index, item):
     # Draw the native screen last: even a soft illustrative shadow may not
     # recolor screenshot pixels. Scene 4's bigger paper sits above the bezel.
     info = phone(im,capture)
+    info['illustrative_overlay'] = None
+    if index in (5,6):
+        x,y,w,h = info['screen_rect']
+        base = Image.open(ROOT/'captures'/info['raw']).convert('RGB').resize((w,h),Image.Resampling.LANCZOS)
+        kind = 'share' if index==5 else 'delete'
+        composite, coverage = apply_overlay(base,kind,ROOT,A.font_dir)
+        mask = Image.new('L',(w,h))
+        ImageDraw.Draw(mask).rounded_rectangle((0,0,w,h),radius=info['screen_corner_radius'],fill=255)
+        composite=composite.convert('RGBA'); composite.putalpha(mask)
+        im.alpha_composite(composite,(x,y))
+        info['illustrative_overlay']={'kind':kind,'actual_system_capture':False,
+            'base_capture':info['raw'],'first_row':NAMES if index==5 else None,
+            'filename':'Lecture_2026-10-04_AI_ZIP.zip' if index==5 else None,
+            'preview':'fixtures/lecture-13.jpg' if index==6 else None,
+            'note':'Illustration only; provider share-extension availability not verified.'}
     output=ROOT/'store'/'en'/(name+'.png')
     output.parent.mkdir(parents=True,exist_ok=True)
     im.convert('RGB').save(output,icc_profile=ICC,optimize=True)

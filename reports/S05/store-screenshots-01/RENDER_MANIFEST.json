@@ -16,6 +16,7 @@
     "screen_corner_radius": 83,
     "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
     "file": "store/en/01-lecture-photos.png",
     "headline": "One lecture. Dozens of slide photos.",
     "headline_lines": [
@@ -65,6 +66,7 @@
     "screen_corner_radius": 83,
     "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
     "file": "store/en/02-select-and-sort.png",
     "headline": "Select a batch. Sorted by capture time.",
     "headline_lines": [
@@ -98,7 +100,7 @@
     "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
   },
   {
-    "raw": "store-en-building.png",
+    "raw": "store-en-ready.png",
     "screen_rect": [
       300,
       1254,
@@ -114,6 +116,7 @@
     "screen_corner_radius": 83,
     "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
     "file": "store/en/03-generate-pdf-zip.png",
     "headline": "Generate ZIP and PDF in one go.",
     "headline_lines": [
@@ -138,7 +141,7 @@
         518
       ]
     },
-    "sha256": "0bae4388c8c2bee3c156cc516286ff6290955a0334c79e0d2cc1e27a4d8d22bf",
+    "sha256": "20a40d266019df03b2b0e116e2c9919f59851096fee565ed8ddcf37bbac827a1",
     "pixels": [
       1320,
       2868
@@ -163,6 +166,7 @@
     "screen_corner_radius": 83,
     "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
     "file": "store/en/04-pdf-for-review.png",
     "headline": "Keep a PDF for later review.",
     "headline_lines": [
@@ -196,7 +200,7 @@
     "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
   },
   {
-    "raw": "store-en-share.png",
+    "raw": "store-en-ready.png",
     "screen_rect": [
       300,
       1254,
@@ -212,6 +216,20 @@
     "screen_corner_radius": 83,
     "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": {
+      "kind": "share",
+      "actual_system_capture": false,
+      "base_capture": "store-en-ready.png",
+      "first_row": [
+        "ChatGPT",
+        "Gemini",
+        "Claude",
+        "WorkBuddy"
+      ],
+      "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+      "preview": null,
+      "note": "Illustration only; provider share-extension availability not verified."
+    },
     "file": "store/en/05-ai-zip-to-ai.png",
     "headline": "Share the AI ZIP. Keep exploring the lecture.",
     "headline_lines": [
@@ -236,7 +254,7 @@
         518
       ]
     },
-    "sha256": "06207e65363e3b6b36fb5c25bfdb8967f8df64bad9a45eff05cc94bc69b90c9c",
+    "sha256": "cbdbd2b041eb7b9e61f507b0ea523e52579185e8af592a2a572e819a0e15839a",
     "pixels": [
       1320,
       2868
@@ -245,7 +263,7 @@
     "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
   },
   {
-    "raw": "store-en-delete-confirmation.png",
+    "raw": "store-en-ready.png",
     "screen_rect": [
       300,
       1254,
@@ -261,6 +279,15 @@
     "screen_corner_radius": 83,
     "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": {
+      "kind": "delete",
+      "actual_system_capture": false,
+      "base_capture": "store-en-ready.png",
+      "first_row": null,
+      "filename": null,
+      "preview": "fixtures/lecture-13.jpg",
+      "note": "Illustration only; provider share-extension availability not verified."
+    },
     "file": "store/en/06-save-then-clean.png",
     "headline": "Save first. Choose what to clear.",
     "headline_lines": [
@@ -285,7 +312,7 @@
         518
       ]
     },
-    "sha256": "e27df88cd8bc3b56e1795a809fe071a537f017ed673cf69920bd2b56568e9876",
+    "sha256": "9041338d450229461021a2e25c41e633d3ee7e6ffe24d05f77fbbc6570262cdb",
     "pixels": [
       1320,
       2868

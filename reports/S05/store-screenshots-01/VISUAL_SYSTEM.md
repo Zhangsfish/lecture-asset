@@ -20,7 +20,7 @@ objects and soft lateral blue/mint glow. No mascot, branding or platform copy.
   Frames 5/6 gray helpers share the same 42 px #5D6B7A treatment.
 - Phone: all six centered, width 748 px at y=1240, same bezel/radius and complete
   screen within the canvas. Real capture uniform LANCZOS resize only, no repaint.
-  Different scenes are explained by external objects, not fake native content.
+  Owner-authorized frames 5/6 add separately identified illustrative system layers.
 - Paper objects: white, thin blue details, small fold/zipper/line drawings, gentle
   shadows. The tutorial's slide/file/check language informs the artwork.
 - Selected icon: accepted main V1 Calm cobalt, not a new redesign or alternate icon.
@@ -73,3 +73,15 @@ are drawn before the phone so they cannot recolor native UI.
 An App Store screenshot is static: this does not certify gesture responsiveness,
 device VoiceOver, conversion uplift, legal release readiness or Apple acceptance.
 No physical-iPhone or large-batch regression is rerun for this asset task.
+
+## Current overlay exception — 2026-10-05
+
+Owner explicitly authorized illustrative system layers in frames 5/6. These use
+phone_overlays.py on top of the identical unedited Files ready capture, clipped
+inside the original rounded screen mask. All exterior pixels are protected.
+Frame 5 starts at screen-local y=790; all existing ready controls above remain
+visible. Frame 6 centers a dark confirmation at y=460..1125 with a separate dim
+layer. Provider artwork is source-backed, not generated; fixture 13 is fictional.
+The validator recomputes expected composites and separately checks uncovered
+base pixels; overlay-covered pixels are allowed to differ and counted honestly.
+No new raw screenshot or color grading. Native App button colors remain unchanged.
