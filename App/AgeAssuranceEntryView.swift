@@ -1,4 +1,6 @@
-import DeclaredAgeRange
+// Current SDK's SwiftUI action lacks Sendable annotation. Calls remain serialized
+// by the main-actor service; this import scopes compatibility to Apple's module.
+@preconcurrency import DeclaredAgeRange
 import SwiftUI
 
 struct AgeAssuranceEntryView: View {
