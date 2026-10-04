@@ -89,7 +89,7 @@
         518
       ]
     },
-    "sha256": "1d6052920b4bd0bce0cf260c796e651916053814469a51fad92dd88eacc706ff",
+    "sha256": "bc98ce5fd8148ef0c50a7f186a76914ec7f6e00e941ac4796f34986be8cd66e7",
     "pixels": [
       1320,
       2868
@@ -98,7 +98,7 @@
     "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
   },
   {
-    "raw": "store-en-ready.png",
+    "raw": "store-en-building.png",
     "screen_rect": [
       300,
       1254,
@@ -138,7 +138,7 @@
         518
       ]
     },
-    "sha256": "5c46c73bbfc75a25be72ab6c7524877f0a6c618ac2e795292293a953a562bb68",
+    "sha256": "0bae4388c8c2bee3c156cc516286ff6290955a0334c79e0d2cc1e27a4d8d22bf",
     "pixels": [
       1320,
       2868
@@ -187,7 +187,7 @@
         518
       ]
     },
-    "sha256": "0914d88c48c3c56fb074c8fdc299643a4e1e466642a27e5e75a05858c609c210",
+    "sha256": "b30e528a12bf4364b7c19e86b917ce99dfa4e9c900374ac6b95500b6268e784a",
     "pixels": [
       1320,
       2868
@@ -196,7 +196,7 @@
     "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
   },
   {
-    "raw": "store-en-ready.png",
+    "raw": "store-en-share.png",
     "screen_rect": [
       300,
       1254,
@@ -236,7 +236,7 @@
         518
       ]
     },
-    "sha256": "ec4ac17349ac9d1a6bb9820c02b0f86a85b95be7fed97f465ce90bf76a1ca8e0",
+    "sha256": "06207e65363e3b6b36fb5c25bfdb8967f8df64bad9a45eff05cc94bc69b90c9c",
     "pixels": [
       1320,
       2868
@@ -245,7 +245,7 @@
     "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
   },
   {
-    "raw": "store-en-ready.png",
+    "raw": "store-en-delete-confirmation.png",
     "screen_rect": [
       300,
       1254,
@@ -285,7 +285,7 @@
         518
       ]
     },
-    "sha256": "f861211511aa797f6dbd7d65afe7c1f0078e4b769b3330a705b927399202cf49",
+    "sha256": "e27df88cd8bc3b56e1795a809fe071a537f017ed673cf69920bd2b56568e9876",
     "pixels": [
       1320,
       2868

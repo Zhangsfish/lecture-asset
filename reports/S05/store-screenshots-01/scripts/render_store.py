@@ -28,13 +28,13 @@ STORY = [
      'Rarely revisited. Hard to delete.', '一场讲座，几十张 PPT 照片。'),
     ('02-select-and-sort', 'review', ['Select a batch.', 'Sorted by capture time.'],
      'Press, then drag to select.', '批量选好，按拍摄时间排好。'),
-    ('03-generate-pdf-zip', 'ready', ['Generate ZIP and PDF', 'in one go.'],
+    ('03-generate-pdf-zip', 'building', ['Generate ZIP and PDF', 'in one go.'],
      '', '一次生成 ZIP 和 PDF。'),
     ('04-pdf-for-review', 'pdf', ['Keep a PDF', 'for later review.'],
      '', 'PDF 留着，以后随时回看。'),
-    ('05-ai-zip-to-ai', 'ready', ['Share the AI ZIP.', 'Keep exploring the lecture.'],
+    ('05-ai-zip-to-ai', 'share', ['Share the AI ZIP.', 'Keep exploring the lecture.'],
      '', '把 AI ZIP 交给 AI，继续理解这场讲座。'),
-    ('06-save-then-clean', 'ready', ['Save first.', 'Choose what to clear.'],
+    ('06-save-then-clean', 'delete-confirmation', ['Save first.', 'Choose what to clear.'],
      '', '先保存，再决定清理什么。'),
 ]
 
@@ -156,14 +156,14 @@ def render(index, item):
         slide_card(im,20,491,691,290,angle=0,selected=True)
         slide_card(im,21,850,691,290,angle=-7,selected=True)
         d=ImageDraw.Draw(im)
-        d.line([(260,933),(648,933),(1040,933)],fill='#90B0D1',width=5)
-        d.ellipse((237,910,283,956),fill='white',outline=BLUE,width=4)
-        d.ellipse((245,918,275,948),outline='#90B0D1',width=2)
-        d.polygon([(1028,923),(1047,933),(1028,943)],fill='#90B0D1')
-        d.line([(260,984),(650,984),(1040,984)],fill=BLUE,width=5)
+        d.line([(260,973),(648,973),(1040,973)],fill='#90B0D1',width=5)
+        d.ellipse((237,950,283,996),fill='white',outline=BLUE,width=4)
+        d.ellipse((245,958,275,988),outline='#90B0D1',width=2)
+        d.polygon([(1028,963),(1047,973),(1028,983)],fill='#90B0D1')
+        d.line([(260,1024),(650,1024),(1040,1024)],fill=BLUE,width=5)
         for x,label in [(260,'09:18'),(650,'09:19'),(1040,'09:20')]:
-            d.ellipse((x-9,975,x+9,993),fill=BLUE)
-            text(im,(x-45,1010),label,28,fill=MUTED)
+            d.ellipse((x-9,1015,x+9,1033),fill=BLUE)
+            text(im,(x-45,1050),label,28,fill=MUTED)
     elif index==3:
         slide_card(im,24,193,737,298,angle=5)
         slide_card(im,23,154,706,298,angle=-4)
@@ -175,11 +175,11 @@ def render(index, item):
         file_card(im,980,717,'AI ZIP',BLUE,215,307)
     elif index==4:
         # A legible enlarged fictional slide, outside the real PDF viewer.
-        slide_card(im,13,195,697,884,angle=0)
-        panel(im,(804,1111,1119,1182),20)
-        text(im,(833,1125),'PDF · 12 pages',29,fill=MINT,bold=True)
+        slide_card(im,13,195,620,884,angle=0)
+        panel(im,(804,1034,1119,1105),20)
+        text(im,(833,1048),'PDF · 12 pages',29,fill=MINT,bold=True)
     elif index==5:
-        text(im,(466,646),'After export · AI tool example',28,fill='#7B8999')
+        text(im,(466,646),'After export · AI tool example',SUBTITLE_SIZE,fill=SUBTITLE_COLOR)
         file_card(im,115,733,'AI ZIP',BLUE,228,310)
         d=ImageDraw.Draw(im)
         d.line((371,888,421,888),fill='#AABFD5',width=7)
@@ -193,7 +193,7 @@ def render(index, item):
                 x,y=504+k*326,855+j*105
                 d.rounded_rectangle((x,y,x+301,y+75),18,fill='#F3F7FB')
                 text(im,(x+19,y+17),value,29,fill=BLUE,bold=True)
-        text(im,(466,1150),'Use an AI tool that can read images.',24,fill='#7B8999')
+        text(im,(466,1150),'Use an AI tool that can read images.',SUBTITLE_SIZE,fill=SUBTITLE_COLOR)
     elif index==6:
         panel(im,(402,668,918,774),28)
         check(im,436,696,47,MINT)
@@ -206,7 +206,7 @@ def render(index, item):
         text(im,(136,912),'Delete source photos',33,bold=True)
         text(im,(732,900),'Keep Photos,',33,bold=True)
         text(im,(732,947),'clear App files',33,bold=True)
-        text(im,(126,1065),'Source deletion needs separate confirmation.',29,fill=MUTED)
+        text(im,(126,1065),'Source deletion needs separate confirmation.',SUBTITLE_SIZE,fill=SUBTITLE_COLOR)
     # Draw the native screen last: even a soft illustrative shadow may not
     # recolor screenshot pixels. Scene 4's bigger paper sits above the bezel.
     info = phone(im,capture)

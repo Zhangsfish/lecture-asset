@@ -1,3 +1,5 @@
+Historical initial capture evidence; current canonical outcomes are in captures/CI_SAFE_RESULT.txt.
+
 Workflow: https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310
 Exact capture SHA: d7a65e878df94c2ac24ebaa47793bac5294719f9
 App tree: eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5 (identical to base main)

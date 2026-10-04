@@ -17,7 +17,7 @@ objects and soft lateral blue/mint glow. No mascot, branding or platform copy.
   headlines fit the same 1096 px block. Line 2 uses Calm cobalt uniformly.
 - Subtitles: one shared style, 42 px at (113,518), #5D6B7A. Frames 1/2 are slightly
   larger and darker than before (38 px / #6C7A89), still subordinate to headlines.
-  Frame 5's boundary/qualifier remain a separate small 28/24 px #7B8999 treatment.
+  Frames 5/6 gray helpers share the same 42 px #5D6B7A treatment.
 - Phone: all six centered, width 748 px at y=1240, same bezel/radius and complete
   screen within the canvas. Real capture uniform LANCZOS resize only, no repaint.
   Different scenes are explained by external objects, not fake native content.
@@ -29,8 +29,8 @@ Cards are outside the phone's active UI. They do not obscure native buttons or
 create fictional controls. The PDF enlargement is the same fictional slide used
 in the real archive, drawn as a document example, not a fabricated PDFKit toolbar.
 
-Frame 5 uses “After export · AI tool example” at 28 px and the image-reading
-qualifier at 24 px, both muted #7B8999. No all-caps disclaimer headline remains.
+Frame 5 uses “After export · AI tool example” and the image-reading qualifier
+at 42 px, both #5D6B7A, matching frames 1/2 auxiliary style. No all-caps disclaimer headline remains.
 The workspace's four possible actions and small Example label are unchanged.
 
 ## Minimal pipeline
@@ -65,8 +65,9 @@ and conditional cleanup wording. Exact pixel validation compares every opaque
 phone-screen pixel, including the status bar and edge controls, plus a central
 rectangle against the visible intersection of uniform resizes with the canvas.
 Pixels below the canvas are excluded explicitly, not treated as changed or
-claimed tested. Raw capture hashes are checked against the reviewed Git blob,
-not merely against an editable JSON inventory. Illustrative shadows
+claimed tested. New authorized captures are linked to their exact CI source/artifact provenance.
+Raw capture hashes match the exported inventory; the App tree must match the
+capture source SHA. The production diff allows only the bilingual ZIP label. Illustrative shadows
 are drawn before the phone so they cannot recolor native UI.
 
 An App Store screenshot is static: this does not certify gesture responsiveness,

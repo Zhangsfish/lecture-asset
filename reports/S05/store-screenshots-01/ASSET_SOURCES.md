@@ -3,7 +3,8 @@
 ## Accepted product
 
 - GitHub main base `4afd804ff2bdedec0a181181d768932a01b52b1b`.
-- App tree `eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5`.
+- Original accepted App tree `eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5`.
+- Current App tree `cdf005c109437967cac25d020fadf51ef06de921`; only the authorized bilingual ZIP action label differs.
 - Production icon SHA256
   `b8f5ebfc89d8c8c3124026714737621bbd06c575d0e844f611282ddfc5bd8913`.
 - Icon is accepted Calm cobalt from merged PR #13. No pending-branch assets used.
@@ -14,17 +15,23 @@
 
 ## Real App UI
 
-Five full-size original English Release simulator captures: selection, review,
-prepared, files ready, and actual PDFKit preview. Exact names/hashes/dimensions
-are in `captures/CAPTURES.json`. The ready capture is reused for 3/5/6 because
-the product presents those actions in the same state.
+Current source: Release capture CI 37221416885 at
+`b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9`. Ten original PNGs cover selection,
+review, prepared, building, ready, PDF, native share, source-confirmation, setup
+and permission prompt. Exact names/dimensions/hashes are in captures/CAPTURES.json.
+Final frames 3/5/6 use building/share/delete-confirmation, not a reused ready image.
 
-Source provenance, workflow and test summary are preserved with these captures.
-Raw screenshots carry the PNG sRGB tag. They are not retouched or relabeled; the renderer only uniformly
-resizes them and masks physical frame corners. All six phones fit completely
-within the canvas in the 2026-10-05 revision. Overlay text remains outside. All original capture hashes
-remain identical to reviewed PR head c8d2d8f; no recapture was performed.
-Only Release simulator evidence is claimed, not owner/device screenshots.
+The workflow source SHA, artifact SHA256/CRC and safe allowlist were checked.
+Raw PNGs remain unretouched. Renderer uniformly resizes and masks frame corners;
+all six complete phones fit within the canvas. Overlay text is outside the phone.
+Final opaque phone pixels match each current raw resize exactly (changed count 0).
+Earlier unchanged-capture claims are superseded; originals remain in Git history.
+No owner device screenshot/private filename is published. Native share shows only
+actually available system extensions, not invented third-party service targets.
+
+Source-delete UI uses a test-host-only synthetic receipt and actual App dialog,
+then cancellation verified against Photos count/job integrity. This is simulator
+visual/cancellation evidence, not actual external save or PhotoKit deletion.
 
 ## Fictional content / illustrations
 

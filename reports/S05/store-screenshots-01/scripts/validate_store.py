@@ -8,7 +8,9 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = '4afd804ff2bdedec0a181181d768932a01b52b1b'
-REVIEWED = '0fa963624877d908d80e62d733ec90982509bbc1'
+PREVIOUS = '3a8a5a0b67d7a1c316b775302ebc06b19adc3880'
+provenance = json.loads((ROOT/'captures/PROVENANCE.json').read_text(encoding='utf-8'))
+CAPTURE_SHA = provenance['source_sha']
 records = json.loads((ROOT/'RENDER_MANIFEST.json').read_text(encoding='utf-8'))
 assert len(records)==6
 result=[]
@@ -22,9 +24,6 @@ for record in records:
         assert hashlib.sha256(path.read_bytes()).hexdigest()==record['sha256']
         rawpath=ROOT/'captures'/record['raw']
         assert hashlib.sha256(rawpath.read_bytes()).hexdigest()==captures[record['raw']]['sha256']
-        raw_repo_path=rawpath.resolve().relative_to(Path.cwd()).as_posix()
-        reviewed_raw=subprocess.check_output(['git','show',REVIEWED+':'+raw_repo_path])
-        assert rawpath.read_bytes()==reviewed_raw, record['raw']
         raw=Image.open(rawpath).convert('RGB')
         x,y,w,h=record['screen_rect']
         expected=raw.resize((w,h),Image.Resampling.LANCZOS)
@@ -50,14 +49,22 @@ for record in records:
                        'all_opaque_phone_pixels_changed':full_changed,
                        'visible_opaque_phone_pixel_count':int(np.count_nonzero(visible_mask)),
                        'phone_bottom_cropped':record['phone_bottom_cropped'],
-                       'raw_hash_unchanged_since_review':True})
-protected=['App','AppResources','Packages','schemas','project.yml','Tests']
-diff=subprocess.check_output(['git','diff','--name-only',BASE,'--',*protected],text=True).strip()
-assert not diff, diff
+                       'raw_hash_matches_capture_inventory':True})
+# Owner authorized only one bilingual production label change. No Swift/runtime change.
+production_diff=subprocess.check_output(['git','diff','--name-only',BASE,'--','App','AppResources','Packages','schemas','project.yml'],text=True).splitlines()
+assert production_diff==['App/Localizable.xcstrings'], production_diff
+previous=json.loads(subprocess.check_output(['git','show',BASE+':App/Localizable.xcstrings']))
+current=json.loads(Path('App/Localizable.xcstrings').read_text(encoding='utf-8'))
+assert {k for k in previous['strings'] if previous['strings'][k]!=current['strings'][k]}=={'export.shareZIP'}
+assert set(previous['strings'])==set(current['strings'])
+for locale,value in [('en','Share AI ZIP'),('zh-Hans','分享 AI 资料包（ZIP）')]:
+    assert current['strings']['export.shareZIP']['localizations'][locale]['stringUnit']['value']==value
+previous['strings']['export.shareZIP']=current['strings']['export.shareZIP']
+assert previous==current
 app_tree=subprocess.check_output(['git','rev-parse','HEAD:App'],text=True).strip()
-baseline_tree=subprocess.check_output(['git','rev-parse',BASE+':App'],text=True).strip()
-assert app_tree==baseline_tree
-assert subprocess.check_output(['git','diff','--name-only',REVIEWED,'--',*protected,'UITests','.github/workflows'],text=True).strip()==''
+capture_tree=subprocess.check_output(['git','rev-parse',CAPTURE_SHA+':App'],text=True).strip()
+assert app_tree==capture_tree
+assert subprocess.check_output(['git','diff','--name-only',CAPTURE_SHA,'--','App'],text=True).strip()==''
 assert len({tuple(r['phone_rect']) for r in records})==1
 assert all(r['phone_rect'][2]==748 and r['phone_rect'][1]==1240 for r in records)
 assert all(r['phone_rect'][1]+r['phone_rect'][3]<=2868 for r in records)
@@ -65,12 +72,13 @@ assert all(not r['phone_bottom_cropped'] for r in records)
 assert all(r['headline_style']=={'size':84,'line_height':126,'origin':[108,222]} for r in records)
 assert all(r['subtitle_style']=={'size':42,'color':'#5D6B7A','origin':[113,518]} for r in records)
 assert records[4]['headline_lines']==['Share the AI ZIP.','Keep exploring the lecture.']
-summary={'base_sha':BASE,'production_app_tree':app_tree,'production_changes':[],
-         'reviewed_head':REVIEWED,'raw_captures_unchanged':True,
+summary={'base_sha':BASE,'production_app_tree':app_tree,'production_changes':production_diff,
+         'previous_composition_head':PREVIOUS,'exact_capture_sha':CAPTURE_SHA,
+         'recaptured_authorized_interaction_states':True,
          'uniform_headline_style':'PASS','uniform_subtitle_style':'PASS',
          'uniform_full_phone_geometry':'PASS',
          'six_image_checks':result,'phone_repaint_check':'PASS',
          'china_final_images':'NOT_RUN','app_store_upload':'NOT_RUN',
          'real_device_visual_review':'NOT_RUN'}
 (ROOT/'IMAGE_VALIDATION.json').write_text(json.dumps(summary,indent=2)+'\n')
-print('PASS: six PNGs, ICC/hashes, all opaque phone pixels unchanged, production trees unchanged.')
+print('PASS: six PNGs, ICC/hashes, all opaque phone pixels unchanged, only authorized bilingual ZIP label changed; capture App tree matches.')

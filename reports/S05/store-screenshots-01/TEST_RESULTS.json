@@ -1,32 +1,41 @@
 {
   "status": "READY_FOR_REAUDIT",
   "date": "2026-10-05",
-  "scope": "PR #14 unified static typography/full-phone visual pass only",
+  "scope": "owner-authorized bilingual ZIP share label, authentic interaction captures, focused Store layout and future promo notes",
   "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
-  "exact_capture_tested_sha": "d7a65e878df94c2ac24ebaa47793bac5294719f9",
-  "app_tree": "eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5",
+  "previous_head": "3a8a5a0b67d7a1c316b775302ebc06b19adc3880",
+  "exact_capture_tested_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
   "ci": {
-    "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310",
-    "source_sha": "d7a65e878df94c2ac24ebaa47793bac5294719f9",
-    "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310/artifacts/11294227664",
-    "artifact_sha256": "5be76e43e5f6677be00df47d663882b3f09c3139e33e8b3ceb7b7be948726a7a",
+    "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885",
+    "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+    "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885/artifacts/11310506797",
+    "artifact_sha256": "b935b537162d2670b4cf5500d512179ea7d0890c8ad7799ec8fec29dfccda2d9",
     "conclusion": "success",
-    "evidence_use": "Reused original capture evidence; not rerun for this polish"
+    "internal_testflight_upload": false,
+    "source_delete_visual": "test-host-only synthetic receipt, real UI, CANCELLED; no PhotoKit deletion"
   },
-  "release_ui_test": {
-    "result": "Passed",
-    "totalTestCount": 1,
-    "passedTests": 1,
-    "failedTests": 0,
-    "skippedTests": 0,
-    "evidence_use": "Original capture test; not rerun"
-  },
+  "release_build": "PASS — actual Release simulator build",
+  "test_case_outcomes": [
+    "Test Case '-[LectureAssetUITests.S05StoreScreenshotsUITests testEnglishStoreScreensOnFictionalSlides]' passed (102.391 seconds).",
+    "Test Case '-[LectureAssetTests.S05StoreReceiptTests testStageSyntheticReceiptForStoreVisualOnly]' passed (0.585 seconds).",
+    "Test Case '-[LectureAssetUITests.S05StoreScreenshotsUITests testSourceDeletionConfirmationCancelOnly]' passed (20.670 seconds).",
+    "Test Case '-[LectureAssetTests.LocalizationResourceTests testReleaseBundleHasCompleteMatchingCatalogsAndLocalizedInfo]' passed (0.003 seconds).",
+    "Test Case '-[LectureAssetTests.S03CleanupTests testDeletionCancellationOrFailureRetainsJobAndSuccessPurgesOnlyItsFiles]' passed (0.004 seconds).",
+    "Test Case '-[LectureAssetTests.S03CleanupTests testFrozenExactSetRejectsDuplicatesMissingAndUnrelatedAssets]' passed (0.002 seconds).",
+    "Test Case '-[LectureAssetTests.S03CleanupTests testPhotoKitSuccessMarkerPurgesActualJobStoreAndDiscardNeverTouchesPhotos]' passed (0.184 seconds).",
+    "Test Case '-[LectureAssetTests.S03CleanupTests testShareGateCancellationPDFOnlyAndExplicitConfirmation]' passed (0.001 seconds).",
+    "Test Case '-[LectureAssetTests.S03CleanupTests testStaleZIPJobArchiveFilenameHashOrReplacementLocksDeletion]' passed (0.006 seconds).",
+    "Test Case '-[LectureAssetTests.S05StoreReceiptTests testCancellationRetainsSyntheticPhotosAndJob]' passed (0.162 seconds)."
+  ],
   "image_validation": {
     "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
-    "production_app_tree": "eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5",
-    "production_changes": [],
-    "reviewed_head": "0fa963624877d908d80e62d733ec90982509bbc1",
-    "raw_captures_unchanged": true,
+    "production_app_tree": "cdf005c109437967cac25d020fadf51ef06de921",
+    "production_changes": [
+      "App/Localizable.xcstrings"
+    ],
+    "previous_composition_head": "3a8a5a0b67d7a1c316b775302ebc06b19adc3880",
+    "exact_capture_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+    "recaptured_authorized_interaction_states": true,
     "uniform_headline_style": "PASS",
     "uniform_subtitle_style": "PASS",
     "uniform_full_phone_geometry": "PASS",
@@ -38,7 +47,7 @@
         "all_opaque_phone_pixels_changed": 0,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
-        "raw_hash_unchanged_since_review": true
+        "raw_hash_matches_capture_inventory": true
       },
       {
         "file": "store/en/02-select-and-sort.png",
@@ -47,7 +56,7 @@
         "all_opaque_phone_pixels_changed": 0,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
-        "raw_hash_unchanged_since_review": true
+        "raw_hash_matches_capture_inventory": true
       },
       {
         "file": "store/en/03-generate-pdf-zip.png",
@@ -56,7 +65,7 @@
         "all_opaque_phone_pixels_changed": 0,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
-        "raw_hash_unchanged_since_review": true
+        "raw_hash_matches_capture_inventory": true
       },
       {
         "file": "store/en/04-pdf-for-review.png",
@@ -65,7 +74,7 @@
         "all_opaque_phone_pixels_changed": 0,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
-        "raw_hash_unchanged_since_review": true
+        "raw_hash_matches_capture_inventory": true
       },
       {
         "file": "store/en/05-ai-zip-to-ai.png",
@@ -74,7 +83,7 @@
         "all_opaque_phone_pixels_changed": 0,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
-        "raw_hash_unchanged_since_review": true
+        "raw_hash_matches_capture_inventory": true
       },
       {
         "file": "store/en/06-save-then-clean.png",
@@ -83,41 +92,13 @@
         "all_opaque_phone_pixels_changed": 0,
         "visible_opaque_phone_pixel_count": 1120355,
         "phone_bottom_cropped": false,
-        "raw_hash_unchanged_since_review": true
+        "raw_hash_matches_capture_inventory": true
       }
     ],
     "phone_repaint_check": "PASS",
     "china_final_images": "NOT_RUN",
     "app_store_upload": "NOT_RUN",
     "real_device_visual_review": "NOT_RUN"
-  },
-  "visual_inspection": {
-    "full_six_screens": "PASS",
-    "330px_contact_sheet": "PASS",
-    "AI_workspace_outside_phone": "PASS",
-    "conditional_source_cleanup_copy": "PASS",
-    "synthetic_PDF_first_page_matches_fixture_13": "PASS",
-    "no_fake_native_controls": "PASS",
-    "no_third_party_logos": "PASS",
-    "soft_shadow_edges": "PASS",
-    "all_opaque_phone_pixels_unchanged": "PASS",
-    "frame_5_small_muted_boundary_and_qualifier": "PASS",
-    "uniform_headline_size_line_height_layout": "PASS",
-    "uniform_full_phone_geometry": "PASS",
-    "frames_1_2_subtitle_readability": "PASS",
-    "three_distinct_external_ready_screen_narratives": "PASS"
-  },
-  "production_runtime_icon_localization_contract_changes": false,
-  "synthetic_fixtures": {
-    "count": 24,
-    "selected_for_capture": 12,
-    "dimensions": [
-      1920,
-      1080
-    ],
-    "source_bytes": 3706857,
-    "private_owner_photos": false,
-    "GPS": false
   },
   "outputs": [
     {
@@ -210,7 +191,7 @@
           518
         ]
       },
-      "sha256": "1d6052920b4bd0bce0cf260c796e651916053814469a51fad92dd88eacc706ff",
+      "sha256": "bc98ce5fd8148ef0c50a7f186a76914ec7f6e00e941ac4796f34986be8cd66e7",
       "pixels": [
         1320,
         2868
@@ -219,7 +200,7 @@
       "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
     },
     {
-      "raw": "store-en-ready.png",
+      "raw": "store-en-building.png",
       "screen_rect": [
         300,
         1254,
@@ -259,7 +240,7 @@
           518
         ]
       },
-      "sha256": "5c46c73bbfc75a25be72ab6c7524877f0a6c618ac2e795292293a953a562bb68",
+      "sha256": "0bae4388c8c2bee3c156cc516286ff6290955a0334c79e0d2cc1e27a4d8d22bf",
       "pixels": [
         1320,
         2868
@@ -308,7 +289,7 @@
           518
         ]
       },
-      "sha256": "0914d88c48c3c56fb074c8fdc299643a4e1e466642a27e5e75a05858c609c210",
+      "sha256": "b30e528a12bf4364b7c19e86b917ce99dfa4e9c900374ac6b95500b6268e784a",
       "pixels": [
         1320,
         2868
@@ -317,7 +298,7 @@
       "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
     },
     {
-      "raw": "store-en-ready.png",
+      "raw": "store-en-share.png",
       "screen_rect": [
         300,
         1254,
@@ -357,7 +338,7 @@
           518
         ]
       },
-      "sha256": "ec4ac17349ac9d1a6bb9820c02b0f86a85b95be7fed97f465ce90bf76a1ca8e0",
+      "sha256": "06207e65363e3b6b36fb5c25bfdb8967f8df64bad9a45eff05cc94bc69b90c9c",
       "pixels": [
         1320,
         2868
@@ -366,7 +347,7 @@
       "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
     },
     {
-      "raw": "store-en-ready.png",
+      "raw": "store-en-delete-confirmation.png",
       "screen_rect": [
         300,
         1254,
@@ -406,7 +387,7 @@
           518
         ]
       },
-      "sha256": "f861211511aa797f6dbd7d65afe7c1f0078e4b769b3330a705b927399202cf49",
+      "sha256": "e27df88cd8bc3b56e1795a809fe071a537f017ed673cf69920bd2b56568e9876",
       "pixels": [
         1320,
         2868
@@ -415,39 +396,69 @@
       "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
     }
   ],
-  "earlier_run": {
-    "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37179271853",
-    "overall": "FAIL",
-    "Release_UI_test": "PASS",
-    "reason": "Exporter-only mismatch with Xcode 26 manifest keys and suggested filename suffixes; corrected without App changes"
+  "visual_inspection": {
+    "full_six_and_contact_sheet": "PASS",
+    "actual_generation_share_source_confirmation": "PASS",
+    "share_extensions_not_fabricated": "PASS",
+    "fourth_PPT_gap_ratio": 2.07,
+    "timeline_down_px": 40,
+    "PPT_up_px": 77,
+    "all_opaque_native_pixels_unchanged": "PASS"
   },
+  "production_change": {
+    "file": "App/Localizable.xcstrings",
+    "key": "export.shareZIP",
+    "en": "Share AI ZIP",
+    "zh-Hans": "分享 AI 资料包（ZIP）",
+    "Swift_logic_changed": false,
+    "icon_tutorial_archive_delete_contract_changed": false
+  },
+  "source_confirmation_evidence": "Simulator-only test-host staged receipt, actual App dialog, CANCELLED; no PhotoKit request",
+  "native_share_evidence": "Actual system screen opened/dismissed, no completion/external-save claim",
+  "retention_verification": "PASS — unchanged Photos count, 12-page retained job, verified ready archive",
+  "future_promo_notes": "docs/MOTION_AND_PROMO_PLAN.md section 9",
+  "failed_attempts": [
+    {
+      "run": 37216496564,
+      "reason": "SpringBoard alert lookup"
+    },
+    {
+      "run": 37217299416,
+      "reason": "pregrant insufficient, grid not reached"
+    },
+    {
+      "run": 37218031109,
+      "reason": "permission App button mistaken for system option"
+    },
+    {
+      "run": 37218749664,
+      "reason": "Copy button type locator, real panel captured"
+    },
+    {
+      "run": 37219675151,
+      "reason": "Copy App accessibility locator, real panel captured"
+    },
+    {
+      "run": 37220553330,
+      "reason": "normal capture/staging passed; popover has no Cancel button"
+    }
+  ],
   "NOT_RUN": [
-    "zh-Hans final Store PNGs (counterpart copy recorded)",
-    "physical-iPhone visual QA",
-    "conversion experiment",
-    "App Store upload or review",
+    "real iPhone visual review",
+    "Chinese UI device navigation and final Store PNGs",
+    "third-party AI share extension destinations",
+    "real external-save confirmation or source deletion",
+    "100/200-page stress",
+    "App Store metadata/review/release",
     "TestFlight upload / distribution RC",
-    "100/200-page stress QA",
-    "destructive Photos tests",
-    "website/video/StoreKit"
+    "promo video production / website / StoreKit"
   ],
   "release_ready_claim": false,
   "toolchain": {
     "macOS": "26.6.2",
     "Xcode": "26.6 (17F113)",
     "simulator_SDK": "26.5",
-    "simulator_runtime": "iOS 26.2",
-    "device": "iPhone 17 Pro Max",
-    "arch": "arm64"
-  },
-  "reviewed_head": "0fa963624877d908d80e62d733ec90982509bbc1",
-  "previous_render_tested_sha": "d6ad38e4836bae94bae8e881611ef7fee01b412d",
-  "initial_capture_CI_and_UI_test": true,
-  "new_capture_CI_and_UI_test": false,
-  "static_polish_commands": [
-    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/render_store.py",
-    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/validate_store.py",
-    "git diff --check"
-  ],
-  "exact_render_tested_sha": "7c5b2a2e880c85188ec0f6d853296f31ab6d8c4a"
+    "runtime": "iOS 26.2",
+    "device": "iPhone 17 Pro Max"
+  }
 }

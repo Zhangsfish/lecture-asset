@@ -1,7 +1,9 @@
 {
-  "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310",
-  "source_sha": "d7a65e878df94c2ac24ebaa47793bac5294719f9",
-  "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310/artifacts/11294227664",
-  "artifact_sha256": "5be76e43e5f6677be00df47d663882b3f09c3139e33e8b3ceb7b7be948726a7a",
-  "conclusion": "success"
+  "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885",
+  "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+  "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885/artifacts/11310506797",
+  "artifact_sha256": "b935b537162d2670b4cf5500d512179ea7d0890c8ad7799ec8fec29dfccda2d9",
+  "conclusion": "success",
+  "internal_testflight_upload": false,
+  "source_delete_visual": "test-host-only synthetic receipt, real UI, CANCELLED; no PhotoKit deletion"
 }

@@ -474,6 +474,11 @@ The separate promotional-video project may use Remotion later, but onboarding re
 
 ## 9. Owner screenshot-to-promo narrative — 2026-10-05
 
+Owner 核心思路：讲座/PPT 照片很少主动重看，却因“万一有用”舍不得删。
+PDF 留作以后回看，AI ZIP 交给外部 AI 继续探索讲座；保存之后才决定清理。
+宣传片可以表达这个价值张力，App onboarding 仍只教操作，不新增 App 内 AI。
+
+
 Future promo creative input only; no video production or new runtime feature is
 started by these notes. Onboarding remains instructional and unchanged.
 

@@ -1,9 +1,12 @@
 {
   "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
-  "production_app_tree": "eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5",
-  "production_changes": [],
-  "reviewed_head": "0fa963624877d908d80e62d733ec90982509bbc1",
-  "raw_captures_unchanged": true,
+  "production_app_tree": "cdf005c109437967cac25d020fadf51ef06de921",
+  "production_changes": [
+    "App/Localizable.xcstrings"
+  ],
+  "previous_composition_head": "3a8a5a0b67d7a1c316b775302ebc06b19adc3880",
+  "exact_capture_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+  "recaptured_authorized_interaction_states": true,
   "uniform_headline_style": "PASS",
   "uniform_subtitle_style": "PASS",
   "uniform_full_phone_geometry": "PASS",
@@ -15,7 +18,7 @@
       "all_opaque_phone_pixels_changed": 0,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
-      "raw_hash_unchanged_since_review": true
+      "raw_hash_matches_capture_inventory": true
     },
     {
       "file": "store/en/02-select-and-sort.png",
@@ -24,7 +27,7 @@
       "all_opaque_phone_pixels_changed": 0,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
-      "raw_hash_unchanged_since_review": true
+      "raw_hash_matches_capture_inventory": true
     },
     {
       "file": "store/en/03-generate-pdf-zip.png",
@@ -33,7 +36,7 @@
       "all_opaque_phone_pixels_changed": 0,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
-      "raw_hash_unchanged_since_review": true
+      "raw_hash_matches_capture_inventory": true
     },
     {
       "file": "store/en/04-pdf-for-review.png",
@@ -42,7 +45,7 @@
       "all_opaque_phone_pixels_changed": 0,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
-      "raw_hash_unchanged_since_review": true
+      "raw_hash_matches_capture_inventory": true
     },
     {
       "file": "store/en/05-ai-zip-to-ai.png",
@@ -51,7 +54,7 @@
       "all_opaque_phone_pixels_changed": 0,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
-      "raw_hash_unchanged_since_review": true
+      "raw_hash_matches_capture_inventory": true
     },
     {
       "file": "store/en/06-save-then-clean.png",
@@ -60,7 +63,7 @@
       "all_opaque_phone_pixels_changed": 0,
       "visible_opaque_phone_pixel_count": 1120355,
       "phone_bottom_cropped": false,
-      "raw_hash_unchanged_since_review": true
+      "raw_hash_matches_capture_inventory": true
     }
   ],
   "phone_repaint_check": "PASS",
