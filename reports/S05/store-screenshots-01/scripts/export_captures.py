@@ -14,11 +14,11 @@ def walk(node):
     if isinstance(node, list):
         for item in node: walk(item)
     elif isinstance(node, dict):
-        # xcresulttool export attachments manifest: suggestedHumanReadableName/fileName.
+        # Xcode 26 manifest: suggestedHumanReadableName/exportedFileName.
         label = node.get('suggestedHumanReadableName', node.get('name', ''))
         for name in names:
-            if label == name or label.startswith(name+'.'):
-                file = node.get('fileName', node.get('filename'))
+            if label.startswith(name):
+                file = node.get('exportedFileName', node.get('fileName', node.get('filename')))
                 if file:
                     found[name] = source / file
         for value in node.values(): walk(value)
