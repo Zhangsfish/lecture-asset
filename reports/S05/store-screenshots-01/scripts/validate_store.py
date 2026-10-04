@@ -8,7 +8,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = '4afd804ff2bdedec0a181181d768932a01b52b1b'
-REVIEWED = 'c8d2d8f7824e379d41d9aa091f7c36b0107d42a1'
+REVIEWED = '0fa963624877d908d80e62d733ec90982509bbc1'
 records = json.loads((ROOT/'RENDER_MANIFEST.json').read_text(encoding='utf-8'))
 assert len(records)==6
 result=[]
@@ -29,7 +29,7 @@ for record in records:
         x,y,w,h=record['screen_rect']
         expected=raw.resize((w,h),Image.Resampling.LANCZOS)
         # Intersect the original screen geometry with the canvas, including
-        # the deliberately out-of-frame phone bottom on frames 3/5/6.
+        # any screen edge at the canvas boundary; current phones are fully visible.
         left,top,right,bottom=max(0,x),max(0,y),min(im.width,x+w),min(im.height,y+h)
         assert right>left and bottom>top
         sx,sy=left-x,top-y
@@ -58,18 +58,17 @@ app_tree=subprocess.check_output(['git','rev-parse','HEAD:App'],text=True).strip
 baseline_tree=subprocess.check_output(['git','rev-parse',BASE+':App'],text=True).strip()
 assert app_tree==baseline_tree
 assert subprocess.check_output(['git','diff','--name-only',REVIEWED,'--',*protected,'UITests','.github/workflows'],text=True).strip()==''
-first=ROOT/'store/en/01-lecture-photos.png'
-assert first.read_bytes()==subprocess.check_output(['git','show',REVIEWED+':reports/S05/store-screenshots-01/store/en/01-lecture-photos.png'])
-for record in (records[1],records[3]):
-    import io
-    previous=subprocess.check_output(['git','show',REVIEWED+':reports/S05/store-screenshots-01/'+record['file']])
-    before=Image.open(io.BytesIO(previous)).convert('RGB')
-    after=Image.open(ROOT/record['file']).convert('RGB')
-    assert np.array_equal(np.asarray(before)[600:],np.asarray(after)[600:]),record['file']
-assert [r['phone_bottom_cropped'] for r in result]==[False,False,True,False,True,True]
+assert len({tuple(r['phone_rect']) for r in records})==1
+assert all(r['phone_rect'][2]==748 and r['phone_rect'][1]==1240 for r in records)
+assert all(r['phone_rect'][1]+r['phone_rect'][3]<=2868 for r in records)
+assert all(not r['phone_bottom_cropped'] for r in records)
+assert all(r['headline_style']=={'size':84,'line_height':126,'origin':[108,222]} for r in records)
+assert all(r['subtitle_style']=={'size':42,'color':'#5D6B7A','origin':[113,518]} for r in records)
+assert records[4]['headline_lines']==['Share the AI ZIP.','Keep exploring the lecture.']
 summary={'base_sha':BASE,'production_app_tree':app_tree,'production_changes':[],
-         'reviewed_head':REVIEWED,'raw_captures_unchanged':True,'frame_1_byte_identical':True,
-         'frame_2_and_4_body_pixels_unchanged':True,
+         'reviewed_head':REVIEWED,'raw_captures_unchanged':True,
+         'uniform_headline_style':'PASS','uniform_subtitle_style':'PASS',
+         'uniform_full_phone_geometry':'PASS',
          'six_image_checks':result,'phone_repaint_check':'PASS',
          'china_final_images':'NOT_RUN','app_store_upload':'NOT_RUN',
          'real_device_visual_review':'NOT_RUN'}

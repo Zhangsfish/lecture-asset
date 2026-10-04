@@ -3,13 +3,13 @@
     "raw": "store-en-selection.png",
     "screen_rect": [
       300,
-      1174,
+      1254,
       720,
       1564
     ],
     "phone_rect": [
       286,
-      1160,
+      1240,
       748,
       1592
     ],
@@ -18,9 +18,29 @@
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
     "file": "store/en/01-lecture-photos.png",
     "headline": "One lecture. Dozens of slide photos.",
+    "headline_lines": [
+      "One lecture.",
+      "Dozens of slide photos."
+    ],
     "headline_zh_Hans": "一场讲座，几十张 PPT 照片。",
     "subtitle": "Rarely revisited. Hard to delete.",
-    "sha256": "80b176364ba996ee5f06f57cd23fa88753395e4b9e073077d1ae1b6cc9606f2e",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "c0f3044998704092c6fdb6e015e76f95364954eb641be1989a30267398f3ee8c",
     "pixels": [
       1320,
       2868
@@ -32,13 +52,13 @@
     "raw": "store-en-review.png",
     "screen_rect": [
       300,
-      1174,
+      1254,
       720,
       1564
     ],
     "phone_rect": [
       286,
-      1160,
+      1240,
       748,
       1592
     ],
@@ -47,9 +67,29 @@
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
     "file": "store/en/02-select-and-sort.png",
     "headline": "Select a batch. Sorted by capture time.",
+    "headline_lines": [
+      "Select a batch.",
+      "Sorted by capture time."
+    ],
     "headline_zh_Hans": "批量选好，按拍摄时间排好。",
     "subtitle": "Press, then drag to select.",
-    "sha256": "87d2deb151e77ffa49ebf46a596092218bfbfff0dcb2f2e4b02bb259bb944ff1",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "1d6052920b4bd0bce0cf260c796e651916053814469a51fad92dd88eacc706ff",
     "pixels": [
       1320,
       2868
@@ -60,25 +100,45 @@
   {
     "raw": "store-en-ready.png",
     "screen_rect": [
-      102,
-      1382,
-      1116,
-      2425
+      300,
+      1254,
+      720,
+      1564
     ],
     "phone_rect": [
-      80,
-      1360,
-      1160,
-      2469
+      286,
+      1240,
+      748,
+      1592
     ],
-    "screen_corner_radius": 129,
-    "phone_bottom_cropped": true,
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
     "file": "store/en/03-generate-pdf-zip.png",
     "headline": "Generate ZIP and PDF in one go.",
+    "headline_lines": [
+      "Generate ZIP and PDF",
+      "in one go."
+    ],
     "headline_zh_Hans": "一次生成 ZIP 和 PDF。",
     "subtitle": "",
-    "sha256": "a9cd29aab53e25375575852555d852e86f2bed2cafb3bf57713cb079cdfb08a4",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "5c46c73bbfc75a25be72ab6c7524877f0a6c618ac2e795292293a953a562bb68",
     "pixels": [
       1320,
       2868
@@ -105,9 +165,29 @@
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
     "file": "store/en/04-pdf-for-review.png",
     "headline": "Keep a PDF for later review.",
+    "headline_lines": [
+      "Keep a PDF",
+      "for later review."
+    ],
     "headline_zh_Hans": "PDF 留着，以后随时回看。",
     "subtitle": "",
-    "sha256": "50b9f7611c8cd2eb794c6b73895c987d599b58bb555ce04321837327354860ff",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "0914d88c48c3c56fb074c8fdc299643a4e1e466642a27e5e75a05858c609c210",
     "pixels": [
       1320,
       2868
@@ -118,25 +198,45 @@
   {
     "raw": "store-en-ready.png",
     "screen_rect": [
-      102,
-      1382,
-      1116,
-      2425
+      300,
+      1254,
+      720,
+      1564
     ],
     "phone_rect": [
-      80,
-      1360,
-      1160,
-      2469
+      286,
+      1240,
+      748,
+      1592
     ],
-    "screen_corner_radius": 129,
-    "phone_bottom_cropped": true,
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
     "file": "store/en/05-ai-zip-to-ai.png",
-    "headline": "Share the AI ZIP with an AI tool. Keep exploring the lecture.",
+    "headline": "Share the AI ZIP. Keep exploring the lecture.",
+    "headline_lines": [
+      "Share the AI ZIP.",
+      "Keep exploring the lecture."
+    ],
     "headline_zh_Hans": "把 AI ZIP 交给 AI，继续理解这场讲座。",
     "subtitle": "",
-    "sha256": "9590a685b6b57be26a407708e1502b351b03cabf65ee60873e8d9dd0719cb0f4",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "ec4ac17349ac9d1a6bb9820c02b0f86a85b95be7fed97f465ce90bf76a1ca8e0",
     "pixels": [
       1320,
       2868
@@ -147,25 +247,45 @@
   {
     "raw": "store-en-ready.png",
     "screen_rect": [
-      102,
-      1382,
-      1116,
-      2425
+      300,
+      1254,
+      720,
+      1564
     ],
     "phone_rect": [
-      80,
-      1360,
-      1160,
-      2469
+      286,
+      1240,
+      748,
+      1592
     ],
-    "screen_corner_radius": 129,
-    "phone_bottom_cropped": true,
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
     "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
     "file": "store/en/06-save-then-clean.png",
     "headline": "Save first. Choose what to clear.",
+    "headline_lines": [
+      "Save first.",
+      "Choose what to clear."
+    ],
     "headline_zh_Hans": "先保存，再决定清理什么。",
     "subtitle": "",
-    "sha256": "43b1e9f72779db3c91bdb5636edff6fcade089a3ea4dc3cddb314b157042aded",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "f861211511aa797f6dbd7d65afe7c1f0078e4b769b3330a705b927399202cf49",
     "pixels": [
       1320,
       2868

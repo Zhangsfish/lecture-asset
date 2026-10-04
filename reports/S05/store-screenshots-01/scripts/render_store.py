@@ -17,6 +17,10 @@ P.add_argument('--icc', default='C:/Windows/System32/spool/drivers/color/sRGB Co
 A = P.parse_args()
 ICC = Path(A.icc).read_bytes()
 W, H = 1320, 2868
+HEADLINE_SIZE, HEADLINE_LINE_HEIGHT = 84, 126
+HEADLINE_ORIGIN = (108, 222)
+PHONE_WIDTH, PHONE_Y = 748, 1240
+SUBTITLE_SIZE, SUBTITLE_COLOR = 42, '#5D6B7A'
 BLUE, INK, MUTED, MINT = '#4772A8', '#203247', '#6C7A89', '#4B907C'
 
 STORY = [
@@ -28,7 +32,7 @@ STORY = [
      '', '一次生成 ZIP 和 PDF。'),
     ('04-pdf-for-review', 'pdf', ['Keep a PDF', 'for later review.'],
      '', 'PDF 留着，以后随时回看。'),
-    ('05-ai-zip-to-ai', 'ready', ['Share the AI ZIP with an AI tool.', 'Keep exploring the lecture.'],
+    ('05-ai-zip-to-ai', 'ready', ['Share the AI ZIP.', 'Keep exploring the lecture.'],
      '', '把 AI ZIP 交给 AI，继续理解这场讲座。'),
     ('06-save-then-clean', 'ready', ['Save first.', 'Choose what to clear.'],
      '', '先保存，再决定清理什么。'),
@@ -96,7 +100,7 @@ def file_card(im, x, y, label, color, width=245, height=310):
     tw = d.textlength(label,font=f)
     d.text((x+(width-tw)/2,y+height-65),label,font=f,fill=color)
 
-def phone(im, capture, y=1160, width=748):
+def phone(im, capture, y=PHONE_Y, width=PHONE_WIDTH):
     raw = Image.open(ROOT/'captures'/f'store-en-{capture}.png').convert('RGB')
     assert raw.size == (1320,2868)
     frame_scale = width/748
@@ -133,11 +137,11 @@ def header(im, index, lines, subtitle):
     mask = Image.new('L',(57,57)); ImageDraw.Draw(mask).rounded_rectangle((0,0,57,57),13,fill=255)
     icon.putalpha(mask); im.alpha_composite(icon,(112,98))
     text(im,(189,106),'Lecture Asset',29,fill=MUTED,bold=True)
-    size = 94
-    while max(ImageDraw.Draw(im).textlength(line,font=font(size,True)) for line in lines)>1096:
-        size-=1
-    for n,line in enumerate(lines): text(im,(108,222+n*126),line,size, BLUE if n==1 else INK,True)
-    if subtitle: text(im,(113,518),subtitle,38,fill=MUTED)
+    assert max(ImageDraw.Draw(im).textlength(line,font=font(HEADLINE_SIZE,True)) for line in lines)<=1096
+    for n,line in enumerate(lines):
+        text(im,(HEADLINE_ORIGIN[0],HEADLINE_ORIGIN[1]+n*HEADLINE_LINE_HEIGHT),line,
+             HEADLINE_SIZE, BLUE if n==1 else INK,True)
+    if subtitle: text(im,(113,518),subtitle,SUBTITLE_SIZE,fill=SUBTITLE_COLOR)
 
 def render(index, item):
     name,capture,lines,sub,zh = item
@@ -205,14 +209,14 @@ def render(index, item):
         text(im,(126,1065),'Source deletion needs separate confirmation.',29,fill=MUTED)
     # Draw the native screen last: even a soft illustrative shadow may not
     # recolor screenshot pixels. Scene 4's bigger paper sits above the bezel.
-    ready_window = index in (3,5,6)
-    info = phone(im,capture,y=1360 if ready_window else 1240 if index==4 else 1160,
-                 width=1160 if ready_window else 748)
+    info = phone(im,capture)
     output=ROOT/'store'/'en'/(name+'.png')
     output.parent.mkdir(parents=True,exist_ok=True)
     im.convert('RGB').save(output,icc_profile=ICC,optimize=True)
     info.update({'file':str(output.relative_to(ROOT)).replace('\\','/'),
-                 'headline':' '.join(lines),'headline_zh_Hans':zh,'subtitle':sub,
+                 'headline':' '.join(lines),'headline_lines':lines,'headline_zh_Hans':zh,'subtitle':sub,
+                 'headline_style':{'size':HEADLINE_SIZE,'line_height':HEADLINE_LINE_HEIGHT,'origin':list(HEADLINE_ORIGIN)},
+                 'subtitle_style':{'size':SUBTITLE_SIZE,'color':SUBTITLE_COLOR,'origin':[113,518]},
                  'sha256':hashlib.sha256(output.read_bytes()).hexdigest(),
                  'pixels':[W,H],'mode':'RGB','icc_sha256':hashlib.sha256(ICC).hexdigest()})
     return info

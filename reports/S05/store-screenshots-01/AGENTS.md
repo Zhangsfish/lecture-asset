@@ -26,5 +26,7 @@ Final state: READY_FOR_REAUDIT. Real capture/test SHA d7a65e878df94c2ac24ebaa477
 Current canonical outputs are six store/en PNGs; CONTACT_SHEET.png is a review aid.
 Focused polish changes only renderer/validator/reports/artwork. Raw captures, fixtures,
 App and capture workflow are unchanged; no Capture CI or Chinese PNG generation.
-Frames 3/5/6 use an enlarged phone cropped at the canvas bottom; validator checks
-the visible intersection of each raw uniform resize. Frame 1 is byte-identical.
+Owner's 2026-10-05 revision supersedes the cropped-phone pass. All six now share
+84 px headlines / 126 px line spacing and full 748 px phone at y=1240. Subtitles
+1/2 use 42 px #5D6B7A. Frame 5 headline is Share the AI ZIP. / Keep exploring the
+lecture. Raw pixels remain unchanged; frame 1 final PNG now changes for consistency.

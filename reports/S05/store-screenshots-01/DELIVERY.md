@@ -1,13 +1,13 @@
 # S05 — English App Store screenshots
 
-**READY_FOR_REAUDIT** — 2026-10-04. Focused static polish of reviewed PR #14 head
-`c8d2d8f7824e379d41d9aa091f7c36b0107d42a1`; no redesign, merge or release action.
+**READY_FOR_REAUDIT** — 2026-10-05. Unified static visual pass of PR #14 head
+`0fa963624877d908d80e62d733ec90982509bbc1`; no redesign, merge or release action.
 
 ## Source and evidence
 
 - Base main: `4afd804ff2bdedec0a181181d768932a01b52b1b`.
 - Exact Release capture/test SHA: `d7a65e878df94c2ac24ebaa47793bac5294719f9`.
-- Exact current static-validation implementation SHA: `d6ad38e4836bae94bae8e881611ef7fee01b412d`.
+- Previous static-validation implementation SHA: `d6ad38e4836bae94bae8e881611ef7fee01b412d`.
 - Prior static-render/validation SHA: `74e9d376ddc51cbb728a642ebac85128973ad093`.
 - App tree `eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5`: identical to base main.
 - [Successful focused CI](https://github.com/Zhangsfish/lecture-asset/actions/runs/37179644310):
@@ -26,30 +26,31 @@ SCREENSHOT_STORYBOARD.md lists final English and counterpart Chinese headlines.
 VISUAL_SYSTEM.md documents the minimal deterministic pipeline; ASSET_SOURCES.md
 documents fictional content, current main icon, fonts and primary Apple references.
 
-## Focused review corrections
+## Owner-directed unified visual pass — 2026-10-05
 
-The latest review and owner attachment were read. The owner attachment's final
-frame-2 wording, “Sorted by capture time.”, takes precedence over the review's
-longer suggested wording. Overall visual system and all raw captures are retained.
+This revision supersedes the previous cropped-phone composition. Only static
+renderer/validator, PNGs and reports change. No Release recapture or Xcode CI rerun.
 
-- Frame 1: headline, subtitle, layout and final PNG are **byte-identical**.
-- Frame 2: headline now explicitly says **Sorted by capture time.** Its checked
-  cards, timeline, helper and phone body are pixel-identical below y=600.
-- Frame 3: unchanged headline/slide-stack concept; PDF is first, AI ZIP second.
-  Phone enlarged to width 1160 px, moved down to y=1360, bottom outside canvas.
-- Frame 4: **Keep a PDF / for later review.** Only headline changes; enlarged
-  document card, page badge and real PDF viewer body are pixel-identical below y=600.
-- Frame 5: **Share the AI ZIP with an AI tool. / Keep exploring the lecture.**
-  Small muted boundary **After export · AI tool example** (28 px); qualifier
-  **Use an AI tool that can read images.** (24 px). Same four action cards and
-  Example label, outside the phone. Phone uses the same enlarged bottom crop.
-- Frame 6: **Confirm ZIP saved**; unchanged headline, two choices and separate
-  confirmation helper. Phone uses the same enlarged bottom crop.
+- All six headline blocks use fixed 84 px bold, 126 px line spacing and origin
+  (108,222). No per-frame auto-shrinking. The longest line fits the shared block.
+- Frames 1/2 subtitles increase from 38 to 42 px and darken from #6C7A89 to
+  #5D6B7A; subtitle remains visually secondary.
+- All six phones use exactly the same 748 px width, y=1240, centered full-phone
+  template, with the entire phone inside the canvas. No half-phone scene remains.
+- Frame 3: slides → PDF + AI ZIP, preserving both outputs outside the phone.
+- Frame 5: **Share the AI ZIP. / Keep exploring the lecture.** Boundary and
+  qualifier remain **After export · AI tool example** / **Use an AI tool that can
+  read images.**, small muted gray-blue. AI ZIP → four-action example workspace
+  stays outside the phone; no answer or provider branding.
+- Frame 6: **Confirm ZIP saved** → two cleanup choices, with unchanged separate
+  confirmation helper. Real ready capture remains locked for source deletion.
+- Background, soft glow, card/shadow language shared. Native UI is drawn last.
 
-No raw capture problem was found. **No Xcode/capture CI was rerun** for this pass.
-Static renderer validation now intersects each resized native screenshot with the
-canvas before checking **all visible opaque pixels**. All six changed-pixel counts
-are zero. Original PNGs also match the reviewed Git blobs byte-for-byte.
+Frame 1 final PNG is now intentionally changed for the owner's unified typography,
+subtitle and phone positioning request; the previous byte-identity gate is superseded.
+Raw captures still match original Git blobs and inventory hashes. Static validation
+checks every opaque native phone pixel and the uniform typography/phone contract.
+All six `all_opaque_phone_pixels_changed` values remain zero.
 
 | Requirement | Result | Evidence |
 |---|---|---|
@@ -81,7 +82,7 @@ cobalt main icon** is used as the brand chip; no pending icon branch is imported
 2. Select a batch. Sorted by capture time.
 3. Generate ZIP and PDF in one go.
 4. Keep a PDF for later review.
-5. Share the AI ZIP with an AI tool. Keep exploring the lecture.
+5. Share the AI ZIP. Keep exploring the lecture.
 6. Save first. Choose what to clear.
 
 Frame 5 uses the owner's final natural-English wording; the prior “Hand … to AI”
@@ -119,12 +120,12 @@ the recorded font/profile inputs; original capture bytes are preserved.
 
 Reviewed the contact sheet and full-size scenes, especially native PDF, external
 AI separation and cleanup wording. No cut headline, overlapping native control,
-third-party logo or technical diagnostic UI was found. Original screenshot
+third-party logo or technical diagnostic UI was found. Complete original screenshot
 whitespace remains visible; we do not invent a richer ready screen to fill it.
 English is the final set; Chinese is a documented same-sequence copy plan only.
 
 No required product or safety decision is outstanding for this asset delivery.
-The requested wording and ready-phone crops are implemented; there is no new
+The requested wording and unified full-phone template are implemented; there is no new
 required aesthetic decision. This does not reopen icon/onboarding.
 Regional release compliance, exact distribution RC authorization, ASC upload and
 App Review are still separate gates; these images do not authorize them.

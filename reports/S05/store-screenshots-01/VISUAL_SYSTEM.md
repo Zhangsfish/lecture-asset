@@ -12,14 +12,15 @@ objects and soft lateral blue/mint glow. No mascot, branding or platform copy.
 - Canvas: 1320×2868, portrait 6.9-inch iPhone class; opaque RGB PNG with embedded sRGB.
 - Ground: #FAFBFC, extremely soft blue/mint lateral glow, no saturated poster gradient.
 - Ink #203247; blue #4772A8; muted #6C7A89; PDF/mint #4B907C.
-- Typography: existing Windows Segoe UI/Segoe UI Bold, headline up to 94 px,
-  short auxiliary text 24–38 px, external object labels 29–41 px.
-- Phone: centered front view, simple dark bezel, no simulated hardware branding,
-  no perspective warp; native screen uniformly scaled with rounded corners.
-  Frames 3/5/6 use a 1160 px wide phone at y=1360 (previously 748/724 px),
-  deliberately extending below the canvas. Visible UI is a crop of that uniform
-  resize, never a repainted or rearranged ready screen. Frames 1/2/4 retain their
-  previous phone geometry; frame 1 PNG is byte-identical to the reviewed version.
+- Typography: fixed Segoe UI Bold 84 px headlines, 126 px line height, origin
+  (108,222) on every frame. No automatic per-frame font shrinking. All two-line
+  headlines fit the same 1096 px block. Line 2 uses Calm cobalt uniformly.
+- Subtitles: one shared style, 42 px at (113,518), #5D6B7A. Frames 1/2 are slightly
+  larger and darker than before (38 px / #6C7A89), still subordinate to headlines.
+  Frame 5's boundary/qualifier remain a separate small 28/24 px #7B8999 treatment.
+- Phone: all six centered, width 748 px at y=1240, same bezel/radius and complete
+  screen within the canvas. Real capture uniform LANCZOS resize only, no repaint.
+  Different scenes are explained by external objects, not fake native content.
 - Paper objects: white, thin blue details, small fold/zipper/line drawings, gentle
   shadows. The tutorial's slide/file/check language informs the artwork.
 - Selected icon: accepted main V1 Calm cobalt, not a new redesign or alternate icon.

@@ -2,10 +2,11 @@
   "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
   "production_app_tree": "eea3a95b5a3c92eb5389cdcf97f0547d8a0905b5",
   "production_changes": [],
-  "reviewed_head": "c8d2d8f7824e379d41d9aa091f7c36b0107d42a1",
+  "reviewed_head": "0fa963624877d908d80e62d733ec90982509bbc1",
   "raw_captures_unchanged": true,
-  "frame_1_byte_identical": true,
-  "frame_2_and_4_body_pixels_unchanged": true,
+  "uniform_headline_style": "PASS",
+  "uniform_subtitle_style": "PASS",
+  "uniform_full_phone_geometry": "PASS",
   "six_image_checks": [
     {
       "file": "store/en/01-lecture-photos.png",
@@ -30,8 +31,8 @@
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
       "all_opaque_phone_pixels_changed": 0,
-      "visible_opaque_phone_pixel_count": 1651274,
-      "phone_bottom_cropped": true,
+      "visible_opaque_phone_pixel_count": 1120355,
+      "phone_bottom_cropped": false,
       "raw_hash_unchanged_since_review": true
     },
     {
@@ -48,8 +49,8 @@
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
       "all_opaque_phone_pixels_changed": 0,
-      "visible_opaque_phone_pixel_count": 1651274,
-      "phone_bottom_cropped": true,
+      "visible_opaque_phone_pixel_count": 1120355,
+      "phone_bottom_cropped": false,
       "raw_hash_unchanged_since_review": true
     },
     {
@@ -57,8 +58,8 @@
       "size_mode_profile_hash": "PASS",
       "central_phone_pixels_changed": 0,
       "all_opaque_phone_pixels_changed": 0,
-      "visible_opaque_phone_pixel_count": 1651274,
-      "phone_bottom_cropped": true,
+      "visible_opaque_phone_pixel_count": 1120355,
+      "phone_bottom_cropped": false,
       "raw_hash_unchanged_since_review": true
     }
   ],
