@@ -506,3 +506,22 @@ For static assets, source-delete dialog may be captured from a test-host-only
 synthetic receipt fixture, always marked as staged evidence in reports. It proves
 UI rendering/cancellation only, not an actual external save or deletion. A final
 promo is separately authorized and should use authentic, safely staged recordings.
+
+
+## 10. Static App Store screenshot state-selection rule — 2026-10-05
+
+Owner review of the six English Store stills established an additional rule:
+
+> **For a static Store image, use the authentic native state that best proves that frame's claim. Do not prefer a later workflow state merely because it is more downstream.**
+
+The real App screen remains evidence; the outside artwork explains the concept. A technically real screen can still be the wrong marketing frame if incidental system UI or dense safety text distracts from the claim.
+
+Current frame-specific decisions:
+
+- **Generate (frame 3):** prefer the real `Photos prepared` / explicit `Generate ZIP and PDF` state. The external illustration carries the two-output result. Avoid a mostly empty `Building archive 0/12` state or staged fake progress just to fill space.
+- **AI handoff (frame 5):** for the static App Store still, prefer the real `Files ready` screen with the real `Share AI ZIP` action. Do **not** use a simulator Share Sheet that shows unrelated destinations and no AI target. The external generic AI-workspace illustration explains the post-export workflow. Never fabricate third-party destinations.
+- **Cleanup (frame 6):** prefer the real post-save-confirmation ready state where the actual cleanup choices are visible, before opening the verbose destructive confirmation. The external branch diagram explains the causal sequence. Test fixtures may stage the receipt/eligibility state, but must never execute PhotoKit deletion.
+
+For a future promo video, a real physical-device Share Sheet may be shown only when an actually installed destination is visible and separate branding/creative review approves it. Static Store stills do not need to show the system Share Sheet merely to prove that sharing exists.
+
+Keep the six-shot visual system coherent: same headline scale, phone geometry, background treatment and card language. Narrative differences should come from the selected authentic App state plus the outside reinforcement layer, not from inventing richer native UI.
