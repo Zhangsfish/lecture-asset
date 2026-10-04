@@ -21,3 +21,6 @@ Cleanup cards describe conditional choices, not automatic receipt verification o
 No real share completion, Photos deletion, ASC changes or TestFlight upload.
 Chinese headlines recorded; Chinese final images are optional, not claimed delivered.
 WorkBuddy reference is owner's written description, not an inspected source image.
+
+Final state: READY_FOR_AUDIT. Real capture/test SHA d7a65e878df94c2ac24ebaa47793bac5294719f9; static render/validation SHA 74e9d376ddc51cbb728a642ebac85128973ad093.
+Current canonical outputs are six store/en PNGs; CONTACT_SHEET.png is a review aid.

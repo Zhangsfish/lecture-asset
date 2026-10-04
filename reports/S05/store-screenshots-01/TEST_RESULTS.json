@@ -242,5 +242,6 @@
     "simulator_runtime": "iOS 26.2",
     "device": "iPhone 17 Pro Max",
     "arch": "arm64"
-  }
+  },
+  "exact_render_tested_sha": "74e9d376ddc51cbb728a642ebac85128973ad093"
 }
