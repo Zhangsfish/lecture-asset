@@ -1,0 +1,11 @@
+CI success; source b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9
+Test Case '-[LectureAssetUITests.S05StoreScreenshotsUITests testEnglishStoreScreensOnFictionalSlides]' passed (102.391 seconds).
+Test Case '-[LectureAssetTests.S05StoreReceiptTests testStageSyntheticReceiptForStoreVisualOnly]' passed (0.585 seconds).
+Test Case '-[LectureAssetUITests.S05StoreScreenshotsUITests testSourceDeletionConfirmationCancelOnly]' passed (20.670 seconds).
+Test Case '-[LectureAssetTests.LocalizationResourceTests testReleaseBundleHasCompleteMatchingCatalogsAndLocalizedInfo]' passed (0.003 seconds).
+Test Case '-[LectureAssetTests.S03CleanupTests testDeletionCancellationOrFailureRetainsJobAndSuccessPurgesOnlyItsFiles]' passed (0.004 seconds).
+Test Case '-[LectureAssetTests.S03CleanupTests testFrozenExactSetRejectsDuplicatesMissingAndUnrelatedAssets]' passed (0.002 seconds).
+Test Case '-[LectureAssetTests.S03CleanupTests testPhotoKitSuccessMarkerPurgesActualJobStoreAndDiscardNeverTouchesPhotos]' passed (0.184 seconds).
+Test Case '-[LectureAssetTests.S03CleanupTests testShareGateCancellationPDFOnlyAndExplicitConfirmation]' passed (0.001 seconds).
+Test Case '-[LectureAssetTests.S03CleanupTests testStaleZIPJobArchiveFilenameHashOrReplacementLocksDeletion]' passed (0.006 seconds).
+Test Case '-[LectureAssetTests.S05StoreReceiptTests testCancellationRetainsSyntheticPhotosAndJob]' passed (0.162 seconds).

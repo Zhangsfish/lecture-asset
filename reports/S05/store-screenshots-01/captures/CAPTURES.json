@@ -1,0 +1,82 @@
+[
+  {
+    "file": "store-en-building.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "2f480acae7da8dd528fbb36074126d3ba4fdaeb1866b02d959ebe2b3a9959cba"
+  },
+  {
+    "file": "store-en-delete-confirmation.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "ad02b4234c0f1bfe0f587255f4205761a73474d79c793483129726921bede84f"
+  },
+  {
+    "file": "store-en-pdf.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "83de52ddcd7e5b7004ba5ddf1f6699cf2db5c013f3afdc40e06660b4f2a95540"
+  },
+  {
+    "file": "store-en-permission-prompt.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "f26adb22ae6a92a2fe471bf70f7900a5b5b8319fceb1aaa59a0bf4149baff6e9"
+  },
+  {
+    "file": "store-en-prepared.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "6436a04d71bb57ef82e02d03ff6585fa21ddaaec5df3166ca1e12d5d52522d90"
+  },
+  {
+    "file": "store-en-ready.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "1bcea3b5e87b328cd4aab57407ebd6ce03644c5d9abb0cddb52810ec0f44b921"
+  },
+  {
+    "file": "store-en-review.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "e31fe97c014f5f24d79d890b084c4a77dfb3e5fe3d5587f06ef2940ce5d68dc8"
+  },
+  {
+    "file": "store-en-selection.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "14e7ec2efc21d0fe807c41f0d8bdc7539a2b2c9934c9478441e6f63b50ccddf2"
+  },
+  {
+    "file": "store-en-setup.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "f26adb22ae6a92a2fe471bf70f7900a5b5b8319fceb1aaa59a0bf4149baff6e9"
+  },
+  {
+    "file": "store-en-share.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "2a871eae46e406e09fae07f79c86c346cc4a1b2d4119d143db14aca072da9a61"
+  }
+]

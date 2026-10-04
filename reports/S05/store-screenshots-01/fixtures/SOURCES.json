@@ -1,0 +1,242 @@
+[
+  {
+    "file": "lecture-01.jpg",
+    "sha256": "39627767b1c22102f0818b7a86ca88bddfbdab6814b6262c2e5f2fe1eaa50eb5",
+    "title": "Learning that lasts",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-02.jpg",
+    "sha256": "c5fb4fec793a2287108d336b11cb22efc48db91c443e9feee245368a166063ff",
+    "title": "Start with a question",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-03.jpg",
+    "sha256": "61043175a02ece5e21eddf56f2728ec0e6f31cf407ff91de031a6417c66a167f",
+    "title": "Connect new ideas",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-04.jpg",
+    "sha256": "71ad35e3906e1634481c3450df7d4227fa88ea6527373db477d5dd9933c59412",
+    "title": "Practice retrieval",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-05.jpg",
+    "sha256": "670a0db725be495d5f3035866b7139566bbd5bfc4864ba5c05ae3d10131e7ab4",
+    "title": "Space the practice",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-06.jpg",
+    "sha256": "2e1c4da75d0cb9b775fbb222b4e2728180d369c3cceb2ce85b1a558f3e427fe5",
+    "title": "Explain it simply",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-07.jpg",
+    "sha256": "d6aa4e120a73986e25a6b3f62774a948cda105568489b970f443215634801b97",
+    "title": "Compare two examples",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-08.jpg",
+    "sha256": "fb63f2b472e95db56045e6e75c6710bc2115de77a0122fb6a0f65acef54f931a",
+    "title": "Notice the differences",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-09.jpg",
+    "sha256": "0fcf994a2a4ace7ef8ad6716d41147d75a1e11de3aeb2ca690553b4ef5bdc2fb",
+    "title": "Sketch the idea",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-10.jpg",
+    "sha256": "05b47efea9826bd2ef30945df23f0d380d82ef77699ec16e210a03325e5abf75",
+    "title": "Make room for feedback",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-11.jpg",
+    "sha256": "74cfcb323c4ce4b57eaf94a1d95e9ac89a631b9b357671888ed468c422eaa314",
+    "title": "Build a useful cue",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-12.jpg",
+    "sha256": "2e308ae8e0e224109b9c816cc6ca7505403914ba9a5cbfa32e6c13d688acc56c",
+    "title": "Pause and reflect",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-13.jpg",
+    "sha256": "5d74e051082af212bfcc819e83aa18b8da8a6baed2e5c7576c34d8d0dabdceb5",
+    "title": "Test a small change",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-14.jpg",
+    "sha256": "a2c385af17d35efd30c01787c7885824e0a27742246b01f9ba225792fa1f061d",
+    "title": "Find the missing link",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-15.jpg",
+    "sha256": "ec32aca90938a15d30568bde96e6223622c540d3a83517db020c0f0612e4415a",
+    "title": "Review the evidence",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-16.jpg",
+    "sha256": "4266917b9a4bb88c322e74bec958410b0d030a98a5abc9b26290e8852898daa9",
+    "title": "Look for patterns",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-17.jpg",
+    "sha256": "e8f31733d066cfded9075ea1ebc49c1d63fa000f232edc013ce2388c967118f2",
+    "title": "Ask a better question",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-18.jpg",
+    "sha256": "fc6ec26cdd4955c265893161b041cb3835929035106ccd33f1b4db6cb549e7be",
+    "title": "Teach a partner",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-19.jpg",
+    "sha256": "2cb224f56bc4ad943bf2dce7d6862d8ad8b0d41f2efdfb6d478ae1a164d81312",
+    "title": "Return to the hard part",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-20.jpg",
+    "sha256": "0e94f45a695615b76e54f039167c26797f0ea51ff4a6e14fcd32dad20655029b",
+    "title": "Use a concrete example",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-21.jpg",
+    "sha256": "039e3956dc42a1d9e45a40bd2a1ca07e743525a93a4c1859d3e5d782a339c0a2",
+    "title": "Keep a study note",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-22.jpg",
+    "sha256": "ba7756d47e55c38f305106fd4f73f95bf1437cfafb95a2c35098ed39958b9a63",
+    "title": "Choose the next step",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-23.jpg",
+    "sha256": "3419b044f5eb2897322d78c05707117e45085f378400cdcd2908d9f810b117c6",
+    "title": "Bring the ideas together",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  },
+  {
+    "file": "lecture-24.jpg",
+    "sha256": "97ce581deb28da5f3eb52b7014d3649a34cdef36dd994ec8ab179e9a26cae0a7",
+    "title": "Questions for discussion",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "synthetic": true
+  }
+]

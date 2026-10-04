@@ -950,13 +950,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Save AI ZIP"
+            "value": "Share AI ZIP"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "保存 AI 资料包（ZIP）"
+            "value": "分享 AI 资料包（ZIP）"
           }
         }
       }

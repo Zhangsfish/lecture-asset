@@ -1,0 +1,162 @@
+{
+  "status": "READY_FOR_FINAL_AUDIT",
+  "date": "2026-10-05",
+  "scope": "Static overlay only: generic destinations and plural deletion text",
+  "base_main_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
+  "starting_pr_head": "adc6c2716b7e53451c6c2f390a672f7d7ab7e622",
+  "comparison_baseline": "adc6c2716b7e53451c6c2f390a672f7d7ab7e622",
+  "tested_implementation_sha": "2698e65c14fe3d0907e23751ca9875d4db0fe085",
+  "exact_capture_tested_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+  "prior_capture_ci": {
+    "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885",
+    "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+    "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885/artifacts/11310506797",
+    "artifact_sha256": "b935b537162d2670b4cf5500d512179ea7d0890c8ad7799ec8fec29dfccda2d9",
+    "conclusion": "success",
+    "internal_testflight_upload": false,
+    "source_delete_visual": "test-host-only synthetic receipt, real UI, CANCELLED; no PhotoKit deletion"
+  },
+  "new_ci": "NOT_RUN — no runtime/workflow change",
+  "commands": [
+    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/render_store.py",
+    "F:/anaconda3/python.exe reports/S05/store-screenshots-01/scripts/validate_store.py"
+  ],
+  "image_validation": {
+    "base_sha": "4afd804ff2bdedec0a181181d768932a01b52b1b",
+    "production_app_tree": "cdf005c109437967cac25d020fadf51ef06de921",
+    "production_changes": [
+      "App/Localizable.xcstrings"
+    ],
+    "previous_composition_head": "adc6c2716b7e53451c6c2f390a672f7d7ab7e622",
+    "exact_capture_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+    "new_capture_this_round": false,
+    "common_ready_base": "PASS",
+    "protected_frames_1_2_3_4_byte_identical": "PASS",
+    "phone_exteriors_3_5_6_pixel_identical": "PASS",
+    "overlay_change_bounds": "PASS",
+    "lecture_preview_unchanged": "PASS",
+    "generic_destinations": [
+      "AI",
+      "My Computer",
+      "Chat",
+      "Friends"
+    ],
+    "downloaded_artwork_removed": "PASS",
+    "plural_delete_contract": "PASS",
+    "runtime_workflow_tests_unchanged_this_round": "PASS",
+    "uniform_headline_style": "PASS",
+    "uniform_subtitle_style": "PASS",
+    "uniform_full_phone_geometry": "PASS",
+    "six_image_checks": [
+      {
+        "file": "store/en/01-lecture-photos.png",
+        "size_mode_profile_hash": "PASS",
+        "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_matches_capture_inventory": true
+      },
+      {
+        "file": "store/en/02-select-and-sort.png",
+        "size_mode_profile_hash": "PASS",
+        "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_matches_capture_inventory": true
+      },
+      {
+        "file": "store/en/03-generate-pdf-zip.png",
+        "size_mode_profile_hash": "PASS",
+        "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_matches_capture_inventory": true
+      },
+      {
+        "file": "store/en/04-pdf-for-review.png",
+        "size_mode_profile_hash": "PASS",
+        "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 0,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": null,
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_matches_capture_inventory": true
+      },
+      {
+        "file": "store/en/05-ai-zip-to-ai.png",
+        "size_mode_profile_hash": "PASS",
+        "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 550141,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": {
+          "kind": "share",
+          "actual_system_capture": false,
+          "base_capture": "store-en-ready.png",
+          "first_row": [
+            "AI",
+            "My Computer",
+            "Chat",
+            "Friends"
+          ],
+          "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+          "preview": null,
+          "delete_title": null,
+          "delete_body": null,
+          "note": "Illustration only; generic destination categories, not installed apps."
+        },
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_matches_capture_inventory": true
+      },
+      {
+        "file": "store/en/06-save-then-clean.png",
+        "size_mode_profile_hash": "PASS",
+        "central_phone_pixels_changed": 0,
+        "composite_expected_pixels_changed": 0,
+        "all_opaque_phone_pixels_changed": 1114658,
+        "uncovered_base_pixels_changed": 0,
+        "illustrative_overlay": {
+          "kind": "delete",
+          "actual_system_capture": false,
+          "base_capture": "store-en-ready.png",
+          "first_row": null,
+          "filename": null,
+          "preview": "fixtures/lecture-13.jpg",
+          "delete_title": "Allow “Lecture Asset” to delete 12 photos?",
+          "delete_body": "These photos will be deleted from iCloud Photos on all your devices. They’ll remain in Recently Deleted for 30 days.",
+          "note": "Illustration only; generic destination categories, not installed apps."
+        },
+        "visible_opaque_phone_pixel_count": 1120355,
+        "phone_bottom_cropped": false,
+        "raw_hash_matches_capture_inventory": true
+      }
+    ],
+    "phone_repaint_check": "PASS",
+    "china_final_images": "NOT_RUN",
+    "app_store_upload": "NOT_RUN",
+    "real_device_visual_review": "NOT_RUN"
+  },
+  "visual_review": "PASS — full frames 5/6; neutral equal tiles, all labels readable, plural title/body, unchanged lecture preview/buttons",
+  "runtime_localization_workflow_asc_testflight_changes": false,
+  "real_device_visual_review": "NOT_RUN",
+  "app_store_upload": "NOT_RUN",
+  "third_party_artwork": "REMOVED — generic renderer pictograms only",
+  "static_render": "PASS",
+  "static_validation": "PASS",
+  "deterministic_rerender": "PASS — final PNGs/contact sheet/manifests byte-identical on rerun"
+}

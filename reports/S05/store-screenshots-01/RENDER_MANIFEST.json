@@ -1,0 +1,327 @@
+[
+  {
+    "raw": "store-en-selection.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "file": "store/en/01-lecture-photos.png",
+    "headline": "One lecture. Dozens of slide photos.",
+    "headline_lines": [
+      "One lecture.",
+      "Dozens of slide photos."
+    ],
+    "headline_zh_Hans": "一场讲座，几十张 PPT 照片。",
+    "subtitle": "Rarely revisited. Hard to delete.",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "c0f3044998704092c6fdb6e015e76f95364954eb641be1989a30267398f3ee8c",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-en-review.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "file": "store/en/02-select-and-sort.png",
+    "headline": "Select a batch. Sorted by capture time.",
+    "headline_lines": [
+      "Select a batch.",
+      "Sorted by capture time."
+    ],
+    "headline_zh_Hans": "批量选好，按拍摄时间排好。",
+    "subtitle": "Press, then drag to select.",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "bc98ce5fd8148ef0c50a7f186a76914ec7f6e00e941ac4796f34986be8cd66e7",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-en-ready.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "file": "store/en/03-generate-pdf-zip.png",
+    "headline": "Generate ZIP and PDF in one go.",
+    "headline_lines": [
+      "Generate ZIP and PDF",
+      "in one go."
+    ],
+    "headline_zh_Hans": "一次生成 ZIP 和 PDF。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "20a40d266019df03b2b0e116e2c9919f59851096fee565ed8ddcf37bbac827a1",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-en-pdf.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "file": "store/en/04-pdf-for-review.png",
+    "headline": "Keep a PDF for later review.",
+    "headline_lines": [
+      "Keep a PDF",
+      "for later review."
+    ],
+    "headline_zh_Hans": "PDF 留着，以后随时回看。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "b30e528a12bf4364b7c19e86b917ce99dfa4e9c900374ac6b95500b6268e784a",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-en-ready.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": {
+      "kind": "share",
+      "actual_system_capture": false,
+      "base_capture": "store-en-ready.png",
+      "first_row": [
+        "AI",
+        "My Computer",
+        "Chat",
+        "Friends"
+      ],
+      "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+      "preview": null,
+      "delete_title": null,
+      "delete_body": null,
+      "note": "Illustration only; generic destination categories, not installed apps."
+    },
+    "file": "store/en/05-ai-zip-to-ai.png",
+    "headline": "Share the AI ZIP. Keep exploring the lecture.",
+    "headline_lines": [
+      "Share the AI ZIP.",
+      "Keep exploring the lecture."
+    ],
+    "headline_zh_Hans": "把 AI ZIP 交给 AI，继续理解这场讲座。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "c385054376046041056ebb604338c2a54c99ba5dc33490dd0b8e7b2d1c8e27f5",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-en-ready.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": {
+      "kind": "delete",
+      "actual_system_capture": false,
+      "base_capture": "store-en-ready.png",
+      "first_row": null,
+      "filename": null,
+      "preview": "fixtures/lecture-13.jpg",
+      "delete_title": "Allow “Lecture Asset” to delete 12 photos?",
+      "delete_body": "These photos will be deleted from iCloud Photos on all your devices. They’ll remain in Recently Deleted for 30 days.",
+      "note": "Illustration only; generic destination categories, not installed apps."
+    },
+    "file": "store/en/06-save-then-clean.png",
+    "headline": "Save first. Choose what to clear.",
+    "headline_lines": [
+      "Save first.",
+      "Choose what to clear."
+    ],
+    "headline_zh_Hans": "先保存，再决定清理什么。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "46dcdf5af0e997d13c96215022b1a631975b918df8f9fa8bb7bf399da3b6dcdd",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  }
+]
