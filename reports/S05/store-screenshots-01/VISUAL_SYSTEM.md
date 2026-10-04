@@ -2,7 +2,7 @@
 
 ## Owner reference
 
-The WorkBuddy reference was supplied as a written description in the task. No
+The initial visual reference was supplied as a written description in the task. No
 reference image was attached or visually inspected. We adopt its layout logic:
 light background, large headline, centered real phone screen, restrained floating
 objects and soft lateral blue/mint glow. No mascot, branding or platform copy.
@@ -81,7 +81,17 @@ phone_overlays.py on top of the identical unedited Files ready capture, clipped
 inside the original rounded screen mask. All exterior pixels are protected.
 Frame 5 starts at screen-local y=790; all existing ready controls above remain
 visible. Frame 6 centers a dark confirmation at y=460..1125 with a separate dim
-layer. Provider artwork is source-backed, not generated; fixture 13 is fictional.
+layer. All destination pictograms are original renderer vectors; fixture 13 is fictional.
 The validator recomputes expected composites and separately checks uncovered
 base pixels; overlay-covered pixels are allowed to differ and counted honestly.
 No new raw screenshot or color grading. Native App button colors remain unchanged.
+
+## Focused final polish
+
+Only destination-row content and delete-dialog wording change relative to adc6c27.
+Four equal 100 px neutral tiles: sparkle / laptop / two bubbles / two avatars;
+labels AI / My Computer / Chat / Friends. No second destination row. Existing
+ZIP header, sheet geometry and disclosure positions remain unchanged. Frame 6
+uses 12 photos / These photos, with the same preview and buttons. The former
+in-dialog example caption is removed. Validator bounds every changed pixel to
+these specified overlay regions and protects frames 1/2/3/4 byte-for-byte.

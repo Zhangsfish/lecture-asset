@@ -221,14 +221,16 @@
       "actual_system_capture": false,
       "base_capture": "store-en-ready.png",
       "first_row": [
-        "ChatGPT",
-        "Gemini",
-        "Claude",
-        "WorkBuddy"
+        "AI",
+        "My Computer",
+        "Chat",
+        "Friends"
       ],
       "filename": "Lecture_2026-10-04_AI_ZIP.zip",
       "preview": null,
-      "note": "Illustration only; provider share-extension availability not verified."
+      "delete_title": null,
+      "delete_body": null,
+      "note": "Illustration only; generic destination categories, not installed apps."
     },
     "file": "store/en/05-ai-zip-to-ai.png",
     "headline": "Share the AI ZIP. Keep exploring the lecture.",
@@ -254,7 +256,7 @@
         518
       ]
     },
-    "sha256": "cbdbd2b041eb7b9e61f507b0ea523e52579185e8af592a2a572e819a0e15839a",
+    "sha256": "c385054376046041056ebb604338c2a54c99ba5dc33490dd0b8e7b2d1c8e27f5",
     "pixels": [
       1320,
       2868
@@ -286,7 +288,9 @@
       "first_row": null,
       "filename": null,
       "preview": "fixtures/lecture-13.jpg",
-      "note": "Illustration only; provider share-extension availability not verified."
+      "delete_title": "Allow “Lecture Asset” to delete 12 photos?",
+      "delete_body": "These photos will be deleted from iCloud Photos on all your devices. They’ll remain in Recently Deleted for 30 days.",
+      "note": "Illustration only; generic destination categories, not installed apps."
     },
     "file": "store/en/06-save-then-clean.png",
     "headline": "Save first. Choose what to clear.",
@@ -312,7 +316,7 @@
         518
       ]
     },
-    "sha256": "9041338d450229461021a2e25c41e633d3ee7e6ffe24d05f77fbbc6570262cdb",
+    "sha256": "46dcdf5af0e997d13c96215022b1a631975b918df8f9fa8bb7bf399da3b6dcdd",
     "pixels": [
       1320,
       2868

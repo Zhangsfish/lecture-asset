@@ -16,12 +16,13 @@ Read root AGENTS, STATUS, product/spec, S05 framework, motion plan and localizat
 
 ## Current decisions / handoff
 
-READY_FOR_REAUDIT. Owner's latest request supersedes the prior prohibition on
-in-phone illustrations only for frames 5/6: explicit illustrative share sheet
-and source-delete system confirmation over the real ready base. Owner confirmed
-current Share AI ZIP/light screenshot; no production changes this round.
-Frames 1/2/4 byte-identical and 3/5/6 exteriors pixel-identical to b260bed.
-Source logos/SVG under illustrative-assets, hashes/URLs in SOURCES.json;
-phone_overlays.py contains deterministic layers. No actual provider integration,
-real sharing/deletion, fresh Xcode CI or TestFlight. Publication brand clearance
-NOT_RUN. Earlier interaction-capture proofs remain historical capture evidence.
+READY_FOR_FINAL_AUDIT. Same PR #14; never self-approve or merge.
+Current real Share AI ZIP/light base is unchanged. Frames 5/6 contain explicit
+illustrative system layers. Frame 5 has four generic vector destinations only:
+AI / My Computer / Chat / Friends. No downloaded brand artwork remains.
+Frame 6 describes deleting 12 photos, uses plural body text, preserves lecture-13
+preview and Don't Allow/Delete, and removes the in-dialog example caption.
+Baseline for this focused revision: adc6c2716b7e53451c6c2f390a672f7d7ab7e622.
+Protect frames 1/2/3/4 byte-identical, phone exteriors and all non-target overlay
+pixels. No runtime, localization, workflow, ASC, TestFlight or destructive QA.
+Historical Release capture evidence remains captures/PROVENANCE.json.

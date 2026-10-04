@@ -1,9 +1,9 @@
-"""Owner-requested illustrative system layers, not captured iOS/provider UI."""
+"""Owner-requested illustrative system layers; all destinations are generic."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-import math
-
-NAMES = ['ChatGPT', 'Gemini', 'Claude', 'WorkBuddy']
+NAMES = ['AI', 'My Computer', 'Chat', 'Friends']
+DELETE_TITLE = 'Allow “Lecture Asset” to delete 12 photos?'
+DELETE_BODY = 'These photos will be deleted from iCloud Photos on all your devices. They’ll remain in Recently Deleted for 30 days.'
 
 def apply_overlay(base, kind, root, font_dir='C:/Windows/Fonts'):
     scale = 2
@@ -33,29 +33,37 @@ def apply_overlay(base, kind, root, font_dir='C:/Windows/Fonts'):
         line([(w-44,top+66),(w-62,top+84)],'#B8B8BE',3)
         line([(27,top+174),(w-27,top+174)])
         for i,name in enumerate(NAMES):
-            x=30+i*175
-            icon_path=root/'illustrative-assets'/f'{name.lower()}.png'
-            icon=Image.open(icon_path).convert('RGBA').resize((100*scale,100*scale),Image.Resampling.LANCZOS)
-            mask=Image.new('L',icon.size)
-            ImageDraw.Draw(mask).rounded_rectangle((0,0,199,199),44,fill=255)
-            icon.putalpha(mask)
-            layer.alpha_composite(icon,((x+20)*scale,(top+208)*scale))
+            x=30+i*175; cx=x+70; cy=top+258
+            box((cx-50,cy-50,cx+50,cy+50),22,'#454A52')
+            if i==0:
+                def sparkle(sx,sy,r):
+                    points=[(sx,sy-r),(sx+r*.28,sy-r*.28),(sx+r,sy),
+                            (sx+r*.28,sy+r*.28),(sx,sy+r),
+                            (sx-r*.28,sy+r*.28),(sx-r,sy),(sx-r*.28,sy-r*.28)]
+                    d.polygon([(round(a*scale),round(b*scale)) for a,b in points],fill='white')
+                sparkle(cx-6,cy+4,29)
+                sparkle(cx+26,cy-25,10)
+                sparkle(cx+29,cy+26,7)
+            elif i==1:
+                line([(cx-29,cy+14),(cx-29,cy-23),(cx+29,cy-23),
+                      (cx+29,cy+14),(cx-29,cy+14)],'white',3)
+                line([(cx-29,cy+14),(cx-38,cy+24),(cx+38,cy+24),
+                      (cx+29,cy+14)],'white',3)
+            elif i==2:
+                # Two offset outlined bubbles, no platform-specific mark.
+                for ox,oy in [(10,-10),(-12,12)]:
+                    bounds=(cx+ox-25,cy+oy-18,cx+ox+25,cy+oy+14)
+                    d.rounded_rectangle(tuple(round(v*scale) for v in bounds),9*scale,
+                                        fill='#454A52',outline='white',width=3*scale)
+                    line([(cx+ox-16,cy+oy+14),(cx+ox-21,cy+oy+23),
+                          (cx+ox-4,cy+oy+14)],'white',3)
+            else:
+                for ox in [-20,20]:
+                    d.ellipse(tuple(round(v*scale) for v in
+                              (cx+ox-10,cy-27,cx+ox+10,cy-7)),fill='white')
+                    box((cx+ox-17,cy+1,cx+ox+17,cy+26),13,'white')
             label(name,x+70,top+323,23,centered=True)
         line([(27,top+375),(w-27,top+375)])
-        for i,name in enumerate(['AirDrop','Messages','Mail','Save to Files']):
-            x=30+i*175; cx=x+70; cy=top+453
-            box((cx-46,cy-46,cx+46,cy+46),24,['#347AF6','#35B759','#347AF6','#454548'][i])
-            if i==0:
-                for r in [12,25,36]: d.ellipse(tuple(int(v*scale) for v in (cx-r,cy-r,cx+r,cy+r)),outline='white',width=2*scale)
-            elif i==1:
-                box((cx-29,cy-22,cx+29,cy+20),16,'white')
-                d.polygon([(int(vx*scale),int(vy*scale)) for vx,vy in [(cx-19,cy+12),(cx-24,cy+31),(cx,cy+17)]],fill='white')
-            elif i==2:
-                box((cx-30,cy-21,cx+30,cy+21),4,'white')
-                line([(cx-29,cy-19),(cx,cy+4),(cx+29,cy-19)],'#347AF6',2)
-            else:
-                line([(cx-29,cy-20),(cx-10,cy-20),(cx-2,cy-11),(cx+29,cy-11),(cx+29,cy+25),(cx-29,cy+25),(cx-29,cy-20)],'white',3)
-            label(name,cx,top+514,22,centered=True)
         box((25,top+573,w-25,top+653),18,'#38383B')
         label('Share destination examples',w/2,top+596,25,centered=True)
         label('Availability depends on installed apps.',w/2,top+684,21,'#A6A6AD',centered=True)
@@ -63,15 +71,20 @@ def apply_overlay(base, kind, root, font_dir='C:/Windows/Fonts'):
         box((0,0,w,h),0,(0,0,0,95))
         left,right,top,bottom=64,w-64,460,1125
         box((left,top,right,bottom),30,'#29292C')
-        label('Allow "Lecture Asset" to',w/2,top+32,29,bold=True,centered=True)
-        label('delete this photo?',w/2,top+72,29,bold=True,centered=True)
-        for j,t in enumerate(['This photo will be deleted from iCloud','Photos on all your devices. It will be in','Recently Deleted for 30 days.']):
+        title_lines=['Allow “Lecture Asset” to','delete 12 photos?']
+        body_lines=['These photos will be deleted from iCloud',
+                    'Photos on all your devices. They’ll remain',
+                    'in Recently Deleted for 30 days.']
+        assert ' '.join(title_lines)==DELETE_TITLE
+        assert ' '.join(body_lines)==DELETE_BODY
+        label(title_lines[0],w/2,top+32,29,bold=True,centered=True)
+        label(title_lines[1],w/2,top+72,29,bold=True,centered=True)
+        for j,t in enumerate(body_lines):
             label(t,w/2,top+129+j*33,24,'#E3E3E8',centered=True)
         preview=Image.open(root/'fixtures/lecture-13.jpg').convert('RGB')
         preview.thumbnail((462*scale,260*scale),Image.Resampling.LANCZOS)
         px=(w*scale-preview.width)//2; py=(top+259)*scale
         layer.paste(preview,(px,py))
-        label('System confirmation example',w/2,top+548,20,'#B3B3BA',centered=True)
         line([(left,top+597),(right,top+597)])
         line([(w/2,top+597),(w/2,bottom)])
         label("Don't Allow",(left+w/2)/2,top+617,27,'#71AFFF',centered=True)

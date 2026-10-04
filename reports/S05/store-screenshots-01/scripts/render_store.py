@@ -9,7 +9,7 @@ import argparse
 import hashlib
 import json
 import numpy as np
-from phone_overlays import apply_overlay, NAMES
+from phone_overlays import apply_overlay, NAMES, DELETE_TITLE, DELETE_BODY
 
 ROOT = Path(__file__).resolve().parents[1]
 P = argparse.ArgumentParser()
@@ -225,7 +225,9 @@ def render(index, item):
             'base_capture':info['raw'],'first_row':NAMES if index==5 else None,
             'filename':'Lecture_2026-10-04_AI_ZIP.zip' if index==5 else None,
             'preview':'fixtures/lecture-13.jpg' if index==6 else None,
-            'note':'Illustration only; provider share-extension availability not verified.'}
+            'delete_title':DELETE_TITLE if index==6 else None,
+            'delete_body':DELETE_BODY if index==6 else None,
+            'note':'Illustration only; generic destination categories, not installed apps.'}
     output=ROOT/'store'/'en'/(name+'.png')
     output.parent.mkdir(parents=True,exist_ok=True)
     im.convert('RGB').save(output,icc_profile=ICC,optimize=True)

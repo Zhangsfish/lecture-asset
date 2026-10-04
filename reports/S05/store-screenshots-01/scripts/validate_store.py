@@ -6,11 +6,13 @@ import json
 import numpy as np
 import subprocess
 import io
-from phone_overlays import apply_overlay, NAMES
+from phone_overlays import apply_overlay, NAMES, DELETE_TITLE, DELETE_BODY
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = '4afd804ff2bdedec0a181181d768932a01b52b1b'
-PREVIOUS = 'b260bedc40c0ddc715f53ee46b67a2112313747f'
+PREVIOUS = 'adc6c2716b7e53451c6c2f390a672f7d7ab7e622'
+assert NAMES==['AI','My Computer','Chat','Friends']
+assert not list((ROOT/'illustrative-assets').glob('*')), 'unused downloaded artwork remains'
 provenance = json.loads((ROOT/'captures/PROVENANCE.json').read_text(encoding='utf-8'))
 CAPTURE_SHA = provenance['source_sha']
 records = json.loads((ROOT/'RENDER_MANIFEST.json').read_text(encoding='utf-8'))
@@ -40,7 +42,10 @@ for record in records:
             if overlay['kind']=='share':
                 assert overlay['first_row']==NAMES
                 assert overlay['filename']=='Lecture_2026-10-04_AI_ZIP.zip'
-            else: assert overlay['preview']=='fixtures/lecture-13.jpg'
+            else:
+                assert overlay['preview']=='fixtures/lecture-13.jpg'
+                assert overlay['delete_title']==DELETE_TITLE=='Allow “Lecture Asset” to delete 12 photos?'
+                assert overlay['delete_body']==DELETE_BODY=='These photos will be deleted from iCloud Photos on all your devices. They’ll remain in Recently Deleted for 30 days.'
         # Intersect the original screen geometry with the canvas, including
         # any screen edge at the canvas boundary; current phones are fully visible.
         left,top,right,bottom=max(0,x),max(0,y),min(im.width,x+w),min(im.height,y+h)
@@ -62,12 +67,24 @@ for record in records:
         actual_changes=int(np.count_nonzero(base_delta & visible_mask))
         assert np.count_nonzero(base_delta & visible_mask & ~coverage)==0
         old_bytes=subprocess.check_output(['git','show',PREVIOUS+':'+path.relative_to(Path.cwd()).as_posix()])
-        if records.index(record) in (0,1,3):
+        if records.index(record) in (0,1,2,3):
             assert path.read_bytes()==old_bytes, 'protected frame changed'
         if records.index(record) in (2,4,5):
             old=np.asarray(Image.open(io.BytesIO(old_bytes)).convert('RGB'))
             outside=np.any(np.asarray(im)!=old,axis=2); outside[y:y+h,x:x+w]=False
             assert not np.any(outside), 'phone exterior changed'
+            if records.index(record) in (4,5):
+                # Bound the allowed changes to destination rows or dialog text.
+                local_delta=np.any(np.asarray(im)[y:y+h,x:x+w]!=old[y:y+h,x:x+w],axis=2)
+                allowed=np.zeros((h,w),dtype=bool)
+                if records.index(record)==4:
+                    allowed[990:1340,:]=True
+                else:
+                    allowed[480:690,70:650]=True
+                    allowed[995:1045,100:620]=True
+                    # The lecture preview and destructive/cancel actions stay exact.
+                    assert np.array_equal(np.asarray(im)[y+719:y+979,x+129:x+591],old[y+719:y+979,x+129:x+591])
+                assert not np.any(local_delta & ~allowed), 'change outside focused overlay areas'
         result.append({'file':record['file'],'size_mode_profile_hash':'PASS',
                        'central_phone_pixels_changed':changed,
                        'composite_expected_pixels_changed':full_changed,
@@ -103,7 +120,12 @@ assert all(r['subtitle_style']=={'size':42,'color':'#5D6B7A','origin':[113,518]}
 assert records[4]['headline_lines']==['Share the AI ZIP.','Keep exploring the lecture.']
 summary={'base_sha':BASE,'production_app_tree':app_tree,'production_changes':production_diff,
          'previous_composition_head':PREVIOUS,'exact_capture_sha':CAPTURE_SHA,
-         'new_capture_this_round':False, 'common_ready_base':'PASS', 'protected_frames_1_2_4_byte_identical':'PASS', 'phone_exteriors_3_5_6_pixel_identical':'PASS', 'runtime_workflow_tests_unchanged_this_round':'PASS',
+         'new_capture_this_round':False, 'common_ready_base':'PASS',
+         'protected_frames_1_2_3_4_byte_identical':'PASS',
+         'phone_exteriors_3_5_6_pixel_identical':'PASS',
+         'overlay_change_bounds':'PASS','lecture_preview_unchanged':'PASS',
+         'generic_destinations':NAMES,'downloaded_artwork_removed':'PASS',
+         'plural_delete_contract':'PASS','runtime_workflow_tests_unchanged_this_round':'PASS',
          'uniform_headline_style':'PASS','uniform_subtitle_style':'PASS',
          'uniform_full_phone_geometry':'PASS',
          'six_image_checks':result,'phone_repaint_check':'PASS',

@@ -39,12 +39,12 @@ Outside slide cards reuse these same fixtures. File cards/checks/arrows/AI actio
 chips are drawn by Pillow, never by generative AI. The generic AI workspace shows
 possible actions only and is labeled external/example, with no provider identity.
 
-The brand chip remains the accepted App icon. Frame 5 uses provider identification
-artwork: ChatGPT/Gemini/Claude official App Store artwork from Apple lookup URLs;
-WorkBuddy SVG from its official website favicon. Exact URLs/PNG hashes are in
-illustrative-assets/SOURCES.json. These are illustrative destination examples,
-not proof of share-extension availability or partnership. Publication/brand
-clearance is NOT_RUN; do not infer permission from asset accessibility.
+The brand chip remains the accepted App icon. Frame 5 now uses only original
+renderer-drawn generic pictograms: AI sparkle, laptop, overlapping chat bubbles
+and two avatars. All tiles share the same neutral color, size and label style.
+No downloaded third-party artwork or source entries remain in the final chain.
+The destination categories are illustrations, not actual installed applications.
+Frame 6 retains synthetic lecture-13.jpg unchanged; plural text describes 12 photos.
 
 ## Local rendering dependencies
 
