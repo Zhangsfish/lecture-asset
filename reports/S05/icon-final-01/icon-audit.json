@@ -1,0 +1,94 @@
+{
+  "base_sha": "b2cd86d7654cdb603c1e0cb6b1829dee498438f1",
+  "selected_variant": "V1 Calm cobalt",
+  "representative_hex": "#4772A8",
+  "original_sha256": "a4b796e66c086b08c826bc8cfbd12c4065fa9e92d57069f8dc55e6cb89af625d",
+  "final_sha256": "b8f5ebfc89d8c8c3124026714737621bbd06c575d0e844f611282ddfc5bd8913",
+  "original": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha": false,
+    "icc": "none (sRGB assumed)"
+  },
+  "final": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha": false,
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  "changed_pixels": 852763,
+  "non_blue_changed_pixels": 0,
+  "pale_white_region_changed_pixels": 0,
+  "pure_white_pixels": 113899,
+  "yellow_region_pixels": 6925,
+  "white_yellow_changed_pixels": 0,
+  "blue_footprint_changed_pixels": 0,
+  "bounds_exclusive": {
+    "original_canvas": [
+      0,
+      0,
+      1024,
+      1024
+    ],
+    "final_canvas": [
+      0,
+      0,
+      1024,
+      1024
+    ],
+    "original_blue": [
+      0,
+      0,
+      1024,
+      1024
+    ],
+    "final_blue": [
+      0,
+      0,
+      1024,
+      1024
+    ],
+    "original_white": [
+      133,
+      226,
+      790,
+      639
+    ],
+    "final_white": [
+      133,
+      226,
+      790,
+      639
+    ],
+    "original_yellow": [
+      259,
+      344,
+      353,
+      438
+    ],
+    "final_yellow": [
+      259,
+      344,
+      353,
+      438
+    ],
+    "changed_pixels": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  "geometry_basis": "Exact preselected candidate hash; equal canvas; identical blue channel-dominance footprint; exact white/pale/yellow pixels; study pointwise-only provenance. Not an assertion of identical RGB values across the whole icon.",
+  "not_run": [
+    "Physical iPhone SpringBoard appearance",
+    "TestFlight upload",
+    "Broad/destructive QA"
+  ]
+}
