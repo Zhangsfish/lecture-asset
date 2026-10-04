@@ -34,7 +34,7 @@ private struct SupportedAgeAssuranceEntry: View {
 
     private func check() async {
         await service.check(supported: true, eligibility: {
-            try await AgeRangeService.shared.isEligibleForAgeFeatures
+            try await AppleAgeEligibility.required()
         }, request: {
             switch try await requestAgeRange(ageGates: 18) {
             case .sharing(let range):
@@ -49,6 +49,15 @@ private struct SupportedAgeAssuranceEntry: View {
 }
 
 private enum AgeAssuranceAdapterError: Error { case unknownResponse }
+
+// Keep the non-Sendable framework receiver inside a nonisolated async context;
+// only its Sendable Bool crosses back to the main-actor state machine.
+@available(iOS 26.2, *)
+private enum AppleAgeEligibility {
+    static func required() async throws -> Bool {
+        try await AgeRangeService.shared.isEligibleForAgeFeatures
+    }
+}
 
 private struct AgeAssuranceUnresolvedView: View {
     let issue: AgeAssuranceIssue
