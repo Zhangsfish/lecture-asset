@@ -34,9 +34,10 @@ assert not missing,missing
 protected={}
 for file in subprocess.check_output(["git","ls-tree","-r","--name-only",plan["base_sha"]],cwd=ROOT,text=True).splitlines():
     if file.startswith(("App/","AppResources/","Packages/","schemas/",".github/","reports/S05/store-screenshots-01/")) or file in ["project.yml","AGENTS.md","STATUS.md","docs/PRODUCT_DECISIONS.md","docs/SPEC.md"]:
-        original=subprocess.check_output(["git","show",plan["base_sha"]+":"+file],cwd=ROOT)
-        assert hashlib.sha256(original).hexdigest()==sha(ROOT/file),file
-        protected[file]=sha(ROOT/file)
+        baseline_blob=subprocess.check_output(["git","rev-parse",plan["base_sha"]+":"+file],cwd=ROOT,text=True).strip()
+        working_blob=subprocess.check_output(["git","hash-object","--path="+file,file],cwd=ROOT,text=True).strip()
+        assert baseline_blob==working_blob,file
+        protected[file]={"baseline_blob":baseline_blob,"working_blob":working_blob,"working_file_sha256":sha(ROOT/file)}
 env={"os":platform.platform(),"python":platform.python_version(),"packages":packages,"commands":tools,"fonts":fonts,
      "icc_sha256":sha(Path("C:/Windows/System32/spool/drivers/color/sRGB Color Space Profile.icm")),
      "font_binary_committed":False,"renderer":"HyperFrames native static snapshot + system Chrome SwiftShader","paid_services":False}
@@ -44,12 +45,14 @@ env={"os":platform.platform(),"python":platform.python_version(),"packages":pack
 (review/"PROTECTED_PATHS.json").write_text(json.dumps({"base":plan["base_sha"],"count":len(protected),"files":protected},indent=2),encoding="utf-8")
 tests["tested_code_sha"]=tested
 tests["checks"]["all_required_cjk_and_latin_glyphs"]="PASS"
-tests["checks"]["protected_files_byte_identical"]="PASS"
+tests["checks"]["protected_files_git_content_identical"]="PASS"
+tests["checks"]["protected_binary_fixture_and_icon_bytes"]="PASS"
 tests["checks"]["protected_file_count"]=len(protected)
 tests["source_digests"]={str(p.relative_to(V2)).replace("\\","/"):sha(p) for p in sorted((V2/"src").glob("*"))}
 tests["actual_commands"]=["npm install --no-audit --no-fund","npm run build","node scripts/render-frames.mjs","node scripts/inspect-dom.mjs","F:/anaconda3/python.exe scripts/review.py","F:/anaconda3/python.exe scripts/evidence.py"]
 tests["visual_review"]="Native snapshots actually viewed individually and as carousel; author assessment, owner approval pending."
-tests["notes"]=["Scene 1 shows a late hook still; all three subtitles remain locked in SHOTLIST, 2.8s readability belongs to Phase B.",
+tests["notes"]=["Protected text uses Git attribute normalization to avoid treating baseline Windows CRLF as a source edit; binary fixtures/icon checked byte-for-byte.",
+ "Scene 1 shows a late hook still; all three subtitles remain locked in SHOTLIST, 2.8s readability belongs to Phase B.",
  "Scene 4 rules and Scene 6 result are static peak treatments; motion/music/beat synchronization NOT_RUN.",
  "Summary/report is editorial concept, not recorded provider output.",
  "HyperFrames warns atlas exceeds 2MB inline threshold; local PNG decoding/rendering checked. No self-contained single-file HTML claim."]
@@ -107,7 +110,8 @@ performance claim.
 TypeScript build; nine actual HyperFrames snapshots; nine browser DOM/readiness
 checks; CJK/Latin glyph coverage; eight 1080×1920 RGB/sRGB outputs; source fixtures
 and icon bytes; same eight life IDs/crops in 1/7/8; {len(protected)} protected
-baseline files byte-identical. See TEST_RESULTS, RENDER_LOG and DOM_INSPECTION.
+baseline files Git-content-identical (text EOL normalization); binary fixtures/icon
+byte-identical. See TEST_RESULTS, RENDER_LOG, PROTECTED_PATHS and DOM_INSPECTION.
 
 Changed no App/runtime/Packages/schema/localization/project/workflow/Store assets.
 No ASC, TestFlight, App Review, public posting, paid service or destructive test.
