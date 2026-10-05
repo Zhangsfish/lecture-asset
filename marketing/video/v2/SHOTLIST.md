@@ -1,18 +1,20 @@
-# 锁定 Shotlist
+# R1 locked shotlist
 
-22.0 秒 / 60fps / 1320 frames。区间为左闭右开；没有 22 秒影片被本轮实现。
+22 seconds / 1320 frames. DIRECTOR_NEXT is authoritative; ranges [in,out).
 
-| 镜头 | 秒 / frames | 固定字幕（依次） | 画面 |
-|---|---|---|---|
-| 1 hook | 0.0–2.8s / [0,168) | 相册里，塞满了讲座照片。 → 不看，舍不得删。 → 想交给 AI，又太乱。 | 生活 P01–P08 被十二张白色讲座照片遮挡挤压；代表帧捕捉太乱的临界点。 |
-| 2 extract | 2.8–5.5s / [168,330) | 先把讲座抽出来。 → 按时间排好。 | 同一批讲座沿斜轴抽离，12 张按 01–12 时间序列叠入前景纸摞。 |
-| 3 split | 5.5–8.2s / [330,492) | 一份留给自己。 → 一份交给 AI。 | 同一纸摞一分为二；PDF 左侧，AI ZIP 右侧更大、更靠前。 |
-| 4 anatomy | 8.2–11.8s / [492,708) | 不只是一包照片。 → AI 怎么读，也准备好了。 | ZIP 展开全页图、OCR 索引、manifest 与 README 规则；第一高潮。 |
-| 5 handoff | 11.8–14.8s / [708,888) | 现在，交给 AI。 | AI ZIP 穿入抽象 WorkBuddy/ChatGPT 工作区；纯名称，非品牌 UI。 |
-| 6 result | 14.8–18.2s / [888,1092) | 总结。 → 报告。 | 资料压缩归并，生成 editorial Summary/Report 形态；第二高潮。 |
-| 7 return | 18.2–20.4s / [1092,1224) | 该留的，已经留好了。 → 现在，删掉也安心。 | 已保存资料为锚点；讲座卡升起离开，同一相册只留下原 P01–P08。 |
-| 8 end | 20.4–22.0s / [1224,1320) | 把讲座交给 AI， → 把相册还给自己。 | 同一八张生活照片向下留白，最终 slogan 与 Lecture Asset 停住。 |
+| Scene | Frames / seconds | 中文 | English | Shot |
+|---|---|---|---|---|
+| S01 | [0,180) / 0.0–3.0s | 舍不得删。 → 交给 AI，又太乱。 | Too useful to delete. → Too scattered for AI. | wide occluding photo space |
+| S02 | [180,330) / 3.0–5.5s | 选好。排好。 | Select. Put it in order. | follow the ordered pages |
+| S03 | [330,480) / 5.5–8.0s | PDF，留着回看。 → AI ZIP，交给 AI。 | PDF. Keep it for later. → AI ZIP. Ready to share. | file split / sleeve-edge closeup |
+| S04 | [480,690) / 8.0–11.5s | 连怎么读，都准备好了。 | Reading instructions included. | continuous archive contents / small orbiting camera arc |
+| S05 | [690,840) / 11.5–14.0s | 交给 WorkBuddy。 | Over to ChatGPT. | same ZIP handed into external content space |
+| S06 | [840,1062) / 14.0–17.7s | 总结。报告。 | A summary. A report. | summary assembles / report turns front / hold |
+| S07 | [1062,1170) / 17.7–19.5s | 留好资料，再清相册。 | Keep the files. Clear the photos. | same album / saved cue before departure |
+| S08 | [1170,1320) / 19.5–22.0s | 把讲座交给 AI， → 把相册还给自己。 | Hand the lecture to AI. → Take back your photo library. | front-facing personal photos / simultaneous slogan |
 
-Scene 4 规则层仅：全部页图 / 文字仅作索引 / 图表公式回原图核对。
-Scene 5 cn=WorkBuddy、intl=ChatGPT；不画实际网页。字幕仍使用本次锁定中文，不擅自改写英文脚本。
-Phase B 再验证 Scene 1 三段文字是否能在 2.8 秒内读完；当前按锁定 timing 记录，不偷偷延长影片。
+S01 captions: [6,78), [90,171). S02 stack stable [294,330).
+S04: unfold [480,552), read/highlight [552,642), close [642,690).
+S06: gather [840,912), form [912,966), hold [966,1062).
+S07: saved at 1077; departures begin 1087. S08 both lines settled by 1182.
+Music/SFX are included in R1; muted versions preserve exact video. No public publication authorization.

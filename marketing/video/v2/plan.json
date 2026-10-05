@@ -1,13 +1,30 @@
 {
-  "id": "lecture-asset-v2-phase-a",
-  "base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
-  "phase": "A",
+  "id": "lecture-asset-v2-director-r1",
+  "status": "READY_FOR_DIRECTOR_CUT_REVIEW",
+  "authority": "DIRECTOR_NEXT.md",
+  "instruction_sha256": "e68872e2b4309b1fe6e231b14878b473fccb123e2a64a2f64681f59dc1e670ef",
+  "branch_input_sha": "89c705d495deacd506ae1db6d19516c2b723f137",
+  "latest_main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
+  "original_pr_base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
   "width": 1080,
   "height": 1920,
+  "output_width": 720,
+  "output_height": 1280,
   "fps": 60,
   "duration_frames": 1320,
   "duration_seconds": 22,
-  "rendered_video": false,
+  "variants": [
+    {
+      "id": "en-chatgpt",
+      "locale": "en",
+      "provider": "ChatGPT"
+    },
+    {
+      "id": "zh-workbuddy",
+      "locale": "zh-Hans",
+      "provider": "WorkBuddy"
+    }
+  ],
   "personal_ids": [
     "P01",
     "P02",
@@ -32,107 +49,202 @@
     "L11",
     "L12"
   ],
-  "rules": [
-    "全部页图",
-    "文字仅作索引",
-    "图表公式回原图核对"
-  ],
+  "rules": {
+    "zh-Hans": [
+      "页图为准",
+      "索引定位",
+      "回图核对"
+    ],
+    "en": [
+      "Images first",
+      "Index to navigate",
+      "Verify on the page"
+    ]
+  },
   "scenes": [
     {
       "id": 1,
-      "name": "hook",
+      "name": "mixed-library",
       "in": 0,
-      "out": 168,
-      "representative_frame": 117,
-      "copy": [
-        "相册里，塞满了讲座照片。",
-        "不看，舍不得删。",
-        "想交给 AI，又太乱。"
-      ],
-      "image": "生活 P01–P08 被十二张白色讲座照片遮挡挤压；代表帧捕捉太乱的临界点。"
+      "out": 180,
+      "copy": {
+        "zh-Hans": [
+          "舍不得删。",
+          "交给 AI，又太乱。"
+        ],
+        "en": [
+          "Too useful to delete.",
+          "Too scattered for AI."
+        ]
+      },
+      "view": "wide occluding photo space"
     },
     {
       "id": 2,
-      "name": "extract",
-      "in": 168,
+      "name": "selection-follow",
+      "in": 180,
       "out": 330,
-      "representative_frame": 282,
-      "copy": [
-        "先把讲座抽出来。",
-        "按时间排好。"
-      ],
-      "image": "同一批讲座沿斜轴抽离，12 张按 01–12 时间序列叠入前景纸摞。"
+      "copy": {
+        "zh-Hans": [
+          "选好。排好。"
+        ],
+        "en": [
+          "Select. Put it in order."
+        ]
+      },
+      "view": "follow the ordered pages"
     },
     {
       "id": 3,
-      "name": "split",
+      "name": "two-deliverables",
       "in": 330,
-      "out": 492,
-      "representative_frame": 432,
-      "copy": [
-        "一份留给自己。",
-        "一份交给 AI。"
-      ],
-      "image": "同一纸摞一分为二；PDF 左侧，AI ZIP 右侧更大、更靠前。"
+      "out": 480,
+      "copy": {
+        "zh-Hans": [
+          "PDF，留着回看。",
+          "AI ZIP，交给 AI。"
+        ],
+        "en": [
+          "PDF. Keep it for later.",
+          "AI ZIP. Ready to share."
+        ]
+      },
+      "view": "file split / sleeve-edge closeup"
     },
     {
       "id": 4,
-      "name": "anatomy",
-      "in": 492,
-      "out": 708,
-      "representative_frame": 654,
-      "copy": [
-        "不只是一包照片。",
-        "AI 怎么读，也准备好了。"
-      ],
-      "image": "ZIP 展开全页图、OCR 索引、manifest 与 README 规则；第一高潮。"
+      "name": "inside-the-zip",
+      "in": 480,
+      "out": 690,
+      "copy": {
+        "zh-Hans": [
+          "连怎么读，都准备好了。"
+        ],
+        "en": [
+          "Reading instructions included."
+        ]
+      },
+      "view": "continuous archive contents / small orbiting camera arc"
     },
     {
       "id": 5,
-      "name": "handoff",
-      "in": 708,
-      "out": 888,
-      "representative_frame": 798,
-      "copy": [
-        "现在，交给 AI。"
-      ],
-      "image": "AI ZIP 穿入抽象 WorkBuddy/ChatGPT 工作区；纯名称，非品牌 UI。"
+      "name": "external-handoff",
+      "in": 690,
+      "out": 840,
+      "copy": {
+        "zh-Hans": [
+          "交给 WorkBuddy。"
+        ],
+        "en": [
+          "Over to ChatGPT."
+        ]
+      },
+      "view": "same ZIP handed into external content space"
     },
     {
       "id": 6,
-      "name": "result",
-      "in": 888,
-      "out": 1092,
-      "representative_frame": 1026,
-      "copy": [
-        "总结。",
-        "报告。"
-      ],
-      "image": "资料压缩归并，生成 editorial Summary/Report 形态；第二高潮。"
+      "name": "readable-results",
+      "in": 840,
+      "out": 1062,
+      "copy": {
+        "zh-Hans": [
+          "总结。报告。"
+        ],
+        "en": [
+          "A summary. A report."
+        ]
+      },
+      "view": "summary assembles / report turns front / hold"
     },
     {
       "id": 7,
-      "name": "return",
-      "in": 1092,
-      "out": 1224,
-      "representative_frame": 1182,
-      "copy": [
-        "该留的，已经留好了。",
-        "现在，删掉也安心。"
-      ],
-      "image": "已保存资料为锚点；讲座卡升起离开，同一相册只留下原 P01–P08。"
+      "name": "saved-then-clear",
+      "in": 1062,
+      "out": 1170,
+      "copy": {
+        "zh-Hans": [
+          "留好资料，再清相册。"
+        ],
+        "en": [
+          "Keep the files. Clear the photos."
+        ]
+      },
+      "view": "same album / saved cue before departure"
     },
     {
       "id": 8,
-      "name": "end",
-      "in": 1224,
+      "name": "life-returned",
+      "in": 1170,
       "out": 1320,
-      "representative_frame": 1290,
-      "copy": [
-        "把讲座交给 AI，",
-        "把相册还给自己。"
-      ],
-      "image": "同一八张生活照片向下留白，最终 slogan 与 Lecture Asset 停住。"
+      "copy": {
+        "zh-Hans": [
+          "把讲座交给 AI，",
+          "把相册还给自己。"
+        ],
+        "en": [
+          "Hand the lecture to AI.",
+          "Take back your photo library."
+        ]
+      },
+      "view": "front-facing personal photos / simultaneous slogan"
     }
-  ]
+  ],
+  "hero_frames": [
+    45,
+    264,
+    420,
+    594,
+    822,
+    1014,
+    1137,
+    1254
+  ],
+  "audio_cues": [
+    {
+      "frame": 3,
+      "name": "photo-wipe"
+    },
+    {
+      "frame": 184,
+      "name": "selection-sweep"
+    },
+    {
+      "frame": 296,
+      "name": "stack-settle"
+    },
+    {
+      "frame": 492,
+      "name": "sleeve-open"
+    },
+    {
+      "frame": 714,
+      "name": "handoff"
+    },
+    {
+      "frame": 966,
+      "name": "report-resolve"
+    },
+    {
+      "frame": 1090,
+      "name": "album-release"
+    }
+  ],
+  "saved_confirm_frame": 1077,
+  "first_departure_frame": 1087,
+  "slogan_settled_by_frame": 1182,
+  "source_summary": {
+    "source": "accepted fixtures 13–24 / assets/lecture/0001.jpg–0012.jpg",
+    "bullets": [
+      "Ask what the idea means.",
+      "Link it to a concrete example.",
+      "Return to it with a fresh question."
+    ],
+    "topics": [
+      "Test a small change",
+      "Review the evidence",
+      "Use a concrete example",
+      "Questions for discussion"
+    ],
+    "output_status": "editorial illustrative summary; not provider transcript"
+  }
 }

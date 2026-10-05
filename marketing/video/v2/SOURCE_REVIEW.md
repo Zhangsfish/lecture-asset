@@ -15,7 +15,7 @@
 
 ## 新旧边界
 
-本次 owner 明确锁定的 22 秒八镜头、字幕与 Phase A/B/C 是 v2 的创意权威。旧文档保留原样。
+当前执行权威是 DIRECTOR_NEXT.md 的 R1 修正与完整导演粗剪授权。22 秒八镜头仍保持；旧 Phase A 字幕/时段已经被 R1 明确覆盖，review/phase-a 原始证据保留。新的 plan.json、SHOTLIST、STORYBOARD 已同步 R1，当前不再受旧 Phase A 等待选择限制。
 当前 main 的 M00 dispatch 未被本任务修改；v2 是 owner 在本聊天单独授权的并行创作，不自行解锁 M01。
-完整冻结的字幕写在 SHOTLIST；静帧只显示该镜头一个时刻的字幕，不把所有连续字幕堆在同一张海报。
+R1 双语字幕写在 SHOTLIST；主时间线驱动持久照片、同一 ZIP 和资料成果。关键帧从实际时间线提取，不作为视频输入。
 外部 AI 工作区和结果是 editorial concept；不是 ChatGPT/WorkBuddy 真实 UI 或真实生成记录。
