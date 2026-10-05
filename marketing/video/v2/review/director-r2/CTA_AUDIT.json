@@ -1,0 +1,33 @@
+{
+  "measurement": "DOM geometric clear space in work canvas; exported frame visual review separately",
+  "badge_clearance": [
+    {
+      "locale": "en",
+      "badge_dimensions": [
+        320,
+        106.953125
+      ],
+      "min_required_clearance": 26.73828125,
+      "measured_clearance": {
+        "brand": 161,
+        "search": 77.046875,
+        "qr": 258
+      },
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "badge_dimensions": [
+        320,
+        117.578125
+      ],
+      "min_required_clearance": 29.39453125,
+      "measured_clearance": {
+        "brand": 161,
+        "search": 66.421875,
+        "qr": 258
+      },
+      "PASS": true
+    }
+  ]
+}

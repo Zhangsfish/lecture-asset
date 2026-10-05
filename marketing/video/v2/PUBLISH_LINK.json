@@ -19,5 +19,119 @@
   "publication_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
   "qr_payload": "https://apps.apple.com/us/app/id6816814541",
   "note": "A 200 response redirected to an App Store Today page is not proof of a live matching product, nor proof of delisting. No ASC mutation or publishing.",
-  "qr_exported_frame_checks": []
+  "qr_exported_frame_checks": [
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt.mp4",
+      "frame": 1500,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            801.4351806640625
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1500,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            471.9910583496094,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy.mp4",
+      "frame": 1500,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            801.4351806640625
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1500,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            473.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    }
+  ],
+  "qr_checked_utc": "2026-10-05T19:38:44.870396+00:00"
 }
