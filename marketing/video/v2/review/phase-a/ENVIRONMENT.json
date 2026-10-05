@@ -1,0 +1,73 @@
+{
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.7",
+  "packages": {
+    "hyperframes": "0.8.132",
+    "gsap": "3.15.0",
+    "typescript": "7.0.2",
+    "esbuild": "0.28.2",
+    "puppeteer-core": "25.12.0"
+  },
+  "commands": [
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "v24.15.0"
+    },
+    {
+      "command": [
+        "cmd",
+        "/c",
+        "npm",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "11.12.1"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "(Get-Item 'C:/Program Files/Google/Chrome/Application/chrome.exe').VersionInfo.ProductVersion"
+      ],
+      "exit_code": 0,
+      "stdout": "154.0.8037.93"
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-version"
+      ],
+      "exit_code": 0,
+      "stdout": "ffmpeg version 9.0.1-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+    }
+  ],
+  "fonts": [
+    {
+      "path": "assets/fonts/msyh.ttc",
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+      "bytes": 19704352,
+      "source": "installed Windows font; local use only, ignored binary"
+    },
+    {
+      "path": "assets/fonts/msyhbd.ttc",
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+      "bytes": 16883552,
+      "source": "installed Windows font; local use only, ignored binary"
+    },
+    {
+      "path": "assets/fonts/segoeui.ttf",
+      "sha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd",
+      "bytes": 959752,
+      "source": "installed Windows font; local use only, ignored binary"
+    }
+  ],
+  "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+  "font_binary_committed": false,
+  "renderer": "HyperFrames native static snapshot + system Chrome SwiftShader",
+  "paid_services": false
+}
