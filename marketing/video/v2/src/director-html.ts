@@ -8,7 +8,7 @@ export const content={
   rules:["Images first","Index to navigate","Verify on the page"],
   provider:"ChatGPT",external:"External AI",summary:"SUMMARY",report:"REPORT",title:"Learning & review",
   results:["Clarify the idea.","Use concrete examples.","Revisit with questions."],
-  labels:["IDEA","EVIDENCE","NEXT STEP"],illustrative:"Illustrative output",
+  labels:["IDEA","EVIDENCE","CONCLUSION"],illustrative:"Illustrative output",
   saved:"Saved",slogan:["Hand the lecture to AI.","Take back your photo library."]
  },
  "zh-Hans":{
@@ -18,7 +18,7 @@ export const content={
   rules:["页图为准","索引定位","回图核对"],
   provider:"WorkBuddy",external:"外部 AI",summary:"总结",report:"报告",title:"学习与回看",
   results:["先弄懂概念含义","用具体例子建立联系","带着新问题再回看"],
-  labels:["观点","依据","下一步"],illustrative:"结果示意",
+  labels:["观点","依据","结论"],illustrative:"结果示意",
   saved:"已保存",slogan:["把讲座交给 AI，","把相册还给自己。"]
  }
 };
