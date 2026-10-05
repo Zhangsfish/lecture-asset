@@ -67,12 +67,13 @@ The promo is a parallel, separately authorized marketing lane, not a release pre
 
 ## Start here
 
-1. [Restart handoff](handoff/CHATGPT_RESTART_S05.md)
-2. [Product decisions](docs/PRODUCT_DECISIONS.md) + [Spec](docs/SPEC.md)
-3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
-4. [S05-A audit](audits/S05/china-prep-01.md)
-5. [S05-B audit](audits/S05/polish-01.md)
-6. Release lane: PR #15 remains HOLD; do not repeat the earlier D2 implementation dispatch or authorize RC/review. Chinese Store PR #16 awaits separate audit. China filing inquiry remains separate.
-7. Parallel video lane: execute only [M00 bootstrap](tasks/S05_MV_00_BOOTSTRAP.md); read the [locked specification](docs/PROMO_V1_SPEC.md) and [research](docs/PROMO_V1_RESEARCH.md). No movie exists yet.
+1. [Apple release portal handoff](handoff/APPLE_RELEASE_PORTAL_HANDOFF_2026-10-05.md) — owner/ChatGPT screen-by-screen ASC filling and release closure
+2. [Restart handoff](handoff/CHATGPT_RESTART_S05.md)
+3. [Product decisions](docs/PRODUCT_DECISIONS.md) + [Spec](docs/SPEC.md)
+4. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
+5. [S05-A audit](audits/S05/china-prep-01.md)
+6. [S05-B audit](audits/S05/polish-01.md)
+7. Release lane: PR #15 remains HOLD; do not repeat the earlier D2 implementation dispatch or authorize RC/review. Chinese Store PR #16 awaits separate audit. China filing inquiry remains separate.
+8. Parallel video lane: execute only [M00 bootstrap](tasks/S05_MV_00_BOOTSTRAP.md); read the [locked specification](docs/PROMO_V1_SPEC.md) and [research](docs/PROMO_V1_RESEARCH.md). No movie exists yet.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
