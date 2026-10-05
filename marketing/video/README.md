@@ -1,6 +1,11 @@
 # Lecture Asset promo workspace
 
-**Current state: SPEC_READY / M00_READY. No video has been implemented or rendered.**
+**Current state: M00 technical bootstrap only; audit pending.**
+
+The two-second smoke is a tool/seek/font/media/audio test, not a scene or an
+animatic for the 26-second film. See `review/M00/` and the M00 delivery report.
+The exact 12-page real App export and both provider takes remain explicitly
+blocked in `ASSET_LEDGER.json` / `PROVIDER_EVIDENCE.json`. M01 is not unlocked.
 
 Start with:
 - tasks/S05_MV_00_BOOTSTRAP.md
@@ -81,3 +86,25 @@ Do not edit:
 Do not merge/cherry-pick sibling PRs. Prefer accepted assets on main and safe synthetic fixtures.
 
 No ASC edits, signing changes, TestFlight upload, real private-photo deletion, paid services, public hosting/posting or App Review submission is authorized by this workspace.
+
+## Reproduce M00 on the locked Windows host
+
+From this directory:
+
+```powershell
+npm.cmd ci --no-audit --no-fund
+node scripts/prepare-assets.mjs
+npm.cmd run build
+node scripts/smoke.mjs
+node scripts/review-assets.mjs
+& 'F:/anaconda3/python.exe' scripts/validate-smoke.py
+```
+
+`scripts/hf.mjs` calls only the project-local official HyperFrames CLI, refuses
+locked browser/Node/FFmpeg binary drift and disables telemetry/update checks.
+The official snapshot command captures the forward and reverse seek sequence
+in one page; Python compares already-captured pixels, never drives a browser.
+FFmpeg downsamples the same official render to 540×960. Source stills remain
+1080×1920. Original SVG sources are shared by opening and ending album slots.
+Fonts are copied temporarily from the installed system fonts to ignored local
+assets; no font, browser bundle, cache or full-resolution master is committed.

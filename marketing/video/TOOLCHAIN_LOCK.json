@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-05",
+  "host": "Windows x64; isolated local HyperFrames Chrome process; no signed-in browser profile used for render",
+  "node": "v24.15.0",
+  "npm": "11.12.1",
+  "packages": {
+    "hyperframes": "0.8.132",
+    "gsap": "3.15.0",
+    "typescript": "7.0.2",
+    "esbuild": "0.28.2",
+    "sharp_transitive_image_validation": "0.35.5"
+  },
+  "package_lock_sha256": "ddec12ecd575423c063e33374d8dfc3f53c9902053cad5ef2361fd7385c6d866",
+  "browser": {
+    "family": "Google Chrome",
+    "executable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "version": "154.0.8037.93",
+    "sha256": "1e9412868bbc9faff92d129babd17331e7ceab0702cc07db02a34f3438ae04f2",
+    "capture_mode": "Official HyperFrames drawElement / hardware GPU (Intel Iris Xe); snapshot is official same-page screenshot/seek utility",
+    "auth_profile": "NOT_USED"
+  },
+  "ffmpeg": {
+    "executable": "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+    "version": "ffmpeg version 9.0.1-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "sha256": "72a489eccd008c2ec2c0a5856c5c75bc3d8bbfa90166c4566865c246445e6aa3"
+  },
+  "ffprobe": {
+    "executable": "E:/video_to_md/readable-transcript/resource/bin/ffprobe.exe",
+    "version": "ffprobe version 9.0.1-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers",
+    "sha256": "19202b23c0043f15ad1b7bce2344f406fd52bd6efd8f995ce02e7392a1cec52f"
+  },
+  "fonts": [
+    {
+      "file": "msyh.ttc",
+      "system_directory": "C:/Windows/Fonts",
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+      "redistributed": false
+    },
+    {
+      "file": "msyhbd.ttc",
+      "system_directory": "C:/Windows/Fonts",
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+      "redistributed": false
+    },
+    {
+      "file": "segoeui.ttf",
+      "system_directory": "C:/Windows/Fonts",
+      "sha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd",
+      "redistributed": false
+    }
+  ],
+  "skill_upstream": {
+    "url": "https://github.com/heygen-com/hyperframes",
+    "commit": "9c7ff590fe9e1f3fa7bf06cb3bf67ae78c2a993b",
+    "skills": [
+      {
+        "name": "hyperframes",
+        "file": "skills/hyperframes/SKILL.md",
+        "sha256": "fa40d77b02b59685f6a4c68cb0a29d4bfcc057733939e9fb8213e23610c5f608"
+      },
+      {
+        "name": "hyperframes-core",
+        "file": "skills/hyperframes-core/SKILL.md",
+        "sha256": "18ac7784765cc29af5a4d88f2a63a15deaf5395985009af188b5e3718edcfe3d"
+      },
+      {
+        "name": "hyperframes-keyframes",
+        "file": "skills/hyperframes-keyframes/SKILL.md",
+        "sha256": "d6484e8367ed522f2a89af9ec30ae3cd86ae243b5a23c5ab00a7a682e3d1a791"
+      },
+      {
+        "name": "hyperframes-cli",
+        "file": "skills/hyperframes-cli/SKILL.md",
+        "sha256": "0e7004fa07f48b0d268a3e89eb606161cc286159f06c5579cffcc04ff3f47ce2"
+      },
+      {
+        "name": "GSAP adapter",
+        "file": "skills/hyperframes-animation/adapters/gsap.md",
+        "sha256": "960a8f1f2f40141ab6bcca4a963cd43f64782d72d2afb393784bb09656b0ad58"
+      }
+    ],
+    "authority": "Published CLI 0.8.132 local --help and official upstream adapter; locked task overrides unsolicited workflow redesign, publication or upgrade instructions"
+  },
+  "gsap_license": {
+    "url": "https://gsap.com/standard-license",
+    "original_header_preserved": true,
+    "redistributed_vendor_file": false,
+    "note": "Build copies original local GSAP file byte-for-byte into ignored dist. The license header is never stripped."
+  },
+  "environment": {
+    "HYPERFRAMES_NO_UPDATE_CHECK": "1",
+    "HYPERFRAMES_SKIP_SKILLS": "1",
+    "HYPERFRAMES_NO_TELEMETRY": "1",
+    "DO_NOT_TRACK": "1"
+  },
+  "no_second_capture_engine": true,
+  "system_upgrade": false,
+  "cloud_paid_render": false,
+  "pixel_determinism_boundary": "Verified on this exact browser/fonts/host. Not promised across host, browser, driver or font changes."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "lecture-asset-promo-m00",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "lint": "node scripts/hf.mjs lint",
+    "check": "node scripts/hf.mjs check",
+    "prepare:assets": "node scripts/prepare-assets.mjs"
+  },
+  "dependencies": { "gsap": "3.15.0" },
+  "devDependencies": { "hyperframes": "0.8.132", "typescript": "7.0.2", "esbuild": "0.28.2" }
+}

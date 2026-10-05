@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-05",
+  "acceptance_rule": "Exact real 12-page App export from fixtures 13–24; empty new conversation with no prior/custom instructions; attachment-only plus actual Send allowed; no typed, hidden or prefilled task prompt; substantive genuine summary/report.",
+  "providers": [
+    {
+      "provider": "WorkBuddy", "locale": "zh-Hans",
+      "status": "BLOCKED_PROVIDER_EVIDENCE",
+      "client": "Existing Windows desktop installation detected",
+      "version": null,
+      "version_note": "Executable FileVersion 5.5.6 / ProductVersion 5.5.6.0; in-client visible version NOT_RUN, not assumed identical.",
+      "evidence_date": null, "archive_sha256": null, "page_count": null,
+      "route": null, "send_required": null, "attachment_only_submission": null,
+      "prior_context_influence": null,
+      "timestamps": {"attachment_visible": null, "send": null, "processing": null, "summary_report_result": null},
+      "output_excerpt": null, "output_crop": null,
+      "reason": "Owner's general prior-success statement is planning evidence only; no accessible approved take bound to the exact required safe archive, attachment-only input or timestamps. The required 12-page real export is also unavailable.",
+      "provenance": "docs/PROMO_V1_RESEARCH.md; current task; read-only installed executable version check",
+      "privacy_brand_status": "No provider/account screenshot or invented result committed. Factual provider slot remains unfilled."
+    },
+    {
+      "provider": "ChatGPT", "locale": "en",
+      "status": "BLOCKED_PROVIDER_EVIDENCE",
+      "client": "chatgpt.com browser UI; fresh empty in-app browser page inspected",
+      "version": null, "version_note": "Web build version not visibly exposed; NOT_RUN",
+      "evidence_date": null, "archive_sha256": null, "page_count": null,
+      "route": null, "send_required": null, "attachment_only_submission": null,
+      "prior_context_influence": null,
+      "timestamps": {"attachment_visible": null, "send": null, "processing": null, "summary_report_result": null},
+      "output_excerpt": null, "output_crop": null,
+      "reason": "No accessible approved take bound to the exact required safe archive or empty/no-instruction input. Fresh in-app page was signed out and required sign-in for upload. An existing Edge connection was discovered but no substitute archive was sent there. Missing required 12-page export is the primary prerequisite.",
+      "provenance": "docs/PROMO_V1_RESEARCH.md; current task; live read-only page inspection",
+      "privacy_brand_status": "No account/history/credential content inspected or committed; no fabricated provider response."
+    }
+  ],
+  "owner_action_now": "NONE: first bind the real 12-page App export via the narrowly specified export-only action in ASSET_LEDGER.json.",
+  "single_owner_action_after_archive_binding": "WorkBuddy only: open one new empty conversation with no project/custom instructions, attach the exact digest-verified 12-page safe ZIP, leave the input box empty and click Send if enabled; record only attachment visible → Send → wait → actual lecture summary/report. Do not type a task prompt or show account/sidebar/private conversations. If attachment-only Send is disabled or no substantive report appears, record that failure instead. No ChatGPT retest requested simultaneously.",
+  "m01_unlocked": false
+}
