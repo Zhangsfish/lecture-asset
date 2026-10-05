@@ -1,178 +1,501 @@
-# Lecture Asset — AI-first promo v1 / locked production specification
+# Lecture Asset — promo v1 locked production specification
 
-Date: 2026-10-05. Status: **SPEC_READY; VIDEO_NOT_RENDERED**.
-Source main inspected: `0e6c1670ffe1464532c11356d3d5824e459aff39`.
+Date: 2026-10-05. Status: **SPEC_READY / VIDEO_NOT_RENDERED**.
 
-## 0. Authority and scope
+Authority:
+1. this file for product story, visual rules, truth boundaries and production stages;
+2. marketing/video/plan.json for exact frame ranges/copy/data;
+3. docs/PROMO_V1_RESEARCH.md for the dated tool/reference review.
 
-This document and `marketing/video/plan.json` are the current promotional-video specification. They supersede the marketing portions of the older 19-second Remotion and 21-second exploratory briefs, including conflicting state-selection suggestions in `MOTION_AND_PROMO_PLAN.md`. They do NOT change the native tutorial, frozen English Store images, image/archive/delete contracts, or release authorization.
+This revision replaces the earlier AI-only ending. The owner's final story has **two root pains**:
 
-The owner wants an AI hook at the beginning, a visible prepared archive with reading instructions in its middle, and sharing to external AI as the last product action. Do not turn the film back into a cleanup tutorial. Do not ask Codex to invent new copy, palettes, camera styles or an AI response.
+1. lecture/PPT photos accumulate inside a normal personal photo library, are rarely revisited, consume space, but feel risky to delete;
+2. a loose pile of photos is awkward to hand to AI as a coherent lecture.
 
-Brand: **Lecture Asset** in both locale variants. EN destination: ChatGPT. ZH destination: WorkBuddy. These are external example workflows, not bundled integrations or partners. Two renders share one scene graph, timing and sound; locale strings and verified provider footage are explicit slots.
+Lecture Asset solves both by turning the selected lecture photos into a human PDF plus a self-documented AI ZIP, handing that package to external AI for a real summary/report, then letting the user safely remove the source lecture photos from the main library after the ZIP has been saved.
 
-Deliverable: an external social/product promo, NOT an App Store App Preview, new website, advertisement placement, or new App feature. Producing a film does not authorize posting it or submitting the App.
+Final Chinese line is locked:
 
-## 1. Exact creative decision
+**把讲座交给 AI，**
+**把相册还给自己。**
 
-**A pile of lecture photos → an orderly, self-documented input package → send it to AI and keep exploring the lecture.**
+The promo remains a marketing artifact, not an App Store App Preview, not a new product feature, and not release authorization.
 
-PDF remains visibly separate for personal review. The AI ZIP is the lead object from S03 onward. No extra cleanup shot follows the final handoff. Cleanup is deliberately omitted from this short cut; the existing tutorial/Store images teach it. Omission must not become an implication of automatic deletion.
+---
 
-Length: **24.000 s**, constant **60 fps**, **1440 frames**, range `[0,1440)`.
-Master: **1080×1920**, 9:16, SDR. Review: **540×960**, same 60 fps/timing.
-Audio: no narrator, no copyrighted music samples, original restrained instrumental pulse/SFX. Silent playback must convey the story. EN and ZH duration remain identical.
+## 1. Exact story and deliverables
 
-The increase from 21 to 24 seconds reserves reading time for the archive instructions and an intelligible external handoff. Do not compress those moments merely to hit the earlier exploratory duration.
+Story spine:
 
-## 2. Technical stack — one renderer, one clock
+**mixed, crowded photo library → lecture photos extracted and ordered → PDF + prepared AI ZIP → archive explains how AI should read it → share to external AI → real summary/report → confirmed saved archive → source lecture photos removed → same personal library now contains only the personal photos.**
 
-Use **HyperFrames + a paused GSAP timeline + HTML/CSS/SVG**, with TypeScript for typed scene/data construction. A small local esbuild bundle is allowed; React is not needed. HyperFrames owns frame seeking and browser capture; FFmpeg handles output encoding and offline audio muxing. Do not add a parallel Playwright screen recorder or a second render engine.
+The first and last album must be a visual match:
+- opening: personal scenery/selfie/food tiles intermixed with 12 lecture-slide tiles;
+- ending: the same personal tile IDs remain and reflow neatly; the 12 lecture tiles are gone from the main album view.
 
-Minimum environment: Node 22+. Inspect the actual Windows/Codex host first. Pin the resolved HyperFrames CLI, GSAP, build-tool, browser and FFmpeg versions in the project lockfile/environment report after the M00 smoke test. Upstream CLI source inspected during research reports 0.8.131; this is NOT proof of npm availability or a tested local version. Resolve the published package once, report it, lock it. No floating `latest` in production render commands or auto-updating skills thereafter.
+Do not replace the ending with a generic blank Photos grid. The before/after identity is the payoff.
 
-Project-local official HyperFrames skills may guide technical API usage. Record upstream commit and installed skill hashes. Load only core, animation/keyframes, CLI and the needed product/general-video workflow. This spec overrides their optional creative defaults. No automatic website capture, avatar, generative music/image service, hosted publish, cloud rendering or payment.
+Length: **26.000 s**.
+Frame rate: **60 fps CFR**.
+Frames: **1560**, range [0,1560).
+Master: **1080×1920**, 9:16, SDR.
+Review animatic: **540×960**, same timing/fps.
+Two variants share one timeline:
+- zh-Hans → WorkBuddy external proof;
+- English → ChatGPT external proof.
 
-Not in v1: Three.js/WebGL, physical paper simulation, reflective device CG, lens flare, liquid-glass shaders, Lottie/Rive, a generative-video API, live Web Audio recording, a custom rendering framework. The file reveal uses flat layers, scale and shadows, not real 3D.
+Brand name in marketing: **Lecture Asset** for both.
 
-Author all effects as seek-safe states. Use `frame / 60` as the only animation time; synchronously register the paused timeline using the composition ID required by the pinned HyperFrames version. No `Date.now`, timers, unseeded randomness, scroll triggers, autoplay, live network content or callback-only scene creation. Load all files and fonts before capture. Render without external network requests; prepare dependencies/assets beforehand.
+No narrator. The story must remain understandable with audio muted.
 
-## 3. Shared frame design
+---
 
-Coordinates below are design pixels on 1080×1920; all rectangles are `x,y,width,height`, transform origins are their centers.
+## 2. Technical stack
 
-- Background: `#FAFBFC`. Static low-opacity side glows only: cobalt left, mint right. Reuse the accepted Store palette, no per-shot background theme.
-- Ink `#203247`; cobalt `#4772A8`; secondary `#5D6B7A`; mint `#4B907C`.
-- Safe editorial area: x 84..996, y 160..1690. Decorative cards may bleed. No essential labels in the bottom 230 px.
-- Headline block: `(84,184,912,216)`, two lines, **72 px / 104 px line-height**, bold, first ink/second cobalt. Same size on every shot within a locale. No per-shot shrink-to-fit. Literal line breaks are in plan.json. Single-line copy uses line 1 only; do not invent a filler line.
-- Body/role captions: 36 px / 48 px. Quiet evidence note: 28 px / 38 px. Card filenames: 30 px / 40 px. Never use tiny readable-looking fake body copy as evidence.
-- ZH font: installed Microsoft YaHei regular/bold. EN: installed Segoe UI regular/bold. Actual native UI retains its captured system font. Test glyph coverage and text bounds; if unavailable, stop for a font-environment fix, do not silently choose a decorative replacement. Do not commit or distribute font binaries.
-- Main phone frame: `(290,570,500,1086)`, front view, one bezel shape, one corner/shadow system. Real captured screen is uniformly scaled inside, never retyped. Only S06 may scale the entire phone group to 1.16 around `(540,1120)` to emphasize the share action; S07 is a clearly separate external workspace, not a new screen inside Lecture Asset.
-- Standard file card: 244×310, white, radius 28, border `#E3E9F0` 1.5 px; shadow 0 14 36 rgba(32,50,71,0.10). AI ZIP cobalt, PDF mint. No provider logo on files.
-- Standard information panel: white, radius 28, border/shadow as above. No arbitrary new panel family.
-- One main movement at a time. Text moves y 24→0 and opacity 0→1 over 18 frames; rests while being read. Objects enter/leave with `power2.out` / `power2.inOut`, scale never below .92 during an ordinary reveal. One controlled settle uses `back.out(1.1)`, at most 3% overshoot. No elastic bounces, perpetual float, letter scramble, whip pans or separate transition pack.
-- Object continuity is the transition: the same slide IDs become selected, ordered, packed; the same ZIP survives decomposition and handoff. Do not crossfade six completed Store posters or record a browser slideshow.
+Keep the previously reviewed stack:
 
-## 4. Asset and truth contract
+**HyperFrames + paused GSAP timeline + HTML/CSS/SVG + TypeScript + FFmpeg.**
 
-Use the existing fictional lecture fixture family. Archive sample size is **12 pages** (the accepted sample is fixture pages 13–24); all visible counts must agree. Do not say 80 pages while showing a 12-page archive. Show no count in the hook. Do not reinterpret sample chart bars as empirical results.
+The film is typography, cards, photo tiles, a front-facing phone, archive layers and captured provider UI. These are deterministic 2D/2.5D composition problems.
 
-Actual archive entries, relative to its root folder, are ONLY:
-- `README.md` — reading instructions;
-- `slides/*.jpg` — full-resolution visual source of truth;
-- `lecture.md` — OCR/search/navigation index;
-- `manifest.json` — page order, file mapping and integrity metadata.
+Not in v1:
+- React/Remotion as a second renderer;
+- Three.js/WebGL;
+- Blender/After Effects;
+- Lottie/Rive;
+- generative-video APIs;
+- liquid-glass/ray-traced effects;
+- live Web Audio capture;
+- custom Playwright screen-recording pipeline.
 
-The PDF is a separate sibling export, never a fifth item inside the ZIP. The actual exported ZIP name follows `Lecture_<date>_<short-id>_AI.zip`. Use the selected demo file's actual basename/hash; the editorial label may simply say AI ZIP. Never rename an on-screen attachment but pretend it is the raw capture.
+HyperFrames owns frame seeking/capture. FFmpeg owns final encode/audio mux. GSAP timelines must be paused and seek-safe. frame / 60 is the only animation clock.
 
-The current README in `Packages/ArchiveCore/Sources/ArchiveCore/Manifest.swift` defines reading rules; it does NOT implement a provider upload trigger or prescribe an automatic initial summary. Therefore our unqualified claim is **Reading instructions included**, not **Every AI instantly reads everything without a prompt**. Owner-reported no-extra-prompt success in ChatGPT/WorkBuddy is useful evidence; the branded final scene must be tied to the specific matching recording, version and archive. Do not retest the whole 200-page product workflow for this purpose.
+No Date.now, timers, unseeded randomness, autoplay state, scroll triggers, network-fetched render assets or callback-only state that breaks reverse seeking.
 
-Any thumbnail/UI capture is either `NATIVE_CAPTURE`, `PRODUCT_CONTENT`, `EDITORIAL_VECTOR`, or `PROVIDER_CAPTURE`. Store illustrative share/delete overlays are not native recording evidence. Keep those categories in ASSET_LEDGER.
+Pin the actually published/tested tool versions in M00.
 
-## 5. Locked storyboard
+---
 
-All frame intervals are start-inclusive/end-exclusive. Motion details are absolute frames. plan.json carries exact bilingual copy and asset slots.
+## 3. Visual language
 
-### S01 / frames 0–150 / 0.0–2.5 s — AI cold open
+Use the accepted Store visual system; do not invent a new film identity.
 
-Headline ZH: `这堆讲座照片，` / `怎么交给 AI？`.
-EN: `Your lecture photos.` / `Ready for AI?`.
+Colors:
+- background #FAFBFC;
+- ink #203247;
+- cobalt #4772A8;
+- muted #5D6B7A;
+- mint #4B907C.
 
-No logo intro. Twelve owned lecture cards are visible/arriving in the lower stage, not an 80-photo claim. Fixed card centers (x,y,rotation-deg), each 240×150: `(170,700,-8),(455,670,5),(830,710,-6),(255,900,7),(610,855,-5),(915,1000,6),(120,1160,-4),(460,1090,8),(765,1240,-7),(240,1430,5),(580,1460,-3),(925,1485,7)`.
+Global:
+- large whitespace;
+- white cards;
+- restrained shadows;
+- no dark-mode default;
+- one dominant movement at a time;
+- object continuity is the transition;
+- no whip pans, elastic bounce, letter scramble, lens flare or particles.
 
-Frames 0–36: cards travel from their centers plus fixed outward offsets (left cards x-120, right cards x+120, y+90) to these positions, stagger 2 frames, power2.out; opacity .65→1. Headline arrives frames 6–24. Frames 36–114: rest, one subtle overall 1.00→1.02 push, no bouncing. Frames 114–150: cards converge toward the forthcoming grid while the headline exits over the final 12 frames. A small neutral AI destination label at `(780,1540)` is allowed; no provider logo before the product is introduced.
+Canvas safe editorial region: x 84…996, y 160…1690.
 
-### S02 / frames 150–330 / 2.5–5.5 s — select, then order
+Headline:
+- rect (84,184,912,230);
+- 72 px bold;
+- 104 px line height;
+- line 1 ink, line 2 cobalt;
+- fixed across all scenes in a locale;
+- never auto-shrink per scene.
 
-ZH: `长按选好。` / `按时间排好。`.
-EN: `Press. Drag. Select.` / `Sorted by capture time.`.
+Body: 36/48 px.
+Quiet note: 28/38 px.
+Filenames: 30/40 px.
 
-S01 cards become an **editorial**, not fake native, 4×3 grid: cell 192×124; centers x `[225,435,645,855]`, y `[740,890,1040]`. Native selection/review evidence must be available in the material ledger but the enlarged gesture drawing is explicitly instructional artwork.
+Fonts:
+- zh-Hans: installed Microsoft YaHei regular/bold;
+- English: installed Segoe UI regular/bold;
+- never commit font binaries.
 
-Frames 150–168: settle grid; touch dot enters cell1. Frames 168–180: 12-frame/.2s press pulse; no check before hold completes. Frames 180–252: sweep row1 left→right, row2 right→left, row3 left→right; checkmarks appear at frame 180+6*i for i=0..11. Frames 252–306: collapse to three representative cards with `09:18`, `09:19`, `09:20`, left→right at centers `(280,1090),(540,1090),(800,1090)`. Use corresponding manifest capture times, or use generic 01/02/03 if the chosen source does not contain those times; record that fixed substitution in M00. No manual reorder UI or dedupe. Frames 306–330: row closes into one stack at `(540,1120)`.
+Phone:
+- front view only;
+- standard rect (290,570,500,1086);
+- uniform native capture scaling only;
+- one optional whole-phone push up to 1.16 for the share action;
+- no spinning hardware render.
 
-### S03 / frames 330–480 / 5.5–8.0 s — two outputs, two roles
+Motion:
+- text reveal: y 24→0, opacity 0→1, 18 frames;
+- standard entry power2.out;
+- standard movement power2.inOut;
+- controlled settle back.out(1.1), ≤3% overshoot;
+- no perpetual float.
 
-ZH: `一份 PDF。` / `一份 AI ZIP。`.
-EN: `A PDF.` / `An AI ZIP.`.
+---
 
-Frames 330–360: source stack compresses .95 around center; brief true Archive generation evidence can be a small inset, but no fabricated percentage. Frames 360–396: two file cards separate to `(340,1060)` and `(740,1060)`. Role captions at y1280: PDF `留着回看` / `For later review`; AI ZIP `交给 AI` / `For your AI tool`. Frames 396–450: actual first PDF page is revealed within the PDF card (not regenerated AI notes); two outputs visibly coexist. Frames 450–480: PDF reduces to a retained 130×170 reference at `(160,1460)`, AI ZIP moves center `(540,1030)`. Processing duration is not promised; a short `演示已剪辑` / `Demo edited for length` tag accompanies accelerated capture if used.
+## 4. Opening/ending album asset contract
 
-### S04 / frames 480–660 / 8.0–11.0 s — the archive opens
+### 4.1 Fixed opening grid
 
-ZH: `不只是一包照片。` / `阅读说明，也在里面。`.
-EN: `More than photos.` / `Instructions included.`.
+Use a 4×5 editorial album grid containing 20 fixed IDs.
 
-Frames 480–522: AI ZIP opens by layer separation, no physical explosion. Four 380×190 panels finish at top-left `(120,600)` README, `(580,600)` slides, `(120,865)` lecture, `(580,865)` manifest. The ZIP ghost stays faint at `(540,1230)` as parent. Panel filename/role pairs: `README.md / 阅读说明`, `slides/*.jpg / 高清页图`, `lecture.md / 文字索引`, `manifest.json / 顺序与完整性`; EN roles in plan.json. All four names held simultaneously frames 522–624. Do not present source code, vectors, embeddings, a cloud upload or SKILL.md as archive contents. Frames 624–660: README panel expands to `(140,540,800,700)`; other panels recede behind it, not disappear as lost files.
+Personal photo-like synthetic tiles:
+- P01 landscape — mountains;
+- P02 landscape — sea/sunset;
+- P03 landscape — city/skyline;
+- P04 selfie — single-person abstract portrait;
+- P05 selfie — two-person abstract portrait;
+- P06 food — plated meal;
+- P07 food — noodles/bowl;
+- P08 food — coffee/dessert.
 
-### S05 / frames 660–870 / 11.0–14.5 s — why no repeated reading instructions
+Lecture tiles:
+- L01…L12 = accepted synthetic lecture fixture pages 13…24.
 
-ZH: `阅读说明，` / `已经写进包里。`.
-EN: `How to read it.` / `Already in the ZIP.`.
+Opening grid order, row-major:
+P01, L01, P06, L02, L03, P04, L04, P02, P07, L05, L06, P05, L07, P03, L08, L09, P08, L10, L11, L12.
 
-README filename remains the visible panel title. Three accurate **editorial paraphrases**, not fake quotations of file content, appear in the panel at x188/y720,850,980:
-1. `总结整场，先看全部页图。` / `For a full summary, inspect every page.`
-2. `文字索引只负责定位。` / `Use the text index to find pages.`
-3. `数字、公式、图表回到页图核对。` / `Check figures and formulas against images.`
+The personal tiles are original editorial vectors/synthetic photo-like assets, not private photos, stock photos or downloaded social images. They must read as scenery/selfie/food at thumbnail size without identifiable real people.
 
-All rows present by frame 690; cobalt highlight traverses each row at 690–714, 726–750, 762–786; reading rest through 828. Small label `阅读规则摘要` / `Reading rules, summarized` makes the paraphrase explicit. No scrolling unreadable Markdown wall. If a literal file excerpt is shown instead, it must be extracted verbatim from the exported README, and the spec update must record it; Codex may not silently substitute it.
+### 4.2 Ending grid
 
-Frames 828–870: README and the three receded entries reassemble into the same AI ZIP. Only after reassembly a small label `已含阅读说明` / `Reading instructions included` appears. This checkmark means archive preparation, NOT remote save, full AI ingestion, or verified model understanding.
+After the cleanup beat, reflow P01…P08 only into a clean 4×2 grid. Same IDs, artwork and crop; no new personal images appear.
 
-### S06 / frames 870–1020 / 14.5–17.0 s — real product share action
+This claims a cleaner main photo library, not immediate disk reclamation.
 
-ZH: `准备好了。` / `分享 AI ZIP。`.
-EN: `Ready to share.` / `One AI ZIP.`.
+**Do not show a storage bar dropping, GB freed, iCloud savings, or “storage instantly recovered”.** Photos may remain in Recently Deleted, and the product does not promise immediate storage release.
 
-Frames 870–894: hand back the ZIP to the real Files-ready phone. Use pinned real Release capture/recording; English button is `Share AI ZIP`, Chinese uses the actual localized value. No retyping old `Save AI ZIP`, no fake enlarged buttons. Frames 894–954: apply the single 1.00→1.16 whole-phone push and a thin editorial focus ring outside the native button. The true action is tapped in a safe recording, or a clearly editorial touch indicator only proves the button location; distinguish in ledger. Frames 954–1020: transition to a separate external workspace; provider is ChatGPT for EN and WorkBuddy for ZH. Do not fabricate a provider icon in the iOS Share Sheet. The exact accepted route is bound under M00 using section 6 below.
+The opening may use the muted phrase 手机空间越来越紧 / Storage keeps getting tighter as a pain statement, but no numeric storage claim.
 
-### S07 / frames 1020–1290 / 17.0–21.5 s — external AI payoff
+---
 
-ZH: `交给 WorkBuddy。` / `继续理解这场讲座。`.
-EN: `Share it with ChatGPT.` / `Keep exploring the lecture.`.
+## 5. Product/archive truth
 
-External workspace viewport `(84,530,912,1020)`. Its boundary text is `导出后 · WorkBuddy` or `After export · ChatGPT`; it is never labeled Lecture Asset. Use actual provider capture; uniform crop/scale allowed, no forged control/output. Frames 1020–1080: archive attachment is clearly visible. Frames 1080–1128: show actual Send action when required; input field remains empty. **No typing, hidden prefix, pre-seeded summary prompt, or removed text bubble.** Frames 1128–1194: trim genuine processing idle with a visible `等待过程已缩短` / `Processing shortened` caption, not a false real-time benchmark. Frames 1194–1290: hold an actual supported response excerpt/attachment-ready state accepted during M00. Source timestamps and crop bind its text. Codex is NOT allowed to invent “all 12 pages read”, “I now know the lecture” or a summary.
+The demonstration archive is exactly **12 lecture pages**, fixtures 13–24.
 
-Provider response words are a factual footage slot, not a creative blank. M00 must lock that slot from evidence before M02/master; missing evidence produces a visibly marked internal placeholder and blocks only that provider's publication. A fake acknowledgment is never the fallback.
+Actual AI ZIP contents relative to its root:
+- README.md — AI reading instructions;
+- slides/*.jpg — full-resolution visual source of truth;
+- lecture.md — OCR/search/navigation index;
+- manifest.json — page order, mapping and integrity metadata.
 
-### S08 / frames 1290–1440 / 21.5–24.0 s — end on the AI handoff, not cleanup
+The companion PDF is a separate sibling export, never inside the ZIP.
 
-Keep the provider result/attachment panel visible, slightly reduced to `(140,560,800,820)` with no new interaction. At `(84,220)` show owned icon 80×80 and **Lecture Asset**, 60 px; no co-branding lockup with provider logo. Ending copy at x84/y1440, 52px/72px:
-ZH: `把 AI ZIP 交给 AI，` / `继续理解这场讲座。`
-EN: `Share the AI ZIP.` / `Keep exploring the lecture.`
+Actual ZIP filename format:
+Lecture_<date>_<short-id>_AI.zip.
 
-Frames 1290–1320: brand/copy reveal. Frames 1320–1440: hold, audio resolves. No fade to black before final frame, no new screenshot carousel, no cleaning/deletion, no fake store badge/download claim, no compulsory CTA.
+Editorial label AI ZIP is allowed; provider footage must use the actual filename it received.
 
-## 6. Locking the real handoff without inventing compatibility
+README reading-rule summary used in the film:
+1. 总结整场，先看全部页图。 / For a full summary, inspect every page.
+2. 文字索引只负责定位。 / Use the text index to find pages.
+3. 数字、公式、图表回到页图核对。 / Check figures and formulas against images.
 
-M00 binds one route per provider, with actual app/web version/date and file hash. Priority is a verified direct system share extension. If absent, the approved accurate route is system export/save → open the named provider → attach that exported ZIP. This is a visible edit between applications, not a false direct integration. For that route use the boundary caption `导出后，在 WorkBuddy 中打开` / `Export, then open in ChatGPT`. No third route may be invented.
+These are labeled 阅读规则摘要 / Reading rules, summarized, not quoted as literal README text.
 
-The no-extra-prompt target means **no newly typed task/reading prompt for this upload**. It does not mean no upload/send click, no model processing, or permanent cross-chat memory. Existing accepted raw recordings take priority; retrieve them before requesting an owner action. A new recording, if necessary, uses the same small synthetic sample, not private or 200-page material. Never upload owner data or use paid generation without approval.
+Do not add SKILL.md, embeddings, vectors, RAG, cloud sync, reconstructed PPTX or PDF inside the ZIP.
 
-If only one provider is verified, its master can proceed; the other stays blocked. Do not silently replace WorkBuddy/ChatGPT with a different product. If attachment-only submission is unsupported or produces no substantive response, report the exact result; do not modify the frozen ZIP contract, add a hidden prompt, or claim success. The owner may later approve a different truthful interaction, as a separate spec change.
+---
 
-Names appear only as factual destination labels/actual external UI. Do not download separate provider logos or imitate their full UI from memory. No official-partner badge, no “powered by” claim. Promotional use still requires appropriate rights/usage; it is not automatically exempt from brand rules. Keep a lightweight rights ledger for actual footage/assets.
+## 6. Locked storyboard
 
-## 7. Sound and delivery lock
+All frame ranges are start-inclusive/end-exclusive.
 
-Sound palette: a soft paper tick, muted select click, short low whoosh, two-tone prepared ping, quiet send tick. Do not use sampled iOS/ChatGPT notification sounds. Generate local PCM WAV once with a fixed seed, 48 kHz stereo; no live Web Audio capture during render.
+### S01 — DUAL PAIN / frames 0–210 / 0.0–3.5 s
 
-Pulse: 120 BPM, low-volume simple original pad/pluck bed. Three fixed harmony regions Dm(add9) 0–8s, B-flat major 8–16s, F(add9) 16–24s; sine/triangle synthesis only, no borrowed melody. Timing accents at frames 0,180,306,396,522,690,786,870,1080,1320; selection microticks follow the 12 checks. Keep reading intervals quiet. No voiceover, premium-music promise, orchestral/trailer bed or required paid generator.
+ZH:
+**讲座照片越积越多。**
+**舍不得删，也不好交给 AI。**
 
-Master mix target -16 LUFS integrated, true peak <= -1 dBTP; treat these as production targets, verify rather than merely set metadata. If a synthetic music bed sounds cheap, use the same SFX-only mix (a preapproved fallback), not a random new genre.
+EN:
+**Lecture photos pile up.**
+**Hard to delete. Hard to hand off to AI.**
 
-Export: MP4/H.264, yuv420p, 1080×1920, 60fps CFR, correct SDR/Rec.709 conversion + tags, AAC 48kHz, faststart. Preserve a muted master and separate WAV mix. Do not label BT.709 without validating conversion from source media. `ffprobe` must confirm dimensions, frame count/duration, frame rate and audio presence; decoded frame/contact-sheet checks remain necessary.
+Visual:
+- the 20-tile mixed album grid is already recognizable at frame 0;
+- frames 0–42: last lecture tiles settle into the interleaved grid;
+- personal tiles remain visible between lecture tiles;
+- frames 18–42: headline enters;
+- frames 42–150: hold;
+- a quiet note 手机空间越来越紧 / Storage keeps getting tighter may appear at y500, but no number/gauge;
+- frames 150–210: P01…P08 drift slightly backward/desaturate while L01…L12 lift 16 px, gain a cobalt outline and become the extractable lecture set.
 
-## 8. Stages and acceptance
+No logo intro. No provider logo. No fake upload rejection.
 
-M00 — bootstrap/claims/assets: project environment, 2-second 60fps smoke, fonts/seeking/media/audio checks; real provider route inventory; extract actual archive file/README facts. No full film. Stop `READY_FOR_M00_AUDIT`; provider missing assets may be separately `BLOCKED_PROVIDER_EVIDENCE` without inventing success.
+### S02 — SELECT + ORDER / frames 210–390 / 3.5–6.5 s
 
-M01 — locked stills: eight ZH + eight EN keyframes and 8-up contact sheets, exact text-bounds report. Same frame positions/tokens. No new direction proposals. Stop `READY_FOR_STORYBOARD_REVIEW`.
+ZH:
+**长按选好。**
+**按拍摄时间排好。**
 
-M02 — complete 24s low-res animatics: both locales, same timing, basic audio, exact transitions. Only explicit internal placeholders allowed where provider evidence is absent; not publishable. Stop `READY_FOR_ANIMATIC_REVIEW`.
+EN:
+**Press. Drag. Select.**
+**Sorted by capture time.**
 
-M03 — master: replace every placeholder with audited real evidence, finish motion/SFX, render both 1080 masters and muted versions. Stop `READY_FOR_FINAL_VIDEO_AUDIT`; public posting remains owner-only.
+Visual:
+- the 12 lecture tiles become a 4×3 instructional grid;
+- frames 210–228 settle;
+- frames 228–240: 12-frame / 0.2 s hold pulse before any selection;
+- frames 240–312: serpentine sweep; check i appears at 240 + 6*i;
+- frames 312–366: three representative lecture cards resolve into chronological order;
+- use real capture times only if the chosen manifest provides them; otherwise use 01/02/03;
+- frames 366–390: ordered cards close into one stack.
 
-One stage per Codex PR. No self-merge or automatically unlocked next stage. Movie work never delays release checks and never touches PR15/PR16, App/, Packages/, product strings, Store images, ASC or signing.
+This is editorial gesture artwork backed by real product behavior, not fake native UI.
 
-Final QA must inspect full playback (normal speed, sound on and off), eight hero frames, transitions at boundary-1/boundary/boundary+1, and arbitrary backward seeks. Compare repeated seeks on the SAME locked environment; do not promise byte-identical output across different OS/fonts/browser versions. Black frames, missing media, missing CJK glyphs, clipped text, false provider claims, changing file counts, lost archive entries and audio clipping block delivery. Cosmetic tiny movements do not justify reopening accepted story/brand decisions.
+### S03 — TWO OUTPUTS / frames 390–570 / 6.5–9.5 s
+
+ZH:
+**一份留着回看。**
+**一份交给 AI。**
+
+EN:
+**One for later review.**
+**One for AI.**
+
+Visual:
+- frames 390–426: ordered stack compresses;
+- frames 426–462: split into PDF at (340,1020) and AI ZIP at (740,1020);
+- PDF uses mint; AI ZIP uses cobalt;
+- role labels: PDF / 留着回看; AI ZIP / 交给 AI;
+- frames 462–528: reveal the actual first PDF page inside/behind the PDF card;
+- frames 528–570: PDF remains visible but becomes secondary; AI ZIP moves center.
+
+Do not claim processing speed. If a real accelerated processing inset is used, mark 演示已剪辑 / Demo edited for length.
+
+### S04 — PREPARED AI PACKAGE / frames 570–780 / 9.5–13.0 s
+
+ZH:
+**不只是一包照片。**
+**阅读说明，也准备好了。**
+
+EN:
+**More than a pile of photos.**
+**The reading instructions are ready too.**
+
+Visual:
+- frames 570–612: AI ZIP opens by flat layer separation;
+- four panels settle:
+  - README.md / 阅读说明;
+  - slides/*.jpg / 高清页图;
+  - lecture.md / 文字索引;
+  - manifest.json / 顺序与完整性;
+- frames 612–660: all four names simultaneously readable;
+- frames 660–690: README expands foreground;
+- frames 690–750: the three reading-rule summaries are all present; cobalt highlight passes them one by one;
+- label 阅读规则摘要 / Reading rules, summarized is visible;
+- frames 750–780: four parts reassemble into the same AI ZIP; small 已含阅读说明 / Reading instructions included appears.
+
+This check means package prepared, not AI already read everything.
+
+### S05 — REAL SHARE ACTION / frames 780–960 / 13.0–16.0 s
+
+ZH:
+**现在，发给 AI。**
+**继续理解这场讲座。**
+
+EN:
+**Now, hand it to AI.**
+**Keep exploring the lecture.**
+
+Visual:
+- frames 780–810: same AI ZIP lands back on the real Lecture Asset Files-ready phone;
+- actual button is Share AI ZIP / current real localized equivalent;
+- frames 810–876: one whole-phone 1.00→1.16 push, focus ring outside the native button;
+- show the true share/tap sequence if evidence exists;
+- frames 876–960: transition to a clearly external provider workspace.
+
+ZH provider = WorkBuddy.
+EN provider = ChatGPT.
+
+Never forge an iOS share-extension icon or provider destination that was not observed. M00 binds the truthful route.
+
+### S06 — AI PAYOFF / frames 960–1230 / 16.0–20.5 s
+
+ZH:
+**AI 开始读。**
+**给你总结和报告。**
+
+EN:
+**AI takes it from here.**
+**A summary. A report.**
+
+Visual:
+- external workspace rect (84,520,912,1050);
+- boundary label 导出后 · WorkBuddy / After export · ChatGPT;
+- frames 960–1020: actual ZIP attachment clearly visible;
+- frames 1020–1068: show actual Send action if required; input remains empty in the no-extra-prompt target;
+- frames 1068–1140: real processing/wait state may be shortened; if shortened, show 等待过程已缩短 / Processing shortened;
+- frames 1140–1230: hold actual provider output that substantively contains or exposes a lecture summary/report result.
+
+Desired hierarchy is two clear result sections such as 讲座总结 and 报告, but exact words/layout must come from the accepted recording. Codex cannot invent them.
+
+If attachment-only/no-extra-prompt does not truthfully produce a substantive summary/report, that locale is BLOCKED_PROVIDER_EVIDENCE. Do not add hidden text, crop away a user prompt, or fabricate a provider response.
+
+### S07 — SAFE CLEANUP / frames 1230–1440 / 20.5–24.0 s
+
+ZH:
+**该留的已经留好。**
+**现在，安心清理。**
+
+EN:
+**What matters is saved.**
+**Now clean up the source photos.**
+
+Visual:
+- frames 1230–1272: provider result shrinks to a retained corner proof; return to Lecture Asset;
+- show a small truthful ZIP 已保存 / ZIP saved state only when it corresponds to the product's external-save confirmation prerequisite;
+- frames 1272–1320: reveal/tap the real Delete source photos path;
+- frames 1320–1368: show the system/source-delete confirmation briefly or an editorially framed version backed by accepted product evidence;
+- do not run a new destructive private-photo test for this film;
+- frames 1368–1440: transition back to the exact opening album; L01…L12 lift/fade out while P01…P08 stay.
+
+Do not imply that merely sharing to AI unlocked deletion. The saved-ZIP prerequisite remains visible in the causal chain.
+
+### S08 — CLEAN ALBUM + BRAND / frames 1440–1560 / 24.0–26.0 s
+
+Visual:
+- P01…P08 reflow to a clean 4×2 grid;
+- all eight are exactly the same personal-photo assets from S01;
+- no lecture tiles remain in the main album;
+- no storage gauge, no GB freed, no empty white library;
+- frames 1440–1470: reflow completes;
+- frames 1470–1500: accepted App icon 80×80 + Lecture Asset appears at x84/y190;
+- final copy at x84/y1390, 56 px / 78 px:
+
+ZH:
+**把讲座交给 AI，**
+**把相册还给自己。**
+
+EN:
+**Hand the lecture to AI.**
+**Take back your photo library.**
+
+Frames 1500–1560 hold. Audio resolves. No fake App Store badge or compulsory CTA.
+
+---
+
+## 7. Provider evidence / no-extra-prompt rule
+
+Target interaction:
+- no newly typed task prompt for the shown upload;
+- an actual attachment/send action is allowed;
+- the provider must produce the shown summary/report result without a hidden prompt.
+
+M00 records for each provider:
+- client/version/date;
+- archive SHA/page count;
+- exact route: direct share extension OR export/save → open provider → attach;
+- whether an empty-text send is possible;
+- whether any prior conversation context/instruction existed;
+- unedited source timestamps;
+- exact output excerpt used;
+- privacy/rights classification.
+
+If prior context influenced the output, it must be disclosed and that take cannot be labeled no extra prompt. If only one provider is verified, only that locale can advance to a publishable master.
+
+Provider names are factual destination labels. No partner/co-brand claim.
+
+---
+
+## 8. Cleanup truth boundary
+
+The product cleanup contract stays authoritative:
+validated ZIP → reported share completion → explicit external-save confirmation → fresh authorization/exact source set → separate delete action → Photos confirmation.
+
+The promo may compress those steps visually, but cannot reverse them.
+
+The final album represents a cleaner main photo library, not guaranteed immediate disk reclamation. Recently Deleted is not accessed or emptied by the App.
+
+Do not say:
+- instantly free X GB;
+- one tap permanently deletes everything;
+- sharing to AI automatically makes deletion safe.
+
+---
+
+## 9. Sound
+
+No narrator.
+
+Original-only sound palette:
+- soft photo/paper ticks;
+- hold pulse;
+- 12 selection microclicks;
+- order snap;
+- low split whoosh;
+- prepared-package two-tone ping;
+- share/send tick;
+- AI result resolve;
+- cleanup low whoosh;
+- final warm resolve.
+
+48 kHz stereo.
+
+Bed: restrained 120 BPM original sine/triangle pad/pluck only.
+Harmony:
+- 0–9.5s Dm(add9);
+- 9.5–20.5s B-flat major;
+- 20.5–26s F(add9).
+
+If the synthetic music sounds cheap, use SFX-only.
+
+Targets:
+- integrated loudness about -16 LUFS;
+- true peak ≤ -1 dBTP.
+
+---
+
+## 10. Production stages
+
+### M00 — toolchain + evidence
+- pin/test HyperFrames/GSAP/Node/FFmpeg;
+- 2-second 60fps seek-safe smoke;
+- confirm fonts/audio/media;
+- bind the actual 12-page ZIP/PDF/README facts;
+- prepare fixed P01…P08 personal editorial tile definitions;
+- bind ChatGPT and WorkBuddy attachment-only/no-extra-prompt summary/report evidence;
+- no full film.
+
+Stop: READY_FOR_M00_AUDIT plus per-provider VERIFIED/BLOCKED flags.
+
+### M01 — locked stills
+- eight hero frames per locale at plan.json review frames;
+- before/after album identity proof;
+- typography bounds and contact sheets;
+- provider scene may use an explicit INTERNAL PLACEHOLDER only if evidence is blocked; such a still is not publishable.
+
+Stop: READY_FOR_STORYBOARD_REVIEW.
+
+### M02 — 26s animatics
+- zh + en at 540×960, 60fps;
+- full transitions and basic audio;
+- exact frame timing;
+- no publishable provider scene from placeholders.
+
+Stop: READY_FOR_ANIMATIC_REVIEW.
+
+### M03 — masters
+- replace all provider placeholders with audited actual evidence;
+- final motion/SFX/color;
+- zh + en 1080×1920 masters + muted masters + separate WAV;
+- ffprobe/frame/contact-sheet/full-playback audit.
+
+Stop: READY_FOR_FINAL_VIDEO_AUDIT.
+
+One stage per PR. No self-merge/unlock.
+
+---
+
+## 11. Protected scope
+
+Movie work must not modify:
+- App/;
+- AppResources/;
+- Packages/;
+- schemas/;
+- project.yml;
+- accepted Store screenshots;
+- ASC/TestFlight/signing/release state;
+- age-assurance PR15;
+- Chinese Store PR16.
+
+No public posting, paid rendering/generation, new provider accounts or real-photo deletion is authorized by this spec.
