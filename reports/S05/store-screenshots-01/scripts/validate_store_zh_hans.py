@@ -22,7 +22,7 @@ for function in ['background','panel','check','arrow','slide_card','file_card']:
 assert len(records) == len(english) == 6
 expected_headlines = [
  ['一场讲座。','几十张 PPT 照片。'], ['批量选好。','按拍摄时间排好。'],
- ['一次生成','ZIP 和 PDF。'], ['PDF 留着。','以后随时回看。'],
+ ['一次生成','AI ZIP 和 PDF。'], ['PDF 留着。','以后随时回看。'],
  ['把 AI ZIP 交给 AI。','继续理解这场讲座。'], ['先保存。','再决定清理什么。']]
 assert [r['headline_lines'] for r in records] == expected_headlines
 assert records[0]['subtitle'] == '很少再翻，又舍不得删。'

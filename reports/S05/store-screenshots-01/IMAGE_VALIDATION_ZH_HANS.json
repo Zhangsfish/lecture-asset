@@ -86,7 +86,7 @@
   "six_images": [
     {
       "file": "store/zh-Hans/01-lecture-photos.png",
-      "sha256": "473485e1e47901b3b70e9d63dfa00be41426f4beeb219689bd521c534137385e",
+      "sha256": "e1ec593f61091e5f6671e1f4f7fd325eed814034626d4f38c78fc8cabb78dc3f",
       "pixels": [
         1320,
         2868
@@ -98,7 +98,7 @@
     },
     {
       "file": "store/zh-Hans/02-select-and-sort.png",
-      "sha256": "b5222235f30f0f10df7c04946a3b90a0ef0c14ab1cb12c9c5a9fb5650bb6643c",
+      "sha256": "4edb4d53f7a0e4d7405fd086b578d1be856ffb9070042b658673d0d4ea15cb49",
       "pixels": [
         1320,
         2868
@@ -110,7 +110,7 @@
     },
     {
       "file": "store/zh-Hans/03-generate-pdf-zip.png",
-      "sha256": "79df076d36f63bfe2b40ca49b29edd5ed771f6245f9f31e84f64f142ca089e2b",
+      "sha256": "bb39351a8899f25b95e8f652c4ad1b02e8865b6a224237d562418836b7532c39",
       "pixels": [
         1320,
         2868
@@ -122,7 +122,7 @@
     },
     {
       "file": "store/zh-Hans/04-pdf-for-review.png",
-      "sha256": "da7eb7799bb4aa4a0faec9c9473428d4c5af029be7935072240a34393ec1a38a",
+      "sha256": "e9cc3148e34fe241610d7054ddbcd0fa89107847226894af63a7b6ce72d43bd3",
       "pixels": [
         1320,
         2868
@@ -134,7 +134,7 @@
     },
     {
       "file": "store/zh-Hans/05-ai-zip-to-ai.png",
-      "sha256": "78dd8282dc87cbf90a5eb3ca74763c8fee7eb897daf59977e121e14e55b29426",
+      "sha256": "7546f1a5508431ec4542a719309becfa780f91d94b0dd77731b6ee432db77b31",
       "pixels": [
         1320,
         2868
@@ -146,7 +146,7 @@
     },
     {
       "file": "store/zh-Hans/06-save-then-clean.png",
-      "sha256": "027b31df4f052d7fab8089d02799ae9a9cf81a041c671d1643813236f99bdc96",
+      "sha256": "23ed0470a3313bb70a31a1d375def171e2f441075fbdd08636f0ff037d06ea90",
       "pixels": [
         1320,
         2868
@@ -169,5 +169,14 @@
   "third_party_brand_assets": false,
   "production_diff": [],
   "asc_testflight_app_review": "NOT_RUN / not authorized",
-  "visual_carousel_review": "Record separately in DELIVERY_ZH_HANS.md after inspection"
+  "visual_carousel_review": "Record separately in DELIVERY_ZH_HANS.md after inspection",
+  "focused_revision": {
+    "previous_head": "e7c75f8dec57173beed992fb3df73403d9efd7e5",
+    "only_changed_regions": [
+      "six brand chip labels",
+      "frame 3 second headline"
+    ],
+    "all_other_pixels_identical": true,
+    "raw_captures_unchanged": true
+  }
 }

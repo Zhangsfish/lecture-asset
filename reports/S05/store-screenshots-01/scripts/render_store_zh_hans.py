@@ -28,7 +28,7 @@ BLUE, INK, MUTED, MINT = '#4772A8', '#203247', '#6C7A89', '#4B907C'
 STORY = [
     ('01-lecture-photos', 'selection', ['一场讲座。', '几十张 PPT 照片。'], '很少再翻，又舍不得删。', ''),
     ('02-select-and-sort', 'review', ['批量选好。', '按拍摄时间排好。'], '长按并滑动，连续选择。', ''),
-    ('03-generate-pdf-zip', 'ready', ['一次生成', 'ZIP 和 PDF。'], '', ''),
+    ('03-generate-pdf-zip', 'ready', ['一次生成', 'AI ZIP 和 PDF。'], '', ''),
     ('04-pdf-for-review', 'pdf', ['PDF 留着。', '以后随时回看。'], '', ''),
     ('05-ai-zip-to-ai', 'ready', ['把 AI ZIP 交给 AI。', '继续理解这场讲座。'], '', ''),
     ('06-save-then-clean', 'ready', ['先保存。', '再决定清理什么。'], '', ''),
@@ -137,7 +137,7 @@ def header(im, index, lines, subtitle):
     icon = Image.open(Path('App/Assets.xcassets/AppIcon.appiconset/AppIcon.png')).convert('RGBA').resize((57,57),Image.Resampling.LANCZOS)
     mask = Image.new('L',(57,57)); ImageDraw.Draw(mask).rounded_rectangle((0,0,57,57),13,fill=255)
     icon.putalpha(mask); im.alpha_composite(icon,(112,98))
-    text(im,(189,106),'讲座照片整理',29,fill=MUTED,bold=True)
+    text(im,(189,106),'Lecture Asset',29,fill=MUTED,bold=True)
     assert max(ImageDraw.Draw(im).textlength(line,font=font(HEADLINE_SIZE,True)) for line in lines)<=1096
     for n,line in enumerate(lines):
         text(im,(HEADLINE_ORIGIN[0],HEADLINE_ORIGIN[1]+n*HEADLINE_LINE_HEIGHT),line,
