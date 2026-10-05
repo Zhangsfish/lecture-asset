@@ -4,7 +4,7 @@ Updated: 2026-10-05
 
 ## Now
 
-**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English App Store screenshots are final and merged. PR #15 age-assurance work is HOLD_OWNER_DECISION, not merge/release-ready. Chinese Store PR #16 awaits audit. The owner-authorized AI-first promo has a locked specification; M00 bootstrap is READY as an isolated parallel marketing task. No distribution RC or App Review is authorized yet.**
+**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English App Store screenshots are final and merged. PR #15 age-assurance work is HOLD_OWNER_DECISION, not merge/release-ready. Chinese Store PR #16 awaits audit. The promo story is now locked around two root pains — lecture photos crowd the personal library and are awkward to hand to AI — with a real AI summary/report payoff and a clean-album ending; M00 bootstrap is READY as an isolated parallel marketing task. No distribution RC or App Review is authorized yet.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -37,7 +37,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 
 S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
 
-The promo is a parallel, separately authorized marketing lane, not a release prerequisite. One stage per PR; do not merge/cherry-pick sibling work. M00 does not authorize public posting, paid generation, App/runtime changes or reopening Store screenshot design. The new [AI-first promo specification](docs/PROMO_V1_SPEC.md) and [frame/copy plan](marketing/video/plan.json) supersede prior marketing-only 19s/21s/cleanup-last briefs; native onboarding remains unchanged.
+The promo is a parallel, separately authorized marketing lane, not a release prerequisite. One stage per PR; do not merge/cherry-pick sibling work. M00 does not authorize public posting, paid generation, App/runtime changes or reopening Store screenshot design. The [locked promo specification](docs/PROMO_V1_SPEC.md) and [frame/copy plan](marketing/video/plan.json) now supersede prior 19s/21s/24s, AI-only-ending and cleanup-last briefs; native onboarding remains unchanged.
 
 ## Verified baseline / do not repeat
 
@@ -52,7 +52,7 @@ The promo is a parallel, separately authorized marketing lane, not a release pre
 - No new 100/200-page device run, repeated WeChat transfer or destructive real-photo cleanup solely for release. UI changes require focused navigation/safety regressions, not zero testing.
 - Developer Program, Bundle ID `com.zhangsfish.lectureasset`, App Store Connect app, Admin Team API key, GitHub Secrets and TestFlight upload workflow already exist. Do not reconfigure or request `.p8`.
 - PR #14 was final-audited at `ffd07883ede26e90ec29729eff0cb82b4c8837f8` and squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`. English 1320×2868 Store screenshots are frozen; do not reopen visual polish without a concrete App Review issue.
-- Promo foundation currently validates the specification/timing only: eight contiguous scenes, 1440 frames at 60 fps = 24 seconds. Actual HyperFrames render, pinned local environment and exact provider recordings remain M00 work, NOT_RUN here.
+- Promo foundation currently validates the specification/timing only: eight contiguous scenes, 1560 frames at 60 fps = 26 seconds. Opening/ending reuse the same synthetic personal-photo IDs; provider summary/report footage, actual HyperFrames render and pinned local environment remain M00 work, NOT_RUN here.
 
 ## Owner inputs / release gates
 
