@@ -21,5 +21,5 @@ export function page(locale:R2Locale){
  <div id="hook-0" class="main-copy hook">${c.hook[0]}</div><div id="hook-1" class="main-copy hook">${c.hook[1]}</div><div id="selected" class="main-copy top">${c.selected}</div><div id="reading" class="main-copy top">${c.read}</div><div id="clear" class="main-copy top">${c.clear}</div>
  <div id="saved"><svg viewBox="0 0 48 48"><path d="M8 24L20 36L41 11"/></svg>${c.saved}</div>
  <div id="ending"><div id="slogan"><p>${c.slogan[0]}</p><p>${c.slogan[1]}</p></div><div id="brand"><img src="assets/app-icon.png"><span>Lecture Asset</span></div><div id="download"><img id="badge" src="assets/brands/${c.badge}" alt="Official App Store download badge"><img id="qr" src="assets/brands/app-store-qr.png" alt="https://apps.apple.com/us/app/id6816814541"><p id="search">${c.search}</p></div></div>
- <audio src="assets/sound/director-r2-score.wav" data-start="0" data-duration="26" data-track-index="1" preload="auto"></audio></main><script src="r2.js"></script></body></html>`;
+ <audio id="original-r2-score" src="assets/sound/director-r2-score.wav" data-start="0" data-duration="26" data-track-index="1" preload="auto"></audio></main><script src="r2.js"></script></body></html>`;
 }

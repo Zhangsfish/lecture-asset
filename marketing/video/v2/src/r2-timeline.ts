@@ -2,7 +2,7 @@ import {gsap} from "gsap";
 // One persistent scene and one clock. Registration is synchronous for HF preflight.
 const w=window as unknown as {__timelines:Record<string,gsap.core.Timeline>;__directorReady:boolean;__assetReadiness:unknown};
 const tl=gsap.timeline({paused:true,defaults:{ease:"power3.inOut"}});
-w.__timelines={"director-r2":tl};
+window.__timelines={"director-r2":tl};
 const lifeStart=[[-170,220],[660,230],[200,1530],[440,900],[760,1560],[100,890],[760,770],[-80,1600]];
 const lifeEnd=[[110,1170],[420,1170],[730,1170],[110,1415],[420,1415],[730,1415],[265,1660],[575,1660]];
 const lectureStart=[[110,590],[610,570],[-60,850],[470,1540],[430,280],[140,300],[-220,700],[510,900],[60,1640],[690,1570],[680,840],[70,930]];

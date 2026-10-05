@@ -28,7 +28,7 @@ for locale,stem,suffix in [('en','en-chatgpt','EN'),('zh-Hans','zh-workbuddy','Z
    assert v['width']==size and v['height']==(1920 if size==1080 else 1280) and v['r_frame_rate']=='60/1' and int(v['nb_frames'])==1560 and float(v['duration'])==26
    assert len(a)==(0 if muted else 1)
    decoded=run([FF,'-v','error','-i',p,'-f','null','-'])
-   rec={'file':name,'sha256':sha(p),'bytes':p.stat().st_size,'width':v['width'],'height':v['height'],'frames':1560,'fps':'60/1','video_seconds':26,'container_seconds':probe['format']['duration'],'full_decode_exit':decoded.returncode,'audio_streams':len(a)}
+   rec={'file':name,'sha256':sha(p),'bytes':p.stat().st_size,'width':v['width'],'height':v['height'],'frames':1560,'fps':'60/1','video_seconds':26,'container_seconds':probe['format']['duration'],'full_decode_exit':decoded.returncode,'audio_streams':len(a),'pixel_format':v.get('pix_fmt'),'color_primaries':v.get('color_primaries'),'color_transfer':v.get('color_transfer'),'color_space':v.get('color_space')}
    if size==1080 and not muted:
     pcm=OUT/(stem+'.f32');run([FF,'-v','error','-y','-i',p,'-vn','-ar','48000','-ac','2','-f','f32le',pcm]);data=np.fromfile(pcm,dtype='<f4');peak=float(np.abs(data).max());rms=float(np.sqrt(np.mean(data*data)))
     assert peak<1 and rms>0;rec['audio']={'peak_dbfs':float(20*np.log10(peak)),'rms_dbfs':float(20*np.log10(rms)),'clipped_samples':int((np.abs(data)>=1).sum()),'human_listening':'NOT_RUN'}
@@ -75,7 +75,8 @@ for locale,stem,suffix in [('en','en-chatgpt','EN'),('zh-Hans','zh-workbuddy','Z
   b=base64.b64encode(p.read_bytes()).decode();p.with_suffix('.jpg.b64.txt').write_text('\n'.join(b[i:i+120] for i in range(0,len(b),120))+'\n')
   assert base64.b64decode(p.with_suffix('.jpg.b64.txt').read_text())==p.read_bytes()
  log=(OUT/('render-'+locale+'.log')).read_text(encoding='utf8',errors='replace')
- warnings.append({'locale':locale,'readiness_timeout':'sub_timeline_readiness_timeout' in log,'static_missing_registry':'Missing window.__timelines' in log})
+ lint=json.loads((OUT/('lint-'+locale+'.json')).read_text());assert lint['errorCount']==0
+ warnings.append({'locale':locale,'readiness_timeout':'sub_timeline_readiness_timeout' in log,'static_missing_registry':'Missing window.__timelines' in log,'lint':lint,'source_reuse_note':'Same immutable JPEG textures intentionally used for source page, separate PDF cover, sleeve thumbnail and report source thumbnails; no extra canonical page.'})
 assets=json.loads((ROOT/'ASSET_LEDGER.json').read_text(encoding='utf8'))['assets'];checks=[{'path':a['path'],'unchanged':sha(ROOT/a['path'])==a['sha256']} for a in assets];assert all(x['unchanged'] for x in checks)
 scope=git('diff','--name-only',plan['branch_input_sha'],'HEAD').splitlines();assert all(p.startswith('marketing/video/v2/') for p in scope)
 history=git('diff','--name-only',plan['branch_input_sha'],'HEAD','--','marketing/video/v2/review/phase-a','marketing/video/v2/review/director-r1').splitlines();assert not history

@@ -2,3 +2,4 @@ node_modules/
 out/
 assets/fonts/
 *.local.log
+review/director-r2/.*.hf-transaction-*/
