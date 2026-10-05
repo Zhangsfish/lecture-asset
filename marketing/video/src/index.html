@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080,height=1920">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'">
+  <link rel="icon" href="data:,">
+  <title>Lecture Asset M00 technical smoke</title>
+  <script src="dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: 'M00 CJK'; src: local('Microsoft YaHei Bold'), url('assets/fonts/msyhbd.ttc'); font-weight: 700; }
+    @font-face { font-family: 'M00 CJK'; src: local('Microsoft YaHei'), url('assets/fonts/msyh.ttc'); font-weight: 400; }
+    @font-face { font-family: 'M00 Latin'; src: local('Segoe UI'), url('assets/fonts/segoeui.ttf'); }
+    * { box-sizing: border-box; }
+    html,body { margin: 0; background: #FAFBFC; color: #203247; }
+    #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: 'M00 CJK'; }
+    .clip { position: absolute; inset: 0; padding: 96px 72px; }
+    .brand { font-family: 'M00 Latin'; font-size: 34px; color: #4772A8; margin-bottom: 42px; }
+    h1 { font-size: 76px; line-height: 1.4; margin: 0 0 72px; font-weight: 700; }
+    .tiles { display: flex; gap: 24px; }
+    .tile { width: 450px; height: 450px; object-fit: cover; border-radius: 32px; box-shadow: 0 18px 42px #20324716; }
+    .files { position: relative; margin-top: 100px; height: 660px; }
+    .file { position: absolute; width: 760px; padding: 52px; border-radius: 32px; background: white; border: 2px solid #DCE4ED; box-shadow: 0 18px 42px #20324716; will-change: transform, opacity; }
+    #zip-card { left: 72px; top: 0; height: 200px; display: flex; align-items: center; gap: 36px; }
+    .zip-symbol { width: 80px; height: 92px; border: 5px solid #4772A8; border-radius: 12px; display: grid; place-items: center; color: #4772A8; font-family: 'M00 Latin'; font-size: 24px; }
+    h2 { font-family: 'M00 Latin'; font-size: 50px; margin: 0; }
+    #readme-card { left: 96px; top: 280px; height: 270px; }
+    #readme-card p { font-family: 'M00 Latin'; font-size: 34px; line-height: 1.45; color: #5D6B7A; margin: 24px 0 0; }
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="m00-smoke" data-width="1080" data-height="1920" data-fps="60" data-duration="2">
+    <section class="clip" id="smoke-content">
+      <div class="brand">Lecture Asset</div>
+      <h1>讲座照片与 AI ZIP</h1>
+      <div class="tiles">
+        <img id="lecture-tile" class="tile" src="assets/lecture-13.jpg" alt="Fictional lecture fixture 13">
+        <img id="personal-tile" class="tile" src="assets/personal/P01.svg" alt="Original editorial mountain tile">
+      </div>
+      <div class="files">
+        <div id="zip-card" class="file"><div class="zip-symbol">ZIP</div><h2>AI ZIP</h2></div>
+        <div id="readme-card" class="file"><h2>README.md</h2><p>slides/ · lecture.md · manifest.json</p></div>
+      </div>
+    </section>
+    <audio id="m00-ping" src="assets/ping-48k.wav" preload="auto" data-start="0.8" data-duration="0.12" data-track-index="1" data-volume="1"></audio>
+  </div>
+  <script>/* M00_BUNDLE */</script>
+</body>
+</html>
