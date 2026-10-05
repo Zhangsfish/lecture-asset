@@ -1,0 +1,180 @@
+{
+  "base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
+  "assets": [
+    {
+      "path": "assets/app-icon.png",
+      "sha256": "b8f5ebfc89d8c8c3124026714737621bbd06c575d0e844f611282ddfc5bd8913",
+      "bytes": 51645,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/fonts/msyh.ttc",
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+      "bytes": 19704352,
+      "source": "installed Windows font; local use only, ignored binary"
+    },
+    {
+      "path": "assets/fonts/msyhbd.ttc",
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+      "bytes": 16883552,
+      "source": "installed Windows font; local use only, ignored binary"
+    },
+    {
+      "path": "assets/fonts/segoeui.ttf",
+      "sha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd",
+      "bytes": 959752,
+      "source": "installed Windows font; local use only, ignored binary"
+    },
+    {
+      "path": "assets/lecture/0001.jpg",
+      "sha256": "5d74e051082af212bfcc819e83aa18b8da8a6baed2e5c7576c34d8d0dabdceb5",
+      "bytes": 153090,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0002.jpg",
+      "sha256": "a2c385af17d35efd30c01787c7885824e0a27742246b01f9ba225792fa1f061d",
+      "bytes": 153462,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0003.jpg",
+      "sha256": "ec32aca90938a15d30568bde96e6223622c540d3a83517db020c0f0612e4415a",
+      "bytes": 155840,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0004.jpg",
+      "sha256": "4266917b9a4bb88c322e74bec958410b0d030a98a5abc9b26290e8852898daa9",
+      "bytes": 151010,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0005.jpg",
+      "sha256": "e8f31733d066cfded9075ea1ebc49c1d63fa000f232edc013ce2388c967118f2",
+      "bytes": 156207,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0006.jpg",
+      "sha256": "fc6ec26cdd4955c265893161b041cb3835929035106ccd33f1b4db6cb549e7be",
+      "bytes": 148806,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0007.jpg",
+      "sha256": "2cb224f56bc4ad943bf2dce7d6862d8ad8b0d41f2efdfb6d478ae1a164d81312",
+      "bytes": 156025,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0008.jpg",
+      "sha256": "0e94f45a695615b76e54f039167c26797f0ea51ff4a6e14fcd32dad20655029b",
+      "bytes": 158693,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0009.jpg",
+      "sha256": "039e3956dc42a1d9e45a40bd2a1ca07e743525a93a4c1859d3e5d782a339c0a2",
+      "bytes": 153064,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0010.jpg",
+      "sha256": "ba7756d47e55c38f305106fd4f73f95bf1437cfafb95a2c35098ed39958b9a63",
+      "bytes": 156001,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0011.jpg",
+      "sha256": "3419b044f5eb2897322d78c05707117e45085f378400cdcd2908d9f810b117c6",
+      "bytes": 160312,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/lecture/0012.jpg",
+      "sha256": "97ce581deb28da5f3eb52b7014d3649a34cdef36dd994ec8ab179e9a26cae0a7",
+      "bytes": 160543,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "source": "read-only accepted main synthetic fixture/icon copy"
+    },
+    {
+      "path": "assets/life-atlas.png",
+      "sha256": "eef1dee38709af0650d29cc21fee53fff789b051f0238c47407bc8391bf00b2e",
+      "bytes": 2819594,
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGB",
+      "source": "built-in imagegen original atlas"
+    }
+  ],
+  "font_binary_committed": false,
+  "personal_atlas_crop": "CSS clip only; original bitmap unchanged",
+  "life_atlas_method": "Built-in imagegen; original fictional adults and life scenes; no private photos"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "lecture-asset-teaser-v2-phase-a",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "frames": "node scripts/render-frames.mjs",
+    "review": "python scripts/review.py"
+  },
+  "dependencies": { "gsap": "3.15.0" },
+  "devDependencies": { "hyperframes": "0.8.132", "typescript": "7.0.2", "esbuild": "0.28.2" }
+}

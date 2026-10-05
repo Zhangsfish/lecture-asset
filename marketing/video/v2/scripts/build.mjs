@@ -1,0 +1,16 @@
+import { build } from "esbuild";
+import { mkdir, cp, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
+await mkdir(path.join(root,"out"),{recursive:true});
+await build({entryPoints:[path.join(root,"src/style-frames.ts")],outfile:path.join(root,"out/compositions.mjs"),platform:"node",format:"esm",bundle:true});
+const {html,names}=await import(pathToFileURL(path.join(root,"out/compositions.mjs")).href+"?t="+Date.now());
+await cp(path.join(root,"assets"),path.join(root,"out/assets"),{recursive:true});
+await cp(path.join(root,"src/style.css"),path.join(root,"out/style.css"));
+await cp(path.join(root,"node_modules/gsap/dist/gsap.min.js"),path.join(root,"out/gsap.min.js"));
+await mkdir(path.join(root,"out/pages"),{recursive:true});
+for(let i=1;i<=8;i++)await writeFile(path.join(root,"out/pages/"+String(i).padStart(2,"0")+"-"+names[i-1]+".html"),html(i));
+await writeFile(path.join(root,"out/pages/05-handoff-chatgpt.html"),html(5,"ChatGPT"));
+await writeFile(path.join(root,"out/index.html"),html(1));
+console.log("Built eight static compositions plus provider-label variant; no full movie timeline.");
