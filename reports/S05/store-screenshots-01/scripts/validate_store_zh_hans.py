@@ -1,5 +1,6 @@
 """Validate Chinese localization against frozen English geometry and Git bytes."""
 from pathlib import Path
+import ast
 import hashlib
 import json
 import subprocess
@@ -12,6 +13,12 @@ BASE = '0e6c1670ffe1464532c11356d3d5824e459aff39'
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 english = json.loads((ROOT/'RENDER_MANIFEST.json').read_text(encoding='utf-8'))
 records = json.loads((ROOT/'RENDER_MANIFEST_ZH_HANS.json').read_text(encoding='utf-8'))
+old_ast=ast.parse((ROOT/'scripts/render_store.py').read_text(encoding='utf-8'))
+new_ast=ast.parse((ROOT/'scripts/render_store_zh_hans.py').read_text(encoding='utf-8'))
+for function in ['background','panel','check','arrow','slide_card','file_card']:
+    old=next(n for n in old_ast.body if isinstance(n,ast.FunctionDef) and n.name==function)
+    new=next(n for n in new_ast.body if isinstance(n,ast.FunctionDef) and n.name==function)
+    assert ast.dump(old)==ast.dump(new), function
 assert len(records) == len(english) == 6
 expected_headlines = [
  ['一场讲座。','几十张 PPT 照片。'], ['批量选好。','按拍摄时间排好。'],
@@ -90,6 +97,7 @@ fonts=[{'family':'Microsoft YaHei','role':role,'filename':name,'sha256':sha(Path
        for role,name in [('regular','msyh.ttc'),('bold','msyhbd.ttc')]]
 result={'status':'PASS','base_sha':BASE,'capture_sha':provenance['source_sha'],
         'capture_run':provenance['run_url'],'real_ui_locale':'zh-Hans / zh_CN',
+        'background_card_shadow_geometry_functions_ast_identical':True,
         'headlines_uniform':{'size':84,'line_height':126,'origin':[108,222]},
         'fonts':fonts,'frozen_english_assets':unchanged,'six_images':checks,
         'frame_5_destinations':NAMES,'frame_6_title':DELETE_TITLE,'frame_6_body':DELETE_BODY,
