@@ -1,0 +1,23 @@
+{
+  "app_id": "6816814541",
+  "planned_url": "https://apps.apple.com/us/app/id6816814541",
+  "checked_utc": "2026-10-05T19:14:39.903051+00:00",
+  "checks": [
+    {
+      "requested": "https://apps.apple.com/us/app/id6816814541",
+      "http_status": 200,
+      "resolved_url": "https://apps.apple.com/cn/iphone/today",
+      "matches_requested_id": false
+    },
+    {
+      "requested": "https://itunes.apple.com/lookup?id=6816814541&country=us",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)>"
+    }
+  ],
+  "matching_name_id": "NOT_VERIFIED",
+  "public_download_status": "NOT_VERIFIED",
+  "publication_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
+  "qr_payload": "https://apps.apple.com/us/app/id6816814541",
+  "note": "A 200 response redirected to an App Store Today page is not proof of a live matching product, nor proof of delisting. No ASC mutation or publishing.",
+  "qr_exported_frame_checks": []
+}

@@ -1,22 +1,11 @@
-# Director R1 visual rules
+# R2 shared art system
 
-Use DIRECTOR_NEXT.md. Deep #090B10, warm white paper #EEEAE1, Calm cobalt #4772A8.
-Life atlas and twelve lecture textures unchanged. No particles, full-screen glow or gradient title cards.
+Authority: DIRECTOR_R2.md. Charcoal #090B10; neutral paper #F5F6F8; ink #19232F; cobalt #4772A8 limited to sleeve spine and editorial accents. Left/top natural light, subtle paper reflectance, one low-opacity broad shadow. No inset bevel, extruded side plate, cream settings window, glow particles or caption plaques.
 
-- First frame is a crowded photographic world, not a title/logo.
-- Captions live beside the action, not a fixed top band. One main sentence at a time.
-- Stable object IDs P01–P08, L01–L12, zip-hero, pdf-hero, readme-layer, summary, report.
-- A thin landscape cobalt sleeve with light paper edges replaces the toy box / thick zipper.
-- Archive opening is one depth-connected fan, paired text indexes and corresponding page/file lines.
-- External provider is plain text naming a conceptual destination, no browser/chatter shell.
-- Summary/report uses source-related meaning/example/fresh-question structure; no fabricated numbers/chart.
-- Report turns to a front-readable plane and settles for frames 966–1062.
-- Saved cue precedes all lecture departures. Same life atlas crops return; no storage-reclamation claim.
-- Slogan settles by frame 1182 and remains readable to 1319. Only background breath continues.
+Persist P01–P08 fixed atlas crops and L01–L12 textures. Life photographs recede spatially to opacity zero during S03–S06, then the same DOM objects return. Sleeve, PDF, reading guide and reply/report share paper tokens and editorial typography. The report is the same receiving surface expanded, not a new popup.
 
-Installed Microsoft YaHei and Segoe UI, local font copies ignored. Working safe text zone:
-x 80..900, y 160..1560. Review at 360px width; this is our conservative production zone,
-not a claim about platform official masks.
+Three type levels: 80px ZH / 76px EN main copy; 30–34px object labels; 30–40px editorial body. Final slogan retains the accepted 80px ZH bold / 62px EN regular rhythm. Installed real Microsoft YaHei regular/bold + Segoe UI regular; no synthetic font weight. No scene-specific automatic shrinking. One short phrase per reveal, 16-frame settle followed by reading holds. No live typing callbacks.
 
-One paused GSAP master, seek(frame/60), driving camera, content and typography.
-No CSS time-based animation, flattened poster slideshow, new rendering engine or generative video.
+Major copy/branding/download zone x80..920 y160..1550. Check actual decoded 360px views and platform obstruction proxies; these masks are conservative review approximations, not official platform templates. Photographs may extend outside this text zone.
+
+Official provider images retain their original ratio/colours. Badge has one instance per movie, static native artwork, ≥1/4-height clear space. QR encodes exact US product URL and must decode from both actual 1080 and 720 movies.

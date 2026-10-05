@@ -1,0 +1,41 @@
+[
+  {
+    "file": "assets/brands/chatgpt.webp",
+    "source": "https://images.ctfassets.net/j22is2dtoxu1/intercom-img-d177d076c9a5453052925143/49d5d812b0a6fcc20a14faa8c629d9fb/icon-ios-1024_401x.png?fm=webp&q=80&w=1024",
+    "discovered_on": "https://help.openai.com/en/articles/7905742-what-does-the-official-chatgpt-ios-app-icon-look-like",
+    "acquired_utc": "2026-10-05T19:02:05.677083+00:00",
+    "sha256": "6060801051538ac1c16d7bf8cedf66f668e4bdec3b3e73a9d2c71f2dccd38b6c",
+    "bytes": 18412,
+    "dimensions": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "file": "assets/brands/workbuddy.svg",
+    "source": "https://download.codebuddy.cn/web/workbuddy/788eb1c5ba3681efa98cf7b58ae688e293c1bb34/assets/logo.svg",
+    "discovered_on": "https://www.workbuddy.cn/",
+    "acquired_utc": "2026-10-05T19:02:06.252259+00:00",
+    "sha256": "10ccbc099e7bc3d5ff12c315c4edd7b21386aa7166c1ec19997b3d55010d5c7d",
+    "bytes": 4142,
+    "svg_viewbox": "0 0 40 40"
+  },
+  {
+    "file": "assets/brands/app-store-en.svg",
+    "source": "https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83",
+    "discovered_on": "https://developer.apple.com/app-store/marketing/guidelines/",
+    "acquired_utc": "2026-10-05T19:02:06.285377+00:00",
+    "sha256": "a26fc5b38380272c92e9019a2eb8b45542a66814b3e2b203772db8904b9fb99f",
+    "bytes": 10804,
+    "svg_viewbox": "0 0 119.66407 40"
+  },
+  {
+    "file": "assets/brands/app-store-zh.svg",
+    "source": "https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83",
+    "discovered_on": "https://developer.apple.com/app-store/marketing/guidelines/",
+    "acquired_utc": "2026-10-05T19:02:06.347157+00:00",
+    "sha256": "65191b2d1182a194e510b27c9985b1367b60ed6ef565f86fc492f585a27bc932",
+    "bytes": 8641,
+    "svg_viewbox": "0 0 108.85157 40"
+  }
+]

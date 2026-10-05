@@ -1,23 +1,11 @@
-# R1 asset manifest
+# R2 asset authority
 
-Keep ASSET_LEDGER.json as the original image/font hash authority.
-assets/life-atlas.png is the same original fictional photographic atlas; no regeneration.
-P01–P08 reuse fixed CSS 2×4 crops in both opening/ending, one DOM object per logical photo.
-assets/lecture/0001.jpg–0012.jpg are the unchanged accepted synthetic fixtures 13–24.
-assets/app-icon.png is the accepted icon copy, unchanged.
+ASSET_LEDGER.json retains original photography, icon, 12 lecture JPEGs and font hashes. All are unchanged. Same P01–P08 CSS 2×4 identity/crops, no new photography, private photos or accounts.
 
-Source text was checked against the actual fixture generator and images:
-Ask what the idea means. / Link it to a concrete example. / Return to it with a fresh question.
-The synthetic page topics include Test a small change / Review the evidence /
-Use a concrete example / Questions for discussion. R1 summary/report reflects those ideas.
-All result content is editorial illustration, not a claimed provider transcript.
-PDF remains outside ZIP; fan/index/mapping/README explain the existing archive roles,
-not a newly validated production export.
+New official factual destination assets live in assets/brands/ with source URL/acquisition UTC/original dimensions/SHA256 in SOURCES.json. ChatGPT is the icon shown by OpenAI Help; WorkBuddy is from its own official product homepage (not the CodeBuddy page). Apple localised badges are small individual SVG downloads via Apple marketing tools. Original ratio/colour/spacing preserved.
 
-assets/sound/director-score.wav is deterministic original local synthesis from
-scripts/make-score.py. No purchased/downloaded track, voiceover or audio API.
-Exact cues and source hashes are in review/director-r1 QA/SOUND.
-Fonts remain local installed copies, not redistributed.
+app-store-qr.png is generated locally for https://apps.apple.com/us/app/id6816814541. QR source and actual MP4 frames are independently decoded using OpenCV. Tools: qrcode 8.2 newly installed under existing project installation authorization; existing myenv OpenCV used. Font binaries remain ignored.
 
-Full pictures and films are review artifacts within this existing PR, not a public campaign.
-No private photo/account/OCR/identifier assets, third-party logo or new screenshot capture.
+Original deterministic 26s score: scripts/r2-score.py → assets/sound/director-r2-score.wav + SOUND_R2.json. R1 audio retained. No bought soundtrack or sampled third-party recording. Source-derived concept report: understand meaning, concrete example, fresh questions. PDF remains outside AI ZIP.
+
+Artwork/render readiness and public availability are separate. See PUBLISH_LINK.json; do not publicly post until verified LIVE and separately authorised.

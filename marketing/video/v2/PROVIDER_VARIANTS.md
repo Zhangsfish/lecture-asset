@@ -1,12 +1,7 @@
-# True bilingual R1 variants
+# R2 provider/localization contract
 
-English/ChatGPT is the primary TikTok director cut. Chinese/WorkBuddy shares the
-same persistent objects, 1320-frame timing, camera, assets and sound.
-Every primary caption, rule, summary/report line, saved cue and end slogan is localized.
-The original English lecture photos and technical filenames are source content, not App UI.
+One 1560-frame timeline. EN ChatGPT official iOS icon; ZH WorkBuddy official homepage product logo. Exact assets/source hashes: assets/brands/SOURCES.json. No logo approximation, affiliation lockup, private transcript or webpage clone.
 
-Both providers are external plain-text destinations, not integrations or website reproductions.
-Summary/report is marked once Illustrative output / 结果示意. It is grounded in the included
-synthetic lecture's meaning → concrete example → fresh-question content, not a recorded response.
-No provider account, prompt, Send click, exact archive export or screen recording is needed for this concept.
-No actual model output VERIFIED claim. No partnership or availability promise.
+Right outgoing AI ZIP retains its source thumbnail and 12-page label; left provider receives; a bounded predetermined local blurred text flow resolves into summary, then that same reply unfolds into a front-facing report. No additional prompt is entered. This conceptual sequence does not assert all AI tools operate without a prompt. One Illustrative workflow / 效果示意 label.
+
+Every headline, index relationship, editorial result, saved cue and CTA is localized. Synthetic English lecture content and technical filenames remain unchanged source material. ZH CTA explicitly says US App Store; EN gives the same-phone search cue. Do not claim China availability.

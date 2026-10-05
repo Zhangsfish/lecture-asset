@@ -1,16 +1,9 @@
-# V2 / director R1
+# R2 — complete conceptual launch film
 
-Authority: DIRECTOR_NEXT.md, fetched PR input 89c705d; latest main at start recorded in plan.json.
-Current delivery: a complete 22.000s / 1320-frame / 60fps conceptual director cut.
-Working canvas 1080×1920, review films 720×1280: English/ChatGPT and zh-Hans/WorkBuddy, with muted copies.
-Stop READY_FOR_DIRECTOR_CUT_REVIEW. A-only approval gate and old timings are superseded.
+Authority: DIRECTOR_R2.md. Current implementation: src/r2-* and scripts/r2-*.
+26.000s / 1560 frames / 60fps, 1080×1920 EN ChatGPT + ZH WorkBuddy; 720 previews and muted copies.
+Stop READY_FOR_DIRECTOR_FINAL_REVIEW. This is a concept film, not a recorded provider exchange.
 
-Story: life photos crowded by lecture → user selection and chronological order →
-separate PDF + AI ZIP → the same archive opens its images/index/mapping/reading rules →
-external AI handoff → related illustrative summary/report → saved files precede source-photo departure →
-the same P01–P08 remain, with the two slogan lines simultaneously held.
+Mixed photo library → selected/ordered lecture → separate PDF + AI ZIP → source/index/order/reading contract → right ZIP sent to left external AI → same reply becomes summary/report → files saved before lecture-photo removal → the same P01–P08 remain → slogan and App Store download entry.
 
-Wide photo-space, follow-camera, archive macro and front-facing report replace the repeated poster header.
-No live UI, webpage clone, orbit diagram, invented trend graph, quantitative speed/storage claim,
-real provider transcript or new product action. No voiceover.
-Phase A evidence remains historical and untouched. Old v1 export/provider blockers do not block R1.
+R2 supersedes R1's 22s, name-only provider, no-chat/no-CTA production rules. Historical phase-a and director-r1 review outputs remain untouched. No App/Store/ASC/TestFlight mutation, posting, spending or merge.

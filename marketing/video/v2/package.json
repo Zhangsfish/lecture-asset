@@ -2,13 +2,21 @@
   "name": "lecture-asset-teaser-v2-phase-a",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
-  "scripts": {
-    "build": "tsc --noEmit && node scripts/build.mjs",
-    "frames": "node scripts/director-snapshot.mjs",
-    "review": "node scripts/director-qa.mjs",
-    "render": "node scripts/director-render.mjs"
+  "engines": {
+    "node": ">=22"
   },
-  "dependencies": { "gsap": "3.15.0" },
-  "devDependencies": { "hyperframes": "0.8.132", "typescript": "7.0.2", "esbuild": "0.28.2" }
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/r2-build.mjs",
+    "frames": "node scripts/r2-snapshot.mjs",
+    "review": "node scripts/r2-qa.mjs",
+    "render": "node scripts/r2-render.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.15.0"
+  },
+  "devDependencies": {
+    "hyperframes": "0.8.132",
+    "typescript": "7.0.2",
+    "esbuild": "0.28.2"
+  }
 }

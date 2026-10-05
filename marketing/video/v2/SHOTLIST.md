@@ -1,20 +1,16 @@
-# R1 locked shotlist
+# R2 shotlist
 
-22 seconds / 1320 frames. DIRECTOR_NEXT is authoritative; ranges [in,out).
+Authority: DIRECTOR_R2.md. Half-open frame intervals, 60fps.
 
-| Scene | Frames / seconds | 中文 | English | Shot |
-|---|---|---|---|---|
-| S01 | [0,180) / 0.0–3.0s | 舍不得删。 → 交给 AI，又太乱。 | Too useful to delete. → Too scattered for AI. | wide occluding photo space |
-| S02 | [180,330) / 3.0–5.5s | 选好。排好。 | Select. Put it in order. | follow the ordered pages |
-| S03 | [330,480) / 5.5–8.0s | PDF，留着回看。 → AI ZIP，交给 AI。 | PDF. Keep it for later. → AI ZIP. Ready to share. | file split / sleeve-edge closeup |
-| S04 | [480,690) / 8.0–11.5s | 连怎么读，都准备好了。 | Reading instructions included. | continuous archive contents / small orbiting camera arc |
-| S05 | [690,840) / 11.5–14.0s | 交给 WorkBuddy。 | Over to ChatGPT. | same ZIP handed into external content space |
-| S06 | [840,1062) / 14.0–17.7s | 总结。报告。 | A summary. A report. | summary assembles / report turns front / hold |
-| S07 | [1062,1170) / 17.7–19.5s | 留好资料，再清相册。 | Keep the files. Clear the photos. | same album / saved cue before departure |
-| S08 | [1170,1320) / 19.5–22.0s | 把讲座交给 AI， → 把相册还给自己。 | Hand the lecture to AI. → Take back your photo library. | front-facing personal photos / simultaneous slogan |
+| Shot | Frames / seconds | CN / EN | Motion |
+|---|---|---|---|
+| S01 | [0,180) / 0–3s | 舍不得删。 → 交给 AI，却太散。 / Too useful to delete. → Too scattered for AI. | mixed photo space / two restrained captions |
+| S02 | [180,300) / 3–5s | 选好，排好。 / Selected. Sorted. | selected pulse / ordered following camera |
+| S03 | [300,450) / 5–7.5s | PDF · 留着回看 → AI ZIP · 交给 AI / PDF · For later → AI ZIP · For AI | neutral editorial paper split / cobalt sleeve seal |
+| S04 | [450,630) / 7.5–10.5s | 连怎么读，都准备好了。 / Reading instructions included. | same sleeve / source-page fan with paired index / reading guidance |
+| S05 | [630,780) / 10.5–13s | WorkBuddy / ZIP 附件 / ChatGPT / ZIP attachment | right outgoing ZIP / left official provider / processing |
+| S06 | [780,1050) / 13–17.5s | 讲座总结 → 讲座报告 / Lecture summary → Lecture report | bounded blurred words / same reply grows into readable report |
+| S07 | [1050,1230) / 17.5–20.5s | 留好资料，再清相册。 / Keep the files. Clear the photos. | saved cue first / same source photos depart / original P01–P08 return |
+| S08 | [1230,1560) / 20.5–26s | 把讲座交给 AI， → 把相册还给自己。 / Hand the lecture to AI. → Take back your photo library. | simultaneous slogan / brand / static official badge and verified product QR |
 
-S01 captions: [6,78), [90,171). S02 stack stable [294,330).
-S04: unfold [480,552), read/highlight [552,642), close [642,690).
-S06: gather [840,912), form [912,966), hold [966,1062).
-S07: saved at 1077; departures begin 1087. S08 both lines settled by 1182.
-Music/SFX are included in R1; muted versions preserve exact video. No public publication authorization.
+S04 structure hold 8.4–9.7s. Right attachment settles 11–11.8s; left provider receives 11.8–12.3s; local flow 13–13.7s; summary 13.7–14.5s; same reply grows 14.5–15.3s; report hold 15.3–17.5s. Saved fully visible before departure at18s. Slogan settled20.75s, brand from20.8s, static download lockup22.5–26s.

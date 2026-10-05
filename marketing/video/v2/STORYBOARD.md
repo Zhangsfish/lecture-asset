@@ -1,20 +1,14 @@
-# Director R1 storyboard / actual timeline
+# R2 storyboard / native frame audit
 
-Historical static posters remain review/phase-a. R1 is not motion over those PNGs.
-Current compositions and bilingual copy are specified in plan.json + DIRECTOR_NEXT.
+Authority: DIRECTOR_R2.md. See SHOTLIST.md for exact bilingual text and ranges.
 
-| Shot | Focal transformation | Representative actual frame |
-|---|---|---|
-| 1 | Mixed life/lecture photo depth, a foreground page wipes past | 45 |
-| 2 | Selected pages follow ordered trail, then one stable stack | 264 |
-| 3 | Same paper stack splits into PDF and thin AI ZIP | 420 |
-| 4 | Same sleeve opens pages, paired index and mapping, README rules | 594 |
-| 5 | Same ZIP enters explicitly external provider space | 822 |
-| 6 | Related summary and front-facing readable report settle | 1014 |
-| 7 | Saved cue, then lecture departure; same life remains | 1137 |
-| 8 | Same P01–P08, both slogan lines and icon/name held | 1254 |
+- S01 at 60f: mixed photo space / two restrained captions. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S01.jpg.
+- S02 at 246f: selected pulse / ordered following camera. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S02.jpg.
+- S03 at 360f: neutral editorial paper split / cobalt sleeve seal. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S03.jpg.
+- S04 at 546f: same sleeve / source-page fan with paired index / reading guidance. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S04.jpg.
+- S05 at 738f: right outgoing ZIP / left official provider / processing. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S05.jpg.
+- S06 at 990f: bounded blurred words / same reply grows into readable report. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S06.jpg.
+- S07 at 1158f: saved cue first / same source photos depart / original P01–P08 return. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S07.jpg.
+- S08 at 1500f: simultaneous slogan / brand / static official badge and verified product QR. Decoded keyframe in review/director-r2/keyframes/{en,zh-Hans}/S08.jpg.
 
-Output: review/director-r1/ — two complete 720p films and muted copies; 1080p
-timeline snapshots per language; actual encoded-film extraction; contact sheets;
-180×320 <=8192-byte JPEG proxies + exact base64; QA and delivery.
-Director review pending. No automatic Phase C.
+AI continuity strip: 696 / 738 / 786 / 990f, native outgoing package → receiving provider → bounded blurred reply → same report. Final download card: 1500f. No final-poster PNG is an animation input.
