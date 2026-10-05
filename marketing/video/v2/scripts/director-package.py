@@ -57,7 +57,7 @@ for locale,stem in [('en','en-chatgpt'),('zh-Hans','zh-workbuddy')]:
     # Concrete check of HF preflight warning: every actual encoded temporal sample
     # must reproduce the native timeline, within explicit lossy-codec/GPU tolerance.
     encoded=OUT/('encoded-'+locale);encoded.mkdir(exist_ok=True)
-    select='+'.join('eq(n,'+str(f)+')' for f in snapshot_frames)
+    select='+'.join('eq(n\\,'+str(f)+')' for f in snapshot_frames)
     command([FFMPEG,'-v','error','-y','-i',REVIEW/('director-cut-'+stem+'.mp4'),
              '-vf','select='+select,'-fps_mode','vfr',encoded/'frame-%02d.png'])
     frames=sorted(encoded.glob('frame-*.png'));assert len(frames)==30
