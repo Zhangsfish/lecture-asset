@@ -1,0 +1,709 @@
+[
+  {
+    "raw": "store-zh-hans-selection.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "external_text_bounds": [
+      {
+        "text": "Lecture Asset",
+        "size": 29,
+        "bounds": [
+          189,
+          115,
+          385,
+          137
+        ]
+      },
+      {
+        "text": "一场讲座。",
+        "size": 84,
+        "bounds": [
+          108,
+          240,
+          528,
+          323
+        ]
+      },
+      {
+        "text": "几十张 PPT 照片。",
+        "size": 84,
+        "bounds": [
+          108,
+          367,
+          825,
+          449
+        ]
+      },
+      {
+        "text": "很少再翻，又舍不得删。",
+        "size": 42,
+        "bounds": [
+          113,
+          528,
+          575,
+          570
+        ]
+      }
+    ],
+    "file": "store/zh-Hans/01-lecture-photos.png",
+    "headline": "一场讲座。 几十张 PPT 照片。",
+    "headline_lines": [
+      "一场讲座。",
+      "几十张 PPT 照片。"
+    ],
+    "headline_zh_Hans": "一场讲座。 几十张 PPT 照片。",
+    "subtitle": "很少再翻，又舍不得删。",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "e1ec593f61091e5f6671e1f4f7fd325eed814034626d4f38c78fc8cabb78dc3f",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-zh-hans-review.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "external_text_bounds": [
+      {
+        "text": "Lecture Asset",
+        "size": 29,
+        "bounds": [
+          189,
+          115,
+          385,
+          137
+        ]
+      },
+      {
+        "text": "批量选好。",
+        "size": 84,
+        "bounds": [
+          108,
+          241,
+          528,
+          322
+        ]
+      },
+      {
+        "text": "按拍摄时间排好。",
+        "size": 84,
+        "bounds": [
+          108,
+          367,
+          780,
+          449
+        ]
+      },
+      {
+        "text": "长按并滑动，连续选择。",
+        "size": 42,
+        "bounds": [
+          113,
+          527,
+          575,
+          569
+        ]
+      },
+      {
+        "text": "09:18",
+        "size": 28,
+        "bounds": [
+          215,
+          1059,
+          286,
+          1080
+        ]
+      },
+      {
+        "text": "09:19",
+        "size": 28,
+        "bounds": [
+          605,
+          1059,
+          676,
+          1080
+        ]
+      },
+      {
+        "text": "09:20",
+        "size": 28,
+        "bounds": [
+          995,
+          1059,
+          1066,
+          1080
+        ]
+      }
+    ],
+    "file": "store/zh-Hans/02-select-and-sort.png",
+    "headline": "批量选好。 按拍摄时间排好。",
+    "headline_lines": [
+      "批量选好。",
+      "按拍摄时间排好。"
+    ],
+    "headline_zh_Hans": "批量选好。 按拍摄时间排好。",
+    "subtitle": "长按并滑动，连续选择。",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "4edb4d53f7a0e4d7405fd086b578d1be856ffb9070042b658673d0d4ea15cb49",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-zh-hans-ready.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "external_text_bounds": [
+      {
+        "text": "Lecture Asset",
+        "size": 29,
+        "bounds": [
+          189,
+          115,
+          385,
+          137
+        ]
+      },
+      {
+        "text": "一次生成",
+        "size": 84,
+        "bounds": [
+          108,
+          240,
+          444,
+          322
+        ]
+      },
+      {
+        "text": "AI ZIP 和 PDF。",
+        "size": 84,
+        "bounds": [
+          108,
+          370,
+          748,
+          448
+        ]
+      }
+    ],
+    "file": "store/zh-Hans/03-generate-pdf-zip.png",
+    "headline": "一次生成 AI ZIP 和 PDF。",
+    "headline_lines": [
+      "一次生成",
+      "AI ZIP 和 PDF。"
+    ],
+    "headline_zh_Hans": "一次生成 AI ZIP 和 PDF。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "bb39351a8899f25b95e8f652c4ad1b02e8865b6a224237d562418836b7532c39",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-zh-hans-pdf.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": null,
+    "external_text_bounds": [
+      {
+        "text": "Lecture Asset",
+        "size": 29,
+        "bounds": [
+          189,
+          115,
+          385,
+          137
+        ]
+      },
+      {
+        "text": "PDF 留着。",
+        "size": 84,
+        "bounds": [
+          108,
+          240,
+          553,
+          323
+        ]
+      },
+      {
+        "text": "以后随时回看。",
+        "size": 84,
+        "bounds": [
+          108,
+          367,
+          696,
+          449
+        ]
+      },
+      {
+        "text": "PDF · 12 页",
+        "size": 29,
+        "bounds": [
+          833,
+          1056,
+          996,
+          1083
+        ]
+      }
+    ],
+    "file": "store/zh-Hans/04-pdf-for-review.png",
+    "headline": "PDF 留着。 以后随时回看。",
+    "headline_lines": [
+      "PDF 留着。",
+      "以后随时回看。"
+    ],
+    "headline_zh_Hans": "PDF 留着。 以后随时回看。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "e9cc3148e34fe241610d7054ddbcd0fa89107847226894af63a7b6ce72d43bd3",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-zh-hans-ready.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": {
+      "kind": "share",
+      "actual_system_capture": false,
+      "base_capture": "store-zh-hans-ready.png",
+      "first_row": [
+        "AI",
+        "我的电脑",
+        "对话",
+        "朋友"
+      ],
+      "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+      "preview": null,
+      "delete_title": null,
+      "delete_body": null,
+      "note": "Illustration only; generic destination categories, not installed apps."
+    },
+    "external_text_bounds": [
+      {
+        "text": "Lecture Asset",
+        "size": 29,
+        "bounds": [
+          189,
+          115,
+          385,
+          137
+        ]
+      },
+      {
+        "text": "把 AI ZIP 交给 AI。",
+        "size": 84,
+        "bounds": [
+          108,
+          241,
+          864,
+          322
+        ]
+      },
+      {
+        "text": "继续理解这场讲座。",
+        "size": 84,
+        "bounds": [
+          108,
+          366,
+          864,
+          449
+        ]
+      },
+      {
+        "text": "导出后 · AI 工具示例",
+        "size": 42,
+        "bounds": [
+          466,
+          656,
+          848,
+          697
+        ]
+      },
+      {
+        "text": "AI 工作区",
+        "size": 41,
+        "bounds": [
+          505,
+          747,
+          685,
+          786
+        ]
+      },
+      {
+        "text": "示例",
+        "size": 25,
+        "bounds": [
+          1033,
+          758,
+          1083,
+          782
+        ]
+      },
+      {
+        "text": "总结",
+        "size": 29,
+        "bounds": [
+          523,
+          879,
+          581,
+          906
+        ]
+      },
+      {
+        "text": "提问",
+        "size": 29,
+        "bounds": [
+          849,
+          879,
+          907,
+          907
+        ]
+      },
+      {
+        "text": "学习笔记",
+        "size": 29,
+        "bounds": [
+          523,
+          984,
+          639,
+          1013
+        ]
+      },
+      {
+        "text": "讲座资料",
+        "size": 29,
+        "bounds": [
+          849,
+          983,
+          965,
+          1012
+        ]
+      },
+      {
+        "text": "使用能读取图片的 AI 工具。",
+        "size": 42,
+        "bounds": [
+          466,
+          1159,
+          994,
+          1201
+        ]
+      }
+    ],
+    "file": "store/zh-Hans/05-ai-zip-to-ai.png",
+    "headline": "把 AI ZIP 交给 AI。 继续理解这场讲座。",
+    "headline_lines": [
+      "把 AI ZIP 交给 AI。",
+      "继续理解这场讲座。"
+    ],
+    "headline_zh_Hans": "把 AI ZIP 交给 AI。 继续理解这场讲座。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "7546f1a5508431ec4542a719309becfa780f91d94b0dd77731b6ee432db77b31",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "raw": "store-zh-hans-ready.png",
+    "screen_rect": [
+      300,
+      1254,
+      720,
+      1564
+    ],
+    "phone_rect": [
+      286,
+      1240,
+      748,
+      1592
+    ],
+    "screen_corner_radius": 83,
+    "phone_bottom_cropped": false,
+    "transform": "uniform LANCZOS resize; rounded corner mask; canvas crop if out of bounds",
+    "illustrative_overlay": {
+      "kind": "delete",
+      "actual_system_capture": false,
+      "base_capture": "store-zh-hans-ready.png",
+      "first_row": null,
+      "filename": null,
+      "preview": "fixtures/lecture-13.jpg",
+      "delete_title": "允许“讲座照片整理”删除 12 张照片吗？",
+      "delete_body": "这些照片将从您所有设备的 iCloud 照片中删除，并在“最近删除”中保留 30 天。",
+      "note": "Illustration only; generic destination categories, not installed apps."
+    },
+    "external_text_bounds": [
+      {
+        "text": "Lecture Asset",
+        "size": 29,
+        "bounds": [
+          189,
+          115,
+          385,
+          137
+        ]
+      },
+      {
+        "text": "先保存。",
+        "size": 84,
+        "bounds": [
+          108,
+          241,
+          444,
+          323
+        ]
+      },
+      {
+        "text": "再决定清理什么。",
+        "size": 84,
+        "bounds": [
+          108,
+          367,
+          780,
+          448
+        ]
+      },
+      {
+        "text": "确认 ZIP 已保存",
+        "size": 33,
+        "bounds": [
+          499,
+          701,
+          738,
+          734
+        ]
+      },
+      {
+        "text": "删除源照片",
+        "size": 33,
+        "bounds": [
+          136,
+          920,
+          301,
+          953
+        ]
+      },
+      {
+        "text": "保留相册照片，",
+        "size": 33,
+        "bounds": [
+          732,
+          908,
+          963,
+          941
+        ]
+      },
+      {
+        "text": "清除 App 文件",
+        "size": 33,
+        "bounds": [
+          732,
+          955,
+          953,
+          990
+        ]
+      },
+      {
+        "text": "删除源照片仍需单独确认。",
+        "size": 42,
+        "bounds": [
+          126,
+          1074,
+          630,
+          1116
+        ]
+      }
+    ],
+    "file": "store/zh-Hans/06-save-then-clean.png",
+    "headline": "先保存。 再决定清理什么。",
+    "headline_lines": [
+      "先保存。",
+      "再决定清理什么。"
+    ],
+    "headline_zh_Hans": "先保存。 再决定清理什么。",
+    "subtitle": "",
+    "headline_style": {
+      "size": 84,
+      "line_height": 126,
+      "origin": [
+        108,
+        222
+      ]
+    },
+    "subtitle_style": {
+      "size": 42,
+      "color": "#5D6B7A",
+      "origin": [
+        113,
+        518
+      ]
+    },
+    "sha256": "23ed0470a3313bb70a31a1d375def171e2f441075fbdd08636f0ff037d06ea90",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "file": "store-zh-hans-pdf.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "a83217e98ec3edef293f8c6019e0181925ad4e67840da10a52a76f3738c9da57"
+  },
+  {
+    "file": "store-zh-hans-ready.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "ded3ae4094055ddec0c836a585517838d0666567795ae60c3cfe2b47dce176e4"
+  },
+  {
+    "file": "store-zh-hans-review.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "df12f8444d7094241b80cdf0bc28319900e0f3c534904cffb6ee4ee2f82d2b9f"
+  },
+  {
+    "file": "store-zh-hans-selection.png",
+    "pixels": [
+      1320,
+      2868
+    ],
+    "sha256": "70fcef40e088b02f352491bfe3f9a0d3ec982a64e1198e20d8f5d4f65330577a"
+  }
+]
