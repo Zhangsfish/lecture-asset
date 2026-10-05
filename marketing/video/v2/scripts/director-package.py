@@ -24,7 +24,7 @@ snapshot_frames=[0,21,45,160,180,264,294,330,420,453,480,510,552,594,642,690,726
 dom=json.loads((OUT/'dom-qa.json').read_text(encoding='utf-8'))
 tested_sha=git('rev-parse','HEAD')
 font=ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf',22)
-artifacts=[]; proxies=[]; media=[]; first_frames=[]; transition_sheets=[]
+artifacts=[]; proxies=[]; media=[]; first_frames=[]; transition_sheets=[]; encoded_comparisons=[]; render_warnings=[]
 REVIEW.mkdir(parents=True,exist_ok=True)
 for locale,stem in [('en','en-chatgpt'),('zh-Hans','zh-workbuddy')]:
     for muted in [False,True]:
@@ -54,6 +54,24 @@ for locale,stem in [('en','en-chatgpt'),('zh-Hans','zh-workbuddy')]:
     directory=OUT/'snapshots'/locale
     files=sorted(directory.glob('*.png'))
     assert len(files)==30
+    # Concrete check of HF preflight warning: every actual encoded temporal sample
+    # must reproduce the native timeline, within explicit lossy-codec/GPU tolerance.
+    encoded=OUT/('encoded-'+locale);encoded.mkdir(exist_ok=True)
+    select='+'.join('eq(n,'+str(f)+')' for f in snapshot_frames)
+    command([FFMPEG,'-v','error','-y','-i',REVIEW/('director-cut-'+stem+'.mp4'),
+             '-vf','select='+select,'-fps_mode','vfr',encoded/'frame-%02d.png'])
+    frames=sorted(encoded.glob('frame-*.png'));assert len(frames)==30
+    for f,ref,actual in zip(snapshot_frames,files,frames):
+        expected=np.asarray(Image.open(ref).convert('RGB').resize((720,1280),Image.Resampling.LANCZOS),dtype=np.float32)
+        got=np.asarray(Image.open(actual).convert('RGB'),dtype=np.float32)
+        error=float(np.abs(expected-got).mean())
+        assert error<8, (locale,f,error)
+        encoded_comparisons.append({'locale':locale,'frame':f,'mean_absolute_rgb_difference':error,
+                                    'tolerance':8,'PASS':True,'decoded_frame_sha256':digest(actual)})
+    log=(OUT/('render-'+locale+'.log')).read_text(encoding='utf-8',errors='replace')
+    render_warnings.append({'locale':locale,'sub_timeline_readiness_timeout':'sub_timeline_readiness_timeout' in log,
+      'handling':'Recorded, not suppressed. Actual frame 0 and all 29 boundary/hero samples match the ready native timeline; all 1320 encoded frames decode.',
+      'capture_mode':'HyperFrames native screenshot / hardware GPU','actual_capture_frames':1320})
     keydir=REVIEW/'keyframes'/locale;keydir.mkdir(parents=True,exist_ok=True)
     proxydir=REVIEW/'proxy'/locale;proxydir.mkdir(parents=True,exist_ok=True)
     sheet=Image.new('RGB',(1080,1080),'#10141a');draw=ImageDraw.Draw(sheet)
@@ -115,6 +133,7 @@ checks={
  'tools':{'node':'24.15.0','HyperFrames':'0.8.132','GSAP':'3.15.0','TypeScript':'7.0.2','esbuild':'0.28.2',
           'Chrome':'154.0.8037.93','FFmpeg':'9.0.1','Python':'3.11.7','Pillow':'10.2.0','NumPy':'1.26.4'},
  'media':media,'first_frames':first_frames,'asset_hashes':asset_hashes,
+ 'encoded_timeline_comparisons':encoded_comparisons,'render_warnings':render_warnings,
  'dom_checks':[{k:v for k,v in x.items() if k!='samples'} for x in dom],
  'scope_paths':scope,'historical_phase_a_changed':historical,
  'commands':json.loads((OUT/'render-commands.json').read_text(encoding='utf-8')),
