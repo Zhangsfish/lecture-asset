@@ -51,7 +51,7 @@ Output #0, mp4, to 'out/M00/smoke-review.mp4':
       handler_name    : SoundHandler
 [mp4 @ 00000279b6434280] Starting second pass: moving the moov atom to the beginning of the file
 [out#0/mp4 @ 00000279b6426640] video:53KiB audio:4KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 7.839659%
-frame=  120 fps=0.0 q=-1.0 Lsize=      62KiB time=00:00:02.00 bitrate= 252.9kbits/s speed=4.08x elapsed=0:00:00.49    
+frame=  120 fps=0.0 q=-1.0 Lsize=      62KiB time=00:00:02.00 bitrate= 252.9kbits/s speed=4.08x elapsed=0:00:00.49
 [libx264 @ 00000279b7f08080] frame I:1     Avg QP: 7.17  size: 13340
 [libx264 @ 00000279b7f08080] frame P:41    Avg QP:12.20  size:   793
 [libx264 @ 00000279b7f08080] frame B:78    Avg QP:10.61  size:   100

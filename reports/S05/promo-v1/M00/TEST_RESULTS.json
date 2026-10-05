@@ -341,7 +341,14 @@
       "limitations": "Only accessible existing 20/200-page safe packages found; wrong page count. No substitute/fake App export created. Target export-only next action in ASSET_LEDGER.json.",
       "evidence": [
         "../../../../marketing/video/ASSET_LEDGER.json"
-      ]
+      ],
+      "existing_capture_artifact_inspection": {
+        "run": 37221416885,
+        "artifact": "s05-store-english-safe-captures",
+        "expired": false,
+        "bytes": 2520669,
+        "exports": "PNG captures + CAPTURES.json only; no App ZIP/PDF (confirmed exporter code and artifact list)"
+      }
     },
     {
       "id": "workbuddy_attachment_only_real_summary",

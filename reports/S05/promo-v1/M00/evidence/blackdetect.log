@@ -36,4 +36,4 @@ Output #0, null, to 'pipe:':
       encoder         : Lavc63.1.101 wrapped_avframe
       handler_name    : VideoHandler
 [out#0/null @ 000001ecc53c54c0] video:50KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
-frame=  120 fps=0.0 q=-0.0 Lsize=N/A time=00:00:02.00 bitrate=N/A speed=23.2x elapsed=0:00:00.08    
+frame=  120 fps=0.0 q=-0.0 Lsize=N/A time=00:00:02.00 bitrate=N/A speed=23.2x elapsed=0:00:00.08

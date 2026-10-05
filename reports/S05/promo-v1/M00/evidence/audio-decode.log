@@ -36,4 +36,4 @@ Output #0, wav, to 'out/M00/rendered-audio.wav':
       encoder         : Lavc63.1.101 pcm_s16le
       handler_name    : SoundHandler
 [out#0/wav @ 000001f862b77000] video:0KiB audio:375KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.020313%
-size=     375KiB time=00:00:02.00 bitrate=1536.3kbits/s speed= 162x elapsed=0:00:00.01    
+size=     375KiB time=00:00:02.00 bitrate=1536.3kbits/s speed= 162x elapsed=0:00:00.01

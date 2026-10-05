@@ -1,14 +1,23 @@
 # S05-MV-M00 — local toolchain and evidence bootstrap
 
-Status: **READY_FOR_M00_AUDIT** (technical bootstrap passed).  
-Exact real export: **BLOCKED_EXPORT_ASSET**.  
-WorkBuddy: **BLOCKED_PROVIDER_EVIDENCE**. ChatGPT: **BLOCKED_PROVIDER_EVIDENCE**.  
-Task: [S05_MV_00_BOOTSTRAP](../../../../tasks/S05_MV_00_BOOTSTRAP.md)  
-Date: 2026-10-05, Asia/Shanghai  
-Branch: `codex/s05-mv-m00-bootstrap`  
-Base fetched main: `4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b`  
-Tested implementation: `f6d464103607cc4f14c7862c24eb77eaadf321ad`  
-Final verification fetch: `a04fe9b073dbe06d264ac7fa62c707e4f594a617`  
+Status: **READY_FOR_M00_AUDIT** (technical bootstrap passed).
+
+Exact real export: **BLOCKED_EXPORT_ASSET**.
+
+WorkBuddy: **BLOCKED_PROVIDER_EVIDENCE**. ChatGPT: **BLOCKED_PROVIDER_EVIDENCE**.
+
+Task: [S05_MV_00_BOOTSTRAP](../../../../tasks/S05_MV_00_BOOTSTRAP.md)
+
+Date: 2026-10-05, Asia/Shanghai
+
+Branch: `codex/s05-mv-m00-bootstrap`
+
+Base fetched main: `4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b`
+
+Tested implementation: `f6d464103607cc4f14c7862c24eb77eaadf321ad`
+
+Final verification fetch: `a04fe9b073dbe06d264ac7fa62c707e4f594a617`
+
 PR: [#17](https://github.com/Zhangsfish/lecture-asset/pull/17); the final PR head
 identifies the evidence-only delivery commit. No implementation change after the
 tested SHA.
@@ -106,7 +115,10 @@ from tested capture SHA `b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9`,
 [CI 37221416885](https://github.com/Zhangsfish/lecture-asset/actions/runs/37221416885).
 
 A repo-wide ZIP/PDF search and safe local regression-cache inspection found only
-20/200-page candidates, not the required twelve-page export. Exact ZIP basename,
+20/200-page candidates, not the required twelve-page export. The existing native
+capture run publishes only `s05-store-english-safe-captures`; its artifact list
+and export script were inspected. It exports named PNGs and `CAPTURES.json`,
+not the simulator's App ZIP/PDF. Exact ZIP basename,
 ZIP/PDF/README digests therefore remain null. No README reading rule or provider
 claim is presented as verified for a missing archive.
 
