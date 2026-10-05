@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "base_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+  "assets": [
+    {
+      "asset_id": "P01",
+      "path": "assets/personal/P01.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "b7dd0631fe5ad268d7a429c7e43a2331bd4a8f22bc48d4d2b0f73e678ee56820",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "mountains",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "P02",
+      "path": "assets/personal/P02.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "68e85d25a4eb458e5765dce5a0a0451856a0756e797728a2c91f0ef0696bf454",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "sea-sunset",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "P03",
+      "path": "assets/personal/P03.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "db51351ac3059143ccad66e32b4ae5aa8031d2188cfbf086697740ed69dfb06e",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "city-skyline",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "P04",
+      "path": "assets/personal/P04.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "9f03211a778ab3865491c822d5dcd00bb4da2fc31ff68b0805f99e7edd64fccc",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "single-abstract-portrait",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "P05",
+      "path": "assets/personal/P05.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "52a3c5c7f5709f53a112447e654332640fc0e2858e976deb1d03319201dfd712",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "two-person-abstract-portrait",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "P06",
+      "path": "assets/personal/P06.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "55e31640e67861a9fb344e8ac7d4a1741ec762d422b9524a1fa269de8bd311c9",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "plated-meal",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "P07",
+      "path": "assets/personal/P07.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "f7a53f4536669162824059603c16edd3c1c24b669008f355af793b8d86f44da2",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "noodles-bowl",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "P08",
+      "path": "assets/personal/P08.svg",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original local deterministic SVG authored in scripts/prepare-assets.mjs; abstract invented people. No real/private/stock/API media.",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "09a0ece106a7f90a188b4ffb463518aec6d42ac5d9ae506e6544d3ab6c33bfa7",
+      "locale": "shared",
+      "rights_privacy": "Original project editorial artwork; no identifiable person/logo",
+      "intended_scenes": [
+        "S01",
+        "S08"
+      ],
+      "subject": "coffee-dessert",
+      "ending_reuses_exact_path": true
+    },
+    {
+      "asset_id": "L01",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-13.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "5d74e051082af212bfcc819e83aa18b8da8a6baed2e5c7576c34d8d0dabdceb5",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L02",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-14.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "a2c385af17d35efd30c01787c7885824e0a27742246b01f9ba225792fa1f061d",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L03",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-15.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "ec32aca90938a15d30568bde96e6223622c540d3a83517db020c0f0612e4415a",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L04",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-16.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "4266917b9a4bb88c322e74bec958410b0d030a98a5abc9b26290e8852898daa9",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L05",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-17.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "e8f31733d066cfded9075ea1ebc49c1d63fa000f232edc013ce2388c967118f2",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L06",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-18.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "fc6ec26cdd4955c265893161b041cb3835929035106ccd33f1b4db6cb549e7be",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L07",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-19.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "2cb224f56bc4ad943bf2dce7d6862d8ad8b0d41f2efdfb6d478ae1a164d81312",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L08",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-20.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "0e94f45a695615b76e54f039167c26797f0ea51ff4a6e14fcd32dad20655029b",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L09",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-21.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "039e3956dc42a1d9e45a40bd2a1ca07e743525a93a4c1859d3e5d782a339c0a2",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L10",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-22.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "ba7756d47e55c38f305106fd4f73f95bf1437cfafb95a2c35098ed39958b9a63",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L11",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-23.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "3419b044f5eb2897322d78c05707117e45085f378400cdcd2908d9f810b117c6",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "L12",
+      "path": "../../reports/S05/store-screenshots-01/fixtures/lecture-24.jpg",
+      "type": "PRODUCT_CONTENT",
+      "provenance": "Accepted original fictional lecture source fixture; NOT canonical App export JPEG.",
+      "source_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+      "sha256": "97ce581deb28da5f3eb52b7014d3649a34cdef36dd994ec8ab179e9a26cae0a7",
+      "locale": "shared",
+      "rights_privacy": "Safe synthetic project lecture; no private photo/OCR/account",
+      "intended_scenes": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08"
+      ]
+    },
+    {
+      "asset_id": "native-selection",
+      "path": "../../reports/S05/store-screenshots-01/captures/store-en-selection.png",
+      "type": "NATIVE_CAPTURE",
+      "provenance": "Existing accepted Release simulator capture on synthetic lecture fixtures; deletion App confirmation capture cancels before PhotoKit. See frozen Store RENDER_MANIFEST and S03 audit.",
+      "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+      "sha256": "14e7ec2efc21d0fe807c41f0d8bdc7539a2b2c9934c9478441e6f63b50ccddf2",
+      "locale": "en",
+      "rights_privacy": "Synthetic product UI; no private media",
+      "intended_scenes": [
+        "S02",
+        "S03",
+        "S07"
+      ]
+    },
+    {
+      "asset_id": "native-review",
+      "path": "../../reports/S05/store-screenshots-01/captures/store-en-review.png",
+      "type": "NATIVE_CAPTURE",
+      "provenance": "Existing accepted Release simulator capture on synthetic lecture fixtures; deletion App confirmation capture cancels before PhotoKit. See frozen Store RENDER_MANIFEST and S03 audit.",
+      "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+      "sha256": "e31fe97c014f5f24d79d890b084c4a77dfb3e5fe3d5587f06ef2940ce5d68dc8",
+      "locale": "en",
+      "rights_privacy": "Synthetic product UI; no private media",
+      "intended_scenes": [
+        "S02",
+        "S03",
+        "S07"
+      ]
+    },
+    {
+      "asset_id": "native-ready",
+      "path": "../../reports/S05/store-screenshots-01/captures/store-en-ready.png",
+      "type": "NATIVE_CAPTURE",
+      "provenance": "Existing accepted Release simulator capture on synthetic lecture fixtures; deletion App confirmation capture cancels before PhotoKit. See frozen Store RENDER_MANIFEST and S03 audit.",
+      "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+      "sha256": "1bcea3b5e87b328cd4aab57407ebd6ce03644c5d9abb0cddb52810ec0f44b921",
+      "locale": "en",
+      "rights_privacy": "Synthetic product UI; no private media",
+      "intended_scenes": [
+        "S02",
+        "S03",
+        "S07"
+      ]
+    },
+    {
+      "asset_id": "native-pdf",
+      "path": "../../reports/S05/store-screenshots-01/captures/store-en-pdf.png",
+      "type": "NATIVE_CAPTURE",
+      "provenance": "Existing accepted Release simulator capture on synthetic lecture fixtures; deletion App confirmation capture cancels before PhotoKit. See frozen Store RENDER_MANIFEST and S03 audit.",
+      "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+      "sha256": "83de52ddcd7e5b7004ba5ddf1f6699cf2db5c013f3afdc40e06660b4f2a95540",
+      "locale": "en",
+      "rights_privacy": "Synthetic product UI; no private media",
+      "intended_scenes": [
+        "S02",
+        "S03",
+        "S07"
+      ]
+    },
+    {
+      "asset_id": "native-delete-confirmation",
+      "path": "../../reports/S05/store-screenshots-01/captures/store-en-delete-confirmation.png",
+      "type": "NATIVE_CAPTURE",
+      "provenance": "Existing accepted Release simulator capture on synthetic lecture fixtures; deletion App confirmation capture cancels before PhotoKit. See frozen Store RENDER_MANIFEST and S03 audit.",
+      "source_sha": "b4bff6d3ddd31a49058b1b58ea47c566cca3b1f9",
+      "sha256": "ad02b4234c0f1bfe0f587255f4205761a73474d79c793483129726921bede84f",
+      "locale": "en",
+      "rights_privacy": "Synthetic product UI; no private media",
+      "intended_scenes": [
+        "S07"
+      ]
+    },
+    {
+      "asset_id": "M00-ping",
+      "path": "assets/ping-48k.wav",
+      "type": "EDITORIAL_VECTOR",
+      "provenance": "Original locally synthesized 880Hz enveloped 120ms stereo PCM ping; prepare-assets.mjs",
+      "source_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+      "sha256": "f0d5780e5f0ab1ed0dc7e627094497c87a2173416b1d9691669c8cdc452aeaef",
+      "locale": "shared",
+      "rights_privacy": "Original project sound; no speech or recording",
+      "intended_scenes": [
+        "M00-smoke"
+      ]
+    }
+  ],
+  "archive": {
+    "status": "BLOCKED_EXPORT_ASSET",
+    "required_fixture_numbers": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "page_count": 12,
+    "zip_basename": null,
+    "zip_sha256": null,
+    "pdf_sha256": null,
+    "readme_sha256": null,
+    "reason": "No accessible existing real 12-page App ZIP + companion PDF found. Existing safe packages are 20/200-page synthetic regressions and cannot substitute.",
+    "next_targeted_action": "One export-only fresh Release simulator job using accepted fixtures 13–24 through unchanged App, retaining only public ZIP/PDF and safe digest/provenance. No source deletion, fake archive, TestFlight or broad QA.",
+    "must_verify": [
+      "12 canonical JPEGs",
+      "README rules from accepted current source",
+      "lecture.md",
+      "manifest.json",
+      "schema + ZIP CRC/hash",
+      "separate 12-page PDF",
+      "exact fixtures 13–24 mapping in private simulator test; never publish identifiers"
+    ]
+  },
+  "album_identity": {
+    "status": "PASS",
+    "opening_count": 20,
+    "opening_order": [
+      "P01",
+      "L01",
+      "P06",
+      "L02",
+      "L03",
+      "P04",
+      "L04",
+      "P02",
+      "P07",
+      "L05",
+      "L06",
+      "P05",
+      "L07",
+      "P03",
+      "L08",
+      "L09",
+      "P08",
+      "L10",
+      "L11",
+      "L12"
+    ],
+    "ending_count": 8,
+    "ending_order": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08"
+    ],
+    "same_assets_by_path_and_sha256": true,
+    "no_immediate_storage_reclaim_claim": true
+  }
+}

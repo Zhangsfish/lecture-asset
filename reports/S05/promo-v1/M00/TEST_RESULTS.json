@@ -1,0 +1,415 @@
+{
+  "stage": "S05-MV-M00",
+  "round": 1,
+  "status": "READY_FOR_M00_AUDIT",
+  "checked_date": "2026-10-05",
+  "base_main_sha": "4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b",
+  "latest_main_at_final_fetch": "a04fe9b073dbe06d264ac7fa62c707e4f594a617",
+  "latest_main_delta": "STATUS and owner release-portal handoff only; no task/plan/runtime changes; not merged into the tested implementation",
+  "tested_code_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad",
+  "environment_report": "ENVIRONMENT.md",
+  "results": [
+    {
+      "id": "clean_install",
+      "status": "PASS",
+      "command_or_steps": "npm.cmd ci --no-audit --no-fund (from marketing/video; opt-out env set)",
+      "exit_code": 0,
+      "actual_output": "added 79 packages in 14s",
+      "lock_unchanged": true,
+      "evidence": [
+        "../../../../marketing/video/package-lock.json"
+      ]
+    },
+    {
+      "id": "typescript_build",
+      "status": "PASS",
+      "command_or_steps": "npm.cmd run build",
+      "exit_code": 0,
+      "evidence": [
+        "evidence/build.log"
+      ]
+    },
+    {
+      "id": "official_lint_browser_layout_contrast",
+      "status": "PASS",
+      "command_or_steps": "node scripts/hf.mjs check --json --at 0,0.5,1,1.5,1.9833333333333334",
+      "exit_code": 0,
+      "lint_errors": 0,
+      "runtime_errors": 0,
+      "layout_issues": 0,
+      "contrast_checks_passed": 24,
+      "evidence": [
+        "evidence/hyperframes-check.json"
+      ]
+    },
+    {
+      "id": "render_and_ffprobe",
+      "status": "PASS",
+      "command_or_steps": "node scripts/smoke.mjs (official HyperFrames render, FFmpeg review encode/PCM decode/blackdetect, ffprobe)",
+      "exit_code": 0,
+      "frames": 120,
+      "fps": "60/1",
+      "duration_seconds": 2,
+      "source_dimensions": [
+        1080,
+        1920
+      ],
+      "review_dimensions": [
+        540,
+        960
+      ],
+      "render_pipeline_ms": 22382,
+      "evidence": [
+        "evidence/render.log",
+        "evidence/ffprobe.json",
+        "evidence/ffprobe-full.json"
+      ]
+    },
+    {
+      "id": "same_page_forward_reverse_seek",
+      "status": "PASS",
+      "command_or_steps": "Official snapshot --at 0,0.5,1,1.5,1.9833333333333334,1.5,0.5,1.9833333333333334,0,1,1.25,1.45 --no-end; validate-smoke.py",
+      "exit_code": 0,
+      "pairs": [
+        {
+          "capture_indices": [
+            0,
+            8
+          ],
+          "changed_pixels": 0,
+          "sha256": "1ff79e46e2bc8fa31aa4063d10ce5a50a38639db4284ddf1b4748bb06f192e52"
+        },
+        {
+          "capture_indices": [
+            1,
+            6
+          ],
+          "changed_pixels": 0,
+          "sha256": "8495af03410470f378b0c650d65c078b8852b1d2ab8ac53322b8ae30e6717f4d"
+        },
+        {
+          "capture_indices": [
+            2,
+            9
+          ],
+          "changed_pixels": 0,
+          "sha256": "e3aec5378775c88bfb700ca90fa176e36eca38c574e967412e36bfd3417683cf"
+        },
+        {
+          "capture_indices": [
+            3,
+            5
+          ],
+          "changed_pixels": 0,
+          "sha256": "a0acbdfe77191c8cf5ec16d99fdaa6c5af858e134e5d5c1085f4ca855dca23ec"
+        },
+        {
+          "capture_indices": [
+            4,
+            7
+          ],
+          "changed_pixels": 0,
+          "sha256": "fd2e7ba50814b7fbcf748a3efbfcb468aef2d46c795f30749ce2ecd754acb5a0"
+        },
+        {
+          "capture_indices": [
+            10,
+            11
+          ],
+          "changed_pixels": 0,
+          "sha256": "1c50fcd3efe1d63ec7d465ef96473aed337fe4de3e7e16e93ae275a67debbb37"
+        }
+      ],
+      "evidence": [
+        "evidence/snapshot.log",
+        "evidence/seek/",
+        "../../../../marketing/video/review/M00/VALIDATION.json"
+      ],
+      "limitations": "Exact locked host only; not cross-browser/driver/font bit identity."
+    },
+    {
+      "id": "hold",
+      "status": "PASS",
+      "seconds": 0.2,
+      "changed_pixels": 0,
+      "evidence": [
+        "evidence/seek/frame-10-at-1.25s.png",
+        "evidence/seek/frame-11-at-1.45s.png"
+      ]
+    },
+    {
+      "id": "fonts_media_palette",
+      "status": "PASS",
+      "command_or_steps": "Font cmap/local face readiness, image.decode/audio metadata before timeline registration; actual full-size pixels and contact sheets reviewed; Pillow color checks",
+      "exit_code": 0,
+      "missing_glyphs": 0,
+      "color_samples": {
+        "mountain_sky": {
+          "xy": [
+            576,
+            392
+          ],
+          "actual": [
+            185,
+            214,
+            221
+          ],
+          "reference": [
+            186,
+            214,
+            221
+          ]
+        },
+        "mountain_dark": {
+          "xy": [
+            581,
+            694
+          ],
+          "actual": [
+            55,
+            94,
+            101
+          ],
+          "reference": [
+            55,
+            94,
+            101
+          ]
+        },
+        "sun": {
+          "xy": [
+            886,
+            452
+          ],
+          "actual": [
+            255,
+            241,
+            195
+          ],
+          "reference": [
+            255,
+            241,
+            195
+          ]
+        },
+        "lecture_patch_1": {
+          "xy": [
+            102,
+            392
+          ],
+          "actual": [
+            250,
+            251,
+            253
+          ],
+          "reference": [
+            250,
+            251,
+            253
+          ]
+        },
+        "lecture_patch_2": {
+          "xy": [
+            372,
+            762
+          ],
+          "actual": [
+            250,
+            251,
+            253
+          ],
+          "reference": [
+            250,
+            251,
+            253
+          ]
+        },
+        "lecture_patch_3": {
+          "xy": [
+            492,
+            762
+          ],
+          "actual": [
+            250,
+            251,
+            253
+          ],
+          "reference": [
+            250,
+            251,
+            253
+          ]
+        }
+      },
+      "evidence": [
+        "../../../../marketing/video/review/M00/VALIDATION.json",
+        "../../../../marketing/video/review/M00/CONTACT_SHEET.png"
+      ],
+      "limitations": "Source JPEG patches are flat/background samples, not a pixel-exact resampling claim. Smoke tile may crop as editorial UI, never alters canonical JPEG."
+    },
+    {
+      "id": "render_page_network_boundary",
+      "status": "PASS",
+      "command_or_steps": "Same-origin CSP; fail before timeline registration if performance resource list includes remote HTTP origin; zero browser runtime/resource failures; CLI telemetry/update env opt-outs verified in installed code",
+      "evidence": [
+        "evidence/hyperframes-check.json",
+        "evidence/render.log",
+        "../../../../marketing/video/src/index.html",
+        "../../../../marketing/video/src/timeline.ts"
+      ],
+      "limitations": "No whole-process packet trace. Chrome background traffic outside composition was not measured."
+    },
+    {
+      "id": "whole_process_network_packet_trace",
+      "status": "NOT_RUN",
+      "limitations": "No packet capture; composition boundary and CLI opt-outs are the evidence, not a claim about all OS/browser packets."
+    },
+    {
+      "id": "audio",
+      "status": "PASS",
+      "sample_rate": 48000,
+      "source": {
+        "sample_rate": 48000,
+        "channels": 2,
+        "peak_pcm": 1613,
+        "peak_dbfs": -26.156,
+        "clipped_samples": 0
+      },
+      "rendered": {
+        "sample_rate": 48000,
+        "channels": 2,
+        "peak_pcm": 1611,
+        "peak_dbfs": -26.167,
+        "clipped_samples": 0
+      },
+      "evidence": [
+        "evidence/audio-decode.log",
+        "../../../../marketing/video/assets/ping-48k.wav",
+        "../../../../marketing/video/review/M00/VALIDATION.json"
+      ]
+    },
+    {
+      "id": "subjective_speaker_listening",
+      "status": "NOT_RUN",
+      "limitations": "Decoded nonzero PCM and zero clipping verified; speaker playback not used as automated evidence."
+    },
+    {
+      "id": "original_personal_tiles_and_album_identity",
+      "status": "PASS",
+      "command_or_steps": "node scripts/prepare-assets.mjs; node scripts/review-assets.mjs; actual thumbnail contact-sheet inspection",
+      "exit_code": 0,
+      "opening_tiles": 20,
+      "ending_tiles": 8,
+      "same_personal_assets": true,
+      "evidence": [
+        "../../../../marketing/video/ASSET_LEDGER.json",
+        "../../../../marketing/video/review/M00/PERSONAL_TILES.png"
+      ]
+    },
+    {
+      "id": "gsap_license_notice",
+      "status": "PASS",
+      "source_vendor_sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "copied_vendor_sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "evidence": [
+        "../../../../marketing/video/scripts/build.mjs",
+        "../../../../marketing/video/TOOLCHAIN_LOCK.json"
+      ],
+      "limitations": "Vendor remains ignored, copied byte-for-byte with header; no library example media redistributed."
+    },
+    {
+      "id": "exact_real_12_page_export",
+      "status": "BLOCKED_EXPORT_ASSET",
+      "fixture_numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "zip_basename": null,
+      "zip_sha256": null,
+      "pdf_sha256": null,
+      "readme_sha256": null,
+      "limitations": "Only accessible existing 20/200-page safe packages found; wrong page count. No substitute/fake App export created. Target export-only next action in ASSET_LEDGER.json.",
+      "evidence": [
+        "../../../../marketing/video/ASSET_LEDGER.json"
+      ]
+    },
+    {
+      "id": "workbuddy_attachment_only_real_summary",
+      "status": "BLOCKED_PROVIDER_EVIDENCE",
+      "evidence": [
+        "../../../../marketing/video/PROVIDER_EVIDENCE.json"
+      ],
+      "limitations": "No exact 12-page App archive or bound take; no upload, send or fabricated response."
+    },
+    {
+      "id": "chatgpt_attachment_only_real_summary",
+      "status": "BLOCKED_PROVIDER_EVIDENCE",
+      "evidence": [
+        "../../../../marketing/video/PROVIDER_EVIDENCE.json"
+      ],
+      "limitations": "Required archive missing; fresh inspected browser page signed out. No attachment sent or private chat history inspected."
+    },
+    {
+      "id": "cleanup_evidence_reuse",
+      "status": "PASS",
+      "evidence": [
+        "../../../../marketing/video/CLEANUP_EVIDENCE.md",
+        "../../../../audits/S03/round-01.md",
+        "../../../../reports/S03/round-01/evidence/owner-device-summary.txt"
+      ],
+      "limitations": "Accepted audit and owner testimony, not a new deletion test. Standalone real Apple system-dialog media absent."
+    },
+    {
+      "id": "new_destructive_cleanup",
+      "status": "NOT_RUN",
+      "limitations": "Forbidden this round; no source deletion."
+    },
+    {
+      "id": "protected_paths_and_locked_plan",
+      "status": "PASS",
+      "evidence": [
+        "evidence/protected-paths.json"
+      ],
+      "changed_files": []
+    },
+    {
+      "id": "m01_full_movie_asc_testflight_release",
+      "status": "NOT_RUN",
+      "limitations": "Not authorized; STATUS and locked plan unchanged."
+    }
+  ],
+  "artifacts": {
+    "smoke_review": {
+      "path": "marketing/video/review/M00/smoke-review.mp4",
+      "bytes": 63221,
+      "sha256": "86e9397bba2a3d2a9052c1984a64f2a205f63551ff7d786aa88fb44644a1c5f3",
+      "produced_from_sha": "f6d464103607cc4f14c7862c24eb77eaadf321ad"
+    },
+    "full_size_stills": {
+      "frame-000.png": "1ff79e46e2bc8fa31aa4063d10ce5a50a38639db4284ddf1b4748bb06f192e52",
+      "frame-030.png": "8495af03410470f378b0c650d65c078b8852b1d2ab8ac53322b8ae30e6717f4d",
+      "frame-060.png": "e3aec5378775c88bfb700ca90fa176e36eca38c574e967412e36bfd3417683cf",
+      "frame-090.png": "a0acbdfe77191c8cf5ec16d99fdaa6c5af858e134e5d5c1085f4ca855dca23ec",
+      "frame-119.png": "fd2e7ba50814b7fbcf748a3efbfcb468aef2d46c795f30749ce2ecd754acb5a0"
+    }
+  },
+  "workbuddy": "BLOCKED",
+  "chatgpt": "BLOCKED",
+  "export": "BLOCKED_EXPORT_ASSET",
+  "owner_action_now": "None until the exact real 12-page export is bound; single deferred WorkBuddy attach-only take described in PROVIDER_EVIDENCE.json.",
+  "m01_unlocked": false,
+  "app_runtime_changed": false,
+  "asc_changed": false,
+  "testflight_uploaded": false,
+  "new_photo_deletion": false
+}

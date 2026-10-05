@@ -1,0 +1,19 @@
+◆  Capturing 12 frames at [0s, 0.5s, 1s, 1.5s, 1.983s, 1.5s, 0.5s, 1.983s, 0s, 1s, 1.25s, 1.45s] from video
+
+   Fonts: 2 loaded, 1 unused
+
+◇  12 snapshots saved to <WORKSPACE>\marketing\video\out\M00\seek
+   out\M00\seek\frame-00-at-0s.png
+   out\M00\seek\frame-01-at-0.5s.png
+   out\M00\seek\frame-02-at-1s.png
+   out\M00\seek\frame-03-at-1.5s.png
+   out\M00\seek\frame-04-at-1.983s.png
+   out\M00\seek\frame-05-at-1.5s.png
+   out\M00\seek\frame-06-at-0.5s.png
+   out\M00\seek\frame-07-at-1.983s.png
+   out\M00\seek\frame-08-at-0s.png
+   out\M00\seek\frame-09-at-1s.png
+   out\M00\seek\frame-10-at-1.25s.png
+   out\M00\seek\frame-11-at-1.45s.png
+   contact-sheet-1..2.jpg (grid view for AI review)
+[hyperframes] browserGpuMode probe → hardware (WebGL renderer vendor="Google Inc. (Intel)" renderer="ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x0000A7A0) Direct3D11 vs_5_0 ps_5_0, D3D11)")

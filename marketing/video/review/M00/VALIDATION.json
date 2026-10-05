@@ -1,0 +1,208 @@
+{
+  "status": "PASS",
+  "frames": 120,
+  "fps": "60/1",
+  "duration_seconds": 2,
+  "review_dimensions": [
+    540,
+    960
+  ],
+  "source_dimensions": [
+    1080,
+    1920
+  ],
+  "rec709": true,
+  "no_black_frame": true,
+  "seek_comparisons": [
+    {
+      "capture_indices": [
+        0,
+        8
+      ],
+      "changed_pixels": 0,
+      "sha256": "1ff79e46e2bc8fa31aa4063d10ce5a50a38639db4284ddf1b4748bb06f192e52"
+    },
+    {
+      "capture_indices": [
+        1,
+        6
+      ],
+      "changed_pixels": 0,
+      "sha256": "8495af03410470f378b0c650d65c078b8852b1d2ab8ac53322b8ae30e6717f4d"
+    },
+    {
+      "capture_indices": [
+        2,
+        9
+      ],
+      "changed_pixels": 0,
+      "sha256": "e3aec5378775c88bfb700ca90fa176e36eca38c574e967412e36bfd3417683cf"
+    },
+    {
+      "capture_indices": [
+        3,
+        5
+      ],
+      "changed_pixels": 0,
+      "sha256": "a0acbdfe77191c8cf5ec16d99fdaa6c5af858e134e5d5c1085f4ca855dca23ec"
+    },
+    {
+      "capture_indices": [
+        4,
+        7
+      ],
+      "changed_pixels": 0,
+      "sha256": "fd2e7ba50814b7fbcf748a3efbfcb468aef2d46c795f30749ce2ecd754acb5a0"
+    },
+    {
+      "capture_indices": [
+        10,
+        11
+      ],
+      "changed_pixels": 0,
+      "sha256": "1c50fcd3efe1d63ec7d465ef96473aed337fe4de3e7e16e93ae275a67debbb37"
+    }
+  ],
+  "hold_seconds": 0.2,
+  "fonts": [
+    {
+      "file": "msyh.ttc",
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+      "missing_glyphs": [],
+      "family": "Microsoft YaHei"
+    },
+    {
+      "file": "msyhbd.ttc",
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+      "missing_glyphs": [],
+      "family": "Microsoft YaHei"
+    },
+    {
+      "file": "segoeui.ttf",
+      "sha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd",
+      "missing_glyphs": [],
+      "family": "Segoe UI"
+    }
+  ],
+  "font_evidence_boundary": "Installed face cmap covers all characters; local @font-face, document.fonts readiness, official browser check with zero resource/runtime errors, and human inspection of actual CJK pixels. Not a cross-host font guarantee.",
+  "audio_source": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "peak_pcm": 1613,
+    "peak_dbfs": -26.156,
+    "clipped_samples": 0
+  },
+  "audio_rendered": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "peak_pcm": 1611,
+    "peak_dbfs": -26.167,
+    "clipped_samples": 0
+  },
+  "image_color_samples": {
+    "mountain_sky": {
+      "xy": [
+        576,
+        392
+      ],
+      "actual": [
+        185,
+        214,
+        221
+      ],
+      "reference": [
+        186,
+        214,
+        221
+      ]
+    },
+    "mountain_dark": {
+      "xy": [
+        581,
+        694
+      ],
+      "actual": [
+        55,
+        94,
+        101
+      ],
+      "reference": [
+        55,
+        94,
+        101
+      ]
+    },
+    "sun": {
+      "xy": [
+        886,
+        452
+      ],
+      "actual": [
+        255,
+        241,
+        195
+      ],
+      "reference": [
+        255,
+        241,
+        195
+      ]
+    },
+    "lecture_patch_1": {
+      "xy": [
+        102,
+        392
+      ],
+      "actual": [
+        250,
+        251,
+        253
+      ],
+      "reference": [
+        250,
+        251,
+        253
+      ]
+    },
+    "lecture_patch_2": {
+      "xy": [
+        372,
+        762
+      ],
+      "actual": [
+        250,
+        251,
+        253
+      ],
+      "reference": [
+        250,
+        251,
+        253
+      ]
+    },
+    "lecture_patch_3": {
+      "xy": [
+        492,
+        762
+      ],
+      "actual": [
+        250,
+        251,
+        253
+      ],
+      "reference": [
+        250,
+        251,
+        253
+      ]
+    }
+  },
+  "review_sha256": "86e9397bba2a3d2a9052c1984a64f2a205f63551ff7d786aa88fb44644a1c5f3",
+  "still_sha256": {
+    "frame-000.png": "1ff79e46e2bc8fa31aa4063d10ce5a50a38639db4284ddf1b4748bb06f192e52",
+    "frame-030.png": "8495af03410470f378b0c650d65c078b8852b1d2ab8ac53322b8ae30e6717f4d",
+    "frame-060.png": "e3aec5378775c88bfb700ca90fa176e36eca38c574e967412e36bfd3417683cf",
+    "frame-090.png": "a0acbdfe77191c8cf5ec16d99fdaa6c5af858e134e5d5c1085f4ca855dca23ec",
+    "frame-119.png": "fd2e7ba50814b7fbcf748a3efbfcb468aef2d46c795f30749ce2ecd754acb5a0"
+  }
+}
