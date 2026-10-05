@@ -52,7 +52,7 @@ tl.to("#chat",{opacity:1,duration:.33},10.5).to("#zip",{x:575,y:582,z:0,rotation
  .fromTo("#stream",{y:10,filter:"blur(4px)"},{y:-8,filter:"blur(5px)",duration:1.1,ease:"sine.inOut"},12.6)
  .to("#stream",{opacity:0,duration:.28},13.45).to("#summary",{opacity:1,duration:.32},13.7)
  .to("#summary",{opacity:0,y:-10,duration:.3},14.5)
- .to("#reply",{top:762,height:740,rotationY:0,rotationX:0,duration:.8},14.5)
+ .to("#reply",{y:-55,height:740,rotationY:0,rotationX:0,duration:.8},14.5)
  .fromTo("#report",{opacity:0,y:14},{opacity:1,y:0,duration:.52},14.75)
  .to("#zip",{x:629,y:550,scale:.6,duration:.6},14.5);
 // No large caption competes with the readable two-second result hold.
