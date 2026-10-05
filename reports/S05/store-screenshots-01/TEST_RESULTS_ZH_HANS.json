@@ -1,7 +1,7 @@
 {
   "status": "READY_FOR_AUDIT",
   "base_sha": "0e6c1670ffe1464532c11356d3d5824e459aff39",
-  "tested_render_implementation_sha": "74fb7b21803de1fb88ab53ecffa0003507d7a79b",
+  "tested_render_implementation_sha": "1aedf78720607288d8e5ae8c8d42af4e0c9df236",
   "raw_capture_code_sha": "46115cf73cd8c61324fe1692431ee8e1d77e4138",
   "capture_ci": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37265121277",
   "release_capture": "PASS (1 real UI test; selection/review/ready/pdf)",
@@ -44,27 +44,33 @@
   "final_images": [
     {
       "file": "store/zh-Hans/01-lecture-photos.png",
-      "sha256": "473485e1e47901b3b70e9d63dfa00be41426f4beeb219689bd521c534137385e"
+      "sha256": "e1ec593f61091e5f6671e1f4f7fd325eed814034626d4f38c78fc8cabb78dc3f"
     },
     {
       "file": "store/zh-Hans/02-select-and-sort.png",
-      "sha256": "b5222235f30f0f10df7c04946a3b90a0ef0c14ab1cb12c9c5a9fb5650bb6643c"
+      "sha256": "4edb4d53f7a0e4d7405fd086b578d1be856ffb9070042b658673d0d4ea15cb49"
     },
     {
       "file": "store/zh-Hans/03-generate-pdf-zip.png",
-      "sha256": "79df076d36f63bfe2b40ca49b29edd5ed771f6245f9f31e84f64f142ca089e2b"
+      "sha256": "bb39351a8899f25b95e8f652c4ad1b02e8865b6a224237d562418836b7532c39"
     },
     {
       "file": "store/zh-Hans/04-pdf-for-review.png",
-      "sha256": "da7eb7799bb4aa4a0faec9c9473428d4c5af029be7935072240a34393ec1a38a"
+      "sha256": "e9cc3148e34fe241610d7054ddbcd0fa89107847226894af63a7b6ce72d43bd3"
     },
     {
       "file": "store/zh-Hans/05-ai-zip-to-ai.png",
-      "sha256": "78dd8282dc87cbf90a5eb3ca74763c8fee7eb897daf59977e121e14e55b29426"
+      "sha256": "7546f1a5508431ec4542a719309becfa780f91d94b0dd77731b6ee432db77b31"
     },
     {
       "file": "store/zh-Hans/06-save-then-clean.png",
-      "sha256": "027b31df4f052d7fab8089d02799ae9a9cf81a041c671d1643813236f99bdc96"
+      "sha256": "23ed0470a3313bb70a31a1d375def171e2f441075fbdd08636f0ff037d06ea90"
     }
-  ]
+  ],
+  "focused_revision": {
+    "frame_3_headline": "一次生成 / AI ZIP 和 PDF。",
+    "six_brand_chips": "Lecture Asset",
+    "all_other_pixels_identical": true,
+    "runtime_and_raw_capture_changes": false
+  }
 }

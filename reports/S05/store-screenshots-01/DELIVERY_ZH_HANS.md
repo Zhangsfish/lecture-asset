@@ -11,7 +11,7 @@
 ## 真实中文 UI
 
 - Capture code SHA: `46115cf73cd8c61324fe1692431ee8e1d77e4138`
-- Render/validation tested implementation SHA: `74fb7b21803de1fb88ab53ecffa0003507d7a79b`
+- Render/validation tested implementation SHA: `1aedf78720607288d8e5ae8c8d42af4e0c9df236`
 - [真实 Release capture CI](https://github.com/Zhangsfish/lecture-asset/actions/runs/37265121277): PASS，1 个完整 UI 测试。
 - GitHub-hosted macos-26，实际 macOS 26.6.2 / Xcode 26.6 (17F113) / simulator SDK 26.5。
 - fresh iPhone 17 Pro Max simulator，AppleLanguages=zh-Hans、AppleLocale=zh_CN，Release 配置。
@@ -52,12 +52,12 @@ Static validation PASS：尺寸/ICC/hash、固定文案、字体一致、英文�
 
 ## Final PNG SHA256
 
-- `store/zh-Hans/01-lecture-photos.png`: `473485e1e47901b3b70e9d63dfa00be41426f4beeb219689bd521c534137385e`
-- `store/zh-Hans/02-select-and-sort.png`: `b5222235f30f0f10df7c04946a3b90a0ef0c14ab1cb12c9c5a9fb5650bb6643c`
-- `store/zh-Hans/03-generate-pdf-zip.png`: `79df076d36f63bfe2b40ca49b29edd5ed771f6245f9f31e84f64f142ca089e2b`
-- `store/zh-Hans/04-pdf-for-review.png`: `da7eb7799bb4aa4a0faec9c9473428d4c5af029be7935072240a34393ec1a38a`
-- `store/zh-Hans/05-ai-zip-to-ai.png`: `78dd8282dc87cbf90a5eb3ca74763c8fee7eb897daf59977e121e14e55b29426`
-- `store/zh-Hans/06-save-then-clean.png`: `027b31df4f052d7fab8089d02799ae9a9cf81a041c671d1643813236f99bdc96`
+- `store/zh-Hans/01-lecture-photos.png`: `e1ec593f61091e5f6671e1f4f7fd325eed814034626d4f38c78fc8cabb78dc3f`
+- `store/zh-Hans/02-select-and-sort.png`: `4edb4d53f7a0e4d7405fd086b578d1be856ffb9070042b658673d0d4ea15cb49`
+- `store/zh-Hans/03-generate-pdf-zip.png`: `bb39351a8899f25b95e8f652c4ad1b02e8865b6a224237d562418836b7532c39`
+- `store/zh-Hans/04-pdf-for-review.png`: `e9cc3148e34fe241610d7054ddbcd0fa89107847226894af63a7b6ce72d43bd3`
+- `store/zh-Hans/05-ai-zip-to-ai.png`: `7546f1a5508431ec4542a719309becfa780f91d94b0dd77731b6ee432db77b31`
+- `store/zh-Hans/06-save-then-clean.png`: `23ed0470a3313bb70a31a1d375def171e2f441075fbdd08636f0ff037d06ea90`
 
 ## 文件与停止点
 
@@ -69,3 +69,10 @@ Static validation PASS：尺寸/ICC/hash、固定文案、字体一致、英文�
 
 真机视觉 review = NOT_RUN；ASC 上传、TestFlight、App Review = NOT_RUN / 未授权。无已知 clipping/layout blocker。
 状态 **READY_FOR_AUDIT**，独立 PR；不合并，不改变英文冻结状态或 S05-D2 的 HOLD。
+
+## Owner focused revision — 2026-10-05
+
+第 3 张固定为“一次生成 / AI ZIP 和 PDF。”；六张顶部品牌 chip 改为 `Lecture Asset`。
+与先前 PR head e7c75f8 比较全部像素：变化仅限这六处品牌文字区域与第 3 张第二行标题；其余像素一致。
+重新 static validation PASS，carousel 已实际目视检查，无 clipping / overlap。
+英文最终图、手机 raw captures、production runtime/localization、ASC/TestFlight 均未修改；不重新运行 capture CI。
