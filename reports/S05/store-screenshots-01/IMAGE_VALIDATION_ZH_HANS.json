@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "base_sha": "0e6c1670ffe1464532c11356d3d5824e459aff39",
+  "capture_sha": "46115cf73cd8c61324fe1692431ee8e1d77e4138",
+  "capture_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37265121277",
+  "real_ui_locale": "zh-Hans / zh_CN",
+  "headlines_uniform": {
+    "size": 84,
+    "line_height": 126,
+    "origin": [
+      108,
+      222
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Microsoft YaHei",
+      "role": "regular",
+      "filename": "msyh.ttc",
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f"
+    },
+    {
+      "family": "Microsoft YaHei",
+      "role": "bold",
+      "filename": "msyhbd.ttc",
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6"
+    }
+  ],
+  "frozen_english_assets": [
+    {
+      "file": "store/en/01-lecture-photos.png",
+      "sha256": "c0f3044998704092c6fdb6e015e76f95364954eb641be1989a30267398f3ee8c",
+      "git_content_unchanged": true,
+      "byte_identical": true
+    },
+    {
+      "file": "store/en/02-select-and-sort.png",
+      "sha256": "bc98ce5fd8148ef0c50a7f186a76914ec7f6e00e941ac4796f34986be8cd66e7",
+      "git_content_unchanged": true,
+      "byte_identical": true
+    },
+    {
+      "file": "store/en/03-generate-pdf-zip.png",
+      "sha256": "20a40d266019df03b2b0e116e2c9919f59851096fee565ed8ddcf37bbac827a1",
+      "git_content_unchanged": true,
+      "byte_identical": true
+    },
+    {
+      "file": "store/en/04-pdf-for-review.png",
+      "sha256": "b30e528a12bf4364b7c19e86b917ce99dfa4e9c900374ac6b95500b6268e784a",
+      "git_content_unchanged": true,
+      "byte_identical": true
+    },
+    {
+      "file": "store/en/05-ai-zip-to-ai.png",
+      "sha256": "c385054376046041056ebb604338c2a54c99ba5dc33490dd0b8e7b2d1c8e27f5",
+      "git_content_unchanged": true,
+      "byte_identical": true
+    },
+    {
+      "file": "store/en/06-save-then-clean.png",
+      "sha256": "46dcdf5af0e997d13c96215022b1a631975b918df8f9fa8bb7bf399da3b6dcdd",
+      "git_content_unchanged": true,
+      "byte_identical": true
+    },
+    {
+      "file": "CONTACT_SHEET.png",
+      "sha256": "8a70e0883973ab4119c518d8be3bd26097b335eb3b3eaedbee20b4efe0135734",
+      "git_content_unchanged": true,
+      "byte_identical": true
+    },
+    {
+      "file": "RENDER_MANIFEST.json",
+      "sha256": "ee24840fd26761d73313fcbaa69bd846cfa8458dcd6324986ab6558d110a297a",
+      "git_content_unchanged": true,
+      "line_endings": "Existing Windows CRLF checkout normalized only for Git comparison"
+    },
+    {
+      "file": "IMAGE_VALIDATION.json",
+      "sha256": "ec0e222345a6c7a8bec771e20c4555096a9dd11be0ab146d5474a8ad21d90306",
+      "git_content_unchanged": true,
+      "line_endings": "Existing Windows CRLF checkout normalized only for Git comparison"
+    }
+  ],
+  "six_images": [
+    {
+      "file": "store/zh-Hans/01-lecture-photos.png",
+      "sha256": "473485e1e47901b3b70e9d63dfa00be41426f4beeb219689bd521c534137385e",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "mode": "RGB",
+      "expected_composite_pixels_changed": 0,
+      "uncovered_real_base_pixels_changed": 0,
+      "phone_geometry_matches_english": true
+    },
+    {
+      "file": "store/zh-Hans/02-select-and-sort.png",
+      "sha256": "b5222235f30f0f10df7c04946a3b90a0ef0c14ab1cb12c9c5a9fb5650bb6643c",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "mode": "RGB",
+      "expected_composite_pixels_changed": 0,
+      "uncovered_real_base_pixels_changed": 0,
+      "phone_geometry_matches_english": true
+    },
+    {
+      "file": "store/zh-Hans/03-generate-pdf-zip.png",
+      "sha256": "79df076d36f63bfe2b40ca49b29edd5ed771f6245f9f31e84f64f142ca089e2b",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "mode": "RGB",
+      "expected_composite_pixels_changed": 0,
+      "uncovered_real_base_pixels_changed": 0,
+      "phone_geometry_matches_english": true
+    },
+    {
+      "file": "store/zh-Hans/04-pdf-for-review.png",
+      "sha256": "da7eb7799bb4aa4a0faec9c9473428d4c5af029be7935072240a34393ec1a38a",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "mode": "RGB",
+      "expected_composite_pixels_changed": 0,
+      "uncovered_real_base_pixels_changed": 0,
+      "phone_geometry_matches_english": true
+    },
+    {
+      "file": "store/zh-Hans/05-ai-zip-to-ai.png",
+      "sha256": "78dd8282dc87cbf90a5eb3ca74763c8fee7eb897daf59977e121e14e55b29426",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "mode": "RGB",
+      "expected_composite_pixels_changed": 0,
+      "uncovered_real_base_pixels_changed": 0,
+      "phone_geometry_matches_english": true
+    },
+    {
+      "file": "store/zh-Hans/06-save-then-clean.png",
+      "sha256": "027b31df4f052d7fab8089d02799ae9a9cf81a041c671d1643813236f99bdc96",
+      "pixels": [
+        1320,
+        2868
+      ],
+      "mode": "RGB",
+      "expected_composite_pixels_changed": 0,
+      "uncovered_real_base_pixels_changed": 0,
+      "phone_geometry_matches_english": true
+    }
+  ],
+  "frame_5_destinations": [
+    "AI",
+    "我的电脑",
+    "对话",
+    "朋友"
+  ],
+  "frame_6_title": "允许“讲座照片整理”删除 12 张照片吗？",
+  "frame_6_body": "这些照片将从您所有设备的 iCloud 照片中删除，并在“最近删除”中保留 30 天。",
+  "overlay_disclosure": "Frames 5/6 are illustrative, not system Share Sheet / PhotoKit captures.",
+  "third_party_brand_assets": false,
+  "production_diff": [],
+  "asc_testflight_app_review": "NOT_RUN / not authorized",
+  "visual_carousel_review": "Record separately in DELIVERY_ZH_HANS.md after inspection"
+}
