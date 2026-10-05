@@ -4,13 +4,13 @@ Updated: 2026-10-05
 
 ## Now
 
-**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English App Store screenshots are final and merged. US-first v0.1 is now blocked on the narrow S05-D2 age-assurance runtime gate; no distribution RC or App Review is authorized yet.**
+**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English App Store screenshots are final and merged. PR #15 age-assurance work is HOLD_OWNER_DECISION, not merge/release-ready. Chinese Store PR #16 awaits audit. The owner-authorized AI-first promo has a locked specification; M00 bootstrap is READY as an isolated parallel marketing task. No distribution RC or App Review is authorized yet.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
 S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed [macOS Release build and focused simulator CI](https://github.com/Zhangsfish/lecture-asset/actions/runs/36967361233). PR #6 was independently audited **PASS_WITH_NOTES** at reviewed head `1f8a9b9bfbb055be8eecf3db5a382c11700ff392` and squash-merged as `a0305a2945f79c061082bbff390596751b8b648e`. [Audit](audits/S05/china-prep-01.md). The carried notes are release-polish checks, not a request to repeat S04 stress/destructive QA.
 
-## Dispatch — only one READY implementation task
+## Dispatch — one READY substage per isolated workstream
 
 | Stage | Status | Contract / evidence |
 |---|---|---|
@@ -29,10 +29,15 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-L10N | **PASS_WITH_NOTES** — PR #12 merged; same binary now has complete English + zh-Hans UI/InfoPlist localization | [audit](audits/S05/localization-01.md), [report](reports/S05/localization-01/DELIVERY.md) |
 | S05-ICON | **PASS_WITH_NOTES** — PR #13 merged; final V1 Calm cobalt icon accepted and packaged correctly | [audit](audits/S05/icon-final-01.md), [report](reports/S05/icon-final-01/DELIVERY.md) |
 | S05-SHOTS | **PASS** — PR #14 squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`; six English Store screenshots frozen for v0.1 | [audit](audits/S05/store-screenshots-01.md), [report](reports/S05/store-screenshots-01/DELIVERY.md) |
-| S05-D2 | **READY_FOR_CODEX** — minimal US age-assurance runtime gate; no RC/ASC/submission | [task](tasks/S05_D2_AGE_ASSURANCE.md) |
+| S05-D2 | **HOLD_OWNER_DECISION / DO_NOT_MERGE** — PR #15 head `4d400ca2e8c3762e3856914894cd19dda7127e06`; older-OS/account policy unresolved; no signed-device/Sandbox clearance | [PR #15](https://github.com/Zhangsfish/lecture-asset/pull/15), [task](tasks/S05_D2_AGE_ASSURANCE.md) |
+| S05-SHOTS-ZH | **READY_FOR_AUDIT** — PR #16 head `a979fb2eeb4004ddd84033a9c33cdc0d168c7d1b`; not merged or accepted by this status update | [PR #16](https://github.com/Zhangsfish/lecture-asset/pull/16) |
+| S05-MV-M00 | **READY_FOR_CODEX** — isolated toolchain smoke + asset/claim binding only; not full movie production | [task](tasks/S05_MV_00_BOOTSTRAP.md), [workspace](marketing/video/README.md), [locked spec](docs/PROMO_V1_SPEC.md) |
+| S05-MV-M01/M02/M03 | **BLOCKED_PREVIOUS_STAGE_REVIEW** — locked stills → animatic → final master | [stages](marketing/video/README.md) |
 | S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
 
 S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
+
+The promo is a parallel, separately authorized marketing lane, not a release prerequisite. One stage per PR; do not merge/cherry-pick sibling work. M00 does not authorize public posting, paid generation, App/runtime changes or reopening Store screenshot design. The new [AI-first promo specification](docs/PROMO_V1_SPEC.md) and [frame/copy plan](marketing/video/plan.json) supersede prior marketing-only 19s/21s/cleanup-last briefs; native onboarding remains unchanged.
 
 ## Verified baseline / do not repeat
 
@@ -47,12 +52,14 @@ S05-C is deferred until after v0.1. The first public release is free and contain
 - No new 100/200-page device run, repeated WeChat transfer or destructive real-photo cleanup solely for release. UI changes require focused navigation/safety regressions, not zero testing.
 - Developer Program, Bundle ID `com.zhangsfish.lectureasset`, App Store Connect app, Admin Team API key, GitHub Secrets and TestFlight upload workflow already exist. Do not reconfigure or request `.p8`.
 - PR #14 was final-audited at `ffd07883ede26e90ec29729eff0cb82b4c8837f8` and squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`. English 1320×2868 Store screenshots are frozen; do not reopen visual polish without a concrete App Review issue.
+- Promo foundation currently validates the specification/timing only: eight contiguous scenes, 1440 frames at 60 fps = 24 seconds. Actual HyperFrames render, pinned local environment and exact provider recordings remain M00 work, NOT_RUN here.
 
 ## Owner inputs / release gates
 
 - Exact public contact email: `zhangs.taq@gmail.com` — owner-approved for public Support/contact use.
 - Exact personal homepage URL: `https://zhang-shuo-portfolio.vercel.app/` — owner-approved public homepage.
 - Contact/homepage inputs for S05-B are now complete. No placeholder may enter a public page or final RC.
+- Latest owner branding direction: both store languages use **Lecture Asset**. This does not imply that every old localized runtime title has already been changed; movie tasks may not repaint native screenshots or silently change App strings.
 - Paid Apps agreement, banking/tax readiness and real IAP products: **NOT_CHECKED**; existing TestFlight success proves none of these.
 - China mainland: first evaluate and prepare. Apple Developer Support ICP/App-filing exemption/handling inquiry was submitted on 2026-10-03; case ID is kept private by the owner and not stored in the public repo. Awaiting Apple reply. Actual ASC availability/ICP fields remain **NOT_CHECKED**. No-error UI is not statutory exemption or approval.
 - Other regions: [dated review](docs/REGIONAL_RELEASE_REVIEW_2026-10-02.md). No automatic all-country/future-country availability. US/state age-assurance and Brazil requirements need explicit preflight, not assumptions based on a free utility.
@@ -65,6 +72,7 @@ S05-C is deferred until after v0.1. The first public release is free and contain
 3. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 4. [S05-A audit](audits/S05/china-prep-01.md)
 5. [S05-B audit](audits/S05/polish-01.md)
-6. Store screenshots are complete and merged. Next implementation task: [S05-D2 age assurance](tasks/S05_D2_AGE_ASSURANCE.md). China filing inquiry remains pending and separate. Do not authorize a distribution RC or App Review yet.
+6. Release lane: PR #15 remains HOLD; do not repeat the earlier D2 implementation dispatch or authorize RC/review. Chinese Store PR #16 awaits separate audit. China filing inquiry remains separate.
+7. Parallel video lane: execute only [M00 bootstrap](tasks/S05_MV_00_BOOTSTRAP.md); read the [locked specification](docs/PROMO_V1_SPEC.md) and [research](docs/PROMO_V1_RESEARCH.md). No movie exists yet.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
