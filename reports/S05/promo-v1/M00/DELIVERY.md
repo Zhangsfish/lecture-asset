@@ -9,7 +9,9 @@ Branch: `codex/s05-mv-m00-bootstrap`
 Base fetched main: `4ca64c8bcd154c5ee1c969f29d2bbdf9f3a0377b`  
 Tested implementation: `f6d464103607cc4f14c7862c24eb77eaadf321ad`  
 Final verification fetch: `a04fe9b073dbe06d264ac7fa62c707e4f594a617`  
-PR: pending creation; the PR head after evidence delivery identifies the report commit.
+PR: [#17](https://github.com/Zhangsfish/lecture-asset/pull/17); the final PR head
+identifies the evidence-only delivery commit. No implementation change after the
+tested SHA.
 
 The two new main commits only add the owner release-portal handoff and its STATUS
 link. M00, locked plan and protected product files are unchanged. They were not
