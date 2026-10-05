@@ -1,0 +1,755 @@
+{
+  "plan": {
+    "id": "lecture-asset-v2-director-r1",
+    "status": "READY_FOR_DIRECTOR_CUT_REVIEW",
+    "authority": "DIRECTOR_NEXT.md",
+    "instruction_sha256": "e68872e2b4309b1fe6e231b14878b473fccb123e2a64a2f64681f59dc1e670ef",
+    "branch_input_sha": "89c705d495deacd506ae1db6d19516c2b723f137",
+    "latest_main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
+    "original_pr_base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
+    "width": 1080,
+    "height": 1920,
+    "output_width": 720,
+    "output_height": 1280,
+    "fps": 60,
+    "duration_frames": 1320,
+    "duration_seconds": 22,
+    "variants": [
+      {
+        "id": "en-chatgpt",
+        "locale": "en",
+        "provider": "ChatGPT"
+      },
+      {
+        "id": "zh-workbuddy",
+        "locale": "zh-Hans",
+        "provider": "WorkBuddy"
+      }
+    ],
+    "personal_ids": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08"
+    ],
+    "lecture_ids": [
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12"
+    ],
+    "rules": {
+      "zh-Hans": [
+        "页图为准",
+        "索引定位",
+        "回图核对"
+      ],
+      "en": [
+        "Images first",
+        "Index to navigate",
+        "Verify on the page"
+      ]
+    },
+    "scenes": [
+      {
+        "id": 1,
+        "name": "mixed-library",
+        "in": 0,
+        "out": 180,
+        "copy": {
+          "zh-Hans": [
+            "舍不得删。",
+            "交给 AI，又太乱。"
+          ],
+          "en": [
+            "Too useful to delete.",
+            "Too scattered for AI."
+          ]
+        },
+        "view": "wide occluding photo space"
+      },
+      {
+        "id": 2,
+        "name": "selection-follow",
+        "in": 180,
+        "out": 330,
+        "copy": {
+          "zh-Hans": [
+            "选好。排好。"
+          ],
+          "en": [
+            "Select. Put it in order."
+          ]
+        },
+        "view": "follow the ordered pages"
+      },
+      {
+        "id": 3,
+        "name": "two-deliverables",
+        "in": 330,
+        "out": 480,
+        "copy": {
+          "zh-Hans": [
+            "PDF，留着回看。",
+            "AI ZIP，交给 AI。"
+          ],
+          "en": [
+            "PDF. Keep it for later.",
+            "AI ZIP. Ready to share."
+          ]
+        },
+        "view": "file split / sleeve-edge closeup"
+      },
+      {
+        "id": 4,
+        "name": "inside-the-zip",
+        "in": 480,
+        "out": 690,
+        "copy": {
+          "zh-Hans": [
+            "连怎么读，都准备好了。"
+          ],
+          "en": [
+            "Reading instructions included."
+          ]
+        },
+        "view": "continuous archive contents / small orbiting camera arc"
+      },
+      {
+        "id": 5,
+        "name": "external-handoff",
+        "in": 690,
+        "out": 840,
+        "copy": {
+          "zh-Hans": [
+            "交给 WorkBuddy。"
+          ],
+          "en": [
+            "Over to ChatGPT."
+          ]
+        },
+        "view": "same ZIP handed into external content space"
+      },
+      {
+        "id": 6,
+        "name": "readable-results",
+        "in": 840,
+        "out": 1062,
+        "copy": {
+          "zh-Hans": [
+            "总结。报告。"
+          ],
+          "en": [
+            "A summary. A report."
+          ]
+        },
+        "view": "summary assembles / report turns front / hold"
+      },
+      {
+        "id": 7,
+        "name": "saved-then-clear",
+        "in": 1062,
+        "out": 1170,
+        "copy": {
+          "zh-Hans": [
+            "留好资料，再清相册。"
+          ],
+          "en": [
+            "Keep the files. Clear the photos."
+          ]
+        },
+        "view": "same album / saved cue before departure"
+      },
+      {
+        "id": 8,
+        "name": "life-returned",
+        "in": 1170,
+        "out": 1320,
+        "copy": {
+          "zh-Hans": [
+            "把讲座交给 AI，",
+            "把相册还给自己。"
+          ],
+          "en": [
+            "Hand the lecture to AI.",
+            "Take back your photo library."
+          ]
+        },
+        "view": "front-facing personal photos / simultaneous slogan"
+      }
+    ],
+    "hero_frames": [
+      45,
+      264,
+      420,
+      594,
+      822,
+      1014,
+      1137,
+      1254
+    ],
+    "audio_cues": [
+      {
+        "frame": 3,
+        "name": "photo-wipe"
+      },
+      {
+        "frame": 184,
+        "name": "selection-sweep"
+      },
+      {
+        "frame": 296,
+        "name": "stack-settle"
+      },
+      {
+        "frame": 492,
+        "name": "sleeve-open"
+      },
+      {
+        "frame": 714,
+        "name": "handoff"
+      },
+      {
+        "frame": 966,
+        "name": "report-resolve"
+      },
+      {
+        "frame": 1090,
+        "name": "album-release"
+      }
+    ],
+    "saved_confirm_frame": 1077,
+    "first_departure_frame": 1087,
+    "slogan_settled_by_frame": 1182,
+    "source_summary": {
+      "source": "accepted fixtures 13–24 / assets/lecture/0001.jpg–0012.jpg",
+      "bullets": [
+        "Ask what the idea means.",
+        "Link it to a concrete example.",
+        "Return to it with a fresh question."
+      ],
+      "topics": [
+        "Test a small change",
+        "Review the evidence",
+        "Use a concrete example",
+        "Questions for discussion"
+      ],
+      "output_status": "editorial illustrative summary; not provider transcript"
+    }
+  },
+  "tested_implementation_sha": "99c455ac4d012ede22cc48091a2c430f99c263e6",
+  "keyframes": [
+    {
+      "locale": "en",
+      "scene": 1,
+      "frame": 45,
+      "seconds": 0.75,
+      "path": "review/director-r1/keyframes/en/S01.jpg",
+      "sha256": "aa6188556c4e82c0de19e3aa85b3e2b3eda90890f41e6ea35397703a28f16149",
+      "source_snapshot_sha256": "e9efc01b5ccb1ac00bee1d33cacba78e89b8c6313f85ad5281f7c2f3748211b8",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "en",
+      "scene": 2,
+      "frame": 264,
+      "seconds": 4.4,
+      "path": "review/director-r1/keyframes/en/S02.jpg",
+      "sha256": "265fd3e34b8e6f326aa211ca319f622aa2d7898b3966f1dca5f951906d21c7ab",
+      "source_snapshot_sha256": "a622dd78ef1a48481ed65901b817047b81978492a4f9243d827598e762718b3a",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "en",
+      "scene": 3,
+      "frame": 420,
+      "seconds": 7.0,
+      "path": "review/director-r1/keyframes/en/S03.jpg",
+      "sha256": "dce73a19beabff9d321577bf2a2516c36855eaf0b410fd7155680155878b64ac",
+      "source_snapshot_sha256": "d58fe3929ebf29399cc8c75cff6cea59951eef9e0c8ad3dacec2226bfdf29911",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "en",
+      "scene": 4,
+      "frame": 594,
+      "seconds": 9.9,
+      "path": "review/director-r1/keyframes/en/S04.jpg",
+      "sha256": "b274afab0ac2a9736bf3702daccf4dfd47203335061c542bba181aaf4472be37",
+      "source_snapshot_sha256": "a3111af13ce53c9f8c143c099b646fac632b8fef8341251360ce81c22a5321d0",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "en",
+      "scene": 5,
+      "frame": 822,
+      "seconds": 13.7,
+      "path": "review/director-r1/keyframes/en/S05.jpg",
+      "sha256": "6a48ba4a02839e17e0b9932d013ef3f657af91e5abbfb9348788844131581c54",
+      "source_snapshot_sha256": "804a25ac42bdc7d2e026825b3c0dc6d8bb9aae03aea3d74ea0741053679b9868",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "en",
+      "scene": 6,
+      "frame": 1014,
+      "seconds": 16.9,
+      "path": "review/director-r1/keyframes/en/S06.jpg",
+      "sha256": "d00d7c4c8ec05192a866961a06b090e51e0fdca44391d5e71b6e888769a893a4",
+      "source_snapshot_sha256": "601c9f8ac746acb2044ff1f83eb42e3b97d5ec9fc0fe547f5bd648d9390cee3b",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "en",
+      "scene": 7,
+      "frame": 1137,
+      "seconds": 18.95,
+      "path": "review/director-r1/keyframes/en/S07.jpg",
+      "sha256": "1917d8e992a6f6ccb09abc1f05b111e20a020d19115339f1c3add1683ad8de30",
+      "source_snapshot_sha256": "7e4982150360aad273b1fa39943fbde91d662ec049e5eb37dd5350b60edfbbe9",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "en",
+      "scene": 8,
+      "frame": 1254,
+      "seconds": 20.9,
+      "path": "review/director-r1/keyframes/en/S08.jpg",
+      "sha256": "d7f821a7f9ab8b058a71a093d4687b732fb74cd110d0c2eba682cb4fb0abb5bb",
+      "source_snapshot_sha256": "c39fd142edc3cd1e3bff7de89d2f2f156da90775dcda19f7a5e9231b5953d480",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 1,
+      "frame": 45,
+      "seconds": 0.75,
+      "path": "review/director-r1/keyframes/zh-Hans/S01.jpg",
+      "sha256": "d5fb14ccc3e23cd42868db13e4252b1d3342d6bb02f597cc8acef73e56d4fd29",
+      "source_snapshot_sha256": "eec288dcc0e78fb29806c439a5d81f27ab36db0c321d50e89456838e6f02cbdd",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 2,
+      "frame": 264,
+      "seconds": 4.4,
+      "path": "review/director-r1/keyframes/zh-Hans/S02.jpg",
+      "sha256": "3757e29c9c46d9bb05c26f7530fc95a7f74aad5ec9271dbda0855d97c23d789d",
+      "source_snapshot_sha256": "3e83b9baf25865c92b13d463a8250f187625ee3fcca1f24ad500246a7456061b",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 3,
+      "frame": 420,
+      "seconds": 7.0,
+      "path": "review/director-r1/keyframes/zh-Hans/S03.jpg",
+      "sha256": "4f3e6215b050ecc28d57394735ecd4f1789813daaa0f69ba1c6ca15d974f3b8f",
+      "source_snapshot_sha256": "b7588cec20e55002899d7760ef5e6e04bc7bc2c7130a68135304a3715c502d9b",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 4,
+      "frame": 594,
+      "seconds": 9.9,
+      "path": "review/director-r1/keyframes/zh-Hans/S04.jpg",
+      "sha256": "14cd58eed847c43bae9547898ffad044044846683f3949a89dcb1a4707b0e60a",
+      "source_snapshot_sha256": "755a9d57887a6c96b8e15dfe4cd800df30c35add1bc19410b7bee87ffce237ab",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 5,
+      "frame": 822,
+      "seconds": 13.7,
+      "path": "review/director-r1/keyframes/zh-Hans/S05.jpg",
+      "sha256": "f0723f97bc7dc483509b85dbd35fba4db1af9d02f53cecc4ef21ffb0761b9e97",
+      "source_snapshot_sha256": "51cb59eec0a1a89a57c172f43cbb41bccae991a0375d3366fb7bc111434d8a12",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 6,
+      "frame": 1014,
+      "seconds": 16.9,
+      "path": "review/director-r1/keyframes/zh-Hans/S06.jpg",
+      "sha256": "111a0e09fc79d0f4ca2905ede597b4961725002c200f74a50a77b9d07b757126",
+      "source_snapshot_sha256": "9ea5d57c6209849216f49fea6c4526729145f764ce3011ab4766c7351b51aca9",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 7,
+      "frame": 1137,
+      "seconds": 18.95,
+      "path": "review/director-r1/keyframes/zh-Hans/S07.jpg",
+      "sha256": "7767a2b7db4d446bc6635c152db1bf53867218d91d02576ce3d25b4fd32e1917",
+      "source_snapshot_sha256": "18b809c8088ddbfccd1c904e8482fd24e7c9d401d6cd7baa29b7ab77fea840e6",
+      "pixels": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 8,
+      "frame": 1254,
+      "seconds": 20.9,
+      "path": "review/director-r1/keyframes/zh-Hans/S08.jpg",
+      "sha256": "3b78b63ab7b2274d5616c9c210e68a74154ab0f5fb7bb1c52fcf386fb775f761",
+      "source_snapshot_sha256": "6e2da44a688cd674b360dabd26a952b8a04a8614af4bb1a4bb7f193dc1265d77",
+      "pixels": [
+        1080,
+        1920
+      ]
+    }
+  ],
+  "review_proxies": [
+    {
+      "locale": "en",
+      "scene": 1,
+      "frame": 45,
+      "source": "review/director-r1/keyframes/en/S01.jpg",
+      "source_sha256": "aa6188556c4e82c0de19e3aa85b3e2b3eda90890f41e6ea35397703a28f16149",
+      "proxy_sha256": "ed325e23db31b114928481cc870d7ef39f85430d7a4eb016962468191be2e6c6",
+      "path": "review/director-r1/proxy/en/S01.jpg",
+      "bytes": 8188,
+      "quality": 44,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "7501a70f6c6ebdd3f20156035c95aea728905a5ee941e9dbbd3562db2462c091"
+    },
+    {
+      "locale": "en",
+      "scene": 2,
+      "frame": 264,
+      "source": "review/director-r1/keyframes/en/S02.jpg",
+      "source_sha256": "265fd3e34b8e6f326aa211ca319f622aa2d7898b3966f1dca5f951906d21c7ab",
+      "proxy_sha256": "3c1abdbeae55f93cfe759c7d32da6d5dcbb731403d903e3ab7cdd5b2b51f40df",
+      "path": "review/director-r1/proxy/en/S02.jpg",
+      "bytes": 7014,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "08a5bf7445c8cbaf9494dc9930b392df030bdffc41e06979cf263a466dea84f9"
+    },
+    {
+      "locale": "en",
+      "scene": 3,
+      "frame": 420,
+      "source": "review/director-r1/keyframes/en/S03.jpg",
+      "source_sha256": "dce73a19beabff9d321577bf2a2516c36855eaf0b410fd7155680155878b64ac",
+      "proxy_sha256": "3ab08d0f1e522f3ce6d4cf15a94535b23e6cc2cc1f83cc8d2557ead936662747",
+      "path": "review/director-r1/proxy/en/S03.jpg",
+      "bytes": 5112,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "96473cabd91aa473c3fa9ec48c5ddf16fad9314bb0aa5ae9944edd83582a7d7a"
+    },
+    {
+      "locale": "en",
+      "scene": 4,
+      "frame": 594,
+      "source": "review/director-r1/keyframes/en/S04.jpg",
+      "source_sha256": "b274afab0ac2a9736bf3702daccf4dfd47203335061c542bba181aaf4472be37",
+      "proxy_sha256": "67629f19f6e59c66b009260eb491e7128fd5a46676b53b4ac6334ff845215fd4",
+      "path": "review/director-r1/proxy/en/S04.jpg",
+      "bytes": 7387,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "06795354821b4e913d4a2ea7a505e83b83675f1dc6f9042b600259ec3f2c0722"
+    },
+    {
+      "locale": "en",
+      "scene": 5,
+      "frame": 822,
+      "source": "review/director-r1/keyframes/en/S05.jpg",
+      "source_sha256": "6a48ba4a02839e17e0b9932d013ef3f657af91e5abbfb9348788844131581c54",
+      "proxy_sha256": "f1a7ebd3c444b15abde4627a68c151ddcbc81a6aa4f5232718784bdf7f35606f",
+      "path": "review/director-r1/proxy/en/S05.jpg",
+      "bytes": 6312,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "01157eaec8835828d4b9fc0d4b5f06cabf7b11446d904e1be87426b67f62b9c5"
+    },
+    {
+      "locale": "en",
+      "scene": 6,
+      "frame": 1014,
+      "source": "review/director-r1/keyframes/en/S06.jpg",
+      "source_sha256": "d00d7c4c8ec05192a866961a06b090e51e0fdca44391d5e71b6e888769a893a4",
+      "proxy_sha256": "659a4e837861698963e3828134039594f20ea7014633c5df9352851a648d6c30",
+      "path": "review/director-r1/proxy/en/S06.jpg",
+      "bytes": 6183,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "dd5dfe8934cdb80d4ed70ea582fa6862a2e7f4e2d5fb9a287cd92e030be4bf03"
+    },
+    {
+      "locale": "en",
+      "scene": 7,
+      "frame": 1137,
+      "source": "review/director-r1/keyframes/en/S07.jpg",
+      "source_sha256": "1917d8e992a6f6ccb09abc1f05b111e20a020d19115339f1c3add1683ad8de30",
+      "proxy_sha256": "44c0aefcb390533669c50d6c7527cb951edbdaf0381748e779f51862d20f270f",
+      "path": "review/director-r1/proxy/en/S07.jpg",
+      "bytes": 8009,
+      "quality": 74,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "d97a02e2757d52e103bae0c6f05724161e7ec38fd3a35fa215f9c826ee037809"
+    },
+    {
+      "locale": "en",
+      "scene": 8,
+      "frame": 1254,
+      "source": "review/director-r1/keyframes/en/S08.jpg",
+      "source_sha256": "d7f821a7f9ab8b058a71a093d4687b732fb74cd110d0c2eba682cb4fb0abb5bb",
+      "proxy_sha256": "8b4cdf6eb88c10d42804915ef40c2e508b398df119a9c72729cbdd04a0440f71",
+      "path": "review/director-r1/proxy/en/S08.jpg",
+      "bytes": 8171,
+      "quality": 66,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "3c35f40756df546b080a9cac8929e5f76a14edbf3e9f97c8eab61c1859bfaa60"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 1,
+      "frame": 45,
+      "source": "review/director-r1/keyframes/zh-Hans/S01.jpg",
+      "source_sha256": "d5fb14ccc3e23cd42868db13e4252b1d3342d6bb02f597cc8acef73e56d4fd29",
+      "proxy_sha256": "e95de60e234548fc392871cab5c1ae24a86dc6a5da457636099e4e7d3c3eb787",
+      "path": "review/director-r1/proxy/zh-Hans/S01.jpg",
+      "bytes": 8044,
+      "quality": 44,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "a13feef8dfc35b6531e762378307a57ce47bc0ff212f12f2aaa564738d017168"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 2,
+      "frame": 264,
+      "source": "review/director-r1/keyframes/zh-Hans/S02.jpg",
+      "source_sha256": "3757e29c9c46d9bb05c26f7530fc95a7f74aad5ec9271dbda0855d97c23d789d",
+      "proxy_sha256": "908cc1151a9fb271fcf46cc360e400706490deabcdd23662ca29815de10cb291",
+      "path": "review/director-r1/proxy/zh-Hans/S02.jpg",
+      "bytes": 7006,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "b8c702f26c3041ba0bcc0b25644ba411bdfc4b68f55c631973c9653d06d7635e"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 3,
+      "frame": 420,
+      "source": "review/director-r1/keyframes/zh-Hans/S03.jpg",
+      "source_sha256": "4f3e6215b050ecc28d57394735ecd4f1789813daaa0f69ba1c6ca15d974f3b8f",
+      "proxy_sha256": "b8968979053868f0561c090a56053f7abee4620fd7740f357d425eb667fb2096",
+      "path": "review/director-r1/proxy/zh-Hans/S03.jpg",
+      "bytes": 5043,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "2371014ef15368f5c346dc2cff2ddce365129afae843ef70da74aa9bad10a8ca"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 4,
+      "frame": 594,
+      "source": "review/director-r1/keyframes/zh-Hans/S04.jpg",
+      "source_sha256": "14cd58eed847c43bae9547898ffad044044846683f3949a89dcb1a4707b0e60a",
+      "proxy_sha256": "5e606302a3228843a1b423d9b333c517e4a3940a685f57ec5b4541c4c7b707c1",
+      "path": "review/director-r1/proxy/zh-Hans/S04.jpg",
+      "bytes": 7382,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "fd8648eb6b5ce0efd7c188536194c70b63fc21f242518609bdb895a93becb71c"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 5,
+      "frame": 822,
+      "source": "review/director-r1/keyframes/zh-Hans/S05.jpg",
+      "source_sha256": "f0723f97bc7dc483509b85dbd35fba4db1af9d02f53cecc4ef21ffb0761b9e97",
+      "proxy_sha256": "6ef77f5a7ef7a3282c2c60652e8fcce89ed13b1145034209a0846a8483af5459",
+      "path": "review/director-r1/proxy/zh-Hans/S05.jpg",
+      "bytes": 6786,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "fc6dcd358f7e7667adb59b2ad67a34e9a717441dc1ce5cd9355f611fe62680af"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 6,
+      "frame": 1014,
+      "source": "review/director-r1/keyframes/zh-Hans/S06.jpg",
+      "source_sha256": "111a0e09fc79d0f4ca2905ede597b4961725002c200f74a50a77b9d07b757126",
+      "proxy_sha256": "28f6e28187d133f1e38c4a4b8113336554ac8d1cbc3fd57c5c4c8c032b132bf8",
+      "path": "review/director-r1/proxy/zh-Hans/S06.jpg",
+      "bytes": 5759,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "023c725ad2ad9c739239f33c7c88b29879737b950b59d737ea59073fb1ab351d"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 7,
+      "frame": 1137,
+      "source": "review/director-r1/keyframes/zh-Hans/S07.jpg",
+      "source_sha256": "7767a2b7db4d446bc6635c152db1bf53867218d91d02576ce3d25b4fd32e1917",
+      "proxy_sha256": "96cc674a528400a102c8157f1e18f52f51431327c64f35e5685061cb188de493",
+      "path": "review/director-r1/proxy/zh-Hans/S07.jpg",
+      "bytes": 8161,
+      "quality": 74,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "b1f33a291a88675a9511e3135d31f6f09466d6c3c9ed744b740a74f6006c22f6"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 8,
+      "frame": 1254,
+      "source": "review/director-r1/keyframes/zh-Hans/S08.jpg",
+      "source_sha256": "3b78b63ab7b2274d5616c9c210e68a74154ab0f5fb7bb1c52fcf386fb775f761",
+      "proxy_sha256": "f531f3eeb962a48117a4a3a48502dafca98c132df67bdbc98eff3cb838e13ce0",
+      "path": "review/director-r1/proxy/zh-Hans/S08.jpg",
+      "bytes": 8028,
+      "quality": 64,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "9cd32bb9c34d569b31f8815f69544719860337716bc1320d1cbf2c9b09256fbb"
+    }
+  ],
+  "actual_object_ids": {
+    "life": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08"
+    ],
+    "source_pages": [
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12"
+    ],
+    "persistent_products": [
+      "zip-hero",
+      "pdf-hero",
+      "readme-layer",
+      "mapping",
+      "summary",
+      "report"
+    ]
+  }
+}

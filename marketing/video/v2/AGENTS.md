@@ -2,7 +2,12 @@
 
 ## Current dispatch
 
-**Read `DIRECTOR_NEXT.md` first. Status: READY_FOR_CODEX / R1_FIX_AND_ANIMATIC_AUTHORIZED.**
+**Read `DIRECTOR_NEXT.md` first. Status: READY_FOR_DIRECTOR_CUT_REVIEW.**
+
+R1 implementation and complete bilingual cuts are delivered in review/director-r1/.
+Wait for the director's next instruction; this status does not approve visuals,
+authorize a merge or begin Phase C. The input directive's authorization remains
+preserved verbatim in DIRECTOR_NEXT.md.
 
 Continue PR #18 on `codex/s05-promo-v2-style-frames`.
 The owner has delegated creative decisions and review to the director. The director has explicitly authorized correcting the source/composition findings and producing a complete 22-second R1 animatic. Do not stop for a new owner design vote. This is not a declaration that the original Phase A passed final visual inspection.
