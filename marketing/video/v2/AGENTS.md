@@ -1,47 +1,54 @@
-# V2 launch teaser — task memory
+# V2 launch teaser — current task memory
 
-## Current dispatch
+## Dispatch
 
-**Read `DIRECTOR_NEXT.md` first. Status: READY_FOR_DIRECTOR_CUT_REVIEW.**
+**READY_FOR_CODEX / R2_FULL_CUT_AUTHORIZED**
 
-R1 implementation and complete bilingual cuts are delivered in review/director-r1/.
-Wait for the director's next instruction; this status does not approve visuals,
-authorize a merge or begin Phase C. The input directive's authorization remains
-preserved verbatim in DIRECTOR_NEXT.md.
+Read `DIRECTOR_NEXT.md`, then complete `DIRECTOR_R2.md` and the findings in `review/director-r1/DIRECTOR_AUDIT_R2.md`.
+Continue PR #18 on `codex/s05-promo-v2-style-frames`. Fetch latest refs first. No new PR, no self-merge.
 
-Continue PR #18 on `codex/s05-promo-v2-style-frames`.
-The owner has delegated creative decisions and review to the director. The director has explicitly authorized correcting the source/composition findings and producing a complete 22-second R1 animatic. Do not stop for a new owner design vote. This is not a declaration that the original Phase A passed final visual inspection.
+The owner delegates creative decisions to the director. R1 is not visually approved. R2 is authorized as a complete high-fidelity revision, not another direction proposal. Do not ask for an owner design vote, real-device recording or ZIP/provider evidence task.
 
-Priority inside this workspace:
-1. `DIRECTOR_NEXT.md` — current executable direction, bilingual copy/timing and required output.
-2. `review/phase-a/DIRECTOR_AUDIT_R1.md` — audit scope, limits and findings tied to reviewed head.
-3. Existing creative/shot/asset documents, updated to match R1 during implementation.
+Priority:
+1. DIRECTOR_R2.md — complete current scope, art direction, bilingual copy, timing, icons, chat and CTA.
+2. DIRECTOR_NEXT.md — dispatch summary.
+3. review/director-r1/DIRECTOR_AUDIT_R2.md — findings and actual inspection limits.
+4. Existing creative/plan/shot/asset docs, synchronized by this implementation.
 
-R1 supersedes obsolete `Phase A only`, `await owner approval`, old subtitle locks and old per-scene timings in this folder. It does not authorize final publication, merge, account actions or any App change.
+R2 replaces old 22-second/no-logo/no-chat/no-CTA instructions. New duration: 26.000s / 1560 frames / 60fps. Working and final master: 1080×1920. Provide 720×1280 previews and muted versions.
 
-## Product and upstream context
+## Required creative changes
 
-- Product authority: ../../../docs/PRODUCT_DECISIONS.md and ../../../docs/SPEC.md.
-- The v2 conceptual teaser supersedes v1 light/native-demo art direction for this folder.
-- Old v1 M00 export/provider-recording blockers are NOT prerequisites for rendering this conceptual v2 film. Do not request a ZIP export, provider account login, owner recording or a new destructive test.
-- Frozen Store art is reference only; never overwrite or rerender it.
-- Existing renderer/tool locks can be reused; do not restart technology selection.
+- One photographic/charcoal/neutral-paper material and typography system; no XP-like beveled files or cream settings panels.
+- Caption plates removed; use the accepted closing slogan as the typography reference.
+- Correct official ChatGPT and WorkBuddy icons in a conceptual send/receive exchange.
+- Right outgoing ZIP, left AI reply, brief bounded blurred character flow, readable report emerging from the same reply.
+- Exact Chinese slogan preserved; actual App Store badge, direct app destination/search cue and verified QR encoding in the end card.
 
-## Execution and file map
+Official assets are permitted for these factual destination/availability references; no invented partnership, rebuilt near-copy logo or fabricated actual transcript.
 
-- DIRECTOR_NEXT.md: the only current implementation task.
-- CREATIVE_BRIEF.md / STYLE_RULES.md / SHOTLIST.md / STORYBOARD.md / plan.json: synchronize with R1, do not leave contradictory active copy/timing.
-- ASSET_MANIFEST.md / PROVIDER_VARIANTS.md: provenance, real bilingual localization, concept-vs-proof limits.
-- src/ and scripts/: persistent editable scene objects on one frame-addressable timeline, never a slideshow of eight flattened PNGs.
-- assets/: existing photographic atlas, accepted lecture fixtures and icon. Reuse P01–P08 identity/crop in opening and ending.
-- review/phase-a/: historical evidence, do not overwrite.
-- review/director-r1/: new full MP4s, keyframes, compact visual proxies and actual QA.
-- out/, node_modules/, temporary local fonts: ignored; no font binaries in GitHub or delivery.
+## Product and upstream
 
-## Boundaries and stopping point
+Product facts: ../../../docs/PRODUCT_DECISIONS.md and ../../../docs/SPEC.md.
+V2 is a conceptual promo, not an App tutorial or App Store App Preview. Old v1 export/provider-recording blockers do not block this task. No iOS code or real account action is needed.
 
-Abstract external AI workspace and summary/report are editorial concepts, not recorded provider transcripts. Preserve the PDF/ZIP structure, external-AI distinction, and saved-archive-before-cleanup sequence. No quantitative instant speed/storage claims or invented endorsement.
+Preserve the story: crowded mixed life/lecture photos → selected/ordered lecture → separate PDF + AI ZIP → reading guidance → external AI summary/report → saved archive → remove lecture photos → same personal images remain.
+Keep P01–P08 atlas/crops, lecture fixtures and accepted icon. Do not reopen M00 artwork or technology choice.
 
-All implementation changes stay under marketing/video/v2/. Do not touch App, Packages, project, Store assets, ASC, TestFlight or sibling PRs. No purchases, public posting or new accounts.
+## Files and history
 
-Deliver the two 22-second R1 animatics and review images; stop at **READY_FOR_DIRECTOR_CUT_REVIEW**. No self-merge, no final visual approval, no automatic Phase C. Ask no owner design questions.
+- src/ and scripts/: one frame-addressable rendering timeline with persistent scene objects.
+- assets/: existing photography/product art plus official brand/badge assets recorded by URL/hash.
+- review/phase-a/ and review/director-r1/: historical outputs, do not overwrite.
+- review/director-r2/: complete new cuts, contact sheets, chat strips, end-card images and actual QA.
+- PUBLISH_LINK.json: target app ID/URL, QR decoding and independently verified public availability.
+- out/, node_modules/, temporary fonts: ignored. Never distribute font binaries.
+
+## Publication boundary
+
+Preparing the requested download CTA is authorized. The planned direct URL uses App ID 6816814541. A public LIVE/download check is still required before calling it ready to post. If not verified, finish the launch-ready review cut and report PUBLISH_HOLD_NOT_LIVE_VERIFIED; do not stop production or falsely label the app downloadable now.
+No instant processing/GB reclamation claims; preserve saved-archive-before-cleanup. One restrained illustrative-workflow label is sufficient for the conceptual output.
+
+All implementation stays under marketing/video/v2/. No App/Packages/project/Store/ASC/TestFlight/sibling PR mutation, paid service, public posting or new account.
+
+Stop at **READY_FOR_DIRECTOR_FINAL_REVIEW**. Return only PR/head, bilingual MP4s, AI-interaction strip, download end card and real unresolved items.
