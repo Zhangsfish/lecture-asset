@@ -1,0 +1,18 @@
+{
+  "product_baseline_sha": "118942553a84c2ac4466973f6a64989dd5165b61",
+  "current_main_at_start": "4c76926cb9b8421e50c0c06b99e9964b7a081137",
+  "release_checkout_sha": "943d587526055a35e2bfb6eeedc409b58d9778cc",
+  "protected_paths": [
+    "App",
+    "Packages",
+    "AppResources",
+    "schemas",
+    "project.yml",
+    "reports/S05/store-screenshots-01",
+    ".github/workflows/s00-testflight.yml",
+    "scripts/s00_testflight_release.sh"
+  ],
+  "product_sources_identical": true,
+  "historical_internal_pipeline_unchanged": true,
+  "xcodegen_entitlement_format_only": false
+}

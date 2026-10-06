@@ -1,0 +1,9 @@
+{
+  "version": "0.1.0",
+  "build": "34.1",
+  "upload": "ACCEPTED",
+  "uploaded_ipa_sha256": "af25acb30c012b3a8b39ca6ee4a48af20bf29e7f46838bb157698e895bd82249",
+  "same_verified_signed_ipa": true,
+  "testFlightInternalTestingOnly": "OMITTED",
+  "appReview": "NOT_SUBMITTED"
+}

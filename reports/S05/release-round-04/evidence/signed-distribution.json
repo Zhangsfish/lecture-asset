@@ -1,0 +1,40 @@
+{
+  "codesign_verification": "PASS",
+  "distribution_profile_declared_age_range": "true",
+  "signed_app_declared_age_range": "true",
+  "signed_application_identifier_correct": true,
+  "application_identifier_correct": true,
+  "signed_team_identifier_correct": true,
+  "team_identifier_correct": true,
+  "signed_get_task_allow": false,
+  "get_task_allow": false,
+  "profile_type": "app-store",
+  "apple_distribution_certificate": true,
+  "raw_profile_retained_or_published": false,
+  "contract_result": "PASS",
+  "ipa_sha256": "af25acb30c012b3a8b39ca6ee4a48af20bf29e7f46838bb157698e895bd82249",
+  "signed_entitlements": {
+    "declared_age_range": true,
+    "application_identifier_correct": true,
+    "team_identifier_correct": true,
+    "get_task_allow_not_true": true,
+    "profile_declared_age_range": true,
+    "app_store_distribution_profile": true,
+    "profile_not_expired": true
+  },
+  "metadata": {
+    "CFBundleIdentifier": "com.zhangsfish.lectureasset",
+    "CFBundleShortVersionString": "0.1.0",
+    "CFBundleVersion": "34.1",
+    "MinimumOSVersion": "18.0",
+    "ITSAppUsesNonExemptEncryption": false
+  },
+  "privacy": {
+    "app_manifest": true,
+    "zipfoundation_manifest": true,
+    "bundled_manifest_paths": [
+      "PrivacyInfo.xcprivacy",
+      "ZIPFoundation_ZIPFoundation.bundle/PrivacyInfo.xcprivacy"
+    ]
+  }
+}

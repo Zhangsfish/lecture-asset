@@ -1,0 +1,12 @@
+[
+  {
+    "synthetic_signing_failure": false,
+    "result": "PASS",
+    "not_actual_macos_signing": true
+  },
+  {
+    "synthetic_signing_failure": true,
+    "result": "PASS",
+    "not_actual_macos_signing": true
+  }
+]
