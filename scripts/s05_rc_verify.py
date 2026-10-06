@@ -13,7 +13,7 @@ import sys
 
 # Owner accepted the exact 33.1 product sources, including the brand-only fix.
 BASELINE = "118942553a84c2ac4466973f6a64989dd5165b61"
-MAIN = "fbafc7a227bb67af75f586a515feaafa757af05f"
+MAIN = "4c76926cb9b8421e50c0c06b99e9964b7a081137"
 BUNDLE = "com.zhangsfish.lectureasset"
 PROTECTED = ["App", "Packages", "AppResources", "schemas", "project.yml",
              "reports/S05/store-screenshots-01",
@@ -63,88 +63,84 @@ def age_state(values):
     return "missing" if key not in values else ("true" if values[key] is True else "false")
 
 
-def age_contract(entitlements, profile, stage):
-    require(stage in ("archive", "distribution"), "INVALID_SIGNATURE_STAGE")
-    prefix = "ARCHIVE" if stage == "archive" else "DISTRIBUTION"
+def age_contract(entitlements, profile):
     require(profile.get("Entitlements", {}).get("com.apple.developer.declared-age-range") is True,
-            prefix + "_PROFILE_DECLARED_AGE_RANGE_MISSING")
+            "DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_MISSING")
     require(entitlements.get("com.apple.developer.declared-age-range") is True,
-            prefix + "_SIGNED_ENTITLEMENT_DROPPED")
+            "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED")
 
 
-def entitlement_contract(entitlements, profile, team, stage="distribution"):
+def entitlement_contract(entitlements, profile, team):
     expected_app = team + "." + BUNDLE
-    age_contract(entitlements, profile, stage)
+    age_contract(entitlements, profile)
     require(entitlements.get("application-identifier") == expected_app, "SIGNED_APP_IDENTIFIER_MISMATCH")
     require(entitlements.get("com.apple.developer.team-identifier") == team, "SIGNED_TEAM_MISMATCH")
-    if stage == "distribution":
-        require(entitlements.get("get-task-allow") is not True, "SIGNED_DEBUG_ENTITLEMENT")
+    require(entitlements.get("get-task-allow") is not True, "SIGNED_DEBUG_ENTITLEMENT")
     allowed = profile.get("Entitlements", {})
-    require(allowed.get("com.apple.developer.declared-age-range") is True,
-            "DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_MISSING")
     require(allowed.get("application-identifier") == expected_app, "PROFILE_APP_IDENTIFIER_MISMATCH")
     require(allowed.get("com.apple.developer.team-identifier") == team, "PROFILE_TEAM_MISMATCH")
-    if stage == "distribution":
-        require(allowed.get("get-task-allow") is not True, "PROFILE_DEBUG_ENTITLEMENT")
+    require(allowed.get("get-task-allow") is not True, "PROFILE_DEBUG_ENTITLEMENT")
     require(team in profile.get("TeamIdentifier", []), "PROFILE_TEAM_IDENTIFIER_MISMATCH")
-    is_store = not profile.get("ProvisionedDevices") and not profile.get("ProvisionsAllDevices") and allowed.get("get-task-allow") is not True
-    if stage == "distribution":
-        require(is_store, "PROFILE_NOT_APP_STORE_DISTRIBUTION")
+    require(not profile.get("ProvisionedDevices") and not profile.get("ProvisionsAllDevices"),
+            "PROFILE_NOT_APP_STORE_DISTRIBUTION")
     expiry = profile.get("ExpirationDate")
     require(isinstance(expiry, datetime.datetime), "PROFILE_EXPIRY_MISSING")
     require(expiry.replace(tzinfo=datetime.timezone.utc) > datetime.datetime.now(datetime.timezone.utc),
             "PROFILE_EXPIRED")
     return {"declared_age_range": True, "application_identifier_correct": True,
-            "team_identifier_correct": True, "get_task_allow_not_true": entitlements.get("get-task-allow") is not True and allowed.get("get-task-allow") is not True,
-            "profile_declared_age_range": True, "app_store_distribution_profile": is_store,
+            "team_identifier_correct": True, "get_task_allow_not_true": True,
+            "profile_declared_age_range": True, "app_store_distribution_profile": True,
             "profile_not_expired": True}
 
 
-def signed(app, ipa, output, stage="distribution"):
-    capture(["codesign", "--verify", "--deep", "--strict", str(app)])
+def signed(app, ipa, output):
+    # Profile is decoded first; App entitlement is independently read second.
+    profile = plistlib.loads(capture(["security", "cms", "-D", "-i", str(app / "embedded.mobileprovision")]))
     ent = plistlib.loads(capture(["codesign", "-d", "--entitlements", ":-", str(app)]))
-    profile_bytes = capture(["security", "cms", "-D", "-i", str(app / "embedded.mobileprovision")])
-    profile = plistlib.loads(profile_bytes)
+    verification = subprocess.run(["codesign", "--verify", "--deep", "--strict", str(app)], capture_output=True)
+    detail = subprocess.run(["codesign", "-dv", "--verbose=4", str(app)], capture_output=True)
+    authority = detail.stderr.decode("utf8", "replace")
+    is_distribution = detail.returncode == 0 and ("Authority=Apple Distribution:" in authority or "Authority=iPhone Distribution:" in authority)
     team = os.environ["APPLE_TEAM_ID"]
     allowed = profile.get("Entitlements", {})
     profile_type = ("enterprise" if profile.get("ProvisionsAllDevices") else
                     "development" if allowed.get("get-task-allow") is True else
                     "ad-hoc" if profile.get("ProvisionedDevices") else "app-store")
+    def safe_boolean(values, key):
+        value = values.get(key)
+        return value if type(value) is bool else "missing" if key not in values else "INVALID_REDACTED"
     result = {
-        "stage": stage, "codesign_verification": "PASS",
-        "signed_declared_age_range": age_state(ent),
-        "profile_declared_age_range": age_state(allowed),
+        "codesign_verification": "PASS" if verification.returncode == 0 else "FAIL",
+        "distribution_profile_declared_age_range": age_state(allowed),
+        "signed_app_declared_age_range": age_state(ent),
         "signed_application_identifier_correct": ent.get("application-identifier") == team + "." + BUNDLE,
         "application_identifier_correct": allowed.get("application-identifier") == team + "." + BUNDLE,
         "signed_team_identifier_correct": ent.get("com.apple.developer.team-identifier") == team,
         "team_identifier_correct": allowed.get("com.apple.developer.team-identifier") == team and team in profile.get("TeamIdentifier", []),
-        "signed_get_task_allow": ent.get("get-task-allow", "missing"),
-        "get_task_allow": allowed.get("get-task-allow", "missing"),
+        "signed_get_task_allow": safe_boolean(ent, "get-task-allow"),
+        "get_task_allow": safe_boolean(allowed, "get-task-allow"),
         "profile_type": profile_type,
+        "apple_distribution_certificate": is_distribution,
         "raw_profile_retained_or_published": False,
         "contract_result": "NOT_CHECKED"
     }
-    # Record both independent observations before any fail-closed assertion.
-    Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
+    with ipa.open("rb") as file:
+        result["ipa_sha256"] = hashlib.file_digest(file, "sha256").hexdigest()
+    def persist():
+        Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
+    persist()
     try:
-        result["signed_entitlements"] = entitlement_contract(ent, profile, team, stage)
+        # Age classification is profile-first, even when both fields are missing.
+        result["signed_entitlements"] = entitlement_contract(ent, profile, team)
+        require(verification.returncode == 0, "CODESIGN_VERIFICATION_FAILED")
+        require(is_distribution, "APPLE_DISTRIBUTION_CERTIFICATE_NOT_CONFIRMED")
+        result["metadata"] = metadata(plistlib.loads((app / "Info.plist").read_bytes()))
+        result["privacy"] = privacy(app)
     except RCError as error:
         result.update(contract_result="FAIL", failure_code=str(error))
-        Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
+        persist()
         raise
-    detail = subprocess.run(["codesign", "-dv", "--verbose=4", str(app)], capture_output=True)
-    require(detail.returncode == 0, "CODESIGN_DETAIL_FAILED")
-    # Certificate/account display names stay private; expose only the type check.
-    authority = detail.stderr.decode("utf8", "replace")
-    is_distribution = "Authority=Apple Distribution:" in authority or "Authority=iPhone Distribution:" in authority
-    is_development = "Authority=Apple Development:" in authority or "Authority=iPhone Developer:" in authority
-    require(is_distribution if stage == "distribution" else is_distribution or is_development,
-            "APPLE_DISTRIBUTION_CERTIFICATE_NOT_CONFIRMED" if stage == "distribution" else "ARCHIVE_CERTIFICATE_TYPE_NOT_CONFIRMED")
-    result.update(contract_result="PASS", apple_distribution_certificate=is_distribution,
-                  metadata=metadata(plistlib.loads((app / "Info.plist").read_bytes())), privacy=privacy(app))
-    if ipa is not None:
-        with ipa.open("rb") as file:
-            result["ipa_sha256"] = hashlib.file_digest(file, "sha256").hexdigest()
+    result["contract_result"] = "PASS"
     return result
 
 
@@ -176,65 +172,30 @@ def self_test():
             continue
         raise RCError("SELF_TEST_ACCEPTED_INVALID_ASSET")
     diagnostic_cases = 0
-    for stage in ("archive", "distribution"):
-        for signed_state in ("true", "false", "missing"):
-            for profile_state in ("true", "false", "missing"):
-                e, p = copy.deepcopy(ent), copy.deepcopy(profile)
-                key = "com.apple.developer.declared-age-range"
-                for values, state in ((e, signed_state), (p["Entitlements"], profile_state)):
-                    if state == "missing": values.pop(key)
-                    else: values[key] = state == "true"
-                    require(age_state(values) == state, "SELF_TEST_WRONG_AGE_OBSERVATION")
-                prefix = "ARCHIVE" if stage == "archive" else "DISTRIBUTION"
-                expected = (prefix + "_PROFILE_DECLARED_AGE_RANGE_MISSING" if profile_state != "true" else
-                            prefix + "_SIGNED_ENTITLEMENT_DROPPED" if signed_state != "true" else None)
-                try:
-                    age_contract(e, p, stage)
-                    require(expected is None, "SELF_TEST_MISSED_DIAGNOSTIC")
-                except RCError as error:
-                    require(str(error) == expected, "SELF_TEST_WRONG_DIAGNOSTIC")
-                diagnostic_cases += 1
+    for signed_state in ("true", "false", "missing"):
+        for profile_state in ("true", "false", "missing"):
+            e, p = copy.deepcopy(ent), copy.deepcopy(profile)
+            key = "com.apple.developer.declared-age-range"
+            for values, state in ((e, signed_state), (p["Entitlements"], profile_state)):
+                if state == "missing": values.pop(key)
+                else: values[key] = state == "true"
+                require(age_state(values) == state, "SELF_TEST_WRONG_AGE_OBSERVATION")
+            expected = ("DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_MISSING" if profile_state != "true" else
+                        "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED" if signed_state != "true" else None)
+            try:
+                age_contract(e, p)
+                require(expected is None, "SELF_TEST_MISSED_DIAGNOSTIC")
+            except RCError as error:
+                require(str(error) == expected, "SELF_TEST_WRONG_DIAGNOSTIC")
+            diagnostic_cases += 1
     return {"valid_synthetic_contract": "PASS", "negative_contract_cases": len(mutations),
-            "archive_distribution_diagnostic_cases": diagnostic_cases,
+            "distribution_diagnostic_cases": diagnostic_cases,
             "result": "PASS", "scope": "Validator logic only; NOT genuine signing evidence"}
 
 
 def main():
     mode = sys.argv[1]
-    if mode == "--archive-identity":
-        # Read-only local keychain inventory. Never print certificate/account names.
-        text = capture(["security", "find-identity", "-v", "-p", "codesigning"]).decode("utf8", "replace")
-        available = '"Apple Development:' in text or '"iPhone Developer:' in text
-        result = {"existing_archive_development_identity_available": available,
-                  "new_certificate_creation_authorized": False,
-                  "local_identity_names_published": False,
-                  "result": "PASS" if available else "BLOCKED",
-                  "failure_code": None if available else "ARCHIVE_EXISTING_DEVELOPMENT_IDENTITY_UNAVAILABLE"}
-        output = sys.argv[2]
-        Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
-        require(available, "ARCHIVE_EXISTING_DEVELOPMENT_IDENTITY_UNAVAILABLE")
-    elif mode == "--signing-input":
-        import re
-        spec = Path("project.yml").read_text(encoding="utf8")
-        require(re.search(r"entitlements:\s+path: App/LectureAsset\.entitlements\s+properties:\s+com\.apple\.developer\.declared-age-range: true", spec),
-                "PROJECT_ENTITLEMENT_INPUT_MISSING")
-        require(plistlib.loads(Path("App/LectureAsset.entitlements").read_bytes()).get("com.apple.developer.declared-age-range") is True,
-                "SOURCE_ENTITLEMENT_INPUT_MISSING")
-        targets = json.loads(Path(sys.argv[2]).read_text(encoding="utf8"))
-        settings = next(item["buildSettings"] for item in targets if item["target"] == "LectureAsset")
-        correct = settings.get("CODE_SIGN_ENTITLEMENTS") == "App/LectureAsset.entitlements"
-        result = {"source_declared_age_range": "true", "project_declared_age_range": "true",
-                  "code_sign_entitlements": "App/LectureAsset.entitlements" if correct else "UNEXPECTED_REDACTED",
-                  "code_sign_style_automatic": settings.get("CODE_SIGN_STYLE") == "Automatic",
-                  "code_signing_allowed": settings.get("CODE_SIGNING_ALLOWED") == "YES",
-                  "automatic_archive_identity_selected": settings.get("CODE_SIGN_IDENTITY") in ("Apple Development", "iPhone Developer"),
-                  "development_team_correct": settings.get("DEVELOPMENT_TEAM") == os.environ["APPLE_TEAM_ID"]}
-        output = sys.argv[3]
-        Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
-        require(correct and all(value is True for key, value in result.items() if key not in
-                               ("source_declared_age_range", "project_declared_age_range", "code_sign_entitlements")),
-                "EFFECTIVE_SIGNING_INPUT_MISMATCH")
-    elif mode == "--provenance":
+    if mode == "--provenance":
         require(not capture(["git", "diff", "--name-only", BASELINE, "HEAD", "--", *PROTECTED]).strip(),
                 "FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED")
         dirty = capture(["git", "diff", "--name-only", "HEAD", "--", *PROTECTED]).decode().splitlines()
@@ -261,9 +222,6 @@ def main():
     elif mode == "--signed":
         output = sys.argv[4]
         result = signed(Path(sys.argv[2]), Path(sys.argv[3]), output)
-    elif mode == "--archive-signed":
-        output = sys.argv[3]
-        result = signed(Path(sys.argv[2]), None, output, "archive")
     else:
         raise RCError("INVALID_MODE")
     Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
