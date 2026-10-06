@@ -63,7 +63,7 @@ do {
     for attempt in 0..<attempts {
         let response = try get("builds", [
             URLQueryItem(name: "filter[app]", value: appID),
-            URLQueryItem(name: "filter[version]", value: "32.1"),
+            URLQueryItem(name: "filter[version]", value: "34.1"),
             URLQueryItem(name: "fields[builds]", value: "version,uploadedDate,minOsVersion,processingState,buildAudienceType,usesNonExemptEncryption,preReleaseVersion"),
             URLQueryItem(name: "include", value: "preReleaseVersion"),
             URLQueryItem(name: "fields[preReleaseVersions]", value: "version,platform"),
@@ -79,7 +79,7 @@ do {
             let versions = included.filter { $0["type"] as? String == "preReleaseVersions" }
             let version = (versions.first?["attributes"] as? [String: Any])?["version"] as? String ?? "UNCONFIRMED"
             let safe: [String: Any] = [
-                "version": version, "build": "32.1", "buildID": id,
+                "version": version, "build": "34.1", "buildID": id,
                 "processingState": state, "buildAudienceType": audience,
                 "uploadedDate": attributes["uploadedDate"] ?? NSNull(),
                 "minOsVersion": attributes["minOsVersion"] ?? NSNull(),
@@ -92,22 +92,22 @@ do {
                 print("S05_RC_ASC_REJECTED state=" + state + " audience=" + audience); exit(1)
             }
             if state == "VALID" && audience == "APP_STORE_ELIGIBLE" {
-                guard version == "0.1.0", attributes["version"] as? String == "32.1",
+                guard version == "0.1.0", attributes["version"] as? String == "34.1",
                       attributes["minOsVersion"] as? String == "18.0",
                       attributes["usesNonExemptEncryption"] as? Bool == false else {
                     throw RCAPIError(code: "VALID_BUILD_METADATA_MISMATCH")
                 }
-                print("S05_RC_ASC_VALID_APP_STORE_ELIGIBLE version=0.1.0 build=32.1"); exit(0)
+                print("S05_RC_ASC_VALID_APP_STORE_ELIGIBLE version=0.1.0 build=34.1"); exit(0)
             }
             print("S05_RC_ASC_PENDING state=" + state + " audience=" + audience)
         } else {
-            try write(["version": "0.1.0", "build": "32.1", "processingState": "NOT_VISIBLE",
+            try write(["version": "0.1.0", "build": "34.1", "processingState": "NOT_VISIBLE",
                        "buildAudienceType": "UNCONFIRMED", "queryMode": mode], args[3])
             if mode == "preflight" { print("S05_RC_BUILD_NUMBER_AVAILABLE"); exit(0) }
         }
         if attempt + 1 < attempts { Thread.sleep(forTimeInterval: 30) }
     }
-    print("S05_RC_ASC_PROCESSING_OR_UNCONFIRMED build=32.1"); exit(3)
+    print("S05_RC_ASC_PROCESSING_OR_UNCONFIRMED build=34.1"); exit(3)
 } catch let error as RCAPIError {
     print("S05_RC_ASC_UNCONFIRMED " + error.code); exit(1)
 } catch {

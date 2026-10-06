@@ -1,4 +1,4 @@
-name: S05 final App Store eligible RC 32.1
+name: S05 final App Store eligible RC 34.1
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       operation:
-        description: Owner-authorized fixed RC 32.1 only (no Review submission)
+        description: Owner-authorized fixed RC 34.1 only (no Review submission)
         required: true
         type: choice
         options: [prepare-only, upload, status-only]
@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: lecture-asset-final-rc-32-1
+  group: lecture-asset-final-rc-34-1
   cancel-in-progress: false
 
 jobs:
@@ -72,7 +72,7 @@ jobs:
           set -euo pipefail
           xcodegen generate --spec project.yml
           python3 scripts/s05_rc_verify.py --provenance "$RUNNER_TEMP/s05-rc-evidence/provenance.json"
-          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/RCDevice" CODE_SIGNING_ALLOWED=NO CURRENT_PROJECT_VERSION=32.1 MARKETING_VERSION=0.1.0 clean build > "$RUNNER_TEMP/rc-clean-build.log" 2>&1
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/RCDevice" CODE_SIGNING_ALLOWED=NO CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0 clean build > "$RUNNER_TEMP/rc-clean-build.log" 2>&1
           python3 scripts/s05_rc_verify.py --metadata "$RUNNER_TEMP/RCDevice/Build/Products/Release-iphoneos/Lecture Asset.app" "$RUNNER_TEMP/s05-rc-evidence/clean-release-metadata.json"
           echo 'S05_RC_CLEAN_RELEASE_BUILD_PASS'
       - name: Release simulator focused XCTest
@@ -83,13 +83,13 @@ jobs:
           device=$(xcrun simctl create 'Final RC focused' com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max "$runtime")
           xcrun simctl boot "$device"
           xcrun simctl bootstatus "$device" -b
-          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/RCSim" CURRENT_PROJECT_VERSION=32.1 MARKETING_VERSION=0.1.0 ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -parallel-testing-enabled NO -only-testing:LectureAssetTests/AgeAssuranceTests -only-testing:LectureAssetTests/S01RecoveryTests -only-testing:LectureAssetTests/S03CleanupTests -only-testing:LectureAssetTests/LocalizationResourceTests -resultBundlePath "$RUNNER_TEMP/RCTests.xcresult" test > "$RUNNER_TEMP/rc-simulator-tests.log" 2>&1
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/RCSim" CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0 ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -parallel-testing-enabled NO -only-testing:LectureAssetTests/AgeAssuranceTests -only-testing:LectureAssetTests/S01RecoveryTests -only-testing:LectureAssetTests/S03CleanupTests -only-testing:LectureAssetTests/LocalizationResourceTests -resultBundlePath "$RUNNER_TEMP/RCTests.xcresult" test > "$RUNNER_TEMP/rc-simulator-tests.log" 2>&1
           xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/RCTests.xcresult" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(json.dumps({k:d[k] for k in ["result","totalTestCount","passedTests","failedTests","skippedTests"]},indent=2))' > "$RUNNER_TEMP/s05-rc-evidence/tests.json"
           python3 scripts/check_age_release.py "$RUNNER_TEMP/RCSim/Build/Products/Release-iphonesimulator/Lecture Asset.app" "$RUNNER_TEMP/s05-rc-evidence/simulator-entitlement.json"
           xcrun simctl shutdown "$device"
           echo 'S05_RC_FOCUSED_XCTEST_PASS'
       - name: Explicitly authorized signing and exact IPA upload or read-only status
-        if: (github.event_name == 'workflow_dispatch' && (inputs.operation == 'upload' || inputs.operation == 'status-only')) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[upload-rc-32.1]'))
+        if: (github.event_name == 'workflow_dispatch' && (inputs.operation == 'upload' || inputs.operation == 'status-only')) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[upload-rc-34.1]'))
         env:
           APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}

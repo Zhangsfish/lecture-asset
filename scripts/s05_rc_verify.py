@@ -11,8 +11,9 @@ import plistlib
 import subprocess
 import sys
 
-BASELINE = "5012695af687a94af687dc5f631617a66940e3c8"
-MAIN = "f217fcebb27b1bef3f86864878baa8f5983b8832"
+# Owner accepted the exact 33.1 product sources, including the brand-only fix.
+BASELINE = "118942553a84c2ac4466973f6a64989dd5165b61"
+MAIN = "fbafc7a227bb67af75f586a515feaafa757af05f"
 BUNDLE = "com.zhangsfish.lectureasset"
 PROTECTED = ["App", "Packages", "AppResources", "schemas", "project.yml",
              "reports/S05/store-screenshots-01",
@@ -36,7 +37,7 @@ def capture(command):
 
 def metadata(info):
     expected = {"CFBundleIdentifier": BUNDLE, "CFBundleShortVersionString": "0.1.0",
-                "CFBundleVersion": "32.1", "MinimumOSVersion": "18.0"}
+                "CFBundleVersion": "34.1", "MinimumOSVersion": "18.0"}
     for key, value in expected.items():
         require(info.get(key) == value, "METADATA_MISMATCH_" + key)
     require(info.get("ITSAppUsesNonExemptEncryption") is False, "ENCRYPTION_FLAG_MISMATCH")
@@ -57,10 +58,23 @@ def privacy(app):
             "bundled_manifest_paths": [str(file.relative_to(app)) for file in manifests]}
 
 
-def entitlement_contract(entitlements, profile, team):
-    expected_app = team + "." + BUNDLE
+def age_state(values):
+    key = "com.apple.developer.declared-age-range"
+    return "missing" if key not in values else ("true" if values[key] is True else "false")
+
+
+def age_contract(entitlements, profile, stage):
+    require(stage in ("archive", "distribution"), "INVALID_SIGNATURE_STAGE")
+    prefix = "ARCHIVE" if stage == "archive" else "DISTRIBUTION"
+    require(profile.get("Entitlements", {}).get("com.apple.developer.declared-age-range") is True,
+            prefix + "_PROFILE_DECLARED_AGE_RANGE_MISSING")
     require(entitlements.get("com.apple.developer.declared-age-range") is True,
-            "SIGNED_DECLARED_AGE_RANGE_MISSING")
+            prefix + "_SIGNED_ENTITLEMENT_DROPPED")
+
+
+def entitlement_contract(entitlements, profile, team, stage="distribution"):
+    expected_app = team + "." + BUNDLE
+    age_contract(entitlements, profile, stage)
     require(entitlements.get("application-identifier") == expected_app, "SIGNED_APP_IDENTIFIER_MISMATCH")
     require(entitlements.get("com.apple.developer.team-identifier") == team, "SIGNED_TEAM_MISMATCH")
     require(entitlements.get("get-task-allow") is not True, "SIGNED_DEBUG_ENTITLEMENT")
@@ -83,22 +97,50 @@ def entitlement_contract(entitlements, profile, team):
             "profile_not_expired": True}
 
 
-def signed(app, ipa):
+def signed(app, ipa, output, stage="distribution"):
     capture(["codesign", "--verify", "--deep", "--strict", str(app)])
     ent = plistlib.loads(capture(["codesign", "-d", "--entitlements", ":-", str(app)]))
     profile_bytes = capture(["security", "cms", "-D", "-i", str(app / "embedded.mobileprovision")])
     profile = plistlib.loads(profile_bytes)
+    team = os.environ["APPLE_TEAM_ID"]
+    allowed = profile.get("Entitlements", {})
+    profile_type = ("enterprise" if profile.get("ProvisionsAllDevices") else
+                    "development" if allowed.get("get-task-allow") is True else
+                    "ad-hoc" if profile.get("ProvisionedDevices") else "app-store")
+    result = {
+        "stage": stage, "codesign_verification": "PASS",
+        "signed_declared_age_range": age_state(ent),
+        "profile_declared_age_range": age_state(allowed),
+        "signed_application_identifier_correct": ent.get("application-identifier") == team + "." + BUNDLE,
+        "application_identifier_correct": allowed.get("application-identifier") == team + "." + BUNDLE,
+        "signed_team_identifier_correct": ent.get("com.apple.developer.team-identifier") == team,
+        "team_identifier_correct": allowed.get("com.apple.developer.team-identifier") == team and team in profile.get("TeamIdentifier", []),
+        "signed_get_task_allow": ent.get("get-task-allow", "missing"),
+        "get_task_allow": allowed.get("get-task-allow", "missing"),
+        "profile_type": profile_type,
+        "raw_profile_retained_or_published": False,
+        "contract_result": "NOT_CHECKED"
+    }
+    # Record both independent observations before any fail-closed assertion.
+    Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
+    try:
+        result["signed_entitlements"] = entitlement_contract(ent, profile, team, stage)
+    except RCError as error:
+        result.update(contract_result="FAIL", failure_code=str(error))
+        Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
+        raise
     detail = subprocess.run(["codesign", "-dv", "--verbose=4", str(app)], capture_output=True)
     require(detail.returncode == 0, "CODESIGN_DETAIL_FAILED")
     # Certificate/account display names stay private; expose only the type check.
     authority = detail.stderr.decode("utf8", "replace")
     require("Authority=Apple Distribution:" in authority or "Authority=iPhone Distribution:" in authority,
             "APPLE_DISTRIBUTION_CERTIFICATE_NOT_CONFIRMED")
-    result = entitlement_contract(ent, profile, os.environ["APPLE_TEAM_ID"])
-    return {"codesign_verification": "PASS", "apple_distribution_certificate": True,
-            "signed_entitlements": result, "metadata": metadata(plistlib.loads((app / "Info.plist").read_bytes())),
-            "privacy": privacy(app), "ipa_sha256": hashlib.sha256(ipa.read_bytes()).hexdigest(),
-            "raw_profile_retained_or_published": False}
+    result.update(contract_result="PASS", apple_distribution_certificate=True,
+                  metadata=metadata(plistlib.loads((app / "Info.plist").read_bytes())), privacy=privacy(app))
+    if ipa is not None:
+        with ipa.open("rb") as file:
+            result["ipa_sha256"] = hashlib.file_digest(file, "sha256").hexdigest()
+    return result
 
 
 def self_test():
@@ -128,13 +170,54 @@ def self_test():
         except RCError:
             continue
         raise RCError("SELF_TEST_ACCEPTED_INVALID_ASSET")
+    diagnostic_cases = 0
+    for stage in ("archive", "distribution"):
+        for signed_state in ("true", "false", "missing"):
+            for profile_state in ("true", "false", "missing"):
+                e, p = copy.deepcopy(ent), copy.deepcopy(profile)
+                key = "com.apple.developer.declared-age-range"
+                for values, state in ((e, signed_state), (p["Entitlements"], profile_state)):
+                    if state == "missing": values.pop(key)
+                    else: values[key] = state == "true"
+                    require(age_state(values) == state, "SELF_TEST_WRONG_AGE_OBSERVATION")
+                prefix = "ARCHIVE" if stage == "archive" else "DISTRIBUTION"
+                expected = (prefix + "_PROFILE_DECLARED_AGE_RANGE_MISSING" if profile_state != "true" else
+                            prefix + "_SIGNED_ENTITLEMENT_DROPPED" if signed_state != "true" else None)
+                try:
+                    age_contract(e, p, stage)
+                    require(expected is None, "SELF_TEST_MISSED_DIAGNOSTIC")
+                except RCError as error:
+                    require(str(error) == expected, "SELF_TEST_WRONG_DIAGNOSTIC")
+                diagnostic_cases += 1
     return {"valid_synthetic_contract": "PASS", "negative_contract_cases": len(mutations),
+            "archive_distribution_diagnostic_cases": diagnostic_cases,
             "result": "PASS", "scope": "Validator logic only; NOT genuine signing evidence"}
 
 
 def main():
     mode = sys.argv[1]
-    if mode == "--provenance":
+    if mode == "--signing-input":
+        import re
+        spec = Path("project.yml").read_text(encoding="utf8")
+        require(re.search(r"entitlements:\s+path: App/LectureAsset\.entitlements\s+properties:\s+com\.apple\.developer\.declared-age-range: true", spec),
+                "PROJECT_ENTITLEMENT_INPUT_MISSING")
+        require(plistlib.loads(Path("App/LectureAsset.entitlements").read_bytes()).get("com.apple.developer.declared-age-range") is True,
+                "SOURCE_ENTITLEMENT_INPUT_MISSING")
+        targets = json.loads(Path(sys.argv[2]).read_text(encoding="utf8"))
+        settings = next(item["buildSettings"] for item in targets if item["target"] == "LectureAsset")
+        correct = settings.get("CODE_SIGN_ENTITLEMENTS") == "App/LectureAsset.entitlements"
+        result = {"source_declared_age_range": "true", "project_declared_age_range": "true",
+                  "code_sign_entitlements": "App/LectureAsset.entitlements" if correct else "UNEXPECTED_REDACTED",
+                  "code_sign_style_automatic": settings.get("CODE_SIGN_STYLE") == "Automatic",
+                  "code_signing_allowed": settings.get("CODE_SIGNING_ALLOWED") == "YES",
+                  "distribution_identity_selected": settings.get("CODE_SIGN_IDENTITY") in ("Apple Distribution", "iPhone Distribution"),
+                  "development_team_correct": settings.get("DEVELOPMENT_TEAM") == os.environ["APPLE_TEAM_ID"]}
+        output = sys.argv[3]
+        Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
+        require(correct and all(value is True for key, value in result.items() if key not in
+                               ("source_declared_age_range", "project_declared_age_range", "code_sign_entitlements")),
+                "EFFECTIVE_SIGNING_INPUT_MISMATCH")
+    elif mode == "--provenance":
         require(not capture(["git", "diff", "--name-only", BASELINE, "HEAD", "--", *PROTECTED]).strip(),
                 "FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED")
         dirty = capture(["git", "diff", "--name-only", "HEAD", "--", *PROTECTED]).decode().splitlines()
@@ -159,7 +242,11 @@ def main():
         result = {"metadata": metadata(plistlib.loads((app / "Info.plist").read_bytes())), "privacy": privacy(app)}
         output = sys.argv[3]
     elif mode == "--signed":
-        result, output = signed(Path(sys.argv[2]), Path(sys.argv[3])), sys.argv[4]
+        output = sys.argv[4]
+        result = signed(Path(sys.argv[2]), Path(sys.argv[3]), output)
+    elif mode == "--archive-signed":
+        output = sys.argv[3]
+        result = signed(Path(sys.argv[2]), None, output, "archive")
     else:
         raise RCError("INVALID_MODE")
     Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")

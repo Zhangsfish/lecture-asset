@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Owner-authorized 0.1.0 (32.1). No Review/ASC mutation except binary upload.
+# Owner-authorized 0.1.0 (34.1), same product sources as accepted preview 33.1.
 set -euo pipefail
 set +x
 umask 077
@@ -30,7 +30,7 @@ if [[ "${1:-upload}" == 'status-only' ]]; then
 fi
 [[ "${1:-upload}" == 'upload' ]] || { echo 'S05_RC_INVALID_OPERATION'; exit 2; }
 
-# Exact 32.1 must not exist; never re-upload this immutable build number.
+# Exact 34.1 must not exist; never re-upload this immutable build number.
 swift scripts/s05_rc_status.swift "$key_file" preflight "$evidence/asc-preflight.json"
 python3 scripts/s05_rc_verify.py --provenance "$evidence/provenance.json"
 
@@ -57,11 +57,29 @@ private_command() {
   fi
 }
 
+# Remove only cached provisioning files on this disposable runner, not Portal assets.
+for cache in "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"; do
+  if [[ -d "$cache" ]]; then
+    find "$cache" -type f -name '*.mobileprovision' -delete
+  fi
+done
+echo 'S05_RC_LOCAL_PROFILE_CACHE_CLEARED'
+
+private_command settings xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+  -configuration Release -destination 'generic/platform=iOS' \
+  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='Apple Distribution' \
+  -showBuildSettings -json
+python3 scripts/s05_rc_verify.py --signing-input "$private_dir/settings.log" "$evidence/signing-input.json"
+
 private_command archive xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
   -configuration Release -destination 'generic/platform=iOS' \
   -archivePath "$archive" -derivedDataPath "$private_dir/DerivedData" \
-  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CURRENT_PROJECT_VERSION=32.1 MARKETING_VERSION=0.1.0 archive
+  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='Apple Distribution' \
+  CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0 \
+  -allowProvisioningUpdates -authenticationKeyPath "$key_file" \
+  -authenticationKeyID "$APP_STORE_CONNECT_KEY_ID" -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID" archive
 python3 scripts/s05_rc_verify.py --metadata "$archive/Products/Applications/Lecture Asset.app" "$evidence/archive-metadata.json"
+python3 scripts/s05_rc_verify.py --archive-signed "$archive/Products/Applications/Lecture Asset.app" "$evidence/archive-signature.json"
 
 private_command export xcodebuild -exportArchive -archivePath "$archive" \
   -exportOptionsPlist "$private_dir/export-options.plist" -exportPath "$export_dir" \
@@ -83,9 +101,9 @@ python3 - "$evidence/upload.json" "$evidence/signed-distribution.json" <<'PY'
 import json, sys
 from pathlib import Path
 signed = json.loads(Path(sys.argv[2]).read_text())
-Path(sys.argv[1]).write_text(json.dumps({"version":"0.1.0", "build":"32.1", "upload":"ACCEPTED",
+Path(sys.argv[1]).write_text(json.dumps({"version":"0.1.0", "build":"34.1", "upload":"ACCEPTED",
     "uploaded_ipa_sha256":signed["ipa_sha256"], "same_verified_signed_ipa":True,
     "testFlightInternalTestingOnly":"OMITTED", "appReview":"NOT_SUBMITTED"}, indent=2)+"\n")
 PY
-echo 'S05_RC_UPLOAD_ACCEPTED version=0.1.0 build=32.1'
+echo 'S05_RC_UPLOAD_ACCEPTED version=0.1.0 build=34.1'
 swift scripts/s05_rc_status.swift "$key_file" poll "$evidence/asc-status.json"

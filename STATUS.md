@@ -1,10 +1,16 @@
 # Current status
 
-Updated: 2026-10-05
+Updated: 2026-10-06
 
 ## Now
 
 **S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. PR #15 age-assurance compatibility was independently audited and squash-merged as `5012695af687a94af687dc5f631617a66940e3c8`. Historical TestFlight `0.1.0 (31.1)` remains a VALID Internal-Only preview from pre-PR15 source and is not the App Review RC. Final RC `0.1.0 (32.1)` attempt in PR #19 stopped before upload: tests/build/export passed, but the genuine exported signed IPA lacked `com.apple.developer.declared-age-range = true`. Product code remains frozen. Next action is a signing-only diagnostic/retry on PR #19: perform automatic signing already at archive time, force Xcode to use fresh provisioning data, separately verify archive and exported-profile entitlements, and upload 32.1 only if the genuine distribution entitlement passes. Promo v2 remains non-blocking.**
+
+## Owner update — accepted 33.1 product / authorized 34.1 signing retry
+
+The owner inspected **Internal TestFlight 0.1.0 (33.1)** and accepted the brand-only correction: Chinese desktop/App title now stays **Lecture Asset**. Exact accepted App-source checkout: `118942553a84c2ac4466973f6a64989dd5165b61`. [Name PR #20](https://github.com/Zhangsfish/lecture-asset/pull/20), [VALID internal preview run](https://github.com/Zhangsfish/lecture-asset/actions/runs/37477851785). Product behavior is unchanged and no further UI polish is authorized.
+
+The owner separately approved **0.1.0 (34.1)** as a new distribution candidate using those identical product sources. This supersedes the old 32.1 build-number dispatch and old frozen-source baseline above. Continue only [PR #19](https://github.com/Zhangsfish/lecture-asset/pull/19): fresh automatic signing at archive, independent archive/export App and profile capability diagnostics, then upload only if all distribution gates pass. Current retry state: **IN_PROGRESS**. No Review submission, public release or merge is authorized. [Decision record](reports/S05/release-round-02/OWNER_ALIGNMENT.md).
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
