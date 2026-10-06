@@ -65,9 +65,9 @@ def age_state(values):
 
 def age_contract(entitlements, profile):
     require(profile.get("Entitlements", {}).get("com.apple.developer.declared-age-range") is True,
-            "DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_MISSING")
+            "DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_REGRESSED")
     require(entitlements.get("com.apple.developer.declared-age-range") is True,
-            "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED")
+            "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED_AFTER_ADHOC_BRIDGE")
 
 
 def entitlement_contract(entitlements, profile, team):
@@ -180,8 +180,8 @@ def self_test():
                 if state == "missing": values.pop(key)
                 else: values[key] = state == "true"
                 require(age_state(values) == state, "SELF_TEST_WRONG_AGE_OBSERVATION")
-            expected = ("DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_MISSING" if profile_state != "true" else
-                        "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED" if signed_state != "true" else None)
+            expected = ("DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_REGRESSED" if profile_state != "true" else
+                        "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED_AFTER_ADHOC_BRIDGE" if signed_state != "true" else None)
             try:
                 age_contract(e, p)
                 require(expected is None, "SELF_TEST_MISSED_DIAGNOSTIC")

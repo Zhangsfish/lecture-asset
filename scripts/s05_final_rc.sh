@@ -73,7 +73,10 @@ private_command archive xcodebuild -project LectureAsset.xcodeproj -scheme Lectu
   CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0 archive
 python3 scripts/s05_rc_verify.py --metadata "$archive/Products/Applications/Lecture Asset.app" "$evidence/archive-metadata.json"
 
-private_command export xcodebuild -exportArchive -archivePath "$archive" \
+bridge_archive="$private_dir/LectureAsset-EntitlementBridge.xcarchive"
+python3 scripts/s05_rc_bridge.py "$archive" "$bridge_archive" App/LectureAsset.entitlements "$evidence/bridge.json"
+
+private_command export xcodebuild -exportArchive -archivePath "$bridge_archive" \
   -exportOptionsPlist "$private_dir/export-options.plist" -exportPath "$export_dir" \
   -allowProvisioningUpdates -authenticationKeyPath "$key_file" \
   -authenticationKeyID "$APP_STORE_CONNECT_KEY_ID" -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID"

@@ -3,7 +3,7 @@ name: S05 final App Store eligible RC 34.1
 on:
   push:
     branches: [codex/s05-final-rc]
-    paths: [".github/workflows/s05-final-rc.yml", "scripts/s05_final_rc.sh", "scripts/s05_rc_verify.py", "scripts/s05_rc_status.swift"]
+    paths: [".github/workflows/s05-final-rc.yml", "scripts/s05_final_rc.sh", "scripts/s05_rc_verify.py", "scripts/s05_rc_status.swift", "scripts/s05_rc_bridge.py"]
   workflow_dispatch:
     inputs:
       operation:
