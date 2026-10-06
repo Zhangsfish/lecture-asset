@@ -5,7 +5,7 @@ Authority: DIRECTOR_R3.md and R3_COPY_AUDIO.json. Existing photography, paper ma
 - S01 60f: Source Han Bold / Inter Display Semibold hook in the reserved photo-space gap.
 - S02 246f: same display family/weight; selected chronology and following camera.
 - S03 360f: same separate PDF / AI ZIP materials, bold two-line labels.
-- S04 546f: brief display headline, lighter secondary reading label; same sleeve unfolds its source/index/README.
+- S04 546f: brief display headline, lighter secondary reading label; same sleeve unfolds its page/index/reading-rule relationships without public-facing filenames.
 - S05 738f: official provider receives the right-side ZIP; actual language-matched narration.
 - S06 990f: same receiver reply expanded to report; clear hold15.3–17.5s.
 - S07 1158f: saved-before-cleanup; same original P01–P08 return.

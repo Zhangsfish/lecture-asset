@@ -35,3 +35,5 @@ Voice generation was iterated on actual measured durations, with only outer sile
 ## Boundaries
 
 No App / Packages / store asset / ASC / TestFlight changes. No private photo, OCR, account credential or font/model binary in Git. Existing unrelated local untracked work retained. No publishing, merge or aesthetic approval. Subjective listening: **NOT_RUN** (no available auditory perception tool); real audio is supplied for director review.
+
+Latest push synchronization fetched main13e943a and director branch6a4d8c5. Director update integrated preserving local work; public-facing test seams removed in sourcecc189202dc99ba58605cdca80e9ddbee3d0834b3. Repeated build, DOM/font/seek QA, lint, both whole renders, native samples, package/decode, exported QR. No further voice/audio changes.

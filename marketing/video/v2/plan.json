@@ -2,7 +2,7 @@
   "id": "lecture-asset-v2-director-r3",
   "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
   "authority": "DIRECTOR_R3.md",
-  "instruction_sha256": "8baa90d25038c150fc85739d00f6d3568e468e0c2da78d55439c217d1765cc8e",
+  "instruction_sha256": "f07f09106d2280d339c7390b1eb1b9ffa581f7e830917b61a36073407b69323f",
   "branch_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
   "latest_main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
   "original_pr_base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
@@ -597,6 +597,9 @@
   "production_status": "R3_COMPLETE_REAL_BILINGUAL_NARRATION",
   "narration_actual": "review/director-r3/VOICE_TIMING.json",
   "narration_original_vs_actual": "N01 only condensed to fit measured slot; all other cue texts unchanged. Display copy unchanged.",
-  "tested_render_source_sha": "d81c236709b273c04e5d4a700da958d5d0510f6c",
-  "cleanup_type_revision": "Actual encoded inspection found white-on-white S07. Broad soft negative-space light mask added behind type/saved cue, removed at20.5. Both films re-rendered."
+  "tested_render_source_sha": "cc189202dc99ba58605cdca80e9ddbee3d0834b3",
+  "cleanup_type_revision": "Actual encoded inspection found white-on-white S07. Broad soft negative-space light mask added behind type/saved cue, removed at20.5. Both films re-rendered.",
+  "latest_director_cleanup_sha": "6a4d8c5",
+  "main_refetched_before_final_push": "13e943a",
+  "public_test_seams": "REMOVED; invisible QA hooks retained"
 }

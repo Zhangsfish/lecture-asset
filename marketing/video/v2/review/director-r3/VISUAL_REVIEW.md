@@ -13,3 +13,7 @@ No subjective auditory perception tool was available. Voice content/ASR/mix metr
 ## Concrete internal revision before final delivery
 
 Actual first encoded transition grid exposed white-on-white cleanup headlines at1074/1080. Added a broad soft charcoal negative-space light mask above the returning photos duringS07, behind typography/saved cue. No caption plaque, outline, story/crop/source change. Removed it at20.5. Both films rebuilt/re-rendered; final transition samples are inspected again.
+
+## Latest director public-facing cleanup
+
+Director update6a4d8c5 incorporated before final push: internal filename labels, page/index numbers, source caption, report test header and illustrative disclaimer removed from screen text. Original images/scene geometry, proper provider icons and invisible QA hooks remain. Both complete films re-rendered. Actual final midsection/report samples checked below the public-copy DOM exclusion gate.

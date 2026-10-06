@@ -1,7 +1,8 @@
 {
   "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
-  "tested_render_source_sha": "d81c236709b273c04e5d4a700da958d5d0510f6c",
+  "tested_render_source_sha": "cc189202dc99ba58605cdca80e9ddbee3d0834b3",
   "director_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
+  "public_test_seams": "NONE / DOM exclusion PASS",
   "local_build": "PASS",
   "native_seek_clipping_font": "PASS",
   "full_decode_8_movies": "PASS",

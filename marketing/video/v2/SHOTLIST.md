@@ -16,3 +16,5 @@ Authority: DIRECTOR_R3.md + R3_COPY_AUDIO.json. Separate display/spoken text; un
 S05 provider icon/name and ZIP carry the handoff; no redundant advertising subtitle. S06 summary/report titles carry the result. Source pages stay unchanged. Saved before departure remains. All six end-card elements are fully visible together from frame1230 through1559.
 
 Real measured narration: review/director-r3/VOICE_TIMING.json; independent alignment: VOICE_ASR.json. Music is newly arranged 132BPM drum/bass, with7.5dB ducking during actual phrases. No R2 score speedup.
+
+Public-facing cleanup follows director6a4d8c5: no internal file names, page/index numbers, source/test labels or illustrative disclaimer burned in. Invisible QA hooks remain. Reading structure uses the same page/mapping/rule visual relationships.

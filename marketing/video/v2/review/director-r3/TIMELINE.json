@@ -1,7 +1,7 @@
 {
   "plan": {
     "id": "lecture-asset-v2-director-r3",
-    "status": "R3_IN_PRODUCTION",
+    "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
     "authority": "DIRECTOR_R3.md",
     "instruction_sha256": "8baa90d25038c150fc85739d00f6d3568e468e0c2da78d55439c217d1765cc8e",
     "branch_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
@@ -595,69 +595,71 @@
       "reason": "Actual ASR: provider names at11.07–12.11; saved phrase ends18.40/18.42; cleanup begins after that",
       "measurement": "review/director-r3/VOICE_ASR.json"
     },
-    "production_status": "R3_REAL_VOICE_READY_FOR_RENDER",
+    "production_status": "R3_COMPLETE_REAL_BILINGUAL_NARRATION",
     "narration_actual": "review/director-r3/VOICE_TIMING.json",
-    "narration_original_vs_actual": "N01 only condensed to fit measured slot; all other cue texts unchanged. Display copy unchanged."
+    "narration_original_vs_actual": "N01 only condensed to fit measured slot; all other cue texts unchanged. Display copy unchanged.",
+    "tested_render_source_sha": "d81c236709b273c04e5d4a700da958d5d0510f6c",
+    "cleanup_type_revision": "Actual encoded inspection found white-on-white S07. Broad soft negative-space light mask added behind type/saved cue, removed at20.5. Both films re-rendered."
   },
   "decoded_keyframes": [
     {
       "file": "review/director-r3/keyframes/en/S01.jpg",
       "frame": 60,
-      "sha256": "dfc79b018750cad3d145f68106548daf971bdcc7f3caaa93ad4b0a53b469ee8f",
+      "sha256": "3f82b186636b045ace1397e0e06ae00305822da36b017534a329ae3d3441a56e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S02.jpg",
       "frame": 246,
-      "sha256": "4361ed0a5a6b5d335fbf0f06b93c012c1df2cfbf77b3aaf60fbb4db543467af6",
+      "sha256": "e375836c24a044f31ee304cab2a89a72174aaa651f523547df6f941c2d2898b3",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S03.jpg",
       "frame": 360,
-      "sha256": "cf16f125ee62be317c2cff71eee1986d553581402d53fa100e73ef2e9a8b752c",
+      "sha256": "050db101892fed4effb470bd93c828039d8907cfb63fc7d94c88e553f2de3b51",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S04.jpg",
       "frame": 546,
-      "sha256": "1f51f8677c165cc3c408d7bafb9adc28ecee6fe9d5b99c351f93a5a7e4e9b953",
+      "sha256": "e5e2d350a3ddd92056e0344e0ed862f5375930e9469b726381680de2d0479c11",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S05.jpg",
       "frame": 738,
-      "sha256": "a61578feeeea2b13c2e1460bb4b1a2ced27e848d1d00adbafd63bbd2a3a21c27",
+      "sha256": "8bf71f14a5bb0149c3b0035c8c65337e3bc63251fcee47111bb131bbcf26cd5e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S06.jpg",
       "frame": 990,
-      "sha256": "db8c22bfdd4c3924903f9b5371ea86e95310a080f497a9f19c1cb38b8af2d9da",
+      "sha256": "b504e604ad36d7a4148a2e33b88ce5197abeb7e1fe2d1192c4878cc11690f715",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S07.jpg",
       "frame": 1158,
-      "sha256": "46e20b4cad3447efe6f7b8c28fd3a2cac58eefcf9d627d962d5a68fbba9859b2",
+      "sha256": "4d5576f7230728cba7583d4cb520988abec150ab9db94c433e0cbc53df659c36",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S08.jpg",
       "frame": 1230,
-      "sha256": "3353d4ba36afc7d1e6a783ed6dd14e7bf115db6aa08ef4bda54ff706fcac73d0",
+      "sha256": "12c28d7969daaa41ed09041b7482aa6e321f1a67e86c2c4d4a8cc1b65fc9c15e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S01.jpg",
       "frame": 60,
-      "sha256": "69eb1065b6b19975fbca8c44bdd1ce65e9d6ca6e3284c1d0c0e5cc1000ef18df",
+      "sha256": "8c80ac772b00094cfc70a9f337bfcd7c7f638d3570dbee01c8f3e00b94c90d14",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S02.jpg",
       "frame": 246,
-      "sha256": "06d7fa858ac14f97f1556181de56c13a0c5846f916cfa418596c6af5e1ec0069",
+      "sha256": "9ad966d4c7d6b3e0ec4bdd1bcd04d89ac5839c98ef0841f64408be7f8b4934f3",
       "source": "decoded master MP4"
     },
     {
@@ -669,31 +671,31 @@
     {
       "file": "review/director-r3/keyframes/zh-Hans/S04.jpg",
       "frame": 546,
-      "sha256": "429916757c66edd9dcb22ec8b81f8dc338b75269267f2609fe19c530325ca9e3",
+      "sha256": "6ea5af8f21cdec83ed8ec6af4d723089c39d332e4847763bff294a9e4fb4adae",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S05.jpg",
       "frame": 738,
-      "sha256": "9991b2ae3ba3de673e24a73bb3a7936b0a28d8be7c9fccbdf3ea6c86b2fefa18",
+      "sha256": "73fefbbf01ce479d7ef85bb8a98c9c400a54f9202808bc31cfc6e635e3dab2b3",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S06.jpg",
       "frame": 990,
-      "sha256": "b46c847ff5f7d0e42bf293dd04dfa92f68792120c439181721167eee0e1e9bac",
+      "sha256": "3a1fda9b7dd212cb5f148099ef453c92eb435ee64fd85031cd5841471a201708",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S07.jpg",
       "frame": 1158,
-      "sha256": "1e93a53697262203d65ca36b219feabc8a1477df4d96c9b179ceadd68cfe85a2",
+      "sha256": "7beb3253887d46fd84c8ab4b34e8fd52caa3db8f90d798af4e2d552fdb03919e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S08.jpg",
       "frame": 1230,
-      "sha256": "0ba3b7683dbdf80f336a9d33e17ed3ca4ee4ddce79a463dfb11a7ebfbf0cc6f7",
+      "sha256": "7fa6c41e1b19c20732396c240a8c616e1e166cb49d9429cb54e391e43522dd74",
       "source": "decoded master MP4"
     }
   ]

@@ -1,14 +1,14 @@
 {
   "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
-  "tested_implementation_sha": "d81c236709b273c04e5d4a700da958d5d0510f6c",
+  "tested_implementation_sha": "cc189202dc99ba58605cdca80e9ddbee3d0834b3",
   "main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
   "director_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
   "technical": "PASS",
   "media": [
     {
       "file": "director-cut-en-chatgpt.mp4",
-      "sha256": "3e040f279cd2bca9be98904dfdecc26a3d7d6533d58d9ae751a0d2a5f22e9298",
-      "bytes": 9241169,
+      "sha256": "08e8cf51f27065e72644ca85a9d3ab09578c867dd51378c7b8e235345342bc5c",
+      "bytes": 9144872,
       "width": 1080,
       "height": 1920,
       "frames": 1560,
@@ -33,8 +33,8 @@
     },
     {
       "file": "director-cut-en-chatgpt-muted.mp4",
-      "sha256": "613a9996dcd82cd089ba2aeb1d1c49009b49a69ce78b062ae8d1dadef2e279d2",
-      "bytes": 8585144,
+      "sha256": "bbb63d4159c476a34d322e8c2e9ac7371930822638372a7b25eb15987b2b095c",
+      "bytes": 8488847,
       "width": 1080,
       "height": 1920,
       "frames": 1560,
@@ -50,8 +50,8 @@
     },
     {
       "file": "director-cut-en-chatgpt-720.mp4",
-      "sha256": "3ec7fb087a5c7c358c41aefd3b8e7e5b045f7dda212ee346199ccec35a71bd51",
-      "bytes": 3204423,
+      "sha256": "2301c6733dba94424996234ed3205d591b19b4937dafd2f042663a7d6addd2fc",
+      "bytes": 3176513,
       "width": 720,
       "height": 1280,
       "frames": 1560,
@@ -67,8 +67,8 @@
     },
     {
       "file": "director-cut-en-chatgpt-720-muted.mp4",
-      "sha256": "675946b894d736c9585c14d42dd8d9788fc5bc407bfea1b8737fc840f8ef4055",
-      "bytes": 2651428,
+      "sha256": "3238a7ce0013af3edc7d4024e3e9e4b028f83cf643b37fe56ad8cb4be78ae772",
+      "bytes": 2623518,
       "width": 720,
       "height": 1280,
       "frames": 1560,
@@ -84,8 +84,8 @@
     },
     {
       "file": "director-cut-zh-workbuddy.mp4",
-      "sha256": "e9b3149a00a18d94ac6e60aa64597a5be169585beeba9a6ee4b22666159d71bf",
-      "bytes": 9234564,
+      "sha256": "7609203f4a50d0c4bad0bfba381d9fb68c975da6c2fb1ace5fdcae5af31a3789",
+      "bytes": 9131758,
       "width": 1080,
       "height": 1920,
       "frames": 1560,
@@ -110,8 +110,8 @@
     },
     {
       "file": "director-cut-zh-workbuddy-muted.mp4",
-      "sha256": "9658fe46011df4c16cdaca3b323ce5b502362577c3213ebb56812d41b718b0f1",
-      "bytes": 8575439,
+      "sha256": "6f98e5efd92ac48093f32246796f09e39c27646489faa7c115e825a8dbf8e7f5",
+      "bytes": 8472633,
       "width": 1080,
       "height": 1920,
       "frames": 1560,
@@ -127,8 +127,8 @@
     },
     {
       "file": "director-cut-zh-workbuddy-720.mp4",
-      "sha256": "c484fac444b60f52ff2fbf11105655e100cab205bd1d82e8e0e42daf10496c4f",
-      "bytes": 3182745,
+      "sha256": "0d05b331f4c4667854f3a1b07476b8ccf6981a2e4885ec11091f585782940158",
+      "bytes": 3136376,
       "width": 720,
       "height": 1280,
       "frames": 1560,
@@ -144,8 +144,8 @@
     },
     {
       "file": "director-cut-zh-workbuddy-720-muted.mp4",
-      "sha256": "43f8f74a76021428dae584f07ec4d5e4dad5f3e56e11d02034a8be3e3c4d5266",
-      "bytes": 2628805,
+      "sha256": "67b4937693e4f9cd929440ea8f6cd03b5129bfe408102de0448a3714810b7d9d",
+      "bytes": 2582436,
       "width": 720,
       "height": 1280,
       "frames": 1560,
@@ -163,6 +163,7 @@
   "dom_checks": [
     {
       "locale": "en",
+      "public_test_seams": "NONE",
       "errors": [],
       "ready": {
         "fonts": "loaded",
@@ -183,6 +184,7 @@
     },
     {
       "locale": "zh-Hans",
+      "public_test_seams": "NONE",
       "errors": [],
       "ready": {
         "fonts": "loaded",
@@ -220,212 +222,212 @@
     {
       "locale": "en",
       "frame": 60,
-      "mean_rgb_error": 1.9230237268518517,
+      "mean_rgb_error": 1.9254484953703703,
       "tolerance": 8,
-      "decoded_sha256": "c9d50dfab90d2c57f9c0c737dad41c9cf08781a0c0228d0706022097bccbc24a"
+      "decoded_sha256": "24fede8105a1b60426a7aa683c0c4eb3e4556cf209547657c653e56b78b64ba5"
     },
     {
       "locale": "en",
       "frame": 130,
-      "mean_rgb_error": 1.926189236111111,
+      "mean_rgb_error": 1.925847800925926,
       "tolerance": 8,
-      "decoded_sha256": "706932de01354ef11e35601d7ec4b63ff08c516014ba0ddbf4d5dad95ecf5de4"
+      "decoded_sha256": "58d14ac2709cfe8c6f7005302092d4b7dbf8354c4a10c79069b7bef5d270ce1b"
     },
     {
       "locale": "en",
       "frame": 180,
-      "mean_rgb_error": 1.9611530671296296,
+      "mean_rgb_error": 1.964324363425926,
       "tolerance": 8,
-      "decoded_sha256": "3d6f2165f3d29e261d0d0c99be72173442a16047db1714ff7c88610fb5bb3dd6"
+      "decoded_sha256": "61e4af312587323e7d08e84d013d31b38a048f68b3cf980c2044fd40387c63e6"
     },
     {
       "locale": "en",
       "frame": 246,
-      "mean_rgb_error": 1.7367418981481482,
+      "mean_rgb_error": 1.7347280092592592,
       "tolerance": 8,
-      "decoded_sha256": "8796f10829123f414a374134f05dfc9fa5f9d33468e475669ad82f608c244eda"
+      "decoded_sha256": "dd5ea1f047c38f7c6409fcf5b230437b4735d074129201c97790e01edab16338"
     },
     {
       "locale": "en",
       "frame": 299,
-      "mean_rgb_error": 1.688833912037037,
+      "mean_rgb_error": 1.6924985532407408,
       "tolerance": 8,
-      "decoded_sha256": "d8816d4557b32a7c0b82a276f99ea7230ca7ca99ada1038825644eb5c1a70a6f"
+      "decoded_sha256": "cfe9d367a9c5dd622543e99304eb49fe3de2913451a88adea03f166cd7657232"
     },
     {
       "locale": "en",
       "frame": 360,
-      "mean_rgb_error": 1.5793055555555555,
+      "mean_rgb_error": 1.581349826388889,
       "tolerance": 8,
-      "decoded_sha256": "fc0bf0ec6b5548656e42ab57b0781f7dc3e9840605b80f59defea88fef9b6660"
+      "decoded_sha256": "bc615e04458e198a18e310661115e32b9350412e61af8132d41e027a60bfac2b"
     },
     {
       "locale": "en",
       "frame": 420,
-      "mean_rgb_error": 1.6085358796296296,
+      "mean_rgb_error": 1.609074074074074,
       "tolerance": 8,
-      "decoded_sha256": "a0b5629a0bf504805f3e4213ca4a8580ca3416a277a7447154e4b29d5ff4405a"
+      "decoded_sha256": "ca41dcefbb80268d2f791a2b9ee826f3d4637fd8f1b52b7f92b611cfee37278e"
     },
     {
       "locale": "en",
       "frame": 450,
-      "mean_rgb_error": 1.6078356481481482,
+      "mean_rgb_error": 1.6080121527777778,
       "tolerance": 8,
-      "decoded_sha256": "7688a1e1896ee6639fbef04d7b6bcba7224b2171c29341b4f9adbdf3745c90eb"
+      "decoded_sha256": "5664613e9889fdf604d250a415b9cf7f9ff27092a5f358c4ec177478a5d712c9"
     },
     {
       "locale": "en",
       "frame": 504,
-      "mean_rgb_error": 1.575982349537037,
+      "mean_rgb_error": 1.5869936342592592,
       "tolerance": 8,
-      "decoded_sha256": "82270e763d71c95b4d419d68b286181e5bd7a812a31aac3f98c7a5cad1e8d0e0"
+      "decoded_sha256": "79eb6407fa43544567f3be3cdc21ed46dcd7f9ac9ba319d8507a4da086a41a89"
     },
     {
       "locale": "en",
       "frame": 546,
-      "mean_rgb_error": 1.6110416666666667,
+      "mean_rgb_error": 1.6051909722222222,
       "tolerance": 8,
-      "decoded_sha256": "f972b45672d0792792f5009de9fb3971d6dc02baaef64ca3afdb2b231d028847"
+      "decoded_sha256": "b308f21b04e4579d91b2006a269ff6442178774032caf47987ea176205c77c62"
     },
     {
       "locale": "en",
       "frame": 582,
-      "mean_rgb_error": 1.6117664930555555,
+      "mean_rgb_error": 1.605603298611111,
       "tolerance": 8,
-      "decoded_sha256": "a3a68f56fb92c65bb098e5e1c2cc1139219ad9bf5f0462345d8158e9c47129e8"
+      "decoded_sha256": "abc290f270c7316d35810d4ad00c43ad7942e16bf26a4db8ad7cd9c9d4fc6184"
     },
     {
       "locale": "en",
       "frame": 629,
-      "mean_rgb_error": 1.4495326967592592,
+      "mean_rgb_error": 1.4506221064814815,
       "tolerance": 8,
-      "decoded_sha256": "a59fbf76a8f5508b1e8252e3712c0b612df0d23c7ab737db8b8176a22625d867"
+      "decoded_sha256": "7526f0a85c3805a9c87ed71173836de5b94645104d3c611fe958b7c62c43ee3b"
     },
     {
       "locale": "en",
       "frame": 660,
-      "mean_rgb_error": 1.4562832754629629,
+      "mean_rgb_error": 1.4579788773148148,
       "tolerance": 8,
-      "decoded_sha256": "18b6efce17a2b081834b23cb621ee006bb67cf394b5205b2963abf7d791a764e"
+      "decoded_sha256": "2e9b1aede8cf6b82ac18a3887ebb77ef6b8b645c7a4340a1028deddb2eeece0d"
     },
     {
       "locale": "en",
       "frame": 696,
-      "mean_rgb_error": 1.4515480324074075,
+      "mean_rgb_error": 1.453062789351852,
       "tolerance": 8,
-      "decoded_sha256": "b248e86916cd4f19aa2dc7ac07705bdb2949aee22d31357b400c6af17e16a73f"
+      "decoded_sha256": "fb511fcbb733dd86580579a5d7d761d2b5ed916d8ef089af9fd804cbace71bd5"
     },
     {
       "locale": "en",
       "frame": 738,
-      "mean_rgb_error": 1.456980613425926,
+      "mean_rgb_error": 1.4581004050925925,
       "tolerance": 8,
-      "decoded_sha256": "cd97f08bcf9c31ff6f0199ca7682a3d6de6a94fa28eaeb321a77f60b0ea76132"
+      "decoded_sha256": "e330b570e9ba3ae5678e1052c8f285358a5b692683dcb0fad4e79ad987c7e203"
     },
     {
       "locale": "en",
       "frame": 786,
-      "mean_rgb_error": 1.5156278935185186,
+      "mean_rgb_error": 1.5183608217592592,
       "tolerance": 8,
-      "decoded_sha256": "80c32add293b21ec47f08408d954dde381f98efe7b323719c6f028974e217a12"
+      "decoded_sha256": "4d00abadd3ec11f5c1186b400302d1ea5c0304e43b79a06ff8deb146bf0e6171"
     },
     {
       "locale": "en",
       "frame": 822,
-      "mean_rgb_error": 1.515886863425926,
+      "mean_rgb_error": 1.5170081018518518,
       "tolerance": 8,
-      "decoded_sha256": "766c72ee6851035b016d410026b03ef9df6121ab0a9505d8ba1b514c0b458f05"
+      "decoded_sha256": "ad0839b8e382926b07a52f0a41ff9436cc7665d1ef2b10333d1d5c903da71a7e"
     },
     {
       "locale": "en",
       "frame": 870,
-      "mean_rgb_error": 1.5250882523148148,
+      "mean_rgb_error": 1.5273466435185186,
       "tolerance": 8,
-      "decoded_sha256": "48789418b231a78d1bc03a8c9206b7dece5453164b7e43807984b653897959d8"
+      "decoded_sha256": "7ff7ed90de82f63eabd04dd10beb96655fb418f21cf4a95626bde5187cb47d5d"
     },
     {
       "locale": "en",
       "frame": 918,
-      "mean_rgb_error": 1.5649537037037038,
+      "mean_rgb_error": 1.5623090277777778,
       "tolerance": 8,
-      "decoded_sha256": "0220f5ca9673911aea006d47bd5c9b61557d8d5ce21e66adaee5e16033a49d54"
+      "decoded_sha256": "752b160497c7bb56ab99ee81f93b55d1cf996e2959ed1d2514c090c9b45a6d9e"
     },
     {
       "locale": "en",
       "frame": 990,
-      "mean_rgb_error": 1.5648596643518518,
+      "mean_rgb_error": 1.5624305555555555,
       "tolerance": 8,
-      "decoded_sha256": "9d1c76597d9155d1ce27034e77ec884c9ca286889fd4a8d0fae9d01f90308b36"
+      "decoded_sha256": "fa66071ab8602020c02af4f57c5e9f77276b7451a2efcf20b5f46df7f6006155"
     },
     {
       "locale": "en",
       "frame": 1049,
-      "mean_rgb_error": 1.5589771412037037,
+      "mean_rgb_error": 1.556701388888889,
       "tolerance": 8,
-      "decoded_sha256": "4d5f77c24e520ce7b464c91c4c76cc77350b3ba6250f987f0bc23dada2232101"
+      "decoded_sha256": "e69a0c1f016511382a14db6c6e2a648a03ba17cd55d8e12e3b7cdfe9017e14b2"
     },
     {
       "locale": "en",
       "frame": 1050,
-      "mean_rgb_error": 1.904542824074074,
+      "mean_rgb_error": 1.9053298611111111,
       "tolerance": 8,
-      "decoded_sha256": "4af78a4376fbbcace8ced6fe30201e05b598fa64b2954fabd67e59571e465230"
+      "decoded_sha256": "6691244f71feb646414a6180922a6f87c77d64e6b5eab273e597e25f3255859f"
     },
     {
       "locale": "en",
       "frame": 1074,
-      "mean_rgb_error": 1.8125737847222223,
+      "mean_rgb_error": 1.8096498842592592,
       "tolerance": 8,
-      "decoded_sha256": "f7d64d6575b5e5dc77fa98a2412666ee477adbe07ed7c988940dcfd8e2e7077e"
+      "decoded_sha256": "9809aa65aad915d68a783459b27ad670066accff6ae26a7591ec646ce07a353a"
     },
     {
       "locale": "en",
       "frame": 1080,
-      "mean_rgb_error": 1.8057219328703704,
+      "mean_rgb_error": 1.8026215277777777,
       "tolerance": 8,
-      "decoded_sha256": "d58c676a19f5360b45c2820916c6102e43129b3fba2127c48f9a32b3720d6efb"
+      "decoded_sha256": "8d20d8dd8cbd4c3717b4c9430e58d4fdfc2a36d74711c523404a7198bb953617"
     },
     {
       "locale": "en",
       "frame": 1158,
-      "mean_rgb_error": 1.670183738425926,
+      "mean_rgb_error": 1.6687644675925926,
       "tolerance": 8,
-      "decoded_sha256": "2a416caf413e32c29fd4734387866bfc65d9b58c4fb1e4ec2254b42578fb02c8"
+      "decoded_sha256": "5485ccd5426a443fe9daeb9f601b200cb5c29ad334c4b0727308761964f968d3"
     },
     {
       "locale": "en",
       "frame": 1229,
-      "mean_rgb_error": 1.2969487847222223,
+      "mean_rgb_error": 1.2934215856481481,
       "tolerance": 8,
-      "decoded_sha256": "3a4f209e00da05f0568901c41d578a42c52c46f30421cc1f295a91f8d6ff1f04"
+      "decoded_sha256": "09e67b9fe0348200ad53e64812d67b9a987e7a843ce6dba54674248745111e06"
     },
     {
       "locale": "en",
       "frame": 1230,
-      "mean_rgb_error": 1.393019386574074,
+      "mean_rgb_error": 1.3899754050925925,
       "tolerance": 8,
-      "decoded_sha256": "7ef7f5289ccf31633019a87651031b6ca98a05edd87611f437654b2722d5fae0"
+      "decoded_sha256": "1b7d5f19b229d706c51b4618ed48da0bae301779bd2db190ab280a1715e13b9e"
     },
     {
       "locale": "en",
       "frame": 1231,
-      "mean_rgb_error": 1.3835677083333333,
+      "mean_rgb_error": 1.3805338541666667,
       "tolerance": 8,
-      "decoded_sha256": "e875e9e7a0bb2070b65ee4ded0bd89a11812d2e654820d611dc0d097726aedc7"
+      "decoded_sha256": "8a99f3cada178dc098c7a972156f24e8f312b579df2822396e28968789a42b27"
     },
     {
       "locale": "en",
       "frame": 1242,
-      "mean_rgb_error": 1.3824074074074073,
+      "mean_rgb_error": 1.3794314236111112,
       "tolerance": 8,
-      "decoded_sha256": "227784778c300edd99cb29189d82c1e4fe5e9e49c4281fed97229fd07a8331c6"
+      "decoded_sha256": "e37192aeb16ef7092f4541cb765824e6820481fa7494975b0ff9a31d5816aeb3"
     },
     {
       "locale": "en",
       "frame": 1248,
-      "mean_rgb_error": 1.3824074074074073,
+      "mean_rgb_error": 1.3794314236111112,
       "tolerance": 8,
-      "decoded_sha256": "227784778c300edd99cb29189d82c1e4fe5e9e49c4281fed97229fd07a8331c6"
+      "decoded_sha256": "e37192aeb16ef7092f4541cb765824e6820481fa7494975b0ff9a31d5816aeb3"
     },
     {
       "locale": "en",
@@ -465,30 +467,30 @@
     {
       "locale": "zh-Hans",
       "frame": 60,
-      "mean_rgb_error": 1.920441261574074,
+      "mean_rgb_error": 1.9198509837962963,
       "tolerance": 8,
-      "decoded_sha256": "d5128f98b169ec0a6b1c7544fe7b13edc58543aa5a53f740b769fc559fd22b80"
+      "decoded_sha256": "606abbc70d6509bfdc18b7d97761005d5cf88c8ae673f199e59eb1e528c3aad8"
     },
     {
       "locale": "zh-Hans",
       "frame": 130,
-      "mean_rgb_error": 1.9258362268518519,
+      "mean_rgb_error": 1.923013599537037,
       "tolerance": 8,
-      "decoded_sha256": "59a5d4deb8379e5af480197ac24c3dfc99b3e7362756fe350a479ebaac1cea36"
+      "decoded_sha256": "52cf8a48665cbe8b593817233b5870706a1bc1e7f5a509066838436721eb3299"
     },
     {
       "locale": "zh-Hans",
       "frame": 180,
-      "mean_rgb_error": 1.961853298611111,
+      "mean_rgb_error": 1.9629383680555557,
       "tolerance": 8,
-      "decoded_sha256": "f3f536a679feb6b9360f86ce99aa2f27a0c0e71054304d43f73d9dacde99e568"
+      "decoded_sha256": "b7212e63fca37b142e6a11d4fe5758885e10048b92531592dab47bb203ff1978"
     },
     {
       "locale": "zh-Hans",
       "frame": 246,
-      "mean_rgb_error": 1.7362688078703703,
+      "mean_rgb_error": 1.7342317708333332,
       "tolerance": 8,
-      "decoded_sha256": "95fca0f3ec8ab86f07f40841c30fc59380cd719e3bda1179bf1fb57ad5b0fb58"
+      "decoded_sha256": "1f808edbabe36faabdfedd305661bb8c560d30b8f5c0149e9b7fbcba4366001b"
     },
     {
       "locale": "zh-Hans",
@@ -521,156 +523,156 @@
     {
       "locale": "zh-Hans",
       "frame": 504,
-      "mean_rgb_error": 1.5775969328703703,
+      "mean_rgb_error": 1.5868359375,
       "tolerance": 8,
-      "decoded_sha256": "35c4e29aae9c63b736e6a6dd1322dabaa7b728418d7b01aae174b87874848fd0"
+      "decoded_sha256": "4c71531343131ec10cfaf46ca95def3c0e8563363413adeff83b92404fdfae48"
     },
     {
       "locale": "zh-Hans",
       "frame": 546,
-      "mean_rgb_error": 1.6080902777777777,
+      "mean_rgb_error": 1.5983608217592593,
       "tolerance": 8,
-      "decoded_sha256": "af2176fc287c1f00d5cf14227f7450335ce34f6c38837f1218f5df7d9644a9a9"
+      "decoded_sha256": "7a7bcd4c044873028fb5a6a5f4c0a2887c62958c3f1538eba0ec436a9f3baae9"
     },
     {
       "locale": "zh-Hans",
       "frame": 582,
-      "mean_rgb_error": 1.608783275462963,
+      "mean_rgb_error": 1.5987297453703704,
       "tolerance": 8,
-      "decoded_sha256": "9856bacc64ea056dc0aa3e60f263eb4605c91e78b65bf330053b5e44ec475ca3"
+      "decoded_sha256": "aaba632703942db9ac71256503d0db0b7ba309978a58a5f08b4a5138443c1d90"
     },
     {
       "locale": "zh-Hans",
       "frame": 629,
-      "mean_rgb_error": 1.4496889467592593,
+      "mean_rgb_error": 1.4508796296296296,
       "tolerance": 8,
-      "decoded_sha256": "a3ac1c8fad177b3754b9d53736bdf2d985d99091326699b844bbf38b3d3f9b64"
+      "decoded_sha256": "35bccc9d3cfee294ac9b71cf57ebe5217f4f98dcc41abca9c3a9bfd74f196398"
     },
     {
       "locale": "zh-Hans",
       "frame": 660,
-      "mean_rgb_error": 1.4560141782407408,
+      "mean_rgb_error": 1.4588165509259259,
       "tolerance": 8,
-      "decoded_sha256": "68408d73b10e2261bc692e5c71ff1b725f062a661d597a9ba890e4fd3bfb5f93"
+      "decoded_sha256": "5a22afe943e45b7a13c28d1970247ad81d7f24e0eeba0bde0f1fb2bb6452254b"
     },
     {
       "locale": "zh-Hans",
       "frame": 696,
-      "mean_rgb_error": 1.4572627314814814,
+      "mean_rgb_error": 1.4606655092592593,
       "tolerance": 8,
-      "decoded_sha256": "3dbf561adb620f22834122247f8fea18c7e1532e5fd8d442ab627d6719174804"
+      "decoded_sha256": "19b00a274b75b344a4b20ad8019d0c60ac537ff9ceea6cffde1ffc9f1afdfbb3"
     },
     {
       "locale": "zh-Hans",
       "frame": 738,
-      "mean_rgb_error": 1.4618981481481481,
+      "mean_rgb_error": 1.464547164351852,
       "tolerance": 8,
-      "decoded_sha256": "37b86922c2449932c220c91dde8b906a35b6708c054968cf7380c9fe649714f4"
+      "decoded_sha256": "79844c7f663723aff545320f49c58a8cbc8df173c69e71d933868ccdd0f939bb"
     },
     {
       "locale": "zh-Hans",
       "frame": 786,
-      "mean_rgb_error": 1.5285083912037036,
+      "mean_rgb_error": 1.5286516203703704,
       "tolerance": 8,
-      "decoded_sha256": "2c4cffed1aedd58850a60138e4e314c7a8218c943368db595daec55359c41254"
+      "decoded_sha256": "cc3011b490455a914282238c96bc562ac6228e0a586206b8ad4704dfd7197956"
     },
     {
       "locale": "zh-Hans",
       "frame": 822,
-      "mean_rgb_error": 1.521746238425926,
+      "mean_rgb_error": 1.5221223958333334,
       "tolerance": 8,
-      "decoded_sha256": "c1b32b92372e03365231fb00683617499d09a9a277e549b2f6c6f2d54fff145f"
+      "decoded_sha256": "be7c6351b9f07affacedaf0777be722d79bad97361a1b8590072c6830b9c29c5"
     },
     {
       "locale": "zh-Hans",
       "frame": 870,
-      "mean_rgb_error": 1.533158275462963,
+      "mean_rgb_error": 1.5329933449074074,
       "tolerance": 8,
-      "decoded_sha256": "b681bf242126d20affec6783a135d5a4655990538f690f7c73f2c1c9c1400467"
+      "decoded_sha256": "112ad83e97980a8cdd6e767f073c6a27a11396c3f1eb06499e838b219c76fee9"
     },
     {
       "locale": "zh-Hans",
       "frame": 918,
-      "mean_rgb_error": 1.5831684027777777,
+      "mean_rgb_error": 1.577371238425926,
       "tolerance": 8,
-      "decoded_sha256": "571ce1318676031b2792ee98728ccf13471cb5379900befc1d98ef9a82103b0b"
+      "decoded_sha256": "234b9831a8e87888364224f96bda25249aa820f6b61c7cef6c7422dda26eba46"
     },
     {
       "locale": "zh-Hans",
       "frame": 990,
-      "mean_rgb_error": 1.5829615162037036,
+      "mean_rgb_error": 1.5773842592592593,
       "tolerance": 8,
-      "decoded_sha256": "80fd4afa791ad78c3bd7248ecbc7decd2c3ab15f2715cc0dd85d37c84890d1e4"
+      "decoded_sha256": "bae24c6e112fae7df10ddbef445160a33252e03e42203dda4783d426d74f1993"
     },
     {
       "locale": "zh-Hans",
       "frame": 1049,
-      "mean_rgb_error": 1.5773958333333333,
+      "mean_rgb_error": 1.5731365740740741,
       "tolerance": 8,
-      "decoded_sha256": "ce59560ed7932c4dd092529d9e46c7891f57e5475ce57af43537ed65b63487e3"
+      "decoded_sha256": "18f95772e24ed44db68ab2a0463afa85d5136fa3a6fe1e82cdcb8885cf20d4b4"
     },
     {
       "locale": "zh-Hans",
       "frame": 1050,
-      "mean_rgb_error": 1.9308608217592593,
+      "mean_rgb_error": 1.924375,
       "tolerance": 8,
-      "decoded_sha256": "03a07808f2d5f64761ab4d361191c30a5a51ae01f017cd1496b37a80a53ad243"
+      "decoded_sha256": "9c81f2a774d2f21d3ed95cf10898c2b70a32adf0dc5186861329e5a185539a46"
     },
     {
       "locale": "zh-Hans",
       "frame": 1074,
-      "mean_rgb_error": 1.7954456018518519,
+      "mean_rgb_error": 1.797432002314815,
       "tolerance": 8,
-      "decoded_sha256": "57029d9ed276db9a205e0678f69798f30cd310cb072f67b0a0362574b4ef5aea"
+      "decoded_sha256": "bd9717c5d46017858233942ef46f55f5f4a5bc055d0191662f85267824a9573e"
     },
     {
       "locale": "zh-Hans",
       "frame": 1080,
-      "mean_rgb_error": 1.7987123842592592,
+      "mean_rgb_error": 1.8011096643518518,
       "tolerance": 8,
-      "decoded_sha256": "89fd132773cd79eb489d0c6a9ef17e4ab1df3192c2f94e0cbb665cc9163fc83c"
+      "decoded_sha256": "d3ce422d39c6328c675c0a2cb1f3618baf7022d2d573172b6af7fc199f2ec636"
     },
     {
       "locale": "zh-Hans",
       "frame": 1158,
-      "mean_rgb_error": 1.6669386574074074,
+      "mean_rgb_error": 1.6664265046296296,
       "tolerance": 8,
-      "decoded_sha256": "c56dbae596d0e5afea1f963b9cd002865f64a60306be5ab057202d4df13dd07c"
+      "decoded_sha256": "8d46e728d16443f4e712dc3d696c0bd734b08e0a09f43cb04606108662e2825d"
     },
     {
       "locale": "zh-Hans",
       "frame": 1229,
-      "mean_rgb_error": 1.2946585648148148,
+      "mean_rgb_error": 1.2944892939814814,
       "tolerance": 8,
-      "decoded_sha256": "d123bf255f62cbcf9c687fd73335dbcea64d52c8fc8807eed47a433b2773f82a"
+      "decoded_sha256": "8f52f311b74ed73df5b7bd82d24001aa63dc1eca062d4ec7192032645e32b626"
     },
     {
       "locale": "zh-Hans",
       "frame": 1230,
-      "mean_rgb_error": 1.391109664351852,
+      "mean_rgb_error": 1.3916362847222221,
       "tolerance": 8,
-      "decoded_sha256": "257787f815effb4dfd214a01ce2ff1759a1ad41f745c63c57591b9ffe0a8ea6e"
+      "decoded_sha256": "9a08628055c7e2fa502a75b8995c3741cc4a6dcc31d467c4098b00e17f1b88df"
     },
     {
       "locale": "zh-Hans",
       "frame": 1231,
-      "mean_rgb_error": 1.3774435763888888,
+      "mean_rgb_error": 1.3779484953703705,
       "tolerance": 8,
-      "decoded_sha256": "cf9995fe56fa70785e2cc7ea96a6c2e724fc583b308988526949bbe8d1b37c9d"
+      "decoded_sha256": "8eda5b9a907f19dffb6f46267495f9ff5facf7af547a44f0ac4fc194249c7d72"
     },
     {
       "locale": "zh-Hans",
       "frame": 1242,
-      "mean_rgb_error": 1.3756047453703704,
+      "mean_rgb_error": 1.3761863425925926,
       "tolerance": 8,
-      "decoded_sha256": "734e2d52ec4456da3c2be28b14a7228007dd8707dec9c080113ef4f0310df649"
+      "decoded_sha256": "75be81b4ad785765eafbfab35320e581e9fac358c9fc71aa7eb03c8fced5d7b9"
     },
     {
       "locale": "zh-Hans",
       "frame": 1248,
-      "mean_rgb_error": 1.3756047453703704,
+      "mean_rgb_error": 1.3761863425925926,
       "tolerance": 8,
-      "decoded_sha256": "734e2d52ec4456da3c2be28b14a7228007dd8707dec9c080113ef4f0310df649"
+      "decoded_sha256": "75be81b4ad785765eafbfab35320e581e9fac358c9fc71aa7eb03c8fced5d7b9"
     },
     {
       "locale": "zh-Hans",
@@ -839,6 +841,7 @@
   "historical_media_changes": [],
   "scope_paths": [
     "marketing/video/v2/.gitignore",
+    "marketing/video/v2/DIRECTOR_R3.md",
     "marketing/video/v2/FONT_SOURCES_R3.json",
     "marketing/video/v2/MODEL_SOURCE_R3.json",
     "marketing/video/v2/PUBLISH_LINK.json",
@@ -884,11 +887,68 @@
     "marketing/video/v2/package.json",
     "marketing/video/v2/plan.json",
     "marketing/video/v2/review/director-r3/AGENTS.md",
+    "marketing/video/v2/review/director-r3/ARTIFACT_MANIFEST.json",
     "marketing/video/v2/review/director-r3/AUDIO_QA.json",
+    "marketing/video/v2/review/director-r3/CONTACT_SHEET_EN.jpg",
+    "marketing/video/v2/review/director-r3/CONTACT_SHEET_ZH.jpg",
+    "marketing/video/v2/review/director-r3/DELIVERY.md",
+    "marketing/video/v2/review/director-r3/END_CARD_COMPARE.jpg",
+    "marketing/video/v2/review/director-r3/END_CARD_EN.png",
+    "marketing/video/v2/review/director-r3/END_CARD_ONSET_EN.jpg",
+    "marketing/video/v2/review/director-r3/END_CARD_ONSET_ZH.jpg",
+    "marketing/video/v2/review/director-r3/END_CARD_SEQUENCE_EN.jpg",
+    "marketing/video/v2/review/director-r3/END_CARD_SEQUENCE_ZH.jpg",
+    "marketing/video/v2/review/director-r3/END_CARD_ZH.png",
     "marketing/video/v2/review/director-r3/ENVIRONMENT.md",
     "marketing/video/v2/review/director-r3/FONT_PROOF.json",
+    "marketing/video/v2/review/director-r3/HANDOFF_STRIP_EN.jpg",
+    "marketing/video/v2/review/director-r3/HANDOFF_STRIP_ZH.jpg",
+    "marketing/video/v2/review/director-r3/PLATFORM_MASK_EN.jpg",
+    "marketing/video/v2/review/director-r3/PLATFORM_MASK_ZH.jpg",
+    "marketing/video/v2/review/director-r3/QA.json",
+    "marketing/video/v2/review/director-r3/SYNC_PROOF.json",
+    "marketing/video/v2/review/director-r3/TEST_RESULTS.json",
+    "marketing/video/v2/review/director-r3/TIMELINE.json",
+    "marketing/video/v2/review/director-r3/TRANSITIONS_EN.jpg",
+    "marketing/video/v2/review/director-r3/TRANSITIONS_ZH.jpg",
+    "marketing/video/v2/review/director-r3/TYPE_CONTACT_EN.jpg",
+    "marketing/video/v2/review/director-r3/TYPE_CONTACT_ZH.jpg",
+    "marketing/video/v2/review/director-r3/VISUAL_REVIEW.md",
     "marketing/video/v2/review/director-r3/VOICE_ASR.json",
+    "marketing/video/v2/review/director-r3/VOICE_NOTES.md",
     "marketing/video/v2/review/director-r3/VOICE_TIMING.json",
+    "marketing/video/v2/review/director-r3/director-cut-en-chatgpt-720-muted.mp4",
+    "marketing/video/v2/review/director-r3/director-cut-en-chatgpt-720.mp4",
+    "marketing/video/v2/review/director-r3/director-cut-en-chatgpt-muted.mp4",
+    "marketing/video/v2/review/director-r3/director-cut-en-chatgpt.mp4",
+    "marketing/video/v2/review/director-r3/director-cut-zh-workbuddy-720-muted.mp4",
+    "marketing/video/v2/review/director-r3/director-cut-zh-workbuddy-720.mp4",
+    "marketing/video/v2/review/director-r3/director-cut-zh-workbuddy-muted.mp4",
+    "marketing/video/v2/review/director-r3/director-cut-zh-workbuddy.mp4",
+    "marketing/video/v2/review/director-r3/keyframes/en/AI-01.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/AI-02.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/AI-03.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/AI-04.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S01.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S02.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S03.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S04.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S05.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S06.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S07.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/en/S08.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/AI-01.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/AI-02.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/AI-03.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/AI-04.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S01.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S02.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S03.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S04.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S05.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S06.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S07.jpg",
+    "marketing/video/v2/review/director-r3/keyframes/zh-Hans/S08.jpg",
     "marketing/video/v2/review/director-r3/music-r3-ducked-en.wav",
     "marketing/video/v2/review/director-r3/music-r3-ducked-zh-Hans.wav",
     "marketing/video/v2/review/director-r3/music-r3-un-ducked.wav",
@@ -896,6 +956,38 @@
     "marketing/video/v2/review/director-r3/narration-en.wav",
     "marketing/video/v2/review/director-r3/narration-zh-Hans.srt",
     "marketing/video/v2/review/director-r3/narration-zh-Hans.wav",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-01.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-01.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-02.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-02.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-03.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-03.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-04.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/AI-04.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/en/S03.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/S03.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/en/S04.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/S04.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/en/S05.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/S05.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/en/S06.jpg",
+    "marketing/video/v2/review/director-r3/proxy/en/S06.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-01.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-01.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-02.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-02.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-03.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-03.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-04.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/AI-04.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S03.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S03.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S04.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S04.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S05.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S05.jpg.b64.txt",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S06.jpg",
+    "marketing/video/v2/review/director-r3/proxy/zh-Hans/S06.jpg.b64.txt",
     "marketing/video/v2/review/director-r3/sfx-r3.wav",
     "marketing/video/v2/scripts/r3-asr.py",
     "marketing/video/v2/scripts/r3-build.mjs",
@@ -936,8 +1028,8 @@
         "--browser-gpu",
         "--experimental-fast-capture=false"
       ],
-      "started": "2026-10-06T07:03:28.411Z",
-      "finished": "2026-10-06T07:08:20.860Z",
+      "started": "2026-10-06T07:20:24.460Z",
+      "finished": "2026-10-06T07:25:18.291Z",
       "exit": 0
     },
     {
@@ -1053,8 +1145,8 @@
         "--browser-gpu",
         "--experimental-fast-capture=false"
       ],
-      "started": "2026-10-06T07:08:39.075Z",
-      "finished": "2026-10-06T07:13:29.407Z",
+      "started": "2026-10-06T07:25:36.434Z",
+      "finished": "2026-10-06T07:30:25.328Z",
       "exit": 0
     },
     {
@@ -1268,61 +1360,61 @@
     {
       "file": "review/director-r3/keyframes/en/S01.jpg",
       "frame": 60,
-      "sha256": "dfc79b018750cad3d145f68106548daf971bdcc7f3caaa93ad4b0a53b469ee8f",
+      "sha256": "3f82b186636b045ace1397e0e06ae00305822da36b017534a329ae3d3441a56e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S02.jpg",
       "frame": 246,
-      "sha256": "4361ed0a5a6b5d335fbf0f06b93c012c1df2cfbf77b3aaf60fbb4db543467af6",
+      "sha256": "e375836c24a044f31ee304cab2a89a72174aaa651f523547df6f941c2d2898b3",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S03.jpg",
       "frame": 360,
-      "sha256": "cf16f125ee62be317c2cff71eee1986d553581402d53fa100e73ef2e9a8b752c",
+      "sha256": "050db101892fed4effb470bd93c828039d8907cfb63fc7d94c88e553f2de3b51",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S04.jpg",
       "frame": 546,
-      "sha256": "1f51f8677c165cc3c408d7bafb9adc28ecee6fe9d5b99c351f93a5a7e4e9b953",
+      "sha256": "e5e2d350a3ddd92056e0344e0ed862f5375930e9469b726381680de2d0479c11",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S05.jpg",
       "frame": 738,
-      "sha256": "a61578feeeea2b13c2e1460bb4b1a2ced27e848d1d00adbafd63bbd2a3a21c27",
+      "sha256": "8bf71f14a5bb0149c3b0035c8c65337e3bc63251fcee47111bb131bbcf26cd5e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S06.jpg",
       "frame": 990,
-      "sha256": "db8c22bfdd4c3924903f9b5371ea86e95310a080f497a9f19c1cb38b8af2d9da",
+      "sha256": "b504e604ad36d7a4148a2e33b88ce5197abeb7e1fe2d1192c4878cc11690f715",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S07.jpg",
       "frame": 1158,
-      "sha256": "46e20b4cad3447efe6f7b8c28fd3a2cac58eefcf9d627d962d5a68fbba9859b2",
+      "sha256": "4d5576f7230728cba7583d4cb520988abec150ab9db94c433e0cbc53df659c36",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/en/S08.jpg",
       "frame": 1230,
-      "sha256": "3353d4ba36afc7d1e6a783ed6dd14e7bf115db6aa08ef4bda54ff706fcac73d0",
+      "sha256": "12c28d7969daaa41ed09041b7482aa6e321f1a67e86c2c4d4a8cc1b65fc9c15e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S01.jpg",
       "frame": 60,
-      "sha256": "69eb1065b6b19975fbca8c44bdd1ce65e9d6ca6e3284c1d0c0e5cc1000ef18df",
+      "sha256": "8c80ac772b00094cfc70a9f337bfcd7c7f638d3570dbee01c8f3e00b94c90d14",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S02.jpg",
       "frame": 246,
-      "sha256": "06d7fa858ac14f97f1556181de56c13a0c5846f916cfa418596c6af5e1ec0069",
+      "sha256": "9ad966d4c7d6b3e0ec4bdd1bcd04d89ac5839c98ef0841f64408be7f8b4934f3",
       "source": "decoded master MP4"
     },
     {
@@ -1334,31 +1426,31 @@
     {
       "file": "review/director-r3/keyframes/zh-Hans/S04.jpg",
       "frame": 546,
-      "sha256": "429916757c66edd9dcb22ec8b81f8dc338b75269267f2609fe19c530325ca9e3",
+      "sha256": "6ea5af8f21cdec83ed8ec6af4d723089c39d332e4847763bff294a9e4fb4adae",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S05.jpg",
       "frame": 738,
-      "sha256": "9991b2ae3ba3de673e24a73bb3a7936b0a28d8be7c9fccbdf3ea6c86b2fefa18",
+      "sha256": "73fefbbf01ce479d7ef85bb8a98c9c400a54f9202808bc31cfc6e635e3dab2b3",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S06.jpg",
       "frame": 990,
-      "sha256": "b46c847ff5f7d0e42bf293dd04dfa92f68792120c439181721167eee0e1e9bac",
+      "sha256": "3a1fda9b7dd212cb5f148099ef453c92eb435ee64fd85031cd5841471a201708",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S07.jpg",
       "frame": 1158,
-      "sha256": "1e93a53697262203d65ca36b219feabc8a1477df4d96c9b179ceadd68cfe85a2",
+      "sha256": "7beb3253887d46fd84c8ab4b34e8fd52caa3db8f90d798af4e2d552fdb03919e",
       "source": "decoded master MP4"
     },
     {
       "file": "review/director-r3/keyframes/zh-Hans/S08.jpg",
       "frame": 1230,
-      "sha256": "0ba3b7683dbdf80f336a9d33e17ed3ca4ee4ddce79a463dfb11a7ebfbf0cc6f7",
+      "sha256": "7fa6c41e1b19c20732396c240a8c616e1e166cb49d9429cb54e391e43522dd74",
       "source": "decoded master MP4"
     }
   ],
@@ -1462,7 +1554,7 @@
       "detected_corners": [
         [
           [
-            472.0,
+            473.0,
             535.0
           ],
           [
@@ -1474,7 +1566,7 @@
             648.0
           ],
           [
-            472.0,
+            473.0,
             648.0
           ]
         ]
@@ -1555,6 +1647,7 @@
     }
   ],
   "voice_real": true,
+  "public_test_seams": "NONE / DOM exclusion PASS",
   "font_actual_platform": "FONT_PROOF.json",
   "sync": "SYNC_PROOF.json",
   "narration_copy_adjustments": "VOICE_NOTES.md"
