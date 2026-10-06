@@ -1,0 +1,14 @@
+{
+  "workflow_run": 37466607677,
+  "passed": 3,
+  "failed": 0,
+  "scope": "3 focused ArchiveCore tests, no 200-page run",
+  "safe_log_extract": [
+    "2026-10-06T12:55:13.6423350Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testAIUsageContractRequiresVisualVerification]' passed (0.003 seconds).",
+    "2026-10-06T12:55:13.6428050Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testMissingOrChangedCanonicalJPEGIsRejected]' passed (0.024 seconds).",
+    "2026-10-06T12:55:13.6440290Z Test Case '-[ArchiveCoreTests.ArchiveCoreTests testOneAndTwentyPageArchivesWithEmptyAndFailedOCR]' passed (0.289 seconds).",
+    "2026-10-06T12:55:13.6442640Z \t Executed 3 tests, with 0 failures (0 unexpected) in 0.316 (0.317) seconds",
+    "2026-10-06T12:55:13.6446750Z \t Executed 3 tests, with 0 failures (0 unexpected) in 0.316 (0.317) seconds",
+    "2026-10-06T12:55:13.6450890Z \t Executed 3 tests, with 0 failures (0 unexpected) in 0.316 (0.320) seconds"
+  ]
+}

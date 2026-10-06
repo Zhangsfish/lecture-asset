@@ -1,10 +1,24 @@
 {
-  "base_sha": "0e6c1670ffe1464532c11356d3d5824e459aff39",
-  "archive_packages_schema_assets_screenshots_privacy_unchanged": true,
+  "base_sha": "49d38a3aada0e7c68761663ee08d1e416a081761",
+  "tested_code_sha": "0dbb1f39af13d3112b7832c17fc3a576e0bb8275",
+  "previous_pr_head": "4d400ca2e8c3762e3856914894cd19dda7127e06",
+  "this_round_app_changed_files": [
+    "App/AgeAssuranceEntryView.swift"
+  ],
+  "all_other_existing_app_files_identical_git_blobs_to_latest_main": true,
+  "comparison_method": "canonical Git blobs, not Windows checkout line endings",
+  "protected_existing_app_files_unchanged": 19,
+  "protected_paths_unchanged_vs_latest_main": [
+    "Packages",
+    "schemas",
+    "App/Assets.xcassets",
+    "App/PrivacyInfo.xcprivacy",
+    "reports/S05/store-screenshots-01"
+  ],
   "minimum_ios": "18.0",
-  "age_service_persistence_network_logging": "none (source review)",
-  "localization_check": "PASS",
-  "unsupported_policy": "unresolved; blocks main work until owner-approved compatibility policy",
-  "source_signing_secrets_used": false,
-  "protected_existing_app_files_unchanged": 19
+  "age_service_changed_this_round": false,
+  "localization_changed_this_round": false,
+  "age_service_persistence_network_logging": "none (existing source review)",
+  "unsupported_policy": "owner 2026-10-06: direct ContentView below26.2; not verified age",
+  "source_signing_secrets_used": false
 }

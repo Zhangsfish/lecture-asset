@@ -1,9 +1,10 @@
 # Prepared physical Sandbox checklist — NOT_RUN
 
-This task did not upload a build or change any account. Current TestFlight 30.1
-cannot test this new code. A separately authorized installable build and iOS 26.2+
+This task did not upload a build or change any account. The existing TestFlight builds
+do not contain this PR’s age code. A separately authorized installable build and iOS 26.2+
 are prerequisites; no request to redo photos/archive/share/delete stress tests.
-The earlier owner-reported iOS 26.1 device needs an OS decision before this test.
+On iOS 26.1 the new entry intentionally remains normal and makes no age request;
+regional Sandbox cases require iOS 26.2+ and a separately authorized build.
 
 Once a suitable build is authorized and installed:
 

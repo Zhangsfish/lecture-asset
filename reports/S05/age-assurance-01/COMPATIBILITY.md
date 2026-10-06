@@ -1,48 +1,45 @@
-# iOS compatibility — HOLD_OWNER_DECISION
+# iOS compatibility — owner-directed release fix
 
-Queried 2026-10-05. Deployment target remains **iOS 18.0**. Compiling against a
-new SDK does not make an unavailable runtime API callable on an old OS.
+Owner decision: **2026-10-06**. Minimum iOS remains **18.0**; product UI is frozen.
+This replaces the previous blanket old-OS blocker. It is an implementation decision,
+**not a legal preapproval or an App Review approval**.
 
-| OS | Apple API / current primary guidance | Implemented path | Release blocker |
+| OS | Apple API availability | Final App entry | Evidence / limits |
 |---|---|---|---|
-| iOS 18.x | No DeclaredAgeRange API. Apple explicitly exempts **existing** Apple Accounts on iOS 18 or earlier from these changes; this does not identify every new-account case | Entry returns unresolved(unsupportedOS); no age UI/request, no processing/PhotoKit model construction; About/privacy available | YES: no trusted regional/account signal to distinguish the stated unaffected accounts from other cases. Blocking these unaffected users is not an approved product fallback |
-| iOS 26.0 / 26.1 | General age-range API exists from 26.0, but regional eligibility from 26.2. No documented equivalence found between the older self/guardian-declared API and current jurisdictional compliance signals | unresolved(unsupportedOS); no speculative worldwide request or implicit exemption | YES: exact required treatment of Texas new accounts on these versions remains UNRESOLVED |
-| iOS 26.2+ | Regional eligibility async throwing API; region may override requested age gates with legal categories | eligibility false → notRequired, no prompt/data; true → system request with 18 boundary; preserve returned bounds and declaration in RAM. shared minor/adult both continue; declined/error stays unresolved | No SDK/adapter-path blocker once build/tests pass; real Sandbox, production provisioning and old-OS policy remain separate gates |
+| iOS 18.x | DeclaredAgeRange unavailable. Apple says existing Apple Accounts on iOS 18 or earlier are unaffected by the changes | Direct `ContentView()`; no age sheet, unsupported screen, eligibility call or age data | Focused assertion against the actual availability branch; old-OS device execution NOT_RUN |
+| iOS 26.0 / 26.1 | General age-range API introduced in 26.0; regional `isEligibleForAgeFeatures` introduced in 26.2 | Direct `ContentView()` under the same `<26.2` branch. No worldwide request, locale/storefront guess or invented account fallback | Owner-directed compatibility policy; static routing assertion PASS, physical execution NOT_RUN. We do not claim Apple legally exempted all such accounts |
+| iOS 26.2+ | Regional eligibility supported | False → normal App, no age request. True → request gate 18; shared minor/adult → normal App. Declined, errors and incomplete response → explicit unresolved/retry | Real Release compilation and focused state-machine XCTest; real Apple Sandbox NOT_RUN |
 
-Primary sources: [Apple Q&A](https://developer.apple.com/support/age-assurance/),
-[eligibility API](https://developer.apple.com/documentation/declaredagerange/agerangeservice/iseligibleforagefeatures),
-[range service](https://developer.apple.com/documentation/declaredagerange/agerangeservice),
-[Texas account policy](https://support.apple.com/en-us/127462).
-API introduction versions independently retrieved from Apple's documentation JSON
-and recorded in SOURCES.json. No forums used as compliance evidence.
+The old-OS branch does not instantiate the supported entry or call the age service.
+It does not turn unsupported into verified. The service's isolated unsupported-state
+unit test remains, but that state is no longer a production old-OS entrance blocker.
+No DOB, age database, new network client, analytics, age persistence or minimum-OS
+increase. A shared range is only held in volatile session memory on the required path.
 
-## Smallest authoritative question remaining
+## Owner decision and review boundary
 
-For an iOS-18-minimum App first released after June 4, 2026, what must a developer
-do for a Texas account created after that date when the device runs iOS 18.x or
-26.0/26.1 and regional eligibility is unavailable? Does Apple prevent that account
-from downloading/launching, provide a supported earlier-OS signal, or exempt it?
-Can the iOS 26.0/26.1 range API alone satisfy the applicable requirement, and how
-can the App distinguish the documented unaffected existing iOS-18 accounts without
-collecting account age, region or birthday itself?
-
-This question needs Apple authoritative guidance / owner legal decision. The PR
-neither raises minimum OS nor guesses a locale/storefront/DOB fallback. **Do not
-ship its conservative unsupported screen as a silently accepted restriction on
-all old-OS users.** Keeping the implementation reviewable is not release approval.
+The 2026-10-06 task records the owner's decision to preserve normal use below 26.2.
+It also records Apple Developer Support's response: no pre-review is provided;
+submit through App Review for review feedback. This is an **owner/task-reported
+support outcome**, not an independently obtained legal opinion; no private case ID
+is included. This PR does not submit for review or authorize RC/upload/ASC changes.
 
 ## PermissionKit / significant updates
 
-**NOT_APPLICABLE_FOR_INITIAL_V0.1** is an engineering applicability assessment:
-this is the first public version, not a significant change to a previously released
-app/age rating/terms. Apple describes parental re-consent for a significant update,
-and initial download consent is platform-managed. No social communication, IAP
-or in-app account exists here. No PermissionKit flow or notification backend is
-added. This is not a general exemption for future changes; reassess material
-functionality/privacy/rating changes separately. Apple documents revocation as
-platform launch prevention. [Significant update topic](https://developer.apple.com/documentation/permissionkit/significantappupdatetopic),
-[Texas Apple account policy](https://support.apple.com/en-us/127462),
-[Apple kids overview](https://developer.apple.com/kids/).
+**NOT_APPLICABLE_FOR_INITIAL_V0.1** remains the initial-version engineering assessment:
+there is no earlier public release being significantly changed. No PermissionKit,
+significant-change UI or notification backend was added. Future material updates
+need separate reassessment. The owner-directed old-OS policy closes this PR's
+implementation HOLD; legal/App Review acceptance and signed-device testing remain
+separate evidence states.
 
-No evidence found making an initial-version significant-update flow mandatory.
-Legal release clearance remains held on old-OS handling; no server work authorized.
+## Primary sources
+
+Checked 2026-10-06: [Apple age assurance Q&A](https://developer.apple.com/support/age-assurance/),
+[regional eligibility](https://developer.apple.com/documentation/declaredagerange/agerangeservice/iseligibleforagefeatures),
+[AgeRangeService](https://developer.apple.com/documentation/declaredagerange/agerangeservice),
+[entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.declared-age-range),
+[Sandbox](https://developer.apple.com/documentation/storekit/testing-age-assurance-in-sandbox),
+[significant updates](https://developer.apple.com/documentation/permissionkit/significantappupdatetopic).
+Retrieval dates/hashes for API JSON are retained in SOURCES.json. These sources
+establish API availability; they do not independently prove legal release clearance.
