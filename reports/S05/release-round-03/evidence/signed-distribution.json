@@ -1,0 +1,17 @@
+{
+  "codesign_verification": "PASS",
+  "distribution_profile_declared_age_range": "true",
+  "signed_app_declared_age_range": "missing",
+  "signed_application_identifier_correct": true,
+  "application_identifier_correct": true,
+  "signed_team_identifier_correct": true,
+  "team_identifier_correct": true,
+  "signed_get_task_allow": false,
+  "get_task_allow": false,
+  "profile_type": "app-store",
+  "apple_distribution_certificate": true,
+  "raw_profile_retained_or_published": false,
+  "contract_result": "FAIL",
+  "ipa_sha256": "8621458efdeefc27668915fc8b7f3fbd4037455b13d56b88be26ed22d3ac98ff",
+  "failure_code": "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED"
+}
