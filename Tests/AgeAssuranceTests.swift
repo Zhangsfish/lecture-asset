@@ -38,6 +38,26 @@ final class AgeAssuranceTests: XCTestCase {
         XCTAssertTrue(service.state.allowsWork)
     }
 
+    func testSharedRangeDoesNotRepeatEligibilityOrPromptAfterEntry() async {
+        for receipt in [
+            AgeAssuranceReceipt(lowerBound: 16, upperBound: 17, declaration: "guardianDeclared"),
+            AgeAssuranceReceipt(lowerBound: 18, upperBound: nil, declaration: "confirmed")
+        ] {
+            let service = AgeAssuranceService()
+            var queries = 0
+            var prompts = 0
+            for _ in 0..<2 {
+                await service.check(supported: true,
+                                    eligibility: { queries += 1; return true },
+                                    request: { prompts += 1; return .shared(receipt) })
+            }
+            XCTAssertEqual(service.state, .verified(receipt))
+            XCTAssertTrue(service.state.allowsWork)
+            XCTAssertEqual(queries, 1)
+            XCTAssertEqual(prompts, 1)
+        }
+    }
+
     func testDeclinedRemainsUnresolvedAndCanRetry() async {
         let service = AgeAssuranceService()
         await service.check(supported: true, eligibility: { true }, request: { .declined })

@@ -8,9 +8,9 @@ struct AgeAssuranceEntryView: View {
         if #available(iOS 26.2, *) {
             SupportedAgeAssuranceEntry()
         } else {
-            // No regional eligibility API: no invented account/region fallback.
-            // This deliberately remains a release blocker pending owner decision.
-            AgeAssuranceUnresolvedView(issue: .unsupportedOS, retry: nil)
+            // Owner decision 2026-10-06: preserve the existing product on old OS.
+            // No regional API call, age prompt, or invented region/account lookup.
+            ContentView()
         }
     }
 }

@@ -20,6 +20,7 @@ jobs:
           mkdir -p "$RUNNER_TEMP/age-evidence"
           { git rev-parse HEAD; sw_vers; xcodebuild -version; xcrun --sdk iphoneos --show-sdk-version; } > "$RUNNER_TEMP/age-evidence/toolchain.txt"
           python3 scripts/check_localization.py --output "$RUNNER_TEMP/age-evidence/localization.json"
+          python3 scripts/check_age_release.py --source-only "$RUNNER_TEMP/age-evidence/entry-routing.json"
           swift test --package-path Packages/ArchiveCore --filter 'ArchiveCoreTests.testOneAndTwentyPageArchivesWithEmptyAndFailedOCR|ArchiveCoreTests.testMissingOrChangedCanonicalJPEGIsRejected|ArchiveCoreTests.testAIUsageContractRequiresVisualVerification'
       - name: Verified XcodeGen
         run: |
