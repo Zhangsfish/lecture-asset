@@ -4,7 +4,7 @@ Updated: 2026-10-05
 
 ## Now
 
-**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. Owner-accepted product/UI is on main via PR #20. Final App Store distribution RC `0.1.0 (34.1)` passed independent audit and PR #19 was squash-merged as `6abb2ea6eedd4e98091f4ab9ce9f0d3034f455e8`: genuine App Store profile age entitlement=true, final signed App age entitlement=true, codesign PASS, exact IPA upload ACCEPTED, ASC processingState=VALID and buildAudienceType=APP_STORE_ELIGIBLE. Product code remains frozen. Owner physical exact-RC launch smoke for TestFlight `0.1.0 (34.1)` is PASS: installed/updated and normal app entry/use confirmed. Remaining pre-review gate: Apple Age Assurance Sandbox verification, then select build 34.1 in ASC and submit US-only with Manual Release. Promo v2 remains non-blocking.**
+**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. Owner-accepted product/UI is on main. Final App Store distribution RC `0.1.0 (34.1)` passed independent audit: genuine App Store profile age entitlement=true, final signed App age entitlement=true, codesign PASS, exact IPA upload ACCEPTED, ASC processingState=VALID and buildAudienceType=APP_STORE_ELIGIBLE. Owner physical exact-RC launch smoke PASS. App privacy was completed as no data collected. The iOS 0.1.0 submission has now been sent to App Review; ASC confirms one item submitted. Public release remains Manual Release, so approval will not auto-publish. Current action is wait for App Review feedback/approval; respond only if Apple requests changes or information. Promo v2 remains non-blocking.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -33,7 +33,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-SHOTS-ZH | **PASS** — PR #16 merged on main; final zh-Hans Store screenshots accepted | [PR #16](https://github.com/Zhangsfish/lecture-asset/pull/16) |
 | S05-MV-V1 | **CLOSED_SUPERSEDED** — PR #17 closed without merge; retained only as historical renderer evidence | [PR #17](https://github.com/Zhangsfish/lecture-asset/pull/17) |
 | S05-MV-V2 | **IN_PROGRESS / PR #18** — cinematic promo v2; current branch contains R3 narration/typography instructions, not yet accepted final media | [PR #18](https://github.com/Zhangsfish/lecture-asset/pull/18) |
-| S05-D | **RC PASS / READY_FOR_SANDBOX_AND_REVIEW** — final distribution build `0.1.0 (34.1)` VALID + APP_STORE_ELIGIBLE; signing/upload blocker closed. Run exact-RC launch + age-assurance Sandbox checks, then US-only App Review submission | [release task](tasks/S05_RELEASE.md) |
+| S05-D | **SUBMITTED_TO_APP_REVIEW** — `0.1.0 (34.1)` submitted successfully; wait for review outcome. Manual Release remains intended, so approval does not auto-publish | [release task](tasks/S05_RELEASE.md) |
 
 S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
 
