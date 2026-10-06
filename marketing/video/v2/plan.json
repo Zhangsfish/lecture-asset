@@ -1,6 +1,6 @@
 {
   "id": "lecture-asset-v2-director-r3",
-  "status": "R3_IN_PRODUCTION",
+  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
   "authority": "DIRECTOR_R3.md",
   "instruction_sha256": "8baa90d25038c150fc85739d00f6d3568e468e0c2da78d55439c217d1765cc8e",
   "branch_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
@@ -594,7 +594,9 @@
     "reason": "Actual ASR: provider names at11.07–12.11; saved phrase ends18.40/18.42; cleanup begins after that",
     "measurement": "review/director-r3/VOICE_ASR.json"
   },
-  "production_status": "R3_REAL_VOICE_READY_FOR_RENDER",
+  "production_status": "R3_COMPLETE_REAL_BILINGUAL_NARRATION",
   "narration_actual": "review/director-r3/VOICE_TIMING.json",
-  "narration_original_vs_actual": "N01 only condensed to fit measured slot; all other cue texts unchanged. Display copy unchanged."
+  "narration_original_vs_actual": "N01 only condensed to fit measured slot; all other cue texts unchanged. Display copy unchanged.",
+  "tested_render_source_sha": "d81c236709b273c04e5d4a700da958d5d0510f6c",
+  "cleanup_type_revision": "Actual encoded inspection found white-on-white S07. Broad soft negative-space light mask added behind type/saved cue, removed at20.5. Both films re-rendered."
 }

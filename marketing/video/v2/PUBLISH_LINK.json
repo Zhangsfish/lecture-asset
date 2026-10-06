@@ -133,7 +133,7 @@
       ]
     }
   ],
-  "qr_checked_utc": "2026-10-05T19:38:44.870396+00:00",
+  "qr_checked_utc": "2026-10-06T07:15:12.704360+00:00",
   "r3_public_recheck": {
     "checked_utc": "2026-10-06T06:46:49.144424+00:00",
     "checks": [
@@ -154,5 +154,119 @@
       }
     ],
     "state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED"
-  }
+  },
+  "qr_exported_frame_checks_r3": [
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt.mp4",
+      "frame": 1231,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            803.0
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1231,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            473.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy.mp4",
+      "frame": 1231,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            803.0
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1231,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            472.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            472.0,
+            648.0
+          ]
+        ]
+      ]
+    }
+  ]
 }

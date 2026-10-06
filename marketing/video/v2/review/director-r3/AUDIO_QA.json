@@ -113,5 +113,80 @@
     "ending": "NOT_RUN",
     "mono phone playback": "NOT_RUN"
   },
-  "asr_consistency": "14/14 final cues normalized transcript match1.0; not a subjective pronunciation or listening PASS"
+  "asr_consistency": "14/14 final cues normalized transcript match1.0; not a subjective pronunciation or listening PASS",
+  "stems_decode": [
+    {
+      "path": "review/director-r3/music-r3-ducked-en.wav",
+      "sha256": "2571959329a335a512ee84c6a360e9004ac8254afda30de2d9c8374d1745e5e9",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.03304414958519899
+    },
+    {
+      "path": "review/director-r3/music-r3-ducked-zh-Hans.wav",
+      "sha256": "0b416f37312211cbe9531fed19d87fc974ad72c24670a1fb4e23f090553ca776",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.031830789130082096
+    },
+    {
+      "path": "review/director-r3/music-r3-un-ducked.wav",
+      "sha256": "4e6d0a4d24e54440457e872524550376d16c68c5919a5ec112ea70e770a96c51",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.056314531903769116
+    },
+    {
+      "path": "review/director-r3/narration-en.wav",
+      "sha256": "efb8ed9e69331262e3567feeda5bfb916354875b4db8fe9f4f35825c5f6f844c",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.07400672434089471
+    },
+    {
+      "path": "review/director-r3/narration-zh-Hans.wav",
+      "sha256": "553a546170e54930f646b777793a6b8416e5ea6e1ef4771bce99fc1394c826d5",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.07995355683545399
+    },
+    {
+      "path": "review/director-r3/sfx-r3.wav",
+      "sha256": "5d0048ab87d7f1b8e1fe39620a70936230f8ea271cc8d4c0b2e374911678113c",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.0104688374959717
+    },
+    {
+      "path": "assets/sound/r3-mix-en.wav",
+      "sha256": "7054c2e46773c5d68656770206896958fbe42f0018d61ea5b6493090fd4ca5ec",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.14410627423000316
+    },
+    {
+      "path": "assets/sound/r3-mix-zh-Hans.wav",
+      "sha256": "51e45bff5677e5d81b2207203e4ef6db7a79d0606ef63aa15ca0ca5a465edb41",
+      "channels": 2,
+      "sample_rate": 48000,
+      "seconds": 26.0,
+      "clipped_samples": 0,
+      "mono_rms": 0.1356922753279418
+    }
+  ],
+  "measured_first_rhythmic_attack_seconds": 6.25e-05
 }

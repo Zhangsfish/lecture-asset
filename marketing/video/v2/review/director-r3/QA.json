@@ -1,0 +1,1561 @@
+{
+  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
+  "tested_implementation_sha": "d81c236709b273c04e5d4a700da958d5d0510f6c",
+  "main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
+  "director_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
+  "technical": "PASS",
+  "media": [
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "sha256": "3e040f279cd2bca9be98904dfdecc26a3d7d6533d58d9ae751a0d2a5f22e9298",
+      "bytes": 9241169,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -3.0319229585038396,
+        "rms_dbfs": -16.85917640263736,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN",
+        "encoded_loudness_lufs": -14.54,
+        "encoded_true_peak_dbtp": -2.88,
+        "source_narrated_mix_correlation": 0.9991926085455284
+      }
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "sha256": "613a9996dcd82cd089ba2aeb1d1c49009b49a69ce78b062ae8d1dadef2e279d2",
+      "bytes": 8585144,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "sha256": "3ec7fb087a5c7c358c41aefd3b8e7e5b045f7dda212ee346199ccec35a71bd51",
+      "bytes": 3204423,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "sha256": "675946b894d736c9585c14d42dd8d9788fc5bc407bfea1b8737fc840f8ef4055",
+      "bytes": 2651428,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "sha256": "e9b3149a00a18d94ac6e60aa64597a5be169585beeba9a6ee4b22666159d71bf",
+      "bytes": 9234564,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -1.9311160894476995,
+        "rms_dbfs": -17.381760957987215,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN",
+        "encoded_loudness_lufs": -14.61,
+        "encoded_true_peak_dbtp": -1.93,
+        "source_narrated_mix_correlation": 0.9992907446251942
+      }
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "sha256": "9658fe46011df4c16cdaca3b323ce5b502362577c3213ebb56812d41b718b0f1",
+      "bytes": 8575439,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "sha256": "c484fac444b60f52ff2fbf11105655e100cab205bd1d82e8e0e42daf10496c4f",
+      "bytes": 3182745,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "sha256": "43f8f74a76021428dae584f07ec4d5e4dad5f3e56e11d02034a8be3e3c4d5266",
+      "bytes": 2628805,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    }
+  ],
+  "dom_checks": [
+    {
+      "locale": "en",
+      "errors": [],
+      "ready": {
+        "fonts": "loaded",
+        "images": 22,
+        "decoded": true,
+        "atlas": [
+          887,
+          1774
+        ]
+      },
+      "duration": 26,
+      "seek_mismatches": [],
+      "clipping": [],
+      "saved_before_departure": true,
+      "middle_life_hidden": true,
+      "report_hold": true,
+      "end_stable": true
+    },
+    {
+      "locale": "zh-Hans",
+      "errors": [],
+      "ready": {
+        "fonts": "loaded",
+        "images": 22,
+        "decoded": true,
+        "atlas": [
+          887,
+          1774
+        ]
+      },
+      "duration": 26,
+      "seek_mismatches": [],
+      "clipping": [],
+      "saved_before_departure": true,
+      "middle_life_hidden": true,
+      "report_hold": true,
+      "end_stable": true
+    }
+  ],
+  "decoded_native_comparisons": [
+    {
+      "locale": "en",
+      "frame": 0,
+      "mean_rgb_error": 1.8654933449074074,
+      "tolerance": 8,
+      "decoded_sha256": "a9c5d8022c88c29fa505045256727d86b9e06a65a9a629df78f9e540eface974"
+    },
+    {
+      "locale": "en",
+      "frame": 21,
+      "mean_rgb_error": 1.8847526041666667,
+      "tolerance": 8,
+      "decoded_sha256": "795615aaa2b1b329077c44f7bdc59548092248e427a4ac4faa73479b4dd6fdc5"
+    },
+    {
+      "locale": "en",
+      "frame": 60,
+      "mean_rgb_error": 1.9230237268518517,
+      "tolerance": 8,
+      "decoded_sha256": "c9d50dfab90d2c57f9c0c737dad41c9cf08781a0c0228d0706022097bccbc24a"
+    },
+    {
+      "locale": "en",
+      "frame": 130,
+      "mean_rgb_error": 1.926189236111111,
+      "tolerance": 8,
+      "decoded_sha256": "706932de01354ef11e35601d7ec4b63ff08c516014ba0ddbf4d5dad95ecf5de4"
+    },
+    {
+      "locale": "en",
+      "frame": 180,
+      "mean_rgb_error": 1.9611530671296296,
+      "tolerance": 8,
+      "decoded_sha256": "3d6f2165f3d29e261d0d0c99be72173442a16047db1714ff7c88610fb5bb3dd6"
+    },
+    {
+      "locale": "en",
+      "frame": 246,
+      "mean_rgb_error": 1.7367418981481482,
+      "tolerance": 8,
+      "decoded_sha256": "8796f10829123f414a374134f05dfc9fa5f9d33468e475669ad82f608c244eda"
+    },
+    {
+      "locale": "en",
+      "frame": 299,
+      "mean_rgb_error": 1.688833912037037,
+      "tolerance": 8,
+      "decoded_sha256": "d8816d4557b32a7c0b82a276f99ea7230ca7ca99ada1038825644eb5c1a70a6f"
+    },
+    {
+      "locale": "en",
+      "frame": 360,
+      "mean_rgb_error": 1.5793055555555555,
+      "tolerance": 8,
+      "decoded_sha256": "fc0bf0ec6b5548656e42ab57b0781f7dc3e9840605b80f59defea88fef9b6660"
+    },
+    {
+      "locale": "en",
+      "frame": 420,
+      "mean_rgb_error": 1.6085358796296296,
+      "tolerance": 8,
+      "decoded_sha256": "a0b5629a0bf504805f3e4213ca4a8580ca3416a277a7447154e4b29d5ff4405a"
+    },
+    {
+      "locale": "en",
+      "frame": 450,
+      "mean_rgb_error": 1.6078356481481482,
+      "tolerance": 8,
+      "decoded_sha256": "7688a1e1896ee6639fbef04d7b6bcba7224b2171c29341b4f9adbdf3745c90eb"
+    },
+    {
+      "locale": "en",
+      "frame": 504,
+      "mean_rgb_error": 1.575982349537037,
+      "tolerance": 8,
+      "decoded_sha256": "82270e763d71c95b4d419d68b286181e5bd7a812a31aac3f98c7a5cad1e8d0e0"
+    },
+    {
+      "locale": "en",
+      "frame": 546,
+      "mean_rgb_error": 1.6110416666666667,
+      "tolerance": 8,
+      "decoded_sha256": "f972b45672d0792792f5009de9fb3971d6dc02baaef64ca3afdb2b231d028847"
+    },
+    {
+      "locale": "en",
+      "frame": 582,
+      "mean_rgb_error": 1.6117664930555555,
+      "tolerance": 8,
+      "decoded_sha256": "a3a68f56fb92c65bb098e5e1c2cc1139219ad9bf5f0462345d8158e9c47129e8"
+    },
+    {
+      "locale": "en",
+      "frame": 629,
+      "mean_rgb_error": 1.4495326967592592,
+      "tolerance": 8,
+      "decoded_sha256": "a59fbf76a8f5508b1e8252e3712c0b612df0d23c7ab737db8b8176a22625d867"
+    },
+    {
+      "locale": "en",
+      "frame": 660,
+      "mean_rgb_error": 1.4562832754629629,
+      "tolerance": 8,
+      "decoded_sha256": "18b6efce17a2b081834b23cb621ee006bb67cf394b5205b2963abf7d791a764e"
+    },
+    {
+      "locale": "en",
+      "frame": 696,
+      "mean_rgb_error": 1.4515480324074075,
+      "tolerance": 8,
+      "decoded_sha256": "b248e86916cd4f19aa2dc7ac07705bdb2949aee22d31357b400c6af17e16a73f"
+    },
+    {
+      "locale": "en",
+      "frame": 738,
+      "mean_rgb_error": 1.456980613425926,
+      "tolerance": 8,
+      "decoded_sha256": "cd97f08bcf9c31ff6f0199ca7682a3d6de6a94fa28eaeb321a77f60b0ea76132"
+    },
+    {
+      "locale": "en",
+      "frame": 786,
+      "mean_rgb_error": 1.5156278935185186,
+      "tolerance": 8,
+      "decoded_sha256": "80c32add293b21ec47f08408d954dde381f98efe7b323719c6f028974e217a12"
+    },
+    {
+      "locale": "en",
+      "frame": 822,
+      "mean_rgb_error": 1.515886863425926,
+      "tolerance": 8,
+      "decoded_sha256": "766c72ee6851035b016d410026b03ef9df6121ab0a9505d8ba1b514c0b458f05"
+    },
+    {
+      "locale": "en",
+      "frame": 870,
+      "mean_rgb_error": 1.5250882523148148,
+      "tolerance": 8,
+      "decoded_sha256": "48789418b231a78d1bc03a8c9206b7dece5453164b7e43807984b653897959d8"
+    },
+    {
+      "locale": "en",
+      "frame": 918,
+      "mean_rgb_error": 1.5649537037037038,
+      "tolerance": 8,
+      "decoded_sha256": "0220f5ca9673911aea006d47bd5c9b61557d8d5ce21e66adaee5e16033a49d54"
+    },
+    {
+      "locale": "en",
+      "frame": 990,
+      "mean_rgb_error": 1.5648596643518518,
+      "tolerance": 8,
+      "decoded_sha256": "9d1c76597d9155d1ce27034e77ec884c9ca286889fd4a8d0fae9d01f90308b36"
+    },
+    {
+      "locale": "en",
+      "frame": 1049,
+      "mean_rgb_error": 1.5589771412037037,
+      "tolerance": 8,
+      "decoded_sha256": "4d5f77c24e520ce7b464c91c4c76cc77350b3ba6250f987f0bc23dada2232101"
+    },
+    {
+      "locale": "en",
+      "frame": 1050,
+      "mean_rgb_error": 1.904542824074074,
+      "tolerance": 8,
+      "decoded_sha256": "4af78a4376fbbcace8ced6fe30201e05b598fa64b2954fabd67e59571e465230"
+    },
+    {
+      "locale": "en",
+      "frame": 1074,
+      "mean_rgb_error": 1.8125737847222223,
+      "tolerance": 8,
+      "decoded_sha256": "f7d64d6575b5e5dc77fa98a2412666ee477adbe07ed7c988940dcfd8e2e7077e"
+    },
+    {
+      "locale": "en",
+      "frame": 1080,
+      "mean_rgb_error": 1.8057219328703704,
+      "tolerance": 8,
+      "decoded_sha256": "d58c676a19f5360b45c2820916c6102e43129b3fba2127c48f9a32b3720d6efb"
+    },
+    {
+      "locale": "en",
+      "frame": 1158,
+      "mean_rgb_error": 1.670183738425926,
+      "tolerance": 8,
+      "decoded_sha256": "2a416caf413e32c29fd4734387866bfc65d9b58c4fb1e4ec2254b42578fb02c8"
+    },
+    {
+      "locale": "en",
+      "frame": 1229,
+      "mean_rgb_error": 1.2969487847222223,
+      "tolerance": 8,
+      "decoded_sha256": "3a4f209e00da05f0568901c41d578a42c52c46f30421cc1f295a91f8d6ff1f04"
+    },
+    {
+      "locale": "en",
+      "frame": 1230,
+      "mean_rgb_error": 1.393019386574074,
+      "tolerance": 8,
+      "decoded_sha256": "7ef7f5289ccf31633019a87651031b6ca98a05edd87611f437654b2722d5fae0"
+    },
+    {
+      "locale": "en",
+      "frame": 1231,
+      "mean_rgb_error": 1.3835677083333333,
+      "tolerance": 8,
+      "decoded_sha256": "e875e9e7a0bb2070b65ee4ded0bd89a11812d2e654820d611dc0d097726aedc7"
+    },
+    {
+      "locale": "en",
+      "frame": 1242,
+      "mean_rgb_error": 1.3824074074074073,
+      "tolerance": 8,
+      "decoded_sha256": "227784778c300edd99cb29189d82c1e4fe5e9e49c4281fed97229fd07a8331c6"
+    },
+    {
+      "locale": "en",
+      "frame": 1248,
+      "mean_rgb_error": 1.3824074074074073,
+      "tolerance": 8,
+      "decoded_sha256": "227784778c300edd99cb29189d82c1e4fe5e9e49c4281fed97229fd07a8331c6"
+    },
+    {
+      "locale": "en",
+      "frame": 1350,
+      "mean_rgb_error": 1.3680772569444444,
+      "tolerance": 8,
+      "decoded_sha256": "576201aaf07538aab87d8c6ec4e02d5e9e7eb684b4cb5bd3939e5134fed2b40b"
+    },
+    {
+      "locale": "en",
+      "frame": 1500,
+      "mean_rgb_error": 1.375964988425926,
+      "tolerance": 8,
+      "decoded_sha256": "dbad84433d4096ccf7801ac60b276f45d0912779fdaf346d0018781d85d3e5ff"
+    },
+    {
+      "locale": "en",
+      "frame": 1559,
+      "mean_rgb_error": 1.3677864583333332,
+      "tolerance": 8,
+      "decoded_sha256": "e007260f1770f2ed1b19dfa8bcb7c71fc4662254fe9ad3634dc006a38d030846"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 0,
+      "mean_rgb_error": 1.8673654513888889,
+      "tolerance": 8,
+      "decoded_sha256": "de91b048ecc21b862652490534acc00b9bf9365df5cf917f6054461560cb097b"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 21,
+      "mean_rgb_error": 1.8857913773148147,
+      "tolerance": 8,
+      "decoded_sha256": "fa942fcb4a74e529c40e02914b29b77bdc99f9aceebeb7d49acf6fb3f3c1f5bc"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 60,
+      "mean_rgb_error": 1.920441261574074,
+      "tolerance": 8,
+      "decoded_sha256": "d5128f98b169ec0a6b1c7544fe7b13edc58543aa5a53f740b769fc559fd22b80"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 130,
+      "mean_rgb_error": 1.9258362268518519,
+      "tolerance": 8,
+      "decoded_sha256": "59a5d4deb8379e5af480197ac24c3dfc99b3e7362756fe350a479ebaac1cea36"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 180,
+      "mean_rgb_error": 1.961853298611111,
+      "tolerance": 8,
+      "decoded_sha256": "f3f536a679feb6b9360f86ce99aa2f27a0c0e71054304d43f73d9dacde99e568"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 246,
+      "mean_rgb_error": 1.7362688078703703,
+      "tolerance": 8,
+      "decoded_sha256": "95fca0f3ec8ab86f07f40841c30fc59380cd719e3bda1179bf1fb57ad5b0fb58"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 299,
+      "mean_rgb_error": 1.6874927662037038,
+      "tolerance": 8,
+      "decoded_sha256": "de70d1f77a05760bec760c066cfe31dcb7ed15b072768f034b8e111cefe5f973"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 360,
+      "mean_rgb_error": 1.5865769675925927,
+      "tolerance": 8,
+      "decoded_sha256": "e7c769b0141ff9845cb4ede81fadee152db99eb6188a0ef09dac3e81f5243c6e"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 420,
+      "mean_rgb_error": 1.616997974537037,
+      "tolerance": 8,
+      "decoded_sha256": "9d977dd6d3432e83ecc5761096e790ee6439d144f9058a1a246c28eacfa8b27c"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 450,
+      "mean_rgb_error": 1.6173784722222222,
+      "tolerance": 8,
+      "decoded_sha256": "50a931b6c97c8947ddfcaaa32db7c6d2a070ad9501af11f25e72d50e27ab98c5"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 504,
+      "mean_rgb_error": 1.5775969328703703,
+      "tolerance": 8,
+      "decoded_sha256": "35c4e29aae9c63b736e6a6dd1322dabaa7b728418d7b01aae174b87874848fd0"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 546,
+      "mean_rgb_error": 1.6080902777777777,
+      "tolerance": 8,
+      "decoded_sha256": "af2176fc287c1f00d5cf14227f7450335ce34f6c38837f1218f5df7d9644a9a9"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 582,
+      "mean_rgb_error": 1.608783275462963,
+      "tolerance": 8,
+      "decoded_sha256": "9856bacc64ea056dc0aa3e60f263eb4605c91e78b65bf330053b5e44ec475ca3"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 629,
+      "mean_rgb_error": 1.4496889467592593,
+      "tolerance": 8,
+      "decoded_sha256": "a3ac1c8fad177b3754b9d53736bdf2d985d99091326699b844bbf38b3d3f9b64"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 660,
+      "mean_rgb_error": 1.4560141782407408,
+      "tolerance": 8,
+      "decoded_sha256": "68408d73b10e2261bc692e5c71ff1b725f062a661d597a9ba890e4fd3bfb5f93"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 696,
+      "mean_rgb_error": 1.4572627314814814,
+      "tolerance": 8,
+      "decoded_sha256": "3dbf561adb620f22834122247f8fea18c7e1532e5fd8d442ab627d6719174804"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 738,
+      "mean_rgb_error": 1.4618981481481481,
+      "tolerance": 8,
+      "decoded_sha256": "37b86922c2449932c220c91dde8b906a35b6708c054968cf7380c9fe649714f4"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 786,
+      "mean_rgb_error": 1.5285083912037036,
+      "tolerance": 8,
+      "decoded_sha256": "2c4cffed1aedd58850a60138e4e314c7a8218c943368db595daec55359c41254"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 822,
+      "mean_rgb_error": 1.521746238425926,
+      "tolerance": 8,
+      "decoded_sha256": "c1b32b92372e03365231fb00683617499d09a9a277e549b2f6c6f2d54fff145f"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 870,
+      "mean_rgb_error": 1.533158275462963,
+      "tolerance": 8,
+      "decoded_sha256": "b681bf242126d20affec6783a135d5a4655990538f690f7c73f2c1c9c1400467"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 918,
+      "mean_rgb_error": 1.5831684027777777,
+      "tolerance": 8,
+      "decoded_sha256": "571ce1318676031b2792ee98728ccf13471cb5379900befc1d98ef9a82103b0b"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 990,
+      "mean_rgb_error": 1.5829615162037036,
+      "tolerance": 8,
+      "decoded_sha256": "80fd4afa791ad78c3bd7248ecbc7decd2c3ab15f2715cc0dd85d37c84890d1e4"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1049,
+      "mean_rgb_error": 1.5773958333333333,
+      "tolerance": 8,
+      "decoded_sha256": "ce59560ed7932c4dd092529d9e46c7891f57e5475ce57af43537ed65b63487e3"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1050,
+      "mean_rgb_error": 1.9308608217592593,
+      "tolerance": 8,
+      "decoded_sha256": "03a07808f2d5f64761ab4d361191c30a5a51ae01f017cd1496b37a80a53ad243"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1074,
+      "mean_rgb_error": 1.7954456018518519,
+      "tolerance": 8,
+      "decoded_sha256": "57029d9ed276db9a205e0678f69798f30cd310cb072f67b0a0362574b4ef5aea"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1080,
+      "mean_rgb_error": 1.7987123842592592,
+      "tolerance": 8,
+      "decoded_sha256": "89fd132773cd79eb489d0c6a9ef17e4ab1df3192c2f94e0cbb665cc9163fc83c"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1158,
+      "mean_rgb_error": 1.6669386574074074,
+      "tolerance": 8,
+      "decoded_sha256": "c56dbae596d0e5afea1f963b9cd002865f64a60306be5ab057202d4df13dd07c"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1229,
+      "mean_rgb_error": 1.2946585648148148,
+      "tolerance": 8,
+      "decoded_sha256": "d123bf255f62cbcf9c687fd73335dbcea64d52c8fc8807eed47a433b2773f82a"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1230,
+      "mean_rgb_error": 1.391109664351852,
+      "tolerance": 8,
+      "decoded_sha256": "257787f815effb4dfd214a01ce2ff1759a1ad41f745c63c57591b9ffe0a8ea6e"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1231,
+      "mean_rgb_error": 1.3774435763888888,
+      "tolerance": 8,
+      "decoded_sha256": "cf9995fe56fa70785e2cc7ea96a6c2e724fc583b308988526949bbe8d1b37c9d"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1242,
+      "mean_rgb_error": 1.3756047453703704,
+      "tolerance": 8,
+      "decoded_sha256": "734e2d52ec4456da3c2be28b14a7228007dd8707dec9c080113ef4f0310df649"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1248,
+      "mean_rgb_error": 1.3756047453703704,
+      "tolerance": 8,
+      "decoded_sha256": "734e2d52ec4456da3c2be28b14a7228007dd8707dec9c080113ef4f0310df649"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1350,
+      "mean_rgb_error": 1.3619010416666666,
+      "tolerance": 8,
+      "decoded_sha256": "c3e20fa8eb46ee1162d2c1c8c7784c958c85409ffbf17061807c554b74db495a"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1500,
+      "mean_rgb_error": 1.3750072337962962,
+      "tolerance": 8,
+      "decoded_sha256": "0932bf3dc56ca1441dd79d1b715e8fe80cc36f73146fbad6399fc2edbe364558"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1559,
+      "mean_rgb_error": 1.3614308449074075,
+      "tolerance": 8,
+      "decoded_sha256": "217d24e957b3f9de566c73e1d07c8bc9aca7229b73ebfb2350c7254205537f8d"
+    }
+  ],
+  "render_warnings": [
+    {
+      "locale": "en",
+      "readiness_timeout": false,
+      "static_missing_registry": false,
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 2,
+        "infoCount": 0,
+        "findings": [
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 5 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0001.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\en\\index.html"
+          },
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 2 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0008.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\en\\index.html"
+          }
+        ],
+        "filesScanned": 1,
+        "_meta": {
+          "version": "0.8.132",
+          "updateAvailable": false
+        }
+      },
+      "source_reuse_note": "Same immutable JPEG textures intentionally used for source page, separate PDF cover, sleeve thumbnail and report source thumbnails; no extra canonical page."
+    },
+    {
+      "locale": "zh-Hans",
+      "readiness_timeout": false,
+      "static_missing_registry": false,
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 2,
+        "infoCount": 0,
+        "findings": [
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 5 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0001.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\zh-Hans\\index.html"
+          },
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 2 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0008.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\zh-Hans\\index.html"
+          }
+        ],
+        "filesScanned": 1,
+        "_meta": {
+          "version": "0.8.132",
+          "updateAvailable": false
+        }
+      },
+      "source_reuse_note": "Same immutable JPEG textures intentionally used for source page, separate PDF cover, sleeve thumbnail and report source thumbnails; no extra canonical page."
+    }
+  ],
+  "original_assets": [
+    {
+      "path": "assets/app-icon.png",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyh.ttc",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyhbd.ttc",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/segoeui.ttf",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0001.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0002.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0003.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0004.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0005.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0006.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0007.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0008.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0009.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0010.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0011.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0012.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/life-atlas.png",
+      "unchanged": true
+    }
+  ],
+  "historical_media_changes": [],
+  "scope_paths": [
+    "marketing/video/v2/.gitignore",
+    "marketing/video/v2/FONT_SOURCES_R3.json",
+    "marketing/video/v2/MODEL_SOURCE_R3.json",
+    "marketing/video/v2/PUBLISH_LINK.json",
+    "marketing/video/v2/README.md",
+    "marketing/video/v2/SHOTLIST.md",
+    "marketing/video/v2/SOURCE_REVIEW.md",
+    "marketing/video/v2/STORYBOARD.md",
+    "marketing/video/v2/STYLE_RULES.md",
+    "marketing/video/v2/assets/licenses/Inter-LICENSE.txt",
+    "marketing/video/v2/assets/licenses/SourceHanSans-LICENSE.txt",
+    "marketing/video/v2/assets/sound/r3-mix-en.wav",
+    "marketing/video/v2/assets/sound/r3-mix-zh-Hans.wav",
+    "marketing/video/v2/assets/voice/AGENTS.md",
+    "marketing/video/v2/assets/voice/r3/en/N01.json",
+    "marketing/video/v2/assets/voice/r3/en/N01.wav",
+    "marketing/video/v2/assets/voice/r3/en/N02.json",
+    "marketing/video/v2/assets/voice/r3/en/N02.wav",
+    "marketing/video/v2/assets/voice/r3/en/N03.json",
+    "marketing/video/v2/assets/voice/r3/en/N03.wav",
+    "marketing/video/v2/assets/voice/r3/en/N04.json",
+    "marketing/video/v2/assets/voice/r3/en/N04.wav",
+    "marketing/video/v2/assets/voice/r3/en/N05.json",
+    "marketing/video/v2/assets/voice/r3/en/N05.wav",
+    "marketing/video/v2/assets/voice/r3/en/N06.json",
+    "marketing/video/v2/assets/voice/r3/en/N06.wav",
+    "marketing/video/v2/assets/voice/r3/en/N07.json",
+    "marketing/video/v2/assets/voice/r3/en/N07.wav",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N01.json",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N01.wav",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N02.json",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N02.wav",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N03.json",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N03.wav",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N04.json",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N04.wav",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N05.json",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N05.wav",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N06.json",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N06.wav",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N07.json",
+    "marketing/video/v2/assets/voice/r3/zh-Hans/N07.wav",
+    "marketing/video/v2/package-lock.json",
+    "marketing/video/v2/package.json",
+    "marketing/video/v2/plan.json",
+    "marketing/video/v2/review/director-r3/AGENTS.md",
+    "marketing/video/v2/review/director-r3/AUDIO_QA.json",
+    "marketing/video/v2/review/director-r3/ENVIRONMENT.md",
+    "marketing/video/v2/review/director-r3/FONT_PROOF.json",
+    "marketing/video/v2/review/director-r3/VOICE_ASR.json",
+    "marketing/video/v2/review/director-r3/VOICE_TIMING.json",
+    "marketing/video/v2/review/director-r3/music-r3-ducked-en.wav",
+    "marketing/video/v2/review/director-r3/music-r3-ducked-zh-Hans.wav",
+    "marketing/video/v2/review/director-r3/music-r3-un-ducked.wav",
+    "marketing/video/v2/review/director-r3/narration-en.srt",
+    "marketing/video/v2/review/director-r3/narration-en.wav",
+    "marketing/video/v2/review/director-r3/narration-zh-Hans.srt",
+    "marketing/video/v2/review/director-r3/narration-zh-Hans.wav",
+    "marketing/video/v2/review/director-r3/sfx-r3.wav",
+    "marketing/video/v2/scripts/r3-asr.py",
+    "marketing/video/v2/scripts/r3-build.mjs",
+    "marketing/video/v2/scripts/r3-fonts.py",
+    "marketing/video/v2/scripts/r3-lint.mjs",
+    "marketing/video/v2/scripts/r3-model.py",
+    "marketing/video/v2/scripts/r3-package.py",
+    "marketing/video/v2/scripts/r3-qa.mjs",
+    "marketing/video/v2/scripts/r3-qr.py",
+    "marketing/video/v2/scripts/r3-render.mjs",
+    "marketing/video/v2/scripts/r3-snapshot.mjs",
+    "marketing/video/v2/scripts/r3-sound.py",
+    "marketing/video/v2/scripts/r3-voice.py",
+    "marketing/video/v2/src/r3-html.ts",
+    "marketing/video/v2/src/r3-timeline.ts",
+    "marketing/video/v2/src/r3.css",
+    "marketing/video/v2/tsconfig.json"
+  ],
+  "commands": [
+    {
+      "locale": "en",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\en",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-en-chatgpt.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "19",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-06T07:03:28.411Z",
+      "finished": "2026-10-06T07:08:20.860Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-c:v",
+        "copy",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-en-chatgpt-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-en-chatgpt-720.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-en-chatgpt-720-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\zh-Hans",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-zh-workbuddy.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "19",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-06T07:08:39.075Z",
+      "finished": "2026-10-06T07:13:29.407Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-c:v",
+        "copy",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-zh-workbuddy-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-zh-workbuddy-720.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r3\\director-cut-zh-workbuddy-720-muted.mp4"
+      ],
+      "exit": 0
+    }
+  ],
+  "capture_commands": [
+    {
+      "locale": "en",
+      "frames": [
+        0,
+        21,
+        60,
+        130,
+        180,
+        246,
+        299,
+        360,
+        420,
+        450,
+        504,
+        546,
+        582,
+        629,
+        660,
+        696,
+        738,
+        786,
+        822,
+        870,
+        918,
+        990,
+        1049,
+        1050,
+        1074,
+        1080,
+        1158,
+        1229,
+        1230,
+        1231,
+        1242,
+        1248,
+        1350,
+        1500,
+        1559
+      ],
+      "args": [
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "snapshot",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\en",
+        "--at",
+        "0,0.35,1,2.1666666666666665,3,4.1,4.983333333333333,6,7,7.5,8.4,9.1,9.7,10.483333333333333,11,11.6,12.3,13.1,13.7,14.5,15.3,16.5,17.483333333333334,17.5,17.9,18,19.3,20.483333333333334,20.5,20.516666666666666,20.7,20.8,22.5,25,25.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\snapshots\\en",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "frames": [
+        0,
+        21,
+        60,
+        130,
+        180,
+        246,
+        299,
+        360,
+        420,
+        450,
+        504,
+        546,
+        582,
+        629,
+        660,
+        696,
+        738,
+        786,
+        822,
+        870,
+        918,
+        990,
+        1049,
+        1050,
+        1074,
+        1080,
+        1158,
+        1229,
+        1230,
+        1231,
+        1242,
+        1248,
+        1350,
+        1500,
+        1559
+      ],
+      "args": [
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "snapshot",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\zh-Hans",
+        "--at",
+        "0,0.35,1,2.1666666666666665,3,4.1,4.983333333333333,6,7,7.5,8.4,9.1,9.7,10.483333333333333,11,11.6,12.3,13.1,13.7,14.5,15.3,16.5,17.483333333333334,17.5,17.9,18,19.3,20.483333333333334,20.5,20.516666666666666,20.7,20.8,22.5,25,25.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r3\\snapshots\\zh-Hans",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    }
+  ],
+  "source_frames": [
+    {
+      "file": "review/director-r3/keyframes/en/S01.jpg",
+      "frame": 60,
+      "sha256": "dfc79b018750cad3d145f68106548daf971bdcc7f3caaa93ad4b0a53b469ee8f",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/en/S02.jpg",
+      "frame": 246,
+      "sha256": "4361ed0a5a6b5d335fbf0f06b93c012c1df2cfbf77b3aaf60fbb4db543467af6",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/en/S03.jpg",
+      "frame": 360,
+      "sha256": "cf16f125ee62be317c2cff71eee1986d553581402d53fa100e73ef2e9a8b752c",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/en/S04.jpg",
+      "frame": 546,
+      "sha256": "1f51f8677c165cc3c408d7bafb9adc28ecee6fe9d5b99c351f93a5a7e4e9b953",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/en/S05.jpg",
+      "frame": 738,
+      "sha256": "a61578feeeea2b13c2e1460bb4b1a2ced27e848d1d00adbafd63bbd2a3a21c27",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/en/S06.jpg",
+      "frame": 990,
+      "sha256": "db8c22bfdd4c3924903f9b5371ea86e95310a080f497a9f19c1cb38b8af2d9da",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/en/S07.jpg",
+      "frame": 1158,
+      "sha256": "46e20b4cad3447efe6f7b8c28fd3a2cac58eefcf9d627d962d5a68fbba9859b2",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/en/S08.jpg",
+      "frame": 1230,
+      "sha256": "3353d4ba36afc7d1e6a783ed6dd14e7bf115db6aa08ef4bda54ff706fcac73d0",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S01.jpg",
+      "frame": 60,
+      "sha256": "69eb1065b6b19975fbca8c44bdd1ce65e9d6ca6e3284c1d0c0e5cc1000ef18df",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S02.jpg",
+      "frame": 246,
+      "sha256": "06d7fa858ac14f97f1556181de56c13a0c5846f916cfa418596c6af5e1ec0069",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S03.jpg",
+      "frame": 360,
+      "sha256": "07d53cf1df2eca45e740b96ce6621870481e415ab337144ddfbc589e9e3c3f57",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S04.jpg",
+      "frame": 546,
+      "sha256": "429916757c66edd9dcb22ec8b81f8dc338b75269267f2609fe19c530325ca9e3",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S05.jpg",
+      "frame": 738,
+      "sha256": "9991b2ae3ba3de673e24a73bb3a7936b0a28d8be7c9fccbdf3ea6c86b2fefa18",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S06.jpg",
+      "frame": 990,
+      "sha256": "b46c847ff5f7d0e42bf293dd04dfa92f68792120c439181721167eee0e1e9bac",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S07.jpg",
+      "frame": 1158,
+      "sha256": "1e93a53697262203d65ca36b219feabc8a1477df4d96c9b179ceadd68cfe85a2",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r3/keyframes/zh-Hans/S08.jpg",
+      "frame": 1230,
+      "sha256": "0ba3b7683dbdf80f336a9d33e17ed3ca4ee4ddce79a463dfb11a7ebfbf0cc6f7",
+      "source": "decoded master MP4"
+    }
+  ],
+  "visual_review": "Actual encoded bilingual contact/type/onset/transition/handoff frames inspected; cleanup type contrast defect fixed and both films re-rendered. Director aesthetic approval pending.",
+  "human_listening": "NOT_RUN",
+  "provider_exchange": "CONCEPTUAL / SOURCE-RELATED EDITORIAL ILLUSTRATION, NOT A RECORDED SESSION",
+  "publish_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
+  "App_ASC_TestFlight_mutations": false,
+  "qr_exported_frame_checks": [
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt.mp4",
+      "frame": 1231,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            803.0
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1231,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            473.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy.mp4",
+      "frame": 1231,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            803.0
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1231,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            472.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            472.0,
+            648.0
+          ]
+        ]
+      ]
+    }
+  ],
+  "validator_source_sha256": "f26b65fb5faef406bab97a02995c45b42b95f536a0465e4d0b733a241dfa6f16",
+  "final_voice_asr_match": [
+    {
+      "locale": "en",
+      "id": "N01",
+      "agreement": 1.0
+    },
+    {
+      "locale": "en",
+      "id": "N02",
+      "agreement": 1.0
+    },
+    {
+      "locale": "en",
+      "id": "N03",
+      "agreement": 1.0
+    },
+    {
+      "locale": "en",
+      "id": "N04",
+      "agreement": 1.0
+    },
+    {
+      "locale": "en",
+      "id": "N05",
+      "agreement": 1.0
+    },
+    {
+      "locale": "en",
+      "id": "N06",
+      "agreement": 1.0
+    },
+    {
+      "locale": "en",
+      "id": "N07",
+      "agreement": 1.0
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N01",
+      "agreement": 1.0
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N02",
+      "agreement": 1.0
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N03",
+      "agreement": 1.0
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N04",
+      "agreement": 1.0
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N05",
+      "agreement": 1.0
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N06",
+      "agreement": 1.0
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N07",
+      "agreement": 1.0
+    }
+  ],
+  "voice_real": true,
+  "font_actual_platform": "FONT_PROOF.json",
+  "sync": "SYNC_PROOF.json",
+  "narration_copy_adjustments": "VOICE_NOTES.md"
+}
