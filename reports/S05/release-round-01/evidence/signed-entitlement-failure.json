@@ -1,0 +1,15 @@
+{
+  "result": "FAIL",
+  "failure_code": "SIGNED_DECLARED_AGE_RANGE_MISSING",
+  "stage": "signed IPA entitlement contract",
+  "declared_age_range_true": false,
+  "interpretation": "The genuine signed IPA does not have this entitlement equal to true; missing vs false was not retained in the failure output.",
+  "codesign_verify_passed_before_contract_failure": true,
+  "apple_distribution_certificate_type_checked_before_contract_failure": true,
+  "embedded_profile_decoded_before_contract_failure": true,
+  "distribution_profile_age_capability": "NOT_CONFIRMED: fail-closed contract stops at the signed entitlement before checking profile age capability",
+  "evidence_method": "Exact released helper control flow plus allowlisted CI events; no raw profile or signing log retained",
+  "automatic_export": "PASS",
+  "upload": "NOT_RUN",
+  "asset_or_account_root_cause": "UNRESOLVED; no claim that Apple rejected a profile or that a new certificate/profile is required"
+}

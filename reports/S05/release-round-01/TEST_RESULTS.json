@@ -1,0 +1,52 @@
+{
+  "status": "BLOCKED_DISTRIBUTION_ENTITLEMENT",
+  "tested_code_sha": "e74ad8968f59053ee4b2ad09cc629ea69ed7e052",
+  "product_baseline_sha": "5012695af687a94af687dc5f631617a66940e3c8",
+  "workflow_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37472560721",
+  "workflow_result": "FAIL",
+  "version": "0.1.0",
+  "build": "32.1",
+  "clean_generic_ios_release": "PASS (unsigned)",
+  "xctest": {
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0,
+    "age": 8,
+    "recovery": 3,
+    "cleanup": 5,
+    "localization_resource": 1
+  },
+  "ArchiveCore": {
+    "passed": 3,
+    "failed": 0
+  },
+  "localization": "PASS",
+  "metadata_and_app_dependency_privacy": "PASS",
+  "minimum_os": "18.0",
+  "release_simulator_embedded_age_entitlement": "PASS (not distribution proof)",
+  "validator_self_test": {
+    "valid_synthetic_contract": "PASS",
+    "negative_contract_cases": 9,
+    "result": "PASS",
+    "scope": "Validator logic only; NOT genuine signing evidence"
+  },
+  "unsigned_archive": "PASS",
+  "automatic_distribution_export": "PASS",
+  "signed_declared_age_range": "FAIL / not true",
+  "distribution_profile_age_capability": "NOT_CONFIRMED (signed entitlement failed first)",
+  "upload": "NOT_RUN",
+  "ASC_processing": "NOT_RUN after upload; preflight NOT_VISIBLE",
+  "ASC_audience": "UNCONFIRMED",
+  "exact_rc_physical_launch": "NOT_RUN",
+  "apple_sandbox": "NOT_RUN",
+  "200_page_stress": "NOT_RUN / explicitly excluded",
+  "destructive_photos_test": "NOT_RUN / explicitly excluded",
+  "wechat_transfer": "NOT_RUN / explicitly excluded",
+  "screenshot_recapture": "NOT_RUN / explicitly excluded",
+  "new_account_or_certificate_configuration": "NOT_RUN / prohibited",
+  "Add_for_Review": "NOT_RUN / prohibited",
+  "Submit_for_Review": "NOT_RUN / prohibited",
+  "public_release": "NOT_RUN / prohibited",
+  "product_files_changed": false,
+  "historical_preview_path_changed": false
+}

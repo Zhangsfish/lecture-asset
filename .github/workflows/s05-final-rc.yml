@@ -1,0 +1,107 @@
+name: S05 final App Store eligible RC 34.1
+
+on:
+  push:
+    branches: [codex/s05-final-rc]
+    paths: [".github/workflows/s05-final-rc.yml", "scripts/s05_final_rc.sh", "scripts/s05_rc_verify.py", "scripts/s05_rc_status.swift", "scripts/s05_rc_bridge.py"]
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Owner-authorized fixed RC 34.1 only (no Review submission)
+        required: true
+        type: choice
+        options: [prepare-only, upload, status-only]
+        default: prepare-only
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lecture-asset-final-rc-34-1
+  cancel-in-progress: false
+
+jobs:
+  final-rc:
+    # The first new workflow cannot be dispatched before registration. An explicit
+    # upload marker on this isolated branch is the owner-authorized initial trigger.
+    # Other pushes only prepare; subsequent manual dispatches default to prepare.
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Toolchain and frozen product provenance
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/s05-rc-evidence"
+          { git rev-parse HEAD; sw_vers; xcodebuild -version; xcrun --sdk iphoneos --show-sdk-version; } > "$RUNNER_TEMP/s05-rc-evidence/toolchain.txt"
+          python3 scripts/s05_rc_verify.py --provenance "$RUNNER_TEMP/s05-rc-evidence/provenance.json"
+          bash -n scripts/s05_final_rc.sh
+          swiftc -typecheck scripts/s05_rc_status.swift
+          python3 scripts/s05_rc_verify.py --self-test "$RUNNER_TEMP/s05-rc-evidence/validator-self-test.json"
+      - name: Focused localization and ArchiveCore checks
+        if: inputs.operation != 'status-only'
+        run: |
+          set -euo pipefail
+          python3 scripts/check_localization.py --output "$RUNNER_TEMP/s05-rc-evidence/localization.json"
+          python3 scripts/check_age_release.py --source-only "$RUNNER_TEMP/s05-rc-evidence/entry-routing.json"
+          swift test --package-path Packages/ArchiveCore --filter 'ArchiveCoreTests.testOneAndTwentyPageArchivesWithEmptyAndFailedOCR|ArchiveCoreTests.testMissingOrChangedCanonicalJPEGIsRejected|ArchiveCoreTests.testAIUsageContractRequiresVisualVerification' > "$RUNNER_TEMP/archive-focused.log" 2>&1
+          python3 - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          text = (Path(os.environ['RUNNER_TEMP']) / 'archive-focused.log').read_text()
+          assert 'Executed 3 tests, with 0 failures' in text
+          safe = [line for line in text.splitlines() if re.search(r"Test Case .*ArchiveCoreTests\..*passed|Executed 3 tests", line)]
+          (Path(os.environ['RUNNER_TEMP']) / 's05-rc-evidence/archive-tests.json').write_text(json.dumps({'passed':3,'failed':0,'safe_log_extract':safe}, indent=2)+'\n')
+          PY
+      - name: Verified XcodeGen 2.46.0
+        if: inputs.operation != 'status-only'
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+      - name: Clean generic iOS Release and packaged privacy
+        if: inputs.operation != 'status-only'
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+          python3 scripts/s05_rc_verify.py --provenance "$RUNNER_TEMP/s05-rc-evidence/provenance.json"
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/RCDevice" CODE_SIGNING_ALLOWED=NO CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0 clean build > "$RUNNER_TEMP/rc-clean-build.log" 2>&1
+          python3 scripts/s05_rc_verify.py --metadata "$RUNNER_TEMP/RCDevice/Build/Products/Release-iphoneos/Lecture Asset.app" "$RUNNER_TEMP/s05-rc-evidence/clean-release-metadata.json"
+          echo 'S05_RC_CLEAN_RELEASE_BUILD_PASS'
+      - name: Release simulator focused XCTest
+        if: inputs.operation != 'status-only'
+        run: |
+          set -euo pipefail
+          runtime=$(xcrun simctl list runtimes -j | python3 -c 'import json,sys; print(next(r["identifier"] for r in json.load(sys.stdin)["runtimes"] if r["name"].startswith("iOS") and r["isAvailable"]))')
+          device=$(xcrun simctl create 'Final RC focused' com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max "$runtime")
+          xcrun simctl boot "$device"
+          xcrun simctl bootstatus "$device" -b
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/RCSim" CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0 ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -parallel-testing-enabled NO -only-testing:LectureAssetTests/AgeAssuranceTests -only-testing:LectureAssetTests/S01RecoveryTests -only-testing:LectureAssetTests/S03CleanupTests -only-testing:LectureAssetTests/LocalizationResourceTests -resultBundlePath "$RUNNER_TEMP/RCTests.xcresult" test > "$RUNNER_TEMP/rc-simulator-tests.log" 2>&1
+          xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/RCTests.xcresult" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(json.dumps({k:d[k] for k in ["result","totalTestCount","passedTests","failedTests","skippedTests"]},indent=2))' > "$RUNNER_TEMP/s05-rc-evidence/tests.json"
+          python3 scripts/check_age_release.py "$RUNNER_TEMP/RCSim/Build/Products/Release-iphonesimulator/Lecture Asset.app" "$RUNNER_TEMP/s05-rc-evidence/simulator-entitlement.json"
+          xcrun simctl shutdown "$device"
+          echo 'S05_RC_FOCUSED_XCTEST_PASS'
+      - name: Explicitly authorized signing and exact IPA upload or read-only status
+        if: (github.event_name == 'workflow_dispatch' && (inputs.operation == 'upload' || inputs.operation == 'status-only')) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[upload-rc-34.1]'))
+        env:
+          APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          RC_OPERATION: ${{ inputs.operation == 'status-only' && 'status-only' || 'upload' }}
+        run: bash scripts/s05_final_rc.sh "$RC_OPERATION"
+      - name: Upload safe summaries only
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-rc-safe-evidence
+          path: ${{ runner.temp }}/s05-rc-evidence/
+          retention-days: 30
+          if-no-files-found: error

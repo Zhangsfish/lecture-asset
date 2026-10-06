@@ -1,0 +1,128 @@
+{
+  "status": "READY_FOR_RC_AUDIT",
+  "base_main_sha": "4c76926cb9b8421e50c0c06b99e9964b7a081137",
+  "tested_code_sha": "943d587526055a35e2bfb6eeedc409b58d9778cc",
+  "accepted_product_baseline_sha": "118942553a84c2ac4466973f6a64989dd5165b61",
+  "workflow_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37494916251",
+  "version": "0.1.0",
+  "build": "34.1",
+  "release_build": "PASS",
+  "xctest": {
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0
+  },
+  "archivecore": {
+    "passed": 3,
+    "failed": 0
+  },
+  "bridge": {
+    "bridge_signing": "PASS",
+    "bridge_archive_signed_age": true,
+    "bridge_signature_type": "ad-hoc",
+    "shippable": false,
+    "signing_uses_deep": false,
+    "original_archive_unchanged": true,
+    "nested_code_count": 0,
+    "codesign_verification": "PASS"
+  },
+  "distribution": {
+    "codesign_verification": "PASS",
+    "distribution_profile_declared_age_range": "true",
+    "signed_app_declared_age_range": "true",
+    "signed_application_identifier_correct": true,
+    "application_identifier_correct": true,
+    "signed_team_identifier_correct": true,
+    "team_identifier_correct": true,
+    "signed_get_task_allow": false,
+    "get_task_allow": false,
+    "profile_type": "app-store",
+    "apple_distribution_certificate": true,
+    "raw_profile_retained_or_published": false,
+    "contract_result": "PASS",
+    "ipa_sha256": "af25acb30c012b3a8b39ca6ee4a48af20bf29e7f46838bb157698e895bd82249",
+    "signed_entitlements": {
+      "declared_age_range": true,
+      "application_identifier_correct": true,
+      "team_identifier_correct": true,
+      "get_task_allow_not_true": true,
+      "profile_declared_age_range": true,
+      "app_store_distribution_profile": true,
+      "profile_not_expired": true
+    },
+    "metadata": {
+      "CFBundleIdentifier": "com.zhangsfish.lectureasset",
+      "CFBundleShortVersionString": "0.1.0",
+      "CFBundleVersion": "34.1",
+      "MinimumOSVersion": "18.0",
+      "ITSAppUsesNonExemptEncryption": false
+    },
+    "privacy": {
+      "app_manifest": true,
+      "zipfoundation_manifest": true,
+      "bundled_manifest_paths": [
+        "PrivacyInfo.xcprivacy",
+        "ZIPFoundation_ZIPFoundation.bundle/PrivacyInfo.xcprivacy"
+      ]
+    }
+  },
+  "asc": {
+    "appReview": "NOT_SUBMITTED_BY_THIS_WORKFLOW",
+    "build": "34.1",
+    "buildAudienceType": "APP_STORE_ELIGIBLE",
+    "buildID": "11aa2e32-00b5-42fe-88e8-cd927ea46cd9",
+    "minOsVersion": "18.0",
+    "processingState": "VALID",
+    "queryDate": "2026-10-06T16:36:11Z",
+    "queryMode": "poll",
+    "uploadedDate": "2026-10-06T09:35:12-07:00",
+    "usesNonExemptEncryption": false,
+    "version": "0.1.0"
+  },
+  "upload": "ACCEPTED",
+  "protected_paths_unchanged": true,
+  "new_certificates_profiles_devices": "NOT_CREATED",
+  "app_review": "NOT_SUBMITTED",
+  "merge": "NOT_RUN",
+  "broad_qa": "NOT_RUN",
+  "owner_portal_action_required": false,
+  "secret_or_raw_signing_material_published": false,
+  "local_commands": [
+    "bash -n scripts/s05_final_rc.sh",
+    "python scripts/s05_rc_verify.py --self-test",
+    "python scripts/s05_rc_verify.py --provenance",
+    "mocked bridge success/failure control-flow 2/2"
+  ],
+  "runner_commands": [
+    "xcodegen generate --spec project.yml",
+    "xcodebuild Release clean build CODE_SIGNING_ALLOWED=NO CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0",
+    "focused Release simulator XCTest",
+    "xcodebuild archive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO",
+    "ditto unsigned-archive bridge-copy",
+    "codesign --force --sign - --entitlements App/LectureAsset.entitlements bridge-app",
+    "codesign --verify --deep --strict bridge-app",
+    "xcodebuild -exportArchive automatic app-store-connect from bridge-copy",
+    "altool --validate-app exact-verified-IPA",
+    "altool --upload-app exact-verified-IPA",
+    "ASC exact build 34.1 poll"
+  ],
+  "evidence_sha256": {
+    "archive-metadata.json": "63f847bd48c232a1c62298797575ad4adc50a64ba6a97635e63a0869ec0c113e",
+    "archive-tests.json": "23096e573f0ea61602dae265b791474bb80ae8738d451c941ed76a18bfccd604",
+    "asc-preflight.json": "6d3311ce56fc61817c7979ba390d33cc5ecb6a40f55b283aab56b11006db7837",
+    "asc-status.json": "b9e3754b34f61b6fe7837bfc2aac2e1fd78cdee9d409ef623a37fb4c1794d1e4",
+    "bridge-local-tests.json": "7895c4bef96188275af7decfdba2e783281c2b8e3899db9e48f58f34ef304e0f",
+    "bridge.json": "6e5cb48be0adb1767d4ddf60d27ccb68981dbbf068e765152328dc5c6ae7b2b2",
+    "clean-release-metadata.json": "63f847bd48c232a1c62298797575ad4adc50a64ba6a97635e63a0869ec0c113e",
+    "entry-routing.json": "2edb49b55c043bbdeccb349725f95835ef7ef2407e4506d71ec56781ca8e8d20",
+    "localization.json": "6120248772aab1e60d4a5a738f8f900fc454e4dcbfb3ea9233b8e853fb7aa0a7",
+    "provenance.json": "ab6e57bbf3818989d3f64763dd76b2be31f43a216d40df59afef5dc08b7ea140",
+    "signed-distribution.json": "0bcee4af5efba158d8fc7ba079410f2e31fe0d8fe9cc1308d61133f9ead0cbdf",
+    "simulator-entitlement.json": "0af2d7d015b3d2369255cadb36d043d1a7ebf96fff1d79b48c478f41caf47043",
+    "tests.json": "397a5562ea33e39702e486905783d8d2474fbde83c245237344f21b9467c104a",
+    "toolchain.txt": "a00309ba6d72081e365ad9cd2b4e69d9e069c56fdfdc136ca33e4f595db62908",
+    "upload.json": "7360436c7b217b5f23f777ee8b8f702b27800b91480de340f7d5e2a24dac92ca",
+    "validator-local-tests.json": "d7bcaa080ecfac90f3953aa3cce6cff730016f883f36127f4d5ffb0e4898e38a",
+    "validator-self-test.json": "5b7f1151a9249b5d50e990d9397b679509b5faf40e13f425a02543729a578a9e"
+  }
+}
