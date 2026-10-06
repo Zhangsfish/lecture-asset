@@ -1,0 +1,19 @@
+{
+  "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37477851785",
+  "checkout_sha": "118942553a84c2ac4466973f6a64989dd5165b61",
+  "safe_events": [
+    "S00_RELEASE_START version=0.1.0 build=33.1 code_sha=118942553a84c2ac4466973f6a64989dd5165b61",
+    "S00_UNSIGNED_ARCHIVE_SUCCEEDED",
+    "S00_UNSIGNED_ARCHIVE_METADATA_VERIFIED",
+    "S00_EXPORT_UPLOAD_ACCEPTED version=0.1.0 build=33.1 code_sha=118942553a84c2ac4466973f6a64989dd5165b61",
+    "S00_PROCESSING_STATUS_VALID build=33.1",
+    "Executed 5 tests, with 0 failures (0 unexpected) in 0.006 (0.007) seconds",
+    "Executed 5 tests, with 0 failures (0 unexpected) in 0.006 (0.007) seconds",
+    "Executed 5 tests, with 0 failures (0 unexpected) in 0.006 (0.012) seconds",
+    "Executed 10 tests, with 0 failures (0 unexpected) in 6.186 (6.188) seconds",
+    "Executed 10 tests, with 0 failures (0 unexpected) in 6.186 (6.188) seconds",
+    "Executed 10 tests, with 0 failures (0 unexpected) in 6.186 (6.190) seconds",
+    "** BUILD SUCCEEDED **",
+    "Xcode 26.6"
+  ]
+}

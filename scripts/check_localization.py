@@ -44,7 +44,7 @@ def audit():
     assert catalog["sourceLanguage"] == "en"
     assert not any(missing.values()) and not any(untranslated.values()) and not extra
     assert not result["missing_referenced_keys"]
-    for locale, name in (("en", "Lecture Asset"), ("zh-Hans", "讲座照片整理")):
+    for locale, name in (("en", "Lecture Asset"), ("zh-Hans", "Lecture Asset")):
         info = (ROOT / f"App/{locale}.lproj/InfoPlist.strings").read_text(encoding="utf-8")
         assert f'"CFBundleDisplayName" = "{name}";' in info
         assert '"NSPhotoLibraryUsageDescription"' in info

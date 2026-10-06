@@ -5,7 +5,7 @@ import XCTest
 final class LocalizationResourceTests: XCTestCase {
     func testReleaseBundleHasCompleteMatchingCatalogsAndLocalizedInfo() throws {
         var catalogs: [[String: String]] = []
-        for (locale, name) in [("en", "Lecture Asset"), ("zh-Hans", "讲座照片整理")] {
+        for (locale, name) in [("en", "Lecture Asset"), ("zh-Hans", "Lecture Asset")] {
             let path = try XCTUnwrap(Bundle.main.path(forResource: locale, ofType: "lproj"))
             let bundle = try XCTUnwrap(Bundle(path: path))
             let stringsURL = try XCTUnwrap(bundle.url(forResource: "Localizable", withExtension: "strings"))
