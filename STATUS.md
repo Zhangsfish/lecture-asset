@@ -1,16 +1,10 @@
 # Current status
 
-Updated: 2026-10-06
+Updated: 2026-10-05
 
 ## Now
 
-**S00–S04 PASS. Product/UI is owner-frozen to Internal TestFlight 0.1.0 (33.1), exact App sources `118942553a84c2ac4466973f6a64989dd5165b61`, including the brand-only name correction in PR #20. Owner explicitly authorized distribution RC 34.1 with identical product code. PR #19 signed-archive retry remains BLOCKED_SIGNED_ARCHIVE_IDENTITY: clean Release and XCTest 17/17 passed, but a manually forced Apple Distribution identity conflicted with Automatic archive; that override was removed. A subsequent read-only runner keychain guard found no existing archive development signing identity and stopped before allowing new certificate creation. 34.1 was not uploaded. Archive/export age profile capability remains unobserved, not proven missing. No App Review or merge is authorized. Promo v2 remains non-blocking.**
-
-## Owner update — accepted 33.1 product / authorized 34.1 signing retry
-
-The owner inspected **Internal TestFlight 0.1.0 (33.1)** and accepted the brand-only correction: Chinese desktop/App title now stays **Lecture Asset**. Exact accepted App-source checkout: `118942553a84c2ac4466973f6a64989dd5165b61`. [Name PR #20](https://github.com/Zhangsfish/lecture-asset/pull/20), [VALID internal preview run](https://github.com/Zhangsfish/lecture-asset/actions/runs/37477851785). Product behavior is unchanged and no further UI polish is authorized.
-
-The owner separately approved **0.1.0 (34.1)** as a new distribution candidate using those identical product sources. This supersedes the old 32.1 build-number dispatch and old frozen-source baseline above. Continue only [PR #19](https://github.com/Zhangsfish/lecture-asset/pull/19): fresh automatic signing at archive, independent archive/export App and profile capability diagnostics, then upload only if all distribution gates pass. Current retry state: **BLOCKED_SIGNED_ARCHIVE_IDENTITY**; 34.1 upload NOT_RUN. See [round-02 delivery](reports/S05/release-round-02/DELIVERY.md). No Review submission, public release or merge is authorized. [Decision record](reports/S05/release-round-02/OWNER_ALIGNMENT.md).
+**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. PR #15 age-assurance compatibility was independently audited and squash-merged as `5012695af687a94af687dc5f631617a66940e3c8`. Historical TestFlight `0.1.0 (31.1)` remains a VALID Internal-Only preview from pre-PR15 source and is not the App Review RC. Owner-accepted product/UI is now represented on main via PR #20 squash merge `a2d0492e08f9913735b892e74b121a4ac9817e0e` (same product state physically reviewed in VALID Internal TestFlight 33.1). PR #19 targets App Store-eligible RC `0.1.0 (34.1)`. The latest `BLOCKED_SIGNED_ARCHIVE_IDENTITY` is not a product blocker: a local Development identity is unnecessary for the already-proven unsigned-archive → automatic distribution-export path. Next action is to reuse that working export path and inspect the exported distribution profile + signed App age entitlement independently; upload 34.1 only if both are true. Promo v2 remains non-blocking.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -39,7 +33,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-SHOTS-ZH | **PASS** — PR #16 merged on main; final zh-Hans Store screenshots accepted | [PR #16](https://github.com/Zhangsfish/lecture-asset/pull/16) |
 | S05-MV-V1 | **CLOSED_SUPERSEDED** — PR #17 closed without merge; retained only as historical renderer evidence | [PR #17](https://github.com/Zhangsfish/lecture-asset/pull/17) |
 | S05-MV-V2 | **IN_PROGRESS / PR #18** — cinematic promo v2; current branch contains R3 narration/typography instructions, not yet accepted final media | [PR #18](https://github.com/Zhangsfish/lecture-asset/pull/18) |
-| S05-D | **BLOCKED_SIGNED_ARCHIVE_IDENTITY / PR #19** — owner-accepted 33.1 product; authorized 34.1 not uploaded. Forced identity conflict removed; read-only guard found no local archive development identity. No missing account capability proven; hand back for signing-path review | [PR #19](https://github.com/Zhangsfish/lecture-asset/pull/19), [release task](tasks/S05_RELEASE.md) |
+| S05-D | **BLOCKED_DISTRIBUTION_ENTITLEMENT / PR #19** — 32.1 not uploaded; genuine exported IPA lacked Declared Age Range entitlement. Keep product frozen; retry signing from archive with fresh automatic provisioning and explicit archive/export profile diagnostics | [PR #19](https://github.com/Zhangsfish/lecture-asset/pull/19), [release task](tasks/S05_RELEASE.md) |
 
 S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
 
