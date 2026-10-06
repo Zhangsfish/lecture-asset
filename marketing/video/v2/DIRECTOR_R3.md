@@ -140,7 +140,38 @@ R2的稀疏拨弦与长正弦pad不再进入R3主混音。
 
 App ID6816814541的公开可下载性仍独立核查。`PUBLISH_HOLD_NOT_LIVE_VERIFIED`只限制公开投放，不限制带下载CTA母版的制作。不要改ASC、发布App、创建广告或发TikTok。
 
-## 8. 回传结果，不回传选择题
+## 8. 公共成片清理：把测试线头从画面里拿掉
+
+R3同时是面向公开投放的画面收口，不把内部测试/解释信息继续留在观众面前。
+
+最终公开画面默认**不显示**以下测试/工程痕迹：
+- `README.md`、`lecture.md`、`manifest.json` 等内部文件名大标签；
+- page id、fixture id、hash、索引编号、调试状态、诊断提示；
+- `Illustrative workflow / 效果示意` 这类审片免责声明；
+- `Source pages / 原始页图` 这类测试解释标签；
+- TTS、字体、QR、LIVE 状态、版本号、frame number 等任何验证信息；
+- 为了审片而加的边框、safe-area、debug overlay、占位线、baseline grid。
+
+这些证据继续保留在 review/QA/JSON/联系表里，不烧进主片。
+
+观众需要理解的只保留：
+- PDF；
+- AI ZIP；
+- 12 pages / 12 页（若构图需要，可保留一次）；
+- provider 图标和名称；
+- ZIP发送与AI接收关系；
+- 讲座总结 / Lecture summary；
+- 讲座报告 / Lecture report；
+- Saved / 已保存；
+- 最终 slogan、Lecture Asset、App Store badge、搜索提示、二维码。
+
+S04要让人**看懂“包里已经有阅读结构”**，不是读懂文件系统。内部结构用页图、索引线、规则层的视觉关系表达；文件名如果不是理解故事必需，就隐去。
+
+S06报告要像最终成果，不要留下“这是测试稿”的线头。概念性质通过整体视觉语境表达，不再烧一个长期可见的 disclaimer。若确需合规性小标，只能在审片版单独导出，不进入公开母版。
+
+代码里可以继续保留 data-*、accessibility id、QA hook；它们不可见即可。不要为了“清干净”删除可重复验证能力。
+
+## 9. 回传结果，不回传选择题
 
 `review/director-r3/`：
 - 两版26秒1080带人声/音乐/SFX母版和720预览。
@@ -160,7 +191,7 @@ App ID6816814541的公开可下载性仍独立核查。`PUBLISH_HOLD_NOT_LIVE_VE
 最终回传只含PR/head、中英带旁白MP4、文字对照、尾页起始帧、真实未解决项。
 停止点：**READY_FOR_DIRECTOR_FINAL_REVIEW**（仅真实旁白和技术交付完整时）；无语音源时如实标对应阻塞。
 
-## 9. 本轮已核对的一手参考
+## 10. 本轮已核对的一手参考
 
 研究时间：2026-10-06。以下是实现依据，不是已在当前环境调用成功或获得付费额度的声明。
 
