@@ -3,3 +3,6 @@ out/
 assets/fonts/
 *.local.log
 review/director-r2/.*.hf-transaction-*/
+.venv-r3/
+models/
+review/director-r3/.*.hf-transaction-*/

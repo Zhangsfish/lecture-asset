@@ -1,9 +1,7 @@
-# R2 source review and history
+# Current R3 source review
 
-Current authority DIRECTOR_R2.md and director-r1/DIRECTOR_AUDIT_R2.md. Retain accepted photographic atlas, synthetic lecture textures, icon, archive facts and saved-before-cleanup narrative. R1 aesthetic approval was rejected; its technical QA is historical.
+Authority: DIRECTOR_R3.md + R3_COPY_AUDIO.json; R2 findings in review/director-r2/DIRECTOR_AUDIT_R3.md. R2 did not receive aesthetic acceptance. All historical media/source are retained.
 
-Original reference inventory is SOURCE_INVENTORY.json. Product sources PRODUCT_DECISIONS/SPEC/ASSET_FORMAT support local processing, source images as facts, OCR as index, manifest order/integrity, PDF separate from ZIP, exact saved archive before cleanup, and no Recently Deleted clearing. No runtime work is performed in this marketing branch.
+Same accepted life atlas/P01–P08 crops, L01–L12 textures, app/provider/badge artwork, archive facts and saved-before-cleanup. No runtime work, no provider recording gate, no invented AI transcript. The concept reply remains an editorial illustration based on the same synthetic lecture, not actual provider output. Public download state remains separate.
 
-Current R2 supersedes 22s, provider-name-only and no-download restrictions. New concept output is source-related editorial illustration, not a measured provider transcript. Official provider icons are now explicitly authorized for factual external destination depiction; no partnership claim. Official Apple badge/QR is a prelaunch master; public download state remains separate.
-
-Do not run old Phase A/R1 scripts as current production. They remain historical reproduction only; active commands use r2-*.
+R3 adds actual bilingual preset-voice narration, newly arranged132BPM music/SFX, official local-only Source Han/Inter fonts and first-frame1230 end-card composition. Current commands use r3-*. Historical reproduction uses explicit r2-* scripts at the R2 tested source SHA; current npm scripts dispatch R3.

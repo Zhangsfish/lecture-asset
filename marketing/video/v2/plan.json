@@ -1,9 +1,9 @@
 {
-  "id": "lecture-asset-v2-director-r2",
-  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
-  "authority": "DIRECTOR_R2.md",
-  "instruction_sha256": "5aeab0d369875849bf3fadc745e7eac499cb8950a28ad8e47d215303e9e02b2f",
-  "branch_input_sha": "85abda965842f47fa2fcb38c745070d1221d3bf9",
+  "id": "lecture-asset-v2-director-r3",
+  "status": "R3_IN_PRODUCTION",
+  "authority": "DIRECTOR_R3.md",
+  "instruction_sha256": "8baa90d25038c150fc85739d00f6d3568e468e0c2da78d55439c217d1765cc8e",
+  "branch_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
   "latest_main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
   "original_pr_base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
   "width": 1080,
@@ -69,15 +69,48 @@
       "out": 180,
       "copy": {
         "zh-Hans": [
-          "舍不得删。",
-          "交给 AI，却太散。"
+          [
+            "舍不得删"
+          ],
+          [
+            "交给 AI",
+            "又太散"
+          ]
         ],
         "en": [
-          "Too useful to delete.",
-          "Too scattered for AI."
+          [
+            "Too useful",
+            "to delete"
+          ],
+          [
+            "Too scattered",
+            "for AI"
+          ]
         ]
       },
-      "view": "mixed photo space / two restrained captions"
+      "view": "mixed photo space / two restrained captions",
+      "display": {
+        "zh-Hans": [
+          [
+            "舍不得删"
+          ],
+          [
+            "交给 AI",
+            "又太散"
+          ]
+        ],
+        "en": [
+          [
+            "Too useful",
+            "to delete"
+          ],
+          [
+            "Too scattered",
+            "for AI"
+          ]
+        ]
+      },
+      "object_labels": null
     },
     {
       "id": 2,
@@ -86,13 +119,34 @@
       "out": 300,
       "copy": {
         "zh-Hans": [
-          "选好，排好。"
+          [
+            "选好",
+            "排好"
+          ]
         ],
         "en": [
-          "Selected. Sorted."
+          [
+            "Selected",
+            "Sorted"
+          ]
         ]
       },
-      "view": "selected pulse / ordered following camera"
+      "view": "selected pulse / ordered following camera",
+      "display": {
+        "zh-Hans": [
+          [
+            "选好",
+            "排好"
+          ]
+        ],
+        "en": [
+          [
+            "Selected",
+            "Sorted"
+          ]
+        ]
+      },
+      "object_labels": null
     },
     {
       "id": 3,
@@ -100,16 +154,51 @@
       "in": 300,
       "out": 450,
       "copy": {
-        "zh-Hans": [
-          "PDF · 留着回看",
-          "AI ZIP · 交给 AI"
-        ],
-        "en": [
-          "PDF · For later",
-          "AI ZIP · For AI"
-        ]
+        "zh-Hans": {
+          "pdf": [
+            "PDF",
+            "留着回看"
+          ],
+          "zip": [
+            "AI ZIP",
+            "交给 AI"
+          ]
+        },
+        "en": {
+          "pdf": [
+            "PDF",
+            "For later"
+          ],
+          "zip": [
+            "AI ZIP",
+            "For AI"
+          ]
+        }
       },
-      "view": "neutral editorial paper split / cobalt sleeve seal"
+      "view": "neutral editorial paper split / cobalt sleeve seal",
+      "display": null,
+      "object_labels": {
+        "zh-Hans": {
+          "pdf": [
+            "PDF",
+            "留着回看"
+          ],
+          "zip": [
+            "AI ZIP",
+            "交给 AI"
+          ]
+        },
+        "en": {
+          "pdf": [
+            "PDF",
+            "For later"
+          ],
+          "zip": [
+            "AI ZIP",
+            "For AI"
+          ]
+        }
+      }
     },
     {
       "id": 4,
@@ -118,28 +207,42 @@
       "out": 630,
       "copy": {
         "zh-Hans": [
-          "连怎么读，都准备好了。"
+          [
+            "连怎么读",
+            "都准备好了"
+          ]
         ],
         "en": [
-          "Reading instructions included."
+          [
+            "Ready for AI"
+          ]
         ]
       },
-      "view": "same sleeve / source-page fan with paired index / reading guidance"
+      "view": "same sleeve / source-page fan with paired index / reading guidance",
+      "display": {
+        "zh-Hans": [
+          [
+            "连怎么读",
+            "都准备好了"
+          ]
+        ],
+        "en": [
+          [
+            "Ready for AI"
+          ]
+        ]
+      },
+      "object_labels": null
     },
     {
       "id": 5,
       "name": "external-handoff",
       "in": 630,
       "out": 780,
-      "copy": {
-        "zh-Hans": [
-          "WorkBuddy / ZIP 附件"
-        ],
-        "en": [
-          "ChatGPT / ZIP attachment"
-        ]
-      },
-      "view": "right outgoing ZIP / left official provider / processing"
+      "copy": {},
+      "view": "right outgoing ZIP / left official provider / processing",
+      "display": null,
+      "object_labels": null
     },
     {
       "id": 6,
@@ -156,7 +259,9 @@
           "Lecture report"
         ]
       },
-      "view": "bounded blurred words / same reply grows into readable report"
+      "view": "bounded blurred words / same reply grows into readable report",
+      "display": null,
+      "object_labels": null
     },
     {
       "id": 7,
@@ -165,13 +270,34 @@
       "out": 1230,
       "copy": {
         "zh-Hans": [
-          "留好资料，再清相册。"
+          [
+            "留好资料",
+            "再清相册"
+          ]
         ],
         "en": [
-          "Keep the files. Clear the photos."
+          [
+            "Keep the files",
+            "Clear the photos"
+          ]
         ]
       },
-      "view": "saved cue first / same source photos depart / original P01–P08 return"
+      "view": "saved cue first / same source photos depart / original P01–P08 return",
+      "display": {
+        "zh-Hans": [
+          [
+            "留好资料",
+            "再清相册"
+          ]
+        ],
+        "en": [
+          [
+            "Keep the files",
+            "Clear the photos"
+          ]
+        ]
+      },
+      "object_labels": null
     },
     {
       "id": 8,
@@ -180,15 +306,34 @@
       "out": 1560,
       "copy": {
         "zh-Hans": [
-          "把讲座交给 AI，",
-          "把相册还给自己。"
+          [
+            "把讲座交给 AI",
+            "把相册还给自己"
+          ]
         ],
         "en": [
-          "Hand the lecture to AI.",
-          "Take back your photo library."
+          [
+            "Hand the lecture to AI",
+            "Take back your photo library"
+          ]
         ]
       },
-      "view": "simultaneous slogan / brand / static official badge and verified product QR"
+      "view": "simultaneous slogan / brand / static official badge and verified product QR",
+      "display": {
+        "zh-Hans": [
+          [
+            "把讲座交给 AI",
+            "把相册还给自己"
+          ]
+        ],
+        "en": [
+          [
+            "Hand the lecture to AI",
+            "Take back your photo library"
+          ]
+        ]
+      },
+      "object_labels": null
     }
   ],
   "hero_frames": [
@@ -203,37 +348,45 @@
   ],
   "audio_cues": [
     {
-      "frame": 3,
-      "name": "photo-wipe"
+      "frame": 0,
+      "name": "new arranged accent/resolve"
     },
     {
-      "frame": 184,
-      "name": "selection"
+      "frame": 180,
+      "name": "new arranged accent/resolve"
     },
     {
-      "frame": 296,
-      "name": "stack-settle"
+      "frame": 300,
+      "name": "new arranged accent/resolve"
     },
     {
-      "frame": 460,
-      "name": "sleeve-open"
+      "frame": 450,
+      "name": "new arranged accent/resolve"
     },
     {
-      "frame": 688,
-      "name": "send"
+      "frame": 630,
+      "name": "new arranged accent/resolve"
     },
     {
-      "frame": 918,
-      "name": "report-resolve"
+      "frame": 780,
+      "name": "new arranged accent/resolve"
     },
     {
-      "frame": 1082,
-      "name": "album-release"
+      "frame": 900,
+      "name": "new arranged accent/resolve"
+    },
+    {
+      "frame": 1050,
+      "name": "new arranged accent/resolve"
+    },
+    {
+      "frame": 1230,
+      "name": "new arranged accent/resolve"
     }
   ],
   "saved_confirm_frame": 1071,
   "first_departure_frame": 1080,
-  "slogan_settled_by_frame": 1245,
+  "slogan_settled_by_frame": 1230,
   "source_summary": {
     "source": "accepted fixtures 13–24 / assets/lecture/0001.jpg–0012.jpg",
     "bullets": [
@@ -251,5 +404,197 @@
   },
   "preview_width": 720,
   "preview_height": 1280,
-  "download_settled_by_frame": 1350
+  "download_settled_by_frame": 1230,
+  "typography": {
+    "zh-Hans": {
+      "display_font": "Source Han Sans SC",
+      "display_weight": 700,
+      "hero_px": 88,
+      "closing_px": 80,
+      "line_height": 1.16,
+      "letter_spacing_em": -0.005
+    },
+    "en": {
+      "display_font": "Inter Display",
+      "display_weight": 600,
+      "variable_optical_size_if_supported": 32,
+      "hero_px": 92,
+      "closing_px": 62,
+      "line_height": 1.12,
+      "letter_spacing_em": -0.025
+    },
+    "label_px": 32,
+    "body_px": 34,
+    "font_synthesis": "none",
+    "fallback_is_failure": true,
+    "closing_uses_same_display_family_and_weight": true,
+    "font_binaries_exported": false
+  },
+  "narration": {
+    "required": true,
+    "voice_style_zh": "现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。",
+    "voice_style_en": "A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot.",
+    "primary": {
+      "provider": "Volcengine Doubao Speech",
+      "resource_id": "seed-tts-2.0",
+      "endpoint": "https://openspeech.bytedance.com/api/v3/tts/unidirectional",
+      "zh_speaker": "zh_female_vv_uranus_bigtts",
+      "en_speaker": "en_male_tim_uranus_bigtts",
+      "initial_speech_rate": 0,
+      "actual_credentials_and_allowed_quota_required": true
+    },
+    "local_fallback": {
+      "provider": "Qwen3-TTS",
+      "preferred_model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "smaller_model_if_needed": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+      "zh_speaker": "Vivian",
+      "en_speaker": "Ryan",
+      "probe_hardware_before_download": true,
+      "model_revision_must_be_pinned": true,
+      "note": "1.7B supports instruction control; do not claim 0.6B has identical instruction control. Use native-language stock voices; no cloning."
+    },
+    "timing_policy": "Windows are maximum placement slots, not target speech lengths. Generate real audio first; measure it; use natural gaps for visuals. No stretching a short phrase across the whole slot. At most 1.08x corrective post time-compression, no pitch shift. Regenerate or adjust local pacing if longer; keep 26s and final-card frame 1230 fixed.",
+    "cues": [
+      {
+        "id": "N01",
+        "window_seconds": [
+          0.15,
+          2.9
+        ],
+        "spoken_text": {
+          "zh-Hans": "照片塞满相册，交给 AI，又太散。",
+          "en": "Lecture photos everywhere. Too scattered for AI."
+        }
+      },
+      {
+        "id": "N02",
+        "window_seconds": [
+          3.15,
+          7.2
+        ],
+        "spoken_text": {
+          "zh-Hans": "Lecture Asset，一份 PDF，一份 AI 资料包。",
+          "en": "Lecture Asset makes a PDF for you, and one ZIP for AI."
+        }
+      },
+      {
+        "id": "N03",
+        "window_seconds": [
+          7.65,
+          10.2
+        ],
+        "spoken_text": {
+          "zh-Hans": "连怎么读，都准备好了。",
+          "en": "Reading instructions included."
+        }
+      },
+      {
+        "id": "N04",
+        "window_seconds": [
+          10.65,
+          12.85
+        ],
+        "spoken_text": {
+          "zh-Hans": "交给 WorkBuddy。",
+          "en": "Share it with ChatGPT."
+        }
+      },
+      {
+        "id": "N05",
+        "window_seconds": [
+          13.15,
+          16.95
+        ],
+        "spoken_text": {
+          "zh-Hans": "变成讲座总结，还有报告。",
+          "en": "Get a lecture summary and report."
+        }
+      },
+      {
+        "id": "N06",
+        "window_seconds": [
+          17.7,
+          20.3
+        ],
+        "spoken_text": {
+          "zh-Hans": "资料留好，安心清理。",
+          "en": "Save the files. Clear the photos."
+        }
+      },
+      {
+        "id": "N07",
+        "window_seconds": [
+          20.65,
+          25.4
+        ],
+        "spoken_text": {
+          "zh-Hans": "把讲座交给 AI，把相册还给自己。",
+          "en": "Hand the lecture to AI. Take back your photo library."
+        }
+      }
+    ],
+    "no_silent_voice_placeholder": true,
+    "no_celebrity_or_owner_voice_clone": true,
+    "pronunciation_check": [
+      "Lecture Asset",
+      "PDF",
+      "AI",
+      "ZIP",
+      "WorkBuddy",
+      "ChatGPT"
+    ]
+  },
+  "sound": {
+    "style": "Rhythm-led contemporary electronic product-launch groove, concise punch and controlled syncopation; not soothing ambient plucks or a trailer orchestra",
+    "bpm": 132,
+    "time_signature": "4/4",
+    "stems": [
+      "narration",
+      "music",
+      "sfx"
+    ],
+    "first_rhythmic_attack_seconds_max": 0.2,
+    "music_duck_db_under_voice": [
+      6,
+      9
+    ],
+    "mix_lufs_target": -14.5,
+    "mix_lufs_tolerance": 1,
+    "true_peak_dbtp_max": -1,
+    "mix_sample_rate": 48000,
+    "music_publication_rights_required": true,
+    "no_sped_up_r2_score": true,
+    "accent_frames": [
+      0,
+      180,
+      300,
+      450,
+      630,
+      780,
+      900,
+      1050,
+      1230
+    ]
+  },
+  "end_card": {
+    "first_visible_frame": 1230,
+    "last_visible_frame": 1559,
+    "brand": "Lecture Asset",
+    "download_url": "https://apps.apple.com/us/app/id6816814541",
+    "search": {
+      "zh-Hans": "在美区 App Store 搜索 Lecture Asset",
+      "en": "Search Lecture Asset on the App Store"
+    },
+    "publication_status": "REVERIFY_PUBLIC_LIVE_SEPARATELY",
+    "badge_qr_story_and_brand_must_appear_together": true
+  },
+  "voice_sync_adjustments": {
+    "provider_reveal_seconds": 11.25,
+    "source_departure_seconds": 18.55,
+    "reason": "Actual ASR: provider names at11.07–12.11; saved phrase ends18.40/18.42; cleanup begins after that",
+    "measurement": "review/director-r3/VOICE_ASR.json"
+  },
+  "production_status": "R3_REAL_VOICE_READY_FOR_RENDER",
+  "narration_actual": "review/director-r3/VOICE_TIMING.json",
+  "narration_original_vs_actual": "N01 only condensed to fit measured slot; all other cue texts unchanged. Display copy unchanged."
 }

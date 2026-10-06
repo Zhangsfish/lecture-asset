@@ -133,5 +133,26 @@
       ]
     }
   ],
-  "qr_checked_utc": "2026-10-05T19:38:44.870396+00:00"
+  "qr_checked_utc": "2026-10-05T19:38:44.870396+00:00",
+  "r3_public_recheck": {
+    "checked_utc": "2026-10-06T06:46:49.144424+00:00",
+    "checks": [
+      {
+        "requested": "https://apps.apple.com/us/app/id6816814541",
+        "http_status": 200,
+        "resolved_url": "https://apps.apple.com/cn/iphone/today",
+        "bytes": 2080933,
+        "matches_requested_id": false
+      },
+      {
+        "requested": "https://itunes.apple.com/lookup?id=6816814541&country=us",
+        "http_status": 200,
+        "resolved_url": "https://itunes.apple.com/lookup?id=6816814541&country=us",
+        "bytes": 42,
+        "matches_requested_id": false,
+        "lookup_result_count": 0
+      }
+    ],
+    "state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED"
+  }
 }

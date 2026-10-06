@@ -1,11 +1,11 @@
-# R2 shared art system
+# R3 shared type / art / audio system
 
-Authority: DIRECTOR_R2.md. Charcoal #090B10; neutral paper #F5F6F8; ink #19232F; cobalt #4772A8 limited to sleeve spine and editorial accents. Left/top natural light, subtle paper reflectance, one low-opacity broad shadow. No inset bevel, extruded side plate, cream settings window, glow particles or caption plaques.
+Authority: DIRECTOR_R3.md + R3_COPY_AUDIO.json. Retain charcoal#090B10, neutral paper#F5F6F8, ink#19232F and restrained cobalt#4772A8. Photography, thin paper edges, soft directional light/shadows, persistent ZIP/reply and source identities stay unchanged.
 
-Persist P01–P08 fixed atlas crops and L01–L12 textures. Life photographs recede spatially to opacity zero during S03–S06, then the same DOM objects return. Sleeve, PDF, reading guide and reply/report share paper tokens and editorial typography. The report is the same receiving surface expanded, not a new popup.
+DisplayText is shared across opening/middle/closing. Chinese Source Han Sans SC Bold700, hero88px/closing80px,1.16 leading. English Inter Display Semibold600, actual Inter Variable opsz32, hero92px/closing62px,1.12 leading. One family/weight system, deliberate line breaks, no scene-specific shrinking. Body uses same family regular. font-synthesis:none. Actual CDP platform-font proof must show custom files and correct faces, including Chinese/Latin mixed glyphs; CSS family strings alone are insufficient. Official fonts fixed by FONT_SOURCES_R3.json and licenses, binaries local ignored only.
 
-Three type levels: 80px ZH / 76px EN main copy; 30–34px object labels; 30–40px editorial body. Final slogan retains the accepted 80px ZH bold / 62px EN regular rhythm. Installed real Microsoft YaHei regular/bold + Segoe UI regular; no synthetic font weight. No scene-specific automatic shrinking. One short phrase per reveal, 16-frame settle followed by reading holds. No live typing callbacks.
+Advertising main phrases contain no sentence punctuation. Spoken text retains natural punctuation; filenames, original slide user content and official badges stay intact. No black subtitle plaques, letter-bouncing or full voice transcript burn-in. Separate accessibility SRT reflects actual phrase duration and independent ASR word alignment.
 
-Major copy/branding/download zone x80..920 y160..1550. Check actual decoded 360px views and platform obstruction proxies; these masks are conservative review approximations, not official platform templates. Photographs may extend outside this text zone.
+132BPM4/4 original drum/bass groove: kick, dry clap, tight hats/syncopation, midrange bass and sparse upper accents. New arrangement, no R2 pad/pluck reuse. Three stems; actual bilingual stock voice;7.5dB smoothly ducked music.48kHz mix, -14.5LUFS±1, truepeak≤-1dBTP. Subjective listening separate from signal/ASR metrics.
 
-Official provider images retain their original ratio/colours. Badge has one instance per movie, static native artwork, ≥1/4-height clear space. QR encodes exact US product URL and must decode from both actual 1080 and 720 movies.
+The entire end card becomes opaque at1230, holds through1559. Shared parent reveal, no delayed children. Badge/QR keep their official artwork and geometry; validate actual frame1231 from1080/720. Major copy/branding/download stays x80..920,y160..1550; masks are conservative review proxies, not platform certification.

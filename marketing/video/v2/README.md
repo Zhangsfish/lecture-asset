@@ -16,19 +16,22 @@ Official Volcengine Doubao Speech TTS2.0 is the primary route when authorized cr
 
 No new design vote, no App/provider recording, no technology reselection. Continue same PR #18; no merge or posting.
 
+## Current local commands
+
+1. F:/anaconda3/python.exe scripts/r3-fonts.py (official local-only fonts)
+2. F:/anaconda3/python.exe scripts/r3-model.py (one pinned local-only Qwen model)
+3. .venv-r3/Scripts/python.exe scripts/r3-voice.py (actual seven phrases per language; measured)
+4. E:/video_to_md/local-asr/.venv/Scripts/python.exe scripts/r3-asr.py (existing offline ASR)
+5. F:/anaconda3/python.exe scripts/r3-sound.py (new score/stems/mixes)
+6. npm run build / npm run review / node scripts/r3-lint.mjs
+7. npm run frames / npm run render
+8. F:/anaconda3/python.exe scripts/r3-package.py / C:/conda_envs/myenv/python.exe scripts/r3-qr.py
+
+Actual command results/timestamps are delivery evidence, not this reproduction list. Do not run rendering until real voice/mixes are present. Local .venv-r3 inherits the already installed CUDA Torch runtime through system-site-packages; task packages are isolated in the video venv. No global package updates.
+
 ## Historical reproduction
 
-Preserve all phase-a/director-r1/director-r2 media and source history. The following are R2 reproduction commands, NOT commands already verified to implement R3:
-
-1. F:/anaconda3/python.exe scripts/r2-score.py
-2. npm run build
-3. npm run review
-4. npm run frames
-5. npm run render
-6. F:/anaconda3/python.exe scripts/r2-package.py
-7. C:/conda_envs/myenv/python.exe scripts/r2-qr.py
-
-R3 must add/update its actual build, voice, music, render and verification entry points and record the commands. Do not simply rerun r2-score.py for the new master. Keep dependencies isolated, no global tool mutation, and do not commit font binaries or model weights.
+R2 remains at tested source1e1aff951c7aef6c4218731f8fa6895e4f5960b8, delivery374caad73650532d12685413a5447e119bf90959. Use explicit scripts/r2-* at that revision; npm scripts now dispatch R3. R2 ambient soundtrack does not enter the R3 mix. phase-a/r1/r2 outputs are read-only history.
 
 The renderer remains one frame-addressable HyperFrames/GSAP timeline; FFmpeg handles encoding/mixing/extraction. Public availability of the registered destination remains a separate PUBLISH_LINK.json check. Unverified LIVE status restricts posting, not production of the requested download CTA.
 

@@ -1,0 +1,117 @@
+{
+  "arrangement": "New original 132 BPM drums, midrange bass, short controlled accent; deterministic seed 1808; R2 score not loaded",
+  "bpm": 132,
+  "time_signature": "4/4",
+  "first_attack_seconds": 0,
+  "accent_events": [
+    {
+      "frame": 0,
+      "seconds": 0.0,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 180,
+      "seconds": 3.0,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 300,
+      "seconds": 5.0,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 450,
+      "seconds": 7.5,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 630,
+      "seconds": 10.5,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 780,
+      "seconds": 13.0,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 900,
+      "seconds": 15.0,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 1050,
+      "seconds": 17.5,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 1230,
+      "seconds": 20.5,
+      "event": "arranged accent/resolve, original synthesized audio"
+    }
+  ],
+  "voice_real": true,
+  "languages": [
+    {
+      "locale": "en",
+      "mix": "assets/sound/r3-mix-en.wav",
+      "sha256": "7054c2e46773c5d68656770206896958fbe42f0018d61ea5b6493090fd4ca5ec",
+      "loudness_lufs": -14.49,
+      "true_peak_dbtp": -1.77,
+      "applied_linear_gain_db": 8.010000000000002,
+      "music_duck_db": 7.5,
+      "voice_files": 7,
+      "source_voice_sample_rate": 24000,
+      "mix_sample_rate": 48000,
+      "loudness_metrics": {
+        "input_i": "-14.49",
+        "input_tp": "-1.77",
+        "input_lra": "4.40",
+        "input_thresh": "-24.54",
+        "output_i": "-15.18",
+        "output_tp": "-2.27",
+        "output_lra": "3.80",
+        "output_thresh": "-25.21",
+        "normalization_type": "dynamic",
+        "target_offset": "0.68"
+      },
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "mix": "assets/sound/r3-mix-zh-Hans.wav",
+      "sha256": "51e45bff5677e5d81b2207203e4ef6db7a79d0606ef63aa15ca0ca5a465edb41",
+      "loudness_lufs": -14.57,
+      "true_peak_dbtp": -1.4,
+      "applied_linear_gain_db": 6.99,
+      "music_duck_db": 7.5,
+      "voice_files": 7,
+      "source_voice_sample_rate": 24000,
+      "mix_sample_rate": 48000,
+      "loudness_metrics": {
+        "input_i": "-14.57",
+        "input_tp": "-1.40",
+        "input_lra": "2.70",
+        "input_thresh": "-24.77",
+        "output_i": "-14.38",
+        "output_tp": "-1.22",
+        "output_lra": "2.80",
+        "output_thresh": "-24.59",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.12"
+      },
+      "subjective_listening": "NOT_RUN"
+    }
+  ],
+  "subjective_listening": "NOT_RUN",
+  "no_purchase_or_external_music": true,
+  "processing": "Voice compressor threshold0.08 ratio3 attack8ms release100ms makeup1.7; mix-bus compressor threshold0.10 ratio2 attack2ms release80ms; linear final gain, no hard limiter. Loudnorm used as meter only (its hypothetical output fields are not applied).",
+  "subjective_listening_segments": {
+    "opening": "NOT_RUN",
+    "AI exchange": "NOT_RUN",
+    "report": "NOT_RUN",
+    "ending": "NOT_RUN",
+    "mono phone playback": "NOT_RUN"
+  },
+  "asr_consistency": "14/14 final cues normalized transcript match1.0; not a subjective pronunciation or listening PASS"
+}

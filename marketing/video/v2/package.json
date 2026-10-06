@@ -1,15 +1,15 @@
 {
-  "name": "lecture-asset-teaser-v2-phase-a",
+  "name": "lecture-asset-promo-v2-r3",
   "private": true,
   "type": "module",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "build": "tsc --noEmit && node scripts/r2-build.mjs",
-    "frames": "node scripts/r2-snapshot.mjs",
-    "review": "node scripts/r2-qa.mjs",
-    "render": "node scripts/r2-render.mjs"
+    "build": "tsc --noEmit && node scripts/r3-build.mjs",
+    "frames": "node scripts/r3-snapshot.mjs",
+    "review": "node scripts/r3-qa.mjs",
+    "render": "node scripts/r3-render.mjs"
   },
   "dependencies": {
     "gsap": "3.15.0"

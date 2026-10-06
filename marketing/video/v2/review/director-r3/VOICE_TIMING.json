@@ -1,0 +1,549 @@
+{
+  "real_voice_source": true,
+  "cloud_credentials": "NO_EXISTING_PROJECT_TTS_CREDENTIALS_FOUND",
+  "local_model": "1.7B instruction capable, BF16 SDPA, preset voices only",
+  "cues": [
+    {
+      "locale": "en",
+      "id": "N01",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Lecture photos. Too scattered for AI.",
+      "original_planned_text": "Lecture photos everywhere. Too scattered for AI.",
+      "timing_copy_adjustment": "N01 removes everywhere after original measured 3.245s minimum exceeded 2.75s slot; same meaning, no word clipping",
+      "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 2.5 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 0.15,
+      "actual_duration_seconds": 2.7444166666666665,
+      "placement_end_seconds": 2.8944166666666664,
+      "window_seconds": [
+        0.15,
+        2.9
+      ],
+      "post_atempo": 1.0709090909090908,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 2.96,
+          "speech_seconds": 2.945,
+          "generation_seconds": 20.42199999999957,
+          "trim_samples": [
+            360,
+            71040
+          ]
+        }
+      ],
+      "sha256": "e8a1b9b9b7c60cb9b74fdc232f24aa643298ade763008cbb197e5721f85b50ac",
+      "file": "assets/voice/r3/en/N01.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N02",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Lecture Asset makes a PDF for you, and one ZIP for AI.",
+      "original_planned_text": "Lecture Asset makes a PDF for you, and one ZIP for AI.",
+      "timing_copy_adjustment": null,
+      "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 3.9 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 3.15,
+      "actual_duration_seconds": 4.034083333333333,
+      "placement_end_seconds": 7.184083333333334,
+      "window_seconds": [
+        3.15,
+        7.2
+      ],
+      "post_atempo": 1.0037037037037035,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 4.08,
+          "speech_seconds": 4.065,
+          "generation_seconds": 28.01599999999962,
+          "trim_samples": [
+            360,
+            97920
+          ]
+        }
+      ],
+      "sha256": "a76ee47de14d0ee5c6978f10c0ef719243cdb7bd65af97192bd8e0205d0c55c3",
+      "file": "assets/voice/r3/en/N02.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N03",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Reading instructions included.",
+      "original_planned_text": "Reading instructions included.",
+      "timing_copy_adjustment": null,
+      "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 2.3 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 7.65,
+      "actual_duration_seconds": 1.4218333333333333,
+      "placement_end_seconds": 9.071833333333334,
+      "window_seconds": [
+        7.65,
+        10.2
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 1.44,
+          "speech_seconds": 1.425,
+          "generation_seconds": 10.063000000000102,
+          "trim_samples": [
+            360,
+            34560
+          ]
+        }
+      ],
+      "sha256": "94387d17ff7c79f836c277ee1dbb137101e2755a554361f6ca73cd47f1146a51",
+      "file": "assets/voice/r3/en/N03.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N04",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Share it with ChatGPT.",
+      "original_planned_text": "Share it with ChatGPT.",
+      "timing_copy_adjustment": null,
+      "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 2.0 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 10.65,
+      "actual_duration_seconds": 1.8974583333333332,
+      "placement_end_seconds": 12.547458333333333,
+      "window_seconds": [
+        10.65,
+        12.85
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 1.92,
+          "speech_seconds": 1.905,
+          "generation_seconds": 11.280999999999949,
+          "trim_samples": [
+            360,
+            46080
+          ]
+        }
+      ],
+      "sha256": "ffd777771322bdf0b263e0fe667f5b0b27da967647328311f2b8d3c4a9e7a41c",
+      "file": "assets/voice/r3/en/N04.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N05",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Get a lecture summary and report.",
+      "original_planned_text": "Get a lecture summary and report.",
+      "timing_copy_adjustment": null,
+      "instruction": "Speak at a clear conversational 160 words per minute. Give summary and report distinct stresses, without rushing. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 3.6 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 13.15,
+      "actual_duration_seconds": 2.300666666666667,
+      "placement_end_seconds": 15.450666666666667,
+      "window_seconds": [
+        13.15,
+        16.95
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 2.32,
+          "speech_seconds": 2.305,
+          "generation_seconds": 21.53099999999995,
+          "trim_samples": [
+            360,
+            55680
+          ]
+        }
+      ],
+      "sha256": "6c3813f8d9f3dd1eccbdd9f0fe1e7660a7a8ff6f3dc7db434577da02158674d5",
+      "file": "assets/voice/r3/en/N05.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N06",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Save the files. Clear the photos.",
+      "original_planned_text": "Save the files. Clear the photos.",
+      "timing_copy_adjustment": null,
+      "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 2.4 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 17.7,
+      "actual_duration_seconds": 2.3020416666666668,
+      "placement_end_seconds": 20.002041666666667,
+      "window_seconds": [
+        17.7,
+        20.3
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 2.32,
+          "speech_seconds": 2.305,
+          "generation_seconds": 13.95300000000043,
+          "trim_samples": [
+            360,
+            55680
+          ]
+        }
+      ],
+      "sha256": "fb35cc4186dbbfb2b3e27e22684c624074e8a2f33738aaade7dbb51c41cac39a",
+      "file": "assets/voice/r3/en/N06.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N07",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Hand the lecture to AI. Take back your photo library.",
+      "original_planned_text": "Hand the lecture to AI. Take back your photo library.",
+      "timing_copy_adjustment": null,
+      "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 4.5 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 20.65,
+      "actual_duration_seconds": 3.0962916666666667,
+      "placement_end_seconds": 23.746291666666664,
+      "window_seconds": [
+        20.65,
+        25.4
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 3.12,
+          "speech_seconds": 3.1,
+          "generation_seconds": 17.671000000000276,
+          "trim_samples": [
+            360,
+            74760
+          ]
+        }
+      ],
+      "sha256": "32e7861db92d2faf8f984040d1941c79b734598ad87dd79203d8b565dab87fd7",
+      "file": "assets/voice/r3/en/N07.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N01",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "交给 AI，又太散。",
+      "original_planned_text": "照片塞满相册，交给 AI，又太散。",
+      "timing_copy_adjustment": "N01 condensed after actual original generation exceeded 2.75s slot: EN original minimum3.245s; ZH original4.86s/3.905s. Album congestion remains visible; AI scattering clause preserved. No speech truncation.",
+      "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约2.5秒内说完，短停顿，不拖尾，字句完整。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 0.15,
+      "actual_duration_seconds": 1.8906666666666667,
+      "placement_end_seconds": 2.0406666666666666,
+      "window_seconds": [
+        0.15,
+        2.9
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 1.92,
+          "speech_seconds": 1.905,
+          "generation_seconds": 13.842999999999847,
+          "trim_samples": [
+            360,
+            46080
+          ]
+        }
+      ],
+      "sha256": "df9f3e2e2c1c12b7a121bdcfff767784d80dec31b79ac00cdf7438799499289a",
+      "file": "assets/voice/r3/zh-Hans/N01.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N02",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Lecture Asset，一份 PDF，一份 AI 资料包。",
+      "original_planned_text": "Lecture Asset，一份 PDF，一份 AI 资料包。",
+      "timing_copy_adjustment": null,
+      "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约3.9秒内说完，短停顿，不拖尾，字句完整。 比上次更利落更快，句间停顿短。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 3.15,
+      "actual_duration_seconds": 4.044708333333333,
+      "placement_end_seconds": 7.194708333333333,
+      "window_seconds": [
+        3.15,
+        7.2
+      ],
+      "post_atempo": 1.0012345679012342,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 5.52,
+          "speech_seconds": 5.505,
+          "generation_seconds": 31.311999999999898,
+          "trim_samples": [
+            360,
+            132480
+          ]
+        },
+        {
+          "attempt": 2,
+          "raw_seconds": 4.08,
+          "speech_seconds": 4.055,
+          "generation_seconds": 23.063000000000102,
+          "trim_samples": [
+            600,
+            97920
+          ]
+        }
+      ],
+      "sha256": "def2e62c0bdaf7eedd8a69aae07eaa04879b7ad15b50f0664c440fcddc78460c",
+      "file": "assets/voice/r3/zh-Hans/N02.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N03",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "连怎么读，都准备好了。",
+      "original_planned_text": "连怎么读，都准备好了。",
+      "timing_copy_adjustment": null,
+      "instruction": "完整清楚地朗读，开头的“连”字也要清楚，明亮自信，短停顿。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约2.3秒内说完，短停顿，不拖尾，字句完整。 比上次更利落更快，句间停顿短。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 7.65,
+      "actual_duration_seconds": 2.552625,
+      "placement_end_seconds": 10.202625000000001,
+      "window_seconds": [
+        7.65,
+        10.2
+      ],
+      "post_atempo": 1.0607843137254906,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 4.72,
+          "speech_seconds": 4.705,
+          "generation_seconds": 29.54700000000048,
+          "trim_samples": [
+            360,
+            113280
+          ]
+        },
+        {
+          "attempt": 2,
+          "raw_seconds": 2.72,
+          "speech_seconds": 2.705,
+          "generation_seconds": 15.719000000000051,
+          "trim_samples": [
+            360,
+            65280
+          ]
+        }
+      ],
+      "sha256": "b1e70d1771a2ff876593207896a0b695c68d472a92ea16ddafd65c3ca7cf8c0c",
+      "file": "assets/voice/r3/zh-Hans/N03.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N04",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "交给 WorkBuddy。",
+      "original_planned_text": "交给 WorkBuddy。",
+      "timing_copy_adjustment": null,
+      "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约2.0秒内说完，短停顿，不拖尾，字句完整。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 10.65,
+      "actual_duration_seconds": 1.6512916666666666,
+      "placement_end_seconds": 12.301291666666668,
+      "window_seconds": [
+        10.65,
+        12.85
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 1.68,
+          "speech_seconds": 1.655,
+          "generation_seconds": 10.25,
+          "trim_samples": [
+            600,
+            40320
+          ]
+        }
+      ],
+      "sha256": "b5f71be53f7bac063c659e497b8c1a100b8a6c3171df11a30855a59b71d10451",
+      "file": "assets/voice/r3/zh-Hans/N04.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N05",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "变成讲座总结，还有报告。",
+      "original_planned_text": "变成讲座总结，还有报告。",
+      "timing_copy_adjustment": null,
+      "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约3.6秒内说完，短停顿，不拖尾，字句完整。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 13.15,
+      "actual_duration_seconds": 3.7925833333333334,
+      "placement_end_seconds": 16.942583333333335,
+      "window_seconds": [
+        13.15,
+        16.95
+      ],
+      "post_atempo": 1.0236842105263162,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 3.92,
+          "speech_seconds": 3.89,
+          "generation_seconds": 21.375,
+          "trim_samples": [
+            600,
+            93960
+          ]
+        }
+      ],
+      "sha256": "2f5bbd9dcbe806649fc28bd5b0fda23629ea33e62a88158b289bd362b6974715",
+      "file": "assets/voice/r3/zh-Hans/N05.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N06",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "资料留好，安心清理。",
+      "original_planned_text": "资料留好，安心清理。",
+      "timing_copy_adjustment": null,
+      "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约2.4秒内说完，短停顿，不拖尾，字句完整。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 17.7,
+      "actual_duration_seconds": 2.1334166666666667,
+      "placement_end_seconds": 19.833416666666665,
+      "window_seconds": [
+        17.7,
+        20.3
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 2.16,
+          "speech_seconds": 2.14,
+          "generation_seconds": 12.405999999999949,
+          "trim_samples": [
+            360,
+            51720
+          ]
+        }
+      ],
+      "sha256": "650e581b048acbe4dca1db81ac27c979fc45d3e04d424848b475b47c3605fb81",
+      "file": "assets/voice/r3/zh-Hans/N06.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N07",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "把讲座交给 AI，把相册还给自己。",
+      "original_planned_text": "把讲座交给 AI，把相册还给自己。",
+      "timing_copy_adjustment": null,
+      "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约4.5秒内说完，短停顿，不拖尾，字句完整。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 20.65,
+      "actual_duration_seconds": 3.8695416666666667,
+      "placement_end_seconds": 24.519541666666665,
+      "window_seconds": [
+        20.65,
+        25.4
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 3.92,
+          "speech_seconds": 3.88,
+          "generation_seconds": 22.32800000000043,
+          "trim_samples": [
+            600,
+            93720
+          ]
+        }
+      ],
+      "sha256": "af81f5a5a2202925b698ea80aa53bf74ec991ebf8490867be68d080b069fb924",
+      "file": "assets/voice/r3/zh-Hans/N07.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    }
+  ],
+  "peak_cuda_allocated_mib": 4132.78759765625,
+  "peak_cuda_reserved_mib": 4218.0,
+  "subjective_listening": "NOT_RUN",
+  "independent_word_alignment": "VOICE_ASR.json"
+}
