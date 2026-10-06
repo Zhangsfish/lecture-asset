@@ -1,0 +1,16 @@
+{
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "fbafc7a227bb67af75f586a515feaafa757af05f",
+  "tested_code_sha": "b2f66a8a402f9e34f2e3aacc6a6d537074df713f",
+  "environment": "Windows PowerShell; F:/anaconda3/python.exe",
+  "localization_check": "PASS",
+  "keys_per_locale": 140,
+  "diff_check": "PASS",
+  "xcode_build": "NOT_RUN",
+  "xctest_execution": "NOT_RUN",
+  "physical_device": "NOT_RUN",
+  "asc_mutation": false,
+  "testflight_upload": false,
+  "screenshots_changed": false,
+  "production_swift_changed": false
+}
