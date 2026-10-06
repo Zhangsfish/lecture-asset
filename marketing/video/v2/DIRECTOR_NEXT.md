@@ -1,27 +1,24 @@
-# 当前导演任务：R2
+# 当前导演任务：R3
 
-**READY_FOR_CODEX / R2_FULL_CUT_AUTHORIZED**
+**READY_FOR_CODEX / R3_NARRATED_CUT_AUTHORIZED**
 
-完整执行 [DIRECTOR_R2.md](DIRECTOR_R2.md)。
-先读 [R1审查](review/director-r1/DIRECTOR_AUDIT_R2.md)。
+执行 [DIRECTOR_R3.md](DIRECTOR_R3.md) 与 [R3_COPY_AUDIO.json](R3_COPY_AUDIO.json)。
+审查：[R2 findings](review/director-r2/DIRECTOR_AUDIT_R3.md)。
 
-继续 PR #18 / `codex/s05-promo-v2-style-frames`。先 fetch 最新 main 和本分支；不要新开 PR，不要合并。
+继续 PR #18 / `codex/s05-promo-v2-style-frames`，先fetch并保留未提交工作。不新开PR、不合并、不发布。
 
-R1已完成技术粗剪，但**未通过艺术完成度验收**。本轮交付完整高保真R2，不再请求owner设计选择，不再只交风格帧。
+R2没有通过艺术完成度验收。只做以下修正，不重启故事/技术栈/素材设计：
 
-强制要求：
-1. 摄影、文件、阅读说明、对话、报告统一材质/光线/排版；撤掉XP式倒角和表单面板。
-2. 取消黑底字幕贴片，延续已认可的结尾文字气质。
-3. EN使用正确ChatGPT图标，ZH使用正确WorkBuddy图标。
-4. 可读的ZIP发送→AI接收→短暂模糊文字流→报告成形，概念对话，不恢复实机演示。
-5. 保留“把讲座交给 AI，把相册还给自己。”，增加明确App Store下载badge、搜索提示和可解码产品链接二维码。
-6. 26秒 / 1560帧 / 60fps，1080×1920双语母版，720预览及静音版。
+1. 音乐重新编排为132BPM节奏驱动的产品短片，不给原来的舒缓拨弦提速或加音量。
+2. 加入真实中文/英文旁白。官方火山豆包TTS2.0的Vivi/Tim为首选；只使用已授权凭证与额度。没有现成云端条件就执行R3规定的本地Qwen3-TTS备选，不自动索要owner录音或新购服务。
+3. 中文思源黑体Bold、英文Inter Display Semibold，开头、中段、结尾同一文字系统。清除默认Regular和每镜头不同字体补丁。屏幕主文案无句末标点，朗读文本保留自然停顿标点。
+4. 尾页frame1230/20.5秒同时出现slogan、品牌、App图标、App Store badge、搜索提示和QR；不再等待22.5秒才出现下载。
+5. 完整26秒/1560帧/60fps双语带人声母版、720预览和静音版。直接交视频，不能只交接口或音色方案。
 
-下载目的地使用已注册App ID 6816814541；公开可下载状态尚待验证。先完成待上线投放母版；未验证LIVE时仅限制公开投放，不限制渲染/审片，也不删掉CTA。
+本轮覆盖旧文件的无旁白、舒缓配乐、默认系统字体和尾页分批显示限制。其他已接受素材/概念交互、产品事实和保护范围保持。
 
-本任务明确覆盖R1的22秒、纯文字provider、无对话、无CTA约束。实施时同步本目录plan/SHOTLIST/STORYBOARD/STYLE_RULES/PROVIDER_VARIANTS等活动说明，不保留相互冲突的执行指令。R1原指令可从Git历史9703ba0ea266f539b410eacf2fa2a24f7ca67028取回；历史review媒体不覆盖。
+在本目录同步活动plan/shot/type/audio说明至R3；保留R2原始媒体与重现记录。真实语音无法生成时标明具体阻塞，不把缺少人声当完成。
 
-实现仅限 `marketing/video/v2/`。不动App/Store/ASC/TestFlight/其他PR；无新账号、owner录屏、真实导出补证或付费服务依赖。
-
-交付 `review/director-r2/` 完整视频、AI交互四帧、下载尾帧、实际QA及发布链接检查。
-停止：**READY_FOR_DIRECTOR_FINAL_REVIEW**。不自批、不合并、不发布。
+新交付目录：`review/director-r3/`。
+停止：**READY_FOR_DIRECTOR_FINAL_REVIEW**，仅在真实双语旁白与技术交付完整时使用。
+不请求设计确认，不改App/Store/ASC/TestFlight/其他PR，不付费、不公开投放。
