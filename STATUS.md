@@ -4,7 +4,7 @@ Updated: 2026-10-05
 
 ## Now
 
-**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English App Store screenshots are final and merged. PR #15 age-assurance work is HOLD_OWNER_DECISION, not merge/release-ready. Chinese Store PR #16 awaits audit. The promo story is now locked around two root pains — lecture photos crowd the personal library and are awkward to hand to AI — with a real AI summary/report payoff and a clean-album ending; M00 bootstrap is READY as an isolated parallel marketing task. No distribution RC or App Review is authorized yet.**
+**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. PR #15 age-assurance work remains HOLD_OWNER_DECISION, not merge/release-ready. Final public-surface cleanup is READY as the last normal App polish before the RC. Promo v2 continues separately in PR #18; promo completion is not a release blocker. No distribution RC or App Review is authorized yet.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -30,14 +30,15 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-ICON | **PASS_WITH_NOTES** — PR #13 merged; final V1 Calm cobalt icon accepted and packaged correctly | [audit](audits/S05/icon-final-01.md), [report](reports/S05/icon-final-01/DELIVERY.md) |
 | S05-SHOTS | **PASS** — PR #14 squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`; six English Store screenshots frozen for v0.1 | [audit](audits/S05/store-screenshots-01.md), [report](reports/S05/store-screenshots-01/DELIVERY.md) |
 | S05-D2 | **HOLD_OWNER_DECISION / DO_NOT_MERGE** — PR #15 head `4d400ca2e8c3762e3856914894cd19dda7127e06`; older-OS/account policy unresolved; no signed-device/Sandbox clearance | [PR #15](https://github.com/Zhangsfish/lecture-asset/pull/15), [task](tasks/S05_D2_AGE_ASSURANCE.md) |
-| S05-SHOTS-ZH | **READY_FOR_AUDIT** — PR #16 head `a979fb2eeb4004ddd84033a9c33cdc0d168c7d1b`; not merged or accepted by this status update | [PR #16](https://github.com/Zhangsfish/lecture-asset/pull/16) |
-| S05-MV-M00 | **READY_FOR_CODEX** — isolated toolchain smoke + asset/claim binding only; not full movie production | [task](tasks/S05_MV_00_BOOTSTRAP.md), [workspace](marketing/video/README.md), [locked spec](docs/PROMO_V1_SPEC.md) |
-| S05-MV-M01/M02/M03 | **BLOCKED_PREVIOUS_STAGE_REVIEW** — locked stills → animatic → final master | [stages](marketing/video/README.md) |
-| S05-D | BLOCKED_OWNER_RELEASE — region-specific checks and explicitly authorized submission | [release task](tasks/S05_RELEASE.md) |
+| S05-SHOTS-ZH | **PASS** — PR #16 merged on main; final zh-Hans Store screenshots accepted | [PR #16](https://github.com/Zhangsfish/lecture-asset/pull/16) |
+| S05-FINAL-POLISH | **READY_FOR_CODEX** — hide public diagnostics/test seams and unify zh-Hans brand to Lecture Asset | [task](tasks/S05_FINAL_RELEASE_POLISH.md) |
+| S05-MV-V1 | **CLOSED_SUPERSEDED** — PR #17 closed without merge; retained only as historical renderer evidence | [PR #17](https://github.com/Zhangsfish/lecture-asset/pull/17) |
+| S05-MV-V2 | **IN_PROGRESS / PR #18** — cinematic promo v2; current branch contains R3 narration/typography instructions, not yet accepted final media | [PR #18](https://github.com/Zhangsfish/lecture-asset/pull/18) |
+| S05-D | BLOCKED_OWNER_RELEASE — final polish + age-assurance resolution + signed distribution RC + explicit submission | [release task](tasks/S05_RELEASE.md) |
 
 S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
 
-The promo is a parallel, separately authorized marketing lane, not a release prerequisite. One stage per PR; do not merge/cherry-pick sibling work. M00 does not authorize public posting, paid generation, App/runtime changes or reopening Store screenshot design. The [locked promo specification](docs/PROMO_V1_SPEC.md) and [frame/copy plan](marketing/video/plan.json) now supersede prior 19s/21s/24s, AI-only-ending and cleanup-last briefs; native onboarding remains unchanged.
+The promo is a parallel marketing lane and is not a release prerequisite. PR #17 is closed/superseded; current creative work is PR #18 under `marketing/video/v2/`. Do not use promo work to justify App/runtime changes or delay the release RC.
 
 ## Verified baseline / do not repeat
 
@@ -52,7 +53,7 @@ The promo is a parallel, separately authorized marketing lane, not a release pre
 - No new 100/200-page device run, repeated WeChat transfer or destructive real-photo cleanup solely for release. UI changes require focused navigation/safety regressions, not zero testing.
 - Developer Program, Bundle ID `com.zhangsfish.lectureasset`, App Store Connect app, Admin Team API key, GitHub Secrets and TestFlight upload workflow already exist. Do not reconfigure or request `.p8`.
 - PR #14 was final-audited at `ffd07883ede26e90ec29729eff0cb82b4c8837f8` and squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`. English 1320×2868 Store screenshots are frozen; do not reopen visual polish without a concrete App Review issue.
-- Promo foundation currently validates the specification/timing only: eight contiguous scenes, 1560 frames at 60 fps = 26 seconds. Opening/ending reuse the same synthetic personal-photo IDs; provider summary/report footage, actual HyperFrames render and pinned local environment remain M00 work, NOT_RUN here.
+- Promo v2 is still under director review in PR #18. Current GitHub head may contain active R3 instructions before the final R3 media is pushed; do not treat the promo as release evidence or a launch blocker.
 
 ## Owner inputs / release gates
 
@@ -73,7 +74,7 @@ The promo is a parallel, separately authorized marketing lane, not a release pre
 4. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
 5. [S05-A audit](audits/S05/china-prep-01.md)
 6. [S05-B audit](audits/S05/polish-01.md)
-7. Release lane: PR #15 remains HOLD; do not repeat the earlier D2 implementation dispatch or authorize RC/review. Chinese Store PR #16 awaits separate audit. China filing inquiry remains separate.
-8. Parallel video lane: execute only [M00 bootstrap](tasks/S05_MV_00_BOOTSTRAP.md); read the [locked specification](docs/PROMO_V1_SPEC.md) and [research](docs/PROMO_V1_RESEARCH.md). No movie exists yet.
+7. Release lane: execute [final public-surface polish](tasks/S05_FINAL_RELEASE_POLISH.md), then resolve PR #15 and create one signed distribution RC before App Review.
+8. Parallel video lane: PR #18 only. PR #17 is closed/superseded. Promo completion must not block US App submission.
 
 Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
