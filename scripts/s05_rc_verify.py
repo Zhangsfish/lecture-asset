@@ -77,23 +77,26 @@ def entitlement_contract(entitlements, profile, team, stage="distribution"):
     age_contract(entitlements, profile, stage)
     require(entitlements.get("application-identifier") == expected_app, "SIGNED_APP_IDENTIFIER_MISMATCH")
     require(entitlements.get("com.apple.developer.team-identifier") == team, "SIGNED_TEAM_MISMATCH")
-    require(entitlements.get("get-task-allow") is not True, "SIGNED_DEBUG_ENTITLEMENT")
+    if stage == "distribution":
+        require(entitlements.get("get-task-allow") is not True, "SIGNED_DEBUG_ENTITLEMENT")
     allowed = profile.get("Entitlements", {})
     require(allowed.get("com.apple.developer.declared-age-range") is True,
             "DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_MISSING")
     require(allowed.get("application-identifier") == expected_app, "PROFILE_APP_IDENTIFIER_MISMATCH")
     require(allowed.get("com.apple.developer.team-identifier") == team, "PROFILE_TEAM_MISMATCH")
-    require(allowed.get("get-task-allow") is not True, "PROFILE_DEBUG_ENTITLEMENT")
+    if stage == "distribution":
+        require(allowed.get("get-task-allow") is not True, "PROFILE_DEBUG_ENTITLEMENT")
     require(team in profile.get("TeamIdentifier", []), "PROFILE_TEAM_IDENTIFIER_MISMATCH")
-    require(not profile.get("ProvisionedDevices") and not profile.get("ProvisionsAllDevices"),
-            "PROFILE_NOT_APP_STORE_DISTRIBUTION")
+    is_store = not profile.get("ProvisionedDevices") and not profile.get("ProvisionsAllDevices") and allowed.get("get-task-allow") is not True
+    if stage == "distribution":
+        require(is_store, "PROFILE_NOT_APP_STORE_DISTRIBUTION")
     expiry = profile.get("ExpirationDate")
     require(isinstance(expiry, datetime.datetime), "PROFILE_EXPIRY_MISSING")
     require(expiry.replace(tzinfo=datetime.timezone.utc) > datetime.datetime.now(datetime.timezone.utc),
             "PROFILE_EXPIRED")
     return {"declared_age_range": True, "application_identifier_correct": True,
-            "team_identifier_correct": True, "get_task_allow_not_true": True,
-            "profile_declared_age_range": True, "app_store_distribution_profile": True,
+            "team_identifier_correct": True, "get_task_allow_not_true": entitlements.get("get-task-allow") is not True and allowed.get("get-task-allow") is not True,
+            "profile_declared_age_range": True, "app_store_distribution_profile": is_store,
             "profile_not_expired": True}
 
 
@@ -133,9 +136,11 @@ def signed(app, ipa, output, stage="distribution"):
     require(detail.returncode == 0, "CODESIGN_DETAIL_FAILED")
     # Certificate/account display names stay private; expose only the type check.
     authority = detail.stderr.decode("utf8", "replace")
-    require("Authority=Apple Distribution:" in authority or "Authority=iPhone Distribution:" in authority,
-            "APPLE_DISTRIBUTION_CERTIFICATE_NOT_CONFIRMED")
-    result.update(contract_result="PASS", apple_distribution_certificate=True,
+    is_distribution = "Authority=Apple Distribution:" in authority or "Authority=iPhone Distribution:" in authority
+    is_development = "Authority=Apple Development:" in authority or "Authority=iPhone Developer:" in authority
+    require(is_distribution if stage == "distribution" else is_distribution or is_development,
+            "APPLE_DISTRIBUTION_CERTIFICATE_NOT_CONFIRMED" if stage == "distribution" else "ARCHIVE_CERTIFICATE_TYPE_NOT_CONFIRMED")
+    result.update(contract_result="PASS", apple_distribution_certificate=is_distribution,
                   metadata=metadata(plistlib.loads((app / "Info.plist").read_bytes())), privacy=privacy(app))
     if ipa is not None:
         with ipa.open("rb") as file:
@@ -196,7 +201,19 @@ def self_test():
 
 def main():
     mode = sys.argv[1]
-    if mode == "--signing-input":
+    if mode == "--archive-identity":
+        # Read-only local keychain inventory. Never print certificate/account names.
+        text = capture(["security", "find-identity", "-v", "-p", "codesigning"]).decode("utf8", "replace")
+        available = '"Apple Development:' in text or '"iPhone Developer:' in text
+        result = {"existing_archive_development_identity_available": available,
+                  "new_certificate_creation_authorized": False,
+                  "local_identity_names_published": False,
+                  "result": "PASS" if available else "BLOCKED",
+                  "failure_code": None if available else "ARCHIVE_EXISTING_DEVELOPMENT_IDENTITY_UNAVAILABLE"}
+        output = sys.argv[2]
+        Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
+        require(available, "ARCHIVE_EXISTING_DEVELOPMENT_IDENTITY_UNAVAILABLE")
+    elif mode == "--signing-input":
         import re
         spec = Path("project.yml").read_text(encoding="utf8")
         require(re.search(r"entitlements:\s+path: App/LectureAsset\.entitlements\s+properties:\s+com\.apple\.developer\.declared-age-range: true", spec),
@@ -210,7 +227,7 @@ def main():
                   "code_sign_entitlements": "App/LectureAsset.entitlements" if correct else "UNEXPECTED_REDACTED",
                   "code_sign_style_automatic": settings.get("CODE_SIGN_STYLE") == "Automatic",
                   "code_signing_allowed": settings.get("CODE_SIGNING_ALLOWED") == "YES",
-                  "distribution_identity_selected": settings.get("CODE_SIGN_IDENTITY") in ("Apple Distribution", "iPhone Distribution"),
+                  "automatic_archive_identity_selected": settings.get("CODE_SIGN_IDENTITY") in ("Apple Development", "iPhone Developer"),
                   "development_team_correct": settings.get("DEVELOPMENT_TEAM") == os.environ["APPLE_TEAM_ID"]}
         output = sys.argv[3]
         Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")

@@ -67,7 +67,7 @@ echo 'S05_RC_LOCAL_PROFILE_CACHE_CLEARED'
 
 if xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
   -configuration Release -destination 'generic/platform=iOS' \
-  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='Apple Distribution' \
+  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic \
   -showBuildSettings -json > "$private_dir/settings.json" 2> "$private_dir/settings.log"; then
   echo 'S05_RC_STAGE_PASS settings'
 else
@@ -76,11 +76,14 @@ else
   exit 1
 fi
 python3 scripts/s05_rc_verify.py --signing-input "$private_dir/settings.json" "$evidence/signing-input.json"
+# Automatic archive normally uses development signing before distribution export.
+# Do not let Xcode create a new certificate when the owner prohibited it.
+python3 scripts/s05_rc_verify.py --archive-identity "$evidence/archive-identity.json"
 
 private_command archive xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
   -configuration Release -destination 'generic/platform=iOS' \
   -archivePath "$archive" -derivedDataPath "$private_dir/DerivedData" \
-  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='Apple Distribution' \
+  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic \
   CURRENT_PROJECT_VERSION=34.1 MARKETING_VERSION=0.1.0 \
   -allowProvisioningUpdates -authenticationKeyPath "$key_file" \
   -authenticationKeyID "$APP_STORE_CONNECT_KEY_ID" -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID" archive
