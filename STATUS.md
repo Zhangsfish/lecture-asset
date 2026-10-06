@@ -4,7 +4,7 @@ Updated: 2026-10-05
 
 ## Now
 
-**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. PR #15 age-assurance compatibility was independently audited and squash-merged as `5012695af687a94af687dc5f631617a66940e3c8`. Historical TestFlight `0.1.0 (31.1)` was uploaded before that merge from `49d38a3aada0e7c68761663ee08d1e416a081761`, reached VALID, and used the Internal-Only TestFlight path; it is not the App Review RC. No further normal App UI/product changes are required. Next release action is one new App-Store-eligible signed RC from current main, using a new build number (target `0.1.0 (32.1)`), then exact-RC smoke/audit and US-only App Review submission. Promo v2 continues separately in PR #18 and is not a release blocker.**
+**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. PR #15 age-assurance compatibility was independently audited and squash-merged as `5012695af687a94af687dc5f631617a66940e3c8`. Historical TestFlight `0.1.0 (31.1)` remains a VALID Internal-Only preview from pre-PR15 source and is not the App Review RC. Final RC `0.1.0 (32.1)` attempt in PR #19 stopped before upload: tests/build/export passed, but the genuine exported signed IPA lacked `com.apple.developer.declared-age-range = true`. Product code remains frozen. Next action is a signing-only diagnostic/retry on PR #19: perform automatic signing already at archive time, force Xcode to use fresh provisioning data, separately verify archive and exported-profile entitlements, and upload 32.1 only if the genuine distribution entitlement passes. Promo v2 remains non-blocking.**
 
 The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
 
@@ -33,7 +33,7 @@ S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed 
 | S05-SHOTS-ZH | **PASS** — PR #16 merged on main; final zh-Hans Store screenshots accepted | [PR #16](https://github.com/Zhangsfish/lecture-asset/pull/16) |
 | S05-MV-V1 | **CLOSED_SUPERSEDED** — PR #17 closed without merge; retained only as historical renderer evidence | [PR #17](https://github.com/Zhangsfish/lecture-asset/pull/17) |
 | S05-MV-V2 | **IN_PROGRESS / PR #18** — cinematic promo v2; current branch contains R3 narration/typography instructions, not yet accepted final media | [PR #18](https://github.com/Zhangsfish/lecture-asset/pull/18) |
-| S05-D | **READY_FOR_FINAL_RC** — create one new App-Store-eligible signed RC from current main with a fresh build number; historical 31.1 is VALID but Internal-Only and predates PR #15 | [release task](tasks/S05_RELEASE.md) |
+| S05-D | **BLOCKED_DISTRIBUTION_ENTITLEMENT / PR #19** — 32.1 not uploaded; genuine exported IPA lacked Declared Age Range entitlement. Keep product frozen; retry signing from archive with fresh automatic provisioning and explicit archive/export profile diagnostics | [PR #19](https://github.com/Zhangsfish/lecture-asset/pull/19), [release task](tasks/S05_RELEASE.md) |
 
 S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
 
