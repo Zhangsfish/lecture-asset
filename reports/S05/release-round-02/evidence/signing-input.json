@@ -1,0 +1,9 @@
+{
+  "source_declared_age_range": "true",
+  "project_declared_age_range": "true",
+  "code_sign_entitlements": "App/LectureAsset.entitlements",
+  "code_sign_style_automatic": true,
+  "code_signing_allowed": true,
+  "distribution_identity_selected": true,
+  "development_team_correct": true
+}

@@ -1,0 +1,2 @@
+S00_PRIVATE_LOG_CATEGORIES=OTHER
+S00_PRIVATE_ERROR_TERMS_1=[redacted] error [redacted] has [redacted] provisioning [redacted] is [redacted] signed for development [redacted] a [redacted] code signing identity apple distribution has [redacted] manually [redacted] the code signing identity [redacted] to apple development [redacted] the [redacted] or [redacted] to [redacted] signing [redacted] the signing [redacted]

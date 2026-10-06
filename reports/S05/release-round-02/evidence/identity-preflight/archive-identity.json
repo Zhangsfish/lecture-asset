@@ -1,0 +1,7 @@
+{
+  "existing_archive_development_identity_available": false,
+  "new_certificate_creation_authorized": false,
+  "local_identity_names_published": false,
+  "result": "BLOCKED",
+  "failure_code": "ARCHIVE_EXISTING_DEVELOPMENT_IDENTITY_UNAVAILABLE"
+}
