@@ -1,8 +1,40 @@
 # S05-D2 — US age assurance minimal runtime gate
 
-Status: **READY_FOR_CODEX / NOT_RELEASE_CLEARANCE**
+Status: **READY_FOR_CODEX — 2026-10-06 RELEASE FIX / PRODUCT UI FROZEN**
 
 Purpose: resolve the US/Texas age-assurance runtime blocker identified by S05-D1 with the smallest privacy-preserving change. This task does **not** authorize a distribution RC, App Store Connect edits, App Review submission, a backend, analytics, accounts, DOB collection, or a minimum-OS increase.
+
+
+## 2026-10-06 owner release decision
+
+The owner confirmed the current Lecture Asset product/UI is release-ready. Do **not**
+perform any unrelated public-surface cleanup, brand rewrite, diagnostic cleanup or
+other normal App polish. A mistakenly-added cross-project final-polish task was
+withdrawn from the release lane.
+
+Apple Developer Support declined to pre-approve the implementation and instructed
+the developer to submit the App for App Review, where implementation questions will
+be handled during review.
+
+For this release, preserve minimum iOS 18.0 and make the smallest compatibility fix
+to PR #15:
+
+- iOS 26.2+: keep the regional eligibility path. If age assurance is not required,
+  enter the App without prompting. If required, request the age range. Shared minor
+  and adult ranges both enter the same product because Lecture Asset has no
+  age-restricted feature set. Errors/incomplete required responses remain explicit
+  unresolved states.
+- iOS 18.x and iOS 26.0/26.1: do **not** show the current blanket unsupported screen
+  and do not block the App solely because the 26.2 regional eligibility API is
+  unavailable. Enter the existing product unchanged. Do not invent locale, DOB,
+  account, backend, analytics or region heuristics.
+- Do not raise the deployment target.
+- Do not add PermissionKit, server notifications, accounts, IAP, or new product UI
+  to initial v0.1 in this task.
+
+This is an explicit owner release-risk decision for the unsupported-runtime branch,
+not a claim of legal pre-approval. Record the exact behavior and Apple primary
+sources in the compatibility report.
 
 ## Current Apple facts to design against
 

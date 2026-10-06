@@ -1,0 +1,15 @@
+{
+  "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37265121277",
+  "source_sha": "46115cf73cd8c61324fe1692431ee8e1d77e4138",
+  "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37265121277/artifacts/11326715206",
+  "artifact_sha256": "3425d8139a3bb0ab30bc5fe0e7abc163e8218a729824f67a91a54c7e75d39b39",
+  "conclusion": "success",
+  "locale": {
+    "AppleLanguages": "zh-Hans",
+    "AppleLocale": "zh_CN"
+  },
+  "configuration": "Release",
+  "internal_testflight_upload": false,
+  "production_source_unchanged": true,
+  "source_deletion_performed": false
+}

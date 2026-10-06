@@ -1,0 +1,76 @@
+{
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "0e6c1670ffe1464532c11356d3d5824e459aff39",
+  "tested_render_implementation_sha": "1aedf78720607288d8e5ae8c8d42af4e0c9df236",
+  "raw_capture_code_sha": "46115cf73cd8c61324fe1692431ee8e1d77e4138",
+  "capture_ci": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37265121277",
+  "release_capture": "PASS (1 real UI test; selection/review/ready/pdf)",
+  "static_validation": "PASS",
+  "visual_carousel_review": "PASS (actual contact sheet plus full frame 5/6 and all four raw captures viewed)",
+  "clipping_or_overlap": "NONE_OBSERVED",
+  "uniform_headline": "84 px / 126 px / [108,222]",
+  "font_info": [
+    {
+      "family": "Microsoft YaHei",
+      "role": "regular",
+      "filename": "msyh.ttc",
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f"
+    },
+    {
+      "family": "Microsoft YaHei",
+      "role": "bold",
+      "filename": "msyhbd.ttc",
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6"
+    }
+  ],
+  "english_six_png_byte_identical": "PASS",
+  "english_contact_sheet_byte_identical": "PASS",
+  "same_background_and_card_helpers": "PASS (AST comparison)",
+  "phone_geometry_matches_english": "PASS",
+  "uncovered_real_base_pixels_changed": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "third_party_brand_assets": false,
+  "private_source_data": false,
+  "runtime_localization_icon_changes": false,
+  "asc_testflight_app_review": "NOT_RUN / not authorized",
+  "physical_iphone_visual_review": "NOT_RUN / not required for this simulator screenshot task",
+  "age_assurance_pr_included": false,
+  "final_images": [
+    {
+      "file": "store/zh-Hans/01-lecture-photos.png",
+      "sha256": "e1ec593f61091e5f6671e1f4f7fd325eed814034626d4f38c78fc8cabb78dc3f"
+    },
+    {
+      "file": "store/zh-Hans/02-select-and-sort.png",
+      "sha256": "4edb4d53f7a0e4d7405fd086b578d1be856ffb9070042b658673d0d4ea15cb49"
+    },
+    {
+      "file": "store/zh-Hans/03-generate-pdf-zip.png",
+      "sha256": "bb39351a8899f25b95e8f652c4ad1b02e8865b6a224237d562418836b7532c39"
+    },
+    {
+      "file": "store/zh-Hans/04-pdf-for-review.png",
+      "sha256": "e9cc3148e34fe241610d7054ddbcd0fa89107847226894af63a7b6ce72d43bd3"
+    },
+    {
+      "file": "store/zh-Hans/05-ai-zip-to-ai.png",
+      "sha256": "7546f1a5508431ec4542a719309becfa780f91d94b0dd77731b6ee432db77b31"
+    },
+    {
+      "file": "store/zh-Hans/06-save-then-clean.png",
+      "sha256": "23ed0470a3313bb70a31a1d375def171e2f441075fbdd08636f0ff037d06ea90"
+    }
+  ],
+  "focused_revision": {
+    "frame_3_headline": "一次生成 / AI ZIP 和 PDF。",
+    "six_brand_chips": "Lecture Asset",
+    "all_other_pixels_identical": true,
+    "runtime_and_raw_capture_changes": false
+  }
+}
