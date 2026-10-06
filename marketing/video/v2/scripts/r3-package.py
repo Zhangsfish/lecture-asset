@@ -1,6 +1,6 @@
 """Evidence extracted from final encoded R3 movies; historical media are read-only."""
 from pathlib import Path
-import base64,hashlib,json,subprocess
+import base64,hashlib,json,subprocess,wave
 from PIL import Image,ImageDraw,ImageFont
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1];REPO=ROOT.parents[2];OUT=ROOT/'out/director-r3';REVIEW=ROOT/'review/director-r3'
@@ -35,6 +35,11 @@ for locale,stem,suffix in [('en','en-chatgpt','EN'),('zh-Hans','zh-workbuddy','Z
     meter=run([FF,'-hide_banner','-i',p,'-af','loudnorm=I=-14.5:TP=-1:LRA=9:print_format=json','-f','null','-']).stderr
     stats=json.loads(meter[meter.rfind('{'):meter.rfind('}')+1]);assert -15.5<=float(stats['input_i'])<=-13.5 and float(stats['input_tp'])<=-1,(locale,stats)
     rec['audio']['encoded_loudness_lufs']=float(stats['input_i']);rec['audio']['encoded_true_peak_dbtp']=float(stats['input_tp'])
+    # Prove the rendered AAC contains this locale's real narrated mix, not an old score.
+    with wave.open(str(ROOT/'assets/sound'/('r3-mix-'+locale+'.wav'))) as w:
+     source=np.frombuffer(w.readframes(w.getnframes()),dtype='<i2').astype(float)/32768
+    length=min(len(source),len(data));correlation=float(np.corrcoef(source[:length],data[:length])[0,1]);assert correlation>.98,(locale,correlation)
+    rec['audio']['source_narrated_mix_correlation']=correlation
    media.append(rec)
  keydir=REVIEW/'keyframes'/locale;keydir.mkdir(parents=True,exist_ok=True)
  encoded=OUT/('decoded-'+locale);encoded.mkdir(exist_ok=True)

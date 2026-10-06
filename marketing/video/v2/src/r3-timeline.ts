@@ -58,6 +58,7 @@ tl.to("#chat",{opacity:1,duration:.33},10.5).to("#zip",{x:575,y:582,z:0,rotation
  .to("#zip",{x:629,y:550,scale:.6,duration:.6},14.5);
 // No large caption competes with the readable two-second result hold.
 tl.to("#chat",{opacity:0,y:180,scale:.85,duration:.45},17.5)
+ .to("#cleanup-space",{opacity:1,duration:.15},17.5)
  .to("#zip",{x:720,y:1710,scale:.3,opacity:.65,duration:.4},17.5)
  .to("#pdf",{x:610,y:1630,scale:.3,opacity:.6,duration:.4},17.5)
  .to("#saved",{opacity:1,duration:.2},17.65);
@@ -66,7 +67,7 @@ lectureStart.forEach(([x,y],i)=>tl.set(id("L",i),{x,y,z:40+i*14,scale:1,rotation
  .to(id("L",i),{x:x+100,y:y-1550,z:200,scale:.5,opacity:0,rotationZ:0,duration:.85},18.55+i*.035));
 lifeEnd.forEach(([x,y],i)=>tl.to(id("P",i),{x,y,z:0,scale:.75,rotationZ:0,duration:1.15,ease:"sine.inOut"},18.8+i*.014));
 tl.to("#saved",{opacity:0,duration:.18},20.1).to("#zip,#pdf",{opacity:0,duration:.35},20.1)
- .set("#ending",{opacity:1},20.5);
+ .set("#cleanup-space",{opacity:0},20.5).set("#ending",{opacity:1},20.5);
 tl.seek(0,false);
 async function assets(){
  await Promise.all([document.fonts.load("700 88px SourceHan","把讲座交给 AI 相册自己"),document.fonts.load("400 34px SourceHan","资料已保存"),document.fonts.load("600 92px Inter","Hand the lecture to AI"),document.fonts.load("400 34px Inter","Lecture summary")]);
