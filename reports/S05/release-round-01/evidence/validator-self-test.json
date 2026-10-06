@@ -1,0 +1,6 @@
+{
+  "valid_synthetic_contract": "PASS",
+  "negative_contract_cases": 9,
+  "result": "PASS",
+  "scope": "Validator logic only; NOT genuine signing evidence"
+}

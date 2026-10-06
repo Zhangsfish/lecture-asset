@@ -1,15 +1,77 @@
 {
-  "status": "IN_PROGRESS",
-  "product_baseline_sha": "5012695af687a94af687dc5f631617a66940e3c8",
-  "current_main_sha": "f217fcebb27b1bef3f86864878baa8f5983b8832",
-  "main_changes_after_baseline": ["STATUS.md"],
-  "product_sources_identical": true,
+  "status": "BLOCKED_DISTRIBUTION_ENTITLEMENT",
   "version": "0.1.0",
   "build": "32.1",
-  "processingState": "NOT_RUN",
-  "buildAudienceType": "NOT_RUN",
-  "intendedStorefront": "United States only (not mutated)",
-  "intendedReleaseMode": "Manual (not mutated)",
+  "product_baseline_sha": "5012695af687a94af687dc5f631617a66940e3c8",
+  "current_main_at_start": "f217fcebb27b1bef3f86864878baa8f5983b8832",
+  "archive_signing_checkout_sha": "e74ad8968f59053ee4b2ad09cc629ea69ed7e052",
+  "upload_checkout_sha": null,
+  "upload": "NOT_RUN; halted before altool validation/upload",
+  "workflow_run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37472560721",
+  "workflow_result": "FAIL at signed entitlement gate",
+  "product_sources_identical": true,
+  "main_changes_after_product_baseline": [
+    "STATUS.md"
+  ],
+  "historical_internal_pipeline_unchanged": true,
+  "clean_release": "PASS",
+  "xctest": {
+    "result": "Passed",
+    "totalTestCount": 17,
+    "passedTests": 17,
+    "failedTests": 0,
+    "skippedTests": 0
+  },
+  "archive_core": {
+    "passed": 3,
+    "failed": 0
+  },
+  "signed_distribution": {
+    "result": "FAIL",
+    "failure_code": "SIGNED_DECLARED_AGE_RANGE_MISSING",
+    "stage": "signed IPA entitlement contract",
+    "declared_age_range_true": false,
+    "interpretation": "The genuine signed IPA does not have this entitlement equal to true; missing vs false was not retained in the failure output.",
+    "codesign_verify_passed_before_contract_failure": true,
+    "apple_distribution_certificate_type_checked_before_contract_failure": true,
+    "embedded_profile_decoded_before_contract_failure": true,
+    "distribution_profile_age_capability": "NOT_CONFIRMED: fail-closed contract stops at the signed entitlement before checking profile age capability",
+    "evidence_method": "Exact released helper control flow plus allowlisted CI events; no raw profile or signing log retained",
+    "automatic_export": "PASS",
+    "upload": "NOT_RUN",
+    "asset_or_account_root_cause": "UNRESOLVED; no claim that Apple rejected a profile or that a new certificate/profile is required"
+  },
+  "processingState": "NOT_VISIBLE (pre-upload query only)",
+  "buildAudienceType": "UNCONFIRMED; no upload",
+  "ASC_build_ID": null,
+  "uploadedDate": null,
+  "minOsVersion_ASC": null,
+  "usesNonExemptEncryption_ASC": null,
+  "archive_metadata": {
+    "CFBundleIdentifier": "com.zhangsfish.lectureasset",
+    "CFBundleShortVersionString": "0.1.0",
+    "CFBundleVersion": "32.1",
+    "MinimumOSVersion": "18.0",
+    "ITSAppUsesNonExemptEncryption": false
+  },
+  "privacy": {
+    "app_manifest": true,
+    "zipfoundation_manifest": true,
+    "bundled_manifest_paths": [
+      "PrivacyInfo.xcprivacy",
+      "ZIPFoundation_ZIPFoundation.bundle/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "export_options": {
+    "method": "app-store-connect",
+    "destination": "export",
+    "signingStyle": "automatic",
+    "existing_team_variable_used": true,
+    "manageAppVersionAndBuildNumber": false,
+    "testFlightInternalTestingOnly": "OMITTED"
+  },
+  "intended_storefront": "US-only; no storefront changes made",
+  "intended_release_mode": "Manual; not modified in ASC",
   "appReview": "NOT_SUBMITTED",
   "historical_preview": {
     "version": "0.1.0",
@@ -21,5 +83,7 @@
     "owner_visually_opened": true,
     "contains_final_age_assurance": false,
     "finalRC": false
-  }
+  },
+  "secrets_or_raw_signing_assets_published": false,
+  "stop_condition_honored": true
 }

@@ -23,3 +23,15 @@ upload marker [upload-rc-32.1]. Other tooling pushes only prepare; manual dispat
 also defaults prepare-only. Existing s00 TestFlight workflow/script are unchanged.
 No product source commit, ASC metadata/storefront mutation, review or public release.
 Secrets/raw signing logs/profile/certificate/IPA never enter public artifacts.
+
+## Primary tool/API references (checked 2026-10-06)
+
+- Apple upload tools / altool: https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds
+- Archive export files: https://help.apple.com/xcode/mac/current/en.lproj/deva1f2ab5a2.html
+- Exact build fields and audience: https://developer.apple.com/documentation/appstoreconnectapi/get-v1-builds
+- APP_STORE_ELIGIBLE meaning: https://developer.apple.com/documentation/appstoreconnectapi/buildaudiencetype
+
+These describe supported upload/query mechanisms; they are not App Review or legal approval.
+
+Actual runner: macOS26.6.2; Xcode26.6 (17F113); iOS SDK26.5.
+Run37472560721: clean Release/tests PASS; distribution entitlement gate FAIL; upload NOT_RUN.

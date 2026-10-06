@@ -25,3 +25,8 @@ then upload that exact IPA. Fail on absent distribution age entitlement or exist
 Only VALID + APP_STORE_ELIGIBLE + real signing PASS qualifies READY_FOR_RC_AUDIT.
 No Add/Submit for Review, storefront change, public release or merge authorization.
 31.1 remains historical VALID Internal preview and owner-tested UI, not final RC.
+
+Current stop: BLOCKED_DISTRIBUTION_ENTITLEMENT. Run37472560721 export passed but
+signed age entitlement was not true. Upload was not executed; no signing retry.
+Profile capability root cause not yet established. Never call this RC ready or
+ask for new assets without new proof. Safe evidence is canonical for this attempt.
