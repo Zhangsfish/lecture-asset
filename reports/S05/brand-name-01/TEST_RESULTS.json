@@ -6,11 +6,31 @@
   "localization_check": "PASS",
   "keys_per_locale": 140,
   "diff_check": "PASS",
-  "xcode_build": "NOT_RUN",
+  "xcode_build": "PASS",
   "xctest_execution": "NOT_RUN",
   "physical_device": "NOT_RUN",
   "asc_mutation": false,
-  "testflight_upload": false,
+  "testflight_upload": true,
   "screenshots_changed": false,
-  "production_swift_changed": false
+  "production_swift_changed": false,
+  "xcode_version": "26.6",
+  "selection_core_tests": {
+    "count": 5,
+    "result": "PASS"
+  },
+  "archive_core_tests": {
+    "count": 10,
+    "result": "PASS"
+  },
+  "preview": {
+    "version": "0.1.0",
+    "build": "33.1",
+    "exact_checkout_sha": "118942553a84c2ac4466973f6a64989dd5165b61",
+    "workflow_run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37477851785",
+    "upload": "ACCEPTED",
+    "processing": "VALID",
+    "internal_only": true
+  },
+  "distribution_age_entitlement": "NOT_VERIFIED; prior RC blocker remains",
+  "owner_visual_confirmation": "NOT_RUN"
 }
