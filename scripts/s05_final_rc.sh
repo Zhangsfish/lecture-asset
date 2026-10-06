@@ -65,11 +65,17 @@ for cache in "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/Library/D
 done
 echo 'S05_RC_LOCAL_PROFILE_CACHE_CLEARED'
 
-private_command settings xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
+if xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
   -configuration Release -destination 'generic/platform=iOS' \
   DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='Apple Distribution' \
-  -showBuildSettings -json
-python3 scripts/s05_rc_verify.py --signing-input "$private_dir/settings.log" "$evidence/signing-input.json"
+  -showBuildSettings -json > "$private_dir/settings.json" 2> "$private_dir/settings.log"; then
+  echo 'S05_RC_STAGE_PASS settings'
+else
+  echo 'S05_RC_STAGE_FAILED settings'
+  python3 scripts/s00_testflight_diagnostics.py "$private_dir/settings.log" > "$evidence/settings-diagnostic.txt"
+  exit 1
+fi
+python3 scripts/s05_rc_verify.py --signing-input "$private_dir/settings.json" "$evidence/signing-input.json"
 
 private_command archive xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
   -configuration Release -destination 'generic/platform=iOS' \
