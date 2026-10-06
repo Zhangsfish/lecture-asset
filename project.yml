@@ -26,6 +26,10 @@ targets:
     dependencies:
       - package: SelectionCore
       - package: ArchiveCore
+    entitlements:
+      path: App/LectureAsset.entitlements
+      properties:
+        com.apple.developer.declared-age-range: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.zhangsfish.lectureasset

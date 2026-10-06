@@ -4,7 +4,7 @@ import SwiftUI
 struct LectureAssetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AgeAssuranceEntryView()
         }
     }
 }
