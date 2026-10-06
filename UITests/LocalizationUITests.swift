@@ -68,7 +68,7 @@ class LocalizationUIBase: XCTestCase {
         allow.tap()
         let alert = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
         XCTAssertTrue(alert.waitForExistence(timeout: 20))
-        let purpose = chinese ? "讲座照片整理需要完整照片图库权限" : "Lecture Asset needs full photo library access"
+        let purpose = chinese ? "Lecture Asset 需要完整照片图库权限" : "Lecture Asset needs full photo library access"
         XCTAssertTrue(alert.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", purpose)).firstMatch.exists)
         let permissionImage = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         permissionImage.name = "localization-\(chinese ? "zh-Hans" : "en")-system-permission"

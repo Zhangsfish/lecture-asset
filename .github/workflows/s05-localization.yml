@@ -48,7 +48,7 @@ jobs:
           app = pathlib.Path(sys.argv[1])
           locales = sorted(p.name for p in app.glob('*.lproj'))
           assert locales == ['en.lproj', 'zh-Hans.lproj'], locales
-          for locale, name in [('en', 'Lecture Asset'), ('zh-Hans', '讲座照片整理')]:
+          for locale, name in [('en', 'Lecture Asset'), ('zh-Hans', 'Lecture Asset')]:
               raw = subprocess.check_output(['plutil', '-convert', 'xml1', '-o', '-', str(app / f'{locale}.lproj/InfoPlist.strings')])
               info = plistlib.loads(raw)
               assert info['CFBundleDisplayName'] == name
