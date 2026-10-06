@@ -1,0 +1,25 @@
+{
+  "status": "IN_PROGRESS",
+  "product_baseline_sha": "5012695af687a94af687dc5f631617a66940e3c8",
+  "current_main_sha": "f217fcebb27b1bef3f86864878baa8f5983b8832",
+  "main_changes_after_baseline": ["STATUS.md"],
+  "product_sources_identical": true,
+  "version": "0.1.0",
+  "build": "32.1",
+  "processingState": "NOT_RUN",
+  "buildAudienceType": "NOT_RUN",
+  "intendedStorefront": "United States only (not mutated)",
+  "intendedReleaseMode": "Manual (not mutated)",
+  "appReview": "NOT_SUBMITTED",
+  "historical_preview": {
+    "version": "0.1.0",
+    "build": "31.1",
+    "source_sha": "49d38a3aada0e7c68761663ee08d1e416a081761",
+    "workflow_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/37464433961",
+    "processingState": "VALID (historical)",
+    "audience": "INTERNAL_ONLY",
+    "owner_visually_opened": true,
+    "contains_final_age_assurance": false,
+    "finalRC": false
+  }
+}

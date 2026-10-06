@@ -1,0 +1,13 @@
+{
+  "status": "IN_PROGRESS",
+  "product_baseline_sha": "5012695af687a94af687dc5f631617a66940e3c8",
+  "current_main_sha": "f217fcebb27b1bef3f86864878baa8f5983b8832",
+  "version": "0.1.0",
+  "build": "32.1",
+  "clean_release": "NOT_RUN (runner pending)",
+  "xctest": "NOT_RUN (runner pending)",
+  "distribution_signing": "NOT_RUN",
+  "asc_processing": "NOT_RUN",
+  "appReview": "NOT_SUBMITTED",
+  "broad_qa": "NOT_RUN / explicitly excluded"
+}
