@@ -42,6 +42,7 @@ jobs:
           swiftc -typecheck scripts/s05_rc_status.swift
           python3 scripts/s05_rc_verify.py --self-test "$RUNNER_TEMP/s05-rc-evidence/validator-self-test.json"
       - name: Read-only existing archive signing identity (no certificate creation)
+        if: inputs.operation != 'status-only'
         run: python3 scripts/s05_rc_verify.py --archive-identity "$RUNNER_TEMP/s05-rc-evidence/archive-identity.json"
       - name: Focused localization and ArchiveCore checks
         if: inputs.operation != 'status-only'
