@@ -1,54 +1,42 @@
-# V2 launch teaser — current task memory
+# V2 — current director task
 
-## Dispatch
+## Execute now
 
-**READY_FOR_CODEX / R2_FULL_CUT_AUTHORIZED**
+**READY_FOR_CODEX / R3_NARRATED_CUT_AUTHORIZED**
 
-Read `DIRECTOR_NEXT.md`, then complete `DIRECTOR_R2.md` and the findings in `review/director-r1/DIRECTOR_AUDIT_R2.md`.
-Continue PR #18 on `codex/s05-promo-v2-style-frames`. Fetch latest refs first. No new PR, no self-merge.
+Read DIRECTOR_NEXT.md, DIRECTOR_R3.md, R3_COPY_AUDIO.json and review/director-r2/DIRECTOR_AUDIT_R3.md. Continue PR #18 on codex/s05-promo-v2-style-frames; fetch latest refs and preserve local uncommitted work. No new PR, merge or publishing.
 
-The owner delegates creative decisions to the director. R1 is not visually approved. R2 is authorized as a complete high-fidelity revision, not another direction proposal. Do not ask for an owner design vote, real-device recording or ZIP/provider evidence task.
+R2 is not aesthetically approved. The owner delegates creative decisions to the director and wants finished videos, not design questions. Implement the whole R3 correction without asking for another design vote.
 
 Priority:
-1. DIRECTOR_R2.md — complete current scope, art direction, bilingual copy, timing, icons, chat and CTA.
-2. DIRECTOR_NEXT.md — dispatch summary.
-3. review/director-r1/DIRECTOR_AUDIT_R2.md — findings and actual inspection limits.
-4. Existing creative/plan/shot/asset docs, synchronized by this implementation.
+1. DIRECTOR_R3.md — implementation and quality direction.
+2. R3_COPY_AUDIO.json — separate screen copy, spoken script, timing and typography.
+3. DIRECTOR_NEXT.md — current dispatch.
+4. R3 audit — reviewed source, proxy limits and findings.
+5. Other workspace docs, synchronized during implementation; older R1/R2 constraints are historical where they conflict.
 
-R2 replaces old 22-second/no-logo/no-chat/no-CTA instructions. New duration: 26.000s / 1560 frames / 60fps. Working and final master: 1080×1920. Provide 720×1280 previews and muted versions.
+## Mandatory R3 changes
 
-## Required creative changes
+- Rhythm-led 132BPM score with punchy drums/bass and controlled sound design. Do not reuse or merely speed up the soothing R2 score.
+- Actual Chinese narration in the WorkBuddy film and English narration in the ChatGPT film. Volcengine preset TTS2.0 Vivi/Tim with already authorized credentials/quota; use the specified local Qwen3-TTS fallback when needed. No cloned voice, unapproved charges or silent placeholder presented as completion.
+- Real Source Han Sans SC Bold / Inter Display Semibold, one shared display type system through the ending. No main-title system-Regular fallback or synthetic font weight.
+- Visual headlines omit sentence punctuation; TTS text retains phrasing punctuation. Keep technical filenames and official marks intact.
+- End card is fully visible at frame1230: slogan, app icon, name, App Store badge, search cue, QR. No staggered download appearance at22.5s.
 
-- One photographic/charcoal/neutral-paper material and typography system; no XP-like beveled files or cream settings panels.
-- Caption plates removed; use the accepted closing slogan as the typography reference.
-- Correct official ChatGPT and WorkBuddy icons in a conceptual send/receive exchange.
-- Right outgoing ZIP, left AI reply, brief bounded blurred character flow, readable report emerging from the same reply.
-- Exact Chinese slogan preserved; actual App Store badge, direct app destination/search cue and verified QR encoding in the end card.
+## Retain and protect
 
-Official assets are permitted for these factual destination/availability references; no invented partnership, rebuilt near-copy logo or fabricated actual transcript.
+26s /1560frames/60fps; 1080×1920 masters and720 previews. Keep the narrative, existing photo atlas/P01–P08 identity, lecture fixtures, official app/provider/badge assets, conceptual ZIP→AI→report and saved-before-cleanup. This is not an App UI tutorial. No new real export, provider recording, account sign-in or destructive-photo test.
 
-## Product and upstream
+HyperFrames/GSAP/TypeScript/FFmpeg remain the renderer. Font and narration support may be added only to the isolated video environment as authorized in R3. Never publish font binaries, model weights, secrets or credentials. Only public ad text is sent to an authorized TTS endpoint.
 
-Product facts: ../../../docs/PRODUCT_DECISIONS.md and ../../../docs/SPEC.md.
-V2 is a conceptual promo, not an App tutorial or App Store App Preview. Old v1 export/provider-recording blockers do not block this task. No iOS code or real account action is needed.
+Keep phase-a/director-r1/director-r2 media and reproduction evidence. New results: review/director-r3/. Update active plan/SHOTLIST/STORYBOARD/STYLE_RULES/README rather than leaving no-voice or late-CTA instructions active. Do not rerun historical bootstrap scripts that overwrite direction.
 
-Preserve the story: crowded mixed life/lecture photos → selected/ordered lecture → separate PDF + AI ZIP → reading guidance → external AI summary/report → saved archive → remove lecture photos → same personal images remain.
-Keep P01–P08 atlas/crops, lecture fixtures and accepted icon. Do not reopen M00 artwork or technology choice.
+All implementation changes stay under marketing/video/v2/. Do not change App, Packages, project, Store screenshots, ASC, TestFlight or sibling PRs. No purchasing, new paid account or public posting.
 
-## Files and history
+The registered app destination remains6816814541. PUBLISH_HOLD_NOT_LIVE_VERIFIED is a public-release check, not a reason to omit the download end card or stop production.
 
-- src/ and scripts/: one frame-addressable rendering timeline with persistent scene objects.
-- assets/: existing photography/product art plus official brand/badge assets recorded by URL/hash.
-- review/phase-a/ and review/director-r1/: historical outputs, do not overwrite.
-- review/director-r2/: complete new cuts, contact sheets, chat strips, end-card images and actual QA.
-- PUBLISH_LINK.json: target app ID/URL, QR decoding and independently verified public availability.
-- out/, node_modules/, temporary fonts: ignored. Never distribute font binaries.
+## Result and stop
 
-## Publication boundary
+Deliver both complete narrated films,720 previews, muted copies, actual typography comparison and frame1230 end-card images, timing/font/audio proof and real blockers. Distinguish subjective listening from sample-level audio tests. No claim of hearing/watching that was not actually performed.
 
-Preparing the requested download CTA is authorized. The planned direct URL uses App ID 6816814541. A public LIVE/download check is still required before calling it ready to post. If not verified, finish the launch-ready review cut and report PUBLISH_HOLD_NOT_LIVE_VERIFIED; do not stop production or falsely label the app downloadable now.
-No instant processing/GB reclamation claims; preserve saved-archive-before-cleanup. One restrained illustrative-workflow label is sufficient for the conceptual output.
-
-All implementation stays under marketing/video/v2/. No App/Packages/project/Store/ASC/TestFlight/sibling PR mutation, paid service, public posting or new account.
-
-Stop at **READY_FOR_DIRECTOR_FINAL_REVIEW**. Return only PR/head, bilingual MP4s, AI-interaction strip, download end card and real unresolved items.
+Stop READY_FOR_DIRECTOR_FINAL_REVIEW when the narrated delivery is real and complete. A missing voice source must be reported explicitly, never converted to a PASS. No self-approval or merge. Ask no owner design questions.
