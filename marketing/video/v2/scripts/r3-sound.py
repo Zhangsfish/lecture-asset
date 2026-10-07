@@ -5,9 +5,9 @@ import wave,json,subprocess,hashlib,re
 
 ROOT=Path(__file__).resolve().parents[1];SR=48000;N=SR*26
 FF='E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe'
-REVIEW=ROOT/'review/director-r3';OUT=ROOT/'out/director-r3';OUT.mkdir(parents=True,exist_ok=True)
+REVIEW=ROOT/'review/director-r3-opening';OUT=ROOT/'out/director-r3-opening';OUT.mkdir(parents=True,exist_ok=True)
 DEST=ROOT/'assets/sound';DEST.mkdir(exist_ok=True)
-rng=np.random.default_rng(1808);beat=60/132
+SPEC=json.loads((ROOT/'R3_COPY_AUDIO.json').read_text(encoding='utf8'));rng=np.random.default_rng(1808);beat=60/132
 music=np.zeros((N,2));sfx=np.zeros((N,2));events=[]
 def put(target,sound,start,gain=1,pan=0):
     offset=round(start*SR)
@@ -33,16 +33,16 @@ def bass(freq,duration):
     # Mid harmonics remain audible on phone speakers; no long pad or bass rumble.
     return (np.sin(2*np.pi*freq*t)+.40*np.sin(2*np.pi*freq*2*t)+.22*np.sin(2*np.pi*freq*3*t)+.13*np.sin(2*np.pi*freq*5*t))*envelope
 def stage(t):
-    if 10.5<=t<13:return .64
-    if 15.3<=t<17.5:return .74
+    if 11.2<=t<13.4:return .64
+    if 15.48<=t<17.5:return .74
     if t>=20.5:return .80
     return 1
 for b in range(58):
     t=b*beat;gain=stage(t)
-    if not (10.5<=t<13 and b%4 in [1,3]):put(music,kick(),t,.42*gain)
+    if not (11.2<=t<13.4 and b%4 in [1,3]):put(music,kick(),t,.42*gain)
     if b%4 in [1,3]:put(music,clap(),t,.26*gain,pan=.06)
     for j in [0,.5]:put(music,hat(),t+j*beat,.15*gain,pan=(-.35 if j==0 else .35))
-    if 3<t<10.5 or 17.5<t<20.5:put(music,hat(),t+.75*beat,.085,pan=.45)
+    if 4.2<t<11.2 or 17.5<t<20.5:put(music,hat(),t+.75*beat,.085,pan=.45)
     frequency=[73.416,73.416,97.999,87.307][(b//4)%4]
     if b%4 in [0,2,3]:put(music,bass(frequency,.32),t,.22*gain)
     if b%4 in [1,3]:put(music,bass(frequency*2,.17),t+.5*beat,.115*gain)
@@ -51,11 +51,11 @@ for b in range(58):
 def whoosh(duration):
     t=np.arange(round(duration*SR))/SR;n=rng.normal(size=len(t));n=np.convolve(n,np.ones(12)/12,'same')
     return n*np.sin(np.pi*t/duration)**2*.3
-for frame in [0,180,300,450,630,780,900,1050,1230]:
+for frame in SPEC['sound']['accent_frames']:
     t=frame/60
     put(sfx,kick(),t,.18)
-    if frame in [180,450,630,1050]:put(sfx,whoosh(.22),max(0,t-.1),.3,pan=.2)
-    if frame in [300,900,1230]:
+    if frame in [252,504,672,1050]:put(sfx,whoosh(.22),max(0,t-.1),.3,pan=.2)
+    if frame in [336,945,1230]:
         for freq in [293.665,391.995,440]:put(sfx,bass(freq,.25),t,.072)
     events.append({'frame':frame,'seconds':t,'event':'arranged accent/resolve, original synthesized audio'})
 fade=np.minimum((26-np.arange(N)/SR)/.35,1).clip(0,1)
@@ -100,7 +100,7 @@ for locale in ['en','zh-Hans']:
     analysis=subprocess.run([FF,'-hide_banner','-i',str(pre),'-af','loudnorm=I=-14.5:TP=-1:LRA=9:print_format=json','-f','null','-'],capture_output=True,text=True,encoding='utf8').stderr
     loud=json.loads(analysis[analysis.rfind('{'):analysis.rfind('}')+1]);gain=-14.5-float(loud['input_i'])
     if float(loud['input_tp'])+gain>-1.4:gain=-1.4-float(loud['input_tp'])
-    final=DEST/('r3-mix-'+locale+'.wav')
+    final=DEST/('r3-opening-mix-'+locale+'.wav')
     subprocess.run([FF,'-v','error','-y','-i',str(pre),'-af',f'volume={gain:.6f}dB','-ar',str(SR),str(final)],check=True)
     check=subprocess.run([FF,'-hide_banner','-i',str(final),'-af','loudnorm=I=-14.5:TP=-1:LRA=9:print_format=json','-f','null','-'],capture_output=True,text=True,encoding='utf8').stderr
     stats=json.loads(check[check.rfind('{'):check.rfind('}')+1]);I=float(stats['input_i']);TP=float(stats['input_tp'])

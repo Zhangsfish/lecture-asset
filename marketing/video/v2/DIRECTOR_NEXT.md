@@ -1,3 +1,5 @@
+Current owner amendment: [opening2026-10-07](OWNER_OPENING_2026-10-07.md). It overrides the R3 opening/timing only; read it before the historical R3 instructions below. New outputreview/director-r3-opening/.
+
 # 当前导演任务：R3
 
 **READY_FOR_CODEX / R3_NARRATED_CUT_AUTHORIZED**

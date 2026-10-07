@@ -4,23 +4,30 @@ const w=window as unknown as {__timelines:Record<string,gsap.core.Timeline>;__di
 const tl=gsap.timeline({paused:true,defaults:{ease:"power3.inOut"}});
 window.__timelines={"director-r3":tl};
 const lifeStart=[[-170,220],[660,230],[200,1530],[440,900],[760,1560],[100,890],[760,770],[-80,1600]];
+const lifeOpening=[[90,220],[685,260],[400,620],[70,1020],[710,1050],[400,1440],[25,1600],[730,1550]];
 const lifeEnd=[[110,1170],[420,1170],[730,1170],[110,1415],[420,1415],[730,1415],[265,1660],[575,1660]];
 const lectureStart=[[110,590],[610,570],[-60,850],[470,1540],[430,280],[140,300],[-220,700],[510,900],[60,1640],[690,1570],[680,840],[70,930]];
 const id=(p:string,i:number)=>"#"+p+String(i+1).padStart(2,"0");
-gsap.set(".subject",{opacity:0});gsap.set("#camera",{rotationZ:-4,rotationX:3,z:0,x:0,y:0,scale:1});
+gsap.set(".subject",{opacity:0});gsap.set("#camera",{rotationZ:0,rotationX:0,z:0,x:0,y:0,scale:1});
 gsap.set(".zip-paper,#chat,#reply,#summary,#send",{x:0,y:0,scale:1,rotationX:0,rotationY:0});
-lifeStart.forEach(([x,y],i)=>gsap.set(id("P",i),{x,y,z:-120+i*12,rotationZ:[-5,7,4,-6,8,-4,5,-6][i],opacity:1}));
-lectureStart.forEach(([x,y],i)=>gsap.set(id("L",i),{x,y,z:40+i*14,rotationZ:[-9,12,-7,8,10,-10,7,-12,8,-8,10,-6][i],opacity:1}));
-gsap.set("#L12",{x:-650,y:760,z:620,scale:1.4,rotationZ:-17});
+lifeOpening.forEach(([x,y],i)=>gsap.set(id("P",i),{x,y,z:-120+i*12,rotationZ:[-2,3,2,-3,3,-2,2,-3][i],opacity:1}));
+
 gsap.set("#pdf",{x:145,y:760,z:20,rotationZ:4,scale:.95});
 gsap.set("#zip",{x:490,y:940,z:80,rotationZ:-5});
 gsap.set("#zip",{transformOrigin:"0 0"});
 gsap.set("#guide",{x:100,y:1215,z:0});gsap.set("#mapping",{x:0,y:0,z:0});
 tl.to({}, {duration:26},0);
-const copy=(s:string,start:number,end:number)=>tl.fromTo(s,{opacity:0,x:-12,y:0,clipPath:"inset(0 100% 0 0)"},{opacity:1,x:0,y:0,clipPath:"inset(0 0% 0 0)",duration:.23,ease:"power2.out"},start).to(s,{opacity:0,y:-6,duration:.18},end-.18);
-copy("#hook-0",7/60,84/60);copy("#hook-1",91/60,177/60);copy("#selected",192/60,291/60);copy("#reading",462/60,618/60);copy("#clear",1062/60,1212/60);
+const copy=(s:string,start:number,end:number)=>tl.fromTo(s,{opacity:0,x:-4,y:0,clipPath:"inset(0 100% 0 0)"},{opacity:1,x:0,y:0,clipPath:"inset(0 0% 0 0)",duration:.23,ease:"power2.out"},start).to(s,{opacity:0,y:-6,duration:.18},end-.18);
+copy("#hook-0",.70,1.70);copy("#hook-1",1.78,2.96);copy("#selected",192/60,291/60);copy("#reading",462/60,618/60);copy("#clear",1062/60,1212/60);
 tl.to("#read-secondary",{opacity:1,duration:.23},7.9).to("#read-secondary",{opacity:0,duration:.18},10.12);
-tl.to("#L12",{x:70,y:930,z:194,scale:1,rotationZ:-6,duration:.35,ease:"power3.out"},0).to("#camera",{rotationZ:-1,rotationX:0,z:40,duration:2.65,ease:"sine.inOut"},.35);
+// Same twelve source objects fly from outside the frame and displace the life photos.
+lectureStart.forEach(([x,y],i)=>{
+ const edge=i%4;const fromX=edge===0?-900:edge===1?1320:x+(i%2?360:-320);const fromY=edge===2?-650:edge===3?2160:y;
+ gsap.set(id("L",i),{x:fromX,y:fromY,z:850,scale:1.16,rotationZ:i%2?32:-30,opacity:0});
+ tl.to(id("L",i),{x,y,z:40+i*14,scale:1,rotationZ:[-9,12,-7,8,10,-10,7,-12,8,-8,10,-6][i],opacity:1,duration:.68,ease:"power3.out"},.45+i*.085);
+});
+lifeStart.forEach(([x,y],i)=>tl.to(id("P",i),{x,y,z:-120+i*12,rotationZ:[-5,7,4,-6,8,-4,5,-6][i],duration:.90,ease:"power2.inOut"},.56+i*.065));
+tl.to("#camera",{rotationZ:-1,rotationX:0,z:40,duration:2.55,ease:"sine.inOut"},.42);
 for(let i=0;i<12;i++){
  const e=id("L",i);
  tl.to(e,{borderColor:"#4772A8",duration:.12},3+i*.009).to(e,{borderColor:"#FFFFFF66",duration:.24},3.25+i*.009)
@@ -68,6 +75,10 @@ lectureStart.forEach(([x,y],i)=>tl.set(id("L",i),{x,y,z:40+i*14,scale:1,rotation
 lifeEnd.forEach(([x,y],i)=>tl.to(id("P",i),{x,y,z:0,scale:.75,rotationZ:0,duration:1.15,ease:"sine.inOut"},18.8+i*.014));
 tl.to("#saved",{opacity:0,duration:.18},20.1).to("#zip,#pdf",{opacity:0,duration:.35},20.1)
  .set("#cleanup-space",{opacity:0},20.5).set("#ending",{opacity:1},20.5);
+// Owner-approved local retiming gives intact narration room; last8.5seconds stay fixed.
+const knots=[[0,0],[3,4.2],[5,5.6],[7.5,8.4],[10.5,11.2],[13.7,14.05],[17.5,17.5],[26,26]];
+const retime=(time:number)=>{for(let i=1;i<knots.length;i++){if(time<=knots[i][0]){const [a,b]=knots[i-1], [c,d]=knots[i];return b+(time-a)*(d-b)/(c-a);}}return time;};
+for(const tween of tl.getChildren(false,true,false)){const start=tween.startTime(),end=start+tween.duration();tween.startTime(retime(start));tween.duration(retime(end)-retime(start));}
 tl.seek(0,false);
 async function assets(){
  await Promise.all([document.fonts.load("700 88px SourceHan","把讲座交给 AI 相册自己"),document.fonts.load("400 34px SourceHan","资料已保存"),document.fonts.load("600 92px Inter","Hand the lecture to AI"),document.fonts.load("400 34px Inter","Lecture summary")]);

@@ -1,3 +1,7 @@
+## Current owner opening amendment
+
+OWNER_OPENING_2026-10-07.md supersedes the old opening/timing listed below. First frame shows only P01–P08; lecture pages arrive and displace them. Complete bilingual N01. Updated active intervals:0–4.2 /4.2–5.6 /5.6–8.4 /8.4–11.2 /11.2–14.05 /14.05–17.5 /17.5–20.5 /20.5–26s. New review/director-r3-opening/ retains prior R3 delivery unchanged. Font/provider/material/cleanup/CTA rules remain.
+
 # R3 shared type / art / audio system
 
 Authority: DIRECTOR_R3.md + R3_COPY_AUDIO.json. Retain charcoal#090B10, neutral paper#F5F6F8, ink#19232F and restrained cobalt#4772A8. Photography, thin paper edges, soft directional light/shadows, persistent ZIP/reply and source identities stay unchanged.

@@ -1,8 +1,8 @@
 {
   "id": "lecture-asset-v2-director-r3",
-  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
-  "authority": "DIRECTOR_R3.md",
-  "instruction_sha256": "f07f09106d2280d339c7390b1eb1b9ffa581f7e830917b61a36073407b69323f",
+  "status": "IN_PROGRESS_OWNER_OPENING_REVISION",
+  "authority": "OWNER_OPENING_2026-10-07.md + DIRECTOR_R3.md",
+  "instruction_sha256": "038be08f6ff8559444fb03305a74410ad3d47d1334406a701518285676b81ddc",
   "branch_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
   "latest_main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
   "original_pr_base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
@@ -64,9 +64,9 @@
   "scenes": [
     {
       "id": 1,
-      "name": "mixed-library",
+      "name": "life-then-lecture-influx",
       "in": 0,
-      "out": 180,
+      "out": 252,
       "copy": {
         "zh-Hans": [
           [
@@ -74,7 +74,7 @@
           ],
           [
             "交给 AI",
-            "又太散"
+            "又太麻烦"
           ]
         ],
         "en": [
@@ -88,7 +88,7 @@
           ]
         ]
       },
-      "view": "mixed photo space / two restrained captions",
+      "view": "P01-P08 life-only opening; same L01-L12 arrive from edges, displace life photos into mixed album",
       "display": {
         "zh-Hans": [
           [
@@ -96,7 +96,7 @@
           ],
           [
             "交给 AI",
-            "又太散"
+            "又太麻烦"
           ]
         ],
         "en": [
@@ -115,8 +115,8 @@
     {
       "id": 2,
       "name": "selection-follow",
-      "in": 180,
-      "out": 300,
+      "in": 252,
+      "out": 336,
       "copy": {
         "zh-Hans": [
           [
@@ -151,8 +151,8 @@
     {
       "id": 3,
       "name": "two-deliverables",
-      "in": 300,
-      "out": 450,
+      "in": 336,
+      "out": 504,
       "copy": {
         "zh-Hans": {
           "pdf": [
@@ -203,8 +203,8 @@
     {
       "id": 4,
       "name": "inside-the-zip",
-      "in": 450,
-      "out": 630,
+      "in": 504,
+      "out": 672,
       "copy": {
         "zh-Hans": [
           [
@@ -237,8 +237,8 @@
     {
       "id": 5,
       "name": "external-handoff",
-      "in": 630,
-      "out": 780,
+      "in": 672,
+      "out": 843,
       "copy": {},
       "view": "right outgoing ZIP / left official provider / processing",
       "display": null,
@@ -247,7 +247,7 @@
     {
       "id": 6,
       "name": "readable-results",
-      "in": 780,
+      "in": 843,
       "out": 1050,
       "copy": {
         "zh-Hans": [
@@ -337,55 +337,55 @@
     }
   ],
   "hero_frames": [
-    60,
-    246,
-    360,
-    546,
-    738,
+    120,
+    299,
+    420,
+    582,
+    786,
     990,
     1158,
-    1500
+    1230
   ],
   "audio_cues": [
     {
       "frame": 0,
-      "name": "new arranged accent/resolve"
+      "name": "opening revision arranged accent/resolve"
     },
     {
-      "frame": 180,
-      "name": "new arranged accent/resolve"
+      "frame": 252,
+      "name": "opening revision arranged accent/resolve"
     },
     {
-      "frame": 300,
-      "name": "new arranged accent/resolve"
+      "frame": 336,
+      "name": "opening revision arranged accent/resolve"
     },
     {
-      "frame": 450,
-      "name": "new arranged accent/resolve"
+      "frame": 504,
+      "name": "opening revision arranged accent/resolve"
     },
     {
-      "frame": 630,
-      "name": "new arranged accent/resolve"
+      "frame": 672,
+      "name": "opening revision arranged accent/resolve"
     },
     {
-      "frame": 780,
-      "name": "new arranged accent/resolve"
+      "frame": 843,
+      "name": "opening revision arranged accent/resolve"
     },
     {
-      "frame": 900,
-      "name": "new arranged accent/resolve"
+      "frame": 945,
+      "name": "opening revision arranged accent/resolve"
     },
     {
       "frame": 1050,
-      "name": "new arranged accent/resolve"
+      "name": "opening revision arranged accent/resolve"
     },
     {
       "frame": 1230,
-      "name": "new arranged accent/resolve"
+      "name": "opening revision arranged accent/resolve"
     }
   ],
   "saved_confirm_frame": 1071,
-  "first_departure_frame": 1080,
+  "first_departure_frame": 1113,
   "slogan_settled_by_frame": 1230,
   "source_summary": {
     "source": "accepted fixtures 13–24 / assets/lecture/0001.jpg–0012.jpg",
@@ -459,18 +459,18 @@
         "id": "N01",
         "window_seconds": [
           0.15,
-          2.9
+          4.15
         ],
         "spoken_text": {
-          "zh-Hans": "照片塞满相册，交给 AI，又太散。",
+          "zh-Hans": "照片塞满相册，交给 AI 又太麻烦。",
           "en": "Lecture photos everywhere. Too scattered for AI."
         }
       },
       {
         "id": "N02",
         "window_seconds": [
-          3.15,
-          7.2
+          4.3,
+          8.35
         ],
         "spoken_text": {
           "zh-Hans": "Lecture Asset，一份 PDF，一份 AI 资料包。",
@@ -480,8 +480,8 @@
       {
         "id": "N03",
         "window_seconds": [
-          7.65,
-          10.2
+          8.55,
+          11.1
         ],
         "spoken_text": {
           "zh-Hans": "连怎么读，都准备好了。",
@@ -491,8 +491,8 @@
       {
         "id": "N04",
         "window_seconds": [
-          10.65,
-          12.85
+          11.45,
+          13.65
         ],
         "spoken_text": {
           "zh-Hans": "交给 WorkBuddy。",
@@ -502,8 +502,8 @@
       {
         "id": "N05",
         "window_seconds": [
-          13.15,
-          16.95
+          13.55,
+          17.35
         ],
         "spoken_text": {
           "zh-Hans": "变成讲座总结，还有报告。",
@@ -566,12 +566,12 @@
     "no_sped_up_r2_score": true,
     "accent_frames": [
       0,
-      180,
-      300,
-      450,
-      630,
-      780,
-      900,
+      252,
+      336,
+      504,
+      672,
+      843,
+      945,
       1050,
       1230
     ]
@@ -589,17 +589,52 @@
     "badge_qr_story_and_brand_must_appear_together": true
   },
   "voice_sync_adjustments": {
-    "provider_reveal_seconds": 11.25,
     "source_departure_seconds": 18.55,
-    "reason": "Actual ASR: provider names at11.07–12.11; saved phrase ends18.40/18.42; cleanup begins after that",
-    "measurement": "review/director-r3/VOICE_ASR.json"
+    "measurement": "review/director-r3-opening/VOICE_ASR.json",
+    "reason": "Same saved-before-source-departure sequence; new early voice placement measured from complete N01."
   },
-  "production_status": "R3_COMPLETE_REAL_BILINGUAL_NARRATION",
-  "narration_actual": "review/director-r3/VOICE_TIMING.json",
-  "narration_original_vs_actual": "N01 only condensed to fit measured slot; all other cue texts unchanged. Display copy unchanged.",
-  "tested_render_source_sha": "cc189202dc99ba58605cdca80e9ddbee3d0834b3",
+  "production_status": "OWNER_OPENING_REVISION_RENDER_PENDING",
+  "narration_actual": "review/director-r3-opening/VOICE_TIMING.json",
+  "narration_original_vs_actual": "All cues retain complete specified text. N01 regenerated; N02-N07 waveforms reused and early placements retimed.",
   "cleanup_type_revision": "Actual encoded inspection found white-on-white S07. Broad soft negative-space light mask added behind type/saved cue, removed at20.5. Both films re-rendered.",
   "latest_director_cleanup_sha": "6a4d8c5",
   "main_refetched_before_final_push": "13e943a",
-  "public_test_seams": "REMOVED; invisible QA hooks retained"
+  "public_test_seams": "REMOVED; invisible QA hooks retained",
+  "owner_revision_base_sha": "a5a2e8bdab27c04bd0feb5636f0a649f29eebfe8",
+  "opening": "same P01–P08 first; lecture pages fly in and scatter; full bilingual opening",
+  "early_time_mapping": [
+    [
+      0,
+      0
+    ],
+    [
+      3,
+      4.2
+    ],
+    [
+      5,
+      5.6
+    ],
+    [
+      7.5,
+      8.4
+    ],
+    [
+      10.5,
+      11.2
+    ],
+    [
+      13.7,
+      14.05
+    ],
+    [
+      17.5,
+      17.5
+    ],
+    [
+      26,
+      26
+    ]
+  ],
+  "review_output": "review/director-r3-opening"
 }

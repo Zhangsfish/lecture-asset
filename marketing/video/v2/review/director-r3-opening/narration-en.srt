@@ -1,0 +1,27 @@
+1
+00:00:00,150 --> 00:00:03,875
+Lecture photos everywhere. Too scattered for AI.
+
+2
+00:00:04,300 --> 00:00:08,334
+Lecture Asset makes a PDF for you, and one ZIP for AI.
+
+3
+00:00:08,550 --> 00:00:09,972
+Reading instructions included.
+
+4
+00:00:11,450 --> 00:00:13,347
+Share it with ChatGPT.
+
+5
+00:00:13,550 --> 00:00:15,851
+Get a lecture summary and report.
+
+6
+00:00:17,700 --> 00:00:20,002
+Save the files. Clear the photos.
+
+7
+00:00:20,650 --> 00:00:23,746
+Hand the lecture to AI. Take back your photo library.

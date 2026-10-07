@@ -40,3 +40,7 @@ The registered app destination remains6816814541. PUBLISH_HOLD_NOT_LIVE_VERIFIED
 Deliver both complete narrated films,720 previews, muted copies, actual typography comparison and frame1230 end-card images, timing/font/audio proof and real blockers. Distinguish subjective listening from sample-level audio tests. No claim of hearing/watching that was not actually performed.
 
 Stop READY_FOR_DIRECTOR_FINAL_REVIEW when the narrated delivery is real and complete. A missing voice source must be reported explicitly, never converted to a PASS. No self-approval or merge. Ask no owner design questions.
+
+## Owner opening correction2026-10-07
+
+Read OWNER_OPENING_2026-10-07.md first for the owner-authorized opening override. Same PR18; full N01 voice, life-only start and incoming lecture pages. New review/director-r3-opening/ outputs, old R3 media preserved.26s/1230 tail fixed.

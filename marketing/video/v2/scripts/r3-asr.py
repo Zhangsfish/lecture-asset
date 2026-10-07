@@ -4,7 +4,7 @@ import json,re,unicodedata,time
 from difflib import SequenceMatcher
 from faster_whisper import WhisperModel
 
-ROOT=Path(__file__).resolve().parents[1];REVIEW=ROOT/'review/director-r3'
+ROOT=Path(__file__).resolve().parents[1];REVIEW=ROOT/'review/director-r3-opening'
 timing=json.loads((REVIEW/'VOICE_TIMING.json').read_text(encoding='utf8'))
 # Existing previously authorized offline ASR cache; no credentials or private media.
 cache=Path('E:/video_to_md/models/faster-whisper')

@@ -3,7 +3,7 @@ import {mkdir,cp,writeFile,readFile} from "node:fs/promises";
 import path from "node:path";
 import {pathToFileURL} from "node:url";
 import {root} from "./director-tools.mjs";
-const out=path.join(root,"out/director-r3");await mkdir(out,{recursive:true});
+const out=path.join(root,"out/director-r3-opening");await mkdir(out,{recursive:true});
 await build({entryPoints:[path.join(root,"src/r3-html.ts")],outfile:path.join(out,"page.mjs"),platform:"node",format:"esm",bundle:true});
 await build({entryPoints:[path.join(root,"src/r3-timeline.ts")],outfile:path.join(out,"r3.js"),platform:"browser",format:"iife",bundle:true,
  plugins:[{name:"existing-gsap-browser-build",setup(b){b.onResolve({filter:/^gsap$/},()=>({path:"gsap",namespace:"global-gsap"}));b.onLoad({filter:/.*/,namespace:"global-gsap"},()=>({contents:"export const gsap = window.gsap;",loader:"js"}));}}]});

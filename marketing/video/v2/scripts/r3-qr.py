@@ -1,7 +1,7 @@
 """Independent decode of the product URL from actual final MP4s, both resolutions."""
 from pathlib import Path
 import subprocess,json,datetime,cv2
-ROOT=Path(__file__).resolve().parents[1];REVIEW=ROOT/'review/director-r3';OUT=ROOT/'out/director-r3';URL='https://apps.apple.com/us/app/id6816814541';FF='E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe'
+ROOT=Path(__file__).resolve().parents[1];REVIEW=ROOT/'review/director-r3-opening';OUT=ROOT/'out/director-r3-opening';URL='https://apps.apple.com/us/app/id6816814541';FF='E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe'
 checks=[]
 for locale,stem in [('en','en-chatgpt'),('zh-Hans','zh-workbuddy')]:
  for size in [1080,720]:

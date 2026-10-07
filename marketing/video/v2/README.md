@@ -1,3 +1,7 @@
+## Current owner opening amendment
+
+OWNER_OPENING_2026-10-07.md supersedes the old opening/timing listed below. First frame shows only P01–P08; lecture pages arrive and displace them. Complete bilingual N01. Updated active intervals:0–4.2 /4.2–5.6 /5.6–8.4 /8.4–11.2 /11.2–14.05 /14.05–17.5 /17.5–20.5 /20.5–26s. New review/director-r3-opening/ retains prior R3 delivery unchanged. Font/provider/material/cleanup/CTA rules remain.
+
 # Lecture Asset promo v2 — R3
 
 **READY_FOR_CODEX / R3_NARRATED_CUT_AUTHORIZED**

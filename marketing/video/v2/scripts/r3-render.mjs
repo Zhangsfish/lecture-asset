@@ -1,10 +1,10 @@
 import {mkdir,writeFile,copyFile,readFile,stat} from "node:fs/promises";
 import path from "node:path";
 import {root,cli,ffmpeg,run} from "./director-tools.mjs";
-const review=path.join(root,"review/director-r3"),out=path.join(root,"out/director-r3");await mkdir(review,{recursive:true});const commands=[];
+const review=path.join(root,"review/director-r3-opening"),out=path.join(root,"out/director-r3-opening");await mkdir(review,{recursive:true});const commands=[];
 const voice=JSON.parse(await readFile(path.join(review,"VOICE_TIMING.json"),"utf8"));
 if(!voice.real_voice_source||voice.cues.length!==14)throw Error("No complete real bilingual narration; cannot render final delivery");
-for(const locale of ["en","zh-Hans"]){const audio=await stat(path.join(root,"assets/sound/r3-mix-"+locale+".wav"));if(audio.size<1000000)throw Error("Missing real final mix "+locale);}
+for(const locale of ["en","zh-Hans"]){const audio=await stat(path.join(root,"assets/sound/r3-opening-mix-"+locale+".wav"));if(audio.size<1000000)throw Error("Missing real final mix "+locale);}
 
 for(const locale of ["en","zh-Hans"]){
  const stem=locale==="en"?"director-cut-en-chatgpt":"director-cut-zh-workbuddy";

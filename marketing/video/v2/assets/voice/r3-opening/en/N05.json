@@ -1,0 +1,37 @@
+{
+  "locale": "en",
+  "id": "N05",
+  "speaker": "Ryan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "Get a lecture summary and report.",
+  "original_planned_text": "Get a lecture summary and report.",
+  "timing_copy_adjustment": null,
+  "instruction": "Speak at a clear conversational 160 words per minute. Give summary and report distinct stresses, without rushing. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 3.6 seconds, briskly and fluently, with every word intact.",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 13.55,
+  "actual_duration_seconds": 2.300666666666667,
+  "placement_end_seconds": 15.850666666666667,
+  "window_seconds": [
+    13.55,
+    17.35
+  ],
+  "post_atempo": 1,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 2.32,
+      "speech_seconds": 2.305,
+      "generation_seconds": 21.53099999999995,
+      "trim_samples": [
+        360,
+        55680
+      ]
+    }
+  ],
+  "sha256": "6c3813f8d9f3dd1eccbdd9f0fe1e7660a7a8ff6f3dc7db434577da02158674d5",
+  "file": "assets/voice/r3-opening/en/N05.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

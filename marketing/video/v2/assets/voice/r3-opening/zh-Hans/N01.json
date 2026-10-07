@@ -1,0 +1,47 @@
+{
+  "locale": "zh-Hans",
+  "id": "N01",
+  "speaker": "Vivian",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "照片塞满相册，交给 AI 又太麻烦。",
+  "original_planned_text": "照片塞满相册，交给 AI 又太麻烦。",
+  "timing_copy_adjustment": null,
+  "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约3.8秒内说完，短停顿，不拖尾，字句完整。 比上次更利落更快，句间停顿短。",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 0.15,
+  "actual_duration_seconds": 4.000583333333333,
+  "placement_end_seconds": 4.1505833333333335,
+  "window_seconds": [
+    0.15,
+    4.15
+  ],
+  "post_atempo": 1.015,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 7.92,
+      "speech_seconds": 7.87,
+      "generation_seconds": 124.63999999999942,
+      "trim_samples": [
+        600,
+        189480
+      ]
+    },
+    {
+      "attempt": 2,
+      "raw_seconds": 4.08,
+      "speech_seconds": 4.06,
+      "generation_seconds": 63.84399999999732,
+      "trim_samples": [
+        360,
+        97800
+      ]
+    }
+  ],
+  "sha256": "b429f5585d301038b86f32c536d74ff84665f2c396d540085778831da81192b4",
+  "file": "assets/voice/r3-opening/zh-Hans/N01.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

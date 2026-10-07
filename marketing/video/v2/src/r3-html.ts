@@ -29,5 +29,5 @@ export function page(locale:R3Locale){
  <div id="cleanup-space" aria-hidden="true"></div>${DisplayText("hook-0",c.hook[0],"main-copy hook")}${DisplayText("hook-1",c.hook[1],"main-copy hook")}${DisplayText("selected",c.selected,"main-copy top")}${DisplayText("reading",c.read,"main-copy top")}<div id="read-secondary">${scene("S04").secondary![locale]}</div>${DisplayText("clear",c.clear,"main-copy top")}
  <div id="saved"><svg viewBox="0 0 48 48"><path d="M8 24L20 36L41 11"/></svg>${c.saved}</div>
  <div id="ending"><div id="slogan" class="display-text closing"><p>${c.slogan[0]}</p><p>${c.slogan[1]}</p></div><div id="brand"><img src="assets/app-icon.png"><span>Lecture Asset</span></div><div id="download"><img id="badge" src="assets/brands/${c.badge}" alt="Official App Store download badge"><img id="qr" src="assets/brands/app-store-qr.png" alt="https://apps.apple.com/us/app/id6816814541"><p id="search">${c.search}</p></div></div>
- <audio id="original-r3-mix" src="assets/sound/r3-mix-${locale}.wav" data-start="0" data-duration="26" data-track-index="1" preload="auto"></audio></main><script src="r3.js"></script></body></html>`;
+ <audio id="original-r3-mix" src="assets/sound/r3-opening-mix-${locale}.wav" data-start="0" data-duration="26" data-track-index="1" preload="auto"></audio></main><script src="r3.js"></script></body></html>`;
 }

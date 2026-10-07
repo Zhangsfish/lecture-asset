@@ -3,11 +3,11 @@ from pathlib import Path
 import base64,hashlib,json,subprocess,wave
 from PIL import Image,ImageDraw,ImageFont
 import numpy as np
-ROOT=Path(__file__).resolve().parents[1];REPO=ROOT.parents[2];OUT=ROOT/'out/director-r3';REVIEW=ROOT/'review/director-r3'
+ROOT=Path(__file__).resolve().parents[1];REPO=ROOT.parents[2];OUT=ROOT/'out/director-r3-opening';REVIEW=ROOT/'review/director-r3-opening'
 FF=Path('E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe');PROBE=FF.with_name('ffprobe.exe')
 ICC=Path('C:/Windows/System32/spool/drivers/color/sRGB Color Space Profile.icm').read_bytes()
-FRAMES=[0,21,60,130,180,246,299,360,420,450,504,546,582,629,660,696,738,786,822,870,918,990,1049,1050,1074,1080,1158,1229,1230,1231,1242,1248,1350,1500,1559]
-HERO=[60,246,360,546,738,990,1158,1230];HANDOFF=[696,738,786,990]
+FRAMES=[0,15,30,45,60,90,120,150,180,210,240,246,299,327,360,420,450,504,546,582,629,660,696,738,786,822,870,918,948,990,1049,1050,1074,1080,1158,1229,1230,1231,1242,1248,1350,1500,1559]
+HERO=[120,299,420,582,786,990,1158,1230];HANDOFF=[738,786,822,990]
 def run(args):
  r=subprocess.run([str(x) for x in args],capture_output=True,text=True,encoding='utf8',errors='replace')
  if r.returncode:raise RuntimeError(r.stderr[-1600:])
@@ -16,7 +16,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,obj):p.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 def git(*args):return run(['git','-C',REPO,*args]).stdout.strip()
 plan=json.loads((ROOT/'plan.json').read_text(encoding='utf8'));dom=json.loads((OUT/'dom-qa.json').read_text())
-assert all(x['duration']==26 and not x['errors'] and not x['seek_mismatches'] and not x['clipping'] and x['saved_before_departure'] and x['middle_life_hidden'] and x['report_hold'] and x['end_stable'] for x in dom)
+assert all(x['duration']==26 and not x['errors'] and not x['seek_mismatches'] and not x['clipping'] and x['saved_before_departure'] and x['middle_life_hidden'] and x['report_hold'] and x['end_stable'] and x['life_only_first_frame'] and x['lecture_influx_complete'] for x in dom)
 font=ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf',24)
 media=[];comparisons=[];warnings=[];images=[]
 for locale,stem,suffix in [('en','en-chatgpt','EN'),('zh-Hans','zh-workbuddy','ZH')]:
@@ -36,7 +36,7 @@ for locale,stem,suffix in [('en','en-chatgpt','EN'),('zh-Hans','zh-workbuddy','Z
     stats=json.loads(meter[meter.rfind('{'):meter.rfind('}')+1]);assert -15.5<=float(stats['input_i'])<=-13.5 and float(stats['input_tp'])<=-1,(locale,stats)
     rec['audio']['encoded_loudness_lufs']=float(stats['input_i']);rec['audio']['encoded_true_peak_dbtp']=float(stats['input_tp'])
     # Prove the rendered AAC contains this locale's real narrated mix, not an old score.
-    with wave.open(str(ROOT/'assets/sound'/('r3-mix-'+locale+'.wav'))) as w:
+    with wave.open(str(ROOT/'assets/sound'/('r3-opening-mix-'+locale+'.wav'))) as w:
      source=np.frombuffer(w.readframes(w.getnframes()),dtype='<i2').astype(float)/32768
     length=min(len(source),len(data));correlation=float(np.corrcoef(source[:length],data[:length])[0,1]);assert correlation>.98,(locale,correlation)
     rec['audio']['source_narrated_mix_correlation']=correlation
@@ -70,8 +70,8 @@ for locale,stem,suffix in [('en','en-chatgpt','EN'),('zh-Hans','zh-workbuddy','Z
  mask=Image.alpha_composite(mask.convert('RGBA'),overlay).convert('RGB');mask.save(REVIEW/f'PLATFORM_MASK_{suffix}.jpg',quality=90,icc_profile=ICC)
  # Opening/middle/closing typography from actual encoded master, not HTML proxy.
  types=Image.new('RGB',(1080,690),'#090B10');td=ImageDraw.Draw(types)
- for i,frame in enumerate([60,546,1230]):
-  types.paste(Image.open(files[FRAMES.index(frame)]).resize((360,640),Image.Resampling.LANCZOS),(360*i,40));td.text((360*i+12,8),['Opening / 60f','Middle / 546f','Closing / 1230f'][i],font=font,fill='white')
+ for i,frame in enumerate([90,582,1230]):
+  types.paste(Image.open(files[FRAMES.index(frame)]).resize((360,640),Image.Resampling.LANCZOS),(360*i,40));td.text((360*i+12,8),['Opening / 90f','Middle / 582f','Closing / 1230f'][i],font=font,fill='white')
  types.save(REVIEW/f'TYPE_CONTACT_{suffix}.jpg',quality=94,subsampling=0,icc_profile=ICC)
  im.save(REVIEW/f'END_CARD_ONSET_{suffix}.jpg',quality=95,subsampling=0,icc_profile=ICC)
  onset=Image.new('RGB',(1080,1320),'#090B10');od=ImageDraw.Draw(onset)
@@ -83,6 +83,13 @@ for locale,stem,suffix in [('en','en-chatgpt','EN'),('zh-Hans','zh-workbuddy','Z
  for i,(frame,p) in enumerate(zip(FRAMES,files)):
   x=i%8*180;y=i//8*350;timeline.paste(Image.open(p).resize((180,320),Image.Resampling.LANCZOS),(x,y+30));draw.text((x+5,y+3),str(frame)+'f',font=font,fill='white')
  timeline.save(REVIEW/f'TRANSITIONS_{suffix}.jpg',quality=91,icc_profile=ICC)
+ # Actual first four seconds: life-only, arrival, displacement, complete mixed album.
+ opening=Image.new('RGB',(1440,1380),'#090B10');draw=ImageDraw.Draw(opening)
+ for i,frame in enumerate([0,30,60,90,120,180,240,299]):
+  x=i%4*360;y=i//4*690
+  opening.paste(Image.open(files[FRAMES.index(frame)]).resize((360,640),Image.Resampling.LANCZOS),(x,y+40))
+  draw.text((x+12,y+8),f'{frame/60:.2f}s / {frame}f',font=font,fill='white')
+ opening.save(REVIEW/f'OPENING_SEQUENCE_{suffix}.jpg',quality=94,subsampling=0,icc_profile=ICC)
  # Small exact-byte review proxies retained for remote director environments.
  proxy=REVIEW/'proxy'/locale;proxy.mkdir(parents=True,exist_ok=True)
  for name in ['S03','S04','S05','S06','AI-01','AI-02','AI-03','AI-04']:
@@ -101,6 +108,6 @@ assert voices['real_voice_source'] and len(voices['cues'])==14 and len(asr['cues
 assert all(sha(ROOT/c['file'])==c['sha256'] and c['post_atempo']<=1.08 and c['placement_end_seconds']<=c['window_seconds'][1]+.015 for c in voices['cues'])
 assert all(c['normalized_agreement']>=.85 for c in asr['cues'])
 scope=git('diff','--name-only',plan['branch_input_sha'],'HEAD').splitlines();assert all(p.startswith('marketing/video/v2/') for p in scope)
-history=git('diff','--name-only',plan['branch_input_sha'],'HEAD','--','marketing/video/v2/review/phase-a','marketing/video/v2/review/director-r1','marketing/video/v2/review/director-r2').splitlines();assert not history
+history=git('diff','--name-only',plan['branch_input_sha'],'HEAD','--','marketing/video/v2/review/phase-a','marketing/video/v2/review/director-r1','marketing/video/v2/review/director-r2','marketing/video/v2/review/director-r3').splitlines();assert not history
 result={'status':'READY_FOR_DIRECTOR_FINAL_REVIEW','tested_implementation_sha':git('rev-parse','HEAD'),'main_at_start':plan['latest_main_at_start'],'director_input_sha':plan['branch_input_sha'],'technical':'PASS','media':media,'dom_checks':[{k:v for k,v in x.items() if k!='samples'} for x in dom],'decoded_native_comparisons':comparisons,'render_warnings':warnings,'original_assets':checks,'historical_media_changes':history,'scope_paths':scope,'commands':json.loads((OUT/'render-commands.json').read_text()),'capture_commands':json.loads((OUT/'snapshot-commands.json').read_text()),'source_frames':images,'visual_review':'Producer inspected both encoded contact sheets, four material views, transitions, 360px copies and platform-mask proxies; director approval remains pending.','human_listening':'NOT_RUN','provider_exchange':'CONCEPTUAL / SOURCE-RELATED EDITORIAL ILLUSTRATION, NOT A RECORDED SESSION','publish_state':'PUBLISH_HOLD_NOT_LIVE_VERIFIED','App_ASC_TestFlight_mutations':False}
 write(REVIEW/'QA.json',result);write(REVIEW/'TIMELINE.json',{'plan':plan,'decoded_keyframes':images});print(json.dumps({'technical':'PASS','movies':len(media),'decoded_samples':len(comparisons),'render_warnings':warnings,'max_mean_rgb_error':max(x['mean_rgb_error'] for x in comparisons)},indent=2))
