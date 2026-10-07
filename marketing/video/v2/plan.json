@@ -1,6 +1,6 @@
 {
   "id": "lecture-asset-v2-director-r3",
-  "status": "IN_PROGRESS_OWNER_OPENING_REVISION",
+  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
   "authority": "OWNER_OPENING_2026-10-07.md + DIRECTOR_R3.md",
   "instruction_sha256": "038be08f6ff8559444fb03305a74410ad3d47d1334406a701518285676b81ddc",
   "branch_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
@@ -593,7 +593,7 @@
     "measurement": "review/director-r3-opening/VOICE_ASR.json",
     "reason": "Same saved-before-source-departure sequence; new early voice placement measured from complete N01."
   },
-  "production_status": "OWNER_OPENING_REVISION_RENDER_PENDING",
+  "production_status": "OWNER_OPENING_COMPLETE_REAL_BILINGUAL_NARRATION",
   "narration_actual": "review/director-r3-opening/VOICE_TIMING.json",
   "narration_original_vs_actual": "All cues retain complete specified text. N01 regenerated; N02-N07 waveforms reused and early placements retimed.",
   "cleanup_type_revision": "Actual encoded inspection found white-on-white S07. Broad soft negative-space light mask added behind type/saved cue, removed at20.5. Both films re-rendered.",
@@ -636,5 +636,7 @@
       26
     ]
   ],
-  "review_output": "review/director-r3-opening"
+  "review_output": "review/director-r3-opening",
+  "tested_render_source_sha": "2b682774ab422d598c9a86a2f784245ee1c4f230",
+  "owner_revision_latest_main_fetched": "df7755abea679fc776959fa0843c625428034541"
 }

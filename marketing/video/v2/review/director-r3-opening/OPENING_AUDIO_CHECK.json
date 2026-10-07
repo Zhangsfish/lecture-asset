@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "method": "Offline Whisper large-v3 of AAC decoded directly from final MP4 opening, not expected script metadata",
+  "subjective_listening": "NOT_RUN",
+  "checks": [
+    {
+      "locale": "en",
+      "movie_sha256": "b6cb5faf793cfb94caa65e38382b14a7a73ed46a523fb242ddcc866a6f4c0fa7",
+      "decoded_seconds": 4.2,
+      "expected": "Lecture photos everywhere. Too scattered for AI.",
+      "recognized": "Lecture photos everywhere. Too scattered for AI.",
+      "normalized_agreement": 1.0,
+      "narration_start": 0.15,
+      "narration_end": 3.8749583333333333,
+      "next_narration_start": 4.3,
+      "complete_first_and_second_clauses": true,
+      "words": [
+        {
+          "word": " Lecture",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "word": " photos",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "word": " everywhere.",
+          "start": 0.76,
+          "end": 1.22
+        },
+        {
+          "word": " Too",
+          "start": 1.6,
+          "end": 2.26
+        },
+        {
+          "word": " scattered",
+          "start": 2.26,
+          "end": 2.74
+        },
+        {
+          "word": " for",
+          "start": 2.74,
+          "end": 3.14
+        },
+        {
+          "word": " AI.",
+          "start": 3.14,
+          "end": 3.44
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie_sha256": "332548939036257164a196f41b4d1f12a9b281fd8286776364f4211e7b20b3fa",
+      "decoded_seconds": 4.2,
+      "expected": "照片塞满相册，交给 AI 又太麻烦。",
+      "recognized": "照片塞满相册 交给AI又太麻烦",
+      "normalized_agreement": 1.0,
+      "narration_start": 0.15,
+      "narration_end": 4.1505833333333335,
+      "next_narration_start": 4.3,
+      "complete_first_and_second_clauses": true,
+      "words": [
+        {
+          "word": "照",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "word": "片",
+          "start": 0.3,
+          "end": 0.56
+        },
+        {
+          "word": "塞",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "word": "满",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "word": "相",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "word": "册",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "word": "交",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "word": "给",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "word": "AI",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "word": "又",
+          "start": 2.64,
+          "end": 3.26
+        },
+        {
+          "word": "太",
+          "start": 3.26,
+          "end": 3.44
+        },
+        {
+          "word": "麻",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "word": "烦",
+          "start": 3.64,
+          "end": 3.96
+        }
+      ]
+    }
+  ]
+}
