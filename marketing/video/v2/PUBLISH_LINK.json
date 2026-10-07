@@ -268,5 +268,13 @@
         ]
       ]
     }
-  ]
+  ],
+  "owner_post_launch_followup": {
+    "recorded_date": "2026-10-07",
+    "status": "OPEN_REQUIRED_BEFORE_PUBLIC_VIDEO_DISTRIBUTION",
+    "owner_approved_delivery_head": "99145299cf3ad8008e1ce293a140a601cb02de1d",
+    "requirement": "After public launch, replace or confirm the final-scene link using the verified live App Store product URL and regenerate/verify the end-card QR in both languages and all distribution variants.",
+    "instructions": "POST_LAUNCH_LINK_UPDATE.md",
+    "public_posting_authorized": false
+  }
 }

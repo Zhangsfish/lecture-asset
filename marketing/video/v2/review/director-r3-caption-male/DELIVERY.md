@@ -25,3 +25,7 @@ TypeScript/build, HF lint, actual loaded glyphs,174 native/encoded frame compari
 Producer actually inspected native and encoded bilingual keyword/contact/transition sheets plus full-size key frames. Subjective voice tone/listening is **NOT_RUN by the agent** and awaits the owner's hearing; director taste is not self-approved. Objective recognition/signal checks are not a listening PASS. Provider output remains source-related conceptual illustration, not a real recorded chat. Public matching App Store availability remains unconfirmed in PUBLISH_LINK.json; no public campaign/release was executed.
 
 Only marketing/video/v2 changed. Old phase-a/director-r1/director-r2/director-r3/director-r3-opening outputs remain read-only. No App, Packages, screenshots, ASC, TestFlight, destructive Photos action, new PR, merge, purchase or font/model distribution.
+
+## Owner acceptance / merge authorization -2026-10-07
+
+Owner accepted this delivery and explicitly authorized merging PR #18. The production stop above is historical; merge authorization is from the owner, not self-approval. Required post-launch follow-up: [replace/verify final-scene download links and QR](../../POST_LAUNCH_LINK_UPDATE.md) before public video distribution. Public posting remains unauthorized. This addition changes documentation only; rendered media and tested implementation are unchanged.
