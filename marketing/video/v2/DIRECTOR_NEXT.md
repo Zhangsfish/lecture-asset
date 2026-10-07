@@ -1,3 +1,5 @@
+Current owner authority: OWNER_CAPTION_MALE_2026-10-07.md. English voice unchanged; all Chinese voice replaced with stock male. Key in-frame captions follow measured speech. Length/CTA time may extend. Output review/director-r3-caption-male/. Historical fixed26s/1230 below is superseded for the Chinese revision.
+
 Current owner amendment: [opening2026-10-07](OWNER_OPENING_2026-10-07.md). It overrides the R3 opening/timing only; read it before the historical R3 instructions below. New outputreview/director-r3-opening/.
 
 # 当前导演任务：R3

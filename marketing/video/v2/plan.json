@@ -1,7 +1,7 @@
 {
   "id": "lecture-asset-v2-director-r3",
   "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
-  "authority": "OWNER_OPENING_2026-10-07.md + DIRECTOR_R3.md",
+  "authority": "OWNER_CAPTION_MALE_2026-10-07.md + R3_CAPTION_SYNC.json",
   "instruction_sha256": "038be08f6ff8559444fb03305a74410ad3d47d1334406a701518285676b81ddc",
   "branch_input_sha": "f5bbfd52b891804255bd99ff593f441cde0f1de6",
   "latest_main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
@@ -68,49 +68,59 @@
       "in": 0,
       "out": 252,
       "copy": {
-        "zh-Hans": [
-          [
-            "舍不得删"
-          ],
-          [
-            "交给 AI",
-            "又太麻烦"
-          ]
-        ],
         "en": [
           [
-            "Too useful",
-            "to delete"
+            "Lecture photos",
+            "everywhere"
           ],
           [
             "Too scattered",
             "for AI"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "照片塞满相册"
+          ],
+          [
+            "交给 AI",
+            "又太麻烦"
           ]
         ]
       },
       "view": "P01-P08 life-only opening; same L01-L12 arrive from edges, displace life photos into mixed album",
       "display": {
-        "zh-Hans": [
-          [
-            "舍不得删"
-          ],
-          [
-            "交给 AI",
-            "又太麻烦"
-          ]
-        ],
         "en": [
           [
-            "Too useful",
-            "to delete"
+            "Lecture photos",
+            "everywhere"
           ],
           [
             "Too scattered",
             "for AI"
           ]
+        ],
+        "zh-Hans": [
+          [
+            "照片塞满相册"
+          ],
+          [
+            "交给 AI",
+            "又太麻烦"
+          ]
         ]
       },
-      "object_labels": null
+      "object_labels": null,
+      "locale_frames": {
+        "en": [
+          0,
+          252
+        ],
+        "zh-Hans": [
+          0,
+          252
+        ]
+      }
     },
     {
       "id": 2,
@@ -118,35 +128,41 @@
       "in": 252,
       "out": 336,
       "copy": {
-        "zh-Hans": [
-          [
-            "选好",
-            "排好"
-          ]
-        ],
         "en": [
           [
-            "Selected",
-            "Sorted"
+            "Lecture Asset"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "Lecture Asset"
           ]
         ]
       },
       "view": "selected pulse / ordered following camera",
       "display": {
-        "zh-Hans": [
-          [
-            "选好",
-            "排好"
-          ]
-        ],
         "en": [
           [
-            "Selected",
-            "Sorted"
+            "Lecture Asset"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "Lecture Asset"
           ]
         ]
       },
-      "object_labels": null
+      "object_labels": null,
+      "locale_frames": {
+        "en": [
+          252,
+          336
+        ],
+        "zh-Hans": [
+          252,
+          323
+        ]
+      }
     },
     {
       "id": 3,
@@ -154,29 +170,34 @@
       "in": 336,
       "out": 504,
       "copy": {
-        "zh-Hans": {
-          "pdf": [
-            "PDF",
-            "留着回看"
-          ],
-          "zip": [
-            "AI ZIP",
-            "交给 AI"
+        "en": [
+          [
+            "A PDF for you",
+            "A ZIP for AI"
           ]
-        },
-        "en": {
-          "pdf": [
-            "PDF",
-            "For later"
-          ],
-          "zip": [
-            "AI ZIP",
-            "For AI"
+        ],
+        "zh-Hans": [
+          [
+            "一份 PDF",
+            "一份 AI ZIP"
           ]
-        }
+        ]
       },
       "view": "neutral editorial paper split / cobalt sleeve seal",
-      "display": null,
+      "display": {
+        "en": [
+          [
+            "A PDF for you",
+            "A ZIP for AI"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "一份 PDF",
+            "一份 AI ZIP"
+          ]
+        ]
+      },
       "object_labels": {
         "zh-Hans": {
           "pdf": [
@@ -198,6 +219,16 @@
             "For AI"
           ]
         }
+      },
+      "locale_frames": {
+        "en": [
+          336,
+          504
+        ],
+        "zh-Hans": [
+          323,
+          518
+        ]
       }
     },
     {
@@ -206,43 +237,87 @@
       "in": 504,
       "out": 672,
       "copy": {
+        "en": [
+          [
+            "Reading rules",
+            "included"
+          ]
+        ],
         "zh-Hans": [
           [
             "连怎么读",
             "都准备好了"
-          ]
-        ],
-        "en": [
-          [
-            "Ready for AI"
           ]
         ]
       },
       "view": "same sleeve / source-page fan with paired index / reading guidance",
       "display": {
+        "en": [
+          [
+            "Reading rules",
+            "included"
+          ]
+        ],
         "zh-Hans": [
           [
             "连怎么读",
             "都准备好了"
           ]
-        ],
-        "en": [
-          [
-            "Ready for AI"
-          ]
         ]
       },
-      "object_labels": null
+      "object_labels": null,
+      "locale_frames": {
+        "en": [
+          504,
+          672
+        ],
+        "zh-Hans": [
+          518,
+          675
+        ]
+      }
     },
     {
       "id": 5,
       "name": "external-handoff",
       "in": 672,
       "out": 843,
-      "copy": {},
+      "copy": {
+        "en": [
+          [
+            "Hand it to AI"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "交给 AI"
+          ]
+        ]
+      },
       "view": "right outgoing ZIP / left official provider / processing",
-      "display": null,
-      "object_labels": null
+      "display": {
+        "en": [
+          [
+            "Hand it to AI"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "交给 AI"
+          ]
+        ]
+      },
+      "object_labels": null,
+      "locale_frames": {
+        "en": [
+          672,
+          843
+        ],
+        "zh-Hans": [
+          675,
+          830
+        ]
+      }
     },
     {
       "id": 6,
@@ -250,18 +325,53 @@
       "in": 843,
       "out": 1050,
       "copy": {
-        "zh-Hans": [
-          "讲座总结",
-          "讲座报告"
-        ],
         "en": [
-          "Lecture summary",
-          "Lecture report"
+          [
+            "Lecture summary"
+          ],
+          [
+            "Lecture report"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "讲座总结"
+          ],
+          [
+            "讲座报告"
+          ]
         ]
       },
       "view": "bounded blurred words / same reply grows into readable report",
-      "display": null,
-      "object_labels": null
+      "display": {
+        "en": [
+          [
+            "Lecture summary"
+          ],
+          [
+            "Lecture report"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "讲座总结"
+          ],
+          [
+            "讲座报告"
+          ]
+        ]
+      },
+      "object_labels": null,
+      "locale_frames": {
+        "en": [
+          843,
+          1050
+        ],
+        "zh-Hans": [
+          830,
+          1057
+        ]
+      }
     },
     {
       "id": 7,
@@ -269,35 +379,53 @@
       "in": 1050,
       "out": 1230,
       "copy": {
-        "zh-Hans": [
-          [
-            "留好资料",
-            "再清相册"
-          ]
-        ],
         "en": [
           [
-            "Keep the files",
+            "Save the files"
+          ],
+          [
             "Clear the photos"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "资料留好"
+          ],
+          [
+            "安心清理"
           ]
         ]
       },
       "view": "saved cue first / same source photos depart / original P01–P08 return",
       "display": {
-        "zh-Hans": [
-          [
-            "留好资料",
-            "再清相册"
-          ]
-        ],
         "en": [
           [
-            "Keep the files",
+            "Save the files"
+          ],
+          [
             "Clear the photos"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "资料留好"
+          ],
+          [
+            "安心清理"
           ]
         ]
       },
-      "object_labels": null
+      "object_labels": null,
+      "locale_frames": {
+        "en": [
+          1050,
+          1230
+        ],
+        "zh-Hans": [
+          1057,
+          1230
+        ]
+      }
     },
     {
       "id": 8,
@@ -333,17 +461,27 @@
           ]
         ]
       },
-      "object_labels": null
+      "object_labels": null,
+      "locale_frames": {
+        "en": [
+          1230,
+          1560
+        ],
+        "zh-Hans": [
+          1230,
+          1560
+        ]
+      }
     }
   ],
   "hero_frames": [
     120,
-    299,
-    420,
-    582,
-    786,
-    990,
-    1158,
+    313,
+    434,
+    537,
+    717,
+    968,
+    1164,
     1230
   ],
   "audio_cues": [
@@ -384,7 +522,7 @@
       "name": "opening revision arranged accent/resolve"
     }
   ],
-  "saved_confirm_frame": 1071,
+  "saved_confirm_frame": 1083,
   "first_departure_frame": 1113,
   "slogan_settled_by_frame": 1230,
   "source_summary": {
@@ -589,18 +727,18 @@
     "badge_qr_story_and_brand_must_appear_together": true
   },
   "voice_sync_adjustments": {
-    "source_departure_seconds": 18.55,
-    "measurement": "review/director-r3-opening/VOICE_ASR.json",
-    "reason": "Same saved-before-source-departure sequence; new early voice placement measured from complete N01."
+    "measurement": "review/director-r3-caption-male/VOICE_ASR.json",
+    "locale_timing": "R3_CAPTION_SYNC.json",
+    "full_voice_preserved": true
   },
-  "production_status": "OWNER_OPENING_COMPLETE_REAL_BILINGUAL_NARRATION",
-  "narration_actual": "review/director-r3-opening/VOICE_TIMING.json",
-  "narration_original_vs_actual": "All cues retain complete specified text. N01 regenerated; N02-N07 waveforms reused and early placements retimed.",
+  "production_status": "FULL_CHINESE_STOCK_MALE_VOICE_AND_MEASURED_KEY_CAPTIONS",
+  "narration_actual": "review/director-r3-caption-male/VOICE_TIMING.json",
+  "narration_original_vs_actual": "English original WAVs/mix/placements unchanged. All seven Chinese stock Dylan phrases newly generated; no atempo, no fixed duration target. Same spoken script.",
   "cleanup_type_revision": "Actual encoded inspection found white-on-white S07. Broad soft negative-space light mask added behind type/saved cue, removed at20.5. Both films re-rendered.",
   "latest_director_cleanup_sha": "6a4d8c5",
   "main_refetched_before_final_push": "13e943a",
   "public_test_seams": "REMOVED; invisible QA hooks retained",
-  "owner_revision_base_sha": "a5a2e8bdab27c04bd0feb5636f0a649f29eebfe8",
+  "owner_revision_base_sha": "352d4dcacb922b253c63f5a3135868268fad3f3e",
   "opening": "same P01–P08 first; lecture pages fly in and scatter; full bilingual opening",
   "early_time_mapping": [
     [
@@ -636,7 +774,128 @@
       26
     ]
   ],
-  "review_output": "review/director-r3-opening",
-  "tested_render_source_sha": "2b682774ab422d598c9a86a2f784245ee1c4f230",
-  "owner_revision_latest_main_fetched": "df7755abea679fc776959fa0843c625428034541"
+  "review_output": "review/director-r3-caption-male",
+  "owner_revision_latest_main_fetched": "df7755abea679fc776959fa0843c625428034541",
+  "locale_timings": {
+    "en": {
+      "duration": 26,
+      "frames": 1560,
+      "end_card": 20.5,
+      "mix": "assets/sound/r3-opening-mix-en.wav",
+      "knots": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          4.2
+        ],
+        [
+          5,
+          5.6
+        ],
+        [
+          7.5,
+          8.4
+        ],
+        [
+          10.5,
+          11.2
+        ],
+        [
+          13.7,
+          14.05
+        ],
+        [
+          17.5,
+          17.5
+        ],
+        [
+          26,
+          26
+        ]
+      ]
+    },
+    "zh-Hans": {
+      "duration": 26.0,
+      "frames": 1560,
+      "end_card": 20.5,
+      "mix": "assets/sound/r3-caption-male-mix-zh-Hans.wav",
+      "knots": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          4.2
+        ],
+        [
+          5,
+          5.390000000000001
+        ],
+        [
+          7.5,
+          8.625
+        ],
+        [
+          10.5,
+          11.25
+        ],
+        [
+          13.7,
+          13.83
+        ],
+        [
+          14.5,
+          14.61
+        ],
+        [
+          15.27,
+          15.43
+        ],
+        [
+          17.5,
+          17.615000000000002
+        ],
+        [
+          18.55,
+          18.645
+        ],
+        [
+          20.5,
+          20.5
+        ],
+        [
+          26,
+          26.0
+        ]
+      ]
+    }
+  },
+  "caption_policy": "Key semantic display words at measured speech, not a full transcript; same display family/weight through CTA",
+  "caption_timing_authority": "R3_CAPTION_SYNC.json",
+  "hero_frames_by_locale": {
+    "en": [
+      120,
+      313,
+      434,
+      537,
+      717,
+      968,
+      1164,
+      1230
+    ],
+    "zh-Hans": [
+      120,
+      304,
+      440,
+      550,
+      717,
+      969,
+      1167,
+      1230
+    ]
+  }
 }

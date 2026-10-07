@@ -1,0 +1,647 @@
+{
+  "authority": "OWNER_CAPTION_MALE_2026-10-07.md",
+  "status": "MEASURED",
+  "fps": 60,
+  "locales": {
+    "en": {
+      "duration": 26,
+      "frames": 1560,
+      "end_card": 20.5,
+      "mix": "assets/sound/r3-opening-mix-en.wav",
+      "knots": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          4.2
+        ],
+        [
+          5,
+          5.6
+        ],
+        [
+          7.5,
+          8.4
+        ],
+        [
+          10.5,
+          11.2
+        ],
+        [
+          13.7,
+          14.05
+        ],
+        [
+          17.5,
+          17.5
+        ],
+        [
+          26,
+          26
+        ]
+      ],
+      "captions": [
+        {
+          "id": "cap-hook-life",
+          "source": "N01",
+          "lines": [
+            "Lecture photos",
+            "everywhere"
+          ],
+          "kind": "hook",
+          "start": 0.15,
+          "end": 1.33,
+          "line_times": [
+            0.15,
+            0.15
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-hook-ai",
+          "source": "N01",
+          "lines": [
+            "Too scattered",
+            "for AI"
+          ],
+          "kind": "hook",
+          "start": 1.8900000000000001,
+          "end": 3.5100000000000002,
+          "line_times": [
+            1.8900000000000001,
+            1.8900000000000001
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-brand-name",
+          "source": "N02",
+          "lines": [
+            "Lecture Asset"
+          ],
+          "kind": "top",
+          "start": 4.3,
+          "end": 5.16,
+          "line_times": [
+            4.3
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-files",
+          "source": "N02",
+          "lines": [
+            "A PDF for you",
+            "A ZIP for AI"
+          ],
+          "kind": "top",
+          "start": 5.38,
+          "end": 8.454083333333331,
+          "line_times": [
+            5.38,
+            7.02
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-read",
+          "source": "N03",
+          "lines": [
+            "Reading rules",
+            "included"
+          ],
+          "kind": "top",
+          "start": 8.55,
+          "end": 10.091833333333334,
+          "line_times": [
+            8.55,
+            8.55
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-handoff",
+          "source": "N04",
+          "lines": [
+            "Hand it to AI"
+          ],
+          "kind": "top",
+          "start": 11.45,
+          "end": 13.467458333333331,
+          "line_times": [
+            11.45
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-summary",
+          "source": "N05",
+          "lines": [
+            "Lecture summary"
+          ],
+          "kind": "top",
+          "start": 13.790000000000001,
+          "end": 14.51,
+          "line_times": [
+            13.790000000000001
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-report",
+          "source": "N05",
+          "lines": [
+            "Lecture report"
+          ],
+          "kind": "top",
+          "start": 14.850000000000001,
+          "end": 16.250666666666667,
+          "line_times": [
+            14.850000000000001
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-saved-copy",
+          "source": "N06",
+          "lines": [
+            "Save the files"
+          ],
+          "kind": "top",
+          "start": 17.7,
+          "end": 18.52,
+          "line_times": [
+            17.7
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-clear-copy",
+          "source": "N06",
+          "lines": [
+            "Clear the photos"
+          ],
+          "kind": "top",
+          "start": 18.62,
+          "end": 19.62,
+          "line_times": [
+            18.62
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        }
+      ],
+      "review_frames": [
+        0,
+        9,
+        15,
+        21,
+        22,
+        27,
+        30,
+        45,
+        60,
+        79,
+        90,
+        113,
+        120,
+        125,
+        127,
+        128,
+        131,
+        150,
+        180,
+        210,
+        240,
+        258,
+        270,
+        271,
+        276,
+        294,
+        309,
+        313,
+        323,
+        332,
+        336,
+        341,
+        433,
+        434,
+        503,
+        507,
+        513,
+        525,
+        526,
+        531,
+        537,
+        577,
+        605,
+        661,
+        687,
+        699,
+        700,
+        705,
+        717,
+        747,
+        800,
+        807,
+        827,
+        832,
+        839,
+        841,
+        845,
+        870,
+        891,
+        903,
+        904,
+        909,
+        941,
+        968,
+        974,
+        996,
+        1049,
+        1062,
+        1074,
+        1075,
+        1080,
+        1083,
+        1111,
+        1112,
+        1117,
+        1129,
+        1130,
+        1135,
+        1152,
+        1164,
+        1177,
+        1206,
+        1229,
+        1230,
+        1231,
+        1242,
+        1559
+      ],
+      "hero_frames": [
+        120,
+        313,
+        434,
+        537,
+        717,
+        968,
+        1164,
+        1230
+      ],
+      "handoff_frames": [
+        747,
+        800,
+        832,
+        968
+      ],
+      "report_start": 15.003289473684212,
+      "report_ready": 15.475394736842105,
+      "saved_full": 18.05,
+      "departure_start": 18.55,
+      "influx_complete": 4,
+      "middle_start": 8.4,
+      "middle_end": 17.5,
+      "sound_accents": [
+        0.0,
+        4.2,
+        5.6,
+        8.4,
+        11.2,
+        14.05,
+        15.475394736842105,
+        17.5,
+        20.5
+      ]
+    },
+    "zh-Hans": {
+      "duration": 26.0,
+      "frames": 1560,
+      "end_card": 20.5,
+      "mix": "assets/sound/r3-caption-male-mix-zh-Hans.wav",
+      "knots": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          4.2
+        ],
+        [
+          5,
+          5.390000000000001
+        ],
+        [
+          7.5,
+          8.625
+        ],
+        [
+          10.5,
+          11.25
+        ],
+        [
+          13.7,
+          13.83
+        ],
+        [
+          14.5,
+          14.61
+        ],
+        [
+          15.27,
+          15.43
+        ],
+        [
+          17.5,
+          17.615000000000002
+        ],
+        [
+          18.55,
+          18.645
+        ],
+        [
+          20.5,
+          20.5
+        ],
+        [
+          26,
+          26.0
+        ]
+      ],
+      "captions": [
+        {
+          "id": "cap-hook-life",
+          "source": "N01",
+          "lines": [
+            "照片塞满相册"
+          ],
+          "kind": "hook",
+          "start": 0.15,
+          "end": 1.49,
+          "line_times": [
+            0.15
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-hook-ai",
+          "source": "N01",
+          "lines": [
+            "交给 AI",
+            "又太麻烦"
+          ],
+          "kind": "hook",
+          "start": 1.49,
+          "end": 3.57,
+          "line_times": [
+            1.49,
+            1.49
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-brand-name",
+          "source": "N02",
+          "lines": [
+            "Lecture Asset"
+          ],
+          "kind": "top",
+          "start": 4.3,
+          "end": 5.3999999999999995,
+          "line_times": [
+            4.3
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-files",
+          "source": "N02",
+          "lines": [
+            "一份 PDF",
+            "一份 AI ZIP"
+          ],
+          "kind": "top",
+          "start": 5.74,
+          "end": 8.395,
+          "line_times": [
+            5.74,
+            7.119999999999999
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-read",
+          "source": "N03",
+          "lines": [
+            "连怎么读",
+            "都准备好了"
+          ],
+          "kind": "top",
+          "start": 8.775,
+          "end": 10.879999999999999,
+          "line_times": [
+            8.775,
+            8.775
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-handoff",
+          "source": "N04",
+          "lines": [
+            "交给 AI"
+          ],
+          "kind": "top",
+          "start": 11.45,
+          "end": 12.584999999999999,
+          "line_times": [
+            11.45
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-summary",
+          "source": "N05",
+          "lines": [
+            "讲座总结"
+          ],
+          "kind": "top",
+          "start": 13.83,
+          "end": 14.73,
+          "line_times": [
+            13.83
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-report",
+          "source": "N05",
+          "lines": [
+            "讲座报告"
+          ],
+          "kind": "top",
+          "start": 14.91,
+          "end": 16.015,
+          "line_times": [
+            14.91
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-saved-copy",
+          "source": "N06",
+          "lines": [
+            "资料留好"
+          ],
+          "kind": "top",
+          "start": 17.815,
+          "end": 18.595000000000002,
+          "line_times": [
+            17.815
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        },
+        {
+          "id": "cap-clear-copy",
+          "source": "N06",
+          "lines": [
+            "安心清理"
+          ],
+          "kind": "top",
+          "start": 18.595000000000002,
+          "end": 19.735000000000003,
+          "line_times": [
+            18.595000000000002
+          ],
+          "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+        }
+      ],
+      "review_frames": [
+        0,
+        9,
+        15,
+        21,
+        22,
+        27,
+        30,
+        45,
+        60,
+        89,
+        90,
+        101,
+        103,
+        104,
+        107,
+        120,
+        150,
+        180,
+        210,
+        214,
+        240,
+        258,
+        270,
+        271,
+        276,
+        288,
+        304,
+        320,
+        323,
+        344,
+        358,
+        362,
+        439,
+        440,
+        503,
+        517,
+        526,
+        538,
+        540,
+        545,
+        550,
+        586,
+        652,
+        665,
+        687,
+        699,
+        700,
+        705,
+        717,
+        743,
+        754,
+        791,
+        820,
+        830,
+        842,
+        843,
+        848,
+        883,
+        895,
+        907,
+        908,
+        913,
+        939,
+        960,
+        969,
+        998,
+        1056,
+        1069,
+        1081,
+        1082,
+        1087,
+        1089,
+        1115,
+        1116,
+        1118,
+        1128,
+        1129,
+        1134,
+        1156,
+        1167,
+        1184,
+        1207,
+        1229,
+        1230,
+        1231,
+        1242,
+        1559
+      ],
+      "hero_frames": [
+        120,
+        304,
+        440,
+        550,
+        717,
+        969,
+        1167,
+        1230
+      ],
+      "handoff_frames": [
+        743,
+        791,
+        820,
+        969
+      ],
+      "report_start": 14.876233766233765,
+      "report_ready": 15.43,
+      "saved_full": 18.15452380952381,
+      "departure_start": 18.645,
+      "influx_complete": 4,
+      "middle_start": 8.625,
+      "middle_end": 17.615000000000002,
+      "sound_accents": [
+        0.0,
+        4.2,
+        5.390000000000001,
+        8.625,
+        11.25,
+        13.83,
+        15.43,
+        17.615000000000002,
+        20.5
+      ]
+    }
+  }
+}

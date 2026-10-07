@@ -1,3 +1,5 @@
+Current owner authority: OWNER_CAPTION_MALE_2026-10-07.md. English voice unchanged; all Chinese voice replaced with stock male. Key in-frame captions follow measured speech. Length/CTA time may extend. Output review/director-r3-caption-male/. Historical fixed26s/1230 below is superseded for the Chinese revision.
+
 # V2 — current director task
 
 ## Execute now

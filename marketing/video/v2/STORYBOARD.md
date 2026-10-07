@@ -1,18 +1,9 @@
-## Current owner opening amendment
+# Current owner revision — key captions + Chinese male narration
 
-OWNER_OPENING_2026-10-07.md supersedes the old opening/timing listed below. First frame shows only P01–P08; lecture pages arrive and displace them. Complete bilingual N01. Updated active intervals:0–4.2 /4.2–5.6 /5.6–8.4 /8.4–11.2 /11.2–14.05 /14.05–17.5 /17.5–20.5 /20.5–26s. New review/director-r3-opening/ retains prior R3 delivery unchanged. Font/provider/material/cleanup/CTA rules remain.
+Authority: OWNER_CAPTION_MALE_2026-10-07.md + R3_CAPTION_SYNC.json. Previous director instructions/cuts are historical where they conflict. English accepted voice, mix and visual-motion timing remain unchanged. All seven Chinese cues are newly synthesized in stock Dylan; no speedup or phrase truncation. Actual spoken duration determines timing. Both measured films happen to fit 26s /1560frames /60fps without compression; duration is not a synthesis target.
 
-# R3 storyboard / actual-frame review
+Same persistent P01–P08 / L01–L12, neutral paper sleeve, same AI dialog/report and simultaneous end card. Added text uses existing Source Han Bold / Inter Display Semibold, without transcript bars or word-bounce. Main copy occupies negative space; PDF and AI ZIP lines appear at their respective spoken nouns; handoff has an explicit “交给 AI” / “Hand it to AI”.
 
-Authority: DIRECTOR_R3.md and R3_COPY_AUDIO.json. Existing photography, paper materials and ZIP→AI→report motion remain; new narration drives phrase timing, not a burned-in full transcript.
+Current output: review/director-r3-caption-male/. Older phase-a, director-r1/r2/r3 and director-r3-opening media remain unchanged. No App, Packages, screenshot, ASC, TestFlight, other-PR or publication work.
 
-- S01 120f: Source Han Bold / Inter Display Semibold hook in the reserved photo-space gap.
-- S02 299f: same display family/weight; selected chronology and following camera.
-- S03 420f: same separate PDF / AI ZIP materials, bold two-line labels.
-- S04 582f: brief display headline, lighter secondary reading label; same sleeve unfolds its page/index/reading-rule relationships without public-facing filenames.
-- S05 786f: official provider receives the right-side ZIP; actual language-matched narration.
-- S06 990f: same receiver reply expanded to report; clear hold15.48–17.5s.
-- S07 1158f: saved-before-cleanup; same original P01–P08 return.
-- S08 **1230f**: slogan, app icon/name, badge, search cue and QR fully composed in the same first frame. No20.8s/22.5s child delays.
-
-TYPE_CONTACT compares opening/middle/ending extracted from the encoded movies. Check actual ending frames1229/1230/1231/1242/1350/1559, decodeQR from1231 in both1080/720 versions. R1/R2 sheets remain historical; none of these JPEGs is an animation input.
+Review the actual encoded CAPTION_CONTACT_EN/ZH (ten keyword windows), CONTACT_SHEET_EN/ZH (eight shots), HANDOFF_STRIP_EN/ZH and END_CARD_ONSET_EN/ZH. All are extracted from MP4, never animation inputs. Native snapshots and arbitrary seek check each keyword entry/hold/exit plus the second file line's timed reveal. QA verifies loaded font glyph family/weight, safe bounds, no clipping, sample-level intact narration, full decode and picture/timeline consistency. Subjective voice tone and director taste remain owner review; signal checks are not a listening PASS.

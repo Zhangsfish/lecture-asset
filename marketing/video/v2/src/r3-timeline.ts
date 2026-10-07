@@ -1,4 +1,6 @@
 import {gsap} from "gsap";
+import {sync} from "./r3-sync";
+const timing=sync.locales[document.querySelector<HTMLElement>("#root")!.dataset.locale!];
 // One persistent scene and one clock. Registration is synchronous for HF preflight.
 const w=window as unknown as {__timelines:Record<string,gsap.core.Timeline>;__directorReady:boolean;__assetReadiness:unknown};
 const tl=gsap.timeline({paused:true,defaults:{ease:"power3.inOut"}});
@@ -17,9 +19,6 @@ gsap.set("#zip",{x:490,y:940,z:80,rotationZ:-5});
 gsap.set("#zip",{transformOrigin:"0 0"});
 gsap.set("#guide",{x:100,y:1215,z:0});gsap.set("#mapping",{x:0,y:0,z:0});
 tl.to({}, {duration:26},0);
-const copy=(s:string,start:number,end:number)=>tl.fromTo(s,{opacity:0,x:-4,y:0,clipPath:"inset(0 100% 0 0)"},{opacity:1,x:0,y:0,clipPath:"inset(0 0% 0 0)",duration:.23,ease:"power2.out"},start).to(s,{opacity:0,y:-6,duration:.18},end-.18);
-copy("#hook-0",.70,1.70);copy("#hook-1",1.78,2.96);copy("#selected",192/60,291/60);copy("#reading",462/60,618/60);copy("#clear",1062/60,1212/60);
-tl.to("#read-secondary",{opacity:1,duration:.23},7.9).to("#read-secondary",{opacity:0,duration:.18},10.12);
 // Same twelve source objects fly from outside the frame and displace the life photos.
 lectureStart.forEach(([x,y],i)=>{
  const edge=i%4;const fromX=edge===0?-900:edge===1?1320:x+(i%2?360:-320);const fromY=edge===2?-650:edge===3?2160:y;
@@ -63,7 +62,7 @@ tl.to("#chat",{opacity:1,duration:.33},10.5).to("#zip",{x:575,y:582,z:0,rotation
  .to("#reply",{y:-55,height:740,rotationY:0,rotationX:0,duration:.8},14.5)
  .fromTo("#report",{opacity:0,y:14},{opacity:1,y:0,duration:.52},14.75)
  .to("#zip",{x:629,y:550,scale:.6,duration:.6},14.5);
-// No large caption competes with the readable two-second result hold.
+// Key words occupy header negative space, outside the readable report.
 tl.to("#chat",{opacity:0,y:180,scale:.85,duration:.45},17.5)
  .to("#cleanup-space",{opacity:1,duration:.15},17.5)
  .to("#zip",{x:720,y:1710,scale:.3,opacity:.65,duration:.4},17.5)
@@ -75,10 +74,19 @@ lectureStart.forEach(([x,y],i)=>tl.set(id("L",i),{x,y,z:40+i*14,scale:1,rotation
 lifeEnd.forEach(([x,y],i)=>tl.to(id("P",i),{x,y,z:0,scale:.75,rotationZ:0,duration:1.15,ease:"sine.inOut"},18.8+i*.014));
 tl.to("#saved",{opacity:0,duration:.18},20.1).to("#zip,#pdf",{opacity:0,duration:.35},20.1)
  .set("#cleanup-space",{opacity:0},20.5).set("#ending",{opacity:1},20.5);
-// Owner-approved local retiming gives intact narration room; last8.5seconds stay fixed.
-const knots=[[0,0],[3,4.2],[5,5.6],[7.5,8.4],[10.5,11.2],[13.7,14.05],[17.5,17.5],[26,26]];
+// Same motion paths; full natural male speech determines Chinese timing.
+// Accepted English motion and mix retain exact previous timings.
+const knots=timing.knots;
 const retime=(time:number)=>{for(let i=1;i<knots.length;i++){if(time<=knots[i][0]){const [a,b]=knots[i-1], [c,d]=knots[i];return b+(time-a)*(d-b)/(c-a);}}return time;};
 for(const tween of tl.getChildren(false,true,false)){const start=tween.startTime(),end=start+tween.duration();tween.startTime(retime(start));tween.duration(retime(end)-retime(start));}
+for(const c of timing.captions){
+ const s="#"+c.id;gsap.set(s,{opacity:0,x:-4,y:0});
+ tl.to(s,{opacity:1,x:0,duration:Math.min(.14,(c.end-c.start)/3),ease:"power2.out"},c.start)
+   .to(s,{opacity:0,y:-4,duration:.10,ease:"power1.in"},c.end-.1);
+ c.line_times.forEach((at,i)=>{if(at>c.start+.01){gsap.set(s+"-line-"+i,{opacity:0});tl.to(s+"-line-"+i,{opacity:1,duration:.12},at);}});
+}
+const reading=timing.captions.find(c=>c.id==="cap-read")!;
+tl.to("#read-secondary",{opacity:1,duration:.16},reading.start+.2).to("#read-secondary",{opacity:0,duration:.1},reading.end-.1);
 tl.seek(0,false);
 async function assets(){
  await Promise.all([document.fonts.load("700 88px SourceHan","把讲座交给 AI 相册自己"),document.fonts.load("400 34px SourceHan","资料已保存"),document.fonts.load("600 92px Inter","Hand the lecture to AI"),document.fonts.load("400 34px Inter","Lecture summary")]);

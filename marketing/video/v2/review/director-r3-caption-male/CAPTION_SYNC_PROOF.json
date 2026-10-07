@@ -1,0 +1,306 @@
+{
+  "status": "MEASURED_SOURCE_TIMINGS",
+  "english_accepted_mix_sha256": "2811129e7557e7034f534f27a50b1822f20eb0786b408294818ee3a3d26a7f8b",
+  "captions": {
+    "en": [
+      {
+        "id": "cap-hook-life",
+        "source": "N01",
+        "lines": [
+          "Lecture photos",
+          "everywhere"
+        ],
+        "kind": "hook",
+        "start": 0.15,
+        "end": 1.33,
+        "line_times": [
+          0.15,
+          0.15
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-hook-ai",
+        "source": "N01",
+        "lines": [
+          "Too scattered",
+          "for AI"
+        ],
+        "kind": "hook",
+        "start": 1.8900000000000001,
+        "end": 3.5100000000000002,
+        "line_times": [
+          1.8900000000000001,
+          1.8900000000000001
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-brand-name",
+        "source": "N02",
+        "lines": [
+          "Lecture Asset"
+        ],
+        "kind": "top",
+        "start": 4.3,
+        "end": 5.16,
+        "line_times": [
+          4.3
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-files",
+        "source": "N02",
+        "lines": [
+          "A PDF for you",
+          "A ZIP for AI"
+        ],
+        "kind": "top",
+        "start": 5.38,
+        "end": 8.454083333333331,
+        "line_times": [
+          5.38,
+          7.02
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-read",
+        "source": "N03",
+        "lines": [
+          "Reading rules",
+          "included"
+        ],
+        "kind": "top",
+        "start": 8.55,
+        "end": 10.091833333333334,
+        "line_times": [
+          8.55,
+          8.55
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-handoff",
+        "source": "N04",
+        "lines": [
+          "Hand it to AI"
+        ],
+        "kind": "top",
+        "start": 11.45,
+        "end": 13.467458333333331,
+        "line_times": [
+          11.45
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-summary",
+        "source": "N05",
+        "lines": [
+          "Lecture summary"
+        ],
+        "kind": "top",
+        "start": 13.790000000000001,
+        "end": 14.51,
+        "line_times": [
+          13.790000000000001
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-report",
+        "source": "N05",
+        "lines": [
+          "Lecture report"
+        ],
+        "kind": "top",
+        "start": 14.850000000000001,
+        "end": 16.250666666666667,
+        "line_times": [
+          14.850000000000001
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-saved-copy",
+        "source": "N06",
+        "lines": [
+          "Save the files"
+        ],
+        "kind": "top",
+        "start": 17.7,
+        "end": 18.52,
+        "line_times": [
+          17.7
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-clear-copy",
+        "source": "N06",
+        "lines": [
+          "Clear the photos"
+        ],
+        "kind": "top",
+        "start": 18.62,
+        "end": 19.62,
+        "line_times": [
+          18.62
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      }
+    ],
+    "zh-Hans": [
+      {
+        "id": "cap-hook-life",
+        "source": "N01",
+        "lines": [
+          "照片塞满相册"
+        ],
+        "kind": "hook",
+        "start": 0.15,
+        "end": 1.49,
+        "line_times": [
+          0.15
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-hook-ai",
+        "source": "N01",
+        "lines": [
+          "交给 AI",
+          "又太麻烦"
+        ],
+        "kind": "hook",
+        "start": 1.49,
+        "end": 3.57,
+        "line_times": [
+          1.49,
+          1.49
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-brand-name",
+        "source": "N02",
+        "lines": [
+          "Lecture Asset"
+        ],
+        "kind": "top",
+        "start": 4.3,
+        "end": 5.3999999999999995,
+        "line_times": [
+          4.3
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-files",
+        "source": "N02",
+        "lines": [
+          "一份 PDF",
+          "一份 AI ZIP"
+        ],
+        "kind": "top",
+        "start": 5.74,
+        "end": 8.395,
+        "line_times": [
+          5.74,
+          7.119999999999999
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-read",
+        "source": "N03",
+        "lines": [
+          "连怎么读",
+          "都准备好了"
+        ],
+        "kind": "top",
+        "start": 8.775,
+        "end": 10.879999999999999,
+        "line_times": [
+          8.775,
+          8.775
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-handoff",
+        "source": "N04",
+        "lines": [
+          "交给 AI"
+        ],
+        "kind": "top",
+        "start": 11.45,
+        "end": 12.584999999999999,
+        "line_times": [
+          11.45
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-summary",
+        "source": "N05",
+        "lines": [
+          "讲座总结"
+        ],
+        "kind": "top",
+        "start": 13.83,
+        "end": 14.73,
+        "line_times": [
+          13.83
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-report",
+        "source": "N05",
+        "lines": [
+          "讲座报告"
+        ],
+        "kind": "top",
+        "start": 14.91,
+        "end": 16.015,
+        "line_times": [
+          14.91
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-saved-copy",
+        "source": "N06",
+        "lines": [
+          "资料留好"
+        ],
+        "kind": "top",
+        "start": 17.815,
+        "end": 18.595000000000002,
+        "line_times": [
+          17.815
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      },
+      {
+        "id": "cap-clear-copy",
+        "source": "N06",
+        "lines": [
+          "安心清理"
+        ],
+        "kind": "top",
+        "start": 18.595000000000002,
+        "end": 19.735000000000003,
+        "line_times": [
+          18.595000000000002
+        ],
+        "alignment": "Actual independently recognized word/phrase interval; emphasis copy only"
+      }
+    ]
+  },
+  "not_full_transcript": true,
+  "no_forced_duration": true
+}

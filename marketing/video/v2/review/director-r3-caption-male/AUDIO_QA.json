@@ -1,0 +1,85 @@
+{
+  "arrangement": "New original 132 BPM drums, midrange bass, short controlled accent; deterministic seed 1808; R2 score not loaded",
+  "bpm": 132,
+  "time_signature": "4/4",
+  "first_attack_seconds": 0,
+  "accent_events": [
+    {
+      "frame": 0,
+      "seconds": 0.0,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 252,
+      "seconds": 4.2,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 323,
+      "seconds": 5.390000000000001,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 518,
+      "seconds": 8.625,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 675,
+      "seconds": 11.25,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 830,
+      "seconds": 13.83,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 926,
+      "seconds": 15.43,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 1057,
+      "seconds": 17.615000000000002,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 1230,
+      "seconds": 20.5,
+      "event": "arranged accent/resolve, original synthesized audio"
+    }
+  ],
+  "voice_real": true,
+  "languages": [
+    {
+      "locale": "zh-Hans",
+      "mix": "assets/sound/r3-caption-male-mix-zh-Hans.wav",
+      "sha256": "5e6106c7dc267130c830596a28e0709e6f1a0ac843f63d679b9c0740f20ff24d",
+      "loudness_lufs": -14.86,
+      "true_peak_dbtp": -1.4,
+      "applied_linear_gain_db": 8.09,
+      "music_duck_db": 7.5,
+      "voice_files": 7,
+      "source_voice_sample_rate": 24000,
+      "mix_sample_rate": 48000,
+      "loudness_metrics": {
+        "input_i": "-14.86",
+        "input_tp": "-1.40",
+        "input_lra": "4.30",
+        "input_thresh": "-24.95",
+        "output_i": "-15.43",
+        "output_tp": "-1.57",
+        "output_lra": "2.60",
+        "output_thresh": "-25.49",
+        "normalization_type": "dynamic",
+        "target_offset": "0.93"
+      },
+      "subjective_listening": "NOT_RUN"
+    }
+  ],
+  "english_accepted_mix": "assets/sound/r3-opening-mix-en.wav (UNCHANGED)",
+  "duration_seconds": 26.0,
+  "subjective_listening": "NOT_RUN",
+  "no_purchase_or_external_music": true
+}
