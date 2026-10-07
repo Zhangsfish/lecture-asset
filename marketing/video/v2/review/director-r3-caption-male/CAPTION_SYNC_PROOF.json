@@ -1,5 +1,5 @@
 {
-  "status": "MEASURED_SOURCE_TIMINGS",
+  "status": "PASS_ACTUAL_RENDER_AND_SPEECH_VERIFIED",
   "english_accepted_mix_sha256": "2811129e7557e7034f534f27a50b1822f20eb0786b408294818ee3a3d26a7f8b",
   "captions": {
     "en": [
@@ -302,5 +302,393 @@
     ]
   },
   "not_full_transcript": true,
-  "no_forced_duration": true
+  "no_forced_duration": true,
+  "actual_dom_checks": {
+    "en": [
+      {
+        "id": "cap-hook-life",
+        "spoken_source": "N01",
+        "start": 0.15,
+        "end": 1.33,
+        "state": {
+          "opacity": 1,
+          "text": "Lecture photoseverywhere",
+          "lines": [
+            {
+              "text": "Lecture photos",
+              "opacity": 1
+            },
+            {
+              "text": "everywhere",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-hook-ai",
+        "spoken_source": "N01",
+        "start": 1.8900000000000001,
+        "end": 3.5100000000000002,
+        "state": {
+          "opacity": 1,
+          "text": "Too scatteredfor AI",
+          "lines": [
+            {
+              "text": "Too scattered",
+              "opacity": 1
+            },
+            {
+              "text": "for AI",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-brand-name",
+        "spoken_source": "N02",
+        "start": 4.3,
+        "end": 5.16,
+        "state": {
+          "opacity": 1,
+          "text": "Lecture Asset",
+          "lines": [
+            {
+              "text": "Lecture Asset",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-files",
+        "spoken_source": "N02",
+        "start": 5.38,
+        "end": 8.454083333333331,
+        "state": {
+          "opacity": 1,
+          "text": "A PDF for youA ZIP for AI",
+          "lines": [
+            {
+              "text": "A PDF for you",
+              "opacity": 1
+            },
+            {
+              "text": "A ZIP for AI",
+              "opacity": 0
+            }
+          ]
+        },
+        "lineChecks": [
+          {
+            "line": 1,
+            "before": 0,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": "cap-read",
+        "spoken_source": "N03",
+        "start": 8.55,
+        "end": 10.091833333333334,
+        "state": {
+          "opacity": 1,
+          "text": "Reading rulesincluded",
+          "lines": [
+            {
+              "text": "Reading rules",
+              "opacity": 1
+            },
+            {
+              "text": "included",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-handoff",
+        "spoken_source": "N04",
+        "start": 11.45,
+        "end": 13.467458333333331,
+        "state": {
+          "opacity": 1,
+          "text": "Hand it to AI",
+          "lines": [
+            {
+              "text": "Hand it to AI",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-summary",
+        "spoken_source": "N05",
+        "start": 13.790000000000001,
+        "end": 14.51,
+        "state": {
+          "opacity": 1,
+          "text": "Lecture summary",
+          "lines": [
+            {
+              "text": "Lecture summary",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-report",
+        "spoken_source": "N05",
+        "start": 14.850000000000001,
+        "end": 16.250666666666667,
+        "state": {
+          "opacity": 1,
+          "text": "Lecture report",
+          "lines": [
+            {
+              "text": "Lecture report",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-saved-copy",
+        "spoken_source": "N06",
+        "start": 17.7,
+        "end": 18.52,
+        "state": {
+          "opacity": 1,
+          "text": "Save the files",
+          "lines": [
+            {
+              "text": "Save the files",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-clear-copy",
+        "spoken_source": "N06",
+        "start": 18.62,
+        "end": 19.62,
+        "state": {
+          "opacity": 1,
+          "text": "Clear the photos",
+          "lines": [
+            {
+              "text": "Clear the photos",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      }
+    ],
+    "zh-Hans": [
+      {
+        "id": "cap-hook-life",
+        "spoken_source": "N01",
+        "start": 0.15,
+        "end": 1.49,
+        "state": {
+          "opacity": 1,
+          "text": "照片塞满相册",
+          "lines": [
+            {
+              "text": "照片塞满相册",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-hook-ai",
+        "spoken_source": "N01",
+        "start": 1.49,
+        "end": 3.57,
+        "state": {
+          "opacity": 1,
+          "text": "交给 AI又太麻烦",
+          "lines": [
+            {
+              "text": "交给 AI",
+              "opacity": 1
+            },
+            {
+              "text": "又太麻烦",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-brand-name",
+        "spoken_source": "N02",
+        "start": 4.3,
+        "end": 5.3999999999999995,
+        "state": {
+          "opacity": 1,
+          "text": "Lecture Asset",
+          "lines": [
+            {
+              "text": "Lecture Asset",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-files",
+        "spoken_source": "N02",
+        "start": 5.74,
+        "end": 8.395,
+        "state": {
+          "opacity": 1,
+          "text": "一份 PDF一份 AI ZIP",
+          "lines": [
+            {
+              "text": "一份 PDF",
+              "opacity": 1
+            },
+            {
+              "text": "一份 AI ZIP",
+              "opacity": 0
+            }
+          ]
+        },
+        "lineChecks": [
+          {
+            "line": 1,
+            "before": 0,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": "cap-read",
+        "spoken_source": "N03",
+        "start": 8.775,
+        "end": 10.879999999999999,
+        "state": {
+          "opacity": 1,
+          "text": "连怎么读都准备好了",
+          "lines": [
+            {
+              "text": "连怎么读",
+              "opacity": 1
+            },
+            {
+              "text": "都准备好了",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-handoff",
+        "spoken_source": "N04",
+        "start": 11.45,
+        "end": 12.584999999999999,
+        "state": {
+          "opacity": 1,
+          "text": "交给 AI",
+          "lines": [
+            {
+              "text": "交给 AI",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-summary",
+        "spoken_source": "N05",
+        "start": 13.83,
+        "end": 14.73,
+        "state": {
+          "opacity": 1,
+          "text": "讲座总结",
+          "lines": [
+            {
+              "text": "讲座总结",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-report",
+        "spoken_source": "N05",
+        "start": 14.91,
+        "end": 16.015,
+        "state": {
+          "opacity": 1,
+          "text": "讲座报告",
+          "lines": [
+            {
+              "text": "讲座报告",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-saved-copy",
+        "spoken_source": "N06",
+        "start": 17.815,
+        "end": 18.595000000000002,
+        "state": {
+          "opacity": 1,
+          "text": "资料留好",
+          "lines": [
+            {
+              "text": "资料留好",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      },
+      {
+        "id": "cap-clear-copy",
+        "spoken_source": "N06",
+        "start": 18.595000000000002,
+        "end": 19.735000000000003,
+        "state": {
+          "opacity": 1,
+          "text": "安心清理",
+          "lines": [
+            {
+              "text": "安心清理",
+              "opacity": 1
+            }
+          ]
+        },
+        "lineChecks": []
+      }
+    ]
+  },
+  "encoded_voice_check": "ENCODED_VOICE_CHECK.json",
+  "actual_mp4_comparisons": 174
 }
