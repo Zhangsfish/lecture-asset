@@ -1,0 +1,22 @@
+{
+  "locale": "zh-Hans",
+  "id": "N05",
+  "speaker": "Dylan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "变成讲座总结，还有报告。",
+  "instruction": "用标准普通话，自然、有精神、清晰的男声，像向朋友介绍一个好用的产品。语气轻松自信，有重点但不过度兴奋，不喊、不用播音腔、不气声。句间自然停顿，语速舒适，不为了固定秒数赶话，不刻意拖长尾音。每个字都读完整，英文产品名和 PDF、AI 清楚自然。",
+  "source_sample_rate": 24000,
+  "actual_duration_seconds": 2.065,
+  "post_atempo": 1,
+  "no_fixed_duration_target": true,
+  "trim_outer_silence_samples": [
+    360,
+    49920
+  ],
+  "generation_seconds": 32.89099999998871,
+  "sha256": "be3a30638b00b09c12043c572be72f6ae1d203c0cf8e2689ec1a9dc2d3e043ef",
+  "file": "assets/voice/r3-caption-male/zh-Hans/N05.wav",
+  "subjective_listening": "NOT_RUN"
+}

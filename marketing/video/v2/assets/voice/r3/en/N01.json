@@ -1,0 +1,37 @@
+{
+  "locale": "en",
+  "id": "N01",
+  "speaker": "Ryan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "Lecture photos. Too scattered for AI.",
+  "original_planned_text": "Lecture photos everywhere. Too scattered for AI.",
+  "timing_copy_adjustment": "N01 removes everywhere after original measured 3.245s minimum exceeded 2.75s slot; same meaning, no word clipping",
+  "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 2.5 seconds, briskly and fluently, with every word intact.",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 0.15,
+  "actual_duration_seconds": 2.7444166666666665,
+  "placement_end_seconds": 2.8944166666666664,
+  "window_seconds": [
+    0.15,
+    2.9
+  ],
+  "post_atempo": 1.0709090909090908,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 2.96,
+      "speech_seconds": 2.945,
+      "generation_seconds": 20.42199999999957,
+      "trim_samples": [
+        360,
+        71040
+      ]
+    }
+  ],
+  "sha256": "e8a1b9b9b7c60cb9b74fdc232f24aa643298ade763008cbb197e5721f85b50ac",
+  "file": "assets/voice/r3/en/N01.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

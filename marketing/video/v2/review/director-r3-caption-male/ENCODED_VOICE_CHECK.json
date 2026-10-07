@@ -1,0 +1,504 @@
+{
+  "status": "PASS",
+  "method": "Actual AAC decoded from MP4, offline Whisper large-v3, no script prompt",
+  "checks": [
+    {
+      "locale": "en",
+      "cue": "N01",
+      "expected": "Lecture photos everywhere. Too scattered for AI.",
+      "recognized": "Lecture photos everywhere. Too scattered for AI.",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        0.09999999999999999,
+        4.024958333333333
+      ],
+      "movie_sha256": "e629988ee8e6d43319f5e603af34f12c8830f15283911ada4a11c4c23d8fea81",
+      "words": [
+        {
+          "word": " Lecture",
+          "start": 0.09999999999999999,
+          "end": 0.5
+        },
+        {
+          "word": " photos",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "word": " everywhere.",
+          "start": 0.76,
+          "end": 1.2200000000000002
+        },
+        {
+          "word": " Too",
+          "start": 1.6,
+          "end": 2.2600000000000002
+        },
+        {
+          "word": " scattered",
+          "start": 2.2600000000000002,
+          "end": 2.74
+        },
+        {
+          "word": " for",
+          "start": 2.74,
+          "end": 3.14
+        },
+        {
+          "word": " AI.",
+          "start": 3.14,
+          "end": 3.42
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "cue": "N01",
+      "expected": "照片塞满相册，交给 AI 又太麻烦。",
+      "recognized": "照片塞满相册 交给AI又太麻烦",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        0.09999999999999999,
+        3.715
+      ],
+      "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "words": [
+        {
+          "word": "照",
+          "start": 0.09999999999999999,
+          "end": 0.27999999999999997
+        },
+        {
+          "word": "片",
+          "start": 0.27999999999999997,
+          "end": 0.56
+        },
+        {
+          "word": "塞",
+          "start": 0.56,
+          "end": 0.9
+        },
+        {
+          "word": "满",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "word": "相",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "word": "册",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "word": "交",
+          "start": 1.5,
+          "end": 1.86
+        },
+        {
+          "word": "给",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "word": "AI",
+          "start": 2.08,
+          "end": 2.3200000000000003
+        },
+        {
+          "word": "又",
+          "start": 2.3200000000000003,
+          "end": 2.58
+        },
+        {
+          "word": "太",
+          "start": 2.58,
+          "end": 2.8000000000000003
+        },
+        {
+          "word": "麻",
+          "start": 2.8000000000000003,
+          "end": 3.12
+        },
+        {
+          "word": "烦",
+          "start": 3.12,
+          "end": 3.46
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "cue": "N02",
+      "expected": "Lecture Asset，一份 PDF，一份 AI 资料包。",
+      "recognized": "Lecture Asset 一份PDF 一份AI资料包",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        4.25,
+        8.425
+      ],
+      "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "words": [
+        {
+          "word": "L",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "word": "ect",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "word": "ure",
+          "start": 4.55,
+          "end": 4.73
+        },
+        {
+          "word": " As",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "word": "set",
+          "start": 4.89,
+          "end": 5.23
+        },
+        {
+          "word": " 一",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "word": "份",
+          "start": 5.45,
+          "end": 5.75
+        },
+        {
+          "word": "PD",
+          "start": 5.75,
+          "end": 6.01
+        },
+        {
+          "word": "F",
+          "start": 6.01,
+          "end": 6.33
+        },
+        {
+          "word": " 一",
+          "start": 6.33,
+          "end": 6.6899999999999995
+        },
+        {
+          "word": "份",
+          "start": 6.6899999999999995,
+          "end": 7.109999999999999
+        },
+        {
+          "word": "AI",
+          "start": 7.109999999999999,
+          "end": 7.390000000000001
+        },
+        {
+          "word": "资",
+          "start": 7.390000000000001,
+          "end": 7.75
+        },
+        {
+          "word": "料",
+          "start": 7.75,
+          "end": 7.890000000000001
+        },
+        {
+          "word": "包",
+          "start": 7.890000000000001,
+          "end": 8.07
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "cue": "N03",
+      "expected": "连怎么读，都准备好了。",
+      "recognized": "连怎么读都准备好了",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        8.725,
+        10.91
+      ],
+      "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "words": [
+        {
+          "word": "连",
+          "start": 8.725,
+          "end": 8.965
+        },
+        {
+          "word": "怎么",
+          "start": 8.965,
+          "end": 9.125
+        },
+        {
+          "word": "读",
+          "start": 9.125,
+          "end": 9.465
+        },
+        {
+          "word": "都",
+          "start": 9.465,
+          "end": 9.785
+        },
+        {
+          "word": "准",
+          "start": 9.785,
+          "end": 10.045
+        },
+        {
+          "word": "备",
+          "start": 10.045,
+          "end": 10.265
+        },
+        {
+          "word": "好了",
+          "start": 10.265,
+          "end": 10.365
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "cue": "N04",
+      "expected": "交给 WorkBuddy。",
+      "recognized": "交给WorkBuddy",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        11.399999999999999,
+        12.615
+      ],
+      "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "words": [
+        {
+          "word": "交",
+          "start": 11.399999999999999,
+          "end": 11.579999999999998
+        },
+        {
+          "word": "给",
+          "start": 11.579999999999998,
+          "end": 11.759999999999998
+        },
+        {
+          "word": "Work",
+          "start": 11.759999999999998,
+          "end": 11.939999999999998
+        },
+        {
+          "word": "B",
+          "start": 11.939999999999998,
+          "end": 12.079999999999998
+        },
+        {
+          "word": "ud",
+          "start": 12.079999999999998,
+          "end": 12.299999999999999
+        },
+        {
+          "word": "dy",
+          "start": 12.299999999999999,
+          "end": 12.379999999999999
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "cue": "N05",
+      "expected": "变成讲座总结，还有报告。",
+      "recognized": "变成讲座总结还有报告",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        13.5,
+        15.765
+      ],
+      "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "words": [
+        {
+          "word": "变",
+          "start": 13.5,
+          "end": 13.72
+        },
+        {
+          "word": "成",
+          "start": 13.72,
+          "end": 13.8
+        },
+        {
+          "word": "讲",
+          "start": 13.8,
+          "end": 13.98
+        },
+        {
+          "word": "座",
+          "start": 13.98,
+          "end": 14.22
+        },
+        {
+          "word": "总",
+          "start": 14.22,
+          "end": 14.32
+        },
+        {
+          "word": "结",
+          "start": 14.32,
+          "end": 14.620000000000001
+        },
+        {
+          "word": "还有",
+          "start": 14.620000000000001,
+          "end": 14.9
+        },
+        {
+          "word": "报",
+          "start": 14.9,
+          "end": 15.18
+        },
+        {
+          "word": "告",
+          "start": 15.18,
+          "end": 15.44
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "cue": "N06",
+      "expected": "资料留好，安心清理。",
+      "recognized": "资料留好 安心清理",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        17.765,
+        19.95
+      ],
+      "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "words": [
+        {
+          "word": "资",
+          "start": 17.765,
+          "end": 17.985
+        },
+        {
+          "word": "料",
+          "start": 17.985,
+          "end": 18.165
+        },
+        {
+          "word": "留",
+          "start": 18.165,
+          "end": 18.285
+        },
+        {
+          "word": "好",
+          "start": 18.285,
+          "end": 18.485
+        },
+        {
+          "word": " 安",
+          "start": 18.645,
+          "end": 18.925
+        },
+        {
+          "word": "心",
+          "start": 18.925,
+          "end": 19.205000000000002
+        },
+        {
+          "word": "清",
+          "start": 19.205000000000002,
+          "end": 19.365000000000002
+        },
+        {
+          "word": "理",
+          "start": 19.365000000000002,
+          "end": 19.605
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "cue": "N07",
+      "expected": "把讲座交给 AI，把相册还给自己。",
+      "recognized": "把讲座交给AI 把相册还给自己",
+      "normalized_agreement": 1.0,
+      "actual_mp4_clip_seconds": [
+        20.599999999999998,
+        23.665
+      ],
+      "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "words": [
+        {
+          "word": "把",
+          "start": 20.599999999999998,
+          "end": 20.759999999999998
+        },
+        {
+          "word": "讲",
+          "start": 20.759999999999998,
+          "end": 20.939999999999998
+        },
+        {
+          "word": "座",
+          "start": 20.939999999999998,
+          "end": 21.159999999999997
+        },
+        {
+          "word": "交",
+          "start": 21.159999999999997,
+          "end": 21.319999999999997
+        },
+        {
+          "word": "给",
+          "start": 21.319999999999997,
+          "end": 21.54
+        },
+        {
+          "word": "AI",
+          "start": 21.54,
+          "end": 21.759999999999998
+        },
+        {
+          "word": "把",
+          "start": 21.759999999999998,
+          "end": 22.279999999999998
+        },
+        {
+          "word": "相",
+          "start": 22.279999999999998,
+          "end": 22.499999999999996
+        },
+        {
+          "word": "册",
+          "start": 22.499999999999996,
+          "end": 22.72
+        },
+        {
+          "word": "还",
+          "start": 22.72,
+          "end": 22.9
+        },
+        {
+          "word": "给",
+          "start": 22.9,
+          "end": 23.119999999999997
+        },
+        {
+          "word": "自己",
+          "start": 23.119999999999997,
+          "end": 23.36
+        }
+      ]
+    }
+  ],
+  "subjective_listening": "NOT_RUN"
+}

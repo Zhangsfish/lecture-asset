@@ -1,0 +1,37 @@
+{
+  "locale": "en",
+  "id": "N07",
+  "speaker": "Ryan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "Hand the lecture to AI. Take back your photo library.",
+  "original_planned_text": "Hand the lecture to AI. Take back your photo library.",
+  "timing_copy_adjustment": null,
+  "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 4.5 seconds, briskly and fluently, with every word intact.",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 20.65,
+  "actual_duration_seconds": 3.0962916666666667,
+  "placement_end_seconds": 23.746291666666664,
+  "window_seconds": [
+    20.65,
+    25.4
+  ],
+  "post_atempo": 1,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 3.12,
+      "speech_seconds": 3.1,
+      "generation_seconds": 17.671000000000276,
+      "trim_samples": [
+        360,
+        74760
+      ]
+    }
+  ],
+  "sha256": "32e7861db92d2faf8f984040d1941c79b734598ad87dd79203d8b565dab87fd7",
+  "file": "assets/voice/r3/en/N07.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

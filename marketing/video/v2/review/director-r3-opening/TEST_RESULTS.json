@@ -1,0 +1,313 @@
+{
+  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
+  "tested_sha": "2b682774ab422d598c9a86a2f784245ee1c4f230",
+  "owner_revision_base": "a5a2e8bdab27c04bd0feb5636f0a649f29eebfe8",
+  "latest_main_fetched": "df7755abea679fc776959fa0843c625428034541",
+  "build": "PASS",
+  "lint": "PASS",
+  "native_and_decoded_checks": "PASS",
+  "decoded_samples": 86,
+  "life_only_first_frame": "PASS",
+  "lecture_influx": "PASS",
+  "full_actual_mp4_opening_speech": {
+    "status": "PASS",
+    "method": "Offline Whisper large-v3 of AAC decoded directly from final MP4 opening, not expected script metadata",
+    "subjective_listening": "NOT_RUN",
+    "checks": [
+      {
+        "locale": "en",
+        "movie_sha256": "b6cb5faf793cfb94caa65e38382b14a7a73ed46a523fb242ddcc866a6f4c0fa7",
+        "decoded_seconds": 4.2,
+        "expected": "Lecture photos everywhere. Too scattered for AI.",
+        "recognized": "Lecture photos everywhere. Too scattered for AI.",
+        "normalized_agreement": 1.0,
+        "narration_start": 0.15,
+        "narration_end": 3.8749583333333333,
+        "next_narration_start": 4.3,
+        "complete_first_and_second_clauses": true,
+        "words": [
+          {
+            "word": " Lecture",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "word": " photos",
+            "start": 0.5,
+            "end": 0.76
+          },
+          {
+            "word": " everywhere.",
+            "start": 0.76,
+            "end": 1.22
+          },
+          {
+            "word": " Too",
+            "start": 1.6,
+            "end": 2.26
+          },
+          {
+            "word": " scattered",
+            "start": 2.26,
+            "end": 2.74
+          },
+          {
+            "word": " for",
+            "start": 2.74,
+            "end": 3.14
+          },
+          {
+            "word": " AI.",
+            "start": 3.14,
+            "end": 3.44
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "movie_sha256": "332548939036257164a196f41b4d1f12a9b281fd8286776364f4211e7b20b3fa",
+        "decoded_seconds": 4.2,
+        "expected": "照片塞满相册，交给 AI 又太麻烦。",
+        "recognized": "照片塞满相册 交给AI又太麻烦",
+        "normalized_agreement": 1.0,
+        "narration_start": 0.15,
+        "narration_end": 4.1505833333333335,
+        "next_narration_start": 4.3,
+        "complete_first_and_second_clauses": true,
+        "words": [
+          {
+            "word": "照",
+            "start": 0.0,
+            "end": 0.3
+          },
+          {
+            "word": "片",
+            "start": 0.3,
+            "end": 0.56
+          },
+          {
+            "word": "塞",
+            "start": 0.56,
+            "end": 0.86
+          },
+          {
+            "word": "满",
+            "start": 0.86,
+            "end": 1.02
+          },
+          {
+            "word": "相",
+            "start": 1.02,
+            "end": 1.22
+          },
+          {
+            "word": "册",
+            "start": 1.22,
+            "end": 1.52
+          },
+          {
+            "word": "交",
+            "start": 1.52,
+            "end": 2.08
+          },
+          {
+            "word": "给",
+            "start": 2.08,
+            "end": 2.32
+          },
+          {
+            "word": "AI",
+            "start": 2.32,
+            "end": 2.64
+          },
+          {
+            "word": "又",
+            "start": 2.64,
+            "end": 3.26
+          },
+          {
+            "word": "太",
+            "start": 3.26,
+            "end": 3.44
+          },
+          {
+            "word": "麻",
+            "start": 3.44,
+            "end": 3.64
+          },
+          {
+            "word": "烦",
+            "start": 3.64,
+            "end": 3.96
+          }
+        ]
+      }
+    ]
+  },
+  "fonts": "PASS",
+  "seek": "PASS",
+  "end_card_first_frame": 1230,
+  "qr": "PASS",
+  "media": [
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "sha256": "b6cb5faf793cfb94caa65e38382b14a7a73ed46a523fb242ddcc866a6f4c0fa7",
+      "bytes": 11406427,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -2.793462383643512,
+        "rms_dbfs": -16.85908354275203,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN",
+        "encoded_loudness_lufs": -14.54,
+        "encoded_true_peak_dbtp": -2.53,
+        "source_narrated_mix_correlation": 0.9990931691337753
+      }
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "sha256": "c422b222680812ed7bc4464716d003d74e413e761dd4f55af033aae28b8666b7",
+      "bytes": 10751891,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "sha256": "9e3c7bb5532a928cc6cbeab8108a2eb2562b8ddc5ed208ff99dd02a58107b467",
+      "bytes": 3986663,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "sha256": "373ef622f1ce0597ed59d7bc2e044faf414e712c001a9ac66f84ccf207d11747",
+      "bytes": 3436068,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "sha256": "332548939036257164a196f41b4d1f12a9b281fd8286776364f4211e7b20b3fa",
+      "bytes": 11335502,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -1.7139657122618248,
+        "rms_dbfs": -17.287849206271815,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN",
+        "encoded_loudness_lufs": -14.55,
+        "encoded_true_peak_dbtp": -1.7,
+        "source_narrated_mix_correlation": 0.999337406123105
+      }
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "sha256": "d7c3c0e1219cd1da2bf2f3c24745c27503c2031da565a0c90023a816e0b59683",
+      "bytes": 10680882,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "sha256": "cade2399a30bf4ab90235163ee93f42cd1c5e894d89a0cc7febd4fbaacff5061",
+      "bytes": 3984967,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "sha256": "444dbecebb889e0d5c767b080946b283f84027a40d36ae029d2db1023a788981",
+      "bytes": 3435041,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    }
+  ],
+  "protected_path_diff": "NONE",
+  "old_r3_media_changes": "NONE",
+  "subjective_listening": "NOT_RUN",
+  "director_visual_approval": "PENDING",
+  "public_download": "UNCONFIRMED / PUBLISH_HOLD",
+  "App_ASC_TestFlight_changes": false
+}

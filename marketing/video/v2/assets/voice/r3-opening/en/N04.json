@@ -1,0 +1,37 @@
+{
+  "locale": "en",
+  "id": "N04",
+  "speaker": "Ryan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "Share it with ChatGPT.",
+  "original_planned_text": "Share it with ChatGPT.",
+  "timing_copy_adjustment": null,
+  "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 2.0 seconds, briskly and fluently, with every word intact.",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 11.45,
+  "actual_duration_seconds": 1.8974583333333332,
+  "placement_end_seconds": 13.347458333333332,
+  "window_seconds": [
+    11.45,
+    13.65
+  ],
+  "post_atempo": 1,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 1.92,
+      "speech_seconds": 1.905,
+      "generation_seconds": 11.280999999999949,
+      "trim_samples": [
+        360,
+        46080
+      ]
+    }
+  ],
+  "sha256": "ffd777771322bdf0b263e0fe667f5b0b27da967647328311f2b8d3c4a9e7a41c",
+  "file": "assets/voice/r3-opening/en/N04.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

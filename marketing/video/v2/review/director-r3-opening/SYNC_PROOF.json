@@ -1,0 +1,261 @@
+{
+  "timing": "Real measured narration + actual decoded MP4 ASR word times",
+  "early_piecewise_map": [
+    [
+      0,
+      0
+    ],
+    [
+      3,
+      4.2
+    ],
+    [
+      5,
+      5.6
+    ],
+    [
+      7.5,
+      8.4
+    ],
+    [
+      10.5,
+      11.2
+    ],
+    [
+      13.7,
+      14.05
+    ],
+    [
+      17.5,
+      17.5
+    ],
+    [
+      26,
+      26
+    ]
+  ],
+  "n01": [
+    {
+      "locale": "en",
+      "id": "N01",
+      "speaker": "Ryan",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "Lecture photos everywhere. Too scattered for AI.",
+      "original_planned_text": "Lecture photos everywhere. Too scattered for AI.",
+      "timing_copy_adjustment": null,
+      "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 3.8 seconds, briskly and fluently, with every word intact.",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 0.15,
+      "actual_duration_seconds": 3.7249583333333334,
+      "placement_end_seconds": 3.8749583333333333,
+      "window_seconds": [
+        0.15,
+        4.15
+      ],
+      "post_atempo": 1,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 3.76,
+          "speech_seconds": 3.745,
+          "generation_seconds": 68.73500000000058,
+          "trim_samples": [
+            360,
+            90240
+          ]
+        }
+      ],
+      "sha256": "78091fd2880bf871aa57851e5c895014f2872e792f35a53d0c8eb25c949ec8da",
+      "file": "assets/voice/r3-opening/en/N01.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N01",
+      "speaker": "Vivian",
+      "provider": "Local Qwen3-TTS CustomVoice",
+      "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "spoken_text": "照片塞满相册，交给 AI 又太麻烦。",
+      "original_planned_text": "照片塞满相册，交给 AI 又太麻烦。",
+      "timing_copy_adjustment": null,
+      "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约3.8秒内说完，短停顿，不拖尾，字句完整。 比上次更利落更快，句间停顿短。",
+      "source_sample_rate": 24000,
+      "placement_start_seconds": 0.15,
+      "actual_duration_seconds": 4.000583333333333,
+      "placement_end_seconds": 4.1505833333333335,
+      "window_seconds": [
+        0.15,
+        4.15
+      ],
+      "post_atempo": 1.015,
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_seconds": 7.92,
+          "speech_seconds": 7.87,
+          "generation_seconds": 124.63999999999942,
+          "trim_samples": [
+            600,
+            189480
+          ]
+        },
+        {
+          "attempt": 2,
+          "raw_seconds": 4.08,
+          "speech_seconds": 4.06,
+          "generation_seconds": 63.84399999999732,
+          "trim_samples": [
+            360,
+            97800
+          ]
+        }
+      ],
+      "sha256": "b429f5585d301038b86f32c536d74ff84665f2c396d540085778831da81192b4",
+      "file": "assets/voice/r3-opening/zh-Hans/N01.wav",
+      "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+      "subjective_listening": "NOT_RUN"
+    }
+  ],
+  "actual_mp4_opening": {
+    "status": "PASS",
+    "method": "Offline Whisper large-v3 of AAC decoded directly from final MP4 opening, not expected script metadata",
+    "subjective_listening": "NOT_RUN",
+    "checks": [
+      {
+        "locale": "en",
+        "movie_sha256": "b6cb5faf793cfb94caa65e38382b14a7a73ed46a523fb242ddcc866a6f4c0fa7",
+        "decoded_seconds": 4.2,
+        "expected": "Lecture photos everywhere. Too scattered for AI.",
+        "recognized": "Lecture photos everywhere. Too scattered for AI.",
+        "normalized_agreement": 1.0,
+        "narration_start": 0.15,
+        "narration_end": 3.8749583333333333,
+        "next_narration_start": 4.3,
+        "complete_first_and_second_clauses": true,
+        "words": [
+          {
+            "word": " Lecture",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "word": " photos",
+            "start": 0.5,
+            "end": 0.76
+          },
+          {
+            "word": " everywhere.",
+            "start": 0.76,
+            "end": 1.22
+          },
+          {
+            "word": " Too",
+            "start": 1.6,
+            "end": 2.26
+          },
+          {
+            "word": " scattered",
+            "start": 2.26,
+            "end": 2.74
+          },
+          {
+            "word": " for",
+            "start": 2.74,
+            "end": 3.14
+          },
+          {
+            "word": " AI.",
+            "start": 3.14,
+            "end": 3.44
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "movie_sha256": "332548939036257164a196f41b4d1f12a9b281fd8286776364f4211e7b20b3fa",
+        "decoded_seconds": 4.2,
+        "expected": "照片塞满相册，交给 AI 又太麻烦。",
+        "recognized": "照片塞满相册 交给AI又太麻烦",
+        "normalized_agreement": 1.0,
+        "narration_start": 0.15,
+        "narration_end": 4.1505833333333335,
+        "next_narration_start": 4.3,
+        "complete_first_and_second_clauses": true,
+        "words": [
+          {
+            "word": "照",
+            "start": 0.0,
+            "end": 0.3
+          },
+          {
+            "word": "片",
+            "start": 0.3,
+            "end": 0.56
+          },
+          {
+            "word": "塞",
+            "start": 0.56,
+            "end": 0.86
+          },
+          {
+            "word": "满",
+            "start": 0.86,
+            "end": 1.02
+          },
+          {
+            "word": "相",
+            "start": 1.02,
+            "end": 1.22
+          },
+          {
+            "word": "册",
+            "start": 1.22,
+            "end": 1.52
+          },
+          {
+            "word": "交",
+            "start": 1.52,
+            "end": 2.08
+          },
+          {
+            "word": "给",
+            "start": 2.08,
+            "end": 2.32
+          },
+          {
+            "word": "AI",
+            "start": 2.32,
+            "end": 2.64
+          },
+          {
+            "word": "又",
+            "start": 2.64,
+            "end": 3.26
+          },
+          {
+            "word": "太",
+            "start": 3.26,
+            "end": 3.44
+          },
+          {
+            "word": "麻",
+            "start": 3.44,
+            "end": 3.64
+          },
+          {
+            "word": "烦",
+            "start": 3.64,
+            "end": 3.96
+          }
+        ]
+      }
+    ]
+  },
+  "end_card_frame": 1230,
+  "saved_before_source_departure": true,
+  "subjective_listening": "NOT_RUN"
+}

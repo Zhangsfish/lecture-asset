@@ -1,0 +1,37 @@
+{
+  "locale": "zh-Hans",
+  "id": "N01",
+  "speaker": "Vivian",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "交给 AI，又太散。",
+  "original_planned_text": "照片塞满相册，交给 AI，又太散。",
+  "timing_copy_adjustment": "N01 condensed after actual original generation exceeded 2.75s slot: EN original minimum3.245s; ZH original4.86s/3.905s. Album congestion remains visible; AI scattering clause preserved. No speech truncation.",
+  "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约2.5秒内说完，短停顿，不拖尾，字句完整。",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 0.15,
+  "actual_duration_seconds": 1.8906666666666667,
+  "placement_end_seconds": 2.0406666666666666,
+  "window_seconds": [
+    0.15,
+    2.9
+  ],
+  "post_atempo": 1,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 1.92,
+      "speech_seconds": 1.905,
+      "generation_seconds": 13.842999999999847,
+      "trim_samples": [
+        360,
+        46080
+      ]
+    }
+  ],
+  "sha256": "df9f3e2e2c1c12b7a121bdcfff767784d80dec31b79ac00cdf7438799499289a",
+  "file": "assets/voice/r3/zh-Hans/N01.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

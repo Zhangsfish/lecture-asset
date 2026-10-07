@@ -1,0 +1,54 @@
+{
+  "method": "Original NumPy synthesis, deterministic RNG seed 1806; no sampled/downloaded track",
+  "sample_rate": 48000,
+  "channels": 2,
+  "seconds": 22,
+  "sample_count": 1056000,
+  "sample_peak_dbfs": -11.560381993291223,
+  "cues": [
+    {
+      "name": "sweep",
+      "start_seconds": 0.05,
+      "frame": 3,
+      "duration": 0.32
+    },
+    {
+      "name": "select",
+      "start_seconds": 3.066666666666667,
+      "frame": 184,
+      "duration": 0.24
+    },
+    {
+      "name": "paper-settle",
+      "start_seconds": 4.933333333333334,
+      "frame": 296,
+      "duration": 0.19
+    },
+    {
+      "name": "sleeve-open",
+      "start_seconds": 8.2,
+      "frame": 492,
+      "duration": 0.48
+    },
+    {
+      "name": "sweep",
+      "start_seconds": 11.9,
+      "frame": 714,
+      "duration": 0.42
+    },
+    {
+      "name": "report-resolve",
+      "start_seconds": 16.1,
+      "frame": 966,
+      "duration": 0.3
+    },
+    {
+      "name": "sweep",
+      "start_seconds": 18.166666666666668,
+      "frame": 1090,
+      "duration": 0.55
+    }
+  ],
+  "sha256": "7b49ddd5706060ef240cd8d9d82451b4b3e457da12006f06e46fca9488435053",
+  "human_listening": "NOT_RUN"
+}

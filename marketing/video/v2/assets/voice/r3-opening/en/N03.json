@@ -1,0 +1,37 @@
+{
+  "locale": "en",
+  "id": "N03",
+  "speaker": "Ryan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "Reading instructions included.",
+  "original_planned_text": "Reading instructions included.",
+  "timing_copy_adjustment": null,
+  "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 2.3 seconds, briskly and fluently, with every word intact.",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 8.55,
+  "actual_duration_seconds": 1.4218333333333333,
+  "placement_end_seconds": 9.971833333333334,
+  "window_seconds": [
+    8.55,
+    11.1
+  ],
+  "post_atempo": 1,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 1.44,
+      "speech_seconds": 1.425,
+      "generation_seconds": 10.063000000000102,
+      "trim_samples": [
+        360,
+        34560
+      ]
+    }
+  ],
+  "sha256": "94387d17ff7c79f836c277ee1dbb137101e2755a554361f6ca73cd47f1146a51",
+  "file": "assets/voice/r3-opening/en/N03.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

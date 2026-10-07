@@ -1,0 +1,884 @@
+{
+  "engine": "Existing faster-whisper large-v3 CUDA int8_float16, offline cached weights",
+  "no_new_ASR_model_download": true,
+  "cues": [
+    {
+      "locale": "en",
+      "id": "N01",
+      "expected": "Lecture photos everywhere. Too scattered for AI.",
+      "recognized": "Lecture photos everywhere. Too scattered for AI.",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": " Lecture",
+          "start_seconds": 0.15,
+          "end_seconds": 0.51,
+          "probability": 0.92431640625
+        },
+        {
+          "word": " photos",
+          "start_seconds": 0.51,
+          "end_seconds": 0.75,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " everywhere.",
+          "start_seconds": 0.75,
+          "end_seconds": 1.21,
+          "probability": 0.990234375
+        },
+        {
+          "word": " Too",
+          "start_seconds": 1.8900000000000001,
+          "end_seconds": 2.27,
+          "probability": 0.68994140625
+        },
+        {
+          "word": " scattered",
+          "start_seconds": 2.27,
+          "end_seconds": 2.75,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " for",
+          "start_seconds": 2.75,
+          "end_seconds": 3.13,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " AI.",
+          "start_seconds": 3.13,
+          "end_seconds": 3.39,
+          "probability": 0.78955078125
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 6.282000000006519,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N02",
+      "expected": "Lecture Asset makes a PDF for you, and one ZIP for AI.",
+      "recognized": "Lecture Asset makes a PDF for you and one zip for AI.",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": " Lecture",
+          "start_seconds": 4.3,
+          "end_seconds": 4.7,
+          "probability": 0.951416015625
+        },
+        {
+          "word": " Asset",
+          "start_seconds": 4.7,
+          "end_seconds": 5.04,
+          "probability": 0.6417236328125
+        },
+        {
+          "word": " makes",
+          "start_seconds": 5.04,
+          "end_seconds": 5.22,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " a",
+          "start_seconds": 5.22,
+          "end_seconds": 5.38,
+          "probability": 0.99609375
+        },
+        {
+          "word": " PDF",
+          "start_seconds": 5.38,
+          "end_seconds": 5.779999999999999,
+          "probability": 0.95166015625
+        },
+        {
+          "word": " for",
+          "start_seconds": 5.779999999999999,
+          "end_seconds": 6.08,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " you",
+          "start_seconds": 6.08,
+          "end_seconds": 6.26,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " and",
+          "start_seconds": 6.26,
+          "end_seconds": 6.66,
+          "probability": 0.7138671875
+        },
+        {
+          "word": " one",
+          "start_seconds": 6.66,
+          "end_seconds": 7.02,
+          "probability": 0.888671875
+        },
+        {
+          "word": " zip",
+          "start_seconds": 7.02,
+          "end_seconds": 7.34,
+          "probability": 0.92626953125
+        },
+        {
+          "word": " for",
+          "start_seconds": 7.34,
+          "end_seconds": 7.6,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " AI.",
+          "start_seconds": 7.6,
+          "end_seconds": 7.84,
+          "probability": 0.96044921875
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 2.437000000005355,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N03",
+      "expected": "Reading instructions included.",
+      "recognized": "Reading instructions included.",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": " Reading",
+          "start_seconds": 8.55,
+          "end_seconds": 8.83,
+          "probability": 0.87890625
+        },
+        {
+          "word": " instructions",
+          "start_seconds": 8.83,
+          "end_seconds": 9.23,
+          "probability": 0.982421875
+        },
+        {
+          "word": " included.",
+          "start_seconds": 9.23,
+          "end_seconds": 9.65,
+          "probability": 0.9833984375
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.3909999999887077,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N04",
+      "expected": "Share it with ChatGPT.",
+      "recognized": "Share it with ChatGPT!",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": " Share",
+          "start_seconds": 11.45,
+          "end_seconds": 11.79,
+          "probability": 0.759765625
+        },
+        {
+          "word": " it",
+          "start_seconds": 11.79,
+          "end_seconds": 11.95,
+          "probability": 0.98828125
+        },
+        {
+          "word": " with",
+          "start_seconds": 11.95,
+          "end_seconds": 12.069999999999999,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " ChatGPT!",
+          "start_seconds": 12.069999999999999,
+          "end_seconds": 12.91,
+          "probability": 0.8636474609375
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.264999999999418,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N05",
+      "expected": "Get a lecture summary and report.",
+      "recognized": "Get a lecture summary and report.",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": " Get",
+          "start_seconds": 13.55,
+          "end_seconds": 13.690000000000001,
+          "probability": 0.72802734375
+        },
+        {
+          "word": " a",
+          "start_seconds": 13.690000000000001,
+          "end_seconds": 13.790000000000001,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " lecture",
+          "start_seconds": 13.790000000000001,
+          "end_seconds": 14.09,
+          "probability": 0.978515625
+        },
+        {
+          "word": " summary",
+          "start_seconds": 14.09,
+          "end_seconds": 14.39,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " and",
+          "start_seconds": 14.39,
+          "end_seconds": 14.850000000000001,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " report.",
+          "start_seconds": 14.850000000000001,
+          "end_seconds": 15.39,
+          "probability": 0.97998046875
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.3440000000118744,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N06",
+      "expected": "Save the files. Clear the photos.",
+      "recognized": "Save the files. Clear the photos.",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": " Save",
+          "start_seconds": 17.7,
+          "end_seconds": 17.96,
+          "probability": 0.8212890625
+        },
+        {
+          "word": " the",
+          "start_seconds": 17.96,
+          "end_seconds": 18.06,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " files.",
+          "start_seconds": 18.06,
+          "end_seconds": 18.4,
+          "probability": 0.9501953125
+        },
+        {
+          "word": " Clear",
+          "start_seconds": 18.62,
+          "end_seconds": 19.04,
+          "probability": 0.99609375
+        },
+        {
+          "word": " the",
+          "start_seconds": 19.04,
+          "end_seconds": 19.18,
+          "probability": 0.994140625
+        },
+        {
+          "word": " photos.",
+          "start_seconds": 19.18,
+          "end_seconds": 19.5,
+          "probability": 0.9873046875
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.3279999999940628,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "en",
+      "id": "N07",
+      "expected": "Hand the lecture to AI. Take back your photo library.",
+      "recognized": "Hand the lecture to AI, take back your photo library.",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": " Hand",
+          "start_seconds": 20.65,
+          "end_seconds": 20.849999999999998,
+          "probability": 0.64306640625
+        },
+        {
+          "word": " the",
+          "start_seconds": 20.849999999999998,
+          "end_seconds": 20.93,
+          "probability": 0.53369140625
+        },
+        {
+          "word": " lecture",
+          "start_seconds": 20.93,
+          "end_seconds": 21.209999999999997,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " to",
+          "start_seconds": 21.209999999999997,
+          "end_seconds": 21.41,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " AI,",
+          "start_seconds": 21.41,
+          "end_seconds": 21.65,
+          "probability": 0.95263671875
+        },
+        {
+          "word": " take",
+          "start_seconds": 21.93,
+          "end_seconds": 22.389999999999997,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " back",
+          "start_seconds": 22.389999999999997,
+          "end_seconds": 22.63,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " your",
+          "start_seconds": 22.63,
+          "end_seconds": 22.81,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " photo",
+          "start_seconds": 22.81,
+          "end_seconds": 23.029999999999998,
+          "probability": 0.94189453125
+        },
+        {
+          "word": " library.",
+          "start_seconds": 23.029999999999998,
+          "end_seconds": 23.369999999999997,
+          "probability": 0.9814453125
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.9220000000059372,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N01",
+      "expected": "照片塞满相册，交给 AI 又太麻烦。",
+      "recognized": "照片塞满相册,交给AI又太麻烦。",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": "照",
+          "start_seconds": 0.15,
+          "end_seconds": 0.29000000000000004,
+          "probability": 0.9423828125
+        },
+        {
+          "word": "片",
+          "start_seconds": 0.29000000000000004,
+          "end_seconds": 0.57,
+          "probability": 0.99853515625
+        },
+        {
+          "word": "塞",
+          "start_seconds": 0.57,
+          "end_seconds": 0.85,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "满",
+          "start_seconds": 0.85,
+          "end_seconds": 1.03,
+          "probability": 0.947265625
+        },
+        {
+          "word": "相",
+          "start_seconds": 1.03,
+          "end_seconds": 1.21,
+          "probability": 0.9677734375
+        },
+        {
+          "word": "册,",
+          "start_seconds": 1.21,
+          "end_seconds": 1.5299999999999998,
+          "probability": 0.999267578125
+        },
+        {
+          "word": "交",
+          "start_seconds": 1.6099999999999999,
+          "end_seconds": 2.07,
+          "probability": 0.9794921875
+        },
+        {
+          "word": "给",
+          "start_seconds": 2.07,
+          "end_seconds": 2.33,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "AI",
+          "start_seconds": 2.33,
+          "end_seconds": 2.65,
+          "probability": 0.98388671875
+        },
+        {
+          "word": "又",
+          "start_seconds": 2.65,
+          "end_seconds": 3.23,
+          "probability": 0.55029296875
+        },
+        {
+          "word": "太",
+          "start_seconds": 3.23,
+          "end_seconds": 3.4499999999999997,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "麻",
+          "start_seconds": 3.4499999999999997,
+          "end_seconds": 3.65,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "烦。",
+          "start_seconds": 3.65,
+          "end_seconds": 3.9699999999999998,
+          "probability": 0.999755859375
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 2.2030000000086147,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N02",
+      "expected": "Lecture Asset，一份 PDF，一份 AI 资料包。",
+      "recognized": "Lecture Asset,一份PDF,一份AI资料包",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": "L",
+          "start_seconds": 4.3,
+          "end_seconds": 4.359999999999999,
+          "probability": 0.84765625
+        },
+        {
+          "word": "ect",
+          "start_seconds": 4.359999999999999,
+          "end_seconds": 4.5,
+          "probability": 0.71875
+        },
+        {
+          "word": "ure",
+          "start_seconds": 4.5,
+          "end_seconds": 4.68,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " As",
+          "start_seconds": 4.68,
+          "end_seconds": 4.84,
+          "probability": 0.82958984375
+        },
+        {
+          "word": "set,",
+          "start_seconds": 4.84,
+          "end_seconds": 5.22,
+          "probability": 0.99853515625
+        },
+        {
+          "word": "一",
+          "start_seconds": 5.24,
+          "end_seconds": 5.66,
+          "probability": 0.53125
+        },
+        {
+          "word": "份",
+          "start_seconds": 5.66,
+          "end_seconds": 5.84,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "PD",
+          "start_seconds": 5.84,
+          "end_seconds": 6.08,
+          "probability": 0.80029296875
+        },
+        {
+          "word": "F,",
+          "start_seconds": 6.08,
+          "end_seconds": 6.46,
+          "probability": 0.9990234375
+        },
+        {
+          "word": "一",
+          "start_seconds": 6.56,
+          "end_seconds": 7.02,
+          "probability": 0.9921875
+        },
+        {
+          "word": "份",
+          "start_seconds": 7.02,
+          "end_seconds": 7.279999999999999,
+          "probability": 1.0
+        },
+        {
+          "word": "AI",
+          "start_seconds": 7.279999999999999,
+          "end_seconds": 7.6,
+          "probability": 0.99853515625
+        },
+        {
+          "word": "资",
+          "start_seconds": 7.6,
+          "end_seconds": 7.9,
+          "probability": 0.9541015625
+        },
+        {
+          "word": "料",
+          "start_seconds": 7.9,
+          "end_seconds": 8.02,
+          "probability": 1.0
+        },
+        {
+          "word": "包",
+          "start_seconds": 8.02,
+          "end_seconds": 8.18,
+          "probability": 0.99951171875
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 2.1560000000026776,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N03",
+      "expected": "连怎么读，都准备好了。",
+      "recognized": "连怎么读都准备好了。",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": "连",
+          "start_seconds": 8.55,
+          "end_seconds": 8.75,
+          "probability": 0.6400146484375
+        },
+        {
+          "word": "怎么",
+          "start_seconds": 8.75,
+          "end_seconds": 8.97,
+          "probability": 0.9990234375
+        },
+        {
+          "word": "读",
+          "start_seconds": 8.97,
+          "end_seconds": 9.41,
+          "probability": 0.996337890625
+        },
+        {
+          "word": "都",
+          "start_seconds": 9.41,
+          "end_seconds": 10.110000000000001,
+          "probability": 0.93701171875
+        },
+        {
+          "word": "准",
+          "start_seconds": 10.110000000000001,
+          "end_seconds": 10.43,
+          "probability": 0.999755859375
+        },
+        {
+          "word": "备",
+          "start_seconds": 10.43,
+          "end_seconds": 10.57,
+          "probability": 1.0
+        },
+        {
+          "word": "好了。",
+          "start_seconds": 10.57,
+          "end_seconds": 10.770000000000001,
+          "probability": 1.0
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.812999999994645,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N04",
+      "expected": "交给 WorkBuddy。",
+      "recognized": "交给WorkBuddy。",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": "交",
+          "start_seconds": 11.45,
+          "end_seconds": 11.59,
+          "probability": 0.9130859375
+        },
+        {
+          "word": "给",
+          "start_seconds": 11.59,
+          "end_seconds": 11.87,
+          "probability": 0.9970703125
+        },
+        {
+          "word": "Work",
+          "start_seconds": 11.87,
+          "end_seconds": 12.33,
+          "probability": 0.68603515625
+        },
+        {
+          "word": "B",
+          "start_seconds": 12.33,
+          "end_seconds": 12.489999999999998,
+          "probability": 0.85400390625
+        },
+        {
+          "word": "ud",
+          "start_seconds": 12.489999999999998,
+          "end_seconds": 12.75,
+          "probability": 0.8798828125
+        },
+        {
+          "word": "dy。",
+          "start_seconds": 12.75,
+          "end_seconds": 12.85,
+          "probability": 0.99609375
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.4060000000026776,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N05",
+      "expected": "变成讲座总结，还有报告。",
+      "recognized": "变成讲座总结,还有报告。",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": "变",
+          "start_seconds": 13.55,
+          "end_seconds": 13.770000000000001,
+          "probability": 0.71533203125
+        },
+        {
+          "word": "成",
+          "start_seconds": 13.770000000000001,
+          "end_seconds": 14.010000000000002,
+          "probability": 0.990234375
+        },
+        {
+          "word": "讲",
+          "start_seconds": 14.010000000000002,
+          "end_seconds": 14.39,
+          "probability": 0.9892578125
+        },
+        {
+          "word": "座",
+          "start_seconds": 14.39,
+          "end_seconds": 14.73,
+          "probability": 0.997802734375
+        },
+        {
+          "word": "总",
+          "start_seconds": 14.73,
+          "end_seconds": 14.870000000000001,
+          "probability": 1.0
+        },
+        {
+          "word": "结,",
+          "start_seconds": 14.870000000000001,
+          "end_seconds": 15.190000000000001,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "还有",
+          "start_seconds": 15.31,
+          "end_seconds": 16.310000000000002,
+          "probability": 0.99755859375
+        },
+        {
+          "word": "报",
+          "start_seconds": 16.310000000000002,
+          "end_seconds": 16.810000000000002,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "告。",
+          "start_seconds": 16.810000000000002,
+          "end_seconds": 17.07,
+          "probability": 1.0
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.7969999999913853,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N06",
+      "expected": "资料留好，安心清理。",
+      "recognized": "资料留好,安心清理。",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": "资",
+          "start_seconds": 17.7,
+          "end_seconds": 17.88,
+          "probability": 0.9921875
+        },
+        {
+          "word": "料",
+          "start_seconds": 17.88,
+          "end_seconds": 18.04,
+          "probability": 1.0
+        },
+        {
+          "word": "留",
+          "start_seconds": 18.04,
+          "end_seconds": 18.14,
+          "probability": 0.998046875
+        },
+        {
+          "word": "好,",
+          "start_seconds": 18.14,
+          "end_seconds": 18.419999999999998,
+          "probability": 1.0
+        },
+        {
+          "word": "安",
+          "start_seconds": 18.54,
+          "end_seconds": 18.88,
+          "probability": 0.994140625
+        },
+        {
+          "word": "心",
+          "start_seconds": 18.88,
+          "end_seconds": 19.22,
+          "probability": 1.0
+        },
+        {
+          "word": "清",
+          "start_seconds": 19.22,
+          "end_seconds": 19.38,
+          "probability": 0.99853515625
+        },
+        {
+          "word": "理。",
+          "start_seconds": 19.38,
+          "end_seconds": 19.64,
+          "probability": 1.0
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 1.687000000005355,
+      "human_pronunciation_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "N07",
+      "expected": "把讲座交给 AI，把相册还给自己。",
+      "recognized": "把讲座交给AI 把相册还给自己",
+      "normalized_agreement": 1.0,
+      "word_timestamps": [
+        {
+          "word": "把",
+          "start_seconds": 20.65,
+          "end_seconds": 20.77,
+          "probability": 0.515625
+        },
+        {
+          "word": "讲",
+          "start_seconds": 20.77,
+          "end_seconds": 20.99,
+          "probability": 0.478759765625
+        },
+        {
+          "word": "座",
+          "start_seconds": 20.99,
+          "end_seconds": 21.169999999999998,
+          "probability": 0.997802734375
+        },
+        {
+          "word": "交",
+          "start_seconds": 21.169999999999998,
+          "end_seconds": 21.27,
+          "probability": 0.9970703125
+        },
+        {
+          "word": "给",
+          "start_seconds": 21.27,
+          "end_seconds": 21.49,
+          "probability": 0.99853515625
+        },
+        {
+          "word": "AI",
+          "start_seconds": 21.49,
+          "end_seconds": 21.729999999999997,
+          "probability": 0.9853515625
+        },
+        {
+          "word": "把",
+          "start_seconds": 22.49,
+          "end_seconds": 22.93,
+          "probability": 0.529296875
+        },
+        {
+          "word": "相",
+          "start_seconds": 22.93,
+          "end_seconds": 23.209999999999997,
+          "probability": 0.8642578125
+        },
+        {
+          "word": "册",
+          "start_seconds": 23.209999999999997,
+          "end_seconds": 23.49,
+          "probability": 0.999755859375
+        },
+        {
+          "word": "还",
+          "start_seconds": 23.49,
+          "end_seconds": 23.65,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "给",
+          "start_seconds": 23.65,
+          "end_seconds": 23.83,
+          "probability": 0.99951171875
+        },
+        {
+          "word": "自己",
+          "start_seconds": 23.83,
+          "end_seconds": 24.09,
+          "probability": 1.0
+        }
+      ],
+      "alignment_source": "Actual independent offline Whisper large-v3 word alignment, not character interpolation",
+      "seconds_to_transcribe": 2.077999999994063,
+      "human_pronunciation_listening": "NOT_RUN"
+    }
+  ],
+  "asr_match_limit": 0.85,
+  "subjective_listening": "NOT_RUN"
+}

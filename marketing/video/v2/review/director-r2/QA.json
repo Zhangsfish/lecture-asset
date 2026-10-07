@@ -1,0 +1,1438 @@
+{
+  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
+  "tested_implementation_sha": "1e1aff951c7aef6c4218731f8fa6895e4f5960b8",
+  "main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
+  "director_input_sha": "85abda965842f47fa2fcb38c745070d1221d3bf9",
+  "technical": "PASS",
+  "media": [
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "sha256": "7c114a37c684b4cf6434977c45fa23ef5afd7fee809358a71f6d4c3338fb6b2c",
+      "bytes": 9766591,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -14.367350044874366,
+        "rms_dbfs": -32.06045753996027,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN"
+      }
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "sha256": "0781faecf2c29a7a9bb7f8adf43e78dc6d573a8b194ea068ad4ce6b56e230a82",
+      "bytes": 9119431,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "sha256": "b7e6fe5b2756df3e4fe36c4642a67a4ab6a0c61c3dcdb6570c2ca5ff0acb1239",
+      "bytes": 3367650,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "sha256": "342750040f3b7cef859aaeaab862ea795444f47fa59818df9a81b1a49fa6ed04",
+      "bytes": 2823425,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "sha256": "0050d48d76834d8991388da2ea59cf99028c1ae3b84f1aeae62454af62780434",
+      "bytes": 9808906,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -14.367350044874366,
+        "rms_dbfs": -32.06045753996027,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN"
+      }
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "sha256": "552e04c7abff24cfd3a6caf5ce550c662cabe743898dba633ff0fb3760b7056f",
+      "bytes": 9161746,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "sha256": "9393623fc80ffbcff89bb2f30d3277c23cc0222f99708f19dccb588a3d6cf0bd",
+      "bytes": 3343117,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "sha256": "698ab6d35261fef1d842b57705287e8a86a5f386487af31d95a794d4e90f0939",
+      "bytes": 2798892,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    }
+  ],
+  "dom_checks": [
+    {
+      "locale": "en",
+      "errors": [],
+      "ready": {
+        "fonts": "loaded",
+        "images": 22,
+        "decoded": true,
+        "atlas": [
+          887,
+          1774
+        ]
+      },
+      "duration": 26,
+      "seek_mismatches": [],
+      "clipping": [],
+      "saved_before_departure": true,
+      "middle_life_hidden": true,
+      "report_hold": true,
+      "end_stable": true
+    },
+    {
+      "locale": "zh-Hans",
+      "errors": [],
+      "ready": {
+        "fonts": "loaded",
+        "images": 22,
+        "decoded": true,
+        "atlas": [
+          887,
+          1774
+        ]
+      },
+      "duration": 26,
+      "seek_mismatches": [],
+      "clipping": [],
+      "saved_before_departure": true,
+      "middle_life_hidden": true,
+      "report_hold": true,
+      "end_stable": true
+    }
+  ],
+  "decoded_native_comparisons": [
+    {
+      "locale": "en",
+      "frame": 0,
+      "mean_rgb_error": 1.867013888888889,
+      "tolerance": 8,
+      "decoded_sha256": "62c91de75bb90fe648adae7d36cd476afbaaf5ac7c4241a83c6e7df9f2355363"
+    },
+    {
+      "locale": "en",
+      "frame": 21,
+      "mean_rgb_error": 1.8795471643518518,
+      "tolerance": 8,
+      "decoded_sha256": "04bcf21e31f9ff1f1ae12dd40a8e8674011058446f35dd5ac1d493e87d9fb5c2"
+    },
+    {
+      "locale": "en",
+      "frame": 60,
+      "mean_rgb_error": 1.9171412037037037,
+      "tolerance": 8,
+      "decoded_sha256": "21b325c9a7ed7589ae9f8e91585a76ab8e37128efe82abf497f2a2694a866e0e"
+    },
+    {
+      "locale": "en",
+      "frame": 130,
+      "mean_rgb_error": 1.9161762152777777,
+      "tolerance": 8,
+      "decoded_sha256": "d20af1cc8acb22323dbd4877bd24f4836b17fbdbfca74b8e8ac171fbb16c849a"
+    },
+    {
+      "locale": "en",
+      "frame": 180,
+      "mean_rgb_error": 1.9593373842592592,
+      "tolerance": 8,
+      "decoded_sha256": "29feb8478f9abe37dd9c937609e2a943e8faba42539ba95fcfb8e1381733ce80"
+    },
+    {
+      "locale": "en",
+      "frame": 246,
+      "mean_rgb_error": 1.7371354166666666,
+      "tolerance": 8,
+      "decoded_sha256": "f377cfd313bba2fead1e5b6784023f26d2671a0b84a4ecadc60412067b9b5f5a"
+    },
+    {
+      "locale": "en",
+      "frame": 299,
+      "mean_rgb_error": 1.6912297453703704,
+      "tolerance": 8,
+      "decoded_sha256": "3a93cbb3ab50858e2bc17e2653471525af0e308c08e9501bd8d19d57273be2f0"
+    },
+    {
+      "locale": "en",
+      "frame": 360,
+      "mean_rgb_error": 1.5919328703703703,
+      "tolerance": 8,
+      "decoded_sha256": "47dce4fd69f070ce26ed143eec0d259d46dc7e0948b77529c8dee40d64628d11"
+    },
+    {
+      "locale": "en",
+      "frame": 420,
+      "mean_rgb_error": 1.6267057291666667,
+      "tolerance": 8,
+      "decoded_sha256": "22bf1e413ea4b09b6330845243ed95722eafedf7dabce69bc024fc468c5d0fc5"
+    },
+    {
+      "locale": "en",
+      "frame": 450,
+      "mean_rgb_error": 1.6266044560185184,
+      "tolerance": 8,
+      "decoded_sha256": "a21e43a5de18d05e39be2b76f9e5597c68cc9ae0468dca150f8389acf592f832"
+    },
+    {
+      "locale": "en",
+      "frame": 504,
+      "mean_rgb_error": 1.5799927662037037,
+      "tolerance": 8,
+      "decoded_sha256": "bcb593ba199c2662827a5a14b0b71e29bcb591e144ef8c783065816a6c54c392"
+    },
+    {
+      "locale": "en",
+      "frame": 546,
+      "mean_rgb_error": 1.613582175925926,
+      "tolerance": 8,
+      "decoded_sha256": "c2aa00c8cd253c54c5d5448beddd91334c832479b8ae6c0e6fe0eed45254a2ee"
+    },
+    {
+      "locale": "en",
+      "frame": 582,
+      "mean_rgb_error": 1.6139756944444446,
+      "tolerance": 8,
+      "decoded_sha256": "89ff436645c5a223782684146da84fe0be78761000ab51bc0b6bd57e3b7f9889"
+    },
+    {
+      "locale": "en",
+      "frame": 629,
+      "mean_rgb_error": 1.4549609375,
+      "tolerance": 8,
+      "decoded_sha256": "b6c2f6ce041670dba137c74a85acf682e470ace2f302b82c894f9bfcb41a80f5"
+    },
+    {
+      "locale": "en",
+      "frame": 660,
+      "mean_rgb_error": 1.4606843171296295,
+      "tolerance": 8,
+      "decoded_sha256": "23768cbdd5456346a9625ea397554d753d064fb64c9eb1b865d2314e96d2527d"
+    },
+    {
+      "locale": "en",
+      "frame": 696,
+      "mean_rgb_error": 1.4608072916666666,
+      "tolerance": 8,
+      "decoded_sha256": "fd6aab6419e1d08ae51a1d218b6571b753337af2ee036bbcd9b60c5ea061f764"
+    },
+    {
+      "locale": "en",
+      "frame": 738,
+      "mean_rgb_error": 1.460107060185185,
+      "tolerance": 8,
+      "decoded_sha256": "0b280337f9cdc6cde17f46f2463e3b6a5cb30e56c6ac9c57cbbcc098392b3332"
+    },
+    {
+      "locale": "en",
+      "frame": 786,
+      "mean_rgb_error": 1.5147974537037037,
+      "tolerance": 8,
+      "decoded_sha256": "40a21b48954ca356e618dc308bc4e00994fb3efc31d7582653bf31221b38d405"
+    },
+    {
+      "locale": "en",
+      "frame": 822,
+      "mean_rgb_error": 1.5130208333333333,
+      "tolerance": 8,
+      "decoded_sha256": "df947a26e120e9e43ec44a72065870c9a99f88da996f1854e8d761ad1714ae42"
+    },
+    {
+      "locale": "en",
+      "frame": 870,
+      "mean_rgb_error": 1.5201432291666668,
+      "tolerance": 8,
+      "decoded_sha256": "8709c13d2e4f72701d2e4cf0c7d2c65d49b8291d37c575ecf92aeff0b2b8de2a"
+    },
+    {
+      "locale": "en",
+      "frame": 918,
+      "mean_rgb_error": 1.5668084490740741,
+      "tolerance": 8,
+      "decoded_sha256": "c705a3e589472abca81ac96319cf1bebd1169580ae69ac0c09e7ca1783ab8f80"
+    },
+    {
+      "locale": "en",
+      "frame": 990,
+      "mean_rgb_error": 1.566890914351852,
+      "tolerance": 8,
+      "decoded_sha256": "edb42cd0cfd9535e7e8aed884c20de598711638e5084561bd16b852331a2ca76"
+    },
+    {
+      "locale": "en",
+      "frame": 1049,
+      "mean_rgb_error": 1.5590248842592593,
+      "tolerance": 8,
+      "decoded_sha256": "d7a14634732afcc4187a30c107698f989d101ba56984f1c57f731b173a2ae38c"
+    },
+    {
+      "locale": "en",
+      "frame": 1050,
+      "mean_rgb_error": 1.8932465277777777,
+      "tolerance": 8,
+      "decoded_sha256": "f04ef76be5b83a657b5278a0473f57c4fb27ef206acb36b2b5cafd356b640144"
+    },
+    {
+      "locale": "en",
+      "frame": 1074,
+      "mean_rgb_error": 1.9550390625,
+      "tolerance": 8,
+      "decoded_sha256": "f0603e6abccc9d6ada6322f6e6d51671cc33a197bde8995394f903972d71f76b"
+    },
+    {
+      "locale": "en",
+      "frame": 1080,
+      "mean_rgb_error": 1.9556669560185185,
+      "tolerance": 8,
+      "decoded_sha256": "c85c1985f7e35cfc522d2bf6da584e0277d5affdc81c8262b86e55d1d2c187e6"
+    },
+    {
+      "locale": "en",
+      "frame": 1158,
+      "mean_rgb_error": 1.7033015046296296,
+      "tolerance": 8,
+      "decoded_sha256": "0a4b9b8a64f89a04a627effaad4a9c7a0229d831e08b71a85d2fd014d7761110"
+    },
+    {
+      "locale": "en",
+      "frame": 1230,
+      "mean_rgb_error": 1.388732638888889,
+      "tolerance": 8,
+      "decoded_sha256": "17cccd1969d247403be66541e6d6ba5db9e106d205b666ac5ece08a462be08a6"
+    },
+    {
+      "locale": "en",
+      "frame": 1248,
+      "mean_rgb_error": 1.4038874421296297,
+      "tolerance": 8,
+      "decoded_sha256": "4ca9de5760f21657dffd3c24dd0e8171266b41895b8ba8f0ded65f7958660efa"
+    },
+    {
+      "locale": "en",
+      "frame": 1350,
+      "mean_rgb_error": 1.3742549189814814,
+      "tolerance": 8,
+      "decoded_sha256": "53b1dad52c5ae85dddcc9f1d611330c5a402466deea23146168afe4b948681b9"
+    },
+    {
+      "locale": "en",
+      "frame": 1500,
+      "mean_rgb_error": 1.3739930555555555,
+      "tolerance": 8,
+      "decoded_sha256": "aa1078c914ecececc553572dcda152d7bc3840ae636e73876b52f01f04cf89e0"
+    },
+    {
+      "locale": "en",
+      "frame": 1559,
+      "mean_rgb_error": 1.366177662037037,
+      "tolerance": 8,
+      "decoded_sha256": "96297c78df668a4512c032c3d857ba1a3cd5fb4fce314b83baffbf93fb735b30"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 0,
+      "mean_rgb_error": 1.8664192708333334,
+      "tolerance": 8,
+      "decoded_sha256": "cc73430b2725360342c5311441c448a660cc7f96c1e45422e5d926925c99a498"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 21,
+      "mean_rgb_error": 1.879113136574074,
+      "tolerance": 8,
+      "decoded_sha256": "ec76913d607a3b9738c5aa43dd40675e053f5a79032d66950c1f65db395f357f"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 60,
+      "mean_rgb_error": 1.909905960648148,
+      "tolerance": 8,
+      "decoded_sha256": "975d38fd3b066df7e5f3dbfa21662ce6b216f1ea4b9fd786208ee84e6127f106"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 130,
+      "mean_rgb_error": 1.9174623842592593,
+      "tolerance": 8,
+      "decoded_sha256": "c12f257649e282924309dd33c111f6a6b1467c2e92aa3d6d9f4055b0b2ee1ba9"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 180,
+      "mean_rgb_error": 1.9656004050925926,
+      "tolerance": 8,
+      "decoded_sha256": "f2119007ed5eab1ab1dbdb4480ed963ab43ce46c63b8de2c243d4b024d51f27d"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 246,
+      "mean_rgb_error": 1.731712962962963,
+      "tolerance": 8,
+      "decoded_sha256": "7e6aeea8a1bce8153bd5b904a1cf07eaa1a30d278e5cad14eca535d0c7762022"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 299,
+      "mean_rgb_error": 1.6919965277777778,
+      "tolerance": 8,
+      "decoded_sha256": "97528ee3d469e58dc87b53c5dc98e8a1b936f6511271d68969c621d4c1ea4661"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 360,
+      "mean_rgb_error": 1.594045138888889,
+      "tolerance": 8,
+      "decoded_sha256": "ea3820c993904c4230ee60d6ba1572a31bc5da4351c049ac69a9954e39b15b26"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 420,
+      "mean_rgb_error": 1.6296527777777778,
+      "tolerance": 8,
+      "decoded_sha256": "37b04be88dcb815a568c8bf75f0a7eeb325a2a15fe1f8dfbd5767173500252c1"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 450,
+      "mean_rgb_error": 1.6294010416666667,
+      "tolerance": 8,
+      "decoded_sha256": "d35463c8f174ffa0296ffd602e1db0ad6c69509a1157c3ede75dd824f07a7b84"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 504,
+      "mean_rgb_error": 1.5819835069444443,
+      "tolerance": 8,
+      "decoded_sha256": "5fff9af1388b0ba26c5750caf050602e4e28aaeff5d5bc9a1bcac0bd047e66e0"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 546,
+      "mean_rgb_error": 1.609609375,
+      "tolerance": 8,
+      "decoded_sha256": "7ce7dde1af3fb77d2980e04cd055f9ac93ae699c8037609ee7f37f198c310baf"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 582,
+      "mean_rgb_error": 1.6105063657407408,
+      "tolerance": 8,
+      "decoded_sha256": "a314efd0f1b9ba67d49d6dcf7d2635a4365d87dcd3e28dc73d49e9ccf71ae20b"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 629,
+      "mean_rgb_error": 1.4546672453703704,
+      "tolerance": 8,
+      "decoded_sha256": "213ccf63a397d17ce4989d9fb48603831697f4737bfa30f72ce171a348b32011"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 660,
+      "mean_rgb_error": 1.460295138888889,
+      "tolerance": 8,
+      "decoded_sha256": "953f4ff9c59e2a8ad684cb9ad52fd526a453449b784aaa8c0813cfa0c02e005c"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 696,
+      "mean_rgb_error": 1.460607638888889,
+      "tolerance": 8,
+      "decoded_sha256": "9363353765dcb06b9ab8b7a70d17a39ea85b901ea4df9d49c0ba23cb8e241afe"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 738,
+      "mean_rgb_error": 1.4650578703703703,
+      "tolerance": 8,
+      "decoded_sha256": "847af1388be4a6dfd0aebad636bf7a31688bb529bd4ae657bcd3c3e82bd051c6"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 786,
+      "mean_rgb_error": 1.5251027199074074,
+      "tolerance": 8,
+      "decoded_sha256": "c9538d282d3a3f565ae8082c1c46a8d576cbd67fc46bd97b02e63768f3da2c29"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 822,
+      "mean_rgb_error": 1.5185966435185185,
+      "tolerance": 8,
+      "decoded_sha256": "8f847b30931ff8f6ab37b8a9a9214551d0152512ae57c189f6e6561bb1094e0d"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 870,
+      "mean_rgb_error": 1.5299189814814815,
+      "tolerance": 8,
+      "decoded_sha256": "1defd7d75dc84129783c2e5ccb7779cbbed763a1fb93c962b0c55b3ce47be68c"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 918,
+      "mean_rgb_error": 1.5784389467592592,
+      "tolerance": 8,
+      "decoded_sha256": "b40193a0376ac9ce9ee84edf78ec86c71b006c47e9e781172699793f16e9f921"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 990,
+      "mean_rgb_error": 1.578627025462963,
+      "tolerance": 8,
+      "decoded_sha256": "ccbeb7464a8f51cc01936662aa954ca39c7b27070f08cf21ef69a6176ed92564"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1049,
+      "mean_rgb_error": 1.5735112847222221,
+      "tolerance": 8,
+      "decoded_sha256": "ed25cc415d37601b3305c7235947c4345d7963f6c03672ca4f96439120c94a39"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1050,
+      "mean_rgb_error": 1.909787326388889,
+      "tolerance": 8,
+      "decoded_sha256": "14acf10576d2b67e3e622e21b76cfe58be3a2879f766ae8789d3f62a4f543ac5"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1074,
+      "mean_rgb_error": 1.954068287037037,
+      "tolerance": 8,
+      "decoded_sha256": "625aa38f57a4baf75e04bf985aa2610a570c6925ef209f8acb3d4d10d936531f"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1080,
+      "mean_rgb_error": 1.9544849537037037,
+      "tolerance": 8,
+      "decoded_sha256": "6e4e132f84b6fa4d4f47ef5e0394c4a79eda79db9d5324db13d0bd8d88cd1260"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1158,
+      "mean_rgb_error": 1.6980179398148147,
+      "tolerance": 8,
+      "decoded_sha256": "970894191e81bf2b082bb8b34922dcaf284a2cf7634db2c8fd5dd0667add9960"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1230,
+      "mean_rgb_error": 1.3904571759259259,
+      "tolerance": 8,
+      "decoded_sha256": "d2aa5f1fba10984284a51d46a33410ef7f1a36f96edc0b5b3968954078a6ad9e"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1248,
+      "mean_rgb_error": 1.4097627314814816,
+      "tolerance": 8,
+      "decoded_sha256": "59979b0c1c1bfe92659ab496a590e4183684e968936ffd596a2707025f9ce73b"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1350,
+      "mean_rgb_error": 1.375390625,
+      "tolerance": 8,
+      "decoded_sha256": "0c78840308a5bf841484142c12a650215df703128628fa7b63ea80e246bb2e1e"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1500,
+      "mean_rgb_error": 1.3765480324074073,
+      "tolerance": 8,
+      "decoded_sha256": "e09485793e81e3c2029d34f38fe47fb1bfcaa4f3e1aad7a944c662c49d8bb28c"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1559,
+      "mean_rgb_error": 1.3648480902777778,
+      "tolerance": 8,
+      "decoded_sha256": "01471811028444efdb50b308798826f9385a2cc71ea0372a9aa1d7e2e6ebb25a"
+    }
+  ],
+  "render_warnings": [
+    {
+      "locale": "en",
+      "readiness_timeout": false,
+      "static_missing_registry": false,
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 2,
+        "infoCount": 0,
+        "findings": [
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 5 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0001.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\en\\index.html"
+          },
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 2 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0008.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\en\\index.html"
+          }
+        ],
+        "filesScanned": 1,
+        "_meta": {
+          "version": "0.8.132",
+          "updateAvailable": false
+        }
+      },
+      "source_reuse_note": "Same immutable JPEG textures intentionally used for source page, separate PDF cover, sleeve thumbnail and report source thumbnails; no extra canonical page."
+    },
+    {
+      "locale": "zh-Hans",
+      "readiness_timeout": false,
+      "static_missing_registry": false,
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 2,
+        "infoCount": 0,
+        "findings": [
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 5 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0001.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\zh-Hans\\index.html"
+          },
+          {
+            "code": "duplicate_media_discovery_risk",
+            "severity": "warning",
+            "message": "Detected 2 matching img entries with the same source/start/duration.",
+            "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation.",
+            "snippet": "img src=assets/lecture/0008.jpg data-start= data-duration=",
+            "file": "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\zh-Hans\\index.html"
+          }
+        ],
+        "filesScanned": 1,
+        "_meta": {
+          "version": "0.8.132",
+          "updateAvailable": false
+        }
+      },
+      "source_reuse_note": "Same immutable JPEG textures intentionally used for source page, separate PDF cover, sleeve thumbnail and report source thumbnails; no extra canonical page."
+    }
+  ],
+  "original_assets": [
+    {
+      "path": "assets/app-icon.png",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyh.ttc",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyhbd.ttc",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/segoeui.ttf",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0001.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0002.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0003.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0004.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0005.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0006.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0007.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0008.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0009.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0010.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0011.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0012.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/life-atlas.png",
+      "unchanged": true
+    }
+  ],
+  "historical_media_changes": [],
+  "scope_paths": [
+    "marketing/video/v2/.gitattributes",
+    "marketing/video/v2/.gitignore",
+    "marketing/video/v2/ASSET_MANIFEST.md",
+    "marketing/video/v2/CREATIVE_BRIEF.md",
+    "marketing/video/v2/POST_COPY_EN.md",
+    "marketing/video/v2/POST_COPY_ZH.md",
+    "marketing/video/v2/PROVIDER_VARIANTS.md",
+    "marketing/video/v2/PUBLISH_LINK.json",
+    "marketing/video/v2/README.md",
+    "marketing/video/v2/SHOTLIST.md",
+    "marketing/video/v2/SOURCE_REVIEW.md",
+    "marketing/video/v2/STORYBOARD.md",
+    "marketing/video/v2/STYLE_RULES.md",
+    "marketing/video/v2/assets/brands/SOURCES.json",
+    "marketing/video/v2/assets/brands/app-store-en.svg",
+    "marketing/video/v2/assets/brands/app-store-qr.png",
+    "marketing/video/v2/assets/brands/app-store-zh.svg",
+    "marketing/video/v2/assets/brands/chatgpt.webp",
+    "marketing/video/v2/assets/brands/workbuddy.svg",
+    "marketing/video/v2/assets/sound/SOUND_R2.json",
+    "marketing/video/v2/assets/sound/director-r2-score.wav",
+    "marketing/video/v2/package.json",
+    "marketing/video/v2/plan.json",
+    "marketing/video/v2/review/director-r2/AGENTS.md",
+    "marketing/video/v2/scripts/r2-build.mjs",
+    "marketing/video/v2/scripts/r2-lint.mjs",
+    "marketing/video/v2/scripts/r2-package.py",
+    "marketing/video/v2/scripts/r2-qa.mjs",
+    "marketing/video/v2/scripts/r2-qr.py",
+    "marketing/video/v2/scripts/r2-render.mjs",
+    "marketing/video/v2/scripts/r2-score.py",
+    "marketing/video/v2/scripts/r2-snapshot.mjs",
+    "marketing/video/v2/src/r2-html.ts",
+    "marketing/video/v2/src/r2-timeline.ts",
+    "marketing/video/v2/src/r2.css"
+  ],
+  "commands": [
+    {
+      "locale": "en",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\en",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-en-chatgpt.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "19",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-05T19:24:14.953Z",
+      "finished": "2026-10-05T19:30:00.073Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-c:v",
+        "copy",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-en-chatgpt-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-en-chatgpt-720.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-en-chatgpt-720-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\zh-Hans",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-zh-workbuddy.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "19",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-05T19:30:22.134Z",
+      "finished": "2026-10-05T19:35:52.620Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-c:v",
+        "copy",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-zh-workbuddy-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-zh-workbuddy-720.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r2\\director-cut-zh-workbuddy-720-muted.mp4"
+      ],
+      "exit": 0
+    }
+  ],
+  "capture_commands": [
+    {
+      "locale": "en",
+      "frames": [
+        0,
+        21,
+        60,
+        130,
+        180,
+        246,
+        299,
+        360,
+        420,
+        450,
+        504,
+        546,
+        582,
+        629,
+        660,
+        696,
+        738,
+        786,
+        822,
+        870,
+        918,
+        990,
+        1049,
+        1050,
+        1074,
+        1080,
+        1158,
+        1230,
+        1248,
+        1350,
+        1500,
+        1559
+      ],
+      "args": [
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "snapshot",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\en",
+        "--at",
+        "0,0.35,1,2.1666666666666665,3,4.1,4.983333333333333,6,7,7.5,8.4,9.1,9.7,10.483333333333333,11,11.6,12.3,13.1,13.7,14.5,15.3,16.5,17.483333333333334,17.5,17.9,18,19.3,20.5,20.8,22.5,25,25.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\snapshots\\en",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "frames": [
+        0,
+        21,
+        60,
+        130,
+        180,
+        246,
+        299,
+        360,
+        420,
+        450,
+        504,
+        546,
+        582,
+        629,
+        660,
+        696,
+        738,
+        786,
+        822,
+        870,
+        918,
+        990,
+        1049,
+        1050,
+        1074,
+        1080,
+        1158,
+        1230,
+        1248,
+        1350,
+        1500,
+        1559
+      ],
+      "args": [
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "snapshot",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\zh-Hans",
+        "--at",
+        "0,0.35,1,2.1666666666666665,3,4.1,4.983333333333333,6,7,7.5,8.4,9.1,9.7,10.483333333333333,11,11.6,12.3,13.1,13.7,14.5,15.3,16.5,17.483333333333334,17.5,17.9,18,19.3,20.5,20.8,22.5,25,25.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director-r2\\snapshots\\zh-Hans",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    }
+  ],
+  "source_frames": [
+    {
+      "file": "review/director-r2/keyframes/en/S01.jpg",
+      "frame": 60,
+      "sha256": "af8fe1819bc2e9450dde788533bf951d30ad85c546b926cd0542a79d526439d2",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/en/S02.jpg",
+      "frame": 246,
+      "sha256": "2da77299664e488eab7227aa122afe1a59ee10bdbb91e159a56729986c777482",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/en/S03.jpg",
+      "frame": 360,
+      "sha256": "c13be7265b8d80d4adf9de7cca84aa2321a40eaf2d25a84e8842753b37ebce1a",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/en/S04.jpg",
+      "frame": 546,
+      "sha256": "be7a8342091bbb9023dd9a4c16c395c03e7196ec4f7aaf69779da17790328d61",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/en/S05.jpg",
+      "frame": 738,
+      "sha256": "1a406bb312ba38caebc5e5fb3a3bbf6be456634644c8322417974df7279f8c55",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/en/S06.jpg",
+      "frame": 990,
+      "sha256": "aac3a78430a9154315eb0948edaded016ba8b7d8784bf62efdcf08876d20dc77",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/en/S07.jpg",
+      "frame": 1158,
+      "sha256": "eee7af5444ab2f85adbc1dfd825ded3259236a3fe2e5ce4bda728319b4d2fc2e",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/en/S08.jpg",
+      "frame": 1500,
+      "sha256": "60be1380ace10e9721eee128605d294fdea4920536bdb0a08b82e83546069007",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S01.jpg",
+      "frame": 60,
+      "sha256": "b5264ccda7500027a5423fb5945df72a5525fd34beae5178682965c473584ad7",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S02.jpg",
+      "frame": 246,
+      "sha256": "989760bb1aca4536f97ab9481a07dfc07173a5e8bdf44111bbb710dc1b886efd",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S03.jpg",
+      "frame": 360,
+      "sha256": "69a70914854a48d7375a608e630ab7f989effe89600d52d10d2ccd551377325e",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S04.jpg",
+      "frame": 546,
+      "sha256": "77a7661dc70625079710e795804b7408765446e03b8360a055ef8825fad49ca0",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S05.jpg",
+      "frame": 738,
+      "sha256": "4fdd3a59765314f645c56266852b83a55bc5af839aabaea5011dcb95fc75977d",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S06.jpg",
+      "frame": 990,
+      "sha256": "c3faab062ff0a47251fbdc1710687df6dee87d56cbb2810d8877475bbb7d3c5b",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S07.jpg",
+      "frame": 1158,
+      "sha256": "702fd912f95ef6c5520209626553a59389118db65eceb23450b0e916a60a0bde",
+      "source": "decoded master MP4"
+    },
+    {
+      "file": "review/director-r2/keyframes/zh-Hans/S08.jpg",
+      "frame": 1500,
+      "sha256": "3ce75ee4398167efaa5feca86b1b5e688f2d49f8f77cf410e6573a11a9beb798",
+      "source": "decoded master MP4"
+    }
+  ],
+  "visual_review": "Producer inspected both encoded contact sheets, four material views, transitions, 360px copies and platform-mask proxies; director approval remains pending.",
+  "human_listening": "NOT_RUN",
+  "provider_exchange": "CONCEPTUAL / SOURCE-RELATED EDITORIAL ILLUSTRATION, NOT A RECORDED SESSION",
+  "publish_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
+  "App_ASC_TestFlight_mutations": false,
+  "qr_exported_frame_checks": [
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt.mp4",
+      "frame": 1500,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            801.4351806640625
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1500,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            471.9910583496094,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy.mp4",
+      "frame": 1500,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            801.4351806640625
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1500,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            473.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    }
+  ],
+  "final_scope_check": {
+    "base": "85abda965842f47fa2fcb38c745070d1221d3bf9",
+    "tracked_change_paths": [
+      "marketing/video/v2/.gitattributes",
+      "marketing/video/v2/.gitignore",
+      "marketing/video/v2/ASSET_MANIFEST.md",
+      "marketing/video/v2/CREATIVE_BRIEF.md",
+      "marketing/video/v2/POST_COPY_EN.md",
+      "marketing/video/v2/POST_COPY_ZH.md",
+      "marketing/video/v2/PROVIDER_VARIANTS.md",
+      "marketing/video/v2/PUBLISH_LINK.json",
+      "marketing/video/v2/README.md",
+      "marketing/video/v2/SHOTLIST.md",
+      "marketing/video/v2/SOURCE_REVIEW.md",
+      "marketing/video/v2/STORYBOARD.md",
+      "marketing/video/v2/STYLE_RULES.md",
+      "marketing/video/v2/assets/brands/SOURCES.json",
+      "marketing/video/v2/assets/brands/app-store-en.svg",
+      "marketing/video/v2/assets/brands/app-store-qr.png",
+      "marketing/video/v2/assets/brands/app-store-zh.svg",
+      "marketing/video/v2/assets/brands/chatgpt.webp",
+      "marketing/video/v2/assets/brands/workbuddy.svg",
+      "marketing/video/v2/assets/sound/SOUND_R2.json",
+      "marketing/video/v2/assets/sound/director-r2-score.wav",
+      "marketing/video/v2/package.json",
+      "marketing/video/v2/plan.json",
+      "marketing/video/v2/review/director-r2/AGENTS.md",
+      "marketing/video/v2/scripts/r2-build.mjs",
+      "marketing/video/v2/scripts/r2-lint.mjs",
+      "marketing/video/v2/scripts/r2-package.py",
+      "marketing/video/v2/scripts/r2-qa.mjs",
+      "marketing/video/v2/scripts/r2-qr.py",
+      "marketing/video/v2/scripts/r2-render.mjs",
+      "marketing/video/v2/scripts/r2-score.py",
+      "marketing/video/v2/scripts/r2-snapshot.mjs",
+      "marketing/video/v2/src/r2-html.ts",
+      "marketing/video/v2/src/r2-timeline.ts",
+      "marketing/video/v2/src/r2.css",
+      "marketing/video/v2/PUBLISH_LINK.json"
+    ],
+    "all_within_v2": true,
+    "historical_media_unchanged": true,
+    "font_binaries_tracked": false,
+    "no_App_Packages_store_project_workflow_ASC_TestFlight_changes": true
+  },
+  "producer_visual_review": "VISUAL_REVIEW.md; encoded samples and four-material strips inspected; director acceptance pending",
+  "publication_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
+  "badge_clearance_evidence": "CTA_AUDIT.json"
+}

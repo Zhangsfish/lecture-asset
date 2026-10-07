@@ -1,0 +1,510 @@
+{
+  "tested_source_sha": "1e1aff951c7aef6c4218731f8fa6895e4f5960b8",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 1046,
+      "sha256": "27b84c6c422b53c4aae9ea6cec3c271cf4bd2261786aa50431f1bdcb873443af",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "CONTACT_SHEET_EN.jpg",
+      "bytes": 280658,
+      "sha256": "056a5f417b2464047b7597c1b730115db2a617ce9b9d17227151c8d7a2a3db2c",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "CONTACT_SHEET_ZH.jpg",
+      "bytes": 279595,
+      "sha256": "757f55a688839d8f756d3381db36a61c5bc44bc7b3455fc7f8f84540c2aa5e85",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "CTA_AUDIT.json",
+      "bytes": 689,
+      "sha256": "c1556d6d18ad29aae7cdf50bc840936e8432e93ed392099cb91aba55b23d1523",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "DELIVERY.md",
+      "bytes": 8609,
+      "sha256": "c95d9255396af734f49ba1e6c86525aeb1e0ea2e22cdabf9169bf3318781cd12",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "director-cut-en-chatgpt-720-muted.mp4",
+      "bytes": 2823425,
+      "sha256": "342750040f3b7cef859aaeaab862ea795444f47fa59818df9a81b1a49fa6ed04",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "director-cut-en-chatgpt-720.mp4",
+      "bytes": 3367650,
+      "sha256": "b7e6fe5b2756df3e4fe36c4642a67a4ab6a0c61c3dcdb6570c2ca5ff0acb1239",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "director-cut-en-chatgpt-muted.mp4",
+      "bytes": 9119431,
+      "sha256": "0781faecf2c29a7a9bb7f8adf43e78dc6d573a8b194ea068ad4ce6b56e230a82",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "director-cut-en-chatgpt.mp4",
+      "bytes": 9766591,
+      "sha256": "7c114a37c684b4cf6434977c45fa23ef5afd7fee809358a71f6d4c3338fb6b2c",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "director-cut-zh-workbuddy-720-muted.mp4",
+      "bytes": 2798892,
+      "sha256": "698ab6d35261fef1d842b57705287e8a86a5f386487af31d95a794d4e90f0939",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "director-cut-zh-workbuddy-720.mp4",
+      "bytes": 3343117,
+      "sha256": "9393623fc80ffbcff89bb2f30d3277c23cc0222f99708f19dccb588a3d6cf0bd",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "director-cut-zh-workbuddy-muted.mp4",
+      "bytes": 9161746,
+      "sha256": "552e04c7abff24cfd3a6caf5ce550c662cabe743898dba633ff0fb3760b7056f",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "director-cut-zh-workbuddy.mp4",
+      "bytes": 9808906,
+      "sha256": "0050d48d76834d8991388da2ea59cf99028c1ae3b84f1aeae62454af62780434",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "END_CARD_COMPARE.jpg",
+      "bytes": 121890,
+      "sha256": "b60ffed2c071af99d5131d3d1498681a8ee306d14e1d545199ce293790459e25",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "END_CARD_EN.png",
+      "bytes": 880782,
+      "sha256": "0f453bd38bb54c338a43ee1a3339805021664cbb4b3f624e3442ae44830a1cf5",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "END_CARD_ZH.png",
+      "bytes": 887700,
+      "sha256": "d4c6e5dc466261df11676146d3ab65efd0322473deb2d9f3b8e307cef1a0fad8",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "ENVIRONMENT.md",
+      "bytes": 2360,
+      "sha256": "30db3f76c18a2003d34f06efddfd32b13446d7dfb3872594270fdc2134f5c87d",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "HANDOFF_STRIP_EN.jpg",
+      "bytes": 89170,
+      "sha256": "5a52572408ba0440d99cb48a1d35be4adea59a08af40db38310c6018273f79fe",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "HANDOFF_STRIP_ZH.jpg",
+      "bytes": 85967,
+      "sha256": "ffe5540dca2ce9dc25be9023e610bdb232074e18d2310a5f09e61c7c0a95886b",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/AI-01.jpg",
+      "bytes": 112044,
+      "sha256": "8a16e6877181fbdec1acc45f634c8b9a981fb69957dd92254d1eddda4c8aa83f",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/AI-02.jpg",
+      "bytes": 126029,
+      "sha256": "1a406bb312ba38caebc5e5fb3a3bbf6be456634644c8322417974df7279f8c55",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/AI-03.jpg",
+      "bytes": 141382,
+      "sha256": "573a9c76ed4faf4b210d7c1f5411bc308206247f7d10600aa498347479c12d47",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/AI-04.jpg",
+      "bytes": 208834,
+      "sha256": "aac3a78430a9154315eb0948edaded016ba8b7d8784bf62efdcf08876d20dc77",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S01.jpg",
+      "bytes": 343213,
+      "sha256": "af8fe1819bc2e9450dde788533bf951d30ad85c546b926cd0542a79d526439d2",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S02.jpg",
+      "bytes": 196879,
+      "sha256": "2da77299664e488eab7227aa122afe1a59ee10bdbb91e159a56729986c777482",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S03.jpg",
+      "bytes": 139528,
+      "sha256": "c13be7265b8d80d4adf9de7cca84aa2321a40eaf2d25a84e8842753b37ebce1a",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S04.jpg",
+      "bytes": 230678,
+      "sha256": "be7a8342091bbb9023dd9a4c16c395c03e7196ec4f7aaf69779da17790328d61",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S05.jpg",
+      "bytes": 126029,
+      "sha256": "1a406bb312ba38caebc5e5fb3a3bbf6be456634644c8322417974df7279f8c55",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S06.jpg",
+      "bytes": 208834,
+      "sha256": "aac3a78430a9154315eb0948edaded016ba8b7d8784bf62efdcf08876d20dc77",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S07.jpg",
+      "bytes": 351019,
+      "sha256": "eee7af5444ab2f85adbc1dfd825ded3259236a3fe2e5ce4bda728319b4d2fc2e",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/en/S08.jpg",
+      "bytes": 386432,
+      "sha256": "60be1380ace10e9721eee128605d294fdea4920536bdb0a08b82e83546069007",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/AI-01.jpg",
+      "bytes": 109257,
+      "sha256": "78d5d111089262977c06ec8b237e9053ce3e43d1bfbbe55217f4f991a3186312",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/AI-02.jpg",
+      "bytes": 126058,
+      "sha256": "4fdd3a59765314f645c56266852b83a55bc5af839aabaea5011dcb95fc75977d",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/AI-03.jpg",
+      "bytes": 142248,
+      "sha256": "64980ffce8d006435490cbd610c18a5bc53deaeb44df6c8113d362031e53cf2a",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/AI-04.jpg",
+      "bytes": 214274,
+      "sha256": "c3faab062ff0a47251fbdc1710687df6dee87d56cbb2810d8877475bbb7d3c5b",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S01.jpg",
+      "bytes": 338919,
+      "sha256": "b5264ccda7500027a5423fb5945df72a5525fd34beae5178682965c473584ad7",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S02.jpg",
+      "bytes": 196567,
+      "sha256": "989760bb1aca4536f97ab9481a07dfc07173a5e8bdf44111bbb710dc1b886efd",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S03.jpg",
+      "bytes": 140969,
+      "sha256": "69a70914854a48d7375a608e630ab7f989effe89600d52d10d2ccd551377325e",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S04.jpg",
+      "bytes": 232260,
+      "sha256": "77a7661dc70625079710e795804b7408765446e03b8360a055ef8825fad49ca0",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S05.jpg",
+      "bytes": 126058,
+      "sha256": "4fdd3a59765314f645c56266852b83a55bc5af839aabaea5011dcb95fc75977d",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S06.jpg",
+      "bytes": 214274,
+      "sha256": "c3faab062ff0a47251fbdc1710687df6dee87d56cbb2810d8877475bbb7d3c5b",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S07.jpg",
+      "bytes": 353706,
+      "sha256": "702fd912f95ef6c5520209626553a59389118db65eceb23450b0e916a60a0bde",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "keyframes/zh-Hans/S08.jpg",
+      "bytes": 396080,
+      "sha256": "3ce75ee4398167efaa5feca86b1b5e688f2d49f8f77cf410e6573a11a9beb798",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "MATERIAL_STRIP_EN.jpg",
+      "bytes": 111993,
+      "sha256": "eab70d5e2ae7161a7a92baaee25afda409dc08e5eb33a3b021dd555d8dddf850",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "MATERIAL_STRIP_ZH.jpg",
+      "bytes": 109465,
+      "sha256": "2cf41de4d4a8f3a070bd9ee874cf5883741af0024990d3ad9122a0d518146522",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "PLATFORM_MASK_EN.jpg",
+      "bytes": 240543,
+      "sha256": "175d7dd2fdddc8a601c517e400b87ca7fc0add2a7788dface24ac3c517bb042f",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "PLATFORM_MASK_ZH.jpg",
+      "bytes": 247894,
+      "sha256": "00392567e512efee9e9e13e70ad6021cb6d56e95d816c4e4bfe07f7cb01812c4",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/AI-01.jpg",
+      "bytes": 1949,
+      "sha256": "7666dad26685442f162d68eeaf1cc08f3f18656709a8547a468d4fbd3730f09b",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/AI-01.jpg.b64.txt",
+      "bytes": 2622,
+      "sha256": "d70fed9f57e7c54bf5c7d8163d4b1fdba2a7c9bae72efabac8bcdec3971a8b47",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/en/AI-02.jpg",
+      "bytes": 2662,
+      "sha256": "3981e15bd8309e0150c136825f7aa64c4898fb02d40ffce01eaf159b4250174d",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/AI-02.jpg.b64.txt",
+      "bytes": 3582,
+      "sha256": "8ece3bdfbe32744f0e0108e66ae1eaac7cb27b82e335a9842deddfaffe3cf1d0",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/en/AI-03.jpg",
+      "bytes": 3673,
+      "sha256": "a73dc2ea3494595190d363ac6b69227354d64625581fff774bb753cf7b65bf0c",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/AI-03.jpg.b64.txt",
+      "bytes": 4941,
+      "sha256": "7273adc3e1a2a9066725e37c6ef39d3b3f9cad2ad128a02a1edbb973b4180ee5",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/en/AI-04.jpg",
+      "bytes": 5526,
+      "sha256": "e43bd13dbb729e71d29d98c275aad083107da7f10770bc11056c63976342a23f",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/AI-04.jpg.b64.txt",
+      "bytes": 7430,
+      "sha256": "e26f640df41884401b5ad8f0384246ec8643a54f7060321e8144a03ef5b3608a",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/en/S03.jpg",
+      "bytes": 3668,
+      "sha256": "7f679beb975a018d1509efc9b6de7f6c2c2f2d85bcf394c7320db9eeabd3db24",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/S03.jpg.b64.txt",
+      "bytes": 4933,
+      "sha256": "dfeaff6daed68774a114e51349a4e39797180e08c50d7414c295464954ce1a67",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/en/S04.jpg",
+      "bytes": 6456,
+      "sha256": "564d147faa4325420a228ad21c65e88223c84112c27174c51729b0c140a6c854",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/S04.jpg.b64.txt",
+      "bytes": 8680,
+      "sha256": "a6a37876f308e58d65f56ebe8c5444ec3a0664333e84c06de7b5c95b78f37aba",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/en/S05.jpg",
+      "bytes": 2662,
+      "sha256": "3981e15bd8309e0150c136825f7aa64c4898fb02d40ffce01eaf159b4250174d",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/S05.jpg.b64.txt",
+      "bytes": 3582,
+      "sha256": "8ece3bdfbe32744f0e0108e66ae1eaac7cb27b82e335a9842deddfaffe3cf1d0",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/en/S06.jpg",
+      "bytes": 5526,
+      "sha256": "e43bd13dbb729e71d29d98c275aad083107da7f10770bc11056c63976342a23f",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/en/S06.jpg.b64.txt",
+      "bytes": 7430,
+      "sha256": "e26f640df41884401b5ad8f0384246ec8643a54f7060321e8144a03ef5b3608a",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-01.jpg",
+      "bytes": 1868,
+      "sha256": "7e0257e91a64d5a8916da94d100af102975ef9cce9381f30944bd67a637ef6d0",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-01.jpg.b64.txt",
+      "bytes": 2513,
+      "sha256": "ac30d8c8eb2bd45f4ee94b906fb502218b88a3ffd70fba8731356a6c92ae6eb2",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-02.jpg",
+      "bytes": 2640,
+      "sha256": "d0a99e4f5e46541741da3b0af2e21987b1cb7e835d1b568d9d9228092ecbb923",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-02.jpg.b64.txt",
+      "bytes": 3550,
+      "sha256": "a928a29c2809c3465ce5e8c327dd5ddfb285c3f3c588d4c8f53eade48e0dc9b1",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-03.jpg",
+      "bytes": 3680,
+      "sha256": "1a06ebfb2acfbfb40feaa845d3aaa4ac833974340ad17dc0ba327d714cb37cd3",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-03.jpg.b64.txt",
+      "bytes": 4949,
+      "sha256": "8b1b74c51087d2a442d09f930a1e9a14ed736b7ee63720d3f36f5e2e6089ea01",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-04.jpg",
+      "bytes": 5368,
+      "sha256": "26e62496f241c38472b2e4060bab232c2a572b6b45df662444da43f013f74a03",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/AI-04.jpg.b64.txt",
+      "bytes": 7220,
+      "sha256": "be1f0a071d29b557f97722ad1fcd0659f5f12454c05c3a58f16cee37aae18436",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/S03.jpg",
+      "bytes": 3720,
+      "sha256": "03886ba17d03b0b5975a9cd5b8a4fbb57202f0a3b3d1b8bd56a16685ddfad686",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/S03.jpg.b64.txt",
+      "bytes": 5002,
+      "sha256": "3de0e91eb547f4518e9ded3a183219a014333f3e6b2291291ba2b0b8924ced20",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/S04.jpg",
+      "bytes": 6222,
+      "sha256": "6ac040a64a827b755e863328364a07508cc2e5e2dcfa14fdd50628566c99fbbd",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/S04.jpg.b64.txt",
+      "bytes": 8366,
+      "sha256": "477cb3ecc01a9533f556c85e380e452f5871d3c7c4c8ef3e539554af19f740d3",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/S05.jpg",
+      "bytes": 2640,
+      "sha256": "d0a99e4f5e46541741da3b0af2e21987b1cb7e835d1b568d9d9228092ecbb923",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/S05.jpg.b64.txt",
+      "bytes": 3550,
+      "sha256": "a928a29c2809c3465ce5e8c327dd5ddfb285c3f3c588d4c8f53eade48e0dc9b1",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "proxy/zh-Hans/S06.jpg",
+      "bytes": 5368,
+      "sha256": "26e62496f241c38472b2e4060bab232c2a572b6b45df662444da43f013f74a03",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "proxy/zh-Hans/S06.jpg.b64.txt",
+      "bytes": 7220,
+      "sha256": "be1f0a071d29b557f97722ad1fcd0659f5f12454c05c3a58f16cee37aae18436",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "QA.json",
+      "bytes": 42364,
+      "sha256": "17d039661eaefecb686db212a7a3c086a9294aae66851dc99f00015167ac3636",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "TIMELINE.json",
+      "bytes": 9291,
+      "sha256": "e8b6326a82ef60f5de38893b1957c6f30df2e1171004ac25b52790a055ac4020",
+      "hash_form": "LF-normalized UTF-8"
+    },
+    {
+      "path": "TRANSITIONS_EN.jpg",
+      "bytes": 369983,
+      "sha256": "4154d0a01e9e8709c328755bad1e55fd335ea112149ab5f462f1b842cead3636",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "TRANSITIONS_ZH.jpg",
+      "bytes": 368339,
+      "sha256": "b4d1de6d4b45babd864fce980f50c49a78b040f0f8831e3f5f3f66a7ca5ad106",
+      "hash_form": "exact binary"
+    },
+    {
+      "path": "VISUAL_REVIEW.md",
+      "bytes": 3131,
+      "sha256": "b1c00b54eb3932a2fa285855e248311451de493308a715a9d9f08918032f7107",
+      "hash_form": "LF-normalized UTF-8"
+    }
+  ],
+  "hash_convention": "Binary media: exact bytes. UTF-8 .md/.json/.txt: LF-normalized bytes so Git checkout newline conversion does not change the documented hash."
+}

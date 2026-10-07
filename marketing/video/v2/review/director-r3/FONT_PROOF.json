@@ -1,0 +1,245 @@
+{
+  "method": "Actual CDP CSS.getPlatformFontsForNode, real web fonts, no font-synthesis",
+  "checks": [
+    {
+      "locale": "en",
+      "frame": 60,
+      "selector": "#hook-0",
+      "computed": {
+        "family": "Inter",
+        "weight": "600",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "Too usefulto delete"
+      },
+      "platform": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable-Display-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 19
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "frame": 246,
+      "selector": "#selected",
+      "computed": {
+        "family": "Inter",
+        "weight": "600",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "SelectedSorted"
+      },
+      "platform": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable-Display-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "frame": 546,
+      "selector": "#reading",
+      "computed": {
+        "family": "Inter",
+        "weight": "600",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "Ready for AI"
+      },
+      "platform": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable-Display-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "frame": 990,
+      "selector": "#report h2",
+      "computed": {
+        "family": "Inter",
+        "weight": "600",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "Lecture report"
+      },
+      "platform": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable-Display-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "frame": 1230,
+      "selector": "#slogan p:first-child",
+      "computed": {
+        "family": "Inter",
+        "weight": "600",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "Hand the lecture to AI"
+      },
+      "platform": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable-Display-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 22
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "frame": 1230,
+      "selector": "#slogan p:last-child",
+      "computed": {
+        "family": "Inter",
+        "weight": "600",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "Take back your photo library"
+      },
+      "platform": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable-Display-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 28
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 60,
+      "selector": "#hook-0",
+      "computed": {
+        "family": "SourceHan",
+        "weight": "700",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "舍不得删"
+      },
+      "platform": [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 246,
+      "selector": "#selected",
+      "computed": {
+        "family": "SourceHan",
+        "weight": "700",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "选好排好"
+      },
+      "platform": [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 546,
+      "selector": "#reading",
+      "computed": {
+        "family": "SourceHan",
+        "weight": "700",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "连怎么读都准备好了"
+      },
+      "platform": [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 9
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 990,
+      "selector": "#report h2",
+      "computed": {
+        "family": "SourceHan",
+        "weight": "700",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "讲座报告"
+      },
+      "platform": [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1230,
+      "selector": "#slogan p:first-child",
+      "computed": {
+        "family": "SourceHan",
+        "weight": "700",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "把讲座交给 AI"
+      },
+      "platform": [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1230,
+      "selector": "#slogan p:last-child",
+      "computed": {
+        "family": "SourceHan",
+        "weight": "700",
+        "variations": "\"opsz\" 32",
+        "synthesis": "none",
+        "text": "把相册还给自己"
+      },
+      "platform": [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 7
+        }
+      ]
+    }
+  ]
+}

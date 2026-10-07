@@ -1,0 +1,47 @@
+{
+  "locale": "zh-Hans",
+  "id": "N03",
+  "speaker": "Vivian",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "连怎么读，都准备好了。",
+  "original_planned_text": "连怎么读，都准备好了。",
+  "timing_copy_adjustment": null,
+  "instruction": "完整清楚地朗读，开头的“连”字也要清楚，明亮自信，短停顿。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约2.3秒内说完，短停顿，不拖尾，字句完整。 比上次更利落更快，句间停顿短。",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 8.55,
+  "actual_duration_seconds": 2.552625,
+  "placement_end_seconds": 11.102625,
+  "window_seconds": [
+    8.55,
+    11.1
+  ],
+  "post_atempo": 1.0607843137254906,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 4.72,
+      "speech_seconds": 4.705,
+      "generation_seconds": 29.54700000000048,
+      "trim_samples": [
+        360,
+        113280
+      ]
+    },
+    {
+      "attempt": 2,
+      "raw_seconds": 2.72,
+      "speech_seconds": 2.705,
+      "generation_seconds": 15.719000000000051,
+      "trim_samples": [
+        360,
+        65280
+      ]
+    }
+  ],
+  "sha256": "b1e70d1771a2ff876593207896a0b695c68d472a92ea16ddafd65c3ca7cf8c0c",
+  "file": "assets/voice/r3-opening/zh-Hans/N03.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

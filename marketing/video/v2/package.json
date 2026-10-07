@@ -1,0 +1,22 @@
+{
+  "name": "lecture-asset-promo-v2-r3",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/r3-build.mjs",
+    "frames": "node scripts/r3-snapshot.mjs",
+    "review": "node scripts/r3-qa.mjs",
+    "render": "node scripts/r3-render.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.15.0"
+  },
+  "devDependencies": {
+    "hyperframes": "0.8.132",
+    "typescript": "7.0.2",
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "tested_render_source_sha": "2b682774ab422d598c9a86a2f784245ee1c4f230",
+  "metadata_only_status_update": true,
+  "actual_rendered_html_css_js_byte_identical_after_status_update": true,
+  "before_sha256": {
+    "out\\director-r3-opening\\en\\index.html": "23c9002bf51b15ebd004b245218a3b885f1862f0ad260bed5df8cff3565eba29",
+    "out\\director-r3-opening\\en\\r3.css": "1f550a6ee108e6e388188022a97dfc03a56b885aefa7a48183f503699293d632",
+    "out\\director-r3-opening\\en\\r3.js": "3cdd93be6de8fd6f26650941edfa43019f9ec0d5ff4eaf16c44346b1207f0e99",
+    "out\\director-r3-opening\\en\\gsap.min.js": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+    "out\\director-r3-opening\\zh-Hans\\index.html": "0af06d04964d50d162a996b63e2dbef9d52d134bea733856890c2dd14fc1cb90",
+    "out\\director-r3-opening\\zh-Hans\\r3.css": "1f550a6ee108e6e388188022a97dfc03a56b885aefa7a48183f503699293d632",
+    "out\\director-r3-opening\\zh-Hans\\r3.js": "3cdd93be6de8fd6f26650941edfa43019f9ec0d5ff4eaf16c44346b1207f0e99",
+    "out\\director-r3-opening\\zh-Hans\\gsap.min.js": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+  },
+  "after_sha256": {
+    "out\\director-r3-opening\\en\\index.html": "23c9002bf51b15ebd004b245218a3b885f1862f0ad260bed5df8cff3565eba29",
+    "out\\director-r3-opening\\en\\r3.css": "1f550a6ee108e6e388188022a97dfc03a56b885aefa7a48183f503699293d632",
+    "out\\director-r3-opening\\en\\r3.js": "3cdd93be6de8fd6f26650941edfa43019f9ec0d5ff4eaf16c44346b1207f0e99",
+    "out\\director-r3-opening\\en\\gsap.min.js": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+    "out\\director-r3-opening\\zh-Hans\\index.html": "0af06d04964d50d162a996b63e2dbef9d52d134bea733856890c2dd14fc1cb90",
+    "out\\director-r3-opening\\zh-Hans\\r3.css": "1f550a6ee108e6e388188022a97dfc03a56b885aefa7a48183f503699293d632",
+    "out\\director-r3-opening\\zh-Hans\\r3.js": "3cdd93be6de8fd6f26650941edfa43019f9ec0d5ff4eaf16c44346b1207f0e99",
+    "out\\director-r3-opening\\zh-Hans\\gsap.min.js": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+  },
+  "other_source_change": "Packaging validation baseline only; no motion/visual/audio changes after rendering"
+}

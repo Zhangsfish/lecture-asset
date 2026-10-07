@@ -1,0 +1,176 @@
+{
+  "status": "READY_FOR_PHASE_A_REVIEW",
+  "base_sha": "bf3a0c52d1678ce3eceedaff1a90ae982250b695",
+  "scope": "Phase A stills only",
+  "checks": {
+    "typescript_and_build": "PASS",
+    "native_hyperframes_snapshots": "PASS",
+    "eight_1080x1920_rgb_srgb": "PASS",
+    "story_timing_copy": "PASS",
+    "same_life_atlas_and_crops": "PASS",
+    "runtime_dom_font_image_and_text_bounds": "PASS",
+    "lecture_and_icon_source_bytes": "PASS",
+    "only_v2_tracked_diff": "PASS",
+    "full_motion_pacing_audio": "NOT_RUN_PHASE_B_C",
+    "provider_actual_output": "NOT_RUN_CONCEPT_ONLY",
+    "real_source_deletion": "NOT_RUN_NOT_AUTHORIZED",
+    "public_release_or_post": "NOT_RUN_NOT_AUTHORIZED",
+    "all_required_cjk_and_latin_glyphs": "PASS",
+    "protected_files_git_content_identical": "PASS",
+    "protected_binary_fixture_and_icon_bytes": "PASS",
+    "protected_file_count": 119
+  },
+  "files": [
+    {
+      "path": "review/phase-a/01-hook.png",
+      "sha256": "cd50b60b21944a24c37bb7540d96f957cf034808c3063b3c580fb216e94acb78",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 117
+    },
+    {
+      "path": "review/phase-a/02-extract.png",
+      "sha256": "d9eae8ec3f54156c8e9147b08038344d51c5120b61113740a38bb2a826f7f1c6",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 282
+    },
+    {
+      "path": "review/phase-a/03-split.png",
+      "sha256": "d7e00aceed267318c628f15599493d11858057e947c12b909b1b6233e50b65da",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 432
+    },
+    {
+      "path": "review/phase-a/04-anatomy.png",
+      "sha256": "782d82360c573d43e3a92acc4ceb8202e7853e9adf92cb2c4a06b6658b828780",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 654
+    },
+    {
+      "path": "review/phase-a/05-handoff.png",
+      "sha256": "d4c5d4b3700eb952aeaeaa394c09f03c1d50611631d17599003f5b6dcb18c10f",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 798
+    },
+    {
+      "path": "review/phase-a/06-result.png",
+      "sha256": "37a3d7244873c8fdc8f97c8905fac8eaadaa0db03f4888bbeb99dd08acdc6fd6",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 1026
+    },
+    {
+      "path": "review/phase-a/07-return.png",
+      "sha256": "bae9b772f3829b3cca3f675b7c07ebee3e497c2063f940805c71fe812e5ca111",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 1182
+    },
+    {
+      "path": "review/phase-a/08-end.png",
+      "sha256": "6cc6f08fb37a32869f8d5e4f9e12935f1ca8f935773bb3233ca0a51081fb0328",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "mode": "RGB",
+      "color": "sRGB ICC",
+      "representative_frame": 1290
+    }
+  ],
+  "contact_sheet_sha256": "a5e1d29e745ae555ee343ffa410f690a03f43e011d1b4eb5ef3e697aa88865ae",
+  "provider_variant_sha256": "ec734ad3c6b78405f2b32e1015c0373fa33b402db911d89bd76935a57a5e07a7",
+  "changed_paths": [
+    "marketing/video/v2/.gitignore",
+    "marketing/video/v2/AGENTS.md",
+    "marketing/video/v2/ASSET_LEDGER.json",
+    "marketing/video/v2/ASSET_MANIFEST.md",
+    "marketing/video/v2/CREATIVE_BRIEF.md",
+    "marketing/video/v2/PROVIDER_VARIANTS.md",
+    "marketing/video/v2/README.md",
+    "marketing/video/v2/SHOTLIST.md",
+    "marketing/video/v2/SOURCE_INVENTORY.json",
+    "marketing/video/v2/SOURCE_REVIEW.md",
+    "marketing/video/v2/STORYBOARD.md",
+    "marketing/video/v2/STYLE_RULES.md",
+    "marketing/video/v2/assets/app-icon.png",
+    "marketing/video/v2/assets/lecture/0001.jpg",
+    "marketing/video/v2/assets/lecture/0002.jpg",
+    "marketing/video/v2/assets/lecture/0003.jpg",
+    "marketing/video/v2/assets/lecture/0004.jpg",
+    "marketing/video/v2/assets/lecture/0005.jpg",
+    "marketing/video/v2/assets/lecture/0006.jpg",
+    "marketing/video/v2/assets/lecture/0007.jpg",
+    "marketing/video/v2/assets/lecture/0008.jpg",
+    "marketing/video/v2/assets/lecture/0009.jpg",
+    "marketing/video/v2/assets/lecture/0010.jpg",
+    "marketing/video/v2/assets/lecture/0011.jpg",
+    "marketing/video/v2/assets/lecture/0012.jpg",
+    "marketing/video/v2/assets/life-atlas.png",
+    "marketing/video/v2/package-lock.json",
+    "marketing/video/v2/package.json",
+    "marketing/video/v2/plan.json",
+    "marketing/video/v2/scripts/bootstrap.py",
+    "marketing/video/v2/scripts/build.mjs",
+    "marketing/video/v2/scripts/evidence.py",
+    "marketing/video/v2/scripts/inspect-dom.mjs",
+    "marketing/video/v2/scripts/render-frames.mjs",
+    "marketing/video/v2/scripts/review.py",
+    "marketing/video/v2/src/style-frames.ts",
+    "marketing/video/v2/src/style.css",
+    "marketing/video/v2/tsconfig.json"
+  ],
+  "tested_code_sha": "bbb4265040dfa0e9c933538cf9734c35066e854b",
+  "source_digests": {
+    "src/style-frames.ts": "89689c75b4a2758df70ec4cdb2d2285f6c00f19bcac59a9cd5731cc86da04308",
+    "src/style.css": "3d1c9419a29880e2633af1b1f15066ade772482fa3b8ce3b1b3ff9db1ede2d19"
+  },
+  "actual_commands": [
+    "npm install --no-audit --no-fund",
+    "npm run build",
+    "node scripts/render-frames.mjs",
+    "node scripts/inspect-dom.mjs",
+    "F:/anaconda3/python.exe scripts/review.py",
+    "F:/anaconda3/python.exe scripts/evidence.py"
+  ],
+  "visual_review": "Native snapshots actually viewed individually and as carousel; author assessment, owner approval pending.",
+  "notes": [
+    "Protected text uses Git attribute normalization to avoid treating baseline Windows CRLF as a source edit; binary fixtures/icon checked byte-for-byte.",
+    "Scene 1 shows a late hook still; all three subtitles remain locked in SHOTLIST, 2.8s readability belongs to Phase B.",
+    "Scene 4 rules and Scene 6 result are static peak treatments; motion/music/beat synchronization NOT_RUN.",
+    "Summary/report is editorial concept, not recorded provider output.",
+    "HyperFrames warns atlas exceeds 2MB inline threshold; local PNG decoding/rendering checked. No self-contained single-file HTML claim."
+  ]
+}

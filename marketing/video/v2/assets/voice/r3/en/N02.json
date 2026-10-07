@@ -1,0 +1,37 @@
+{
+  "locale": "en",
+  "id": "N02",
+  "speaker": "Ryan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "Lecture Asset makes a PDF for you, and one ZIP for AI.",
+  "original_planned_text": "Lecture Asset makes a PDF for you, and one ZIP for AI.",
+  "timing_copy_adjustment": null,
+  "instruction": "Speak quickly at about 210 words per minute with very short pauses. Crisp fluent product narration. A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot. Deliver this short line in about 3.9 seconds, briskly and fluently, with every word intact.",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 3.15,
+  "actual_duration_seconds": 4.034083333333333,
+  "placement_end_seconds": 7.184083333333334,
+  "window_seconds": [
+    3.15,
+    7.2
+  ],
+  "post_atempo": 1.0037037037037035,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 4.08,
+      "speech_seconds": 4.065,
+      "generation_seconds": 28.01599999999962,
+      "trim_samples": [
+        360,
+        97920
+      ]
+    }
+  ],
+  "sha256": "a76ee47de14d0ee5c6978f10c0ef719243cdb7bd65af97192bd8e0205d0c55c3",
+  "file": "assets/voice/r3/en/N02.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

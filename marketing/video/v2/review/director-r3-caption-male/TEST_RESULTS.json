@@ -1,0 +1,1162 @@
+{
+  "status": "READY_FOR_DIRECTOR_FINAL_REVIEW",
+  "base_sha": "352d4dcacb922b253c63f5a3135868268fad3f3e",
+  "tested_render_source_sha": "cdfd6a22b7153d0e631e3383be42446b9192d5b1",
+  "technical": "PASS",
+  "localized_master_dimensions": [
+    1080,
+    1920
+  ],
+  "fps": 60,
+  "locales": {
+    "en": {
+      "duration": 26,
+      "frames": 1560,
+      "end_card": 20.5
+    },
+    "zh-Hans": {
+      "duration": 26.0,
+      "frames": 1560,
+      "end_card": 20.5
+    }
+  },
+  "full_chinese_voice_replacement": true,
+  "chinese_stock_voice": "Dylan",
+  "chinese_atempo": 1,
+  "accepted_english_audio_unchanged": true,
+  "new_key_caption_blocks_per_locale": 10,
+  "full_transcript_burned_in": false,
+  "independent_actual_chinese_source_recognition": "7/7 normalized agreement1.0",
+  "actual_encoded_speech_checks": {
+    "status": "PASS",
+    "method": "Actual AAC decoded from MP4, offline Whisper large-v3, no script prompt",
+    "checks": [
+      {
+        "locale": "en",
+        "cue": "N01",
+        "expected": "Lecture photos everywhere. Too scattered for AI.",
+        "recognized": "Lecture photos everywhere. Too scattered for AI.",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          0.09999999999999999,
+          4.024958333333333
+        ],
+        "movie_sha256": "e629988ee8e6d43319f5e603af34f12c8830f15283911ada4a11c4c23d8fea81",
+        "words": [
+          {
+            "word": " Lecture",
+            "start": 0.09999999999999999,
+            "end": 0.5
+          },
+          {
+            "word": " photos",
+            "start": 0.5,
+            "end": 0.76
+          },
+          {
+            "word": " everywhere.",
+            "start": 0.76,
+            "end": 1.2200000000000002
+          },
+          {
+            "word": " Too",
+            "start": 1.6,
+            "end": 2.2600000000000002
+          },
+          {
+            "word": " scattered",
+            "start": 2.2600000000000002,
+            "end": 2.74
+          },
+          {
+            "word": " for",
+            "start": 2.74,
+            "end": 3.14
+          },
+          {
+            "word": " AI.",
+            "start": 3.14,
+            "end": 3.42
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "cue": "N01",
+        "expected": "照片塞满相册，交给 AI 又太麻烦。",
+        "recognized": "照片塞满相册 交给AI又太麻烦",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          0.09999999999999999,
+          3.715
+        ],
+        "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+        "words": [
+          {
+            "word": "照",
+            "start": 0.09999999999999999,
+            "end": 0.27999999999999997
+          },
+          {
+            "word": "片",
+            "start": 0.27999999999999997,
+            "end": 0.56
+          },
+          {
+            "word": "塞",
+            "start": 0.56,
+            "end": 0.9
+          },
+          {
+            "word": "满",
+            "start": 0.9,
+            "end": 1.06
+          },
+          {
+            "word": "相",
+            "start": 1.06,
+            "end": 1.24
+          },
+          {
+            "word": "册",
+            "start": 1.24,
+            "end": 1.5
+          },
+          {
+            "word": "交",
+            "start": 1.5,
+            "end": 1.86
+          },
+          {
+            "word": "给",
+            "start": 1.86,
+            "end": 2.08
+          },
+          {
+            "word": "AI",
+            "start": 2.08,
+            "end": 2.3200000000000003
+          },
+          {
+            "word": "又",
+            "start": 2.3200000000000003,
+            "end": 2.58
+          },
+          {
+            "word": "太",
+            "start": 2.58,
+            "end": 2.8000000000000003
+          },
+          {
+            "word": "麻",
+            "start": 2.8000000000000003,
+            "end": 3.12
+          },
+          {
+            "word": "烦",
+            "start": 3.12,
+            "end": 3.46
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "cue": "N02",
+        "expected": "Lecture Asset，一份 PDF，一份 AI 资料包。",
+        "recognized": "Lecture Asset 一份PDF 一份AI资料包",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          4.25,
+          8.425
+        ],
+        "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+        "words": [
+          {
+            "word": "L",
+            "start": 4.25,
+            "end": 4.41
+          },
+          {
+            "word": "ect",
+            "start": 4.41,
+            "end": 4.55
+          },
+          {
+            "word": "ure",
+            "start": 4.55,
+            "end": 4.73
+          },
+          {
+            "word": " As",
+            "start": 4.73,
+            "end": 4.89
+          },
+          {
+            "word": "set",
+            "start": 4.89,
+            "end": 5.23
+          },
+          {
+            "word": " 一",
+            "start": 5.23,
+            "end": 5.45
+          },
+          {
+            "word": "份",
+            "start": 5.45,
+            "end": 5.75
+          },
+          {
+            "word": "PD",
+            "start": 5.75,
+            "end": 6.01
+          },
+          {
+            "word": "F",
+            "start": 6.01,
+            "end": 6.33
+          },
+          {
+            "word": " 一",
+            "start": 6.33,
+            "end": 6.6899999999999995
+          },
+          {
+            "word": "份",
+            "start": 6.6899999999999995,
+            "end": 7.109999999999999
+          },
+          {
+            "word": "AI",
+            "start": 7.109999999999999,
+            "end": 7.390000000000001
+          },
+          {
+            "word": "资",
+            "start": 7.390000000000001,
+            "end": 7.75
+          },
+          {
+            "word": "料",
+            "start": 7.75,
+            "end": 7.890000000000001
+          },
+          {
+            "word": "包",
+            "start": 7.890000000000001,
+            "end": 8.07
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "cue": "N03",
+        "expected": "连怎么读，都准备好了。",
+        "recognized": "连怎么读都准备好了",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          8.725,
+          10.91
+        ],
+        "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+        "words": [
+          {
+            "word": "连",
+            "start": 8.725,
+            "end": 8.965
+          },
+          {
+            "word": "怎么",
+            "start": 8.965,
+            "end": 9.125
+          },
+          {
+            "word": "读",
+            "start": 9.125,
+            "end": 9.465
+          },
+          {
+            "word": "都",
+            "start": 9.465,
+            "end": 9.785
+          },
+          {
+            "word": "准",
+            "start": 9.785,
+            "end": 10.045
+          },
+          {
+            "word": "备",
+            "start": 10.045,
+            "end": 10.265
+          },
+          {
+            "word": "好了",
+            "start": 10.265,
+            "end": 10.365
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "cue": "N04",
+        "expected": "交给 WorkBuddy。",
+        "recognized": "交给WorkBuddy",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          11.399999999999999,
+          12.615
+        ],
+        "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+        "words": [
+          {
+            "word": "交",
+            "start": 11.399999999999999,
+            "end": 11.579999999999998
+          },
+          {
+            "word": "给",
+            "start": 11.579999999999998,
+            "end": 11.759999999999998
+          },
+          {
+            "word": "Work",
+            "start": 11.759999999999998,
+            "end": 11.939999999999998
+          },
+          {
+            "word": "B",
+            "start": 11.939999999999998,
+            "end": 12.079999999999998
+          },
+          {
+            "word": "ud",
+            "start": 12.079999999999998,
+            "end": 12.299999999999999
+          },
+          {
+            "word": "dy",
+            "start": 12.299999999999999,
+            "end": 12.379999999999999
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "cue": "N05",
+        "expected": "变成讲座总结，还有报告。",
+        "recognized": "变成讲座总结还有报告",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          13.5,
+          15.765
+        ],
+        "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+        "words": [
+          {
+            "word": "变",
+            "start": 13.5,
+            "end": 13.72
+          },
+          {
+            "word": "成",
+            "start": 13.72,
+            "end": 13.8
+          },
+          {
+            "word": "讲",
+            "start": 13.8,
+            "end": 13.98
+          },
+          {
+            "word": "座",
+            "start": 13.98,
+            "end": 14.22
+          },
+          {
+            "word": "总",
+            "start": 14.22,
+            "end": 14.32
+          },
+          {
+            "word": "结",
+            "start": 14.32,
+            "end": 14.620000000000001
+          },
+          {
+            "word": "还有",
+            "start": 14.620000000000001,
+            "end": 14.9
+          },
+          {
+            "word": "报",
+            "start": 14.9,
+            "end": 15.18
+          },
+          {
+            "word": "告",
+            "start": 15.18,
+            "end": 15.44
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "cue": "N06",
+        "expected": "资料留好，安心清理。",
+        "recognized": "资料留好 安心清理",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          17.765,
+          19.95
+        ],
+        "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+        "words": [
+          {
+            "word": "资",
+            "start": 17.765,
+            "end": 17.985
+          },
+          {
+            "word": "料",
+            "start": 17.985,
+            "end": 18.165
+          },
+          {
+            "word": "留",
+            "start": 18.165,
+            "end": 18.285
+          },
+          {
+            "word": "好",
+            "start": 18.285,
+            "end": 18.485
+          },
+          {
+            "word": " 安",
+            "start": 18.645,
+            "end": 18.925
+          },
+          {
+            "word": "心",
+            "start": 18.925,
+            "end": 19.205000000000002
+          },
+          {
+            "word": "清",
+            "start": 19.205000000000002,
+            "end": 19.365000000000002
+          },
+          {
+            "word": "理",
+            "start": 19.365000000000002,
+            "end": 19.605
+          }
+        ]
+      },
+      {
+        "locale": "zh-Hans",
+        "cue": "N07",
+        "expected": "把讲座交给 AI，把相册还给自己。",
+        "recognized": "把讲座交给AI 把相册还给自己",
+        "normalized_agreement": 1.0,
+        "actual_mp4_clip_seconds": [
+          20.599999999999998,
+          23.665
+        ],
+        "movie_sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+        "words": [
+          {
+            "word": "把",
+            "start": 20.599999999999998,
+            "end": 20.759999999999998
+          },
+          {
+            "word": "讲",
+            "start": 20.759999999999998,
+            "end": 20.939999999999998
+          },
+          {
+            "word": "座",
+            "start": 20.939999999999998,
+            "end": 21.159999999999997
+          },
+          {
+            "word": "交",
+            "start": 21.159999999999997,
+            "end": 21.319999999999997
+          },
+          {
+            "word": "给",
+            "start": 21.319999999999997,
+            "end": 21.54
+          },
+          {
+            "word": "AI",
+            "start": 21.54,
+            "end": 21.759999999999998
+          },
+          {
+            "word": "把",
+            "start": 21.759999999999998,
+            "end": 22.279999999999998
+          },
+          {
+            "word": "相",
+            "start": 22.279999999999998,
+            "end": 22.499999999999996
+          },
+          {
+            "word": "册",
+            "start": 22.499999999999996,
+            "end": 22.72
+          },
+          {
+            "word": "还",
+            "start": 22.72,
+            "end": 22.9
+          },
+          {
+            "word": "给",
+            "start": 22.9,
+            "end": 23.119999999999997
+          },
+          {
+            "word": "自己",
+            "start": 23.119999999999997,
+            "end": 23.36
+          }
+        ]
+      }
+    ],
+    "subjective_listening": "NOT_RUN"
+  },
+  "actual_mp4_native_comparison_count": 174,
+  "movie_count": 8,
+  "media": [
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "sha256": "e629988ee8e6d43319f5e603af34f12c8830f15283911ada4a11c4c23d8fea81",
+      "bytes": 11592537,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -2.793462383643512,
+        "rms_dbfs": -16.85908354275203,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN",
+        "encoded_loudness_lufs": -14.54,
+        "encoded_true_peak_dbtp": -2.53,
+        "source_narrated_mix_correlation": 0.9990931691337753
+      }
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "sha256": "ff2fe8edcb5c742499214384ae01b34a7399e0e90c51469d736b5836d10f1c8c",
+      "bytes": 10938013,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "sha256": "b55c47d1f1e4dd0378937747904699394fa5b4055c00d76f5790c4a1b1d704bf",
+      "bytes": 4029003,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "sha256": "4c402cad5e0f050cedd3ea42121bfe19ab4eda715858c4e8df8af3477e1893f1",
+      "bytes": 3478408,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "sha256": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd",
+      "bytes": 11163291,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26.0,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709",
+      "audio": {
+        "peak_dbfs": -1.4746327692819559,
+        "rms_dbfs": -17.29690411181656,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN",
+        "encoded_loudness_lufs": -14.93,
+        "encoded_true_peak_dbtp": -1.47,
+        "source_narrated_mix_correlation": 0.9988823766276675
+      }
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "sha256": "8dbc846034e361754214e609aa76288671c998524704cd925984cb3dd2820385",
+      "bytes": 10501022,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26.0,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "sha256": "2b6028e6268274ac2bb2fd2bef4f35e86b3ea01f18ceba706f1a071d4c0cfd35",
+      "bytes": 3875807,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26.0,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "sha256": "8ea267847fb929868a4025afb50b11c370b4a2f20216d9c7ad54ee9f5e88023f",
+      "bytes": 3320048,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "video_seconds": 26.0,
+      "container_seconds": "26.000000",
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "pixel_format": "yuv420p",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    }
+  ],
+  "all_fonts_custom_correct_family_weight": true,
+  "seek_mismatches": 0,
+  "clipping": [],
+  "QR_from_actual_1080_720_endcard_frames": "PASS",
+  "saved_before_departure": true,
+  "same_original_photo_ids_and_assets": "PASS",
+  "protected_paths_changed": [],
+  "historic_review_outputs_changed": [],
+  "actual_commands": [
+    {
+      "locale": "en",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\out\\director-r3-caption-male\\en",
+        "--output",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-en-chatgpt.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "19",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-07T12:20:53.727Z",
+      "finished": "2026-10-07T12:26:31.014Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-c:v",
+        "copy",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-en-chatgpt-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-en-chatgpt-720.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-en-chatgpt.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-en-chatgpt-720-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\out\\director-r3-caption-male\\zh-Hans",
+        "--output",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-zh-workbuddy.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "19",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-07T12:26:51.823Z",
+      "finished": "2026-10-07T12:32:12.789Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-c:v",
+        "copy",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-zh-workbuddy-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-zh-workbuddy-720.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-zh-workbuddy.mp4",
+        "-t",
+        "26",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1560",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\review\\director-r3-caption-male\\director-cut-zh-workbuddy-720-muted.mp4"
+      ],
+      "exit": 0
+    }
+  ],
+  "actual_capture_commands": [
+    {
+      "locale": "en",
+      "frames": [
+        0,
+        9,
+        15,
+        21,
+        22,
+        27,
+        30,
+        45,
+        60,
+        79,
+        90,
+        113,
+        120,
+        125,
+        127,
+        128,
+        131,
+        150,
+        180,
+        210,
+        240,
+        258,
+        270,
+        271,
+        276,
+        294,
+        309,
+        313,
+        323,
+        332,
+        336,
+        341,
+        433,
+        434,
+        503,
+        507,
+        513,
+        525,
+        526,
+        531,
+        537,
+        577,
+        605,
+        661,
+        687,
+        699,
+        700,
+        705,
+        717,
+        747,
+        800,
+        807,
+        827,
+        832,
+        839,
+        841,
+        845,
+        870,
+        891,
+        903,
+        904,
+        909,
+        941,
+        968,
+        974,
+        996,
+        1049,
+        1062,
+        1074,
+        1075,
+        1080,
+        1083,
+        1111,
+        1112,
+        1117,
+        1129,
+        1130,
+        1135,
+        1152,
+        1164,
+        1177,
+        1206,
+        1229,
+        1230,
+        1231,
+        1242,
+        1559
+      ],
+      "args": [
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "snapshot",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\out\\director-r3-caption-male\\en",
+        "--at",
+        "0,0.15,0.25,0.35,0.36666666666666664,0.45,0.5,0.75,1,1.3166666666666667,1.5,1.8833333333333333,2,2.0833333333333335,2.1166666666666667,2.1333333333333333,2.183333333333333,2.5,3,3.5,4,4.3,4.5,4.516666666666667,4.6,4.9,5.15,5.216666666666667,5.383333333333334,5.533333333333333,5.6,5.683333333333334,7.216666666666667,7.233333333333333,8.383333333333333,8.45,8.55,8.75,8.766666666666667,8.85,8.95,9.616666666666667,10.083333333333334,11.016666666666667,11.45,11.65,11.666666666666666,11.75,11.95,12.45,13.333333333333334,13.45,13.783333333333333,13.866666666666667,13.983333333333333,14.016666666666667,14.083333333333334,14.5,14.85,15.05,15.066666666666666,15.15,15.683333333333334,16.133333333333333,16.233333333333334,16.6,17.483333333333334,17.7,17.9,17.916666666666668,18,18.05,18.516666666666666,18.533333333333335,18.616666666666667,18.816666666666666,18.833333333333332,18.916666666666668,19.2,19.4,19.616666666666667,20.1,20.483333333333334,20.5,20.516666666666666,20.7,25.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\out\\director-r3-caption-male\\snapshots\\en",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "frames": [
+        0,
+        9,
+        15,
+        21,
+        22,
+        27,
+        30,
+        45,
+        60,
+        89,
+        90,
+        101,
+        103,
+        104,
+        107,
+        120,
+        150,
+        180,
+        210,
+        214,
+        240,
+        258,
+        270,
+        271,
+        276,
+        288,
+        304,
+        320,
+        323,
+        344,
+        358,
+        362,
+        439,
+        440,
+        503,
+        517,
+        526,
+        538,
+        540,
+        545,
+        550,
+        586,
+        652,
+        665,
+        687,
+        699,
+        700,
+        705,
+        717,
+        743,
+        754,
+        791,
+        820,
+        830,
+        842,
+        843,
+        848,
+        883,
+        895,
+        907,
+        908,
+        913,
+        939,
+        960,
+        969,
+        998,
+        1056,
+        1069,
+        1081,
+        1082,
+        1087,
+        1089,
+        1115,
+        1116,
+        1118,
+        1128,
+        1129,
+        1134,
+        1156,
+        1167,
+        1184,
+        1207,
+        1229,
+        1230,
+        1231,
+        1242,
+        1559
+      ],
+      "args": [
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "snapshot",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\out\\director-r3-caption-male\\zh-Hans",
+        "--at",
+        "0,0.15,0.25,0.35,0.36666666666666664,0.45,0.5,0.75,1,1.4833333333333334,1.5,1.6833333333333333,1.7166666666666666,1.7333333333333334,1.7833333333333334,2,2.5,3,3.5,3.566666666666667,4,4.3,4.5,4.516666666666667,4.6,4.8,5.066666666666666,5.333333333333333,5.383333333333334,5.733333333333333,5.966666666666667,6.033333333333333,7.316666666666666,7.333333333333333,8.383333333333333,8.616666666666667,8.766666666666667,8.966666666666667,9,9.083333333333334,9.166666666666666,9.766666666666667,10.866666666666667,11.083333333333334,11.45,11.65,11.666666666666666,11.75,11.95,12.383333333333333,12.566666666666666,13.183333333333334,13.666666666666666,13.833333333333334,14.033333333333333,14.05,14.133333333333333,14.716666666666667,14.916666666666666,15.116666666666667,15.133333333333333,15.216666666666667,15.65,16,16.15,16.633333333333333,17.6,17.816666666666666,18.016666666666666,18.033333333333335,18.116666666666667,18.15,18.583333333333332,18.6,18.633333333333333,18.8,18.816666666666666,18.9,19.266666666666666,19.45,19.733333333333334,20.116666666666667,20.483333333333334,20.5,20.516666666666666,20.7,25.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\.git\\r3-opening-worktree\\marketing\\video\\v2\\out\\director-r3-caption-male\\snapshots\\zh-Hans",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    }
+  ],
+  "English_non_caption_actor_proof": "PRESERVATION.json",
+  "audio_loudness_and_ducking": "AUDIO_QA.json / QA.json",
+  "subjective_voice_tone_listening": "NOT_RUN_BY_AGENT / OWNER_REVIEW_PENDING",
+  "director_aesthetic_approval": "PENDING",
+  "no_install_purchase_cloud_TTS": true,
+  "no_App_Packages_store_ASC_TestFlight_mutation": true,
+  "publish_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
+  "no_merge_publish": true
+}

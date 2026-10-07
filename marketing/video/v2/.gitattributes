@@ -1,0 +1,2 @@
+# Official downloaded SVG bytes are provenance evidence; do not normalize line endings.
+assets/brands/*.svg -text

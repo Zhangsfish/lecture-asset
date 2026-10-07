@@ -1,0 +1,280 @@
+{
+  "app_id": "6816814541",
+  "planned_url": "https://apps.apple.com/us/app/id6816814541",
+  "checked_utc": "2026-10-05T19:14:39.903051+00:00",
+  "checks": [
+    {
+      "requested": "https://apps.apple.com/us/app/id6816814541",
+      "http_status": 200,
+      "resolved_url": "https://apps.apple.com/cn/iphone/today",
+      "matches_requested_id": false
+    },
+    {
+      "requested": "https://itunes.apple.com/lookup?id=6816814541&country=us",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)>"
+    }
+  ],
+  "matching_name_id": "NOT_VERIFIED",
+  "public_download_status": "NOT_VERIFIED",
+  "publication_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
+  "qr_payload": "https://apps.apple.com/us/app/id6816814541",
+  "note": "A 200 response redirected to an App Store Today page is not proof of a live matching product, nor proof of delisting. No ASC mutation or publishing.",
+  "qr_exported_frame_checks": [
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt.mp4",
+      "frame": 1500,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            801.4351806640625
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1500,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            471.9910583496094,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy.mp4",
+      "frame": 1500,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            801.4351806640625
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1500,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            473.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            473.0,
+            648.0
+          ]
+        ]
+      ]
+    }
+  ],
+  "qr_checked_utc": "2026-10-07T12:36:25.307289+00:00",
+  "r3_public_recheck": {
+    "checked_utc": "2026-10-06T06:46:49.144424+00:00",
+    "checks": [
+      {
+        "requested": "https://apps.apple.com/us/app/id6816814541",
+        "http_status": 200,
+        "resolved_url": "https://apps.apple.com/cn/iphone/today",
+        "bytes": 2080933,
+        "matches_requested_id": false
+      },
+      {
+        "requested": "https://itunes.apple.com/lookup?id=6816814541&country=us",
+        "http_status": 200,
+        "resolved_url": "https://itunes.apple.com/lookup?id=6816814541&country=us",
+        "bytes": 42,
+        "matches_requested_id": false,
+        "lookup_result_count": 0
+      }
+    ],
+    "state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED"
+  },
+  "qr_exported_frame_checks_r3": [
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt.mp4",
+      "frame": 1231,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            803.0
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "en",
+      "movie": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1231,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            472.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            472.0,
+            648.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy.mp4",
+      "frame": 1231,
+      "resolution": 1080,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            709.0,
+            803.0
+          ],
+          [
+            878.0,
+            803.0
+          ],
+          [
+            878.0,
+            972.0
+          ],
+          [
+            709.0,
+            972.0
+          ]
+        ]
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "movie": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1231,
+      "resolution": 720,
+      "decoded_url": "https://apps.apple.com/us/app/id6816814541",
+      "PASS": true,
+      "detected_corners": [
+        [
+          [
+            472.0,
+            535.0
+          ],
+          [
+            585.0,
+            535.0
+          ],
+          [
+            585.0,
+            648.0
+          ],
+          [
+            472.0,
+            648.0
+          ]
+        ]
+      ]
+    }
+  ],
+  "owner_post_launch_followup": {
+    "recorded_date": "2026-10-07",
+    "status": "OPEN_REQUIRED_BEFORE_PUBLIC_VIDEO_DISTRIBUTION",
+    "owner_approved_delivery_head": "99145299cf3ad8008e1ce293a140a601cb02de1d",
+    "requirement": "After public launch, replace or confirm the final-scene link using the verified live App Store product URL and regenerate/verify the end-card QR in both languages and all distribution variants.",
+    "instructions": "POST_LAUNCH_LINK_UPDATE.md",
+    "public_posting_authorized": false
+  }
+}

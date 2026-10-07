@@ -1,0 +1,10 @@
+node_modules/
+out/
+assets/fonts/
+*.local.log
+review/director-r2/.*.hf-transaction-*/
+.venv-r3/
+models/
+review/director-r3/.*.hf-transaction-*/
+review/director-r3-opening/.*.hf-transaction-*/
+review/director-r3-caption-male/.*.hf-transaction-*/

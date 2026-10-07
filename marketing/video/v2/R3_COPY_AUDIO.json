@@ -1,0 +1,485 @@
+{
+  "revision": "owner-caption-male-2026-10-07",
+  "status": "ACTUAL_MALE_VOICE_MEASURED_CAPTION_SYNC",
+  "source_delivery_sha": "a5a2e8bdab27c04bd0feb5636f0a649f29eebfe8",
+  "composition": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "frames": 1560,
+    "seconds": 26
+  },
+  "variants": {
+    "en": "ChatGPT",
+    "zh-Hans": "WorkBuddy"
+  },
+  "display_policy": {
+    "sentence_punctuation": false,
+    "full_voice_transcript_burn_in": false,
+    "max_primary_lines": 2,
+    "official_assets_and_real_filenames_unchanged": true,
+    "speech_punctuation_retained": true,
+    "accessibility_transcript_separate": true
+  },
+  "typography": {
+    "zh-Hans": {
+      "display_font": "Source Han Sans SC",
+      "display_weight": 700,
+      "hero_px": 88,
+      "closing_px": 80,
+      "line_height": 1.16,
+      "letter_spacing_em": -0.005
+    },
+    "en": {
+      "display_font": "Inter Display",
+      "display_weight": 600,
+      "variable_optical_size_if_supported": 32,
+      "hero_px": 92,
+      "closing_px": 62,
+      "line_height": 1.12,
+      "letter_spacing_em": -0.025
+    },
+    "label_px": 32,
+    "body_px": 34,
+    "font_synthesis": "none",
+    "fallback_is_failure": true,
+    "closing_uses_same_display_family_and_weight": true,
+    "font_binaries_exported": false
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "frames": [
+        0,
+        252
+      ],
+      "display": {
+        "en": [
+          [
+            "Lecture photos",
+            "everywhere"
+          ],
+          [
+            "Too scattered",
+            "for AI"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "照片塞满相册"
+          ],
+          [
+            "交给 AI",
+            "又太麻烦"
+          ]
+        ]
+      },
+      "cue_target_frames": [
+        [
+          58,
+          138
+        ],
+        [
+          147,
+          248
+        ]
+      ]
+    },
+    {
+      "id": "S02",
+      "frames": [
+        252,
+        336
+      ],
+      "display": {
+        "en": [
+          [
+            "Lecture Asset"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "Lecture Asset"
+          ]
+        ]
+      },
+      "cue_target_frames": [
+        [
+          264,
+          330
+        ]
+      ]
+    },
+    {
+      "id": "S03",
+      "frames": [
+        336,
+        504
+      ],
+      "object_labels": {
+        "zh-Hans": {
+          "pdf": [
+            "PDF",
+            "留着回看"
+          ],
+          "zip": [
+            "AI ZIP",
+            "交给 AI"
+          ]
+        },
+        "en": {
+          "pdf": [
+            "PDF",
+            "For later"
+          ],
+          "zip": [
+            "AI ZIP",
+            "For AI"
+          ]
+        }
+      },
+      "large_duplicate_caption": false,
+      "display": {
+        "en": [
+          [
+            "A PDF for you",
+            "A ZIP for AI"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "一份 PDF",
+            "一份 AI ZIP"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S04",
+      "frames": [
+        504,
+        672
+      ],
+      "display": {
+        "en": [
+          [
+            "Reading rules",
+            "included"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "连怎么读",
+            "都准备好了"
+          ]
+        ]
+      },
+      "secondary": {
+        "zh-Hans": "阅读说明已在包里",
+        "en": "Reading instructions inside"
+      },
+      "rules": {
+        "zh-Hans": [
+          "页图为准",
+          "索引定位",
+          "回图核对"
+        ],
+        "en": [
+          "Images first",
+          "Navigate by index",
+          "Check the page"
+        ]
+      },
+      "cue_target_frames": [
+        [
+          518,
+          658
+        ]
+      ]
+    },
+    {
+      "id": "S05",
+      "frames": [
+        672,
+        843
+      ],
+      "provider_icon_and_name": true,
+      "large_duplicate_caption": false,
+      "display": {
+        "en": [
+          [
+            "Hand it to AI"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "交给 AI"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S06",
+      "frames": [
+        843,
+        1050
+      ],
+      "result_headings": {
+        "zh-Hans": [
+          "讲座总结",
+          "讲座报告"
+        ],
+        "en": [
+          "Lecture summary",
+          "Lecture report"
+        ]
+      },
+      "large_duplicate_caption": false,
+      "clear_result_hold_seconds_min": 2,
+      "display": {
+        "en": [
+          [
+            "Lecture summary"
+          ],
+          [
+            "Lecture report"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "讲座总结"
+          ],
+          [
+            "讲座报告"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S07",
+      "frames": [
+        1050,
+        1230
+      ],
+      "display": {
+        "en": [
+          [
+            "Save the files"
+          ],
+          [
+            "Clear the photos"
+          ]
+        ],
+        "zh-Hans": [
+          [
+            "资料留好"
+          ],
+          [
+            "安心清理"
+          ]
+        ]
+      },
+      "cue_target_frames": [
+        [
+          1062,
+          1212
+        ]
+      ],
+      "saved_before_cleanup": true
+    },
+    {
+      "id": "S08",
+      "frames": [
+        1230,
+        1560
+      ],
+      "display": {
+        "zh-Hans": [
+          [
+            "把讲座交给 AI",
+            "把相册还给自己"
+          ]
+        ],
+        "en": [
+          [
+            "Hand the lecture to AI",
+            "Take back your photo library"
+          ]
+        ]
+      },
+      "all_elements_visible_from_frame": 1230,
+      "all_elements": [
+        "slogan",
+        "app_icon",
+        "brand_name",
+        "official_app_store_badge",
+        "search_hint",
+        "qr"
+      ],
+      "independent_delayed_child_reveals": false
+    }
+  ],
+  "narration": {
+    "required": true,
+    "voice_style_zh": "用标准普通话，自然、有精神、清晰的男声，像向朋友介绍一个好用的产品。语气轻松自信，有重点但不过度兴奋，不喊、不用播音腔、不气声。句间自然停顿，语速舒适，不为了固定秒数赶话，不刻意拖长尾音。每个字都读完整，英文产品名和 PDF、AI 清楚自然。",
+    "voice_style_en": "A crisp, confident product-film narrator with native American English delivery. Forward-moving conversational energy, clear stresses and short natural pauses. No whispering, bedtime softness, breathy luxury affectation, newsreader cadence or shouty sales pitch. Finish short lines briskly; never stretch them to fill a slot.",
+    "primary": {
+      "provider": "Volcengine Doubao Speech",
+      "resource_id": "seed-tts-2.0",
+      "endpoint": "https://openspeech.bytedance.com/api/v3/tts/unidirectional",
+      "zh_speaker": "zh_female_vv_uranus_bigtts",
+      "en_speaker": "en_male_tim_uranus_bigtts",
+      "initial_speech_rate": 0,
+      "actual_credentials_and_allowed_quota_required": true
+    },
+    "local_fallback": {
+      "provider": "Qwen3-TTS",
+      "preferred_model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "smaller_model_if_needed": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+      "zh_speaker": "Vivian",
+      "en_speaker": "Ryan",
+      "probe_hardware_before_download": true,
+      "model_revision_must_be_pinned": true,
+      "note": "1.7B supports instruction control; do not claim 0.6B has identical instruction control. Use native-language stock voices; no cloning."
+    },
+    "timing_policy": "Windows are maximum placement slots, not target speech lengths. Generate real audio first; measure it; use natural gaps for visuals. No stretching a short phrase across the whole slot. At most 1.08x corrective post time-compression, no pitch shift. Regenerate or adjust local pacing if longer; keep 26s and final-card frame 1230 fixed.",
+    "cues": [
+      {
+        "id": "N01",
+        "window_seconds": [
+          0.15,
+          4.15
+        ],
+        "spoken_text": {
+          "zh-Hans": "照片塞满相册，交给 AI 又太麻烦。",
+          "en": "Lecture photos everywhere. Too scattered for AI."
+        }
+      },
+      {
+        "id": "N02",
+        "window_seconds": [
+          4.3,
+          8.35
+        ],
+        "spoken_text": {
+          "zh-Hans": "Lecture Asset，一份 PDF，一份 AI 资料包。",
+          "en": "Lecture Asset makes a PDF for you, and one ZIP for AI."
+        }
+      },
+      {
+        "id": "N03",
+        "window_seconds": [
+          8.55,
+          11.1
+        ],
+        "spoken_text": {
+          "zh-Hans": "连怎么读，都准备好了。",
+          "en": "Reading instructions included."
+        }
+      },
+      {
+        "id": "N04",
+        "window_seconds": [
+          11.45,
+          13.65
+        ],
+        "spoken_text": {
+          "zh-Hans": "交给 WorkBuddy。",
+          "en": "Share it with ChatGPT."
+        }
+      },
+      {
+        "id": "N05",
+        "window_seconds": [
+          13.55,
+          17.35
+        ],
+        "spoken_text": {
+          "zh-Hans": "变成讲座总结，还有报告。",
+          "en": "Get a lecture summary and report."
+        }
+      },
+      {
+        "id": "N06",
+        "window_seconds": [
+          17.7,
+          20.3
+        ],
+        "spoken_text": {
+          "zh-Hans": "资料留好，安心清理。",
+          "en": "Save the files. Clear the photos."
+        }
+      },
+      {
+        "id": "N07",
+        "window_seconds": [
+          20.65,
+          25.4
+        ],
+        "spoken_text": {
+          "zh-Hans": "把讲座交给 AI，把相册还给自己。",
+          "en": "Hand the lecture to AI. Take back your photo library."
+        }
+      }
+    ],
+    "no_silent_voice_placeholder": true,
+    "no_celebrity_or_owner_voice_clone": true,
+    "pronunciation_check": [
+      "Lecture Asset",
+      "PDF",
+      "AI",
+      "ZIP",
+      "WorkBuddy",
+      "ChatGPT"
+    ],
+    "actual_source": "review/director-r3-caption-male/VOICE_TIMING.json",
+    "legacy_windows_are_not_chinese_duration_caps": true
+  },
+  "sound": {
+    "style": "Rhythm-led contemporary electronic product-launch groove, concise punch and controlled syncopation; not soothing ambient plucks or a trailer orchestra",
+    "bpm": 132,
+    "time_signature": "4/4",
+    "stems": [
+      "narration",
+      "music",
+      "sfx"
+    ],
+    "first_rhythmic_attack_seconds_max": 0.2,
+    "music_duck_db_under_voice": [
+      6,
+      9
+    ],
+    "mix_lufs_target": -14.5,
+    "mix_lufs_tolerance": 1,
+    "true_peak_dbtp_max": -1,
+    "mix_sample_rate": 48000,
+    "music_publication_rights_required": true,
+    "no_sped_up_r2_score": true,
+    "accent_frames": [
+      0,
+      252,
+      336,
+      504,
+      672,
+      843,
+      945,
+      1050,
+      1230
+    ]
+  },
+  "end_card": {
+    "first_visible_frame": 1230,
+    "last_visible_frame": 1559,
+    "brand": "Lecture Asset",
+    "download_url": "https://apps.apple.com/us/app/id6816814541",
+    "search": {
+      "zh-Hans": "在美区 App Store 搜索 Lecture Asset",
+      "en": "Search Lecture Asset on the App Store"
+    },
+    "publication_status": "REVERIFY_PUBLIC_LIVE_SEPARATELY",
+    "badge_qr_story_and_brand_must_appear_together": true
+  },
+  "owner_amendment": "Life-only first frame, lecture-photo influx scatters album; complete N01, Chinese says 交给 AI 又太麻烦; measured narration drives local retiming.",
+  "authority": "OWNER_CAPTION_MALE_2026-10-07.md + R3_CAPTION_SYNC.json",
+  "actual_locale_timing_file": "R3_CAPTION_SYNC.json"
+}

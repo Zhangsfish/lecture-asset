@@ -1,0 +1,69 @@
+@font-face{font-family:'Director CJK';src:local('Microsoft YaHei Bold'),url('assets/fonts/msyhbd.ttc');font-weight:700}
+@font-face{font-family:'Director CJK';src:local('Microsoft YaHei'),url('assets/fonts/msyh.ttc');font-weight:400}
+@font-face{font-family:'Director Latin';src:local('Segoe UI'),url('assets/fonts/segoeui.ttf')}
+*{box-sizing:border-box}html,body{margin:0;background:#090B10;color:#EEEAE1}
+#root{position:relative;width:1080px;height:1920px;background:#090B10;overflow:hidden;font-family:'Director CJK';font-weight:400}
+#root[data-locale=en]{font-family:'Director Latin'}
+#stage{position:absolute;inset:0;perspective:1800px;perspective-origin:50% 48%}
+#camera{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:540px 960px}
+.object{position:absolute;left:0;top:0;transform-origin:center;will-change:transform,opacity}
+.life{width:300px;height:300px;overflow:hidden;border:2px solid #8693A040;border-radius:12px;box-shadow:0 13px 25px #0008}
+.atlas{width:100%;height:100%;background-image:url('assets/life-atlas.png');background-size:200% 400%;background-repeat:no-repeat}
+.lecture{width:460px;height:259px;overflow:visible;box-shadow:0 13px 25px #0008;border:2px solid #D0D9E3;border-radius:5px;background:#F8FAFC;transform-style:preserve-3d}
+.lecture>img{width:100%;height:100%;display:block;border-radius:4px;object-fit:contain}
+.page-id{position:absolute;bottom:-29px;left:6px;font:20px 'Director Latin';color:#8CACD2;opacity:0}
+.index-strip{position:absolute;left:13px;right:13px;top:calc(100% + 24px);height:90px;background:#D9E1E9E8;color:#2D4766;border-left:4px solid #4772A8;padding:10px 14px;opacity:0}
+.index-strip span{font:20px 'Director Latin'}.index-strip p{font:24px 'Director Latin';margin:5px 0 0}
+.file{width:460px;height:310px;transform-style:preserve-3d}
+.sleeve-paper{position:absolute;inset:5px 0;background:#DEE3E9;border-radius:8px;box-shadow:0 13px 25px #0007,inset 0 -4px #9EAFC0}
+.sleeve-paper:before{content:'';position:absolute;inset:9px 9px;border:1px solid #A0B0BE}
+#zip-cover{position:absolute;inset:0;background:#4772A8;color:#EEF1F6;border:1px solid #96B0CD;border-radius:7px;box-shadow:inset 0 3px #7294BA,inset -6px 0 #315582;transform-origin:0 50%;backface-visibility:hidden}
+#zip-cover b{position:absolute;left:39px;top:58px;font:600 78px 'Director Latin';letter-spacing:-3px}
+#zip-cover span{position:absolute;left:43px;bottom:36px;font:24px 'Director Latin';color:#D2DDEA}
+#zip-cover i{position:absolute;left:39px;right:39px;top:169px;height:1px;background:#9EB5D1}
+.file-spine{position:absolute;right:-5px;top:9px;bottom:9px;width:8px;background:#AFBBC6;transform:skewY(-8deg);border-radius:0 3px 3px 0}
+.pdf-paper{position:absolute;inset:0;background:#EEEAE1;color:#2B415F;border:1px solid #C9D0D8;border-radius:7px;box-shadow:0 10px 23px #0005,inset 0 -4px #D3D5D6}
+.pdf-paper>b{position:absolute;left:25px;top:14px;font:52px 'Director Latin'}
+.pdf-paper>img{position:absolute;left:25px;top:84px;width:408px;height:199px;object-fit:contain;background:#FAFBFD;border:1px solid #B5C4D3}
+#mapping{width:1080px;height:1920px;pointer-events:none}
+#mapping path{fill:none;stroke:#7896B7;stroke-width:1.5;opacity:.47}
+#mapping text{font:24px 'Director Latin';fill:#8CACD2}
+#readme-layer{width:660px;padding:16px 27px 22px;background:#EEEAE1;color:#243B58;box-shadow:0 10px 22px #0005;transform-origin:50% 0}
+#readme-layer>small{display:block;font:23px 'Director Latin';color:#7890AA;margin-bottom:10px}
+.reading-rule{font-size:34px;line-height:1.5;color:#566779;border-top:1px solid #B9C4CE}
+#root[data-locale=en] .reading-rule{font-size:32px}
+#destination{width:700px;font-family:'Director Latin';line-height:1.12}
+#destination>small{display:block;font-size:35px;letter-spacing:1px;color:#8CA5C2;margin-bottom:20px}
+#destination>span{font-size:118px;letter-spacing:-5px}
+#summary{width:500px;background:#1E3651;color:#EEEAE1;border:1px solid #6C87A5;padding:29px 36px;box-shadow:0 12px 27px #0006}
+#summary>small{font-size:24px;letter-spacing:2px;color:#9CB7D2}
+#summary>p{font-size:34px;line-height:1.3;margin:24px 0;border-top:1px solid #6685A045;padding-top:10px}
+#root[data-locale=en] #summary>p{font-size:29px}
+#report{width:810px;height:900px;background:#EEEAE1;color:#263E5B;padding:43px 45px;box-shadow:5px 7px 0 #9EACB9,0 15px 28px #0007}
+#report header>small{font-size:23px;letter-spacing:3px;color:#68839E}
+#report h2{font-size:54px;line-height:1.12;margin:20px 0 29px;font-weight:400}
+.report-row{display:flex;gap:30px;align-items:center;border-top:1px solid #AFBDC9;height:208px}
+.report-row>img{width:175px;height:110px;object-fit:contain;border:1px solid #B0BECA;background:#FAFBFD}
+.report-row>div{flex:1}.report-row span{font-size:23px;color:#6F849B}
+.report-row p{font-size:39px;line-height:1.28;margin:14px 0 0}
+#root[data-locale=en] .report-row p{font-size:40px}
+#report footer{font-size:23px;color:#7C8D9E;position:absolute;bottom:23px;right:43px}
+.caption{position:absolute;max-width:820px;z-index:60;font-size:80px;font-weight:700;line-height:1.17;letter-spacing:-2px;background:#090B10EB;padding:13px 21px;opacity:0;transform-origin:0 50%;pointer-events:none}
+#root[data-locale=en] .caption{font-size:72px;letter-spacing:-1.5px;font-weight:600}
+#caption-0,#caption-1{left:80px;top:1370px}
+#caption-2{left:80px;top:340px}
+#caption-3{left:90px;top:1310px;max-width:710px}
+#caption-4{left:130px;top:1330px;max-width:710px}
+#caption-5{left:82px;top:262px;font-size:67px;max-width:816px}
+#root[data-locale=en] #caption-5{font-size:68px}
+#caption-6{left:80px;top:1350px;font-size:78px}
+#caption-7{left:90px;top:1430px;font-size:76px}
+#caption-8{left:80px;top:258px;font-size:67px;max-width:815px}
+#root[data-locale=en] #caption-8{font-size:62px}
+#saved{position:absolute;left:86px;top:538px;display:flex;align-items:center;gap:16px;color:#C6DCD2;font-size:40px;z-index:70;background:#090B10D9;padding:10px 18px;opacity:0}
+#saved>svg{width:44px;height:44px}
+#slogan{position:absolute;left:84px;top:230px;width:816px;font-size:80px;font-weight:700;line-height:1.37;letter-spacing:-2px;z-index:75;opacity:0}
+#slogan p{margin:0}#slogan p:last-child{color:#8CACD2}
+#root[data-locale=en] #slogan{font-size:62px;line-height:1.4;letter-spacing:-1px;font-weight:600}
+#end-brand{position:absolute;left:87px;top:535px;display:flex;align-items:center;gap:18px;font:35px 'Director Latin';color:#BEC8D5;z-index:75;opacity:0}
+#end-brand img{width:60px;height:60px;border-radius:14px}

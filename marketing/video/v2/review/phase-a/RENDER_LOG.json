@@ -1,0 +1,191 @@
+[
+  {
+    "page": "01-hook.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\01-hook",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 2 loaded, 1 unused\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\01-hook\n   snapshots\\01-hook\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "02-extract.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\02-extract",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 2 loaded, 1 unused\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\02-extract\n   snapshots\\02-extract\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "03-split.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\03-split",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 3 loaded\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\03-split\n   snapshots\\03-split\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "04-anatomy.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\04-anatomy",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 2 loaded, 1 unused\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\04-anatomy\n   snapshots\\04-anatomy\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "05-handoff-chatgpt.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\05-handoff-chatgpt",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 3 loaded\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\05-handoff-chatgpt\n   snapshots\\05-handoff-chatgpt\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "05-handoff.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\05-handoff",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 3 loaded\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\05-handoff\n   snapshots\\05-handoff\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "06-result.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\06-result",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 3 loaded\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\06-result\n   snapshots\\06-result\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "07-return.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\07-return",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 3 loaded\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\07-return\n   snapshots\\07-return\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  },
+  {
+    "page": "08-end.html",
+    "tool": "HyperFrames snapshot",
+    "args": [
+      "snapshot",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out",
+      "--at",
+      "0",
+      "--no-end",
+      "--describe",
+      "false",
+      "--output",
+      "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\08-end",
+      "--timeout",
+      "20000",
+      "--no-browser-gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "◆  Capturing 1 frames at [0s] from out\n\n   Fonts: 2 loaded, 1 unused\n\n◇  1 snapshots saved to E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\snapshots\\08-end\n   snapshots\\08-end\\frame-00-at-0s.png\n   contact-sheet.jpg (grid view for AI review)\n",
+    "stderr": "[HyperFrames] Not inlining \"assets/life-atlas.png\" (2.7 MB exceeds the 2 MB inline limit). The bundle may not be self-contained.\n"
+  }
+]

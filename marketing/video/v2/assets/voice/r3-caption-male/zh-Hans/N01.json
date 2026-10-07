@@ -1,0 +1,22 @@
+{
+  "locale": "zh-Hans",
+  "id": "N01",
+  "speaker": "Dylan",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "照片塞满相册，交给 AI 又太麻烦。",
+  "instruction": "用标准普通话，自然、有精神、清晰的男声，像向朋友介绍一个好用的产品。语气轻松自信，有重点但不过度兴奋，不喊、不用播音腔、不气声。句间自然停顿，语速舒适，不为了固定秒数赶话，不刻意拖长尾音。每个字都读完整，英文产品名和 PDF、AI 清楚自然。",
+  "source_sample_rate": 24000,
+  "actual_duration_seconds": 3.415,
+  "post_atempo": 1,
+  "no_fixed_duration_target": true,
+  "trim_outer_silence_samples": [
+    600,
+    82560
+  ],
+  "generation_seconds": 31.26600000000326,
+  "sha256": "0a679cd60044abb9c15d3d15c94d6dafb2f84177582c6cb61f43f75b9a3f2ffd",
+  "file": "assets/voice/r3-caption-male/zh-Hans/N01.wav",
+  "subjective_listening": "NOT_RUN"
+}

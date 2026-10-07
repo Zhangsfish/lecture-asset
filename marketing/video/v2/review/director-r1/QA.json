@@ -1,0 +1,1399 @@
+{
+  "status": "READY_FOR_DIRECTOR_CUT_REVIEW",
+  "tested_implementation_sha": "99c455ac4d012ede22cc48091a2c430f99c263e6",
+  "main_at_start": "4995c1d0d70ebdf3712416bf96ee31219fc67720",
+  "branch_input_sha": "89c705d495deacd506ae1db6d19516c2b723f137",
+  "tools": {
+    "node": "24.15.0",
+    "HyperFrames": "0.8.132",
+    "GSAP": "3.15.0",
+    "TypeScript": "7.0.2",
+    "esbuild": "0.28.2",
+    "Chrome": "154.0.8037.93",
+    "FFmpeg": "9.0.1",
+    "Python": "3.11.7",
+    "Pillow": "10.2.0",
+    "NumPy": "1.26.4"
+  },
+  "media": [
+    {
+      "path": "review/director-r1/director-cut-en-chatgpt.mp4",
+      "sha256": "1a556fc1e99544150344290583c765ac3c1a4ddc85c69db63743f853dc704c3f",
+      "bytes": 3847311,
+      "width": 720,
+      "height": 1280,
+      "frames": 1320,
+      "fps": "60/1",
+      "video_duration_seconds": 22.0,
+      "container_duration_seconds": 22.0,
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "muted": false,
+      "decoded_audio": {
+        "sample_peak_dbfs": -12.448623461797228,
+        "rms_dbfs": -31.158923515992537,
+        "interleaved_samples": 2112000,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN"
+      }
+    },
+    {
+      "path": "review/director-r1/director-cut-en-chatgpt-muted.mp4",
+      "sha256": "2ca12c9807c610e58d8137f2b4db0cfc613f924823c8bf34694cc8f150c69c99",
+      "bytes": 3385961,
+      "width": 720,
+      "height": 1280,
+      "frames": 1320,
+      "fps": "60/1",
+      "video_duration_seconds": 22.0,
+      "container_duration_seconds": 22.0,
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "muted": true
+    },
+    {
+      "path": "review/director-r1/director-cut-zh-workbuddy.mp4",
+      "sha256": "5d26b18f9fb2c9ccf3a36be11a515f9d8f890cb82537b1a794c22275640b00b1",
+      "bytes": 3876928,
+      "width": 720,
+      "height": 1280,
+      "frames": 1320,
+      "fps": "60/1",
+      "video_duration_seconds": 22.0,
+      "container_duration_seconds": 22.0,
+      "full_decode_exit": 0,
+      "audio_streams": 1,
+      "muted": false,
+      "decoded_audio": {
+        "sample_peak_dbfs": -12.448623461797228,
+        "rms_dbfs": -31.158923515992537,
+        "interleaved_samples": 2112000,
+        "clipped_samples": 0,
+        "human_listening": "NOT_RUN"
+      }
+    },
+    {
+      "path": "review/director-r1/director-cut-zh-workbuddy-muted.mp4",
+      "sha256": "3b3bcd8e3be368e62d658244e43a6357efcc7376fd5666fb5e7059f7f9b80cf5",
+      "bytes": 3415578,
+      "width": 720,
+      "height": 1280,
+      "frames": 1320,
+      "fps": "60/1",
+      "video_duration_seconds": 22.0,
+      "container_duration_seconds": 22.0,
+      "full_decode_exit": 0,
+      "audio_streams": 0,
+      "muted": true
+    }
+  ],
+  "first_frames": [
+    {
+      "locale": "en",
+      "mean_rgb": 143.97858434606482,
+      "non_dark_pixels": 598602,
+      "non_black": true
+    },
+    {
+      "locale": "zh-Hans",
+      "mean_rgb": 143.97209780092592,
+      "non_dark_pixels": 598426,
+      "non_black": true
+    }
+  ],
+  "asset_hashes": [
+    {
+      "path": "assets/app-icon.png",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyh.ttc",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyhbd.ttc",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/segoeui.ttf",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0001.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0002.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0003.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0004.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0005.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0006.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0007.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0008.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0009.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0010.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0011.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0012.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "assets/life-atlas.png",
+      "unchanged": true
+    }
+  ],
+  "encoded_timeline_comparisons": [
+    {
+      "locale": "en",
+      "frame": 0,
+      "mean_absolute_rgb_difference": 2.4215903282165527,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "5eada1a79f5ed3de06da61e26b38ecd8eacc4d4130961d3deb93a0b3576afe21"
+    },
+    {
+      "locale": "en",
+      "frame": 21,
+      "mean_absolute_rgb_difference": 2.360658884048462,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "9527d4c1f7dddad534245b4c3f68b3032fd3d7c126ccfac749688a3f74b513c3"
+    },
+    {
+      "locale": "en",
+      "frame": 45,
+      "mean_absolute_rgb_difference": 2.370468854904175,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "cd410f2e3e437596973f0fae28c901cc1d9fa167e2d451d68afecb5cdb452440"
+    },
+    {
+      "locale": "en",
+      "frame": 160,
+      "mean_absolute_rgb_difference": 2.4680135250091553,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "89e28e6bdd378c1c1a16887f299172dbe1695782a0369946b29ba57d3cee2b68"
+    },
+    {
+      "locale": "en",
+      "frame": 180,
+      "mean_absolute_rgb_difference": 2.484412908554077,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "712c88a5693753313ad835f85a27db1c58e3fceaf661aeaaee28658339e1239d"
+    },
+    {
+      "locale": "en",
+      "frame": 264,
+      "mean_absolute_rgb_difference": 2.00439453125,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "8bfdad154b92d35b74a0d0643ffb33918e057c7b9b9a3a381ba7b2eb32f6fddf"
+    },
+    {
+      "locale": "en",
+      "frame": 294,
+      "mean_absolute_rgb_difference": 1.7194842100143433,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "681bd1fc50d5c8a5cb874b0f38656afe4d276553d33d061fda7e72808e860cfe"
+    },
+    {
+      "locale": "en",
+      "frame": 330,
+      "mean_absolute_rgb_difference": 1.717238187789917,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "4eb07804a0c963ffad15837513b5178c2a1e0fd80504aaf2a8f7fcae9483ce72"
+    },
+    {
+      "locale": "en",
+      "frame": 420,
+      "mean_absolute_rgb_difference": 1.7160680294036865,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "9aa81560c544bcb9d991ba083c5c2d9f5fee4655a641355c69a9171baa5f1409"
+    },
+    {
+      "locale": "en",
+      "frame": 453,
+      "mean_absolute_rgb_difference": 1.7091091871261597,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "59904cd090d8338fdf8000f14a59ae3353d11c740d06273e5add9edd7ced05dc"
+    },
+    {
+      "locale": "en",
+      "frame": 480,
+      "mean_absolute_rgb_difference": 1.7693452835083008,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "fb26f25c15f198a4f55bcb4413a7826ad94b71cdd281199b2a0d4a92e337cafc"
+    },
+    {
+      "locale": "en",
+      "frame": 510,
+      "mean_absolute_rgb_difference": 1.7901089191436768,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "f630cae50a8d6e5020f12c085f2e71c1eeaf193707fca5b810d51765bec77e17"
+    },
+    {
+      "locale": "en",
+      "frame": 552,
+      "mean_absolute_rgb_difference": 2.1328418254852295,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "7b007ddbdbf3b285dbebf6ab42ba4d3fcbec4ac213da2b87d8a53b639471fb3b"
+    },
+    {
+      "locale": "en",
+      "frame": 594,
+      "mean_absolute_rgb_difference": 2.120893716812134,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "a4be9ea463e34d13b1a5d6c82f92b7b770774f2309716c0048cb980bdab95aa6"
+    },
+    {
+      "locale": "en",
+      "frame": 642,
+      "mean_absolute_rgb_difference": 2.1304709911346436,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "e0d61d012d71e1e2c92c65bf2b115d275dc3cba4e69226a9d4816ada04363b31"
+    },
+    {
+      "locale": "en",
+      "frame": 690,
+      "mean_absolute_rgb_difference": 1.7091948986053467,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "b283d6925eaf8456fd74999f50e9a717d486e44843b53a7d041a100129f04d38"
+    },
+    {
+      "locale": "en",
+      "frame": 726,
+      "mean_absolute_rgb_difference": 1.7921907901763916,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "19f9cbad844e51b2d7e138a97d29df0d350cf05381b4a63ef06a356348ef732c"
+    },
+    {
+      "locale": "en",
+      "frame": 822,
+      "mean_absolute_rgb_difference": 1.9169708490371704,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "15552add86b443b2a164a34d47700b4b7213808a013a5ad05683f7f500f901aa"
+    },
+    {
+      "locale": "en",
+      "frame": 840,
+      "mean_absolute_rgb_difference": 1.9106169939041138,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "1bcd06f3e6d333d41d9b739995fe12b17b35ed4ce25e7bc5115afcace8ce8101"
+    },
+    {
+      "locale": "en",
+      "frame": 900,
+      "mean_absolute_rgb_difference": 1.7773940563201904,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "a276a610900e4ac3bf08977d0ec0dc0ef75c70bf5f08b57680fe5f163310d28a"
+    },
+    {
+      "locale": "en",
+      "frame": 966,
+      "mean_absolute_rgb_difference": 2.0832371711730957,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "8a0b38994f39f204b672cd17739aee9834832de4065f411bf1d5da60f5dd948c"
+    },
+    {
+      "locale": "en",
+      "frame": 1014,
+      "mean_absolute_rgb_difference": 2.007728338241577,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "eedb65f4718032dff11527f34a22ef6bb6b826bb4ad0694f846606e970dc2521"
+    },
+    {
+      "locale": "en",
+      "frame": 1062,
+      "mean_absolute_rgb_difference": 2.364837646484375,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "3d7e16cfe687da095f34b4148db242314c6a684d7a3b68cc9ae448a0dd35f84c"
+    },
+    {
+      "locale": "en",
+      "frame": 1077,
+      "mean_absolute_rgb_difference": 2.484079599380493,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "80639d374012d8b85653ed578e2957ac8d5e6007a0421ea7de8fdabd29976cb1"
+    },
+    {
+      "locale": "en",
+      "frame": 1087,
+      "mean_absolute_rgb_difference": 2.4547297954559326,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "7c7d1d54fc273ccebaf919cc272b1601fed77b1e468f7037c4267dc4a4d0efc6"
+    },
+    {
+      "locale": "en",
+      "frame": 1137,
+      "mean_absolute_rgb_difference": 2.4085443019866943,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "88fa1c5383022df89fb75f2ba930071fcf23a3201c93241a386f34dd07991f07"
+    },
+    {
+      "locale": "en",
+      "frame": 1170,
+      "mean_absolute_rgb_difference": 2.0967788696289062,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "0a500c0c715c5355375488e321caf1a5fd80182e5dd134d6fa6d4cc16c5eae0a"
+    },
+    {
+      "locale": "en",
+      "frame": 1182,
+      "mean_absolute_rgb_difference": 2.2463114261627197,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "199eaead9ad13cac1c61fde0bb869eb4824496f77b761ffaa0abffd8ff74f51d"
+    },
+    {
+      "locale": "en",
+      "frame": 1254,
+      "mean_absolute_rgb_difference": 2.3353400230407715,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "c551e69725e9f021dd44221e729581d362a57b301de8d3add357a4e5cc0f920a"
+    },
+    {
+      "locale": "en",
+      "frame": 1319,
+      "mean_absolute_rgb_difference": 2.298076868057251,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "bf9ecbd692aa99da198381993eac3db6d720fa512de5025366fc731089305668"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 0,
+      "mean_absolute_rgb_difference": 2.4255082607269287,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "ec8235619827d484d026c64890b6f28ef4fa93628abd07992db8092656170bd6"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 21,
+      "mean_absolute_rgb_difference": 2.3543739318847656,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "f5796af355b1277050e4039d04392111543742744cb483fb6b3088e833b6d4d6"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 45,
+      "mean_absolute_rgb_difference": 2.408576726913452,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "e7f7c5138c68cf389d2d3de9ba3d57896023895f88348601cb16eeaf904c879c"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 160,
+      "mean_absolute_rgb_difference": 2.414971351623535,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "a9ff8354ba9f3c86cdf6313a6b0959943194bdf5ed625018dbf8b4d0add3a5f5"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 180,
+      "mean_absolute_rgb_difference": 2.485886573791504,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "b584aa875c1041ba260ea569653540295e30f4be9a286107591e8882f7696c8f"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 264,
+      "mean_absolute_rgb_difference": 2.0119519233703613,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "17f3b7ced35821f7f42eb98f4130f3531ff80afecd2062ee392ae210deb601c2"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 294,
+      "mean_absolute_rgb_difference": 1.7157747745513916,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "6d906c4df872271142a21b690ea497186203d2c688a832f3e03733fc6fa2f697"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 330,
+      "mean_absolute_rgb_difference": 1.7187329530715942,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "a6fb2bb93d38249396b178493331229cd42f1855d947a69525e26b00e50e3b83"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 420,
+      "mean_absolute_rgb_difference": 1.727777361869812,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "3b2dee6f05301e878e05acf1e4d8cb211e36dd287c560a0c10b3df581d5dc286"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 453,
+      "mean_absolute_rgb_difference": 1.7182323932647705,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "d8c8a2638eb03dd1722cb7f33a4e2d06f2053e65be5d8f7778f0dba17b62549a"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 480,
+      "mean_absolute_rgb_difference": 1.767643928527832,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "6fa679f9d9729e838fd29417d89e47eda5f42112f99b574d09cef9d9a933240d"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 510,
+      "mean_absolute_rgb_difference": 1.8035156726837158,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "44464820b8bb2aada568c2d7ae9547344c7b01f8103739714dded44c6c0ed2a1"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 552,
+      "mean_absolute_rgb_difference": 2.2051098346710205,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "7496510303cf56f0f8f993c74bbd9e782fae22d9987d8d7810b505c9a469a7af"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 594,
+      "mean_absolute_rgb_difference": 2.1358134746551514,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "a23c25cf3f48969d35b91916c45403437bbdd97e7ad1e18d7cccb7a95f30df07"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 642,
+      "mean_absolute_rgb_difference": 2.1432063579559326,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "429c3f4b033593fd764736424a92de4dedee16355bfd88d3f054d7775d80889a"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 690,
+      "mean_absolute_rgb_difference": 1.7022240161895752,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "55fef87e884410d26035c6b936c4bc2043dcf83cbfb1211916ff06975b079940"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 726,
+      "mean_absolute_rgb_difference": 1.821223258972168,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "16df4e3c1166525c56c82560fa6e6ded07c107ef5948efd9045bc0c0f59a0f2e"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 822,
+      "mean_absolute_rgb_difference": 1.9388089179992676,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "69c1e71cca76048d742e286d5eee6af556126b40e0171eb424d3ce7f8d1570be"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 840,
+      "mean_absolute_rgb_difference": 1.9272764921188354,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "3eddb4b73242409af6e653086fd5f055ddbb9e5b9181fb2ec3fd23363b88c374"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 900,
+      "mean_absolute_rgb_difference": 1.774234652519226,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "90e1f8057a62f0084c88e8bc2a934261f993eec00b2bab5059ccf306b144d0f0"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 966,
+      "mean_absolute_rgb_difference": 2.1063265800476074,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "cbb05d0669da1c7900202fed4cfc6feed4003247bbbe38e547715e4383095374"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1014,
+      "mean_absolute_rgb_difference": 2.030219793319702,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "8b6aa49fe8557c506d1c2ef92cefd6fb19184d2d12dc69b3f5e3ddca37d60987"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1062,
+      "mean_absolute_rgb_difference": 2.3734359741210938,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "21da027c27b413a4776e84416f65d1d7df9e2699a5d26180abeff7f4a72aadfb"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1077,
+      "mean_absolute_rgb_difference": 2.4930124282836914,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "5bfd43dd9a6e9237981da833f3d0e50476b0a1a207a78e58d9a99b6c530a7e39"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1087,
+      "mean_absolute_rgb_difference": 2.457246780395508,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "7747f39fb58c244b6026fa90424c80889ec6b5944e66fd58d1d73c5fd0717a60"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1137,
+      "mean_absolute_rgb_difference": 2.419825553894043,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "8ab8574816757421c23a7e68c920f99d5088cbe56d7646f19854b0be2560018f"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1170,
+      "mean_absolute_rgb_difference": 2.0924742221832275,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "8526ced2875b516e7a107080c8db84715985d8c0003897d85aee2cc42a8a8c45"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1182,
+      "mean_absolute_rgb_difference": 2.267854928970337,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "1779f8140b7541ce21bf64f3f42f41f5bf488258a7e2c835763023c48c5bc01a"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1254,
+      "mean_absolute_rgb_difference": 2.3723254203796387,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "a4c38306fe11d013a4a6b7e499736da5b05fd705fd9ce990437b3aa6862844da"
+    },
+    {
+      "locale": "zh-Hans",
+      "frame": 1319,
+      "mean_absolute_rgb_difference": 2.33003830909729,
+      "tolerance": 8,
+      "PASS": true,
+      "decoded_frame_sha256": "4e36cc532d39481ac44f4f1db642992eb3c6479bba4f950b62734d60208bf7a6"
+    }
+  ],
+  "render_warnings": [
+    {
+      "locale": "en",
+      "sub_timeline_readiness_timeout": true,
+      "handling": "Recorded, not suppressed. Actual frame 0 and all 29 boundary/hero samples match the ready native timeline; all 1320 encoded frames decode.",
+      "capture_mode": "HyperFrames native screenshot / hardware GPU",
+      "actual_capture_frames": 1320
+    },
+    {
+      "locale": "zh-Hans",
+      "sub_timeline_readiness_timeout": true,
+      "handling": "Recorded, not suppressed. Actual frame 0 and all 29 boundary/hero samples match the ready native timeline; all 1320 encoded frames decode.",
+      "capture_mode": "HyperFrames native screenshot / hardware GPU",
+      "actual_capture_frames": 1320
+    }
+  ],
+  "dom_checks": [
+    {
+      "locale": "en",
+      "ready": {
+        "fonts": "loaded",
+        "htmlImages": 17,
+        "decoded": true,
+        "atlas": [
+          887,
+          1774
+        ]
+      },
+      "errors": [],
+      "duration": 22,
+      "seek_frames": [
+        1319,
+        45,
+        1014,
+        594,
+        160,
+        1254,
+        0,
+        786,
+        294,
+        1182,
+        552,
+        45,
+        1319,
+        594
+      ],
+      "seek_mismatches": [],
+      "clipping": [],
+      "maximum_main_captions": 1,
+      "saved_first": true,
+      "saved_before_departure": true,
+      "slogan_stable": true,
+      "life_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "lecture_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L09",
+        "L10",
+        "L11",
+        "L12"
+      ]
+    },
+    {
+      "locale": "zh-Hans",
+      "ready": {
+        "fonts": "loaded",
+        "htmlImages": 17,
+        "decoded": true,
+        "atlas": [
+          887,
+          1774
+        ]
+      },
+      "errors": [],
+      "duration": 22,
+      "seek_frames": [
+        1319,
+        45,
+        1014,
+        594,
+        160,
+        1254,
+        0,
+        786,
+        294,
+        1182,
+        552,
+        45,
+        1319,
+        594
+      ],
+      "seek_mismatches": [],
+      "clipping": [],
+      "maximum_main_captions": 1,
+      "saved_first": true,
+      "saved_before_departure": true,
+      "slogan_stable": true,
+      "life_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "lecture_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L09",
+        "L10",
+        "L11",
+        "L12"
+      ]
+    }
+  ],
+  "scope_paths": [
+    "marketing/video/v2/ASSET_MANIFEST.md",
+    "marketing/video/v2/CREATIVE_BRIEF.md",
+    "marketing/video/v2/PROVIDER_VARIANTS.md",
+    "marketing/video/v2/README.md",
+    "marketing/video/v2/SHOTLIST.md",
+    "marketing/video/v2/SOURCE_REVIEW.md",
+    "marketing/video/v2/STORYBOARD.md",
+    "marketing/video/v2/STYLE_RULES.md",
+    "marketing/video/v2/assets/sound/SOUND.json",
+    "marketing/video/v2/assets/sound/director-score.wav",
+    "marketing/video/v2/package.json",
+    "marketing/video/v2/plan.json",
+    "marketing/video/v2/review/director-r1/AGENTS.md",
+    "marketing/video/v2/scripts/build.mjs",
+    "marketing/video/v2/scripts/director-package.py",
+    "marketing/video/v2/scripts/director-qa.mjs",
+    "marketing/video/v2/scripts/director-render.mjs",
+    "marketing/video/v2/scripts/director-snapshot.mjs",
+    "marketing/video/v2/scripts/director-tools.mjs",
+    "marketing/video/v2/scripts/make-score.py",
+    "marketing/video/v2/scripts/sync-r1.py",
+    "marketing/video/v2/src/director-html.ts",
+    "marketing/video/v2/src/director-timeline.ts",
+    "marketing/video/v2/src/director.css"
+  ],
+  "historical_phase_a_changed": [],
+  "commands": [
+    {
+      "locale": "en",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\en",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\director-cut-en-chatgpt-1080.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "20",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-05T17:58:54.959Z",
+      "finished": "2026-10-05T18:03:14.698Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\director-cut-en-chatgpt-1080.mp4",
+        "-t",
+        "22",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1320",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r1\\director-cut-en-chatgpt.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\director-cut-en-chatgpt-1080.mp4",
+        "-t",
+        "22",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1320",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r1\\director-cut-en-chatgpt-muted.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\node_modules\\hyperframes\\bin\\hyperframes.mjs",
+        "render",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\zh-Hans",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\director-cut-zh-workbuddy-1080.mp4",
+        "--fps",
+        "60",
+        "--workers",
+        "2",
+        "--quality",
+        "standard",
+        "--crf",
+        "20",
+        "--sdr",
+        "--browser-gpu",
+        "--experimental-fast-capture=false"
+      ],
+      "started": "2026-10-05T18:03:36.114Z",
+      "finished": "2026-10-05T18:08:14.066Z",
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\director-cut-zh-workbuddy-1080.mp4",
+        "-t",
+        "22",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1320",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "160k",
+        "-ar",
+        "48000",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r1\\director-cut-zh-workbuddy.mp4"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+        "-y",
+        "-i",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\director-cut-zh-workbuddy-1080.mp4",
+        "-t",
+        "22",
+        "-vf",
+        "scale=720:1280:flags=lanczos",
+        "-r",
+        "60",
+        "-frames:v",
+        "1320",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "21",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-colorspace",
+        "bt709",
+        "-movflags",
+        "+faststart",
+        "-an",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\review\\director-r1\\director-cut-zh-workbuddy-muted.mp4"
+      ],
+      "exit": 0
+    }
+  ],
+  "snapshot_commands": [
+    {
+      "locale": "en",
+      "frames": [
+        0,
+        21,
+        45,
+        160,
+        180,
+        264,
+        294,
+        330,
+        420,
+        453,
+        480,
+        510,
+        552,
+        594,
+        642,
+        690,
+        726,
+        822,
+        840,
+        900,
+        966,
+        1014,
+        1062,
+        1077,
+        1087,
+        1137,
+        1170,
+        1182,
+        1254,
+        1319
+      ],
+      "tool": "HyperFrames snapshot",
+      "args": [
+        "snapshot",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\en",
+        "--at",
+        "0,0.35,0.75,2.6666666666666665,3,4.4,4.9,5.5,7,7.55,8,8.5,9.2,9.9,10.7,11.5,12.1,13.7,14,15,16.1,16.9,17.7,17.95,18.116666666666667,18.95,19.5,19.7,20.9,21.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\snapshots\\en",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    },
+    {
+      "locale": "zh-Hans",
+      "frames": [
+        0,
+        21,
+        45,
+        160,
+        180,
+        264,
+        294,
+        330,
+        420,
+        453,
+        480,
+        510,
+        552,
+        594,
+        642,
+        690,
+        726,
+        822,
+        840,
+        900,
+        966,
+        1014,
+        1062,
+        1077,
+        1087,
+        1137,
+        1170,
+        1182,
+        1254,
+        1319
+      ],
+      "tool": "HyperFrames snapshot",
+      "args": [
+        "snapshot",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\zh-Hans",
+        "--at",
+        "0,0.35,0.75,2.6666666666666665,3,4.4,4.9,5.5,7,7.55,8,8.5,9.2,9.9,10.7,11.5,12.1,13.7,14,15,16.1,16.9,17.7,17.95,18.116666666666667,18.95,19.5,19.7,20.9,21.983333333333334",
+        "--no-end",
+        "--describe",
+        "false",
+        "--output",
+        "E:\\myself\\lecture_asset\\marketing\\video\\v2\\out\\director\\snapshots\\zh-Hans",
+        "--timeout",
+        "20000",
+        "--no-browser-gpu"
+      ],
+      "exit": 0
+    }
+  ],
+  "source_summary": "Editorial paraphrases of the unchanged synthetic lecture: meaning, concrete example, fresh question.",
+  "provider_output": "ILLUSTRATIVE; no provider session, fabricated transcript, or integration claim.",
+  "sound": "Original deterministic local score + six SFX voices / seven timed cues; no external audio.",
+  "human_listening": "NOT_RUN",
+  "public_upload": "NOT_RUN",
+  "App_ASC_TestFlight_changes": false,
+  "director_visual_approval": "NOT_RUN",
+  "unresolved_blockers": [],
+  "transition_sheets": [
+    "review/director-r1/TRANSITIONS-en-S01-S04.jpg",
+    "review/director-r1/TRANSITIONS-en-S05-S08.jpg",
+    "review/director-r1/TRANSITIONS-zh-Hans-S01-S04.jpg",
+    "review/director-r1/TRANSITIONS-zh-Hans-S05-S08.jpg"
+  ],
+  "review_proxies": [
+    {
+      "locale": "en",
+      "scene": 1,
+      "frame": 45,
+      "source": "review/director-r1/keyframes/en/S01.jpg",
+      "source_sha256": "aa6188556c4e82c0de19e3aa85b3e2b3eda90890f41e6ea35397703a28f16149",
+      "proxy_sha256": "ed325e23db31b114928481cc870d7ef39f85430d7a4eb016962468191be2e6c6",
+      "path": "review/director-r1/proxy/en/S01.jpg",
+      "bytes": 8188,
+      "quality": 44,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "7501a70f6c6ebdd3f20156035c95aea728905a5ee941e9dbbd3562db2462c091"
+    },
+    {
+      "locale": "en",
+      "scene": 2,
+      "frame": 264,
+      "source": "review/director-r1/keyframes/en/S02.jpg",
+      "source_sha256": "265fd3e34b8e6f326aa211ca319f622aa2d7898b3966f1dca5f951906d21c7ab",
+      "proxy_sha256": "3c1abdbeae55f93cfe759c7d32da6d5dcbb731403d903e3ab7cdd5b2b51f40df",
+      "path": "review/director-r1/proxy/en/S02.jpg",
+      "bytes": 7014,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "08a5bf7445c8cbaf9494dc9930b392df030bdffc41e06979cf263a466dea84f9"
+    },
+    {
+      "locale": "en",
+      "scene": 3,
+      "frame": 420,
+      "source": "review/director-r1/keyframes/en/S03.jpg",
+      "source_sha256": "dce73a19beabff9d321577bf2a2516c36855eaf0b410fd7155680155878b64ac",
+      "proxy_sha256": "3ab08d0f1e522f3ce6d4cf15a94535b23e6cc2cc1f83cc8d2557ead936662747",
+      "path": "review/director-r1/proxy/en/S03.jpg",
+      "bytes": 5112,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "96473cabd91aa473c3fa9ec48c5ddf16fad9314bb0aa5ae9944edd83582a7d7a"
+    },
+    {
+      "locale": "en",
+      "scene": 4,
+      "frame": 594,
+      "source": "review/director-r1/keyframes/en/S04.jpg",
+      "source_sha256": "b274afab0ac2a9736bf3702daccf4dfd47203335061c542bba181aaf4472be37",
+      "proxy_sha256": "67629f19f6e59c66b009260eb491e7128fd5a46676b53b4ac6334ff845215fd4",
+      "path": "review/director-r1/proxy/en/S04.jpg",
+      "bytes": 7387,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "06795354821b4e913d4a2ea7a505e83b83675f1dc6f9042b600259ec3f2c0722"
+    },
+    {
+      "locale": "en",
+      "scene": 5,
+      "frame": 822,
+      "source": "review/director-r1/keyframes/en/S05.jpg",
+      "source_sha256": "6a48ba4a02839e17e0b9932d013ef3f657af91e5abbfb9348788844131581c54",
+      "proxy_sha256": "f1a7ebd3c444b15abde4627a68c151ddcbc81a6aa4f5232718784bdf7f35606f",
+      "path": "review/director-r1/proxy/en/S05.jpg",
+      "bytes": 6312,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "01157eaec8835828d4b9fc0d4b5f06cabf7b11446d904e1be87426b67f62b9c5"
+    },
+    {
+      "locale": "en",
+      "scene": 6,
+      "frame": 1014,
+      "source": "review/director-r1/keyframes/en/S06.jpg",
+      "source_sha256": "d00d7c4c8ec05192a866961a06b090e51e0fdca44391d5e71b6e888769a893a4",
+      "proxy_sha256": "659a4e837861698963e3828134039594f20ea7014633c5df9352851a648d6c30",
+      "path": "review/director-r1/proxy/en/S06.jpg",
+      "bytes": 6183,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "dd5dfe8934cdb80d4ed70ea582fa6862a2e7f4e2d5fb9a287cd92e030be4bf03"
+    },
+    {
+      "locale": "en",
+      "scene": 7,
+      "frame": 1137,
+      "source": "review/director-r1/keyframes/en/S07.jpg",
+      "source_sha256": "1917d8e992a6f6ccb09abc1f05b111e20a020d19115339f1c3add1683ad8de30",
+      "proxy_sha256": "44c0aefcb390533669c50d6c7527cb951edbdaf0381748e779f51862d20f270f",
+      "path": "review/director-r1/proxy/en/S07.jpg",
+      "bytes": 8009,
+      "quality": 74,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "d97a02e2757d52e103bae0c6f05724161e7ec38fd3a35fa215f9c826ee037809"
+    },
+    {
+      "locale": "en",
+      "scene": 8,
+      "frame": 1254,
+      "source": "review/director-r1/keyframes/en/S08.jpg",
+      "source_sha256": "d7f821a7f9ab8b058a71a093d4687b732fb74cd110d0c2eba682cb4fb0abb5bb",
+      "proxy_sha256": "8b4cdf6eb88c10d42804915ef40c2e508b398df119a9c72729cbdd04a0440f71",
+      "path": "review/director-r1/proxy/en/S08.jpg",
+      "bytes": 8171,
+      "quality": 66,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "3c35f40756df546b080a9cac8929e5f76a14edbf3e9f97c8eab61c1859bfaa60"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 1,
+      "frame": 45,
+      "source": "review/director-r1/keyframes/zh-Hans/S01.jpg",
+      "source_sha256": "d5fb14ccc3e23cd42868db13e4252b1d3342d6bb02f597cc8acef73e56d4fd29",
+      "proxy_sha256": "e95de60e234548fc392871cab5c1ae24a86dc6a5da457636099e4e7d3c3eb787",
+      "path": "review/director-r1/proxy/zh-Hans/S01.jpg",
+      "bytes": 8044,
+      "quality": 44,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "a13feef8dfc35b6531e762378307a57ce47bc0ff212f12f2aaa564738d017168"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 2,
+      "frame": 264,
+      "source": "review/director-r1/keyframes/zh-Hans/S02.jpg",
+      "source_sha256": "3757e29c9c46d9bb05c26f7530fc95a7f74aad5ec9271dbda0855d97c23d789d",
+      "proxy_sha256": "908cc1151a9fb271fcf46cc360e400706490deabcdd23662ca29815de10cb291",
+      "path": "review/director-r1/proxy/zh-Hans/S02.jpg",
+      "bytes": 7006,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "b8c702f26c3041ba0bcc0b25644ba411bdfc4b68f55c631973c9653d06d7635e"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 3,
+      "frame": 420,
+      "source": "review/director-r1/keyframes/zh-Hans/S03.jpg",
+      "source_sha256": "4f3e6215b050ecc28d57394735ecd4f1789813daaa0f69ba1c6ca15d974f3b8f",
+      "proxy_sha256": "b8968979053868f0561c090a56053f7abee4620fd7740f357d425eb667fb2096",
+      "path": "review/director-r1/proxy/zh-Hans/S03.jpg",
+      "bytes": 5043,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "2371014ef15368f5c346dc2cff2ddce365129afae843ef70da74aa9bad10a8ca"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 4,
+      "frame": 594,
+      "source": "review/director-r1/keyframes/zh-Hans/S04.jpg",
+      "source_sha256": "14cd58eed847c43bae9547898ffad044044846683f3949a89dcb1a4707b0e60a",
+      "proxy_sha256": "5e606302a3228843a1b423d9b333c517e4a3940a685f57ec5b4541c4c7b707c1",
+      "path": "review/director-r1/proxy/zh-Hans/S04.jpg",
+      "bytes": 7382,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "fd8648eb6b5ce0efd7c188536194c70b63fc21f242518609bdb895a93becb71c"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 5,
+      "frame": 822,
+      "source": "review/director-r1/keyframes/zh-Hans/S05.jpg",
+      "source_sha256": "f0723f97bc7dc483509b85dbd35fba4db1af9d02f53cecc4ef21ffb0761b9e97",
+      "proxy_sha256": "6ef77f5a7ef7a3282c2c60652e8fcce89ed13b1145034209a0846a8483af5459",
+      "path": "review/director-r1/proxy/zh-Hans/S05.jpg",
+      "bytes": 6786,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "fc6dcd358f7e7667adb59b2ad67a34e9a717441dc1ce5cd9355f611fe62680af"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 6,
+      "frame": 1014,
+      "source": "review/director-r1/keyframes/zh-Hans/S06.jpg",
+      "source_sha256": "111a0e09fc79d0f4ca2905ede597b4961725002c200f74a50a77b9d07b757126",
+      "proxy_sha256": "28f6e28187d133f1e38c4a4b8113336554ac8d1cbc3fd57c5c4c8c032b132bf8",
+      "path": "review/director-r1/proxy/zh-Hans/S06.jpg",
+      "bytes": 5759,
+      "quality": 76,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "023c725ad2ad9c739239f33c7c88b29879737b950b59d737ea59073fb1ab351d"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 7,
+      "frame": 1137,
+      "source": "review/director-r1/keyframes/zh-Hans/S07.jpg",
+      "source_sha256": "7767a2b7db4d446bc6635c152db1bf53867218d91d02576ce3d25b4fd32e1917",
+      "proxy_sha256": "96cc674a528400a102c8157f1e18f52f51431327c64f35e5685061cb188de493",
+      "path": "review/director-r1/proxy/zh-Hans/S07.jpg",
+      "bytes": 8161,
+      "quality": 74,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "b1f33a291a88675a9511e3135d31f6f09466d6c3c9ed744b740a74f6006c22f6"
+    },
+    {
+      "locale": "zh-Hans",
+      "scene": 8,
+      "frame": 1254,
+      "source": "review/director-r1/keyframes/zh-Hans/S08.jpg",
+      "source_sha256": "3b78b63ab7b2274d5616c9c210e68a74154ab0f5fb7bb1c52fcf386fb775f761",
+      "proxy_sha256": "f531f3eeb962a48117a4a3a48502dafca98c132df67bdbc98eff3cb838e13ce0",
+      "path": "review/director-r1/proxy/zh-Hans/S08.jpg",
+      "bytes": 8028,
+      "quality": 64,
+      "pixels": [
+        180,
+        320
+      ],
+      "base64_sha256": "9cd32bb9c34d569b31f8815f69544719860337716bc1320d1cbf2c9b09256fbb"
+    }
+  ]
+}

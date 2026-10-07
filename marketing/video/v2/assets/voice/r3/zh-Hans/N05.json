@@ -1,0 +1,37 @@
+{
+  "locale": "zh-Hans",
+  "id": "N05",
+  "speaker": "Vivian",
+  "provider": "Local Qwen3-TTS CustomVoice",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+  "spoken_text": "变成讲座总结，还有报告。",
+  "original_planned_text": "变成讲座总结，还有报告。",
+  "timing_copy_adjustment": null,
+  "instruction": "用明亮利落的快节奏产品旁白，快速流利地说，停顿极短，不拖尾。现代科技产品短片旁白，明亮、利落、自然、自信。像向朋友展示一个好用的产品，重音清楚，短停顿，不喊麦、不播报新闻、不甜腻、不气声、不睡前故事。不要为了填满时长拖慢尾音。 请紧凑流利地朗读这句，在约3.6秒内说完，短停顿，不拖尾，字句完整。",
+  "source_sample_rate": 24000,
+  "placement_start_seconds": 13.15,
+  "actual_duration_seconds": 3.7925833333333334,
+  "placement_end_seconds": 16.942583333333335,
+  "window_seconds": [
+    13.15,
+    16.95
+  ],
+  "post_atempo": 1.0236842105263162,
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_seconds": 3.92,
+      "speech_seconds": 3.89,
+      "generation_seconds": 21.375,
+      "trim_samples": [
+        600,
+        93960
+      ]
+    }
+  ],
+  "sha256": "2f5bbd9dcbe806649fc28bd5b0fda23629ea33e62a88158b289bd362b6974715",
+  "file": "assets/voice/r3/zh-Hans/N05.wav",
+  "timestamps": "Measured sample-level phrase start/end, not invented word timestamps",
+  "subjective_listening": "NOT_RUN"
+}

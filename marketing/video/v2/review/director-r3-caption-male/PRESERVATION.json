@@ -1,0 +1,304 @@
+{
+  "status": "PASS",
+  "accepted_english_cues": [
+    {
+      "id": "N01",
+      "sha256": "78091fd2880bf871aa57851e5c895014f2872e792f35a53d0c8eb25c949ec8da",
+      "unchanged": true
+    },
+    {
+      "id": "N02",
+      "sha256": "a76ee47de14d0ee5c6978f10c0ef719243cdb7bd65af97192bd8e0205d0c55c3",
+      "unchanged": true
+    },
+    {
+      "id": "N03",
+      "sha256": "94387d17ff7c79f836c277ee1dbb137101e2755a554361f6ca73cd47f1146a51",
+      "unchanged": true
+    },
+    {
+      "id": "N04",
+      "sha256": "ffd777771322bdf0b263e0fe667f5b0b27da967647328311f2b8d3c4a9e7a41c",
+      "unchanged": true
+    },
+    {
+      "id": "N05",
+      "sha256": "6c3813f8d9f3dd1eccbdd9f0fe1e7660a7a8ff6f3dc7db434577da02158674d5",
+      "unchanged": true
+    },
+    {
+      "id": "N06",
+      "sha256": "fb35cc4186dbbfb2b3e27e22684c624074e8a2f33738aaade7dbb51c41cac39a",
+      "unchanged": true
+    },
+    {
+      "id": "N07",
+      "sha256": "32e7861db92d2faf8f984040d1941c79b734598ad87dd79203d8b565dab87fd7",
+      "unchanged": true
+    }
+  ],
+  "accepted_english_mix_sha256": "2811129e7557e7034f534f27a50b1822f20eb0786b408294818ee3a3d26a7f8b",
+  "english_non_caption_actor_comparisons": [
+    {
+      "frame": 0,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 15,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 30,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 45,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 60,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 90,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 120,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 150,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 180,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 210,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 240,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 870,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1049,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1074,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1080,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1229,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1230,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1231,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1242,
+      "unchanged_actor_states": 37,
+      "differences": []
+    },
+    {
+      "frame": 1559,
+      "unchanged_actor_states": 37,
+      "differences": []
+    }
+  ],
+  "original_assets": [
+    {
+      "path": "assets/app-icon.png",
+      "sha256": "b8f5ebfc89d8c8c3124026714737621bbd06c575d0e844f611282ddfc5bd8913",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyh.ttc",
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/msyhbd.ttc",
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+      "unchanged": true
+    },
+    {
+      "path": "assets/fonts/segoeui.ttf",
+      "sha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0001.jpg",
+      "sha256": "5d74e051082af212bfcc819e83aa18b8da8a6baed2e5c7576c34d8d0dabdceb5",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0002.jpg",
+      "sha256": "a2c385af17d35efd30c01787c7885824e0a27742246b01f9ba225792fa1f061d",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0003.jpg",
+      "sha256": "ec32aca90938a15d30568bde96e6223622c540d3a83517db020c0f0612e4415a",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0004.jpg",
+      "sha256": "4266917b9a4bb88c322e74bec958410b0d030a98a5abc9b26290e8852898daa9",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0005.jpg",
+      "sha256": "e8f31733d066cfded9075ea1ebc49c1d63fa000f232edc013ce2388c967118f2",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0006.jpg",
+      "sha256": "fc6ec26cdd4955c265893161b041cb3835929035106ccd33f1b4db6cb549e7be",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0007.jpg",
+      "sha256": "2cb224f56bc4ad943bf2dce7d6862d8ad8b0d41f2efdfb6d478ae1a164d81312",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0008.jpg",
+      "sha256": "0e94f45a695615b76e54f039167c26797f0ea51ff4a6e14fcd32dad20655029b",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0009.jpg",
+      "sha256": "039e3956dc42a1d9e45a40bd2a1ca07e743525a93a4c1859d3e5d782a339c0a2",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0010.jpg",
+      "sha256": "ba7756d47e55c38f305106fd4f73f95bf1437cfafb95a2c35098ed39958b9a63",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0011.jpg",
+      "sha256": "3419b044f5eb2897322d78c05707117e45085f378400cdcd2908d9f810b117c6",
+      "unchanged": true
+    },
+    {
+      "path": "assets/lecture/0012.jpg",
+      "sha256": "97ce581deb28da5f3eb52b7014d3649a34cdef36dd994ec8ab179e9a26cae0a7",
+      "unchanged": true
+    },
+    {
+      "path": "assets/life-atlas.png",
+      "sha256": "eef1dee38709af0650d29cc21fee53fff789b051f0238c47407bc8391bf00b2e",
+      "unchanged": true
+    }
+  ],
+  "actual_local_fonts": [
+    {
+      "file": "SourceHanSansSC-Bold.otf",
+      "sha256": "df2b90f5bcc6d01dfc964cec5f6d535d6b6aebd26ed7fd79a9c1b3f2112fcb6b",
+      "unchanged": true
+    },
+    {
+      "file": "SourceHanSansSC-Regular.otf",
+      "sha256": "f1d8611151880c6c336aabeac4640ef434fa13cbfbf1ffe82d0a71b2a5637256",
+      "unchanged": true
+    },
+    {
+      "file": "InterVariable.ttf",
+      "sha256": "4989b125924991b90d05b2d16e0e388c48f7d5bb8b30539bbf9c755278d0ccaf",
+      "unchanged": true
+    }
+  ],
+  "protected_path_diff": [],
+  "scope_paths": [
+    "marketing/video/v2/.gitignore",
+    "marketing/video/v2/AGENTS.md",
+    "marketing/video/v2/DIRECTOR_NEXT.md",
+    "marketing/video/v2/OWNER_CAPTION_MALE_2026-10-07.md",
+    "marketing/video/v2/R3_CAPTION_SYNC.json",
+    "marketing/video/v2/R3_COPY_AUDIO.json",
+    "marketing/video/v2/README.md",
+    "marketing/video/v2/SHOTLIST.md",
+    "marketing/video/v2/STORYBOARD.md",
+    "marketing/video/v2/STYLE_RULES.md",
+    "marketing/video/v2/assets/sound/r3-caption-male-mix-zh-Hans.wav",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N01.json",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N01.wav",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N02.json",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N02.wav",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N03.json",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N03.wav",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N04.json",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N04.wav",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N05.json",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N05.wav",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N06.json",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N06.wav",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N07.json",
+    "marketing/video/v2/assets/voice/r3-caption-male/zh-Hans/N07.wav",
+    "marketing/video/v2/plan.json",
+    "marketing/video/v2/review/director-r3-caption-male/AGENTS.md",
+    "marketing/video/v2/review/director-r3-caption-male/AUDIO_QA.json",
+    "marketing/video/v2/review/director-r3-caption-male/CAPTION_SYNC_PROOF.json",
+    "marketing/video/v2/review/director-r3-caption-male/FONT_PROOF.json",
+    "marketing/video/v2/review/director-r3-caption-male/VOICE_ASR.json",
+    "marketing/video/v2/review/director-r3-caption-male/VOICE_ASR_RELATIVE.json",
+    "marketing/video/v2/review/director-r3-caption-male/VOICE_SOURCE.json",
+    "marketing/video/v2/review/director-r3-caption-male/VOICE_TIMING.json",
+    "marketing/video/v2/review/director-r3-caption-male/music-r3-ducked-zh-Hans.wav",
+    "marketing/video/v2/review/director-r3-caption-male/music-r3-un-ducked.wav",
+    "marketing/video/v2/review/director-r3-caption-male/narration-zh-Hans.wav",
+    "marketing/video/v2/review/director-r3-caption-male/sfx-r3.wav",
+    "marketing/video/v2/scripts/r3-build.mjs",
+    "marketing/video/v2/scripts/r3-caption-plan.py",
+    "marketing/video/v2/scripts/r3-lint.mjs",
+    "marketing/video/v2/scripts/r3-male-asr.py",
+    "marketing/video/v2/scripts/r3-male-sound.py",
+    "marketing/video/v2/scripts/r3-male-voice.py",
+    "marketing/video/v2/scripts/r3-package.py",
+    "marketing/video/v2/scripts/r3-qa.mjs",
+    "marketing/video/v2/scripts/r3-qr.py",
+    "marketing/video/v2/scripts/r3-render.mjs",
+    "marketing/video/v2/scripts/r3-snapshot.mjs",
+    "marketing/video/v2/src/r3-html.ts",
+    "marketing/video/v2/src/r3-sync.ts",
+    "marketing/video/v2/src/r3-timeline.ts",
+    "marketing/video/v2/src/r3.css"
+  ],
+  "notes": "English picture-state comparison uses common recorded seek frames; the caption layer is intentionally changed. Chinese uses same paths/objects but measured male timing. No claim of whole-video pixel identity."
+}

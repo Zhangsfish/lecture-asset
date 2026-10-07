@@ -1,0 +1,108 @@
+{
+  "arrangement": "New original 132 BPM drums, midrange bass, short controlled accent; deterministic seed 1808; R2 score not loaded",
+  "bpm": 132,
+  "time_signature": "4/4",
+  "first_attack_seconds": 0,
+  "accent_events": [
+    {
+      "frame": 0,
+      "seconds": 0.0,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 252,
+      "seconds": 4.2,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 336,
+      "seconds": 5.6,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 504,
+      "seconds": 8.4,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 672,
+      "seconds": 11.2,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 843,
+      "seconds": 14.05,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 945,
+      "seconds": 15.75,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 1050,
+      "seconds": 17.5,
+      "event": "arranged accent/resolve, original synthesized audio"
+    },
+    {
+      "frame": 1230,
+      "seconds": 20.5,
+      "event": "arranged accent/resolve, original synthesized audio"
+    }
+  ],
+  "voice_real": true,
+  "languages": [
+    {
+      "locale": "en",
+      "mix": "assets/sound/r3-opening-mix-en.wav",
+      "sha256": "2811129e7557e7034f534f27a50b1822f20eb0786b408294818ee3a3d26a7f8b",
+      "loudness_lufs": -14.5,
+      "true_peak_dbtp": -2.52,
+      "applied_linear_gain_db": 7.949999999999999,
+      "music_duck_db": 7.5,
+      "voice_files": 7,
+      "source_voice_sample_rate": 24000,
+      "mix_sample_rate": 48000,
+      "loudness_metrics": {
+        "input_i": "-14.50",
+        "input_tp": "-2.52",
+        "input_lra": "4.20",
+        "input_thresh": "-24.54",
+        "output_i": "-15.01",
+        "output_tp": "-3.05",
+        "output_lra": "3.10",
+        "output_thresh": "-25.05",
+        "normalization_type": "dynamic",
+        "target_offset": "0.51"
+      },
+      "subjective_listening": "NOT_RUN"
+    },
+    {
+      "locale": "zh-Hans",
+      "mix": "assets/sound/r3-opening-mix-zh-Hans.wav",
+      "sha256": "3bf566a61939493984475cbc774af630a7f3c97bd67687e6b02da2972e7364d2",
+      "loudness_lufs": -14.5,
+      "true_peak_dbtp": -1.52,
+      "applied_linear_gain_db": 6.73,
+      "music_duck_db": 7.5,
+      "voice_files": 7,
+      "source_voice_sample_rate": 24000,
+      "mix_sample_rate": 48000,
+      "loudness_metrics": {
+        "input_i": "-14.50",
+        "input_tp": "-1.52",
+        "input_lra": "2.80",
+        "input_thresh": "-24.66",
+        "output_i": "-14.81",
+        "output_tp": "-2.19",
+        "output_lra": "2.70",
+        "output_thresh": "-24.97",
+        "normalization_type": "dynamic",
+        "target_offset": "0.31"
+      },
+      "subjective_listening": "NOT_RUN"
+    }
+  ],
+  "subjective_listening": "NOT_RUN",
+  "no_purchase_or_external_music": true
+}
