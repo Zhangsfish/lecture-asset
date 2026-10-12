@@ -15,7 +15,15 @@
 | Apple 原话关键事实 | 支持顾问 Happy 在案例 `102984758084` 的回信中称“该请求已获批准”，并提示后续是否重新申请以提交审核时系统显示为准。 |
 | App Review（普通上架审核） | **OWNER_REPORTED_PENDING**：iOS 0.1.0 当前仍在审核队列；不是 App Review 已通过。 |
 | 现有正式 RC | `0.1.0 (34.1)` 已提交 App Review；发行方式为 Manual Release。 |
-| 中国大陆 storefront | **NOT_YET_ENABLED / ASC_LIVE_STATUS_NOT_READ_BACK**：已获准的 ICP 例外并不等于自动添加中国地区、立即发布或法定备案机关的个案认定。 |
+| 中国大陆 storefront | **OWNER_CONFIRMED_ADDED_TO_AVAILABILITY — APP_REVIEW_PENDING**：2026-10-12 持有人表示已在 App Store Connect 增加中国大陆销售区域；仍未获普通 App Review 批准，尚不可断言中国区已可下载。须独立核对 Manage Availability 里中国大陆的具体状态及是否存在 ICP Missing/Invalid。 |
+
+### 新增：2026-10-12 审核等待及地区调整
+
+- 持有人在 App Store Connect 中增加中国大陆销售区域；并在当天截图确认 `iOS 0.1.0 (34.1)` 仍显示 **Waiting for Review**（并非 In Review）。
+- App Review 原本 2026-10-07 11:45 要求提供更多审核信息；持有人 2026-10-07 13:26 在 App Review 会话中答复，已提供中英双语真机录屏；该日 13:27 的提交仍等待审核。
+- 下一步：**保留当前送审版本**，通过现有 App Review 消息会话（若可回复）或 Apple Developer → App Review Questions 联系审核团队，解释两段录屏已提交，中国大陆新近加入供应范围，且本 App 的 ICP **例外**已由 Apple 支持案例 `102984758084` 批准，请确认有无缺件/阻断并催问进度。案例号 **不是** ICP Filing Number，绝不输入到备案号字段。
+- 官方称多数 App 在 48 小时内被审核，但不是对每个提交的保证；本次从 10 月 7 日到 12 日已值得主动询问，不应擅自宣称苹果违反 SLA。加急请求有单独条件/表单，不应冒称紧急事件。
+- 官方参考：[review status](https://developer.apple.com/help/app-review/after-submitting-for-review/review-status)、[contact App Review](https://developer.apple.com/help/app-review/after-submitting-for-review/contact-app-review)、[App Review contact](https://developer.apple.com/contact/app-store/)。
 
 ### 最新经过
 
