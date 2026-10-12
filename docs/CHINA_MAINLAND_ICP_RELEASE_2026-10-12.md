@@ -25,6 +25,13 @@
 - 官方称多数 App 在 48 小时内被审核，但不是对每个提交的保证；本次从 10 月 7 日到 12 日已值得主动询问，不应擅自宣称苹果违反 SLA。加急请求有单独条件/表单，不应冒称紧急事件。
 - 官方参考：[review status](https://developer.apple.com/help/app-review/after-submitting-for-review/review-status)、[contact App Review](https://developer.apple.com/help/app-review/after-submitting-for-review/contact-app-review)、[App Review contact](https://developer.apple.com/contact/app-store/)。
 
+### App Review Status 催办案例（2026-10-12 已提交）
+
+- **支持案例：`102994145327`**，针对 Lecture Asset 普通 App Review 长时间等待的进度询问，**不是** ICP 豁免编号。
+- 持有人在 Apple Developer 的 **App Review Status / 发送信息** 表单发送详细查询后，成功页面显示“此对话的案例 ID 是 102994145327”“我们将审阅你的信息，并尽快予以回复”。这仅证明联系已提交、生成跟踪案例，**不证明 Apple 已完成审核或保证答复时间**。
+- 询问内容：App Store Connect Apple ID `6816814541`、iOS `0.1.0 (34.1)`、2026-10-07 补交的中英文真机录屏、截至 10 月 12 日仍 Waiting for Review、中国大陆已被增入供应区域、ICP 豁免已由独立案例 `102984758084` 获 Apple 支持团队批准。诉求为确认视频/材料收到、核查是否有审核卡点/额外合规动作、尽快推进现有审核。
+- 后续：**等待此新案例的 Apple 回信**，如有明确要求再处理；不要反复提交同一催办或将此案例号填进 ICP 字段。
+
 ### 最新经过
 
 1. 2026-10-03 前后向 Apple Developer Support 询问中国大陆 ICP 适用和例外处理。
