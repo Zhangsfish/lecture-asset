@@ -1,8 +1,18 @@
 # Current status
 
-Updated: 2026-10-05
+Updated: 2026-10-12
 
-## Now
+## 2026-10-12 当前发布与中国大陆 ICP 状态（优先于以下历史记录）
+
+- App Store Connect Apple ID: `6816814541`；iOS 0.1.0 (34.1) **Waiting for Review**，仍在普通 App 审核等待队列。10 月 7 日已通过 App Review 消息提交所要求的中英文真机录屏；10 月 12 日仍在等待审核。
+- 中国大陆 ICP 备案编号**例外申请获 Apple Developer Support 批准**：支持案例 `102984758084`。这**不是 ICP 备案号码**；不得填到 ICP Filing Number 字段。
+- 2026-10-12 持有人报告已把 **中国大陆**加入 App Store Connect 的供应范围。该 App 尚未获普通版本审核批准，也未确认中国大陆已可下载；地区 ICP 状态仍需读回。
+- 下一步：**保留当前 34.1 送审版本，不撤回/重交**；联系 App Review 说明 ICP 例外、已增加中国区、两份录屏已提交，询问审核进度/缺件。公开发布仍由持有人控制。
+- [详尽 ICP 案例与地区发行记录](docs/CHINA_MAINLAND_ICP_RELEASE_2026-10-12.md)。另一款 Everwhile 对应 **独立**案例 `102991507017`，未收到批准确认。
+
+---
+
+## Now (2026-10-05 historical snapshot)
 
 **S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. Owner-accepted product/UI is on main. Final App Store distribution RC `0.1.0 (34.1)` passed independent audit: genuine App Store profile age entitlement=true, final signed App age entitlement=true, codesign PASS, exact IPA upload ACCEPTED, ASC processingState=VALID and buildAudienceType=APP_STORE_ELIGIBLE. Owner physical exact-RC launch smoke PASS. App privacy was completed as no data collected. The iOS 0.1.0 submission has now been sent to App Review; ASC confirms one item submitted. Public release remains Manual Release, so approval will not auto-publish. Current action is wait for App Review feedback/approval; respond only if Apple requests changes or information. Promo v2 remains non-blocking.**
 
