@@ -1,0 +1,592 @@
+{
+  "date": "2026-10-15",
+  "base_sha": "5483ed23a0a4502614ad4946ee94790763229997",
+  "target_slot": "iPhone with Dynamic Island (medium display)",
+  "target_size": [
+    1206,
+    2622
+  ],
+  "source_masters": [
+    1320,
+    2868
+  ],
+  "method": "LANCZOS aspect-preserving integer resize; duplicate1 edge row top and bottom; no crop or repaint",
+  "frozen_images_and_contact_sheets": {
+    "reports/S05/store-screenshots-01/store/en/01-lecture-photos.png": "c0f3044998704092c6fdb6e015e76f95364954eb641be1989a30267398f3ee8c",
+    "reports/S05/store-screenshots-01/store/en/02-select-and-sort.png": "bc98ce5fd8148ef0c50a7f186a76914ec7f6e00e941ac4796f34986be8cd66e7",
+    "reports/S05/store-screenshots-01/store/en/03-generate-pdf-zip.png": "20a40d266019df03b2b0e116e2c9919f59851096fee565ed8ddcf37bbac827a1",
+    "reports/S05/store-screenshots-01/store/en/04-pdf-for-review.png": "b30e528a12bf4364b7c19e86b917ce99dfa4e9c900374ac6b95500b6268e784a",
+    "reports/S05/store-screenshots-01/store/en/05-ai-zip-to-ai.png": "c385054376046041056ebb604338c2a54c99ba5dc33490dd0b8e7b2d1c8e27f5",
+    "reports/S05/store-screenshots-01/store/en/06-save-then-clean.png": "46dcdf5af0e997d13c96215022b1a631975b918df8f9fa8bb7bf399da3b6dcdd",
+    "reports/S05/store-screenshots-01/store/zh-Hans/01-lecture-photos.png": "e1ec593f61091e5f6671e1f4f7fd325eed814034626d4f38c78fc8cabb78dc3f",
+    "reports/S05/store-screenshots-01/store/zh-Hans/02-select-and-sort.png": "4edb4d53f7a0e4d7405fd086b578d1be856ffb9070042b658673d0d4ea15cb49",
+    "reports/S05/store-screenshots-01/store/zh-Hans/03-generate-pdf-zip.png": "bb39351a8899f25b95e8f652c4ad1b02e8865b6a224237d562418836b7532c39",
+    "reports/S05/store-screenshots-01/store/zh-Hans/04-pdf-for-review.png": "e9cc3148e34fe241610d7054ddbcd0fa89107847226894af63a7b6ce72d43bd3",
+    "reports/S05/store-screenshots-01/store/zh-Hans/05-ai-zip-to-ai.png": "7546f1a5508431ec4542a719309becfa780f91d94b0dd77731b6ee432db77b31",
+    "reports/S05/store-screenshots-01/store/zh-Hans/06-save-then-clean.png": "23ed0470a3313bb70a31a1d375def171e2f441075fbdd08636f0ff037d06ea90",
+    "reports/S05/store-screenshots-01/CONTACT_SHEET.png": "8a70e0883973ab4119c518d8be3bd26097b335eb3b3eaedbee20b4efe0135734",
+    "reports/S05/store-screenshots-01/CONTACT_SHEET_ZH_HANS.png": "756809eb3e5a16836f976c52244ecf23437b4aebb877eaf36368a014c50a2649"
+  },
+  "frames": [
+    {
+      "file": "store/en/01-lecture-photos.png",
+      "archive_path": "en/01-lecture-photos.png",
+      "page": 1,
+      "source": "reports/S05/store-screenshots-01/store/en/01-lecture-photos.png",
+      "source_sha256": "c0f3044998704092c6fdb6e015e76f95364954eb641be1989a30267398f3ee8c",
+      "output_sha256": "5de4f04b167743b7798a8753079b794ad729095a2bb0e621ab835ca4dd72e223",
+      "bytes": 545426,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/en/02-select-and-sort.png",
+      "archive_path": "en/02-select-and-sort.png",
+      "page": 2,
+      "source": "reports/S05/store-screenshots-01/store/en/02-select-and-sort.png",
+      "source_sha256": "bc98ce5fd8148ef0c50a7f186a76914ec7f6e00e941ac4796f34986be8cd66e7",
+      "output_sha256": "9de0adc9be1f9c05da6c4fa5e1e5bc97a5720110136a31ac407b2a4e7e78c557",
+      "bytes": 531720,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/en/03-generate-pdf-zip.png",
+      "archive_path": "en/03-generate-pdf-zip.png",
+      "page": 3,
+      "source": "reports/S05/store-screenshots-01/store/en/03-generate-pdf-zip.png",
+      "source_sha256": "20a40d266019df03b2b0e116e2c9919f59851096fee565ed8ddcf37bbac827a1",
+      "output_sha256": "83e3741257d1385df68966f68a9e8d4731974cb88532b63fe7f9ceca86ea957f",
+      "bytes": 251688,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/en/04-pdf-for-review.png",
+      "archive_path": "en/04-pdf-for-review.png",
+      "page": 4,
+      "source": "reports/S05/store-screenshots-01/store/en/04-pdf-for-review.png",
+      "source_sha256": "b30e528a12bf4364b7c19e86b917ce99dfa4e9c900374ac6b95500b6268e784a",
+      "output_sha256": "a75a52c17785b71a893f0ba4118450fff1c3593b415e0cc67f1174807064799a",
+      "bytes": 380197,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/en/05-ai-zip-to-ai.png",
+      "archive_path": "en/05-ai-zip-to-ai.png",
+      "page": 5,
+      "source": "reports/S05/store-screenshots-01/store/en/05-ai-zip-to-ai.png",
+      "source_sha256": "c385054376046041056ebb604338c2a54c99ba5dc33490dd0b8e7b2d1c8e27f5",
+      "output_sha256": "fc3bb2be664ee1c405aa754948ea63b374fd5407daf2d2168c57982e0232c451",
+      "bytes": 366070,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": {
+        "kind": "share",
+        "actual_system_capture": false,
+        "base_capture": "store-en-ready.png",
+        "first_row": [
+          "AI",
+          "My Computer",
+          "Chat",
+          "Friends"
+        ],
+        "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+        "preview": null,
+        "delete_title": null,
+        "delete_body": null,
+        "note": "Illustration only; generic destination categories, not installed apps."
+      },
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/en/06-save-then-clean.png",
+      "archive_path": "en/06-save-then-clean.png",
+      "page": 6,
+      "source": "reports/S05/store-screenshots-01/store/en/06-save-then-clean.png",
+      "source_sha256": "46dcdf5af0e997d13c96215022b1a631975b918df8f9fa8bb7bf399da3b6dcdd",
+      "output_sha256": "e3ff69eecb69c20a903add53863731c2e765ea0715705e564295e5af4f253fa7",
+      "bytes": 349711,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": {
+        "kind": "delete",
+        "actual_system_capture": false,
+        "base_capture": "store-en-ready.png",
+        "first_row": null,
+        "filename": null,
+        "preview": "fixtures/lecture-13.jpg",
+        "delete_title": "Allow “Lecture Asset” to delete 12 photos?",
+        "delete_body": "These photos will be deleted from iCloud Photos on all your devices. They’ll remain in Recently Deleted for 30 days.",
+        "note": "Illustration only; generic destination categories, not installed apps."
+      },
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/zh-Hans/01-lecture-photos.png",
+      "archive_path": "zh-Hans/01-lecture-photos.png",
+      "page": 1,
+      "source": "reports/S05/store-screenshots-01/store/zh-Hans/01-lecture-photos.png",
+      "source_sha256": "e1ec593f61091e5f6671e1f4f7fd325eed814034626d4f38c78fc8cabb78dc3f",
+      "output_sha256": "f7bf74ce4dabcac795ee389583732dd0cb944dfe055104dfdd9db3fa013760ea",
+      "bytes": 535055,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/zh-Hans/02-select-and-sort.png",
+      "archive_path": "zh-Hans/02-select-and-sort.png",
+      "page": 2,
+      "source": "reports/S05/store-screenshots-01/store/zh-Hans/02-select-and-sort.png",
+      "source_sha256": "4edb4d53f7a0e4d7405fd086b578d1be856ffb9070042b658673d0d4ea15cb49",
+      "output_sha256": "3650b6e2c816f897c240bc1f0bfc9448977bf9f4ed28dcddf9ef202dc99b14c8",
+      "bytes": 530008,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/zh-Hans/03-generate-pdf-zip.png",
+      "archive_path": "zh-Hans/03-generate-pdf-zip.png",
+      "page": 3,
+      "source": "reports/S05/store-screenshots-01/store/zh-Hans/03-generate-pdf-zip.png",
+      "source_sha256": "bb39351a8899f25b95e8f652c4ad1b02e8865b6a224237d562418836b7532c39",
+      "output_sha256": "53b803693a94c84939453bcf73c51213df46c0776527c77114404b46f87dfde7",
+      "bytes": 248751,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/zh-Hans/04-pdf-for-review.png",
+      "archive_path": "zh-Hans/04-pdf-for-review.png",
+      "page": 4,
+      "source": "reports/S05/store-screenshots-01/store/zh-Hans/04-pdf-for-review.png",
+      "source_sha256": "e9cc3148e34fe241610d7054ddbcd0fa89107847226894af63a7b6ce72d43bd3",
+      "output_sha256": "28503178a257b9999e076402a134fd50fe9b4f6667a4eca843cd7c363314c5db",
+      "bytes": 378613,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": null,
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/zh-Hans/05-ai-zip-to-ai.png",
+      "archive_path": "zh-Hans/05-ai-zip-to-ai.png",
+      "page": 5,
+      "source": "reports/S05/store-screenshots-01/store/zh-Hans/05-ai-zip-to-ai.png",
+      "source_sha256": "7546f1a5508431ec4542a719309becfa780f91d94b0dd77731b6ee432db77b31",
+      "output_sha256": "b9b9f0c7b8fcea686d36b9ab1fa7f1ecad8c99f1dffda1fffb12a40649efb4eb",
+      "bytes": 366943,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": {
+        "kind": "share",
+        "actual_system_capture": false,
+        "base_capture": "store-zh-hans-ready.png",
+        "first_row": [
+          "AI",
+          "我的电脑",
+          "对话",
+          "朋友"
+        ],
+        "filename": "Lecture_2026-10-04_AI_ZIP.zip",
+        "preview": null,
+        "delete_title": null,
+        "delete_body": null,
+        "note": "Illustration only; generic destination categories, not installed apps."
+      },
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    },
+    {
+      "file": "store/zh-Hans/06-save-then-clean.png",
+      "archive_path": "zh-Hans/06-save-then-clean.png",
+      "page": 6,
+      "source": "reports/S05/store-screenshots-01/store/zh-Hans/06-save-then-clean.png",
+      "source_sha256": "23ed0470a3313bb70a31a1d375def171e2f441075fbdd08636f0ff037d06ea90",
+      "output_sha256": "742d93534897a05c4800bd4d01f326afc07619595882d2b409d14536c60a1eea",
+      "bytes": 344761,
+      "icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+      "checks": {
+        "size": [
+          1206,
+          2622
+        ],
+        "mode": "RGB",
+        "alpha": false,
+        "srgb_icc_preserved": true,
+        "complete_resampled_content": true,
+        "top_bottom_edge_rows_match": true
+      },
+      "deterministic_repeat": true,
+      "illustrative_overlay": {
+        "kind": "delete",
+        "actual_system_capture": false,
+        "base_capture": "store-zh-hans-ready.png",
+        "first_row": null,
+        "filename": null,
+        "preview": "fixtures/lecture-13.jpg",
+        "delete_title": "允许“讲座照片整理”删除 12 张照片吗？",
+        "delete_body": "这些照片将从您所有设备的 iCloud 照片中删除，并在“最近删除”中保留 30 天。",
+        "note": "Illustration only; generic destination categories, not installed apps."
+      },
+      "source_phone_rect": [
+        286,
+        1240,
+        748,
+        1592
+      ],
+      "transform": {
+        "resize": [
+          1206,
+          2620
+        ],
+        "padding_top_bottom": [
+          1,
+          1
+        ],
+        "nominal_scale": 0.9136363636363637,
+        "integer_height_rounding_px": -0.3090909090910827
+      }
+    }
+  ],
+  "new_contact_sheets": [
+    {
+      "file": "CONTACT_SHEET_EN.png",
+      "sha256": "40e2ec527afaa3278c8b8df2be099cf45b2dced211168b65e8b226c4656355c1"
+    },
+    {
+      "file": "CONTACT_SHEET_ZH_HANS.png",
+      "sha256": "8ff466da22eb41deb87cdf7372983dec7777540fe7ad8b298b819b65b6feda55"
+    }
+  ],
+  "bundle": {
+    "file": "LectureAsset-AppStore-1206x2622.zip",
+    "sha256": "dec49905d7ec0d521f1ca7e4b848416a1f4b77c5452e369cfc623c129fb2916d",
+    "bytes": 4768760,
+    "png_count": 12,
+    "entry_count_including_readme": 13,
+    "reopen_crc_and_all_bytes": "PASS"
+  }
+}

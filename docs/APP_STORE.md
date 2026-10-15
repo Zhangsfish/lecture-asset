@@ -53,6 +53,16 @@ StoreKit: Account Holder's Paid Apps agreement, banking/tax information and prod
 
 ## Final checklist
 
+### Screenshot upload experience — 2026-10-15
+
+The owner's actual ASC slot is「带灵动岛的 iPhone（中等显示屏）」. Export **1206×2622** upload copies separately for English and zh-Hans; available alternatives shown in that slot include 1179×2556. The accepted 1320×2868 design masters remain frozen and are not the upload files for this medium-display slot. Do not assume an unseen large-display tab is available.
+
+Use [the bilingual upload copies, exporter and evidence](../reports/S05/store-screenshots-medium-01/DELIVERY.md). The transform is LANCZOS resize to integer1206×2620 plus one duplicated background edge row at top/bottom; no content crop, redesign or UI repaint. Upload extracted PNGs in01–06 order in the appropriate language, not the ZIP or contact sheet. Check actual slot, RGB/sRGB/no alpha, source/output hashes and visual layout each time. Everwhile's matching upload experience is recorded in that report.
+
+Owner approved PR #21 for merge on2026-10-15. Lecture Asset upload acceptance is still **NOT_RUN / awaiting owner upload**; merge and local PNG checks do not prove ASC acceptance or App Review approval. No ASC action is authorized by this documentation.
+
+### Release checks
+
 - Exact release code SHA/build, signed clean Release build and internal install/launch evidence.
 - Focused regressions for changed UI/safety behavior; **no repeated 100/200-page, WeChat or destructive real-photo test solely for release**.
 - App privacy manifest bundled with correct actual API reasons and dependency coverage; Xcode report/warnings inspected where available.
