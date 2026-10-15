@@ -1,0 +1,43 @@
+{
+  "status": "PASS_LOCAL_EXPORT_VALIDATION",
+  "base_sha": "5483ed23a0a4502614ad4946ee94790763229997",
+  "tested_export_source_sha": "658f65663623145380d3d3be0b80b67a7fda488d",
+  "environment": {
+    "python": "3.11.11",
+    "pillow": "11.1.0",
+    "platform": "Windows"
+  },
+  "locales": {
+    "en": {
+      "png_count": 6,
+      "size": [
+        1206,
+        2622
+      ]
+    },
+    "zh-Hans": {
+      "png_count": 6,
+      "size": [
+        1206,
+        2622
+      ]
+    }
+  },
+  "frozen_12_masters_and_2_contact_sheets_byte_identical": "PASS",
+  "all_historical_screenshot_task_files_git_unchanged": "PASS",
+  "png_rgb_srgb_no_alpha_full_decode": "PASS",
+  "no_crop_complete_resampled_pixels_and_padding": "PASS",
+  "repeat_encoding_byte_identical": "PASS",
+  "existing_chinese_text_bounds_within_output": "PASS",
+  "zip_reopen_crc_count_and_bytes": "PASS",
+  "new_font_or_package_install": false,
+  "visual_review": {
+    "status": "PASS_NO_NEW_CLIPPING_OR_OVERLAP",
+    "method": "Actually inspected bilingual6-frame contact sheets and full-size Chinese05 and English06 exports; frozen source design retained.",
+    "not_owner_acceptance": true
+  },
+  "asc_upload_acceptance_lecture_asset": "NOT_RUN",
+  "new_capture_xcode_testflight_or_runtime_tests": "NOT_RUN_ASSET_EXPORT_ONLY",
+  "scope_check": "PASS_ONLY_NEW_REPORT_AND_UPLOAD_COPY_DIRECTORY",
+  "owner_upload_order": "01,02,03,04,05,06 separately for each locale"
+}
