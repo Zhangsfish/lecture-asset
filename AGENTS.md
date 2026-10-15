@@ -39,6 +39,11 @@ Optional tutorial/contact/homepage are staged in S05. **No payment implementatio
 - No private photos/OCR/PHAsset IDs/Apple credentials/UDIDs/tax documents in public repo/reports.
 - No silent tool installs, paid CI, commerce agreements or account changes without owner authorization.
 
+## App Store screenshot upload memory
+
+- Check the owner's actual ASC upload slot before choosing image dimensions. On 2026-10-15 the visible Dynamic Island medium-display slot required 1179×2556 or 1206×2622; use the prepared bilingual **1206×2622** upload copies. The frozen 1320×2868 masters belong to a different large-display slot and must remain unchanged.
+- Reuse [the upload-size report and exporter](reports/S05/store-screenshots-medium-01/DELIVERY.md); verify RGB/sRGB/no alpha and source/output hashes. Local validation, owner upload acceptance and App Review approval are separate states. Recheck slot requirements for future uploads rather than assuming sizes are permanent.
+
 ## Git / audit
 
 - One READY substage per branch/PR; reports under `reports/SXX/`.

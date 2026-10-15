@@ -54,3 +54,9 @@ Windows / 现有 Python 3.11.11、Pillow 11.1.0；实际 Python 版本以机器 
 解压 ZIP。在 ASC 当前这个中等显示屏栏位，English 使用 `en` 目录，简体中文使用 `zh-Hans` 目录；各按 **01、02、03、04、05、06** 上传六张 PNG。不要上传 ZIP 本身或 contact sheet，不要混用两个语言目录。
 
 本轮未修改 ASC 现有内容；是否移除/替换后台旧素材由 owner 在上传时决定。没有更改审核中的版本、App runtime/localization、workflow、icon、视频或发布状态。不合并，等待审查。
+
+## Owner 接受与合并授权 — 2026-10-15
+
+Owner 已接受交付 head `4f8779a56aa3cdb533ea91406c4d16d9fe0e812f`，明确授权合并 PR #21，并要求保留上传尺寸经验。经验已提升到根 `AGENTS.md` 和 `docs/APP_STORE.md`，后续先核对实际上传栏位，再使用独立兼容副本，保留冻结母版。本段覆盖上文历史「等待审查/不合并」停止点；不是 Codex 自行批准。
+
+此次补充仅修改文档，十二张 PNG、ZIP、exporter 和既有测试产物未变。已向 owner 准备本地 ZIP 和解压后的中英文文件夹；本轮尚未收到实际 ASC 接受结果，继续记录为 NOT_RUN，不宣称上传成功。

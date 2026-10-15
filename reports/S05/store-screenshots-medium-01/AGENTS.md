@@ -21,3 +21,5 @@
 不重画、改文案或运行旧 renderer。LANCZOS 按宽度等比例缩小到取整后的 1206×2620，顶部、底部各复制一行边缘背景，得到 1206×2622。整数像素取整有小于一像素的比例误差，不能宣称像素逐点等同于大母版。内容无裁切、无单独 UI 修补、无新增字体。
 
 不改 App、localization、icon、workflow、视频、ASC、TestFlight 或 App Review；不修改 Everwhile。实际 Lecture Asset ASC 接受仍待 owner 上传确认。只开适配 PR，等待审查，不合并。
+
+2026-10-15 owner 已接受 head `4f8779a56aa3cdb533ea91406c4d16d9fe0e812f` 并明确授权合并 PR #21；上面的停止点是历史记录。当前仅补充上传经验和 owner 授权记录，再合并。PNG/ZIP 不变，实际 owner 上传结果仍待确认。
