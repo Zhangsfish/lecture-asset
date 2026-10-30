@@ -1,0 +1,7 @@
+{
+  "method": "Focused source assertion; not old-OS simulator/device execution",
+  "source_sha256": "def1055ec7c965bf3e0b52abcfdc17ae01f090a036368d1c2f1e1f31961d9d5e",
+  "ios_below_26_2": "ContentView() directly; no service, request, or blocker",
+  "ios_26_2_plus": "SupportedAgeAssuranceEntry()",
+  "owner_decision_date": "2026-10-06"
+}

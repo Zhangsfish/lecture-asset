@@ -1,0 +1,11 @@
+{
+  "checked_on": "2026-10-31",
+  "workflow_sha256": "7ce7e2ec2dc7e0f8864c002c552b9c6861d71caa3999561bff13770fcf2a3a58",
+  "workflow_syntax": "PASS",
+  "contents_permission": "read",
+  "apple_secrets_referenced": false,
+  "export_upload_command_present": false,
+  "shell_syntax_check": "PASS",
+  "local_document_links": "PASS",
+  "note": "Local static checks; not a distribution signing or ASC check"
+}
