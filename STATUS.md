@@ -1,6 +1,19 @@
 # Current status
 
-Updated: 2026-10-12
+## 2026-10-31 App Review 返工（最新调度，覆盖下方 10 月历史快照）
+
+- **Owner-provided Apple review feedback dated 2026-10-30:** initial Lecture Asset iOS `0.1.0 (34.1)` review on iPad Air 11-inch (M3) reports two issues: **5.1.1(iv)** custom pre-permission button "Allow full access" should read "Continue"/"Next"; **2.3.6** in-app controls Age Rating appears to claim Age Assurance, but reviewer did not see it. **Live ASC status not independently read back**.
+- **READY_FOR_CODEX:** [S05 App Review remediation task](tasks/S05_APP_REVIEW_REMEDIATION_2026-10-30.md). Fix bilingual `permission.allow` only (EN Continue / zh-Hans 继续); maintain PhotoKit full readWrite workflow and exact deletion safety. Run focused permissions/localization/iPad compatibility checks; do not repeat broad processing tests without reason.
+- **Age Assurance is genuinely present but conditional:** `AgeAssuranceEntryView` uses Apple DeclaredAgeRange only on iOS 26.2+ when `isEligibleForAgeFeatures` indicates regional/account eligibility. The normal noneligible screen does not show an age prompt; Parental Controls functionality is absent. Verify current ASC answers (Parental Controls None), give App Review accurate location/trigger conditions and code explanation before changing Age Assurance to None. Do not delete the regional compliance path simply to satisfy a screen test.
+- **Next build:** `0.1.0 (34.1)` is immutable. If the app bundle's localization changes, prepare a new unique build (e.g. 35.1 only if unused), with proper distribution entitlement validation. The prior `s05-final-rc` pipeline is hardcoded to 34.1 and frozen provenance; **cannot be blindly re-run for new source/build**.
+- **Review/submission:** follow owner-controlled App Store Connect unresolved-issue resubmission only after Codex implementation + independent PR audit + exact build evidence + explicit owner approval. Do not autonomously upload, select build, reply, change Age Rating or publicly release.
+- **China mainland:** the Apple ICP **exception** for Lecture Asset, case `102984758084`, remains approved; the user selected US and mainland China in availability. Case `102994145327` previously tracked the review-delay inquiry. These are different from the new App Review feedback, not filing numbers.
+- **Everwhile:** unrelated ICP case `102991507017`; no inference from Lecture Asset review feedback.
+- Current record is from owner-pasted review response, not ASC API live readback. The older October entries below are historical and must not direct a new build workflow.
+
+---
+
+Updated: 2026-10-31
 
 ## 2026-10-12 当前发布与中国大陆 ICP 状态（优先于以下历史记录）
 
