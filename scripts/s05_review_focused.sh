@@ -65,6 +65,9 @@ for locale in en zh-Hans; do
     mkdir -p "$container/tmp"
     printf '%s' "$expected" > "$container/tmp/review-permission-expected.txt"
     run_test "$phase-native-status" -only-testing:LectureAssetTests/AppReviewPermissionStateTests/testHostPreparedReadWriteAuthorization
+    # Xcode may reinstall the host into a new data-container URL between runs.
+    # Resolve it again after the test; never reuse the pre-install path.
+    container=$(xcrun simctl get_app_container "$device" "$bundle" data)
     cp "$container/tmp/review-permission-observed.json" "$evidence/$kind-$locale-$phase-native.json"
   done
   python3 scripts/check_age_release.py "$derived/Build/Products/Release-iphonesimulator/Lecture Asset.app" "$evidence/$kind-$locale-simulator-entitlement.json"
