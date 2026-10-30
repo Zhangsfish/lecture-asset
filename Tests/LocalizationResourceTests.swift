@@ -18,6 +18,10 @@ final class LocalizationResourceTests: XCTestCase {
             XCTAssertEqual(info["CFBundleDisplayName"], name)
             XCTAssertFalse(try XCTUnwrap(info["NSPhotoLibraryUsageDescription"]).isEmpty)
             XCTAssertEqual(bundle.localizedString(forKey: "app.title", value: nil, table: nil), name)
+            let permissionAction = locale == "en" ? "Continue" : "继续"
+            XCTAssertEqual(values["permission.allow"], permissionAction)
+            XCTAssertEqual(bundle.localizedString(forKey: "permission.allow", value: nil, table: nil),
+                           permissionAction)
         }
         XCTAssertEqual(Set(catalogs[0].keys), Set(catalogs[1].keys))
         XCTAssertEqual(catalogs[1]["about.privacyLive"], "实况照片仅归档静态 JPEG，不保存动态和声音；删除原照片会删除整张实况照片。")

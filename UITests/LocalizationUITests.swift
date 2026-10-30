@@ -58,7 +58,7 @@ class LocalizationUIBase: XCTestCase {
         }
         let allow = app.buttons["permission-allow"]
         XCTAssertTrue(allow.waitForExistence(timeout: 10))
-        XCTAssertEqual(allow.label, chinese ? "允许完整访问" : "Allow full access")
+        XCTAssertEqual(allow.label, chinese ? "继续" : "Continue")
         keep(app, "permission-gate", chinese)
         app.buttons["about-open"].tap()
         XCTAssertTrue(app.buttons["tutorial-replay"].waitForExistence(timeout: 5))
