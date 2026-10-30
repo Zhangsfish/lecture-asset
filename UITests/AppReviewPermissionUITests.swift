@@ -55,8 +55,8 @@ class AppReviewPermissionUIBase: XCTestCase {
     @MainActor
     func limitedChoice(_ alert: XCUIElement) -> XCUIElement {
         alert.buttons.matching(NSPredicate(format:
-            "label CONTAINS[c] %@ OR label CONTAINS[c] %@ OR label CONTAINS %@ OR label CONTAINS %@",
-            "Select Photos", "Limit", "选择照片", "选取照片")).firstMatch
+            "label CONTAINS[c] %@ OR label CONTAINS[c] %@ OR label CONTAINS %@ OR label CONTAINS %@ OR label CONTAINS %@",
+            "Select Photos", "Limit", "选择照片", "选取照片", "限制访问")).firstMatch
     }
 
     @MainActor
@@ -106,14 +106,19 @@ class AppReviewPermissionUIBase: XCTestCase {
         let select = limitedChoice(prompt(app))
         XCTAssertTrue(select.exists)
         select.tap()
-        // Apple's limited-library picker is hosted in the requesting App.
-        let cell = app.cells.firstMatch
-        XCTAssertTrue(cell.waitForExistence(timeout: 20))
+        // Actual iOS 26.5 AX evidence: Apple's remote picker exposes photos as
+        // Images named PXGGridLayout-Info, not UICollectionView cells.
+        let photo = app.images.matching(identifier: "PXGGridLayout-Info").firstMatch
+        guard photo.waitForExistence(timeout: 20) else {
+            keep("limited-picker-missing-photo")
+            XCTFail("Expected a photo in Apple's real limited-library picker")
+            return
+        }
         keep("limited-picker-synthetic-only")
-        cell.tap()
+        photo.tap()
         let done = app.buttons.matching(NSPredicate(format:
-            "label == %@ OR label == %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@",
-            "Done", "完成", "Allow Access", "允许访问")).firstMatch
+            "identifier == %@ OR label == %@ OR label == %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@",
+            "Update", "Done", "完成", "Allow Access", "允许访问")).firstMatch
         XCTAssertTrue(done.waitForExistence(timeout: 10))
         done.tap()
         blockedSettings(app, chinese)

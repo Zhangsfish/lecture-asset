@@ -14,10 +14,13 @@ else
 fi
 device_type=$(xcrun simctl list devicetypes -j | python3 -c 'import json,sys; name=sys.argv[1]; print(next(x["identifier"] for x in json.load(sys.stdin)["devicetypes"] if x["name"]==name))' "$wanted")
 swift scripts/s00_make_synthetic.swift "$RUNNER_TEMP/review-synthetic"
+device=$(xcrun simctl create "Review $kind" "$device_type" "$runtime")
+xcrun simctl boot "$device"
+xcrun simctl bootstatus "$device" -b
+xcrun simctl addmedia "$device" "$RUNNER_TEMP/review-synthetic/01.jpg"
+# Reuse only this disposable simulator across locales. Each scenario still
+# resets actual TCC; changing system language is followed by a real reboot.
 for locale in en zh-Hans; do
-  device=$(xcrun simctl create "Review $kind $locale" "$device_type" "$runtime")
-  xcrun simctl boot "$device"
-  xcrun simctl bootstatus "$device" -b
   xcrun simctl spawn "$device" defaults write NSGlobalDomain AppleLanguages -array "$locale"
   if [[ "$locale" == en ]]; then
     class=AppReviewEnglishPermissionUITests
@@ -30,7 +33,6 @@ for locale in en zh-Hans; do
   xcrun simctl shutdown "$device"
   xcrun simctl boot "$device"
   xcrun simctl bootstatus "$device" -b
-  xcrun simctl addmedia "$device" "$RUNNER_TEMP/review-synthetic/01.jpg"
   base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release
     -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$derived"
     ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES
@@ -71,5 +73,5 @@ for locale in en zh-Hans; do
     cp "$container/tmp/review-permission-observed.json" "$evidence/$kind-$locale-$phase-native.json"
   done
   python3 scripts/check_age_release.py "$derived/Build/Products/Release-iphonesimulator/Lecture Asset.app" "$evidence/$kind-$locale-simulator-entitlement.json"
-  xcrun simctl shutdown "$device"
 done
+xcrun simctl shutdown "$device"
