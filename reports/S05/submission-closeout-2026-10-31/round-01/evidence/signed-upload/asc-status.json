@@ -1,0 +1,13 @@
+{
+  "appReview" : "NOT_SUBMITTED_BY_THIS_WORKFLOW",
+  "build" : "35.1",
+  "buildAudienceType" : "APP_STORE_ELIGIBLE",
+  "buildID" : "9dd9196a-b0c1-4457-b025-eb90cf9a72c3",
+  "minOsVersion" : "18.0",
+  "processingState" : "VALID",
+  "queryDate" : "2026-10-31T07:45:52Z",
+  "queryMode" : "poll",
+  "uploadedDate" : "2026-10-31T00:44:54-07:00",
+  "usesNonExemptEncryption" : false,
+  "version" : "0.1.0"
+}

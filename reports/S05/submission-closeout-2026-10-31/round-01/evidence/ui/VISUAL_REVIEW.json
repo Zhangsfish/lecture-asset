@@ -1,0 +1,11 @@
+{
+  "inspection": "Actual native screenshots, individually checked system prompts plus bilingual device contact sheet",
+  "fresh_capture": true,
+  "system_prompt_wait_seconds": 2,
+  "system_choice_hittability_asserted": true,
+  "original_screenshots_edited": false,
+  "contact_sheet_only_resized_and_captioned": true,
+  "ipad_note": "Native frosted system backdrop retains blurred underlying compatibility-mode text; not composited/retouched by renderer. Foreground prompt and all three choices are readable.",
+  "limited_scope": "zero selected items",
+  "physical_iPad_test": "NOT_RUN"
+}

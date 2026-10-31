@@ -1,0 +1,23 @@
+{
+  "observed_date": "2026-10-31",
+  "source": "Direct owner text replies in current conversation, not remote device control",
+  "requested_action": "Update TestFlight to 0.1.0 (35.1) without uninstall; open App",
+  "owner_result": "正常相册",
+  "ios_version_owner_reported": "26.7.1",
+  "startup_result": "OWNER_REPORTED_PASS_NORMAL_ENTRY",
+  "installed_build_independent_readback": false,
+  "age_system_sheet_observed": false,
+  "declared_age_range_branch_inference": "NONE: normal entry can be ineligible or cached shared result",
+  "developer_sandbox_menu_owner_reported": "没有",
+  "eligible_sandbox": "NOT_RUN",
+  "fresh_photos_prompt_on_physical_device": "NOT_RUN: existing permission retained; no reset/uninstall requested",
+  "source_deletion_or_reprocessing_requested": false,
+  "everwhile_reference": {
+    "commit_sha": "35ff10a58be815f7c67744cb5d2c70b3bbb2d583",
+    "tree_sha": "3b5e58a6452615127dd3d0d9281d6beb062730e4",
+    "text_and_swift_files_read": 111,
+    "declared_age_range_references_found": 0,
+    "actual_authorization": "FamilyControls AuthorizationCenter.requestAuthorization(for: .individual)",
+    "no_phone_retest_reason": "Release closeout did not change accepted runtime; not an age-Sandbox waiver"
+  }
+}

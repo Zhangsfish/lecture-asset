@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "ui_and_native_executions": 24,
+  "focused_contract_executions": 18,
+  "total_executions": 42,
+  "failed": 0,
+  "skipped": 0,
+  "limited_scope": "zero selected items; nonzero picker selection NOT_RUN",
+  "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e",
+  "workflow_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41178883685",
+  "artifacts": [
+    13033954762,
+    13034652060
+  ]
+}
