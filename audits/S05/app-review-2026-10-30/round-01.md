@@ -1,0 +1,44 @@
+# S05-R / PR #22 — Independent App Review remediation audit
+
+**Date:** 2026-10-31  
+**Verdict:** **PASS_WITH_NOTES** — safe to merge this exact PR implementation; **NOT** release/upload/App Review clearance.  
+**PR:** https://github.com/Zhangsfish/lecture-asset/pull/22  
+**Reviewed PR head:** `39c6d264abcdd0479e1c6627f370154707c5cf2b`  
+**Actual tested implementation:** `5906b80ac00ad4740f3697f8d460258604db4e22`  
+**Base main:** `585e753e7142cfe64babfdd28a1673f558ab84dd`  
+**CI:** https://github.com/Zhangsfish/lecture-asset/actions/runs/41102312516  
+**Scope:** Apple Review 2026-10-30 feedback, 5.1.1(iv) and 2.3.6. This audit does not verify Apple’s private review portal, live Age Rating answers, App Store distribution signing, or final eligibility.
+
+## Independent verification performed
+
+- Read GitHub PR metadata, full changed-file inventory, source/test/workflow patches, relevant full source files and report; not based solely on Codex’s summary. PR has **97 changed paths**, the vast majority evidence/screenshots/reports. **Only one production file changed**: `App/Localizable.xcstrings`; the only semantic change is `permission.allow`: English `Allow full access` → `Continue`; Simplified Chinese `允许完整访问` → `继续`. Scope guard compares the complete JSON catalog to the exact base and fails if anything else changed.
+- `App/ContentView.swift` still invokes `model.requestFullAccess()`; the `permission-allow` accessibility ID, PhotoKit `.readWrite` gate and post-decline Settings route are unchanged. Photo source/archive/ZIP/PDF/share/cleanup, prior RC scripts, entitlements, age entry/service and project settings remain unchanged. No new network/analytics/commerce/deletion paths.
+- Checked the new UI/native-status tests rather than relying on counts: actual simulator-generated Photos alert and Apple options are asserted; Full Access reaches the synthetic PhotoKit grid; Denied and Limited lead to blocked main flow while About and Settings remain accessible. Limited scenario **really enters Apple's picker, completes with zero photos, and independently returns `.limited` in the App host**; **nonzero item picking is NOT_RUN**. XCTest uses temporary test-only files, not production bypasses or mocked authorization.
+- Read both actual GitHub Actions job records **focused (iphone)** `124221480328` and **focused (ipad)** `124221480862`, plus original decoded job logs. Both jobs succeeded, scope guard passed, each did clean unsigned Release compile, 17 common contract tests plus 12 bilingual iPhone/iPad system UI and 12 native readWrite status tests = **41 executions, 41 pass, 0 fail/skip**. Exact workflow-run `head_sha` equals tested implementation SHA `5906b80...`.
+- Downloaded original Actions evidence ZIPs `12999759372` (iPhone, 15,633,844 bytes, SHA256 `c5bfcd701a741c103b9fc79724e0a0e6f9f947f89cf8f0f348231544e8d4155f`) and `13001462740` (iPad, 37,291,379 bytes, SHA256 `bb88d4b05f351514275e826395a8225ec4364714a28fa0708f0fa17aa1a07bff`). Hashes match workflow logs and report index. Sample original EN/ZH screenshots were extracted and their hashes match the indexed original attachment hashes. Independently inspected iPhone EN/ZH gates, iPad EN/ZH gates, iPhone system prompt and limited blocker, iPad system prompt. **Both pre-permission buttons visibly read Continue/继续; real OS prompt includes Full/Limited/Deny choices.**
+- Compared tested SHA to PR head via GitHub compare: **one commit ahead**, containing `STATUS.md` + `reports/S05/app-review-2026-10-30/round-01/` only. **No production code, tests or CI configuration changed after the successful run**.
+- Report honestly preserves three previously failed runs and distinguishes test-framework/AX locator problems from a proven app regression. No failed run is recast as PASS. The new workflow has read-only repository permission and does not reference Apple signing secrets or upload commands.
+
+## 2.3.6 — precise evidence, still not accepted by Apple
+
+- Current app entry really is `LectureAssetApp` → `AgeAssuranceEntryView`. For iOS/iPadOS 26.2+, it checks Apple's `AgeRangeService.shared.isEligibleForAgeFeatures`, and if Apple says eligible, requests `requestAgeRange(ageGates: 18)`. Ineligible region/account or older OS shows no age prompt. No in-app Parental Controls. `com.apple.developer.declared-age-range` remains present in the project and 34.1's historical genuine distribution signature; this round's simulator entitlement is not a new distribution signature.
+- Apple's published [age ratings definitions](https://developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions/) include the declared age range API as an Age Assurance example, but also phrase the category as confirming age requirements for specific content/services. Because Lecture Asset allows all ages the same utility behavior, **there is a legitimate interpretation risk** as to whether a purely regional compliance call should be checked as an In-App Control. Explain the conditional API accurately to App Review and verify the actual ASC questionnaire; **do not falsely claim that Apple has accepted the declaration**.
+- `Tests/AgeAssuranceTests.swift` and source availability routing are genuinely exercised/checked; **real eligible Apple Sandbox age flows and live ASC/current reviewer device state remain NOT_RUN**. Reviewer OS, account location, eligibility and cache state were never observed; do not invent the reason the reviewer saw no age UI.
+
+## Residual notes — not P0/P1 for this PR
+
+1. **P2 — evidence capture quality:** one original iPad system-popup attachment was captured mid-transition and shows temporary visual transparency/ghosting. This is a screenshot timing artifact, not evidence of a production layout defect; the prepermission iPad screenshot is legible and subsequent real option taps/native status checks pass. **Do not attach the ghosted frame to Apple as a polished proof.** If App Review requests a stable screenshot, capture after the native alert settles.
+2. **P2 — guideline interpretation:** Apple HIG advises a single Continue/Next action on custom pre-alert views. The existing screen retains a separate About/help toolbar action and explanatory copy with the term “Allow” in prose. The explicit 5.1.1(iv) objection concerned **the pre-alert CTA label**, now fixed; no additional product change was requested. If Apple flags auxiliary actions, make an explicit owner-scoped decision rather than silently remove before-permission help/privacy access.
+3. **Release gate:** the historical `s05-final-rc` workflow and validator are immutably pinned to `0.1.0 (34.1)` and old source provenance; this changed catalog must **NOT** use that old upload route unchanged. Before upload, a separate tested new-build workflow/CI approval must check a unique unused higher build, accurate source hash, genuine Apple Distribution/profile age entitlement, privacy, final IPA and App Store Connect VALID/APP_STORE_ELIGIBLE.
+4. **Evidence limitations:** physical device new permission label, real eligible age Sandbox, old-OS execution, signed distribution IPA, ASC questionnaire readback, owner-driven App Review response and resubmission were not executed. No requirement to redo broad 100/200-image, WeChat, or destructive-deletion tests for a localization-only change.
+
+**P0 blockers: none. P1 blockers within PR implementation: none.** All residuals are separately tracked release/review gates, not justification for rewriting the frozen product. The PR **may be merged only at reviewed head SHA `39c6d264...`**. GitHub review event may use COMMENT instead of formal APPROVE if authenticated actor is PR author; independent audited document is the authority.
+
+## After this audit
+
+1. Merge PR #22 at exact head only; report merge SHA and update `STATUS.md`. This **does not** authorize App Store submission.
+2. For release, get owner approval for a *separate narrow* RC build task and ensure the new source/build is independently verified before any Apple upload.
+3. Ask owner to verify the current Parental Controls/Age Assurance answers in App Store Connect; reply to App Review with honest eligibility conditions, asking for their preferred regional test scenario if needed.
+4. Only after new build is genuinely uploaded/VALID, owner reselects it in existing unresolved submission, then replies/resubmits according to current ASC status. Retain Manual Release, China mainland + United States selection and approved ICP exception case `102984758084`. Never enter a support-case number as an ICP filing number.
+
+Independent evidence source references: PR diff, the GitHub Actions run above, original safe artifact ZIPs and `reports/S05/app-review-2026-10-30/round-01/DELIVERY.md`, `TEST_RESULTS.json`, `AGE_ASSURANCE_REVIEW.md`, `NEXT_BUILD_PLAN.md`. No private data or full signed profiles are copied here.
