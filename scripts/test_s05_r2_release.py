@@ -20,6 +20,19 @@ spec.loader.exec_module(rc)
 
 
 class ReleaseGuards(unittest.TestCase):
+    def test_generated_info_is_narrowly_validated(self):
+        valid={"CFBundleDisplayName":"Lecture Asset", "CFBundleShortVersionString":"$(MARKETING_VERSION)",
+               "CFBundleVersion":"$(CURRENT_PROJECT_VERSION)", "ITSAppUsesNonExemptEncryption":False,
+               "UILaunchScreen":{}, "NSPhotoLibraryUsageDescription":
+               "Select lecture photos and delete only the exact selected sources after separate sharing and confirmation steps."}
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/"Info.plist"
+            path.write_bytes(plistlib.dumps(valid)); rc.generated_info(path)
+            for altered in ({**valid,"CFBundleURLTypes":[]},{**valid,"CFBundleIdentifier":"wrong"},
+                            {**valid,"CFBundleDisplayName":"wrong"}):
+                path.write_bytes(plistlib.dumps(altered))
+                with self.assertRaises(rc.RCError): rc.generated_info(path)
+
     def test_wrong_bundle_version_build_minimum_os_encryption(self):
         valid = {"CFBundleIdentifier": rc.BUNDLE, "CFBundleVersion": rc.BUILD,
                  "CFBundleShortVersionString": "0.1.0", "MinimumOSVersion": "18.0",

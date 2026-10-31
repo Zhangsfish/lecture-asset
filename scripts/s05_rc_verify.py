@@ -165,6 +165,32 @@ def labels(app):
     return result
 
 
+def generated_info(path):
+    """XcodeGen creates this untracked file from immutable project.yml.
+
+    Do not allow arbitrary untracked App sources. Validate the sole generated
+    plist against the committed project properties and benign XcodeGen defaults.
+    """
+    values = plistlib.loads(path.read_bytes())
+    expected = {
+        "CFBundleDisplayName":"Lecture Asset", "CFBundleShortVersionString":"$(MARKETING_VERSION)",
+        "CFBundleVersion":"$(CURRENT_PROJECT_VERSION)", "ITSAppUsesNonExemptEncryption":False,
+        "UILaunchScreen":{}, "NSPhotoLibraryUsageDescription":
+        "Select lecture photos and delete only the exact selected sources after separate sharing and confirmation steps."
+    }
+    for key, value in expected.items():
+        require(values.get(key) == value, "GENERATED_INFO_PROPERTY_MISMATCH")
+    defaults = {"CFBundleDevelopmentRegion":["$(DEVELOPMENT_LANGUAGE)","en"],
+                "CFBundleExecutable":["$(EXECUTABLE_NAME)"], "CFBundleIdentifier":["$(PRODUCT_BUNDLE_IDENTIFIER)"],
+                "CFBundleInfoDictionaryVersion":["6.0"], "CFBundleName":["$(PRODUCT_NAME)"],
+                "CFBundlePackageType":["$(PRODUCT_BUNDLE_PACKAGE_TYPE)","APPL"],
+                "CFBundleSignature":["????"], "LSRequiresIPhoneOS":[True]}
+    require(set(values) <= set(expected) | set(defaults), "GENERATED_INFO_UNEXPECTED_PROPERTY")
+    for key, allowed in defaults.items():
+        require(key not in values or values[key] in allowed, "GENERATED_INFO_DEFAULT_MISMATCH")
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def provenance():
     require(CANDIDATE["audited_product_baseline"] == BASELINE and CANDIDATE["base_main"] == MAIN,
             "AUDITED_BASELINE_MISMATCH")
@@ -177,8 +203,9 @@ def provenance():
     require(not capture(["git", "diff", "--name-only", BASELINE, "HEAD", "--", *PROTECTED]).strip(),
             "FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED")
     tracked = capture(["git", "ls-files", "--", *PROTECTED]).decode().splitlines()
-    require(not capture(["git", "ls-files", "--others", "--exclude-standard", "--", *PROTECTED]).strip(),
-            "UNEXPECTED_PRODUCT_FILE")
+    untracked = capture(["git", "ls-files", "--others", "--exclude-standard", "--", *PROTECTED]).decode().splitlines()
+    require(not untracked or untracked == ["App/Info.plist"], "UNEXPECTED_PRODUCT_FILE")
+    generated_hash = generated_info(Path(untracked[0])) if untracked else None
     dirty = capture(["git", "diff", "--name-only", "HEAD", "--", *PROTECTED]).decode().splitlines()
     require(not dirty or dirty == ["App/LectureAsset.entitlements"], "DIRTY_PRODUCT_TREE")
     if dirty:
@@ -198,7 +225,8 @@ def provenance():
     return {"product_baseline_sha": BASELINE, "current_main_at_start": MAIN,
             "release_checkout_sha": head, "protected_paths": PROTECTED,
             "product_sources_identical": True, "production_file_sha256": hashes,
-            "historical_internal_pipeline_unchanged": True, "xcodegen_entitlement_format_only":bool(dirty)}
+            "historical_internal_pipeline_unchanged": True, "xcodegen_entitlement_format_only":bool(dirty),
+            "validated_generated_info_sha256":generated_hash}
 
 
 def digest(ipa, signed_report):

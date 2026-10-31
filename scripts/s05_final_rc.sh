@@ -26,6 +26,11 @@ chmod 600 "$key_file"
 unset APP_STORE_CONNECT_PRIVATE_KEY
 RC_BUILD=$(python3 -c 'import json; print(json.load(open("reports/S05/submission-closeout-2026-10-31/round-01/candidate.json"))["build"])')
 export RC_BUILD
+python3 - <<'PY'
+import json, os
+candidate = json.load(open('reports/S05/submission-closeout-2026-10-31/round-01/candidate.json'))
+assert os.environ['APPLE_TEAM_ID'] == candidate['team_id'], 'S05_RC_TEAM_CONFIG_MISMATCH'
+PY
 evidence="$RUNNER_TEMP/s05-rc-evidence"
 mkdir -p "$evidence"
 export API_PRIVATE_KEYS_DIR="$private_dir"
