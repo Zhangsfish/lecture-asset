@@ -11,9 +11,13 @@ import plistlib
 import subprocess
 import sys
 
-# Owner accepted the exact 33.1 product sources, including the brand-only fix.
-BASELINE = "118942553a84c2ac4466973f6a64989dd5165b61"
-MAIN = "4c76926cb9b8421e50c0c06b99e9964b7a081137"
+# Independent PR22 audit covers this immutable production baseline.
+BASELINE = "6a2be31f27ee90ad094bc8b003c9484e81fb6803"
+MAIN = "14f91942f19e80c1afaabbd2445692fdd60b9da9"
+CONFIG = Path("reports/S05/submission-closeout-2026-10-31/round-01/candidate.json")
+CANDIDATE = json.loads(CONFIG.read_text(encoding="utf8"))
+VERSION = CANDIDATE["version"]
+BUILD = CANDIDATE["build"]
 BUNDLE = "com.zhangsfish.lectureasset"
 PROTECTED = ["App", "Packages", "AppResources", "schemas", "project.yml",
              "reports/S05/store-screenshots-01",
@@ -36,10 +40,11 @@ def capture(command):
 
 
 def metadata(info):
-    expected = {"CFBundleIdentifier": BUNDLE, "CFBundleShortVersionString": "0.1.0",
-                "CFBundleVersion": "34.1", "MinimumOSVersion": "18.0"}
+    expected = {"CFBundleIdentifier": BUNDLE, "CFBundleShortVersionString": VERSION,
+                "CFBundleVersion": BUILD, "MinimumOSVersion": "18.0"}
     for key, value in expected.items():
         require(info.get(key) == value, "METADATA_MISMATCH_" + key)
+    require(info.get("UIDeviceFamily") == [1], "DEVICE_FAMILY_MISMATCH")
     require(info.get("ITSAppUsesNonExemptEncryption") is False, "ENCRYPTION_FLAG_MISMATCH")
     return {**expected, "ITSAppUsesNonExemptEncryption": False}
 
@@ -75,11 +80,11 @@ def entitlement_contract(entitlements, profile, team):
     age_contract(entitlements, profile)
     require(entitlements.get("application-identifier") == expected_app, "SIGNED_APP_IDENTIFIER_MISMATCH")
     require(entitlements.get("com.apple.developer.team-identifier") == team, "SIGNED_TEAM_MISMATCH")
-    require(entitlements.get("get-task-allow") is not True, "SIGNED_DEBUG_ENTITLEMENT")
+    require(entitlements.get("get-task-allow") is False, "SIGNED_DEBUG_ENTITLEMENT")
     allowed = profile.get("Entitlements", {})
     require(allowed.get("application-identifier") == expected_app, "PROFILE_APP_IDENTIFIER_MISMATCH")
     require(allowed.get("com.apple.developer.team-identifier") == team, "PROFILE_TEAM_MISMATCH")
-    require(allowed.get("get-task-allow") is not True, "PROFILE_DEBUG_ENTITLEMENT")
+    require(allowed.get("get-task-allow") is False, "PROFILE_DEBUG_ENTITLEMENT")
     require(team in profile.get("TeamIdentifier", []), "PROFILE_TEAM_IDENTIFIER_MISMATCH")
     require(not profile.get("ProvisionedDevices") and not profile.get("ProvisionsAllDevices"),
             "PROFILE_NOT_APP_STORE_DISTRIBUTION")
@@ -88,7 +93,7 @@ def entitlement_contract(entitlements, profile, team):
     require(expiry.replace(tzinfo=datetime.timezone.utc) > datetime.datetime.now(datetime.timezone.utc),
             "PROFILE_EXPIRED")
     return {"declared_age_range": True, "application_identifier_correct": True,
-            "team_identifier_correct": True, "get_task_allow_not_true": True,
+            "team_identifier_correct": True, "get_task_allow_false": True,
             "profile_declared_age_range": True, "app_store_distribution_profile": True,
             "profile_not_expired": True}
 
@@ -125,6 +130,9 @@ def signed(app, ipa, output):
         "contract_result": "NOT_CHECKED"
     }
     with ipa.open("rb") as file:
+        tests = result.get("tests", {})
+        if tests.get("failedTests") == 0 and tests.get("passedTests", 0) >= 18 and tests.get("skippedTests") == 0:
+            result["tested_sha"] = result["release_checkout_sha"]
         result["ipa_sha256"] = hashlib.file_digest(file, "sha256").hexdigest()
     def persist():
         Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
@@ -136,12 +144,69 @@ def signed(app, ipa, output):
         require(is_distribution, "APPLE_DISTRIBUTION_CERTIFICATE_NOT_CONFIRMED")
         result["metadata"] = metadata(plistlib.loads((app / "Info.plist").read_bytes()))
         result["privacy"] = privacy(app)
+        result["localized_permission_labels"] = labels(app)
     except RCError as error:
         result.update(contract_result="FAIL", failure_code=str(error))
         persist()
         raise
     result["contract_result"] = "PASS"
     return result
+
+
+def labels(app):
+    result = {}
+    for locale, expected in [("en", "Continue"), ("zh-Hans", "继续")]:
+        path = app / (locale + ".lproj") / "Localizable.strings"
+        require(path.is_file(), "LOCALIZED_STRINGS_MISSING")
+        # Compiled .strings are binary plists in the real Release product.
+        values = plistlib.loads(path.read_bytes())
+        require(values.get("permission.allow") == expected, "LOCALIZED_PERMISSION_LABEL_MISMATCH")
+        result[locale] = expected
+    return result
+
+
+def provenance():
+    require(CANDIDATE["audited_product_baseline"] == BASELINE and CANDIDATE["base_main"] == MAIN,
+            "AUDITED_BASELINE_MISMATCH")
+    require(CANDIDATE["bundle_id"] == BUNDLE and VERSION == "0.1.0" and
+            CANDIDATE["team_id"] == "QK73K23W9N" and CANDIDATE["minimum_os"] == "18.0", "CANDIDATE_CONFIG_MISMATCH")
+    require(BUILD == "35.1", "CANDIDATE_BUILD_NOT_AUTHORIZED")
+    head = capture(["git", "rev-parse", "HEAD"]).decode().strip()
+    expected = os.environ.get("RC_EXPECTED_SOURCE_SHA", head)
+    require(expected == head, "EXPECTED_SOURCE_SHA_MISMATCH")
+    require(not capture(["git", "diff", "--name-only", BASELINE, "HEAD", "--", *PROTECTED]).strip(),
+            "FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED")
+    tracked = capture(["git", "ls-files", "--", *PROTECTED]).decode().splitlines()
+    require(not capture(["git", "ls-files", "--others", "--exclude-standard", "--", *PROTECTED]).strip(),
+            "UNEXPECTED_PRODUCT_FILE")
+    dirty = capture(["git", "diff", "--name-only", "HEAD", "--", *PROTECTED]).decode().splitlines()
+    require(not dirty or dirty == ["App/LectureAsset.entitlements"], "DIRTY_PRODUCT_TREE")
+    if dirty:
+        require(plistlib.loads(Path(dirty[0]).read_bytes()) ==
+                plistlib.loads(capture(["git", "show", "HEAD:" + dirty[0]])), "GENERATED_ENTITLEMENT_CONTENT_CHANGED")
+    # Bind all executable release inputs too. Permit only the documented semantic
+    # XcodeGen rewrite in the protected entitlement file.
+    release_inputs = ["scripts/s05_rc_verify.py", "scripts/s05_rc_status.swift", "scripts/s05_rc_bridge.py",
+                      "scripts/s05_final_rc.sh", "scripts/s05_r2_asc.swift", ".github/workflows/s05-final-rc.yml", str(CONFIG)]
+    require(not capture(["git", "diff", "HEAD", "--", *release_inputs]).strip(), "DIRTY_RELEASE_INPUT")
+    hashes = {}
+    for name in tracked:
+        data = Path(name).read_bytes()
+        if name == "App/LectureAsset.entitlements":
+            data = plistlib.dumps(plistlib.loads(data), sort_keys=True)
+        hashes[name] = hashlib.sha256(data).hexdigest()
+    return {"product_baseline_sha": BASELINE, "current_main_at_start": MAIN,
+            "release_checkout_sha": head, "protected_paths": PROTECTED,
+            "product_sources_identical": True, "production_file_sha256": hashes,
+            "historical_internal_pipeline_unchanged": True, "xcodegen_entitlement_format_only":bool(dirty)}
+
+
+def digest(ipa, signed_report):
+    signed = json.loads(signed_report.read_text())
+    require(signed.get("contract_result") == "PASS", "UNVERIFIED_IPA")
+    with ipa.open("rb") as file: actual = hashlib.file_digest(file, "sha256").hexdigest()
+    require(actual == signed.get("ipa_sha256"), "UPLOADED_IPA_DIGEST_MISMATCH")
+    return {"ipa_sha256":actual, "same_verified_signed_ipa":True}
 
 
 def self_test():
@@ -196,28 +261,29 @@ def self_test():
 def main():
     mode = sys.argv[1]
     if mode == "--provenance":
-        require(not capture(["git", "diff", "--name-only", BASELINE, "HEAD", "--", *PROTECTED]).strip(),
-                "FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED")
-        dirty = capture(["git", "diff", "--name-only", "HEAD", "--", *PROTECTED]).decode().splitlines()
-        # XcodeGen may serialize the existing entitlement plist differently.
-        # Only identical plist contents qualify; no new/missing capability is allowed.
-        require(not dirty or dirty == ["App/LectureAsset.entitlements"],
-                "GENERATED_PROJECT_CHANGED_FROZEN_FILES")
-        if dirty:
-            require(plistlib.loads(Path(dirty[0]).read_bytes()) ==
-                    plistlib.loads(capture(["git", "show", "HEAD:" + dirty[0]])),
-                    "GENERATED_ENTITLEMENT_CONTENT_CHANGED")
-        result = {"product_baseline_sha": BASELINE, "current_main_at_start": MAIN,
-                  "release_checkout_sha": capture(["git", "rev-parse", "HEAD"]).decode().strip(),
-                  "protected_paths": PROTECTED, "product_sources_identical": True,
-                  "historical_internal_pipeline_unchanged": True,
-                  "xcodegen_entitlement_format_only": bool(dirty)}
+        result = provenance()
         output = sys.argv[2]
+    elif mode == "--digest":
+        result, output = digest(Path(sys.argv[2]), Path(sys.argv[3])), sys.argv[4]
+    elif mode == "--manifest":
+        directory, output = Path(sys.argv[2]), sys.argv[3]
+        result = provenance()
+        result.update(version=VERSION, build=BUILD, app_id=CANDIDATE["app_id"], bundle_id=BUNDLE,
+                      team_id=CANDIDATE["team_id"], tested_sha=None,
+                      workflow_run=os.environ.get("GITHUB_SERVER_URL", "") + "/" + os.environ.get("GITHUB_REPOSITORY", "") + "/actions/runs/" + os.environ.get("GITHUB_RUN_ID", ""))
+        for name in ("signed-distribution", "upload", "asc-status", "tests"):
+            path = directory / (name + ".json")
+            if path.is_file(): result[name] = json.loads(path.read_text())
+        tests = result.get("tests", {})
+        if tests.get("failedTests") == 0 and tests.get("passedTests", 0) >= 18 and tests.get("skippedTests") == 0:
+            result["tested_sha"] = result["release_checkout_sha"]
+        result["ipa_sha256"] = result.get("signed-distribution", {}).get("ipa_sha256")
+        result["independently_audited_candidate"] = False
     elif mode == "--self-test":
         result, output = self_test(), sys.argv[2]
     elif mode == "--metadata":
         app = Path(sys.argv[2])
-        result = {"metadata": metadata(plistlib.loads((app / "Info.plist").read_bytes())), "privacy": privacy(app)}
+        result = {"metadata": metadata(plistlib.loads((app / "Info.plist").read_bytes())), "privacy": privacy(app), "localized_permission_labels": labels(app)}
         output = sys.argv[3]
     elif mode == "--signed":
         output = sys.argv[4]

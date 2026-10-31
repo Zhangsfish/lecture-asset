@@ -41,6 +41,10 @@ class AppReviewPermissionUIBase: XCTestCase {
         app.buttons["permission-allow"].tap()
         let alert = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
         XCTAssertTrue(alert.waitForExistence(timeout: 20), "Expected the genuine Photos authorization alert")
+        // Existence alone captured a mid-animation iPad alert in R1.
+        XCTAssertTrue(fullChoice(alert).waitForExistence(timeout: 10))
+        Thread.sleep(forTimeInterval: 2)
+        XCTAssertTrue(fullChoice(alert).isHittable)
         keep("genuine-system-photos-choices")
         return alert
     }
