@@ -51,6 +51,7 @@ jobs:
           python3 scripts/s05_rc_verify.py --provenance "$RUNNER_TEMP/s05-rc-evidence/provenance.json"
           bash -n scripts/s05_final_rc.sh
           swiftc -typecheck scripts/s05_rc_status.swift
+          swift scripts/s05_rc_status.swift --self-test "$RUNNER_TEMP/s05-rc-evidence/build-preflight-tests.json"
           swiftc -typecheck scripts/s05_r2_asc.swift
           python3 scripts/test_s05_r2_release.py > "$RUNNER_TEMP/s05-rc-evidence/tooling-tests.txt"
           python3 scripts/s05_rc_verify.py --self-test "$RUNNER_TEMP/s05-rc-evidence/validator-self-test.json"
@@ -98,6 +99,7 @@ jobs:
           xcrun simctl bootstatus "$device" -b
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$RUNNER_TEMP/RCSim" CURRENT_PROJECT_VERSION="$RC_BUILD" MARKETING_VERSION=0.1.0 ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -parallel-testing-enabled NO -only-testing:LectureAssetTests/AgeAssuranceTests -only-testing:LectureAssetTests/S01RecoveryTests -only-testing:LectureAssetTests/S03CleanupTests -only-testing:LectureAssetTests/LocalizationResourceTests -resultBundlePath "$RUNNER_TEMP/RCTests.xcresult" test > "$RUNNER_TEMP/rc-simulator-tests.log" 2>&1
           xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/RCTests.xcresult" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(json.dumps({k:d[k] for k in ["result","totalTestCount","passedTests","failedTests","skippedTests"]},indent=2))' > "$RUNNER_TEMP/s05-rc-evidence/tests.json"
+          python3 -c 'import json,os; d=json.load(open(os.environ["RUNNER_TEMP"]+"/s05-rc-evidence/tests.json")); assert d["totalTestCount"]==18 and d["passedTests"]==18 and d["failedTests"]==0 and d["skippedTests"]==0, "Focused tests incomplete; upload blocked"'
           python3 scripts/check_age_release.py "$RUNNER_TEMP/RCSim/Build/Products/Release-iphonesimulator/Lecture Asset.app" "$RUNNER_TEMP/s05-rc-evidence/simulator-entitlement.json"
           xcrun simctl shutdown "$device"
           echo 'S05_RC_FOCUSED_XCTEST_PASS'

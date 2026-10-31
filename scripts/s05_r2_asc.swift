@@ -67,6 +67,8 @@ do {
     let builds = rows(try api("v1/builds", ["filter[app]":appID,"filter[version]":buildNumber,"limit":"2", "include":"preReleaseVersion"]))
     report["candidateBuildNumber"] = buildNumber
     report["candidateNumberAvailable"] = builds.isEmpty
+    let previous=rows(try api("v1/builds",["filter[app]":appID,"filter[version]":"34.1","limit":"2"]))
+    report["previousReviewedBuildExists"] = previous.count == 1
     report["candidateBuilds"] = builds.map { ["id":$0["id"] ?? NSNull(), "attributes":safe(attrs($0),["version","processingState","buildAudienceType","minOsVersion","usesNonExemptEncryption","expired"])] }
     attempt("versions") {
         try rows(api("v1/apps/"+appID+"/appStoreVersions", ["filter[versionString]":"0.1.0", "filter[platform]":"IOS", "limit":"10"])).map { v -> [String:Any] in

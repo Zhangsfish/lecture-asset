@@ -4,6 +4,10 @@ import Foundation
 
 struct RCAPIError: Error { let code: String }
 
+func requireUnusedBuild(_ count: Int) throws {
+    guard count == 0 else { throw RCAPIError(code: "BUILD_ALREADY_EXISTS_NO_UPLOAD") }
+}
+
 func base64URL(_ data: Data) -> String {
     data.base64EncodedString().replacingOccurrences(of: "+", with: "-")
         .replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "=", with: "")
@@ -51,6 +55,22 @@ let config = try JSONSerialization.jsonObject(with: configData) as! [String: Str
 let candidateBuild = config["build"]!
 let candidateVersion = config["version"]!
 let args = CommandLine.arguments
+if args.count == 3 && args[1] == "--self-test" {
+    do {
+        try requireUnusedBuild(0)
+        var rejected = 0
+        for count in [1, 2] {
+            do { try requireUnusedBuild(count) }
+            catch let error as RCAPIError {
+                if error.code == "BUILD_ALREADY_EXISTS_NO_UPLOAD" { rejected += 1 }
+            }
+        }
+        guard rejected == 2 else { exit(1) }
+        try write(["result":"PASS", "unusedBuildAccepted":true, "existingBuildCasesRejected":rejected,
+                   "scope":"Synthetic preflight predicate; live uniqueness is checked separately"], args[2])
+        exit(0)
+    } catch { print("S05_RC_PREFLIGHT_SELF_TEST_FAILED"); exit(1) }
+}
 guard args.count == 4, ["preflight", "poll", "once"].contains(args[2]),
       let keyID = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_KEY_ID"],
       let issuer = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_ISSUER_ID"] else {
@@ -76,6 +96,7 @@ do {
         guard let builds = response["data"] as? [[String: Any]], builds.count <= 1 else {
             throw RCAPIError(code: "EXACT_BUILD_NOT_UNIQUE")
         }
+        if mode == "preflight" { try requireUnusedBuild(builds.count) }
         if let build = builds.first, let attributes = build["attributes"] as? [String: Any],
            let id = build["id"] as? String {
             let state = attributes["processingState"] as? String ?? "UNCONFIRMED"
