@@ -1,103 +1,68 @@
 # Current status
 
-## 2026-10-31 App Review 返工（最新调度，覆盖下方 10 月历史快照）
-
-- **Owner-provided Apple review feedback dated 2026-10-30:** initial Lecture Asset iOS `0.1.0 (34.1)` review on iPad Air 11-inch (M3) reports two issues: **5.1.1(iv)** custom pre-permission button "Allow full access" should read "Continue"/"Next"; **2.3.6** in-app controls Age Rating appears to claim Age Assurance, but reviewer did not see it. **Live ASC status not independently read back**.
-- **PASS_WITH_NOTES / MERGED — PR #22:** [remediation PR](https://github.com/Zhangsfish/lecture-asset/pull/22) merged as `6a2be31f27ee90ad094bc8b003c9484e81fb6803` after independent [audit](audits/S05/app-review-2026-10-30/round-01.md) of exact PR head `39c6d264abcdd0479e1c6627f370154707c5cf2b`. The **only production change** is `permission.allow` EN `Continue` / zh-Hans `继续`; tested implementation `5906b80ac00ad4740f3697f8d460258604db4e22`; [CI](https://github.com/Zhangsfish/lecture-asset/actions/runs/41102312516) two clean unsigned Release builds and 41/41 XCTest. iPhone/iPad EN/ZH system Photos gate and native denied/full/limited status verified; iPad popover evidence includes one mid-animation frame not for Apple-facing submission. Age code and Photos/archive/share/delete contracts unchanged. **No new distribution signature, Sandbox, ASC mutation/upload/reply/resubmission or public release.**
-- **NEXT GATE — OWNER_AUTHORIZATION_REQUIRED_FOR_NEW_RC:** the changed catalog needs a unique higher build (e.g. 35.1 only after ASC readback), a separately validated new RC workflow and genuine distribution signing/profile age entitlement checks, then owner-controlled upload and App Review resubmission. Follow [new-build PLAN_ONLY](reports/S05/app-review-2026-10-30/round-01/NEXT_BUILD_PLAN.md), not the immutable 34.1 release workflow. Verify live Parental Controls/Conditional Age Assurance answers and reply accurately to 2.3.6; eligible real Apple Sandbox remains NOT_RUN. No automatic next-stage implementation or release authorized by this audit.
-- **Age Assurance is genuinely present but conditional:** `AgeAssuranceEntryView` uses Apple DeclaredAgeRange only on iOS 26.2+ when `isEligibleForAgeFeatures` indicates regional/account eligibility. The normal noneligible screen does not show an age prompt; Parental Controls functionality is absent. Verify current ASC answers (Parental Controls None), give App Review accurate location/trigger conditions and code explanation before changing Age Assurance to None. Do not delete the regional compliance path simply to satisfy a screen test.
-- **Next build:** `0.1.0 (34.1)` is immutable. If the app bundle's localization changes, prepare a new unique build (e.g. 35.1 only if unused), with proper distribution entitlement validation. The prior `s05-final-rc` pipeline is hardcoded to 34.1 and frozen provenance; **cannot be blindly re-run for new source/build**.
-- **Review/submission:** follow owner-controlled App Store Connect unresolved-issue resubmission only after Codex implementation + independent PR audit + exact build evidence + explicit owner approval. Do not autonomously upload, select build, reply, change Age Rating or publicly release.
-- **China mainland:** the Apple ICP **exception** for Lecture Asset, case `102984758084`, remains approved; the user selected US and mainland China in availability. Case `102994145327` previously tracked the review-delay inquiry. These are different from the new App Review feedback, not filing numbers.
-- **Everwhile:** unrelated ICP case `102991507017`; no inference from Lecture Asset review feedback.
-- Current record is from owner-pasted review response, not ASC API live readback. The older October entries below are historical and must not direct a new build workflow.
-
----
-
 Updated: 2026-10-31
 
-## 2026-10-12 当前发布与中国大陆 ICP 状态（优先于以下历史记录）
+## Only current dispatch
 
-- App Store Connect Apple ID: `6816814541`；iOS 0.1.0 (34.1) **Waiting for Review**，仍在普通 App 审核等待队列。10 月 7 日已通过 App Review 消息提交所要求的中英文真机录屏；10 月 12 日仍在等待审核。
-- 中国大陆 ICP 备案编号**例外申请获 Apple Developer Support 批准**：支持案例 `102984758084`。这**不是 ICP 备案号码**；不得填到 ICP Filing Number 字段。
-- 2026-10-12 持有人报告已把 **中国大陆**加入 App Store Connect 的供应范围。该 App 尚未获普通版本审核批准，也未确认中国大陆已可下载；地区 ICP 状态仍需读回。
-- **2026-10-12 已完成审核状态催办联系**：持有人通过 Apple Developer → App Review Status 支持表单正式提交查询；**新案例 `102994145327`**。内容涵盖 34.1 等待审核、10 月 7 日中英文真机视频、已新增中国大陆，以及获批的 ICP 例外案例 `102984758084`。Apple 页面已显示发送成功，表示**已受理联系请求，不等于 App Review 已开始/完成或回复**。后续等待 Apple 回信；继续保留现有审核，不撤回/重交。
-- [详尽 ICP 案例与地区发行记录](docs/CHINA_MAINLAND_ICP_RELEASE_2026-10-12.md)。另一款 Everwhile 对应 **独立**案例 `102991507017`，未收到批准确认。
+**S05-R2 — READY_FOR_CODEX: complete App Review remediation and deliver the installable submission candidate.**
 
----
+Read and execute [tasks/S05_R2_SUBMISSION_CLOSEOUT_2026-10-31.md](tasks/S05_R2_SUBMISSION_CLOSEOUT_2026-10-31.md).
 
-## Now (2026-10-05 historical snapshot)
+The owner has now asked ChatGPT to own the path to launch, give Codex the complete execution task, independently audit the result and supply the final Apple reply. **Do not return another PLAN_ONLY build proposal.** The task covers narrow fixes, focused tests, actual ASC readback, genuine signed candidate, upload/processing, existing-owner TestFlight availability, device/age evidence and the unsent submission packet. This supersedes R1's no-upload/preparation-only stop for this specific task. It does not authorize self-merge, sending the Apple reply, App Review resubmission, accepting legal agreements or public release before independent audit.
 
-**S00–S04 PASS. S05-A/B/B2/D0/D1/L10N/ICON complete. English and zh-Hans App Store screenshots are merged. Owner-accepted product/UI is on main. Final App Store distribution RC `0.1.0 (34.1)` passed independent audit: genuine App Store profile age entitlement=true, final signed App age entitlement=true, codesign PASS, exact IPA upload ACCEPTED, ASC processingState=VALID and buildAudienceType=APP_STORE_ELIGIBLE. Owner physical exact-RC launch smoke PASS. App privacy was completed as no data collected. The iOS 0.1.0 submission has now been sent to App Review; ASC confirms one item submitted. Public release remains Manual Release, so approval will not auto-publish. Current action is wait for App Review feedback/approval; respond only if Apple requests changes or information. Promo v2 remains non-blocking.**
+Current main before this dispatch: `278cad5dfd0fbd41ac334b0aaa7cbb26a8b7b3bf`; always refetch. Do not execute old S00/S05 'next task' paragraphs from historical documents.
 
-The owner approved the four-step UX and requested optional tutorial, contact/homepage and developer support. The current authorization is preparation and implementation by staged tasks, **not App Review submission, public release, accepting commerce agreements or enabling payments**.
+## Facts and unresolved deliverables
 
-S05-A implementation code SHA `e5f76a771b4cbb73983ac6c89b98caa527a17cff` passed [macOS Release build and focused simulator CI](https://github.com/Zhangsfish/lecture-asset/actions/runs/36967361233). PR #6 was independently audited **PASS_WITH_NOTES** at reviewed head `1f8a9b9bfbb055be8eecf3db5a382c11700ff392` and squash-merged as `a0305a2945f79c061082bbff390596751b8b648e`. [Audit](audits/S05/china-prep-01.md). The carried notes are release-polish checks, not a request to repeat S04 stress/destructive QA.
+| Area | Verified state / required next work |
+|---|---|
+| Apple review | Owner supplied 2026-10-30 feedback on **0.1.0 (34.1)**, iPad Air 11-inch (M3), for **5.1.1(iv)** Photos pre-permission CTA and **2.3.6** In-App Controls. The earlier Waiting for Review snapshot is historical; live ASC state must be read back. |
+| PR #22 | Independently audited **PASS_WITH_NOTES**, merged as `6a2be31f27ee90ad094bc8b003c9484e81fb6803`. Only production change: `permission.allow` = **Continue / 继续**. |
+| Tested implementation | `5906b80ac00ad4740f3697f8d460258604db4e22`; reviewed PR head `39c6d264abcdd0479e1c6627f370154707c5cf2b`. [CI 41102312516](https://github.com/Zhangsfish/lecture-asset/actions/runs/41102312516): two clean unsigned Release builds, 41/41 XCTest executions; EN/zh-Hans iPhone/iPad simulator Photos choices and native full/denied/limited state. Limited selection used zero items. |
+| Final new RC | **NOT_YET_BUILT/SIGNED/UPLOADED**. Keep marketing version 0.1.0; 35.1 is only a preferred candidate pending actual uniqueness check. Do not re-upload successful build 34.1. |
+| Age functionality | Real conditional Declared Age Range API exists in entry/service; eligibility and OS gate determine requests. No parental-control product, no adult-only content or 18+ functionality restriction. Real eligible Apple Sandbox evidence remains **NOT_RUN**. |
+| Metadata route | Read actual ASC values. Parental Controls **None/No**; retain/prepare **Age Assurance Yes** for the genuine conditional API and follow Apple's 'feature exists: explain access' route with real evidence. Do not falsely claim absence, invent a universal age screen, or stop building just to wait for a classification inquiry. Different explicit Apple classification guidance can be applied precisely later. |
+| Scope of age work | Verify genuine invocation, eligible/normal routes, error/retry and preservation of unfinished jobs; only fix demonstrated defects. No speculative age framework replacement, fail-open bypass, account/DOB/server or minimum-iOS increase. |
+| Release tooling | Old `s05-final-rc` tools hardcode 34.1 and old provenance. This stage may minimally parameterize/migrate the registered workflow on its branch, preserving all checks and historical evidence; no need for a general CI redesign. Upload only by deliberate dispatch after secret-free tests; ordinary pushes never upload. |
+| Reviewer packet | Concise, factual unsent reply; exact new build, actual metadata values, permission proof, age trigger/reproduction evidence and remaining honest limitations. Independent audit before final reply/resubmission. |
+| Public availability | **NOT_VERIFIED_LIVE** for Lecture Asset. Keep Manual Release, free app, US + China mainland. Approval and actual storefront release are later distinct gates. |
 
-## Dispatch — one READY substage per isolated workstream
+## Identifiers / cases — never mix them
 
-| Stage | Status | Contract / evidence |
+| App / purpose | Identifier | State / meaning |
 |---|---|---|
-| S00 | PASS — physical iPhone | [audit](audits/S00/device-01.md) |
-| S00-TF | PASS — existing signing/upload path | [audit](audits/S00/testflight-03.md) |
-| S01 | PASS — PR #2 merged | [audit](audits/S01/round-01.md) |
-| S02 | PASS — PR #3 merged | [audit](audits/S02/round-01.md) |
-| S03 | PASS — PR #4 merged | [audit](audits/S03/round-01.md) |
-| S04-lite | PASS — PR #5 merged; retained real 200-page job verified | [audit](audits/S04/round-02.md) |
-| S05-A | **PASS_WITH_NOTES** — PR #6 merged; core UI/About/privacy foundation accepted | [audit](audits/S05/china-prep-01.md), [report](reports/S05/china-prep-01/DELIVERY.md) |
-| S05-B | **PASS_WITH_NOTES** — PR #8 merged; instructional tutorial, visible App-only cleanup and AI ZIP contract accepted | [audit](audits/S05/polish-01.md), [report](reports/S05/polish-01/DELIVERY.md) |
-| S05-B2 | **PASS_WITH_NOTES** — PR #9 merged after owner physical-iPhone visual acceptance; tutorial motion/copy frozen for v0.1 | [audit](audits/S05/motion-polish-01.md), [report](reports/S05/motion-polish-01/DELIVERY.md) |
-| S05-C | **DEFERRED_POST_V0.1** — owner does not want StoreKit tips in the initial release | [framework](docs/S05_EXECUTION_FRAMEWORK.md) |
-| S05-D0 | **PASS_WITH_NOTES / READY_FOR_OWNER_RELEASE_DECISION** — PR #10 merged; public pages, metadata/screenshots, read-only ASC evidence and region cards complete; China filing likely blocker remains | [audit](audits/S05/release-preflight-01.md), [report](reports/S05/release-preflight-01/DELIVERY.md) |
-| S05-D1 | **PASS_WITH_NOTES / READY_FOR_OWNER_US_DECISION** — PR #11 merged; US legal/runtime and store-conversion audit complete; unchanged runtime is not US release-ready | [audit](audits/S05/us-fallback-01.md), [report](reports/S05/us-fallback-01/DELIVERY.md) |
-| S05-L10N | **PASS_WITH_NOTES** — PR #12 merged; same binary now has complete English + zh-Hans UI/InfoPlist localization | [audit](audits/S05/localization-01.md), [report](reports/S05/localization-01/DELIVERY.md) |
-| S05-ICON | **PASS_WITH_NOTES** — PR #13 merged; final V1 Calm cobalt icon accepted and packaged correctly | [audit](audits/S05/icon-final-01.md), [report](reports/S05/icon-final-01/DELIVERY.md) |
-| S05-SHOTS | **PASS** — PR #14 squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`; six English Store screenshots frozen for v0.1 | [audit](audits/S05/store-screenshots-01.md), [report](reports/S05/store-screenshots-01/DELIVERY.md) |
-| S05-D2 | **PASS / MERGED** — PR #15 independently audited; squash-merged as `5012695af687a94af687dc5f631617a66940e3c8`; iOS <26.2 preserves normal entry, iOS 26.2+ keeps regional age-assurance handling, minimum iOS 18.0 | [PR #15](https://github.com/Zhangsfish/lecture-asset/pull/15), [task](tasks/S05_D2_AGE_ASSURANCE.md) |
-| S05-SHOTS-ZH | **PASS** — PR #16 merged on main; final zh-Hans Store screenshots accepted | [PR #16](https://github.com/Zhangsfish/lecture-asset/pull/16) |
-| S05-MV-V1 | **CLOSED_SUPERSEDED** — PR #17 closed without merge; retained only as historical renderer evidence | [PR #17](https://github.com/Zhangsfish/lecture-asset/pull/17) |
-| S05-MV-V2 | **IN_PROGRESS / PR #18** — cinematic promo v2; current branch contains R3 narration/typography instructions, not yet accepted final media | [PR #18](https://github.com/Zhangsfish/lecture-asset/pull/18) |
-| S05-D | **SUBMITTED_TO_APP_REVIEW** — `0.1.0 (34.1)` submitted successfully; wait for review outcome. Manual Release remains intended, so approval does not auto-publish | [release task](tasks/S05_RELEASE.md) |
+| Lecture Asset numeric Apple ID | `6816814541` | App Store Connect app identity |
+| Lecture Asset Bundle ID | `com.zhangsfish.lectureasset` | iOS bundle |
+| Developer Team ID | `QK73K23W9N` | Existing signing/team |
+| Lecture Asset ICP exception | **`102984758084`** | Apple support approval confirmed by owner-provided email |
+| Lecture Asset review-status inquiry | **`102994145327`** | Support request submitted 2026-10-12; not ICP approval |
+| Everwhile reference | Apple ID `6818551574`; ICP case **`102991507017`** | Separate app/case. Its current ICP approval is not independently established here; do not modify Everwhile in this task. |
 
-S05-C is deferred until after v0.1. The first public release is free and contains no tip jar, payment page or placeholder commerce UI.
+US + China mainland availability selection and no visible ICP error were owner-reported in October. Reconcile current ASC; do not reopen the approved ICP exception without an actual portal error. **Support case IDs are not ICP filing numbers.**
 
-The promo is a parallel marketing lane and is not a release prerequisite. PR #17 is closed/superseded; current creative work is PR #18 under `marketing/video/v2/`. Do not use promo work to justify App/runtime changes or delay the release RC.
+## Frozen product / evidence boundaries
 
-## Verified baseline / do not repeat
+- Native local photo selection -> chronological processing/OCR -> ZIP + PDF -> share/save -> optional exact source cleanup. No cloud processing, accounts, analytics/ads, payment/tips or SDK expansion.
+- Full Photos readWrite workflow and accessibility of local help/privacy remain. Never automatically delete or weaken validated ZIP, exact PHAsset binding, external-save confirmation, fresh destructive action or system confirmation.
+- Minimum iOS 18.0; iPhone target with real iPad compatibility checks.
+- Reuse accepted functional and R1 evidence for unchanged areas. No repeat 100/200-page, WeChat transfer or destructive real-photo tests solely to release.
+- Preserve existing branding/localizations/screenshots unless a concrete mismatch is found. The actual medium-display upload slot previously required bilingual **1206x2622** copies; retain original **1320x2868** masters. See [upload-size record](reports/S05/store-screenshots-medium-01/DELIVERY.md).
+- Existing Developer membership, App record, credentials and TestFlight path already exist. Do not request `.p8`, passwords, new certificates or new device registration without an evidenced need.
+- New genuine distribution signature/profile, upload, ASC processing, internal install, owner smoke, real Sandbox and Apple acceptance are distinct evidence states. The previous simulator tests do not close them.
+- Private account/identity/signature/profile/upload-link materials never enter public GitHub. Only sanitized test evidence and owner-authorized case numbers are retained.
 
-- Latest accepted functional TestFlight baseline: `0.1.0 (27.1)`.
-- S05-A internal UI preview: `0.1.0 (28.1)` uploaded from checkout `307156fda2cd59b15699fe4590c42fa764e73c12`; workflow 36992542612 reached App Store Connect `VALID`. PR #7 contained workflow/report changes only and was audited/merged; no App runtime source changed for that preview.
-- S05-B internal preview: `0.1.0 (29.1)` uploaded from exact tested SHA `b0ec51da44f23865a85509fd5dd1332e378ba4b0`; workflow 37034103095 reached App Store Connect `VALID`. PR #8 was audited `PASS_WITH_NOTES` and squash-merged as `d61908a9c55330cf3532eb31d134da8ab8aea11d`.
-- Owner reports newly generated S05-B archives were tried with both WorkBuddy and ChatGPT with no observed handoff problem; current embedded README/lecture AI contract is accepted for v0.1 and should not be reopened in S05-B2.
-- S05-B2 exact tested/uploaded implementation `618cbb4fa25068f7d117c6da6007ad0e2aa96518` passed focused CI run 37103184270 (35 cases) and uploaded as Internal TestFlight `0.1.0 (30.1)`; run 37104333093 reached App Store Connect `VALID`. Owner accepted the physical-device visual pacing; PR #9 was squash-merged as `14307f2870aa4c437e887b920439387fad10a4a4`.
-- Owner visually reviewed build 28.1 and found the main UI acceptable, with one required polish: the App-only work-copy cleanup must be a visible alternative rather than a collapsed `App work copy` disclosure.
-- S04 PR #5 merged at `9f7257c4d7f1f7f1d5de676df98da6d8123e61fc`.
-- S04 repaired the historical selection-index schema bound; the same retained 200-page job passed without reselection/reprocessing.
-- No new 100/200-page device run, repeated WeChat transfer or destructive real-photo cleanup solely for release. UI changes require focused navigation/safety regressions, not zero testing.
-- Developer Program, Bundle ID `com.zhangsfish.lectureasset`, App Store Connect app, Admin Team API key, GitHub Secrets and TestFlight upload workflow already exist. Do not reconfigure or request `.p8`.
-- PR #14 was final-audited at `ffd07883ede26e90ec29729eff0cb82b4c8837f8` and squash-merged as `a4c8d612de8cd6cf56a5aed6839afcdb29f38fbf`. English 1320×2868 Store screenshots are frozen; do not reopen visual polish without a concrete App Review issue.
-- Promo v2 is still under director review in PR #18. Current GitHub head may contain active R3 instructions before the final R3 media is pushed; do not treat the promo as release evidence or a launch blocker.
+## Reference entry points
 
-## Owner inputs / release gates
+1. [Current S05-R2 execution contract](tasks/S05_R2_SUBMISSION_CLOSEOUT_2026-10-31.md)
+2. [Codex entry](handoff/CODEX_START.md)
+3. [PR22 independent audit](audits/S05/app-review-2026-10-30/round-01.md)
+4. [R1 implementation delivery](reports/S05/app-review-2026-10-30/round-01/DELIVERY.md)
+5. [Historical 34.1 distribution evidence](reports/S05/release-round-04/DELIVERY.md)
+6. [ICP / availability / support cases](docs/CHINA_MAINLAND_ICP_RELEASE_2026-10-12.md)
+7. [Product decisions](docs/PRODUCT_DECISIONS.md), [spec](docs/SPEC.md), [workflow](docs/WORKFLOW.md)
 
-- Exact public contact email: `zhangs.taq@gmail.com` — owner-approved for public Support/contact use.
-- Exact personal homepage URL: `https://zhang-shuo-portfolio.vercel.app/` — owner-approved public homepage.
-- Contact/homepage inputs for S05-B are now complete. No placeholder may enter a public page or final RC.
-- Latest owner branding direction: both store languages use **Lecture Asset**. This does not imply that every old localized runtime title has already been changed; movie tasks may not repaint native screenshots or silently change App strings.
-- Paid Apps agreement, banking/tax readiness and real IAP products: **NOT_CHECKED**; existing TestFlight success proves none of these.
-- China mainland: first evaluate and prepare. Apple Developer Support ICP/App-filing exemption/handling inquiry was submitted on 2026-10-03; case ID is kept private by the owner and not stored in the public repo. Awaiting Apple reply. Actual ASC availability/ICP fields remain **NOT_CHECKED**. No-error UI is not statutory exemption or approval.
-- Other regions: [dated review](docs/REGIONAL_RELEASE_REVIEW_2026-10-02.md). No automatic all-country/future-country availability. US/state age-assurance and Brazil requirements need explicit preflight, not assumptions based on a free utility.
-- No submission until the owner approves the exact release candidate and explicit region list.
+## History — not current dispatch
 
-## Start here
+The full previous STATUS, including S00-S05 milestones, RC provenance, older release gates, public support details and October support timeline, is retained unchanged at [pre-R2 STATUS (immutable commit)](https://github.com/Zhangsfish/lecture-asset/blob/278cad5dfd0fbd41ac334b0aaa7cbb26a8b7b3bf/STATUS.md). Earlier history remains at `handoff/STATUS_BEFORE_S05_2026-10-02.md`. Those old documents' READY/WAIT/LOCKED instructions do not override the current task above.
 
-1. [Apple release portal handoff](handoff/APPLE_RELEASE_PORTAL_HANDOFF_2026-10-05.md) — owner/ChatGPT screen-by-screen ASC filling and release closure
-2. [Restart handoff](handoff/CHATGPT_RESTART_S05.md)
-3. [Product decisions](docs/PRODUCT_DECISIONS.md) + [Spec](docs/SPEC.md)
-4. [S05 framework](docs/S05_EXECUTION_FRAMEWORK.md)
-5. [S05-A audit](audits/S05/china-prep-01.md)
-6. [S05-B audit](audits/S05/polish-01.md)
-7. Release lane: no further normal App UI/product changes are required. PR #15 is merged. Create a fresh App-Store-eligible signed RC from current main (target build `32.1`), verify signed entitlement + VALID/APP_STORE_ELIGIBLE, perform a short exact-RC launch smoke, then submit the US-only version to App Review.
-8. Parallel video lane: PR #18 only. PR #17 is closed/superseded. Promo completion must not block US App submission.
-
-Earlier chronological status entries are preserved byte-for-byte in [the pre-S05 status archive](handoff/STATUS_BEFORE_S05_2026-10-02.md). Historical Next action / Still missing paragraphs are not current dispatch instructions.
+Everwhile comparison correction: its repository confirms a completed 4+ questionnaire, not both final In-App Controls answers. Prior assistant recommendations are not portal evidence. Reuse its successful signed-IPA / ASC-readback / concise-reviewer-path process, not unverified checkbox assumptions.
