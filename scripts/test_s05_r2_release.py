@@ -33,6 +33,16 @@ class ReleaseGuards(unittest.TestCase):
                 path.write_bytes(plistlib.dumps(altered))
                 with self.assertRaises(rc.RCError): rc.generated_info(path)
 
+    def test_generated_dependency_lock_cannot_add_or_change_dependency(self):
+        pin={"identity":"zipfoundation","kind":"remoteSourceControl", "location":"https://github.com/weichsel/ZIPFoundation.git",
+             "state":{"revision":"22787ffb59de99e5dc1fbfe80b19c97a904ad48d","version":"0.9.20"}}
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/"Package.resolved"
+            path.write_text(json.dumps({"version":3,"pins":[pin]}));rc.package_lock(path)
+            for pins in ([pin,pin],[{**pin,"state":{"version":"0.9.21","revision":"wrong"}}]):
+                path.write_text(json.dumps({"version":3,"pins":pins}))
+                with self.assertRaises(rc.RCError): rc.package_lock(path)
+
     def test_wrong_bundle_version_build_minimum_os_encryption(self):
         valid = {"CFBundleIdentifier": rc.BUNDLE, "CFBundleVersion": rc.BUILD,
                  "CFBundleShortVersionString": "0.1.0", "MinimumOSVersion": "18.0",

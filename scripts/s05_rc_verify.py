@@ -204,8 +204,10 @@ def provenance():
             "FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED")
     tracked = capture(["git", "ls-files", "--", *PROTECTED]).decode().splitlines()
     untracked = capture(["git", "ls-files", "--others", "--exclude-standard", "--", *PROTECTED]).decode().splitlines()
-    require(not untracked or untracked == ["App/Info.plist"], "UNEXPECTED_PRODUCT_FILE")
-    generated_hash = generated_info(Path(untracked[0])) if untracked else None
+    require(set(untracked) <= {"App/Info.plist", "Packages/ArchiveCore/Package.resolved"}, "UNEXPECTED_PRODUCT_FILE")
+    generated_hash = generated_info(Path("App/Info.plist")) if "App/Info.plist" in untracked else None
+    if "Packages/ArchiveCore/Package.resolved" in untracked:
+        package_lock(Path("Packages/ArchiveCore/Package.resolved"))
     dirty = capture(["git", "diff", "--name-only", "HEAD", "--", *PROTECTED]).decode().splitlines()
     require(not dirty or dirty == ["App/LectureAsset.entitlements"], "DIRTY_PRODUCT_TREE")
     if dirty:
@@ -227,6 +229,20 @@ def provenance():
             "product_sources_identical": True, "production_file_sha256": hashes,
             "historical_internal_pipeline_unchanged": True, "xcodegen_entitlement_format_only":bool(dirty),
             "validated_generated_info_sha256":generated_hash}
+
+
+def package_lock(path):
+    # SwiftPM creates a lock for swift test. Xcode resolves the same exact dependency.
+    # The peeled 0.9.20 upstream tag was independently checked with git ls-remote.
+    lock = json.loads(path.read_text())
+    require(lock.get("version") in (2, 3), "GENERATED_PACKAGE_LOCK_FORMAT")
+    pins = lock.get("pins", [])
+    require(len(pins) == 1, "UNEXPECTED_RUNTIME_DEPENDENCY")
+    pin = pins[0]
+    require(pin.get("identity") == "zipfoundation" and pin.get("kind") == "remoteSourceControl" and
+            pin.get("location") == "https://github.com/weichsel/ZIPFoundation.git" and
+            pin.get("state") == {"revision":"22787ffb59de99e5dc1fbfe80b19c97a904ad48d", "version":"0.9.20"},
+            "UNEXPECTED_RUNTIME_DEPENDENCY")
 
 
 def digest(ipa, signed_report):
