@@ -54,13 +54,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Allow full access"
+            "value": "Continue"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "允许完整访问"
+            "value": "继续"
           }
         }
       }

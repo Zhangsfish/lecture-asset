@@ -1,0 +1,111 @@
+{
+  "run_id": 41098046102,
+  "tested_sha": "80e72c6825cd11199843d248e676949f2e8c1140",
+  "conclusion": "FAIL",
+  "reason": "Real picker opens; remote photo Image exists but XCTest refuses tap as not hittable. The permission gate test does not require selecting Photos items. Apple picker explicitly permits zero items; final test completes that genuine choice, then checks actual native limited status.",
+  "corrected_test_commit": "5906b80ac00ad4740f3697f8d460258604db4e22",
+  "limited_selected_items_final_scenario": 0,
+  "jobs": {
+    "iphone": {
+      "artifact": {
+        "run": 41098046102,
+        "artifact_id": 12997927733,
+        "name": "app-review-iphone-safe-evidence",
+        "archive_sha256": "abb364331a8c73f3cb8730543ec31d1635c380377cb8f8b1948e40bc0bccd865",
+        "source_sha": "80e72c6825cd11199843d248e676949f2e8c1140",
+        "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41098046102/artifacts/12997927733"
+      },
+      "xctest": {
+        "review-iphone-en-contracts-summary": {
+          "result": "Passed",
+          "totalTestCount": 17,
+          "passedTests": 17,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Denied-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Denied-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-FullAccess-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-FullAccess-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Limited-ui-summary": {
+          "result": "Failed",
+          "totalTestCount": 1,
+          "passedTests": 0,
+          "failedTests": 1,
+          "skippedTests": 0
+        }
+      }
+    },
+    "ipad": {
+      "artifact": {
+        "run": 41098046102,
+        "artifact_id": 12997189146,
+        "name": "app-review-ipad-safe-evidence",
+        "archive_sha256": "af49fe32180ecbaa9c550f097bfc812acc21ea7909180d36897dd56a744c5997",
+        "source_sha": "80e72c6825cd11199843d248e676949f2e8c1140",
+        "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41098046102/artifacts/12997189146"
+      },
+      "xctest": {
+        "review-ipad-en-Denied-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-Denied-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-FullAccess-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-FullAccess-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-Limited-ui-summary": {
+          "result": "Failed",
+          "totalTestCount": 1,
+          "passedTests": 0,
+          "failedTests": 1,
+          "skippedTests": 0
+        }
+      }
+    }
+  }
+}

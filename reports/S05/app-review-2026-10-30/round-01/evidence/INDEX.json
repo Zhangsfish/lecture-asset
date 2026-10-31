@@ -1,0 +1,575 @@
+{
+  "artifacts": [
+    {
+      "run": 41102312516,
+      "artifact_id": 12999759372,
+      "name": "app-review-iphone-safe-evidence",
+      "archive_sha256": "c5bfcd701a741c103b9fc79724e0a0e6f9f947f89cf8f0f348231544e8d4155f",
+      "source_sha": "5906b80ac00ad4740f3697f8d460258604db4e22",
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41102312516/artifacts/12999759372"
+    },
+    {
+      "run": 41102312516,
+      "artifact_id": 13001462740,
+      "name": "app-review-ipad-safe-evidence",
+      "archive_sha256": "bb88d4b05f351514275e826395a8225ec4364714a28fa0708f0fa17aa1a07bff",
+      "source_sha": "5906b80ac00ad4740f3697f8d460258604db4e22",
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41102312516/artifacts/13001462740"
+    }
+  ],
+  "xctest": {
+    "review-iphone-en-contracts-summary": {
+      "result": "Passed",
+      "totalTestCount": 17,
+      "passedTests": 17,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-en-Denied-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-en-Denied-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-en-FullAccess-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-en-FullAccess-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-en-Limited-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-en-Limited-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-zh-Hans-Denied-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-zh-Hans-Denied-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-zh-Hans-FullAccess-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-zh-Hans-FullAccess-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-zh-Hans-Limited-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-iphone-zh-Hans-Limited-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review iphone",
+          "modelName": "iPhone 17 Pro Max",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-en-Denied-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-en-Denied-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-en-FullAccess-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-en-FullAccess-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-en-Limited-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-en-Limited-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-zh-Hans-Denied-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-zh-Hans-Denied-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-zh-Hans-FullAccess-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-zh-Hans-FullAccess-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-zh-Hans-Limited-native-status-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    },
+    "review-ipad-zh-Hans-Limited-ui-summary": {
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "devices": [
+        {
+          "deviceName": "Review ipad",
+          "modelName": "iPad Air 11-inch (M3)",
+          "osVersion": "26.5",
+          "platform": "iOS Simulator"
+        }
+      ]
+    }
+  },
+  "screenshots": [
+    {
+      "path": "iphone/en-gate.png",
+      "kind": "iphone",
+      "locale": "en",
+      "label": "gate",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenDenied()",
+      "artifact_id": 12999759372,
+      "source_attachment": "F8AE655F-3746-4B60-B6F0-8787C7CF8126.png",
+      "sha256": "07ad3ec7c8db0a9d5f6cace7d197493530bcabaf98491ece896d1584101c5361",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "iphone/en-system-photos-choices.png",
+      "kind": "iphone",
+      "locale": "en",
+      "label": "system-photos-choices",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenDenied()",
+      "artifact_id": 12999759372,
+      "source_attachment": "4AAD8539-150F-44C1-A6A4-193229F6594E.png",
+      "sha256": "5252740a1263a700397f62cfdbe064f9d8aa1da39f1e9e2e591de3b438eb8385",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "iphone/en-full-access-grid.png",
+      "kind": "iphone",
+      "locale": "en",
+      "label": "full-access-grid",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenFullAccess()",
+      "artifact_id": 12999759372,
+      "source_attachment": "7FE5B2CF-07A4-4DBD-99CC-5176925A5B9C.png",
+      "sha256": "7fd71e1a968909b3e5e563daf49f9e191527f92700208377076724d69a641a2d",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "iphone/en-limited-blocked.png",
+      "kind": "iphone",
+      "locale": "en",
+      "label": "limited-blocked",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenLimited()",
+      "artifact_id": 12999759372,
+      "source_attachment": "F3B42301-1611-486E-B253-02B7B25173B2.png",
+      "sha256": "3557df04866b5e249fbbff483df731870fce52d34259f8f5ee861ca6f3a88fb7",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "iphone/zh-Hans-gate.png",
+      "kind": "iphone",
+      "locale": "zh-Hans",
+      "label": "gate",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenDenied()",
+      "artifact_id": 12999759372,
+      "source_attachment": "BAB6DA1C-2D80-4159-A74C-A6F0A8BD8437.png",
+      "sha256": "ed12e24b9c1b727135c6526999156ef6c9c6c15553f3c99e2b1e8c09f1ad228d",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "iphone/zh-Hans-system-photos-choices.png",
+      "kind": "iphone",
+      "locale": "zh-Hans",
+      "label": "system-photos-choices",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenDenied()",
+      "artifact_id": 12999759372,
+      "source_attachment": "DD02069A-8BFB-4FBF-AF14-DA8F9A205802.png",
+      "sha256": "22cd239c7e70510daba96cab859099f5f167ea2b9593c9f27e602b8f4c94d3f7",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "iphone/zh-Hans-full-access-grid.png",
+      "kind": "iphone",
+      "locale": "zh-Hans",
+      "label": "full-access-grid",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenFullAccess()",
+      "artifact_id": 12999759372,
+      "source_attachment": "1377C11D-88F3-4B7D-9C49-5B698C8E0B3B.png",
+      "sha256": "147cda5c47cc4045a89017b7d5044b946e48089896adc94b96bdcb43e6b64ae4",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "iphone/zh-Hans-limited-blocked.png",
+      "kind": "iphone",
+      "locale": "zh-Hans",
+      "label": "limited-blocked",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenLimited()",
+      "artifact_id": 12999759372,
+      "source_attachment": "78CB5D1A-3445-4BAC-A238-42E536058BC0.png",
+      "sha256": "03cde08d2fa87e60270065ec5d411f334a8aa945bb89c74ea2214ed6e1a797bc",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/en-gate.png",
+      "kind": "ipad",
+      "locale": "en",
+      "label": "gate",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenDenied()",
+      "artifact_id": 13001462740,
+      "source_attachment": "F68CAEA8-1E21-46E8-8C20-D989F9438677.png",
+      "sha256": "c834e331272c3cd7f422c2b9beda0960ba3e71376352427f51fe5d908409a353",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/en-system-photos-choices.png",
+      "kind": "ipad",
+      "locale": "en",
+      "label": "system-photos-choices",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenDenied()",
+      "artifact_id": 13001462740,
+      "source_attachment": "07C8A064-82A0-4DB0-A97F-D06744CE14C8.png",
+      "sha256": "b0044e598bdd099942c030640206b3f09cd7bb1b1baa1bf4eca32cb9e4c24a2f",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/en-full-access-grid.png",
+      "kind": "ipad",
+      "locale": "en",
+      "label": "full-access-grid",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenFullAccess()",
+      "artifact_id": 13001462740,
+      "source_attachment": "71DF883A-27F2-46B9-A33F-9D150B0E1912.png",
+      "sha256": "4411c38b4afc56ee429b9cbe62bc66352b69708c62472deff1f69ee149c7b437",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/en-limited-blocked.png",
+      "kind": "ipad",
+      "locale": "en",
+      "label": "limited-blocked",
+      "test": "AppReviewEnglishPermissionUITests/testContinueThenLimited()",
+      "artifact_id": 13001462740,
+      "source_attachment": "B11DEE2E-B879-4FB5-9A1E-992DF93E0DF6.png",
+      "sha256": "2c41f9798fe1f855bf5d7aad03c06f2a644979653499ee919ec3950ca9679f3f",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/zh-Hans-gate.png",
+      "kind": "ipad",
+      "locale": "zh-Hans",
+      "label": "gate",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenDenied()",
+      "artifact_id": 13001462740,
+      "source_attachment": "581A2614-A301-4FDB-B478-64FF0AB48D0F.png",
+      "sha256": "30121465de2b96a260cacada05f0315845d4e82ba4498addf4c3dd58d5b21e70",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/zh-Hans-system-photos-choices.png",
+      "kind": "ipad",
+      "locale": "zh-Hans",
+      "label": "system-photos-choices",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenDenied()",
+      "artifact_id": 13001462740,
+      "source_attachment": "BFF87401-88F6-421E-BF6A-D6F94A982097.png",
+      "sha256": "ddb8eb0f4e471792500ed8bf13114272a31d6695ffa52a95e033710714060406",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/zh-Hans-full-access-grid.png",
+      "kind": "ipad",
+      "locale": "zh-Hans",
+      "label": "full-access-grid",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenFullAccess()",
+      "artifact_id": 13001462740,
+      "source_attachment": "F5EA49E1-8230-4D80-8DB6-A5B806677C69.png",
+      "sha256": "032b6b2fdb2d342a7d2826fedf8db2b65063ad2c98152bed77db77f27b1f81fe",
+      "pixels_unmodified": true
+    },
+    {
+      "path": "ipad/zh-Hans-limited-blocked.png",
+      "kind": "ipad",
+      "locale": "zh-Hans",
+      "label": "limited-blocked",
+      "test": "AppReviewChinesePermissionUITests/testContinueThenLimited()",
+      "artifact_id": 13001462740,
+      "source_attachment": "1F861689-8807-41F0-9A9A-903D116A6AB5.png",
+      "sha256": "27d049d6ec3d5e97cd918aced8dbc1e607322dcf9c54662a566dbd68495956d1",
+      "pixels_unmodified": true
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "585e753e7142cfe64babfdd28a1673f558ab84dd",
+  "tested_code_sha": "5906b80ac00ad4740f3697f8d460258604db4e22",
+  "pr": 22,
+  "workflow_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41102312516",
+  "ci_conclusion": "PASS",
+  "jobs": [
+    {
+      "id": 124221480328,
+      "name": "focused (iphone)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124221480862,
+      "name": "focused (ipad)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "xctest_invocations": {
+    "total": 41,
+    "passed": 41,
+    "failed": 0,
+    "skipped": 0,
+    "contract_invocations": 17,
+    "real_system_ui_invocations": 12,
+    "native_photo_authorization_invocations": 12
+  },
+  "production_changes": [
+    {
+      "file": "App/Localizable.xcstrings",
+      "key": "permission.allow",
+      "en": "Continue",
+      "zh-Hans": "继续"
+    }
+  ],
+  "checks": {
+    "clean_unsigned_release_device_builds": "PASS (two jobs)",
+    "bundle_id_minimum_os_device_family": "PASS",
+    "both_bundled_permission_labels": "PASS",
+    "both_privacy_manifests": "PASS",
+    "iphone_en_and_zh_real_photos_choices": "PASS",
+    "ipad_compatibility_en_and_zh_real_photos_choices": "PASS",
+    "denied_limited_help_and_settings": "PASS",
+    "full_access_synthetic_grid": "PASS",
+    "age_state_machine_injected_responses": "PASS",
+    "recovery_and_exact_cleanup_contracts_synthetic": "PASS",
+    "four_release_simulator_macho_age_entitlements": "PASS; simulated only",
+    "old_os_source_availability_route": "PASS; source only",
+    "only_two_production_values_and_old_release_unchanged": "PASS",
+    "visual_review": "PASS; gate/Photos prompt/grid/limited blocker contact sheet and original captures"
+  },
+  "not_run": [
+    "Physical new-build Photos gate",
+    "Limited picker nonzero thumbnail selection (system remote AX hit testing unavailable; actual zero-item .limited gate tested)",
+    "Real eligible Apple Sandbox: Under 13, 13-15, 16-17, 18+",
+    "Old-OS physical/simulator execution",
+    "New genuine Apple Distribution IPA/signature/profile",
+    "ASC build number uniqueness query/reservation",
+    "Live ASC questionnaire/status readback or changes",
+    "TestFlight/App Store upload",
+    "Apple reply/resubmission/acceptance",
+    "Broad 100/200-page QA and real destructive deletion (intentionally excluded)"
+  ],
+  "release_plan_only": true,
+  "build_number": "NOT_SELECTED / NOT_QUERIED (35.1 is a candidate only)",
+  "apple_review_resolution": "NOT_CONFIRMED_BY_APPLE",
+  "apple_credentials_accessed_or_published": false,
+  "private_media_used": false,
+  "limited_access_scenario": "Genuine system picker completed with zero selected items; native .limited required",
+  "earlier_failures": [
+    {
+      "run": 41090371273,
+      "status": "FAIL",
+      "evidence": "evidence/first-run-failure.json"
+    },
+    {
+      "run": 41093599561,
+      "status": "FAIL",
+      "evidence": "evidence/second-run-picker-failure.json"
+    },
+    {
+      "run": 41098046102,
+      "status": "FAIL",
+      "evidence": "evidence/third-run-picker-tap-failure.json"
+    }
+  ],
+  "evidence_index": "evidence/INDEX.json",
+  "contact_sheet": "evidence/PERMISSION_CONTACT_SHEET.png"
+}

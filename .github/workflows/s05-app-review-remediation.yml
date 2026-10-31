@@ -1,0 +1,83 @@
+name: S05 App Review permission remediation
+
+on:
+  push:
+    branches: [codex/s05-r-permission-review]
+    paths: ["App/Localizable.xcstrings", "Tests/**", "UITests/**", "scripts/check_app_review_remediation.py", "scripts/s05_review_focused.sh", ".github/workflows/s05-app-review-remediation.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  focused:
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [iphone, ipad]
+    runs-on: macos-26
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Toolchain and production scope
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/review-evidence"
+          { git rev-parse HEAD; sw_vers; xcodebuild -version; xcrun --sdk iphoneos --show-sdk-version; } > "$RUNNER_TEMP/review-evidence/toolchain.txt"
+          python3 scripts/check_app_review_remediation.py --output "$RUNNER_TEMP/review-evidence/scope.json"
+          python3 scripts/check_localization.py --output "$RUNNER_TEMP/review-evidence/localization.json"
+          python3 scripts/check_age_release.py --source-only "$RUNNER_TEMP/review-evidence/age-entry.json"
+      - name: Verified XcodeGen
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip --output "$RUNNER_TEMP/xcodegen.zip"
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
+          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
+          chmod +x "$tool"
+          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
+          "$tool" --version > "$RUNNER_TEMP/review-evidence/xcodegen.txt"
+      - name: Clean Release device compilation
+        run: |
+          set -euo pipefail
+          xcodegen generate --spec project.yml
+          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/ReviewDevice" CODE_SIGNING_ALLOWED=NO clean build > "$RUNNER_TEMP/review-release-build.log" 2>&1 || { tail -n 90 "$RUNNER_TEMP/review-release-build.log"; exit 1; }
+          python3 - <<'PY'
+          import json,os,pathlib,plistlib,subprocess
+          app=pathlib.Path(os.environ['RUNNER_TEMP'])/'ReviewDevice/Build/Products/Release-iphoneos/Lecture Asset.app'
+          info=plistlib.loads((app/'Info.plist').read_bytes())
+          assert info['CFBundleIdentifier']=='com.zhangsfish.lectureasset'
+          assert info['MinimumOSVersion']=='18.0'
+          assert info['CFBundleShortVersionString']=='0.1.0'
+          assert info['UIDeviceFamily']==[1], 'Keep iPhone family, test real iPad compatibility mode'
+          assert (app/'PrivacyInfo.xcprivacy').is_file()
+          assert list(app.glob('ZIPFoundation*/PrivacyInfo.xcprivacy'))
+          for locale,action in [('en','Continue'),('zh-Hans','继续')]:
+            strings=plistlib.loads(subprocess.check_output(['plutil','-convert','xml1','-o','-',str(app/(locale+'.lproj')/'Localizable.strings')]))
+            assert strings['permission.allow']==action
+          result={'clean_release_build':'PASS','bundle_id':info['CFBundleIdentifier'],'minimum_os':info['MinimumOSVersion'],'targeted_device_family':info['UIDeviceFamily'],'both_bundled_permission_labels':'PASS','both_privacy_manifests':'PASS','distribution_signing':'NOT_RUN','upload':'NOT_RUN'}
+          (pathlib.Path(os.environ['RUNNER_TEMP'])/'review-evidence/release-build.json').write_text(json.dumps(result,indent=2)+'\n')
+          PY
+      - name: Real bilingual system Photos UI and native authorization on ${{ matrix.device }}
+        run: bash scripts/s05_review_focused.sh '${{ matrix.device }}'
+      - name: Export simulator evidence
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/review-evidence/screenshots"
+          for bundle in "$RUNNER_TEMP"/review-*.xcresult; do
+            test -d "$bundle" || continue
+            name=$(basename "$bundle" .xcresult)
+            xcrun xcresulttool get test-results summary --path "$bundle" > "$RUNNER_TEMP/review-evidence/$name-summary.json"
+            xcrun xcresulttool export attachments --path "$bundle" --output-path "$RUNNER_TEMP/review-evidence/screenshots/$name"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: app-review-${{ matrix.device }}-safe-evidence
+          path: ${{ runner.temp }}/review-evidence/
+          if-no-files-found: error
+          retention-days: 30

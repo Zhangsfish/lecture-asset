@@ -1,0 +1,140 @@
+{
+  "run_id": 41093599561,
+  "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41093599561",
+  "tested_sha": "1c4e2237465aed694e49352b8d80b712faca4f98",
+  "conclusion": "FAIL",
+  "reason": "Limited-library UI automation queried Cell; actual iOS 26.5 picker exposes Images with identifier PXGGridLayout-Info; Done button has identifier Update",
+  "production_regression_proven": false,
+  "corrected_test_commit": "80e72c6825cd11199843d248e676949f2e8c1140",
+  "jobs": {
+    "iphone": {
+      "artifact": {
+        "run": 41093599561,
+        "artifact_id": 12996014129,
+        "name": "app-review-iphone-safe-evidence",
+        "archive_sha256": "2b0b40ad1881234bd0358fde5ba59a26eeab860366ef734092fa5998e34d2f41",
+        "source_sha": "1c4e2237465aed694e49352b8d80b712faca4f98",
+        "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41093599561/artifacts/12996014129"
+      },
+      "xctest": {
+        "review-iphone-en-contracts-summary": {
+          "result": "Passed",
+          "totalTestCount": 17,
+          "passedTests": 17,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Denied-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Denied-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-FullAccess-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-FullAccess-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Limited-ui-summary": {
+          "result": "Failed",
+          "totalTestCount": 1,
+          "passedTests": 0,
+          "failedTests": 1,
+          "skippedTests": 0
+        }
+      },
+      "native": {
+        "iphone-en-Denied-native": {
+          "actual": "denied",
+          "expected": "denied",
+          "match": true,
+          "scope": "Actual App-host PHPhotoLibrary readWrite status; simulator only"
+        },
+        "iphone-en-FullAccess-native": {
+          "actual": "authorized",
+          "expected": "authorized",
+          "match": true,
+          "scope": "Actual App-host PHPhotoLibrary readWrite status; simulator only"
+        }
+      }
+    },
+    "ipad": {
+      "artifact": {
+        "run": 41093599561,
+        "artifact_id": 12996014415,
+        "name": "app-review-ipad-safe-evidence",
+        "archive_sha256": "ba5e136d7c7d59de773b200571dcb91d7b3d6b6a3fdf38353af001941a403c2d",
+        "source_sha": "1c4e2237465aed694e49352b8d80b712faca4f98",
+        "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41093599561/artifacts/12996014415"
+      },
+      "xctest": {
+        "review-ipad-en-Denied-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-Denied-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-FullAccess-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-FullAccess-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-Limited-ui-summary": {
+          "result": "Failed",
+          "totalTestCount": 1,
+          "passedTests": 0,
+          "failedTests": 1,
+          "skippedTests": 0
+        }
+      },
+      "native": {
+        "ipad-en-Denied-native": {
+          "actual": "denied",
+          "expected": "denied",
+          "match": true,
+          "scope": "Actual App-host PHPhotoLibrary readWrite status; simulator only"
+        },
+        "ipad-en-FullAccess-native": {
+          "actual": "authorized",
+          "expected": "authorized",
+          "match": true,
+          "scope": "Actual App-host PHPhotoLibrary readWrite status; simulator only"
+        }
+      }
+    }
+  }
+}

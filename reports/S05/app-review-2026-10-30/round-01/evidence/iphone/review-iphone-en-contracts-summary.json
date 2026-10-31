@@ -1,0 +1,15 @@
+{
+  "result": "Passed",
+  "totalTestCount": 17,
+  "passedTests": 17,
+  "failedTests": 0,
+  "skippedTests": 0,
+  "devices": [
+    {
+      "deviceName": "Review iphone",
+      "modelName": "iPhone 17 Pro Max",
+      "osVersion": "26.5",
+      "platform": "iOS Simulator"
+    }
+  ]
+}

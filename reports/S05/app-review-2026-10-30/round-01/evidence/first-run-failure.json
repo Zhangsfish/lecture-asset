@@ -1,0 +1,79 @@
+{
+  "run_id": 41090371273,
+  "run_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41090371273",
+  "tested_sha": "0478fab052ecea92a9a06c9cfc23293c25f0eed1",
+  "conclusion": "FAIL",
+  "reason": "Evidence collection cp used stale App data-container URL after Xcode reinstalled test host; assertions themselves passed",
+  "correction_commit": "1c4e2237465aed694e49352b8d80b712faca4f98",
+  "jobs": {
+    "iphone": {
+      "artifact_id": 12993204942,
+      "release_build": {
+        "clean_release_build": "PASS",
+        "bundle_id": "com.zhangsfish.lectureasset",
+        "minimum_os": "18.0",
+        "targeted_device_family": [
+          1
+        ],
+        "both_bundled_permission_labels": "PASS",
+        "both_privacy_manifests": "PASS",
+        "distribution_signing": "NOT_RUN",
+        "upload": "NOT_RUN"
+      },
+      "xctest": {
+        "review-iphone-en-contracts-summary": {
+          "result": "Passed",
+          "totalTestCount": 17,
+          "passedTests": 17,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Denied-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-iphone-en-Denied-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        }
+      }
+    },
+    "ipad": {
+      "artifact_id": 12995330082,
+      "release_build": {
+        "clean_release_build": "PASS",
+        "bundle_id": "com.zhangsfish.lectureasset",
+        "minimum_os": "18.0",
+        "targeted_device_family": [
+          1
+        ],
+        "both_bundled_permission_labels": "PASS",
+        "both_privacy_manifests": "PASS",
+        "distribution_signing": "NOT_RUN",
+        "upload": "NOT_RUN"
+      },
+      "xctest": {
+        "review-ipad-en-Denied-native-status-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        },
+        "review-ipad-en-Denied-ui-summary": {
+          "result": "Passed",
+          "totalTestCount": 1,
+          "passedTests": 1,
+          "failedTests": 0,
+          "skippedTests": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "base_sha": "585e753e7142cfe64babfdd28a1673f558ab84dd",
+  "tested_sha": "5906b80ac00ad4740f3697f8d460258604db4e22",
+  "production_diff": [
+    "App/Localizable.xcstrings"
+  ],
+  "catalog_only_two_values": true,
+  "protected_production_and_old_release_paths": "PASS",
+  "unchanged_sha256": {
+    "App/ContentView.swift": "a227789198ec4af9719c4821b95e8bd6405b093f8be68aa971d4719f2837e28a",
+    "App/PhotoLibraryModel.swift": "1050881b05c56379ef0e667a987ac7f57ddca19561e676f6c3cfc9aa13b2fdee",
+    "App/AgeAssuranceEntryView.swift": "aa7ef7c2329438a0ceb0121630bb7af265357765631c9019e8d050809cb69c44",
+    "App/AgeAssuranceService.swift": "d6de90102ce11104922f6d04d4bd6ee9bbf2b17833340dee9976a6e1bd876762",
+    "App/LectureAssetApp.swift": "61278a5c83bbe7303438f4918ad39ee4997aae81f11815ed980b4d7b5616af0f",
+    "project.yml": "70c444de2c42015a5abd63193e4198ebdb072456cd96ce52c63484685639925b",
+    "scripts/s05_rc_verify.py": "1c93befadc462fa8246afa3b748a4f952d2dc9417d010a9828b5ed2a51417161",
+    "scripts/s05_final_rc.sh": "f7c260727a15e20b26c1d38cc876804e4761d66340b2c2d7bc5f09f5d8ccc064",
+    ".github/workflows/s05-final-rc.yml": "2498fb1800cbdb76056ea35d03a5ced6cffa1dbddf5c89e98b7c6ab2cbf8c5cb"
+  },
+  "status": "PASS",
+  "asc_and_upload": "NOT_RUN"
+}

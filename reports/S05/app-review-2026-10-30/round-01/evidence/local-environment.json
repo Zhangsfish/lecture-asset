@@ -1,0 +1,13 @@
+{
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.7",
+  "swift_local": "NOT_INSTALLED",
+  "xcode_local": "NOT_AVAILABLE_WINDOWS",
+  "local_checks": [
+    "catalog/reference audit",
+    "exact two-value production diff and unchanged protected paths",
+    "old OS entry source routing",
+    "focused CI YAML parsed; read-only contents permission and no Apple secrets/upload steps"
+  ],
+  "no_installs": true
+}
