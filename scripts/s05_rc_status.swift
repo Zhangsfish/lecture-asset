@@ -4,6 +4,10 @@ import Foundation
 
 struct RCAPIError: Error { let code: String }
 
+func requireUnusedBuild(_ count: Int) throws {
+    guard count == 0 else { throw RCAPIError(code: "BUILD_ALREADY_EXISTS_NO_UPLOAD") }
+}
+
 func base64URL(_ data: Data) -> String {
     data.base64EncodedString().replacingOccurrences(of: "+", with: "-")
         .replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "=", with: "")
@@ -45,7 +49,28 @@ func write(_ safe: [String: Any], _ path: String) throws {
     try data.write(to: URL(fileURLWithPath: path), options: .atomic)
 }
 
+let configURL = URL(fileURLWithPath: "reports/S05/submission-closeout-2026-10-31/round-01/candidate.json")
+let configData = try Data(contentsOf: configURL)
+let config = try JSONSerialization.jsonObject(with: configData) as! [String: String]
+let candidateBuild = config["build"]!
+let candidateVersion = config["version"]!
 let args = CommandLine.arguments
+if args.count == 3 && args[1] == "--self-test" {
+    do {
+        try requireUnusedBuild(0)
+        var rejected = 0
+        for count in [1, 2] {
+            do { try requireUnusedBuild(count) }
+            catch let error as RCAPIError {
+                if error.code == "BUILD_ALREADY_EXISTS_NO_UPLOAD" { rejected += 1 }
+            }
+        }
+        guard rejected == 2 else { exit(1) }
+        try write(["result":"PASS", "unusedBuildAccepted":true, "existingBuildCasesRejected":rejected,
+                   "scope":"Synthetic preflight predicate; live uniqueness is checked separately"], args[2])
+        exit(0)
+    } catch { print("S05_RC_PREFLIGHT_SELF_TEST_FAILED"); exit(1) }
+}
 guard args.count == 4, ["preflight", "poll", "once"].contains(args[2]),
       let keyID = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_KEY_ID"],
       let issuer = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_ISSUER_ID"] else {
@@ -63,7 +88,7 @@ do {
     for attempt in 0..<attempts {
         let response = try get("builds", [
             URLQueryItem(name: "filter[app]", value: appID),
-            URLQueryItem(name: "filter[version]", value: "34.1"),
+            URLQueryItem(name: "filter[version]", value: candidateBuild),
             URLQueryItem(name: "fields[builds]", value: "version,uploadedDate,minOsVersion,processingState,buildAudienceType,usesNonExemptEncryption,preReleaseVersion"),
             URLQueryItem(name: "include", value: "preReleaseVersion"),
             URLQueryItem(name: "fields[preReleaseVersions]", value: "version,platform"),
@@ -71,6 +96,7 @@ do {
         guard let builds = response["data"] as? [[String: Any]], builds.count <= 1 else {
             throw RCAPIError(code: "EXACT_BUILD_NOT_UNIQUE")
         }
+        if mode == "preflight" { try requireUnusedBuild(builds.count) }
         if let build = builds.first, let attributes = build["attributes"] as? [String: Any],
            let id = build["id"] as? String {
             let state = attributes["processingState"] as? String ?? "UNCONFIRMED"
@@ -79,7 +105,7 @@ do {
             let versions = included.filter { $0["type"] as? String == "preReleaseVersions" }
             let version = (versions.first?["attributes"] as? [String: Any])?["version"] as? String ?? "UNCONFIRMED"
             let safe: [String: Any] = [
-                "version": version, "build": "34.1", "buildID": id,
+                "version": version, "build": candidateBuild, "buildID": id,
                 "processingState": state, "buildAudienceType": audience,
                 "uploadedDate": attributes["uploadedDate"] ?? NSNull(),
                 "minOsVersion": attributes["minOsVersion"] ?? NSNull(),
@@ -92,22 +118,22 @@ do {
                 print("S05_RC_ASC_REJECTED state=" + state + " audience=" + audience); exit(1)
             }
             if state == "VALID" && audience == "APP_STORE_ELIGIBLE" {
-                guard version == "0.1.0", attributes["version"] as? String == "34.1",
+                guard version == candidateVersion, attributes["version"] as? String == candidateBuild,
                       attributes["minOsVersion"] as? String == "18.0",
                       attributes["usesNonExemptEncryption"] as? Bool == false else {
                     throw RCAPIError(code: "VALID_BUILD_METADATA_MISMATCH")
                 }
-                print("S05_RC_ASC_VALID_APP_STORE_ELIGIBLE version=0.1.0 build=34.1"); exit(0)
+                print("S05_RC_ASC_VALID_APP_STORE_ELIGIBLE version=\(candidateVersion) build=\(candidateBuild)"); exit(0)
             }
             print("S05_RC_ASC_PENDING state=" + state + " audience=" + audience)
         } else {
-            try write(["version": "0.1.0", "build": "34.1", "processingState": "NOT_VISIBLE",
+            try write(["version": "0.1.0", "build": candidateBuild, "processingState": "NOT_VISIBLE",
                        "buildAudienceType": "UNCONFIRMED", "queryMode": mode], args[3])
             if mode == "preflight" { print("S05_RC_BUILD_NUMBER_AVAILABLE"); exit(0) }
         }
         if attempt + 1 < attempts { Thread.sleep(forTimeInterval: 30) }
     }
-    print("S05_RC_ASC_PROCESSING_OR_UNCONFIRMED build=34.1"); exit(3)
+    print("S05_RC_ASC_PROCESSING_OR_UNCONFIRMED build=\(candidateBuild)"); exit(3)
 } catch let error as RCAPIError {
     print("S05_RC_ASC_UNCONFIRMED " + error.code); exit(1)
 } catch {

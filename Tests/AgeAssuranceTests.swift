@@ -1,4 +1,5 @@
 import XCTest
+import SelectionCore
 @testable import Lecture_Asset
 
 @MainActor
@@ -95,5 +96,41 @@ final class AgeAssuranceTests: XCTestCase {
         })
         XCTAssertEqual(service.state, .unresolved(.incompleteResponse))
         XCTAssertEqual(AgeAssuranceService().state, .checking)
+    }
+
+    func testAgeFailuresAndRetryPreserveRecoverableJobAndFiles() async throws {
+        let page = JobPage(frozen: FrozenPage(pageIndex: 1, localIdentifier: "synthetic-r2-only",
+            capturedAt: nil, selectionIndex: 201), isLivePhoto: true)
+        var job = ProcessingJob(pages: [page])
+        job.phase = .paused
+        try JobStore.save(job)
+        defer { try? JobStore.purge(job) } // Only this UUID's synthetic fixture.
+        let directory = try JobStore.directory(for: job)
+        let ledger = directory.appending(path: "job.json")
+        let jpeg = try JobStore.imageURL(for: page, in: job)
+        let fixture = Data("synthetic-not-a-photo".utf8)
+        try fixture.write(to: jpeg)
+        let originalLedger = try Data(contentsOf: ledger)
+        let service = AgeAssuranceService()
+        await service.check(supported: true, eligibility: { throw Failure.injected }, request: { .declined })
+        XCTAssertEqual(service.state, .unresolved(.eligibilityError))
+        XCTAssertFalse(service.state.allowsWork)
+        XCTAssertEqual(try Data(contentsOf: ledger), originalLedger)
+        await service.check(supported: true, eligibility: { true }, request: { .declined })
+        XCTAssertEqual(service.state, .unresolved(.declined))
+        XCTAssertFalse(service.state.allowsWork)
+        await service.check(supported: true, eligibility: { true }, request: { throw Failure.injected })
+        XCTAssertEqual(service.state, .unresolved(.requestError))
+        XCTAssertEqual(try Data(contentsOf: ledger), originalLedger)
+        XCTAssertEqual(try Data(contentsOf: jpeg), fixture)
+        await service.check(supported: true, eligibility: { true }, request: {
+            .shared(AgeAssuranceReceipt(lowerBound: 13, upperBound: 15, declaration: "guardianDeclared"))
+        })
+        XCTAssertTrue(service.state.allowsWork)
+        XCTAssertEqual(try Data(contentsOf: ledger), originalLedger)
+        XCTAssertEqual(try Data(contentsOf: jpeg), fixture)
+        XCTAssertEqual(try JobStore.loadLatest()?.id, job.id)
+        XCTAssertEqual(try JobStore.loadLatest()?.phase, .paused)
+        XCTAssertNotEqual(try JobStore.loadLatest()?.sourcesDeleted, true)
     }
 }

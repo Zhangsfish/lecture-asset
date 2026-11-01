@@ -1,0 +1,59 @@
+{
+  "status": "UNSAVED_PATCH_PLAN_ONLY",
+  "readback_date": "2026-10-31T07:02:56Z",
+  "automatic_metadata_mutation": false,
+  "patches": [
+    {
+      "field": "appStoreVersion.releaseType",
+      "observed": "AFTER_APPROVAL",
+      "required": "MANUAL",
+      "reason": "Current portal differs from owner-controlled Manual Release policy",
+      "action": "Owner/reviewer verify and save Manual Release before any resubmission; not changed by this task"
+    },
+    {
+      "field": "appAvailability.availableInNewTerritories",
+      "observed": true,
+      "required": false,
+      "reason": "Preserve US+China only; do not opt into future territories",
+      "action": "Owner verify and disable automatic future-region availability; current USA+CHN selection unchanged"
+    },
+    {
+      "field": "appStoreVersion.selectedBuild",
+      "observed": "34.1",
+      "required": "35.1 after independent audit and resolution/adjudication of documented evidence gap",
+      "action": "Select audited new candidate in existing unresolved submission after independent release audit; not selected now"
+    },
+    {
+      "field": "appStoreReviewDetail.notes",
+      "observed": "absent",
+      "required": "Concise actual new-build age/permission reproduction notes",
+      "action": "Use final unsent packet only after evidence/audit; no Apple reply sent"
+    }
+  ],
+  "unchanged_correct_fields": {
+    "parentalControls": false,
+    "ageAssurance": true,
+    "ageRating": "FOUR_PLUS",
+    "ageRatingOverrideV2": "NONE",
+    "freePrice": "0.0",
+    "currentlyAvailableTerritories": [
+      "USA",
+      "CHN"
+    ],
+    "privacyURL": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+    "supportURL": "https://zhangsfish.github.io/lecture-asset/support.html",
+    "reviewContactComplete": true,
+    "demoAccountRequired": false
+  },
+  "unread_fields": [
+    "Resolution Center full text/attachments beyond owner-supplied 2026-10-30 feedback"
+  ],
+  "source": "Live ASC readback; no changes saved",
+  "owner_observed_correct_fields": {
+    "App Privacy": "Data Not Collected; owner reported 未采集数据 on 2026-10-31, no API claim"
+  },
+  "latest_readback_date": "2026-10-31T07:49:29Z",
+  "candidate_processed_build": "35.1",
+  "new_candidate_status": "VALID / APP_STORE_ELIGIBLE / IN_BETA_TESTING",
+  "independent_release_audit": "NOT_COMPLETE: eligible Sandbox environment gap retained"
+}

@@ -1,0 +1,12 @@
+{
+  "passed": 3,
+  "failed": 0,
+  "safe_log_extract": [
+    "Test Case '-[ArchiveCoreTests.ArchiveCoreTests testAIUsageContractRequiresVisualVerification]' passed (0.002 seconds).",
+    "Test Case '-[ArchiveCoreTests.ArchiveCoreTests testMissingOrChangedCanonicalJPEGIsRejected]' passed (0.014 seconds).",
+    "Test Case '-[ArchiveCoreTests.ArchiveCoreTests testOneAndTwentyPageArchivesWithEmptyAndFailedOCR]' passed (0.435 seconds).",
+    "\t Executed 3 tests, with 0 failures (0 unexpected) in 0.451 (0.452) seconds",
+    "\t Executed 3 tests, with 0 failures (0 unexpected) in 0.451 (0.452) seconds",
+    "\t Executed 3 tests, with 0 failures (0 unexpected) in 0.451 (0.457) seconds"
+  ]
+}

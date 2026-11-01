@@ -35,7 +35,7 @@ for locale in en zh-Hans; do
   xcrun simctl bootstatus "$device" -b
   base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release
     -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$derived"
-    ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES
+    CURRENT_PROJECT_VERSION="${RC_BUILD:-35.1}" MARKETING_VERSION=0.1.0 ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES
     -parallel-testing-enabled NO)
   run_test() {
     local name="$1"; shift

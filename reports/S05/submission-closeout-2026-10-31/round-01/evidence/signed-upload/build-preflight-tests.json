@@ -1,0 +1,6 @@
+{
+  "existingBuildCasesRejected" : 2,
+  "result" : "PASS",
+  "scope" : "Synthetic preflight predicate; live uniqueness is checked separately",
+  "unusedBuildAccepted" : true
+}
