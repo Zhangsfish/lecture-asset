@@ -1,26 +1,21 @@
-# Codex start — physical age demo, Apple review Nov 8
+# Codex start — S05-R4 remove age assurance / prepare replacement review binary
 
-Updated: 2026-11-09
-Repository: `Zhangsfish/lecture-asset`
+Updated: 2026-11-09. Repository: `Zhangsfish/lecture-asset`.
 
-## Read order
+## Authoritative instructions
 
-Fetch latest main and PR23 first. Read `AGENTS.md` → `STATUS.md` → `tasks/S05_R3_PHYSICAL_AGE_DEMO_2026-11-08.md` → `docs/WORKFLOW.md` → the referenced exact shipping source/evidence. The R3 task supersedes old R2 build plans and the October31 provisional submission waiver.
+1. Fetch latest main and current PR #23 head/state; do not assume old SHAs.
+2. Read `AGENTS.md` → `STATUS.md` → **`tasks/S05_R4_REMOVE_AGE_ASSURANCE_2026-11-09.md`** → `docs/WORKFLOW.md` → relevant historical PR15 and PR23 sources.
+3. **Only S05-R4 is READY.** The previously directed S05-R3 age-Sandbox-video work is superseded by the owner's explicit decision to remove this optional-in-product age check. Do not try to film an absent feature or add a reviewer-only mechanism.
 
-## Execute
+## Concrete task
 
-Apple reviewed **0.1.0 (35.1)** on November8 and explicitly requires a **physical-iOS-device demo of age assurance**, a working video link in Review Notes, and a reply in the existing conversation.
+- **Full runtime rollback:** Restore direct `ContentView()`, remove the Declared Age Range adapter/service, calls/imports, localization strings, app entitlement/project capability, age-specific tests, age-only workflows. Preserve real PhotoKit readWrite, the already accepted Continue/继续, recovery, ZIP/PDF/OCR/share/cleanup and all prior safety contracts.
+- Update old release verifier, bridge, self-tests, workflows and candidate configuration to require **absence of age entitlement in newly signed App** while retaining strict Apple Distribution/codesign/profile/debug/privacy/IPA integrity controls. Do not just delete failing assertions.
+- Keep historical signed `0.1.0 (35.1)` reports immutable: it still contains the age feature. New replacement needs an unused higher build number selected only after actual ASC preflight; 36.1 is just a candidate.
+- Reuse audited PR #23 release-tooling on its existing isolated branch with latest main merged carefully; no force push. Once the implementation changes, obtain fresh focused actual CI evidence and independent exact-head audit. No unreviewed upload or self-merge.
+- Prepare truthful **App Store Connect Age Assurance = No, Parental Controls = No** owner steps for the replacement, and factual reviewer response acknowledging removal. No metadata-only edits to 35.1 pretending the API disappeared, no fake video, no removal of the current Apple review message.
+- **Do not claim legal exemption:** Texas developer-duty obligations may apply to this no-age feature set. Keep the US auto-release risk explicit; owner chose AFTER_APPROVAL and future-new-territories off. Do not silently change regions/release type. No automatic App Review submission.
+- Finish with `reports/S05/age-removal-2026-11-09/round-01/` and PR **READY_FOR_AUDIT**, with exact tested/source/head SHAs, code/asset removal proof, local & CI results, negative entitlement checks, and the unsubmitted review reply.
 
-Primary route: keep35.1; establish authentic Apple Sandbox on the real existing iPhone; record the actual age path and a small synthetic-photo workflow; inspect/encode safely; prepare stable owner-approved hosting, timestamped Notes and an unsent reply. No video = not ready. Simulator captures, injected tests, signed entitlement or normal album entry cannot substitute.
-
-PR23 is still OPEN/UNMERGED at last readback, head `4d7be3703176535c88c696b53611dbc86ef932fb`; shipped35.1 source `b107ded0d60ec3944c4db41068a6e79e41c6f5b1`. Continue the existing isolated branch, bring in current main instructions via normal conflict-aware merge, and store new evidence in `reports/S05/age-demo-2026-11-08/round-01/`. Do not force-push or rebuild from main as though it contains PR23 tooling. No PR merge is authorized.
-
-Owner already reported Windows+iPhone and missing Developer/Sandbox menu. Do not ask them to look for the same missing menu again. Check availability of an existing/borrowed Mac/Xcode for Apple's supported pairing route, and guide one precise phone/account step at a time. Reuse existing credentials privately; Sandbox account passwords are entered by owner. Distinguish Media & Purchases from top-level iCloud; explain any sign-out consequences before an owner action. Do not install utilities, buy hardware or create a new tester silently.
-
-Dry-run genuine eligible minor/adult responses and cache/no-prompt behavior. If35.1 works, no new binary. If an actual app defect is found, prepare only the narrow fix/tests and obtain independent review before signing/uploading a replacement. No fake system UI, eligibility bypass, reviewer-only mode, default switch to Age Assurance=None or artificial18+ restriction.
-
-Preserve owner-chosen **automatic release AFTER_APPROVAL**, free US+China distribution and future-new-territory opt-in off (last owner-reported; reread current ASC). Do not repeat the superseded requirement to switch to manual. ICP case `102984758084` remains separate and approved; no new ICP application.
-
-## Stop and handoff
-
-Deliver actual physical footage provenance/hashes, exact model/OS/build/scenario, timestamps, anonymously usable owner-approved HTTPS link, <=4000-byte Review Notes and factual unsent Apple reply. Do not publish private footage, send the reply, resubmit, merge or change release policy automatically. ChatGPT independently reviews real evidence before the owner submits the link/reply. If environment blocks testing, give the exact missing step and practical supported escalation, not a new generic plan or a fabricated PASS.
+The task is *implementation and auditable preparation*, not current public release authorization. ChatGPT independently reviews the changed PR before a new signed/uploaded candidate and final ASC/reviewer operations. No owner passwords/keys/raw profiles/photos in GitHub evidence.
