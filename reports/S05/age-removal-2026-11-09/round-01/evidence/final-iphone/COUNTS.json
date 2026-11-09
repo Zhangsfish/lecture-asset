@@ -1,0 +1,127 @@
+{
+  "actual_execution_summary": [
+    {
+      "file": "review-iphone-en-contracts-summary.json",
+      "result": "Passed",
+      "totalTestCount": 9,
+      "passedTests": 9,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-en-Denied-native-status-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-en-Denied-ui-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-en-FullAccess-native-status-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-en-FullAccess-ui-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-en-Limited-native-status-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-en-Limited-ui-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-en-ordinary-entry-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-zh-Hans-Denied-native-status-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-zh-Hans-Denied-ui-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-zh-Hans-FullAccess-native-status-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-zh-Hans-FullAccess-ui-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-zh-Hans-Limited-native-status-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-zh-Hans-Limited-ui-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    {
+      "file": "review-iphone-zh-Hans-ordinary-entry-summary.json",
+      "result": "Passed",
+      "totalTestCount": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0
+    }
+  ],
+  "total_executions": 23,
+  "failed": 0,
+  "skipped": 0
+}

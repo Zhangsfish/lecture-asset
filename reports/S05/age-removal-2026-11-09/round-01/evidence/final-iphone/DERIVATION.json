@@ -1,0 +1,120 @@
+{
+  "rule": "Remove ephemeral simulator deviceId/deviceIdentifier only; counts and status unchanged; selected PNGs unchanged.",
+  "modified_json": [
+    {
+      "file": "review-iphone-en-contracts-summary.json",
+      "original_sha256": "24fa4c00dfe8319af273d0baaf30961c272221b3396091c6382f5034f69c78cf",
+      "retained_sha256": "7d9899d0f8e60fb051e0c8e05fe728cb149aa6b0ba35794d19234a04c307ca9d"
+    },
+    {
+      "file": "review-iphone-en-Denied-native-status-summary.json",
+      "original_sha256": "ead32bfee79a4a73d5532fc56ac8b484068054215c45211b5885cf3682695e8d",
+      "retained_sha256": "d35c2a4a31fc16b1dbb959d50e1f5a6e7a166f00f44ff7d44579b941d5ab28c6"
+    },
+    {
+      "file": "review-iphone-en-Denied-ui-summary.json",
+      "original_sha256": "fa0cba382bb9adf552e05651f97251a21cafa972a1fcbc9d033638d643765277",
+      "retained_sha256": "07f98078a931a35c2b62cd2e4860c8b4f0e962c4d9a1d599b583418f0c5ae023"
+    },
+    {
+      "file": "review-iphone-en-FullAccess-native-status-summary.json",
+      "original_sha256": "7f06cf3552f9a617771239124a020a1a334a6f84117dcc6b32cfe2fc3873a135",
+      "retained_sha256": "206ae590db8ba4197846289077bc30691e62728fd97b621b6d089ffb29fbe5a2"
+    },
+    {
+      "file": "review-iphone-en-FullAccess-ui-summary.json",
+      "original_sha256": "da3a4a8deefe356670faa57133455cdf7ed427e6ded9dd657fa6081a067edfe6",
+      "retained_sha256": "83a70fa4aa53d5b94fc6478a5a7f00e138be0e8606bb83a4b685c5d6053ebec7"
+    },
+    {
+      "file": "review-iphone-en-Limited-native-status-summary.json",
+      "original_sha256": "fa7df0a4f1cb5968c8776a8b475a6f09bb72480e2e1a4b105f4cc4d8bf3743e1",
+      "retained_sha256": "2726e8ef74c3e6caf4058c15b990e0d9045bb4078cee521d979a0bf16614e20d"
+    },
+    {
+      "file": "review-iphone-en-Limited-ui-summary.json",
+      "original_sha256": "cedb174e457d46f21f08ef2c53a2ec1b700efaa9459995282c6ced46d923a77f",
+      "retained_sha256": "432abd26e0f17a9f67c221f08dceae5b97d880f58deeed507b419d1d3940aff8"
+    },
+    {
+      "file": "review-iphone-en-ordinary-entry-summary.json",
+      "original_sha256": "051d5ea8a8817692cd079aa81c5aabd4a4fcdfbdf9437d337c7376a25df5eca5",
+      "retained_sha256": "e1ee7a178728a07ce5b404fea2c7c31b5a3bf2a1b185dfd71d21063e0f7ec44a"
+    },
+    {
+      "file": "review-iphone-zh-Hans-Denied-native-status-summary.json",
+      "original_sha256": "4b5ea243854b6d880c8215bd641a54301414d148df1468f968d71ec9ff1ba470",
+      "retained_sha256": "db61926210cf1a9302132eb9c66c50993a67ea7c3cff5677538291d8d8ee22e6"
+    },
+    {
+      "file": "review-iphone-zh-Hans-Denied-ui-summary.json",
+      "original_sha256": "cad8b6071d5a1e91537de96274f1f4fcade63f46f844013c2b73c63c0b726f5a",
+      "retained_sha256": "86b9ea8416a9d514ff30dc5594b4a26a0fa5e6db6e4cf962b2c45ba90045146b"
+    },
+    {
+      "file": "review-iphone-zh-Hans-FullAccess-native-status-summary.json",
+      "original_sha256": "1260f687a5f3306cf01773cf5b65ee874eafe88251326509710e21e4c14bd4cd",
+      "retained_sha256": "b3c1e49218729737059098cf12ce09c30a378b40dd24c1320a69ada1264a68ba"
+    },
+    {
+      "file": "review-iphone-zh-Hans-FullAccess-ui-summary.json",
+      "original_sha256": "4f2583bfd42a04fa32bdf21703aa658b0b6675855bd03796d9974c3026ace1e8",
+      "retained_sha256": "e8a43d62ee97999da5352756829a01450bd48c19dac1d6711abdc31443c7eeda"
+    },
+    {
+      "file": "review-iphone-zh-Hans-Limited-native-status-summary.json",
+      "original_sha256": "daad254eab9a945ffee01e83a9c8417c841742c394dd9ea4c0c50a3421093ffe",
+      "retained_sha256": "e9742de7d5e107ae71b74a3be1e508bf1fe791609227feabb7f2435a6c101eb1"
+    },
+    {
+      "file": "review-iphone-zh-Hans-Limited-ui-summary.json",
+      "original_sha256": "d9aa419e740e825488a1157e6fa3af03fff327102fcbe0b440f005c2c63ed6e8",
+      "retained_sha256": "eb57d045fc6eb427c85a68dea1e54a4601f9f4789cad7affd911646ca51405bb"
+    },
+    {
+      "file": "review-iphone-zh-Hans-ordinary-entry-summary.json",
+      "original_sha256": "e01da780b99d7b106e7f8941ad0107dc7ca1b0a9f7cad59a97cccfd50c38c804",
+      "retained_sha256": "8ab28e7433e2441bb5c6ab873f49b8471aa5e4faa138c5d00a4a56d1ca23a5ea"
+    },
+    {
+      "file": "screenshots/review-iphone-en-Denied-ui/manifest.json",
+      "original_sha256": "324070834c45e58fefc1bbe563aae900f856dcb42dd5be6c9bb960037dce99d8",
+      "retained_sha256": "267a4f1510590c0c57c1ab727429de31660408fee4ea6f14103f5a8454771b7f"
+    },
+    {
+      "file": "screenshots/review-iphone-en-FullAccess-ui/manifest.json",
+      "original_sha256": "951433891517afa47f69222b42260547d850d68e8c6b6ab2ab605aef9f467d14",
+      "retained_sha256": "6008e210dbff23534113f3f7db6cc025964ab43b8e8da3d47d21cc3069f0fa0f"
+    },
+    {
+      "file": "screenshots/review-iphone-en-Limited-ui/manifest.json",
+      "original_sha256": "0c3f3374f697760622d07d0af65f6874502db60e45370cf2dc91946aa3faa4ee",
+      "retained_sha256": "c40f8633cab7c5f801ba83f76a52977de7944bc865da00cb5d1d65e666ceaacf"
+    },
+    {
+      "file": "screenshots/review-iphone-en-ordinary-entry/manifest.json",
+      "original_sha256": "5b24b67833478f8e719370b77c984df2869be60889bfea9728d5aa66671dea0c",
+      "retained_sha256": "c47986a2fa6e5503b502066ce3f9d9ba7f39158aac49130df940dbea025e76d0"
+    },
+    {
+      "file": "screenshots/review-iphone-zh-Hans-Denied-ui/manifest.json",
+      "original_sha256": "8b1d0c49ae019c5d44c5624838cced063014699fa1797f2761da586abb77a728",
+      "retained_sha256": "bc89a31549df0b28a938cd41c8dcd23e64ddd0f23d4253585dd8ccc5168b0f17"
+    },
+    {
+      "file": "screenshots/review-iphone-zh-Hans-FullAccess-ui/manifest.json",
+      "original_sha256": "1689d4562f85e331c0da09420be63cacb945f40a9cbe3e382ec47ff8c965bcf8",
+      "retained_sha256": "d6baebde8b8b012cd5a2b324da96a805d252123ffa8eabd943b2e509ca95ef24"
+    },
+    {
+      "file": "screenshots/review-iphone-zh-Hans-Limited-ui/manifest.json",
+      "original_sha256": "b22924379fce112cd3dff00e0baaffba40202548ebc4ff18b646e1a3a3afcbcc",
+      "retained_sha256": "b398ff0128db26bf200968f43312730ea54522324c4eb98836f875cce4a05542"
+    },
+    {
+      "file": "screenshots/review-iphone-zh-Hans-ordinary-entry/manifest.json",
+      "original_sha256": "b8a813246d6ce5599a39af7e63e30aec5eced56a01068b5246f6c2a32fb20973",
+      "retained_sha256": "623b53d05ceac29bfd476b7a51443372156c69250c4eb78e82efb7f45a49e63d"
+    }
+  ]
+}

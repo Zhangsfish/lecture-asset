@@ -1,0 +1,113 @@
+{
+  "tested_source_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+  "final_green_runs": [
+    {
+      "role": "final prepare",
+      "id": 42576655515,
+      "html_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655515",
+      "head_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "jobs": [
+        {
+          "id": 129025772781,
+          "name": "final-rc",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 13655654209,
+          "name": "final-rc-safe-evidence",
+          "digest": "sha256:5fecfcad0a5b460c67fa0ebba53262e69cfa8ebd58b212a4348ceb5e5521b24f",
+          "size_in_bytes": 19283,
+          "downloaded_zip_sha256_verified": true
+        }
+      ]
+    },
+    {
+      "role": "final native UI",
+      "id": 42576655542,
+      "html_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655542",
+      "head_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "jobs": [
+        {
+          "id": 129025772916,
+          "name": "focused (iphone)",
+          "conclusion": "success"
+        },
+        {
+          "id": 129025773343,
+          "name": "focused (ipad)",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 13656757309,
+          "name": "app-review-iphone-safe-evidence",
+          "digest": "sha256:5cf97da77fe00832d5847a9f3f7d89ab5368930af7926c761a523d9c10d1ec27",
+          "size_in_bytes": 20424748,
+          "downloaded_zip_sha256_verified": true
+        },
+        {
+          "id": 13656562267,
+          "name": "app-review-ipad-safe-evidence",
+          "digest": "sha256:595fd84f01fcb1aac1137d07341e20ff471b42e5a99825302b987133d17a4f18",
+          "size_in_bytes": 42131654,
+          "downloaded_zip_sha256_verified": true
+        }
+      ]
+    },
+    {
+      "role": "final read-only preflight",
+      "id": 42577015653,
+      "html_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42577015653",
+      "head_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "jobs": [
+        {
+          "id": 129029252955,
+          "name": "final-rc",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 13655518928,
+          "name": "final-rc-safe-evidence",
+          "digest": "sha256:a28ad8a6f9bac3e0fff792b73733a82cbe48d008e0229679f9c0cf771bec451b",
+          "size_in_bytes": 22371,
+          "downloaded_zip_sha256_verified": true
+        }
+      ]
+    }
+  ],
+  "original_artifact_hash_verification": "SHA256 recomputed on downloaded ZIPs and compared to GitHub digest; transfer helper retained outside Git",
+  "artifact_retention_days": 30,
+  "earlier_attempts": [
+    {
+      "run": 42570740747,
+      "source": "1a0be9e9cd62ac477f35b1348b4f0d3fc1a65c5a",
+      "result": "FAIL",
+      "reason": "Incorrect UTF-8 label expectation in verifier; App catalog unchanged"
+    },
+    {
+      "run": 42570740726,
+      "source": "1a0be9e9cd62ac477f35b1348b4f0d3fc1a65c5a",
+      "result": "FAIL",
+      "reason": "Same incorrectly encoded Chinese comparison"
+    },
+    {
+      "run": 42571096394,
+      "source": "a554f2accab6e511e531130f7f8583ef2a839b34",
+      "result": "FAIL_ATTEMPT1_AND2",
+      "reason": "Initial XcodeGen HTTP504; then native picker readiness exceeded10s. iPad14 passed; iPhone limited completion wait failed. Original summaries/selected screenshot/AX extract retained."
+    }
+  ],
+  "signing_ipa_upload": "NOT_RUN_THIS_TASK",
+  "no_35_1_evidence_changed": true
+}

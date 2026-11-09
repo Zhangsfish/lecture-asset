@@ -1,0 +1,13 @@
+{
+  "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42571096394/attempts/2",
+  "job_id": 129018324192,
+  "artifact_id": 13655117971,
+  "artifact_zip_sha256": "cd0bd5bebf8656977929942744c5b8865f481e05613e4461c3d519998710aa0f",
+  "test_source_sha": "a554f2accab6e511e531130f7f8583ef2a839b34",
+  "failed_assertion": "Native limited picker completion button did not exist within10s",
+  "screenshot_source": "screenshots/review-iphone-en-Limited-ui/41A49D2A-E740-4172-80C0-7C69EE52A90C.png",
+  "screenshot_sha256": "6bd1145e2e885ca71dd9cfe9a0e8d19be2ce44ca808547ed1930c6261a64b9c7",
+  "fix_scope": "Test-only readiness wait60s, real interaction/native status still required; runtime unchanged",
+  "screenshot_observation": "Captured after the10s assertion timed out; by the time of this image the native picker had loaded and shows its completion checkmark. Earlier failure AX snapshot explicitly showed Loading.",
+  "accessibility_source_sha256": "c1f24897f5b69856b06bf50022754b582a7fe009e65d8401900106d9552dcd6b"
+}

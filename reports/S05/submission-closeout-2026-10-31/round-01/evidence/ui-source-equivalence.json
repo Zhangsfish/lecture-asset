@@ -1,0 +1,16 @@
+{
+  "ui_test_source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e",
+  "candidate_tooling_sha": "b107ded0d60ec3944c4db41068a6e79e41c6f5b1",
+  "compared_paths": [
+    "App",
+    "AppResources",
+    "Packages",
+    "schemas",
+    "project.yml",
+    "Tests",
+    "UITests"
+  ],
+  "diff": [],
+  "production_and_test_sources_identical": true,
+  "scope": "Release tooling guards changed between these SHAs; actual shipping App and permission/age tests did not."
+}

@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "actual_shell_executions": [
+    {
+      "operation": "upload",
+      "default_authorization": "false",
+      "exit": 2,
+      "safe_result": "RELEASE_NOT_AUTHORIZED",
+      "credentials_provided": false
+    },
+    {
+      "operation": "internal-only",
+      "default_authorization": "false",
+      "exit": 2,
+      "safe_result": "RELEASE_NOT_AUTHORIZED",
+      "credentials_provided": false
+    }
+  ]
+}

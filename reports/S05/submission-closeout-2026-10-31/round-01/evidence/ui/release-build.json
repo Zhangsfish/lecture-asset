@@ -1,0 +1,12 @@
+{
+  "clean_release_build": "PASS",
+  "bundle_id": "com.zhangsfish.lectureasset",
+  "minimum_os": "18.0",
+  "targeted_device_family": [
+    1
+  ],
+  "both_bundled_permission_labels": "PASS",
+  "both_privacy_manifests": "PASS",
+  "distribution_signing": "NOT_RUN",
+  "upload": "NOT_RUN"
+}

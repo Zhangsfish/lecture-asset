@@ -1,0 +1,14 @@
+{
+  "entry_source_routing": {
+    "method": "Focused source assertion; not old-OS simulator/device execution",
+    "source_sha256": "aa7ef7c2329438a0ceb0121630bb7af265357765631c9019e8d050809cb69c44",
+    "ios_below_26_2": "ContentView() directly; no service, request, or blocker",
+    "ios_26_2_plus": "SupportedAgeAssuranceEntry()",
+    "owner_decision_date": "2026-10-06"
+  },
+  "release_simulator_macho_declared_age_range": true,
+  "minimum_os": "18.0",
+  "bundle_id_correct": true,
+  "apple_signed_device_entitlement": "NOT_RUN",
+  "evidence_scope": "Final Release simulator __TEXT,__entitlements; not distribution provisioning"
+}

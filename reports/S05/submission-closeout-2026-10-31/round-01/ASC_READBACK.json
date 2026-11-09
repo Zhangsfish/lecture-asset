@@ -1,0 +1,427 @@
+{
+  "queryDate": "2026-10-31T07:49:29Z",
+  "appID": "6816814541",
+  "app": {
+    "bundleId": "com.zhangsfish.lectureasset",
+    "contentRightsDeclaration": "DOES_NOT_USE_THIRD_PARTY_CONTENT",
+    "name": "Lecture Asset",
+    "primaryLocale": "en-US"
+  },
+  "appInfos": [
+    {
+      "ageRatingDeclaration": {
+        "advertising": false,
+        "ageAssurance": true,
+        "ageRatingOverride": "NONE",
+        "ageRatingOverrideV2": "NONE",
+        "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+        "contests": "NONE",
+        "developerAgeRatingInfoUrl": null,
+        "gambling": false,
+        "gamblingSimulated": "NONE",
+        "gunsOrOtherWeapons": "NONE",
+        "healthOrWellnessTopics": false,
+        "horrorOrFearThemes": "NONE",
+        "kidsAgeBand": null,
+        "koreaAgeRatingOverride": "NONE",
+        "lootBox": false,
+        "matureOrSuggestiveThemes": "NONE",
+        "medicalOrTreatmentInformation": "NONE",
+        "messagingAndChat": false,
+        "parentalControls": false,
+        "profanityOrCrudeHumor": "NONE",
+        "sexualContentGraphicAndNudity": "NONE",
+        "sexualContentOrNudity": "NONE",
+        "socialMedia": false,
+        "socialMediaAgeRestricted": false,
+        "unrestrictedWebAccess": false,
+        "userGeneratedContent": false,
+        "violenceCartoonOrFantasy": "NONE",
+        "violenceRealistic": "NONE",
+        "violenceRealisticProlongedGraphicOrSadistic": "NONE"
+      },
+      "attributes": {
+        "appStoreAgeRating": "FOUR_PLUS",
+        "appStoreState": "REJECTED",
+        "brazilAgeRating": "L"
+      },
+      "id": "32d24c47-f637-4118-a73f-9272c00e42ca",
+      "localizations": [
+        {
+          "locale": "en-US",
+          "name": "Lecture Asset",
+          "privacyPolicyUrl": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+          "subtitle": null
+        },
+        {
+          "locale": "zh-Hans",
+          "name": "Lecture Asset",
+          "privacyPolicyUrl": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+          "subtitle": null
+        }
+      ]
+    }
+  ],
+  "candidateBuildNumber": "35.1",
+  "candidateBuilds": [
+    {
+      "attributes": {
+        "buildAudienceType": "APP_STORE_ELIGIBLE",
+        "expired": false,
+        "minOsVersion": "18.0",
+        "processingState": "VALID",
+        "usesNonExemptEncryption": false,
+        "version": "35.1"
+      },
+      "id": "9dd9196a-b0c1-4457-b025-eb90cf9a72c3"
+    }
+  ],
+  "existingInternalGroupCount": 1,
+  "pricing": {
+    "pricePoints": [
+      {
+        "customerPrice": "0.0",
+        "proceeds": "0.0"
+      }
+    ]
+  },
+  "reviewSubmissions": [
+    {
+      "platform": "IOS",
+      "state": "UNRESOLVED_ISSUES",
+      "submittedDate": "2026-10-15T10:06:02.35Z"
+    },
+    {
+      "platform": "IOS",
+      "state": "COMPLETE",
+      "submittedDate": "2026-10-07T05:27:33.704Z"
+    }
+  ],
+  "internalGroupAssociation": [
+    {
+      "alreadyAssociated": true,
+      "associationReadback": true,
+      "existingInternalGroup": true
+    }
+  ],
+  "buildBetaDetail": {
+    "autoNotifyEnabled": true,
+    "externalBuildState": "READY_FOR_BETA_SUBMISSION",
+    "internalBuildState": "IN_BETA_TESTING"
+  },
+  "appPrivacyLabel": {
+    "status": "OWNER_PORTAL_OBSERVATION",
+    "value": "Data Not Collected",
+    "owner_reported_text": "未采集数据",
+    "observed_date": "2026-10-31",
+    "source": "Owner text reply in current conversation; not an API readback or mutation",
+    "independently_read_back": false
+  },
+  "source": {
+    "workflow_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41182055354",
+    "source_sha": "b107ded0d60ec3944c4db41068a6e79e41c6f5b1",
+    "artifact_id": 13034878490,
+    "operation": "Readback; existing internal group was already associated, no group POST necessary"
+  },
+  "initial_unique_number_check": {
+    "workflow_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/41178912767",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e",
+    "artifact_id": 13033474346,
+    "safe_raw_sha256": "b79eb58bd73d664c5c036a7fd28834c5cacd501498025951be6af228cb234efc"
+  },
+  "availability": {
+    "availableInNewTerritories": true,
+    "territoriesRead": 175,
+    "currentlyAvailableTerritories": [
+      {
+        "attributes": {
+          "available": true,
+          "contentStatuses": [
+            "CANNOT_SELL",
+            "AVAILABLE_FOR_SALE_UNRELEASED_APP"
+          ],
+          "preOrderEnabled": false,
+          "releaseDate": null
+        },
+        "territory": "USA"
+      },
+      {
+        "attributes": {
+          "available": true,
+          "contentStatuses": [
+            "CANNOT_SELL",
+            "AVAILABLE_FOR_SALE_UNRELEASED_APP"
+          ],
+          "preOrderEnabled": false,
+          "releaseDate": null
+        },
+        "territory": "CHN"
+      }
+    ]
+  },
+  "versions": [
+    {
+      "attributes": {
+        "appStoreState": "REJECTED",
+        "appVersionState": "REJECTED",
+        "copyright": "2026 Shuo Zhang",
+        "releaseType": "AFTER_APPROVAL",
+        "usesIdfa": null,
+        "versionString": "0.1.0"
+      },
+      "id": "c2dbb38f-afec-4d85-bcf4-f15b6c10dc4a",
+      "localizations": [
+        {
+          "description": "After a lecture, your photo library can be left with dozens or even hundreds of slide photos: too useful to delete, rarely revisited, and awkward to hand directly to AI.\n\nLecture Asset turns those scattered photos into a clean, reusable lecture archive.\n\n• Select up to 200 photos at once, with press-and-drag for faster selection\n• Organize them by capture time and review the batch before processing\n• Recognize Chinese and English text on device\n• Generate a PDF for reading and saving\n• Generate an AI-friendly ZIP containing high-resolution JPEGs, page order, and an OCR index\n• After export, choose whether to delete the source photos or only clear the app’s working files\n\nProcessing and OCR stay on your device. No account is required, and there are no ads or analytics SDKs.\n\nLecture Asset does not generate AI summaries itself. It prepares your lecture photos as open, structured material that is easier to save, review, and pass to AI tools.\n\nOCR is mainly for search and navigation. For formulas, tables, numbers, and fine details, refer to the original page images.\n\nFor Live Photos, Lecture Asset uses the still image only; motion and audio are not included.",
+          "keywords": "lecture, slides, photos, PDF, OCR, archive, study, notes",
+          "locale": "en-US",
+          "marketingUrl": null,
+          "promotionalText": null,
+          "screenshotSets": [
+            {
+              "count": 6,
+              "displayType": "APP_IPHONE_67",
+              "screenshots": [
+                {
+                  "fileName": "02-select-and-sort.png",
+                  "fileSize": 457082,
+                  "height": 2868,
+                  "sourceFileChecksum": "a5e4b8046c2021b5d437abaa33ac2873",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "05-ai-zip-to-ai.png",
+                  "fileSize": 272248,
+                  "height": 2868,
+                  "sourceFileChecksum": "19d99466282f8b77e404a4d136fa7293",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "06-save-then-clean.png",
+                  "fileSize": 269133,
+                  "height": 2868,
+                  "sourceFileChecksum": "4f65b2246893bde8033715103ab1c0b1",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "01-lecture-photos.png",
+                  "fileSize": 487467,
+                  "height": 2868,
+                  "sourceFileChecksum": "4cf55c4ea7fdde905ee9c30284ab3163",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "04-pdf-for-review.png",
+                  "fileSize": 360394,
+                  "height": 2868,
+                  "sourceFileChecksum": "3621a690e1765a6adaf9787f058563e4",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "03-generate-pdf-zip.png",
+                  "fileSize": 211348,
+                  "height": 2868,
+                  "sourceFileChecksum": "c27a398bbbd5eb00e7a1d4784cec9af1",
+                  "state": "COMPLETE",
+                  "width": 1320
+                }
+              ]
+            },
+            {
+              "count": 6,
+              "displayType": "APP_IPHONE_61",
+              "screenshots": [
+                {
+                  "fileName": "01-lecture-photos.png",
+                  "fileSize": 545426,
+                  "height": 2622,
+                  "sourceFileChecksum": "e3faf05346434cdaf406947290d58ebd",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "02-select-and-sort.png",
+                  "fileSize": 531720,
+                  "height": 2622,
+                  "sourceFileChecksum": "affbd9c47bffe47faa2c57e8e59b1cbe",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "03-generate-pdf-zip.png",
+                  "fileSize": 251688,
+                  "height": 2622,
+                  "sourceFileChecksum": "ef92be304b9124722d9abd37ff76bf72",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "04-pdf-for-review.png",
+                  "fileSize": 380197,
+                  "height": 2622,
+                  "sourceFileChecksum": "d5f144d9ed6b4f8706c6e316f4fbfd0b",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "05-ai-zip-to-ai.png",
+                  "fileSize": 366070,
+                  "height": 2622,
+                  "sourceFileChecksum": "8c818697640624d32e7ddc9baa301570",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "06-save-then-clean.png",
+                  "fileSize": 349711,
+                  "height": 2622,
+                  "sourceFileChecksum": "22664c70111926eb4028a3fecba66030",
+                  "state": "COMPLETE",
+                  "width": 1206
+                }
+              ]
+            }
+          ],
+          "supportUrl": "https://zhangsfish.github.io/lecture-asset/support.html"
+        },
+        {
+          "description": "讲座结束后，相册里常常留下几十甚至上百张幻灯片照片：舍不得删，又很少再翻，也不方便直接交给 AI 使用。\n\nLecture Asset 帮你把这些照片整理成一份真正可用的讲座资料。\n\n• 一次选择最多 200 张照片，支持长按拖动快速选择\n• 自动按拍摄时间整理顺序，并在生成前检查内容\n• 在设备本地识别中文和英文文字\n• 生成适合阅读和保存的 PDF\n• 生成适合交给 AI 处理的 ZIP，其中包含高分辨率 JPEG、页面顺序和 OCR 索引\n• 导出确认后，可选择删除原照片，或只清理 App 的工作文件\n\n整个整理和 OCR 过程都在设备本地完成，不需要注册账号，也没有广告和分析 SDK。\n\nLecture Asset 不会替你生成 AI 摘要，而是把原本散落在相册里的讲座照片整理成更容易保存、阅读和交给 AI 使用的开放资料。\n\nOCR 主要用于搜索和定位；需要确认公式、表格、数字或细节时，请以原始页面图片为准。\n\nLive Photo 会使用其中的静态照片，不包含动态画面和音频。",
+          "keywords": "讲座，幻灯片，照片，PDF，OCR，归档，学习，笔记",
+          "locale": "zh-Hans",
+          "marketingUrl": null,
+          "promotionalText": null,
+          "screenshotSets": [
+            {
+              "count": 6,
+              "displayType": "APP_IPHONE_67",
+              "screenshots": [
+                {
+                  "fileName": "02-select-and-sort.png",
+                  "fileSize": 456284,
+                  "height": 2868,
+                  "sourceFileChecksum": "596b9041f7af7827c84660c0981bca49",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "01-lecture-photos.png",
+                  "fileSize": 491186,
+                  "height": 2868,
+                  "sourceFileChecksum": "59f3d78cf902f7384b3a3fce6eb55fd1",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "05-ai-zip-to-ai.png",
+                  "fileSize": 286489,
+                  "height": 2868,
+                  "sourceFileChecksum": "676cc996e29f3f135d6ece2cf1d48874",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "04-pdf-for-review.png",
+                  "fileSize": 359665,
+                  "height": 2868,
+                  "sourceFileChecksum": "5f577e259b0a743e2a07b31c99c58ab6",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "06-save-then-clean.png",
+                  "fileSize": 278842,
+                  "height": 2868,
+                  "sourceFileChecksum": "a57b62e873f542c7bcb52a5ec2388f98",
+                  "state": "COMPLETE",
+                  "width": 1320
+                },
+                {
+                  "fileName": "03-generate-pdf-zip.png",
+                  "fileSize": 215838,
+                  "height": 2868,
+                  "sourceFileChecksum": "b7ecd931310531fc85894e61d73c1d43",
+                  "state": "COMPLETE",
+                  "width": 1320
+                }
+              ]
+            },
+            {
+              "count": 6,
+              "displayType": "APP_IPHONE_61",
+              "screenshots": [
+                {
+                  "fileName": "01-lecture-photos.png",
+                  "fileSize": 535055,
+                  "height": 2622,
+                  "sourceFileChecksum": "55aefea0f142f0352d4b4f1c258fe56c",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "02-select-and-sort.png",
+                  "fileSize": 530008,
+                  "height": 2622,
+                  "sourceFileChecksum": "331dc21325c43c13c83bea40d4b2754c",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "03-generate-pdf-zip.png",
+                  "fileSize": 248751,
+                  "height": 2622,
+                  "sourceFileChecksum": "ac76b14cd513dc4130c2842e09dd2885",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "04-pdf-for-review.png",
+                  "fileSize": 378613,
+                  "height": 2622,
+                  "sourceFileChecksum": "d3d59f197e29c7d21a8c13018cc3d679",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "05-ai-zip-to-ai.png",
+                  "fileSize": 366943,
+                  "height": 2622,
+                  "sourceFileChecksum": "801059472c235fbda5aa08db98a044d4",
+                  "state": "COMPLETE",
+                  "width": 1206
+                },
+                {
+                  "fileName": "06-save-then-clean.png",
+                  "fileSize": 344761,
+                  "height": 2622,
+                  "sourceFileChecksum": "aada5e52bc9fb62503034aadfd4400f7",
+                  "state": "COMPLETE",
+                  "width": 1206
+                }
+              ]
+            }
+          ],
+          "supportUrl": "https://zhangsfish.github.io/lecture-asset/support.html"
+        }
+      ],
+      "reviewContact": {
+        "complete": true,
+        "demoAccountRequired": false,
+        "notesPresent": false,
+        "privateValuesPublished": false
+      },
+      "selectedBuild": {
+        "attributes": {
+          "buildAudienceType": "APP_STORE_ELIGIBLE",
+          "processingState": "VALID",
+          "version": "34.1"
+        },
+        "id": "11aa2e32-00b5-42fe-88e8-cd927ea46cd9"
+      }
+    }
+  ]
+}

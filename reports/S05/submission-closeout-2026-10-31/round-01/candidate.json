@@ -1,0 +1,12 @@
+{
+  "bundle_id": "com.zhangsfish.lectureasset",
+  "app_id": "6816814541",
+  "team_id": "QK73K23W9N",
+  "version": "0.1.0",
+  "build": "35.1",
+  "minimum_os": "18.0",
+  "audited_product_baseline": "6a2be31f27ee90ad094bc8b003c9484e81fb6803",
+  "base_main": "14f91942f19e80c1afaabbd2445692fdd60b9da9",
+  "build_number_status": "MUST_PASS_LIVE_ASC_PREFLIGHT",
+  "release_policy": "APP_STORE_ELIGIBLE; NO_REVIEW_SUBMISSION; MANUAL_RELEASE"
+}

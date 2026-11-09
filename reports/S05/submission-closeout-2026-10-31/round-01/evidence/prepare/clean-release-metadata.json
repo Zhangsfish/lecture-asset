@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "CFBundleIdentifier": "com.zhangsfish.lectureasset",
+    "CFBundleShortVersionString": "0.1.0",
+    "CFBundleVersion": "35.1",
+    "MinimumOSVersion": "18.0",
+    "ITSAppUsesNonExemptEncryption": false
+  },
+  "privacy": {
+    "app_manifest": true,
+    "zipfoundation_manifest": true,
+    "bundled_manifest_paths": [
+      "PrivacyInfo.xcprivacy",
+      "ZIPFoundation_ZIPFoundation.bundle/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "localized_permission_labels": {
+    "en": "Continue",
+    "zh-Hans": "\u7ee7\u7eed"
+  }
+}

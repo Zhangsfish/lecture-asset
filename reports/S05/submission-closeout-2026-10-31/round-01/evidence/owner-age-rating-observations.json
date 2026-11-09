@@ -1,0 +1,33 @@
+{
+  "source": "Owner-supplied ASC screenshots in current conversation; no ASC mutation by Codex",
+  "observed_date": "2026-10-31",
+  "parentalControls": false,
+  "ageAssurance": true,
+  "calculatedRating": "4+",
+  "ageOverride": "Not applicable",
+  "developerAgeInfoURL": "blank",
+  "unrestrictedWebAccess": false,
+  "userGeneratedContent": false,
+  "socialMedia": false,
+  "ratingApplicableTerritories": 172,
+  "rating_territories_are_not_availability": true,
+  "saved_API_readback": "PENDING",
+  "screenshots": [
+    {
+      "path": "owner-age-rating-1.png",
+      "sha256": "6f857edf3471b09d22c5a8c5bc21aae3bfa9b3d91f4eb6a49945745615e00f90"
+    },
+    {
+      "path": "owner-age-rating-2.png",
+      "sha256": "fe756c90a4b6767bcb9dd3ab87f5b8a9e7757ced8676cb5cfcbfbad8284afce5"
+    },
+    {
+      "path": "owner-age-rating-3.png",
+      "sha256": "adf8041d66ff86ad74a3266e00332307c1ed02e6f3e228accda474c89454daaa"
+    },
+    {
+      "path": "owner-age-rating-4.png",
+      "sha256": "22c2ceb4f1e34456cf2da108e387d052752f1513d36c4e2f539eac2ff5bf5a2a"
+    }
+  ]
+}

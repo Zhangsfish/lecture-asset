@@ -1,0 +1,21 @@
+{
+  "queryDate": "2026-10-31T07:07:16.822107+00:00",
+  "results": [
+    {
+      "url": "https://zhangsfish.github.io/lecture-asset/privacy.html",
+      "status": 200,
+      "sha256": "479d52c7cee7543898c4ce4a958b058fc217156e13e553429e28c1dae52890f4",
+      "title": "Lecture Asset \u9690\u79c1\u8bf4\u660e",
+      "bytes": 3070,
+      "includesLocalProcessing": true
+    },
+    {
+      "url": "https://zhangsfish.github.io/lecture-asset/support.html",
+      "status": 200,
+      "sha256": "57d0b3c29268300ca8794daf91fe7aefffe0345223f4d603462c435fd73cc892",
+      "title": "Lecture Asset \u4f7f\u7528\u5e2e\u52a9",
+      "bytes": 2053,
+      "includesLocalProcessing": false
+    }
+  ]
+}

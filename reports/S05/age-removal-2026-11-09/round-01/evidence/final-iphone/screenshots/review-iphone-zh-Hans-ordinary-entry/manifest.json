@@ -1,0 +1,24 @@
+[
+  {
+    "attachments": [
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review iphone",
+        "exportedFileName": "9637A7D1-92B9-47B7-9CAA-9C33D39BAFFB.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-ordinary-entry-no-intermediate-request_0_4E176539-8CDC-4A27-8D6A-C1A9E2C6F6D0.png",
+        "timestamp": 1794209390.039
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review iphone",
+        "exportedFileName": "C191250C-D02D-47B4-BB8E-EABADD9E254B.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-ordinary-entry-no-intermediate-request_0_AF4455A1-3DEB-49F8-8A33-A60327508633.png",
+        "timestamp": 1794209382.703
+      }
+    ],
+    "testIdentifier": "AppReviewChinesePermissionUITests/testOrdinaryEntryAndRelaunch()",
+    "testIdentifierURL": "test://com.apple.xcode/LectureAsset/LectureAssetUITests/AppReviewChinesePermissionUITests/testOrdinaryEntryAndRelaunch"
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "supported_locales": [
+    "en",
+    "zh-Hans"
+  ],
+  "total_keys": 140,
+  "localized_counts": {
+    "en": 140,
+    "zh-Hans": 140
+  },
+  "missing": {
+    "en": [],
+    "zh-Hans": []
+  },
+  "not_translated": {
+    "en": [],
+    "zh-Hans": []
+  },
+  "unsupported_locales": {},
+  "missing_referenced_keys": [],
+  "unused_in_app": [
+    "age.retry",
+    "age.unresolved",
+    "age.unresolvedTitle",
+    "age.unsupported",
+    "archive.copyFailure",
+    "archive.copyMetrics",
+    "export.copyZIPHash",
+    "export.savedConfirmed",
+    "export.shareCompleted",
+    "export.workCopyHint",
+    "export.workCopySection",
+    "processing.copied",
+    "processing.copyMetrics",
+    "processing.jpegCount",
+    "processing.liveStill",
+    "processing.motionCount",
+    "processing.page",
+    "processing.preview",
+    "tutorial.saved"
+  ],
+  "duplicate_values": {
+    "en": [
+      [
+        "processing.current",
+        "processing.page"
+      ],
+      [
+        "export.discardWorkCopy",
+        "tutorial.keepPhotos"
+      ],
+      [
+        "about.usageTitle",
+        "tutorial.title"
+      ]
+    ],
+    "zh-Hans": [
+      [
+        "archive.start",
+        "tutorial.generate"
+      ],
+      [
+        "export.deleteSources",
+        "tutorial.deletePhotos"
+      ]
+    ]
+  },
+  "same_value_in_both": [
+    "app.title"
+  ]
+}

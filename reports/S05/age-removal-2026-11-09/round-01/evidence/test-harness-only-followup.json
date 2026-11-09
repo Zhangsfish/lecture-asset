@@ -1,0 +1,11 @@
+{
+  "from_sha": "a554f2accab6e511e531130f7f8583ef2a839b34",
+  "to_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+  "app_package_resource_schema_project_content_identical": true,
+  "changed_files": [
+    ".github/workflows/s05-app-review-remediation.yml",
+    ".github/workflows/s05-final-rc.yml",
+    "UITests/AppReviewPermissionUITests.swift"
+  ],
+  "scope": "Native picker readiness timeout and retriable verified download only"
+}

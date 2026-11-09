@@ -1,0 +1,7 @@
+# Native Release UI visual review
+
+Observed iPad EN/zh-Hans contact sheet in `evidence/IPAD_CONTACT.png`: genuine Continue/继续 pre-permission page, native Apple Photos choices, and ordinary photo grid after repeated actual app launch. Gate/help affordance remains present. No age blocker/retry screen and no invented system UI. Contact is resized evidence only; raw screenshots and hashes retained separately. It does not replace executable/symbol/entitlement checks.
+
+The iPad uses iPhone-family compatibility-window mode. Native system material is translucent and some background text remains visible through the real Photos sheet; no opaque/fake compositing or changed alert text is claimed. Foreground choices are readable and actual full/limited/denied selections are independently checked with PhotoKit status. Simulator gallery includes the generated01.jpg and default simulator sample photos, no owner/private Photos.
+
+No store screenshot, icon, production UI design or marketing capture was modified. Final combined actual-timeline native UI contact `evidence/NATIVE_CONTACT.png` was also viewed in full: both iPhone and iPad EN/zh-Hans gate, genuine Photos choices and ordinary relaunch gallery. Continue/继续 and three system choices remain readable; no visible age intermediate page. No new clipping issue observed in the changed entry flow. All12 final selected raw PNGs retain source hashes in NATIVE_CONTACT_SOURCES.json. Other original images remain in CI artifacts with their hashes listed in SELECTED_SCREENSHOT_POLICY.json.

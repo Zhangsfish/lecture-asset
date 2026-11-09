@@ -1,0 +1,216 @@
+{
+  "overall_status": "BLOCKED_APPLE_ENVIRONMENT",
+  "blocked_scope": "Real eligible age-Sandbox evidence only; all independent build/sign/upload/ASC lanes completed",
+  "ready_for_release_audit": false,
+  "independently_approved": false,
+  "base_sha": "14f91942f19e80c1afaabbd2445692fdd60b9da9",
+  "audited_production_baseline": "6a2be31f27ee90ad094bc8b003c9484e81fb6803",
+  "source_sha": "b107ded0d60ec3944c4db41068a6e79e41c6f5b1",
+  "tested_sha": "b107ded0d60ec3944c4db41068a6e79e41c6f5b1",
+  "version": "0.1.0",
+  "build": "35.1",
+  "pr": "https://github.com/Zhangsfish/lecture-asset/pull/23",
+  "production_changes": {
+    "status": "PASS_NO_DIFF",
+    "paths": [
+      "App",
+      "Packages",
+      "AppResources",
+      "schemas",
+      "project.yml",
+      "reports/S05/store-screenshots-01",
+      "reports/S05/store-screenshots-medium-01"
+    ],
+    "runtime_changed": false,
+    "photo_archive_cleanup_contract_changed": false
+  },
+  "source_tooling_tests": {
+    "status": "PASS",
+    "local_python_methods": 8,
+    "real_macos_python_methods": 8,
+    "contract_negative_cases": 9,
+    "entitlement_diagnostic_cases": 9,
+    "swift_preflight_existing_build_rejections": 2,
+    "scope": "Synthetic guards/mock OS-command negatives; not actual signature evidence",
+    "evidence": "evidence/prepare-tooling-log-extract.txt"
+  },
+  "clean_release": {
+    "status": "PASS",
+    "runs": [
+      41179490537,
+      41180864985,
+      41178883685
+    ],
+    "minimum_os": "18.0",
+    "target_family": [
+      1
+    ],
+    "compiled_labels": {
+      "en": "Continue",
+      "zh-Hans": "继续"
+    },
+    "app_and_zipfoundation_privacy": "PASS"
+  },
+  "archive_focused_tests": {
+    "status": "PASS",
+    "count_per_candidate_run": 3,
+    "scope": "Synthetic1/20-page archive, corrupted canonical JPEG rejection, AI visual-use contract; no owner stress test"
+  },
+  "release_xctest": {
+    "status": "PASS",
+    "count_per_prepare_and_upload_run": 18,
+    "failed": 0,
+    "skipped": 0,
+    "runs": [
+      41179490537,
+      41180864985
+    ]
+  },
+  "genuine_simulator_permission_ui": {
+    "status": "PASS",
+    "run": 41178883685,
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e",
+    "equivalent_app_and_test_sources_to_candidate": true,
+    "total_executions": 42,
+    "contracts": 18,
+    "ui": 12,
+    "native_readwrite_status": 12,
+    "failed": 0,
+    "skipped": 0,
+    "devices": [
+      "iPhone17ProMax",
+      "iPadAir11inchM3 in iPhone compatibility"
+    ],
+    "locales": [
+      "en",
+      "zh-Hans"
+    ],
+    "limited_scope": "Zero selected items; nonzero picker selection NOT_RUN",
+    "fresh_alert_capture_wait_seconds": 2,
+    "visual_note": "Foreground system choices readable; native frosted compatibility backdrop kept unretouched",
+    "evidence": "evidence/ui/SUMMARY.json"
+  },
+  "age_state_machine": {
+    "status": "PASS_INJECTED_ONLY",
+    "bands": [
+      "under13",
+      "13-15",
+      "16-17",
+      "18+"
+    ],
+    "not_required_prompts": 0,
+    "decline_error_incomplete_and_retry": "PASS",
+    "paused_job_ledger_and_file_preservation": "PASS",
+    "real_eligible_sandbox": "NOT_RUN"
+  },
+  "signed_ipa": {
+    "status": "PASS",
+    "sha256": "79e49ff1bad15d69b4bdaeca2b11ce993ed4fd804e0be0b351d4df01eb9bd91e",
+    "codesign": "PASS",
+    "apple_distribution_certificate": true,
+    "app_store_profile": true,
+    "profile_not_expired": true,
+    "app_age_entitlement": "true",
+    "profile_age_entitlement": "true",
+    "signed_get_task_allow": false,
+    "profile_get_task_allow": false,
+    "both_privacy_resources": "PASS",
+    "compiled_continue_labels": "PASS",
+    "evidence": "evidence/signed-upload/signed-distribution.json"
+  },
+  "upload": {
+    "status": "ACCEPTED",
+    "run": 41180864985,
+    "same_verified_ipa_digest": true,
+    "digest_checks": [
+      "before validation",
+      "immediately before upload"
+    ],
+    "ipa_sha256": "79e49ff1bad15d69b4bdaeca2b11ce993ed4fd804e0be0b351d4df01eb9bd91e",
+    "internal_only_export_restriction": "OMITTED"
+  },
+  "asc_processing": {
+    "appReview": "NOT_SUBMITTED_BY_THIS_WORKFLOW",
+    "build": "35.1",
+    "buildAudienceType": "APP_STORE_ELIGIBLE",
+    "buildID": "9dd9196a-b0c1-4457-b025-eb90cf9a72c3",
+    "minOsVersion": "18.0",
+    "processingState": "VALID",
+    "queryDate": "2026-10-31T07:45:52Z",
+    "queryMode": "poll",
+    "uploadedDate": "2026-10-31T00:44:54-07:00",
+    "usesNonExemptEncryption": false,
+    "version": "0.1.0"
+  },
+  "testflight_availability": {
+    "status": "PASS_EXISTING_INTERNAL_GROUP_AVAILABLE",
+    "run": 41182055354,
+    "internal_build_state": "IN_BETA_TESTING",
+    "existing_group_already_associated": true,
+    "association_read_back": true,
+    "new_testers_or_groups_created": false,
+    "external_testflight_submitted": false
+  },
+  "physical_install_and_startup": {
+    "status": "OWNER_REPORTED_PASS_NORMAL_ALBUM",
+    "requested_build": "0.1.0 (35.1)",
+    "ios_owner_reported": "26.7.1",
+    "source": "Owner replied 正常相册 to exact35.1 update/open instruction",
+    "installed_version_footer_independently_captured": false,
+    "fresh_photos_prompt": "NOT_RUN: previous authorization retained",
+    "processing_share_delete_retest": "NOT_RUN_NOT_REQUESTED"
+  },
+  "real_apple_sandbox": {
+    "status": "NOT_RUN",
+    "attempted_operation": "Owner inspected Settings for Developer / Sandbox Apple Account",
+    "observed_result": "没有; Developer/Sandbox menu unavailable according to owner",
+    "os": "26.7.1 supports the API",
+    "under13": "NOT_RUN",
+    "13_15": "NOT_RUN",
+    "16_17": "NOT_RUN",
+    "adult": "NOT_RUN",
+    "eligibility_false_vs_cached_shared": "NOT_DETERMINED_FROM_NORMAL_ENTRY",
+    "api_error_code": "NONE_OBSERVED; this is a missing test-entry observation, not an Apple error response",
+    "next": "Independent reviewer adjudication of this precise evidence gap; no additional phone/account reconfiguration requested"
+  },
+  "asc_reconciliation": {
+    "age_fields": "PASS_SAVED_READBACK",
+    "parental_controls": false,
+    "age_assurance": true,
+    "rating": "FOUR_PLUS",
+    "availability": [
+      "USA",
+      "CHN"
+    ],
+    "free_price": "0.0",
+    "release_type_observed": "AFTER_APPROVAL",
+    "release_policy_manual": "FAIL_NEEDS_OWNER_CORRECTION",
+    "automatic_future_territories_observed": true,
+    "future_territory_policy": "FAIL_NEEDS_OWNER_CORRECTION",
+    "selected_review_build": "34.1",
+    "existing_submission": "UNRESOLVED_ISSUES",
+    "review_contact_complete": true,
+    "demo_account_required": false,
+    "public_privacy_label": "Data Not Collected - OWNER_PORTAL_OBSERVATION",
+    "full_resolution_center_text": "NOT_READ_BACK; owner-supplied feedback is the issue source",
+    "metadata_mutated": false,
+    "patch_plan": "ASC_PATCH_PLAN.json"
+  },
+  "everwhile_comparison": {
+    "status": "READ_AND_DISTINGUISHED",
+    "reference_commit": "35ff10a58be815f7c67744cb5d2c70b3bbb2d583",
+    "text_and_swift_files_read": 111,
+    "reason_for_no_phone_retest": "Unchanged accepted runtime during portal closeout",
+    "different_api": "FamilyControls individual authorization; no DeclaredAgeRange found in scanned production Swift",
+    "does_not_waive_this_sandbox_evidence": true,
+    "evidence": "EVERWHILE_COMPARISON.md"
+  },
+  "apple_reply": "UNSENT_DRAFT_WITH_ACTUAL_BUILD",
+  "app_review_resubmission": "NOT_RUN_NOT_AUTHORIZED",
+  "merge": "NOT_RUN_NOT_AUTHORIZED",
+  "public_release": "NOT_RUN_NOT_AUTHORIZED",
+  "broad_stress_wechat_destructive_qa": "NOT_RUN_NOT_REQUESTED",
+  "secret_material_published": false,
+  "raw_profile_certificate_key_or_signing_log_artifacts": false,
+  "release_manifest_sha256": "e735e9a41d63f1b4c6da008b9e24317ad67e223777a176f69185644c215bb24f"
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "file": "ipad-en-en-gate.png",
+    "sha256": "89a7a15a0e4aabca917e51768f7096d2207d641954c0a3c22c80f3c834843173",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-en-Denied-ui/F9722E8E-BE0E-4116-9ED9-667A11E633A4.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-en-genuine-system-photos-choices.png",
+    "sha256": "924cebb5d30c1e4ce68276b1c4108d29cd530a6c5fbd84cb139a158b68680aad",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-en-Denied-ui/87928ACE-3387-4810-BA87-8B89C120A911.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-en-blocked-with-settings.png",
+    "sha256": "7c30ab1140bd71a32cd10b7d6dfad6b9e069ec3c4816a78fdede860a87b5c92b",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-en-Denied-ui/063D2C96-F614-4C03-BE03-725A4AF4149B.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-en-help-without-full-photos.png",
+    "sha256": "5a5a8fc3ebff5e569ea5b9514c0b1c832f0047d1a2915e0982f531c931e7d295",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-en-Denied-ui/F302654E-B8A2-4C19-A7C9-F7BC1842D864.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-en-full-access-synthetic-grid.png",
+    "sha256": "daf5391391c4151ddf77979851a35e2b27f1517a590bc8783e76f0e60673f13e",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-en-FullAccess-ui/A717F5BE-0DED-4268-9B98-7AA2E27CD6CC.png",
+    "scenario": "FullAccess",
+    "locale": "en",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-en-limited-picker-zero-items.png",
+    "sha256": "0c161d4eb87755695df442894cce02e76f5bee1172381804d92d5b5bcd021928",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-en-Limited-ui/A8B89C63-8BBF-4F29-BFD5-A023D1F7F93B.png",
+    "scenario": "Limited",
+    "locale": "en",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-zh-Hans-zh-gate.png",
+    "sha256": "4cb7192cebead707540499dc1cd07bd33903b6444a0926e6e6797853e34d7daf",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-zh-Hans-Denied-ui/428C7D31-12E0-422D-A6F6-7C7CDD8EBA48.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-zh-Hans-genuine-system-photos-choices.png",
+    "sha256": "63ca4ac54aeac1b544f23a128e8b65913cb3321d1bac4bdfb450ce9ea30ef6cc",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-zh-Hans-Denied-ui/F95A6181-BC74-46D3-82CB-8724A7DB7138.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-zh-Hans-blocked-with-settings.png",
+    "sha256": "fc19a74407a511c2aee0642428a856d89b5001e4aa1cbc5397279cbb1d72618c",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-zh-Hans-Denied-ui/05270656-13B6-421B-986B-53715D4B7841.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-zh-Hans-help-without-full-photos.png",
+    "sha256": "99e6c0765a7cf5cf1f84634623c528f4aa85c3b6fa1a234fc723102579db032f",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-zh-Hans-Denied-ui/6A71D720-EAD8-4186-A826-3E10BFA2B2E7.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-zh-Hans-full-access-synthetic-grid.png",
+    "sha256": "a1e861c449fc1f74ac02c8c141d908851ec09a47b90839003ccc6f5d81d243f4",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-zh-Hans-FullAccess-ui/659D9D93-CA7F-4E5D-A862-27543E5A7D2A.png",
+    "scenario": "FullAccess",
+    "locale": "zh-Hans",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "ipad-zh-Hans-limited-picker-zero-items.png",
+    "sha256": "bea9cebed8255d58e11ed449c32c85f1b45a0820c374215e613d283f37f72ac9",
+    "source_artifact": 13034652060,
+    "original_file": "screenshots/review-ipad-zh-Hans-Limited-ui/4D8862CB-505C-4BF2-8A3F-9F5906E8C772.png",
+    "scenario": "Limited",
+    "locale": "zh-Hans",
+    "device": "iPad Air 11-inch (M3) simulator, iPhone compatibility",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  }
+]

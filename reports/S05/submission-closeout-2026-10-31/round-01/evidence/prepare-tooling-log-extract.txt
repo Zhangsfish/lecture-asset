@@ -1,0 +1,17 @@
+Source: https://github.com/Zhangsfish/lecture-asset/actions/runs/41179490537 / job 124473790693
+Exact source: b107ded0d60ec3944c4db41068a6e79e41c6f5b1
+Allowlisted original log lines only; synthetic guard tests, not signing proof.
+2026-10-31T07:10:01.9361090Z S05_RC_VERIFY_PASS --provenance
+2026-10-31T07:10:12.7004490Z test_digest_mismatch_and_unverified_ipa (__main__.ReleaseGuards.test_digest_mismatch_and_unverified_ipa) ... ok
+2026-10-31T07:10:12.7014090Z test_generated_dependency_lock_cannot_add_or_change_dependency (__main__.ReleaseGuards.test_generated_dependency_lock_cannot_add_or_change_dependency) ... ok
+2026-10-31T07:10:12.7027930Z test_generated_info_is_narrowly_validated (__main__.ReleaseGuards.test_generated_info_is_narrowly_validated) ... ok
+2026-10-31T07:10:12.7055240Z test_missing_privacy_and_wrong_compiled_labels (__main__.ReleaseGuards.test_missing_privacy_and_wrong_compiled_labels) ... ok
+2026-10-31T07:10:12.7079290Z test_profile_and_signature_fail_closed (__main__.ReleaseGuards.test_profile_and_signature_fail_closed) ... ok
+2026-10-31T07:10:12.7096180Z test_provenance_source_dirty_and_unexpected_files (__main__.ReleaseGuards.test_provenance_source_dirty_and_unexpected_files) ... ok
+2026-10-31T07:10:12.7102810Z test_workflow_secrets_are_manual_and_default_is_prepare (__main__.ReleaseGuards.test_workflow_secrets_are_manual_and_default_is_prepare) ... ok
+2026-10-31T07:10:12.7104570Z test_wrong_bundle_version_build_minimum_os_encryption (__main__.ReleaseGuards.test_wrong_bundle_version_build_minimum_os_encryption) ... ok
+2026-10-31T07:10:12.7106600Z Ran 8 tests in 0.012s
+2026-10-31T07:10:12.7604570Z S05_RC_VERIFY_PASS --self-test
+2026-10-31T07:10:48.3668800Z S05_RC_VERIFY_PASS --provenance
+2026-10-31T07:11:40.3234790Z S05_RC_VERIFY_PASS --metadata
+2026-10-31T07:17:52.1571680Z S05_RC_VERIFY_PASS --manifest

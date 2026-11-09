@@ -1,0 +1,20 @@
+{
+  "rule": "Remove ephemeral simulator deviceId/deviceIdentifier only; counts and status unchanged; selected PNGs unchanged.",
+  "modified_json": [
+    {
+      "file": "review-iphone-en-contracts-summary.json",
+      "original_sha256": "beee7edeb466d31ec5a00ef48f41fde02eca378e98fa19ee526d7c67fe64973e",
+      "retained_sha256": "0850dff115ea7531e69dc9e7dda35b6828b6b0ba5b3312b24ead0bb12a92e8ca"
+    },
+    {
+      "file": "review-iphone-en-Limited-ui-summary.json",
+      "original_sha256": "e9a995da14691f7b1165c1337540101ecff924195df87d9c688d5214dc2417c4",
+      "retained_sha256": "8a9c4cab6b9ca80aff0940c6cc0114de00de58a34077b672a3c585ea5b03fb74"
+    },
+    {
+      "file": "review-iphone-en-ordinary-entry-summary.json",
+      "original_sha256": "79966f6d38dff7c563edaf196e6cd2a8dd4c6ed2cde98da6877327aad9fd3767",
+      "retained_sha256": "ca134a2e423106aec2b8c0ac2a9fba18f64cc95300e0b4bbd8f7c762f1f400e1"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+2026-11-09T07:01:53.2704330Z S05_RC_VERIFY_PASS --provenance
+2026-11-09T07:02:08.8304910Z test_digest_mismatch_and_unverified_ipa (__main__.ReleaseGuards.test_digest_mismatch_and_unverified_ipa) ... ok
+2026-11-09T07:02:08.8307330Z test_generated_dependency_lock_cannot_add_or_change_dependency (__main__.ReleaseGuards.test_generated_dependency_lock_cannot_add_or_change_dependency) ... ok
+2026-11-09T07:02:08.8337580Z test_generated_info_is_narrowly_validated (__main__.ReleaseGuards.test_generated_info_is_narrowly_validated) ... ok
+2026-11-09T07:02:08.8374440Z test_missing_privacy_and_wrong_compiled_labels (__main__.ReleaseGuards.test_missing_privacy_and_wrong_compiled_labels) ... ok
+2026-11-09T07:02:08.8427170Z test_no_age_source_bundle_contract_and_entitlement_matrix (__main__.ReleaseGuards.test_no_age_source_bundle_contract_and_entitlement_matrix) ... ok
+2026-11-09T07:02:08.8452380Z test_profile_and_signature_fail_closed (__main__.ReleaseGuards.test_profile_and_signature_fail_closed) ... ok
+2026-11-09T07:02:08.8477970Z test_provenance_source_dirty_and_unexpected_files (__main__.ReleaseGuards.test_provenance_source_dirty_and_unexpected_files) ... ok
+2026-11-09T07:02:08.8484210Z test_workflow_secrets_are_manual_and_default_is_prepare (__main__.ReleaseGuards.test_workflow_secrets_are_manual_and_default_is_prepare) ... ok
+2026-11-09T07:02:08.8486960Z test_wrong_bundle_version_build_minimum_os_encryption (__main__.ReleaseGuards.test_wrong_bundle_version_build_minimum_os_encryption) ... ok
+2026-11-09T07:02:08.8490990Z Ran 9 tests in 0.022s
+2026-11-09T07:02:08.8491790Z OK
+2026-11-09T07:02:08.9235520Z S05_RC_VERIFY_PASS --self-test
+2026-11-09T07:02:09.1518530Z ORDINARY_APP_ENTRY_AND_ABSENCE_PASS
+2026-11-09T07:03:02.2602530Z S05_RC_VERIFY_PASS --provenance
+2026-11-09T07:04:16.6593200Z S05_RC_VERIFY_PASS --metadata
+2026-11-09T07:04:19.9431190Z ORDINARY_APP_ENTRY_AND_ABSENCE_PASS
+2026-11-09T07:04:19.9507730Z S05_RC_CLEAN_RELEASE_BUILD_PASS
+2026-11-09T07:11:36.2761820Z ORDINARY_APP_ENTRY_AND_ABSENCE_PASS
+2026-11-09T07:11:42.9071070Z S05_RC_FOCUSED_XCTEST_PASS
+2026-11-09T07:11:44.3873540Z S05_RC_VERIFY_PASS --manifest

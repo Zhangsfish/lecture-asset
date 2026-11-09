@@ -1,0 +1,10 @@
+{
+  "bridge_signing": "PASS",
+  "bridge_archive_signed_age": true,
+  "bridge_signature_type": "ad-hoc",
+  "shippable": false,
+  "signing_uses_deep": false,
+  "original_archive_unchanged": true,
+  "nested_code_count": 0,
+  "codesign_verification": "PASS"
+}

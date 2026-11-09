@@ -1,0 +1,157 @@
+{
+  "base_main": "52f7bdb5dd8f89cdd2edd3b2161ed9080cbd27c9",
+  "merged_pr23_integration_sha": "7914de822135850f154458ec000d2d0eba6e89a3",
+  "tested_source_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+  "changes": [
+    {
+      "status": "D",
+      "path": ".github/workflows/s05-age-assurance.yml",
+      "before_sha256": "ebcae235f23b6290359d27afc1c276ccbe7b34ff59859b48e44428724d6abb95",
+      "after_sha256": null
+    },
+    {
+      "status": "M",
+      "path": ".github/workflows/s05-app-review-remediation.yml",
+      "before_sha256": "8a74839204e252c6d3413be49020ccf32488b9c3ab588b39eb9f22af7a7d52c5",
+      "after_sha256": "ea7faddf2251f17ee89a3d9b2cfb94979c375179e793db02c6589095e2773178"
+    },
+    {
+      "status": "M",
+      "path": ".github/workflows/s05-final-rc.yml",
+      "before_sha256": "84174267ce54ca9194fe3634c2c8e82561494554df2c95304ace2a751a51b220",
+      "after_sha256": "acd90925ada34fb6a1fb8ab4997b0aa79e654fd0943650a1e7b873835c103bc9"
+    },
+    {
+      "status": "D",
+      "path": "App/AgeAssuranceEntryView.swift",
+      "before_sha256": "aa7ef7c2329438a0ceb0121630bb7af265357765631c9019e8d050809cb69c44",
+      "after_sha256": null
+    },
+    {
+      "status": "D",
+      "path": "App/AgeAssuranceService.swift",
+      "before_sha256": "d6de90102ce11104922f6d04d4bd6ee9bbf2b17833340dee9976a6e1bd876762",
+      "after_sha256": null
+    },
+    {
+      "status": "D",
+      "path": "App/LectureAsset.entitlements",
+      "before_sha256": "e9d5ea0517ee7d79c35941f3b0e752b0e67f0a3556876690803312742f866af0",
+      "after_sha256": null
+    },
+    {
+      "status": "M",
+      "path": "App/LectureAssetApp.swift",
+      "before_sha256": "61278a5c83bbe7303438f4918ad39ee4997aae81f11815ed980b4d7b5616af0f",
+      "after_sha256": "385a88a001543324828f3e132fd37c029c9101282869f7302ea5263554b4711b"
+    },
+    {
+      "status": "M",
+      "path": "App/Localizable.xcstrings",
+      "before_sha256": "9bd142048f4b22bdd81dd12885064d60fe16e9e9c7dae670bacda3fae6538a57",
+      "after_sha256": "fcf91b89d52ab7a63aedf297eb9ecae9dcc234488679995831ebe9eba34e3f06"
+    },
+    {
+      "status": "D",
+      "path": "Tests/AgeAssuranceTests.swift",
+      "before_sha256": "411923eae5aa7f115bab24470ac2de0974eb26898bbb8fe1d6d0ba67b93333a8",
+      "after_sha256": null
+    },
+    {
+      "status": "M",
+      "path": "UITests/AppReviewPermissionUITests.swift",
+      "before_sha256": "43e6fb9076a6f30a3d89f594aaf5c5492dc1447518a4cd5ddeabc48869f933ab",
+      "after_sha256": "eff233f6232582b9365d3de4f584e3164286f065d61512bc4ffdf0d2d0d03026"
+    },
+    {
+      "status": "M",
+      "path": "project.yml",
+      "before_sha256": "70c444de2c42015a5abd63193e4198ebdb072456cd96ce52c63484685639925b",
+      "after_sha256": "d32f488e6a72c102b422be73c3f44c1588f36f5b184c3af95b454da734948df0"
+    },
+    {
+      "status": "A",
+      "path": "reports/S05/age-removal-2026-11-09/round-01/AGENTS.md",
+      "before_sha256": null,
+      "after_sha256": "9246394594e3ca672f3d234b2954ff5b5e71e97dfd0fdf9bb374b3aa11e318fe"
+    },
+    {
+      "status": "A",
+      "path": "reports/S05/age-removal-2026-11-09/round-01/candidate.json",
+      "before_sha256": null,
+      "after_sha256": "862a95f163e225db0fac3065313c7ad6f4b4462dbc05f1b47e8f813731ac5a6c"
+    },
+    {
+      "status": "A",
+      "path": "reports/S05/age-removal-2026-11-09/round-01/evidence/local-entry.json",
+      "before_sha256": null,
+      "after_sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "status": "A",
+      "path": "reports/S05/age-removal-2026-11-09/round-01/evidence/local-localization.json",
+      "before_sha256": null,
+      "after_sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "status": "D",
+      "path": "scripts/check_age_release.py",
+      "before_sha256": "eeaee03e7e7e24e48a7c2728993e2abe25ffe92c9fa4fef2c6bca5235f70b1a1",
+      "after_sha256": null
+    },
+    {
+      "status": "A",
+      "path": "scripts/check_app_entry_release.py",
+      "before_sha256": null,
+      "after_sha256": "5e204f6ca52d478e5b74950e5426cac418c2c2a92b8d6a938c4eb3a0df08f274"
+    },
+    {
+      "status": "D",
+      "path": "scripts/check_app_review_remediation.py",
+      "before_sha256": "a0af439c8174e1ce26c7642982ad3028d9cd6362de9348d19a10d55d5c62336c",
+      "after_sha256": null
+    },
+    {
+      "status": "M",
+      "path": "scripts/s05_final_rc.sh",
+      "before_sha256": "af1c157f08c742de737c0a0faba5d900e4c4542ee2662bb277cbb983edf48009",
+      "after_sha256": "b2f2d4b7f07203f735823a61e8c16a6103cac88ec6419b3a4525663ad89a9e81"
+    },
+    {
+      "status": "M",
+      "path": "scripts/s05_r2_asc.swift",
+      "before_sha256": "6b62aec93e420b438cca8c7496bed14b4e8864b25ae28c4ef51190a79189619d",
+      "after_sha256": "70bc53c1e05bb08758606ebd0a68b604808e8e5ed8ec03436e09910793943ecd"
+    },
+    {
+      "status": "D",
+      "path": "scripts/s05_rc_bridge.py",
+      "before_sha256": "f41cee20fe41fe4cedde5b97a767cd0663fdf9432790dd6a12ec68d441ed1906",
+      "after_sha256": null
+    },
+    {
+      "status": "M",
+      "path": "scripts/s05_rc_status.swift",
+      "before_sha256": "45b03fc008f93fc9ddc8312c814cd4c83bfdbc59a2b422ba6764bfc4d64d2e5b",
+      "after_sha256": "c463ca6837c226e948aa091fce55b330352b8f8e38d3bd8f71d26102400f8f69"
+    },
+    {
+      "status": "M",
+      "path": "scripts/s05_rc_verify.py",
+      "before_sha256": "f068b9ef7e2c9235ad3e2ef5a2bcadc74329c019bac33366a6fccf2e209cef53",
+      "after_sha256": "a23f93b58b9beec90f7e8f19d3efabba9667d6dd07f8d6a458ca1b61468308f3"
+    },
+    {
+      "status": "M",
+      "path": "scripts/s05_review_focused.sh",
+      "before_sha256": "2ecb1fa3ceb76719f9ceb6d35a139711a43688a0e7e6b393e671a35356a81b69",
+      "after_sha256": "fc33c316785df23b0acbba5c9ed6d999cf0c038b377cd9b44d3930f81ee5f8f5"
+    },
+    {
+      "status": "M",
+      "path": "scripts/test_s05_r2_release.py",
+      "before_sha256": "9f0e6a4ae20078eeeb0d1677c1949b74fdb8745713c45ac4d78bceb976533747",
+      "after_sha256": "b492d774212714f6797fe5d817867528505c59c77907c7b9a9ed80892350792b"
+    }
+  ]
+}

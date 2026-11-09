@@ -1,0 +1,122 @@
+[
+  {
+    "file": "iphone-en-en-gate.png",
+    "sha256": "2ecafb039cee08d7b94d27aa7a2deb66b4e9fcfc42bb0032365a1f3f289ea92a",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-en-Denied-ui/A0816376-1765-4449-A3F1-7E7A86F68FA7.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-en-genuine-system-photos-choices.png",
+    "sha256": "77114e97b2bc9363bc24fa8569d2c0a55591a09456d7d8b2752ef87ff61fc048",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-en-Denied-ui/D794F80A-B978-48E6-8610-7E982D266422.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-en-blocked-with-settings.png",
+    "sha256": "189bd152494fe92a6bf5d21d0e91c4e433940158628fa3b6c67c9f8db3198a5b",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-en-Denied-ui/F7935F1E-C80E-428C-943C-0D8B156A28C3.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-en-help-without-full-photos.png",
+    "sha256": "397142a25a377e5a379f1d4b0acae1c06f980db9d3b560219696f9f0e90f0270",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-en-Denied-ui/EF17E65A-427D-4DF5-8737-9ABA1C8A47C9.png",
+    "scenario": "Denied",
+    "locale": "en",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-en-full-access-synthetic-grid.png",
+    "sha256": "025b979b80aea67c4d575cf28d68f5f9ecaeb16b4f136e208ea9be76b103938c",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-en-FullAccess-ui/3A6E004B-EDE9-4003-9DFF-F6A652A0046E.png",
+    "scenario": "FullAccess",
+    "locale": "en",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-en-limited-picker-zero-items.png",
+    "sha256": "885336719e036ccd7a85d1ce6034c053936b6af41356dba3dfa61cb4f2f17316",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-en-Limited-ui/3F7E0C07-3B59-44A4-84D8-C93DB91725EA.png",
+    "scenario": "Limited",
+    "locale": "en",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-zh-Hans-zh-gate.png",
+    "sha256": "fff891d678f1b9631a309dafd2dc275b44462b5f9fb748f8e00f60479533cceb",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-zh-Hans-Denied-ui/E81C8191-CDC4-420E-889A-FCFCAD922005.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-zh-Hans-genuine-system-photos-choices.png",
+    "sha256": "e2b9c5a2dd6ea9cc969b5045fd242a1ed5dd2fe32d81715e7630e953fa5127d1",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-zh-Hans-Denied-ui/7E452090-6C15-4D0D-AC09-44284674DA6F.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-zh-Hans-blocked-with-settings.png",
+    "sha256": "c61bd615530a5d14f381452136eb4263cbe45881303f719ce2c1500aa843bd93",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-zh-Hans-Denied-ui/BF5DE513-FCF2-44EE-96AF-37E4158A967D.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-zh-Hans-help-without-full-photos.png",
+    "sha256": "9e64f389b799704c7e84a097f8e176a738217e6cca29091ba193295db4880293",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-zh-Hans-Denied-ui/76BEE144-A711-44F0-B2F5-578C2FD5B0D1.png",
+    "scenario": "Denied",
+    "locale": "zh-Hans",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-zh-Hans-full-access-synthetic-grid.png",
+    "sha256": "0af943ecf1fd1329ee3109b1c7c69431473c26a22e6be4f6fbb5ecaa6937fec4",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-zh-Hans-FullAccess-ui/5347FE97-C253-44FA-9027-8A4564CF7039.png",
+    "scenario": "FullAccess",
+    "locale": "zh-Hans",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  },
+  {
+    "file": "iphone-zh-Hans-limited-picker-zero-items.png",
+    "sha256": "6ce65b4234a306fefe47fd73f70bb6e7480350c883ebffed17a0709364364720",
+    "source_artifact": 13033954762,
+    "original_file": "screenshots/review-iphone-zh-Hans-Limited-ui/662D432F-5CE5-4D46-BA78-88FEC8D91598.png",
+    "scenario": "Limited",
+    "locale": "zh-Hans",
+    "device": "iPhone 17 Pro Max simulator",
+    "source_sha": "73c575d65a53aac6036893070c780c31be1c2e5e"
+  }
+]

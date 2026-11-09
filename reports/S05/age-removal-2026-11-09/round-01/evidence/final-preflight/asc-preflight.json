@@ -1,0 +1,10 @@
+{
+  "build" : "36.1",
+  "buildAudienceType" : "UNCONFIRMED",
+  "buildNumberAvailable" : true,
+  "processingState" : "NOT_VISIBLE",
+  "queryDate" : "2026-11-09T07:12:31Z",
+  "queryMode" : "preflight",
+  "queryScope" : "Exact app and candidate build; recheck immediately before upload",
+  "version" : "0.1.0"
+}

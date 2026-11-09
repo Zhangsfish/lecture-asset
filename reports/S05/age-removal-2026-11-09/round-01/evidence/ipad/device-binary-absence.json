@@ -1,0 +1,11 @@
+{
+  "direct_content_view_entry": true,
+  "active_age_references": 0,
+  "source_entry_sha256": "385a88a001543324828f3e132fd37c029c9101282869f7302ea5263554b4711b",
+  "scope": "Source/config assertion; not physical-device execution",
+  "compiled_age_symbols_imports_strings_absent": true,
+  "compiled_age_localizations_absent": true,
+  "app_entitlement_age_key_absent": "NOT_RUN_UNSIGNED_BUILD",
+  "executable_sha256": "6eb083485f8eb65b87c93b35c399ca8ed663d2f91611b34bab4a3cc2442b3fea",
+  "codesign_scope": "Unsigned device Release"
+}
