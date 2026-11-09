@@ -1,33 +1,21 @@
-# Codex start — current release closeout
+# Codex start — S05-R4 remove age assurance / prepare replacement review binary
 
-Updated: 2026-10-31
-Repository: `Zhangsfish/lecture-asset`
+Updated: 2026-11-09. Repository: `Zhangsfish/lecture-asset`.
 
-Always fetch latest main, inspect open work and read `STATUS.md`. Historical S00 or S05 plan paragraphs do not authorize restarting completed work.
+## Authoritative instructions
 
-## Read in order
+1. Fetch latest main and current PR #23 head/state; do not assume old SHAs.
+2. Read `AGENTS.md` → `STATUS.md` → **`tasks/S05_R4_REMOVE_AGE_ASSURANCE_2026-11-09.md`** → `docs/WORKFLOW.md` → relevant historical PR15 and PR23 sources.
+3. **Only S05-R4 is READY.** The previously directed S05-R3 age-Sandbox-video work is superseded by the owner's explicit decision to remove this optional-in-product age check. Do not try to film an absent feature or add a reviewer-only mechanism.
 
-1. `AGENTS.md`
-2. `STATUS.md`
-3. `tasks/S05_R2_SUBMISSION_CLOSEOUT_2026-10-31.md`
-4. `docs/WORKFLOW.md`
-5. `docs/PRODUCT_DECISIONS.md` and `docs/SPEC.md`
-6. The exact audit/source/evidence references required by the current task.
+## Concrete task
 
-## Execute only the current task
+- **Full runtime rollback:** Restore direct `ContentView()`, remove the Declared Age Range adapter/service, calls/imports, localization strings, app entitlement/project capability, age-specific tests, age-only workflows. Preserve real PhotoKit readWrite, the already accepted Continue/继续, recovery, ZIP/PDF/OCR/share/cleanup and all prior safety contracts.
+- Update old release verifier, bridge, self-tests, workflows and candidate configuration to require **absence of age entitlement in newly signed App** while retaining strict Apple Distribution/codesign/profile/debug/privacy/IPA integrity controls. Do not just delete failing assertions.
+- Keep historical signed `0.1.0 (35.1)` reports immutable: it still contains the age feature. New replacement needs an unused higher build number selected only after actual ASC preflight; 36.1 is just a candidate.
+- Reuse audited PR #23 release-tooling on its existing isolated branch with latest main merged carefully; no force push. Once the implementation changes, obtain fresh focused actual CI evidence and independent exact-head audit. No unreviewed upload or self-merge.
+- Prepare truthful **App Store Connect Age Assurance = No, Parental Controls = No** owner steps for the replacement, and factual reviewer response acknowledging removal. No metadata-only edits to 35.1 pretending the API disappeared, no fake video, no removal of the current Apple review message.
+- **Do not claim legal exemption:** Texas developer-duty obligations may apply to this no-age feature set. Keep the US auto-release risk explicit; owner chose AFTER_APPROVAL and future-new-territories off. Do not silently change regions/release type. No automatic App Review submission.
+- Finish with `reports/S05/age-removal-2026-11-09/round-01/` and PR **READY_FOR_AUDIT**, with exact tested/source/head SHAs, code/asset removal proof, local & CI results, negative entitlement checks, and the unsubmitted review reply.
 
-**S05-R2 is READY_FOR_CODEX.** Work on one isolated branch `codex/s05-r2-submission-closeout` and one implementation/release-preparation PR.
-
-PR #22's Continue/继续 change is already audited and merged. Do not redo it. Deliver a complete new submission candidate: actual ASC readback, accurate conditional age-assurance evidence and metadata reconciliation, minimal release-tooling adaptation, genuine final distribution signing, explicit upload and processing verification, existing-owner internal TestFlight availability, exact-build smoke and the final unsent Apple reply packet.
-
-This owner-dispatched task authorizes the scoped engineering/CI/signing/upload/internal-install work; it no longer stops at an unsigned build plan. Preserve all safety and source/signature checks. It does **not** authorize Codex to self-approve/merge, send the Apple reply, resubmit App Review, accept owner legal attestations or publicly release. Any required owner-only device/account step must be specific and minimal; continue the remaining work on the same task.
-
-Primary age route: Parental Controls None; truthful conditional Declared Age Range implementation with Age Assurance Yes and actual reviewer-reproduction evidence. Never convert a recommendation or a 4+ rating into proof of final checkbox values. Do not manufacture a reviewer-only age UI or delete compliance behavior just to clear a checkbox.
-
-Version remains 0.1.0. Prefer an unused build 35.1 after a real ASC check; successful 34.1 is immutable. Preserve US + China mainland, free app and Manual Release. ICP exception case `102984758084` is already approved; review-delay case `102994145327` is separate. No Everwhile mutations.
-
-## Handoff
-
-Follow the task's release manifest, actual-test matrix, ASC readback, signed-IPA evidence, reviewer packet and stop criteria. Finish at **READY_FOR_RELEASE_AUDIT** only with the required evidence; otherwise report the exact unresolved device/Apple/access blocker and completed independent work. ChatGPT independently audits the exact PR/build before the Apple reply and resubmission.
-
-Do not restart S00, request existing credentials, repeat broad photo/deletion tests, or deliver only another plan.
+The task is *implementation and auditable preparation*, not current public release authorization. ChatGPT independently reviews the changed PR before a new signed/uploaded candidate and final ASC/reviewer operations. No owner passwords/keys/raw profiles/photos in GitHub evidence.
