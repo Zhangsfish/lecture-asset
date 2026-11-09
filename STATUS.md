@@ -1,69 +1,44 @@
-# Current status
+# Current status — 2026-11-09 (latest owner direction)
 
-Updated: 2026-11-09
+## ONLY CURRENT DISPATCH: S05-R4 — READY_FOR_CODEX
 
-## Only current dispatch
+**Owner has explicitly decided to remove the complete Declared Age Range / in-app Age Assurance module from Lecture Asset and return to ordinary local photo-tool behavior, following Everwhile's no-age-request product pattern.**
 
-**S05-R3 — READY_FOR_CODEX / APP_REVIEW_BLOCKED_ON_PHYSICAL_AGE_DEMO**
+Execute [tasks/S05_R4_REMOVE_AGE_ASSURANCE_2026-11-09.md](tasks/S05_R4_REMOVE_AGE_ASSURANCE_2026-11-09.md). **This supersedes the earlier S05-R3 physical-age-video implementation plan.** R3’s November8 Apple letter remains genuine historical evidence, not a command to keep the now-rejected module. Do NOT start Sandbox pairing, produce a fake age-video, or add user-visible age UI.
 
-Execute [tasks/S05_R3_PHYSICAL_AGE_DEMO_2026-11-08.md](tasks/S05_R3_PHYSICAL_AGE_DEMO_2026-11-08.md). Primary route is **existing 0.1.0 (35.1), legitimate Apple age Sandbox on a physical iPhone, actual recorded demo, stable video link in Notes, factual reply**. Do not start by rebuilding or redesigning the app.
+**Stages:** Codex deletes module and adapts active verifiers/tests/workflow → opens/updates PR23 at new tested head → ChatGPT independently audits exact new source → only then owner-authorized new signed/uploaded App Store build + matching questionnaire/reviewer response. **35.1 is immutable and still has the age code; metadata-only changes do not remove it.**
 
-## New authoritative review evidence
+### Identity, existing state, and known SHAs
 
-Owner pasted Apple's review response dated **2026-11-08**, reviewing **0.1.0 (35.1)** on **iPhone 17 Pro Max and iPad Pro 11-inch (M4)**. Under **Guideline 2.1 — Information Needed**, Apple explicitly requests physical-device video of **age assurance within the app**, including relevant functionality/permissions. Native screen recording is allowed; simulator video is not. Add the actual demo URL to App Review Information > Notes AND reply to the existing message.
+- App: Lecture Asset; numeric Apple ID `6816814541`; Bundle `com.zhangsfish.lectureasset`; Team `QK73K23W9N`; version `0.1.0`.
+- Source main prior to this dispatch: `7d11a372afd9c6dd19ee52af72dd5635b43581b2`; task creation adds a subsequent doc-only main commit. **Always refetch latest main.**
+- PR #23 remains **OPEN / UNMERGED**, last checked head `4d7be3703176535c88c696b53611dbc86ef932fb`. It has audited reusable release-tooling but is not part of main. The new R4 implementation should proceed on its isolated branch as specified in the task, with a fresh audit once head changes.
+- Last uploaded/reviewed 35.1 source/tested: `b107ded0d60ec3944c4db41068a6e79e41c6f5b1`; new code needs a new unique build (36.1 only a provisional candidate).
+- Apple reviewed 35.1 on **2026-11-08**, iPhone17ProMax / iPad Pro11-inchM4. Under **2.1 Information Needed**, asked for physical age-assurance demo video, Notes link and current conversation reply. No final approval recorded. **A new no-age build must be accurately disclosed; Apple may still request new evidence.**
+- PR #22 already merged Photos pre-permission neutral EN `Continue` / zh-Hans `继续`. Preserve native system readWrite permission and core asset safety.
+- Owner selected **automatic release on approval** (`AFTER_APPROVAL`); free app, US+China mainland only, future-new-territory opt-in owner-reported off. Preserve choices; **automatic approval may publish immediately**, so obtain a focused separate compliance risk decision before resubmission.
+- China ICP exception support case `102984758084` approved according to owner-provided Apple message; not an ICP filing number.
+- Everwhile is a read-only comparison, not a source of a legal exemption. Its `FamilyControls` Screen Time authorization is unrelated to `DeclaredAgeRange` age API.
 
-This proves Apple reviewed35.1; it does not prove final approval of prior5.1.1/2.3.6 issues or a new code defect. Exact current ASC state has **not** been read back in this chat.
+### Required technical diff and new ASC alignment
 
-**The prior October31 audit's allowance to attempt review with eligible Sandbox=NOT_RUN is superseded for this submission.** That engineering audit remains historical source/signing evidence, but the newly requested physical demonstration is now a **blocking evidence requirement**. No more 'no universal video requirement' rationale or simulator evidence as a replacement.
+- Restore `App/LectureAssetApp.swift` to direct `ContentView()`; delete age entry/service, localized age-only error strings, age entitlement from app/project, age-only test and CI requirements.
+- **Inspect/adjust the active signed-IPA validator** to REQUIRE the age entitlement **absent from the new signed App**, not TRUE; preserve Apple Distribution, codesign, App Store profile, get-task-allow=false, bundle/version, privacy manifests, Continue/继续 and exact IPA digest gates. Prior Apple provisioning allowance can remain unused; changing private Portal capability is not automatically required.
+- Do not remove unrelated App functions/permissions, change iOS18 minimum, create backend or introduce any new product age restriction.
+- **After matching replacement binary is actually prepared/selected**, owner updates ASC Age Rating > In-App Controls to **Parental Controls: No / Age Assurance: No**; rest of truthful questionnaire remains unchanged, likely calculated **4+**. Do not claim that 35.1 with age API has already become no-age by checkbox change. Apple’s new global rating set does not have a generic '14+' override for this product.
+- Need truthful new-build App Review reply explaining feature removed and age question revised; a real physical current-build normal-function demo may still be requested. No assumption that Apple automatically stops inspecting.
+- **Critical compliance risk**: Apple Texas update June3 2026 and Texas B&C Code 121.054 may require app developers to verify age category/parental consent from store information even for free general utilities. Not resolved by Everwhile approval or age rating. The owner-directed removal is not legal clearance for nationwide US automatic release. Preserve this risk for explicit review; no hidden US/China territory change.
 
-## Verified source and package baseline
+### Control gates
 
-| Item | Evidence / state |
-|---|---|
-| PR22 | Audited and merged; neutral Photos CTA Continue / 继续 |
-| PR23 | Re-fetched 2026-11-09: **OPEN / UNMERGED**, head `4d7be3703176535c88c696b53611dbc86ef932fb` |
-|35.1 source/tested/upload SHA | `b107ded0d60ec3944c4db41068a6e79e41c6f5b1` |
-| Historical35.1 IPA SHA256 | `79e49ff1bad15d69b4bdaeca2b11ce993ed4fd804e0be0b351d4df01eb9bd91e` |
-| Historical build evidence | Genuine distribution signature/profile age entitlement true, VALID / APP_STORE_ELIGIBLE / existing internal IN_BETA_TESTING; October31 CI and audit, not a fresh device/Sandbox result |
-| Physical observations | Owner reported normal album entry on iOS26.7.1; no Developer/Sandbox menu. No genuine eligible age-sharing demo exists in the reviewed evidence |
-| Age code | `AgeAssuranceEntryView`: iOS26.2+ → Apple eligibility → real request only when eligible. A cached response/no-prompt path is possible; no normal-user age page is present |
-| New deliverable | Real current-build physical video + exact scenario/build/timestamps + anonymous usable HTTPS link + final unsent Notes/reply |
+- Codex implements/test/reports; NO self-merge; NO blind 36.1 upload; NO Apple account changes; NO review reply/submission; NO public release.
+- ChatGPT independently audits new PR head and actual CI/original artifact evidence; later owner-authorized signing/upload and ASC readback are distinct. Owner takes only required ASC/physical-iPhone actions.
+- Historical audit/35.1 signed reports remain immutable. Do not erase the genuine November8 reviewer request from history.
 
-Main at the start of this recheck was `ffba0fbd017e211a443da9f99238af1797fcb1a0`; it does not contain PR23 release-tooling changes. Continue the existing PR23 branch with latest main dispatch merged normally, not a rebuild from stale main or a force push. Report changed head and bind all further audit evidence to it.
+## Historical snapshots — DO NOT EXECUTE AS CURRENT TASKS
 
-## Immediate work / responsibility
-
-- **Codex:** current safe ASC/build readback; check official rendered Sandbox instructions; guide the missing physical test entry; dry-run35.1 using authentic Apple scenarios; process/inspect owner video; prepare stable hosting and accurate Notes/reply. Fix only a reproduced defect on the existing isolated branch.
-- **Owner:** supply actual phone interaction/recording, private test-account entry, and access to an existing/borrowed compatible local Mac if needed for the documented pairing path. Do not repeatedly ask the owner to locate the already-missing Developer menu. Mac availability is not yet known. No passwords/keys/private-photo uploads.
-- **ChatGPT:** inspect actual footage, provenance, claims and final link; independent code/build audit if code changes; provide final reply and submission decision after evidence exists.
-
-Current completion gate: **no physical age evidence = not ready to reply as completed**. If setup works, keep35.1 and only supplement information. If it fails, separate environment/cache problems from reproducible app bugs; do not invent successful age sharing or remove compliance to clear metadata. New runtime changes require tests, exact new build and audit; no automatic speculative36.1.
-
-## Standing owner decisions (supersede old manual-release paragraphs)
-
-The owner explicitly chose **automatic release on approval (AFTER_APPROVAL)** on October31. Preserve that choice; do not re-impose Manual Release. Future-new-territory auto-distribution was owner-reported disabled; current target countries remain **US + China mainland**, free. Verify actual current values when needed; this update does not change ASC.
-
-Because approval can now trigger public release, the new evidence gate must be met **before** the completion reply/any new resubmission. No autonomous Apple message, upload, app review resubmission, PR merge or publication of private footage.
-
-## Identifiers — never conflate
-
-- Lecture Asset Apple ID: `6816814541`; Bundle: `com.zhangsfish.lectureasset`; Team: `QK73K23W9N`.
-- Approved Lecture Asset ICP exception support case: **`102984758084`**.
-- Lecture Asset review-delay contact: **`102994145327`**.
-- Everwhile separate ICP case: **`102991507017`**; no modification or new approval inference.
-
-Support case IDs are not ICP filing numbers. Do not restart the already approved Lecture Asset ICP application without a concrete new portal request.
-
-## Frozen boundaries
-
-No cloud/accounts/analytics/IAP, no full-photo-permission product redesign, no hidden reviewer mode or fake Apple UI. Preserve exact archive/share/delete/job recovery contracts, iOS18 minimum and current bilingual UI. Use2–3 synthetic photos for the reviewer demo; no200-photo/WeChat/destructive private-photo stress rerun. Real eligible minor/adult behavior, production code, system signing, saved metadata and Apple approval remain distinct evidence categories.
-
-## Reference history (not active dispatch)
-
-- [R3 task and official-source guidance](tasks/S05_R3_PHYSICAL_AGE_DEMO_2026-11-08.md)
-- [PR23 historical independent audit](audits/S05/submission-closeout-2026-10-31/round-01.md) — provisional missing-Sandbox allowance now superseded by actual Apple request.
-- [Owner auto-release/build-selection decisions](docs/APP_REVIEW_OWNER_PORTAL_DECISIONS_2026-10-31.md)
-- [PR23 evidence](https://github.com/Zhangsfish/lecture-asset/tree/4d7be3703176535c88c696b53611dbc86ef932fb/reports/S05/submission-closeout-2026-10-31/round-01)
-- [Previous STATUS preserved](https://github.com/Zhangsfish/lecture-asset/blob/ffba0fbd017e211a443da9f99238af1797fcb1a0/STATUS.md)
-
-Publishing this dispatch records the work; it does not execute a remote Codex session or prove device tests/video/link/ASC changes have happened.
+- [S05-R3 physical age video task (superseded by owner R4 decision)](tasks/S05_R3_PHYSICAL_AGE_DEMO_2026-11-08.md)
+- [Pre-R4 STATUS immutable snapshot](https://github.com/Zhangsfish/lecture-asset/blob/7d11a372afd9c6dd19ee52af72dd5635b43581b2/STATUS.md)
+- [R2 independent candidate audit](audits/S05/submission-closeout-2026-10-31/round-01.md)
+- [Prior US/Texas legal inference](reports/S05/us-fallback-01/US_LEGAL.md)
+- [Original feature implementation PR #15](https://github.com/Zhangsfish/lecture-asset/pull/15)
