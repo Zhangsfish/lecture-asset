@@ -10,7 +10,7 @@ guard args.count == 4, ["readback", "internal"].contains(args[2]),
       let keyID = env["APP_STORE_CONNECT_KEY_ID"], let issuer = env["APP_STORE_CONNECT_ISSUER_ID"] else {
     print("S05_R2_ASC_CONFIGURATION"); exit(1)
 }
-let configPath = "reports/S05/submission-closeout-2026-10-31/round-01/candidate.json"
+let configPath = "reports/S05/age-removal-2026-11-09/round-01/candidate.json"
 var report: [String: Any] = ["queryDate": ISO8601DateFormatter().string(from: Date()),
     "operation": args[2], "appReviewSubmitted": false, "storefrontsChanged": false]
 func save() throws {
@@ -67,7 +67,7 @@ do {
     let builds = rows(try api("v1/builds", ["filter[app]":appID,"filter[version]":buildNumber,"limit":"2", "include":"preReleaseVersion"]))
     report["candidateBuildNumber"] = buildNumber
     report["candidateNumberAvailable"] = builds.isEmpty
-    let previous=rows(try api("v1/builds",["filter[app]":appID,"filter[version]":"34.1","limit":"2"]))
+    let previous=rows(try api("v1/builds",["filter[app]":appID,"filter[version]":"35.1","limit":"2"]))
     report["previousReviewedBuildExists"] = previous.count == 1
     report["candidateBuilds"] = builds.map { ["id":$0["id"] ?? NSNull(), "attributes":safe(attrs($0),["version","processingState","buildAudienceType","minOsVersion","usesNonExemptEncryption","expired"])] }
     attempt("versions") {

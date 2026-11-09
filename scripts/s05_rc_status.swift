@@ -49,7 +49,7 @@ func write(_ safe: [String: Any], _ path: String) throws {
     try data.write(to: URL(fileURLWithPath: path), options: .atomic)
 }
 
-let configURL = URL(fileURLWithPath: "reports/S05/submission-closeout-2026-10-31/round-01/candidate.json")
+let configURL = URL(fileURLWithPath: "reports/S05/age-removal-2026-11-09/round-01/candidate.json")
 let configData = try Data(contentsOf: configURL)
 let config = try JSONSerialization.jsonObject(with: configData) as! [String: String]
 let candidateBuild = config["build"]!
@@ -82,7 +82,7 @@ do {
     let apps = try get("apps", [URLQueryItem(name: "filter[bundleId]", value: "com.zhangsfish.lectureasset"),
                               URLQueryItem(name: "limit", value: "2")], try bearer(key, keyID, issuer))
     guard let items = apps["data"] as? [[String: Any]], items.count == 1,
-          let appID = items[0]["id"] as? String else { throw RCAPIError(code: "APP_NOT_UNIQUE") }
+          let appID = items[0]["id"] as? String, appID == config["app_id"] else { throw RCAPIError(code: "APP_NOT_UNIQUE") }
     let mode = args[2]
     let attempts = mode == "poll" ? 40 : 1
     for attempt in 0..<attempts {
@@ -128,7 +128,9 @@ do {
             print("S05_RC_ASC_PENDING state=" + state + " audience=" + audience)
         } else {
             try write(["version": "0.1.0", "build": candidateBuild, "processingState": "NOT_VISIBLE",
-                       "buildAudienceType": "UNCONFIRMED", "queryMode": mode], args[3])
+                       "buildAudienceType": "UNCONFIRMED", "queryMode": mode,
+                       "buildNumberAvailable":mode == "preflight", "queryDate":ISO8601DateFormatter().string(from:Date()),
+                       "queryScope":"Exact app and candidate build; recheck immediately before upload"], args[3])
             if mode == "preflight" { print("S05_RC_BUILD_NUMBER_AVAILABLE"); exit(0) }
         }
         if attempt + 1 < attempts { Thread.sleep(forTimeInterval: 30) }

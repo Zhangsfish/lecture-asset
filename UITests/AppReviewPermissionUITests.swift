@@ -27,6 +27,23 @@ class AppReviewPermissionUIBase: XCTestCase {
     }
 
     @MainActor
+    func ordinaryEntryAndRelaunch(_ chinese: Bool) {
+        let app = XCUIApplication()
+        app.launchArguments = ["-AppleLanguages", chinese ? "(zh-Hans)" : "(en)",
+                               "-AppleLocale", chinese ? "zh_CN" : "en_US"]
+        // The preceding real full-Photos choice is preserved. No injected age
+        // response or shipping test route exists. Launch the real @main twice.
+        for _ in 0..<2 {
+            app.launch()
+            XCTAssertTrue(app.collectionViews["photo-grid"].waitForExistence(timeout: 20))
+            XCTAssertTrue(app.buttons["about-open"].isHittable)
+            XCTAssertFalse(XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch.exists)
+            keep("ordinary-entry-no-intermediate-request")
+            app.terminate()
+        }
+    }
+
+    @MainActor
     func localHelp(_ app: XCUIApplication) {
         app.buttons["about-open"].tap()
         XCTAssertTrue(app.buttons["tutorial-replay"].waitForExistence(timeout: 10))
@@ -125,12 +142,14 @@ class AppReviewPermissionUIBase: XCTestCase {
 }
 
 final class AppReviewEnglishPermissionUITests: AppReviewPermissionUIBase {
+    @MainActor func testOrdinaryEntryAndRelaunch() { ordinaryEntryAndRelaunch(false) }
     @MainActor func testContinueThenDenied() { denied(false) }
     @MainActor func testContinueThenFullAccess() { authorized(false) }
     @MainActor func testContinueThenLimited() { limited(false) }
 }
 
 final class AppReviewChinesePermissionUITests: AppReviewPermissionUIBase {
+    @MainActor func testOrdinaryEntryAndRelaunch() { ordinaryEntryAndRelaunch(true) }
     @MainActor func testContinueThenDenied() { denied(true) }
     @MainActor func testContinueThenFullAccess() { authorized(true) }
     @MainActor func testContinueThenLimited() { limited(true) }

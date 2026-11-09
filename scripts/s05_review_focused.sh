@@ -35,7 +35,7 @@ for locale in en zh-Hans; do
   xcrun simctl bootstatus "$device" -b
   base=(xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release
     -destination "platform=iOS Simulator,id=$device" -derivedDataPath "$derived"
-    CURRENT_PROJECT_VERSION="${RC_BUILD:-35.1}" MARKETING_VERSION=0.1.0 ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES
+    CURRENT_PROJECT_VERSION="${RC_BUILD:?Set from the R4 descriptor}" MARKETING_VERSION=0.1.0 ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES
     -parallel-testing-enabled NO)
   run_test() {
     local name="$1"; shift
@@ -50,8 +50,7 @@ for locale in en zh-Hans; do
     tail -n 90 "$RUNNER_TEMP/review-$kind-$locale-build.log"; exit 1;
   }
   if [[ "$kind-$locale" == iphone-en ]]; then
-    run_test contracts -only-testing:LectureAssetTests/AgeAssuranceTests \
-      -only-testing:LectureAssetTests/LocalizationResourceTests \
+    run_test contracts -only-testing:LectureAssetTests/LocalizationResourceTests \
       -only-testing:LectureAssetTests/S01RecoveryTests -only-testing:LectureAssetTests/S03CleanupTests
   fi
   for phase in Denied FullAccess Limited; do
@@ -67,11 +66,14 @@ for locale in en zh-Hans; do
     mkdir -p "$container/tmp"
     printf '%s' "$expected" > "$container/tmp/review-permission-expected.txt"
     run_test "$phase-native-status" -only-testing:LectureAssetTests/AppReviewPermissionStateTests/testHostPreparedReadWriteAuthorization
+    if [[ "$phase" == FullAccess ]]; then
+      run_test ordinary-entry -only-testing:"LectureAssetUITests/$class/testOrdinaryEntryAndRelaunch"
+    fi
     # Xcode may reinstall the host into a new data-container URL between runs.
     # Resolve it again after the test; never reuse the pre-install path.
     container=$(xcrun simctl get_app_container "$device" "$bundle" data)
     cp "$container/tmp/review-permission-observed.json" "$evidence/$kind-$locale-$phase-native.json"
   done
-  python3 scripts/check_age_release.py "$derived/Build/Products/Release-iphonesimulator/Lecture Asset.app" "$evidence/$kind-$locale-simulator-entitlement.json"
+  python3 scripts/check_app_entry_release.py "$derived/Build/Products/Release-iphonesimulator/Lecture Asset.app" "$evidence/$kind-$locale-simulator-absence.json"
 done
 xcrun simctl shutdown "$device"

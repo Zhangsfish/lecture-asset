@@ -65,10 +65,10 @@ class ReleaseGuards(unittest.TestCase):
             (dep / "PrivacyInfo.xcprivacy").write_bytes(plistlib.dumps({"NSPrivacyAccessedAPITypes":[
                 {"NSPrivacyAccessedAPITypeReasons":["0A2A.1"]}]}))
             rc.privacy(app)
-            for locale, label in [("en","Continue"),("zh-Hans","继续")]:
+            for locale, label in [("en","Continue"),("zh-Hans","缁х画")]:
                 loc = app / (locale + ".lproj"); loc.mkdir()
                 (loc / "Localizable.strings").write_bytes(plistlib.dumps({"permission.allow":label}))
-            self.assertEqual(rc.labels(app), {"en":"Continue","zh-Hans":"继续"})
+            self.assertEqual(rc.labels(app), {"en":"Continue","zh-Hans":"缁х画"})
             (app / "en.lproj/Localizable.strings").write_bytes(plistlib.dumps({"permission.allow":"Allow full access"}))
             with self.assertRaisesRegex(rc.RCError, "LOCALIZED_PERMISSION_LABEL_MISMATCH"):
                 rc.labels(app)
@@ -88,16 +88,21 @@ class ReleaseGuards(unittest.TestCase):
 
     def test_profile_and_signature_fail_closed(self):
         team="QK73K23W9N"
-        ent={"com.apple.developer.declared-age-range":True, "application-identifier":team+"."+rc.BUNDLE,
+        ent={"application-identifier":team+"."+rc.BUNDLE,
              "com.apple.developer.team-identifier":team, "get-task-allow":False}
         profile={"Entitlements":copy.deepcopy(ent), "TeamIdentifier":[team],
                  "ExpirationDate":datetime.datetime.now()+datetime.timedelta(days=1)}
-        for field in ("get-task-allow","com.apple.developer.declared-age-range"):
-            for target in ("app","profile"):
-                e,p=copy.deepcopy(ent),copy.deepcopy(profile)
-                (e if target=="app" else p["Entitlements"]).pop(field)
-                with self.subTest(field=field,target=target),self.assertRaises(rc.RCError):
-                    rc.entitlement_contract(e,p,team)
+        rc.entitlement_contract(ent, profile, team)
+        for allowance in (True, False):
+            p=copy.deepcopy(profile);p["Entitlements"][rc.AGE_KEY]=allowance
+            rc.entitlement_contract(ent,p,team)
+        for value in (True,False,"true",None):
+            with self.subTest(value=value),self.assertRaisesRegex(rc.RCError,"AGE_ENTITLEMENT_MUST_BE_ABSENT"):
+                rc.entitlement_contract({**ent,rc.AGE_KEY:value},profile,team)
+        for target in ("app","profile"):
+            e,p=copy.deepcopy(ent),copy.deepcopy(profile)
+            (e if target=="app" else p["Entitlements"]).pop("get-task-allow")
+            with self.subTest(target=target),self.assertRaises(rc.RCError): rc.entitlement_contract(e,p,team)
         with tempfile.TemporaryDirectory() as folder:
             app=Path(folder)/"app"; app.mkdir(); ipa=Path(folder)/"a.ipa"; ipa.write_bytes(b"fixture")
             def capture(command):
@@ -113,18 +118,31 @@ class ReleaseGuards(unittest.TestCase):
 
     def test_provenance_source_dirty_and_unexpected_files(self):
         head="a"*40
-        cases=[("EXPECTED_SOURCE_SHA_MISMATCH","source"),("FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED","baseline"),
+        cases=[("EXPECTED_SOURCE_SHA_MISMATCH","source"),("R4_PRODUCT_SCOPE_MISMATCH","baseline"),
                ("UNEXPECTED_PRODUCT_FILE","untracked"),("DIRTY_PRODUCT_TREE","dirty"),("DIRTY_RELEASE_INPUT","tooling")]
         for code,case in cases:
             def capture(command):
                 if command[1:3]==["rev-parse","HEAD"]: return head.encode()
-                if "diff" in command and rc.BASELINE in command: return b"App/changed.swift" if case=="baseline" else b""
+                if "diff" in command and rc.BASELINE in command: return b"App/changed.swift" if case=="baseline" else "\n".join(sorted(rc.ALLOWED)).encode()
+                if "diff" in command and rc.HISTORICAL_HEAD in command: return b""
+                if command[1:3]==["show",rc.BASELINE+":App/Localizable.xcstrings"]: return Path("App/Localizable.xcstrings").read_bytes()
                 if "ls-files" in command: return b"App/new.swift" if case=="untracked" and "--others" in command else b""
-                if command[1:4]==["diff","--name-only","HEAD"]: return b"App/changed.swift" if case=="dirty" else b""
-                if command[1:3]==["diff","HEAD"]: return b"changed" if case=="tooling" else b""
+                if command[1:3]==["diff","HEAD"]:
+                    product = command[4:] == rc.PROTECTED
+                    return b"changed" if (product and case=="dirty") or (not product and case=="tooling") else b""
                 raise AssertionError("Unexpected test command")
-            with self.subTest(case=case),patch.object(rc,"capture",capture),patch.dict(rc.os.environ,{"RC_EXPECTED_SOURCE_SHA":"b"*40 if case=="source" else head}):
+            with self.subTest(case=case),patch.object(rc,"product_contract",side_effect=rc.RCError(code) if case=="baseline" else None),patch.object(rc,"capture",capture),patch.dict(rc.os.environ,{"RC_EXPECTED_SOURCE_SHA":"b"*40 if case=="source" else head}):
                 with self.assertRaisesRegex(rc.RCError,code): rc.provenance()
+
+    def test_no_age_source_bundle_contract_and_entitlement_matrix(self):
+        from check_app_entry_release import source_proof, require_absent, FORBIDDEN
+        source_proof()
+        require_absent(b"ordinary utility executable fixture")
+        for marker in FORBIDDEN:
+            with self.subTest(marker=marker),self.assertRaises(AssertionError): require_absent(b"prefix"+marker+b"suffix")
+        result=rc.self_test()
+        self.assertEqual(result['negative_contract_cases'],15)
+        self.assertEqual(result['unused_profile_allowance_cases'],3)
 
     def test_workflow_secrets_are_manual_and_default_is_prepare(self):
         text=Path(".github/workflows/s05-final-rc.yml").read_text(encoding="utf8")
@@ -134,9 +152,12 @@ class ReleaseGuards(unittest.TestCase):
         self.assertIn("if: github.event_name == 'workflow_dispatch' && inputs.operation != 'prepare-only'",secret_steps[0])
         text=Path("scripts/s05_final_rc.sh").read_text()
         self.assertIn('${1:-prepare-only}',text)
+        self.assertIn('${RC_OWNER_AUTHORIZED_AFTER_AUDIT:-false}',text)
+        self.assertIn('AUDITED_SOURCE_MISMATCH',text)
         self.assertNotIn('[upload-rc-',Path(".github/workflows/s05-final-rc.yml").read_text())
         self.assertEqual(text.count('--digest "$ipa"'),2)
         self.assertIn('assert "testFlightInternalTestingOnly" not in options',text)
+        self.assertNotIn('s05_rc_bridge',text)
 
 
 if __name__=="__main__":

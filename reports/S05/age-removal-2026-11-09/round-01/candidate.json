@@ -1,0 +1,15 @@
+{
+  "bundle_id": "com.zhangsfish.lectureasset",
+  "app_id": "6816814541",
+  "team_id": "QK73K23W9N",
+  "version": "0.1.0",
+  "build": "36.1",
+  "minimum_os": "18.0",
+  "product_baseline": "52f7bdb5dd8f89cdd2edd3b2161ed9080cbd27c9",
+  "historical_pr23_head": "4d7be3703176535c88c696b53611dbc86ef932fb",
+  "base_main": "52f7bdb5dd8f89cdd2edd3b2161ed9080cbd27c9",
+  "build_number_status": "PROVISIONAL_REQUIRES_LIVE_PREFLIGHT",
+  "release_gate": "HOLD_FOR_INDEPENDENT_AUDIT_AND_OWNER_AUTHORIZATION",
+  "audited_source_sha": "NOT_YET_AUDITED",
+  "release_policy": "PRESERVE_AFTER_APPROVAL_US_CHN; NO_SUBMISSION_OR_PUBLICATION_AUTHORIZED"
+}

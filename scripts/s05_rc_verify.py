@@ -10,18 +10,25 @@ from pathlib import Path
 import plistlib
 import subprocess
 import sys
+from check_app_entry_release import source_proof, require_absent, AGE_KEY, AGE_STRINGS
 
-# Independent PR22 audit covers this immutable production baseline.
-BASELINE = "6a2be31f27ee90ad094bc8b003c9484e81fb6803"
-MAIN = "14f91942f19e80c1afaabbd2445692fdd60b9da9"
-CONFIG = Path("reports/S05/submission-closeout-2026-10-31/round-01/candidate.json")
+# This baseline is comparison input, NOT an approval of this new candidate.
+BASELINE = "52f7bdb5dd8f89cdd2edd3b2161ed9080cbd27c9"
+MAIN = BASELINE
+HISTORICAL_HEAD = "4d7be3703176535c88c696b53611dbc86ef932fb"
+HISTORICAL_REPORT = "reports/S05/submission-closeout-2026-10-31/round-01"
+CONFIG = Path("reports/S05/age-removal-2026-11-09/round-01/candidate.json")
 CANDIDATE = json.loads(CONFIG.read_text(encoding="utf8"))
 VERSION = CANDIDATE["version"]
 BUILD = CANDIDATE["build"]
 BUNDLE = "com.zhangsfish.lectureasset"
 PROTECTED = ["App", "Packages", "AppResources", "schemas", "project.yml",
              "reports/S05/store-screenshots-01",
+             "reports/S05/store-screenshots-medium-01", "public-pages",
              ".github/workflows/s00-testflight.yml", "scripts/s00_testflight_release.sh"]
+REMOVED = {"App/AgeAssuranceEntryView.swift", "App/AgeAssuranceService.swift", "App/LectureAsset.entitlements"}
+ALLOWED = REMOVED | {"App/LectureAssetApp.swift", "App/Localizable.xcstrings", "project.yml"}
+FOCUSED_TEST_COUNT = 9
 
 
 class RCError(Exception):
@@ -68,16 +75,15 @@ def age_state(values):
     return "missing" if key not in values else ("true" if values[key] is True else "false")
 
 
-def age_contract(entitlements, profile):
-    require(profile.get("Entitlements", {}).get("com.apple.developer.declared-age-range") is True,
-            "DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_REGRESSED")
-    require(entitlements.get("com.apple.developer.declared-age-range") is True,
-            "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED_AFTER_ADHOC_BRIDGE")
+def absence_contract(entitlements):
+    # Even a FALSE claimed entitlement is forbidden; the key must be absent.
+    # An unused allowance in an Apple-issued profile is permitted, never required.
+    require(AGE_KEY not in entitlements, "SIGNED_APP_AGE_ENTITLEMENT_MUST_BE_ABSENT")
 
 
 def entitlement_contract(entitlements, profile, team):
     expected_app = team + "." + BUNDLE
-    age_contract(entitlements, profile)
+    absence_contract(entitlements)
     require(entitlements.get("application-identifier") == expected_app, "SIGNED_APP_IDENTIFIER_MISMATCH")
     require(entitlements.get("com.apple.developer.team-identifier") == team, "SIGNED_TEAM_MISMATCH")
     require(entitlements.get("get-task-allow") is False, "SIGNED_DEBUG_ENTITLEMENT")
@@ -92,9 +98,9 @@ def entitlement_contract(entitlements, profile, team):
     require(isinstance(expiry, datetime.datetime), "PROFILE_EXPIRY_MISSING")
     require(expiry.replace(tzinfo=datetime.timezone.utc) > datetime.datetime.now(datetime.timezone.utc),
             "PROFILE_EXPIRED")
-    return {"declared_age_range": True, "application_identifier_correct": True,
+    return {"age_key_absent_from_signed_app": True, "application_identifier_correct": True,
             "team_identifier_correct": True, "get_task_allow_false": True,
-            "profile_declared_age_range": True, "app_store_distribution_profile": True,
+            "unused_profile_age_allowance": age_state(allowed), "app_store_distribution_profile": True,
             "profile_not_expired": True}
 
 
@@ -131,17 +137,19 @@ def signed(app, ipa, output):
     }
     with ipa.open("rb") as file:
         tests = result.get("tests", {})
-        if tests.get("failedTests") == 0 and tests.get("passedTests", 0) >= 18 and tests.get("skippedTests") == 0:
+        if tests.get("failedTests") == 0 and tests.get("passedTests") == FOCUSED_TEST_COUNT and tests.get("skippedTests") == 0:
             result["tested_sha"] = result["release_checkout_sha"]
         result["ipa_sha256"] = hashlib.file_digest(file, "sha256").hexdigest()
     def persist():
         Path(output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf8")
     persist()
     try:
-        # Age classification is profile-first, even when both fields are missing.
         result["signed_entitlements"] = entitlement_contract(ent, profile, team)
         require(verification.returncode == 0, "CODESIGN_VERIFICATION_FAILED")
         require(is_distribution, "APPLE_DISTRIBUTION_CERTIFICATE_NOT_CONFIRMED")
+        info = plistlib.loads((app / "Info.plist").read_bytes())
+        require_absent((app / info["CFBundleExecutable"]).read_bytes())
+        result["compiled_age_runtime_absent"] = True
         result["metadata"] = metadata(plistlib.loads((app / "Info.plist").read_bytes()))
         result["privacy"] = privacy(app)
         result["localized_permission_labels"] = labels(app)
@@ -155,12 +163,13 @@ def signed(app, ipa, output):
 
 def labels(app):
     result = {}
-    for locale, expected in [("en", "Continue"), ("zh-Hans", "继续")]:
+    for locale, expected in [("en", "Continue"), ("zh-Hans", "缁х画")]:
         path = app / (locale + ".lproj") / "Localizable.strings"
         require(path.is_file(), "LOCALIZED_STRINGS_MISSING")
         # Compiled .strings are binary plists in the real Release product.
         values = plistlib.loads(path.read_bytes())
         require(values.get("permission.allow") == expected, "LOCALIZED_PERMISSION_LABEL_MISMATCH")
+        require(not set(AGE_STRINGS).intersection(values), "ORPHANED_AGE_LOCALIZATION")
         result[locale] = expected
     return result
 
@@ -191,44 +200,54 @@ def generated_info(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def product_contract():
+    changed = set(capture(["git", "diff", "--name-only", BASELINE, "HEAD", "--", *PROTECTED]).decode().splitlines())
+    require(changed == ALLOWED, "R4_PRODUCT_SCOPE_MISMATCH")
+    for name in REMOVED:
+        require(not Path(name).exists(), "REMOVED_MODULE_REINTRODUCED")
+    original = json.loads(capture(["git", "show", BASELINE + ":App/Localizable.xcstrings"]))
+    for key in AGE_STRINGS:
+        del original["strings"][key]
+    require(json.loads(Path("App/Localizable.xcstrings").read_text(encoding="utf8")) == original,
+            "UNRELATED_LOCALIZATION_CHANGED")
+    original_project = capture(["git", "show", BASELINE + ":project.yml"]).decode()
+    expected_project = original_project.replace(
+        "    entitlements:\n      path: App/LectureAsset.entitlements\n      properties:\n        com.apple.developer.declared-age-range: true\n", "")
+    require(Path("project.yml").read_text() == expected_project, "UNRELATED_PROJECT_SETTING_CHANGED")
+    require(not capture(["git", "diff", "--name-only", HISTORICAL_HEAD, "HEAD", "--", HISTORICAL_REPORT]).strip(),
+            "HISTORICAL_35_EVIDENCE_CHANGED")
+    return source_proof()
+
+
 def provenance():
-    require(CANDIDATE["audited_product_baseline"] == BASELINE and CANDIDATE["base_main"] == MAIN,
-            "AUDITED_BASELINE_MISMATCH")
+    require(CANDIDATE["product_baseline"] == BASELINE and CANDIDATE["base_main"] == MAIN and
+            CANDIDATE["historical_pr23_head"] == HISTORICAL_HEAD, "BASELINE_MISMATCH")
     require(CANDIDATE["bundle_id"] == BUNDLE and VERSION == "0.1.0" and
             CANDIDATE["team_id"] == "QK73K23W9N" and CANDIDATE["minimum_os"] == "18.0", "CANDIDATE_CONFIG_MISMATCH")
-    require(BUILD == "35.1", "CANDIDATE_BUILD_NOT_AUTHORIZED")
+    import re
+    require(re.fullmatch(r"[0-9]+(?:\.[0-9]+){0,2}", BUILD) is not None and
+            tuple(map(int, BUILD.split("."))) > (35, 1), "CANDIDATE_BUILD_NOT_NEWER_THAN_35_1")
     head = capture(["git", "rev-parse", "HEAD"]).decode().strip()
-    expected = os.environ.get("RC_EXPECTED_SOURCE_SHA", head)
-    require(expected == head, "EXPECTED_SOURCE_SHA_MISMATCH")
-    require(not capture(["git", "diff", "--name-only", BASELINE, "HEAD", "--", *PROTECTED]).strip(),
-            "FROZEN_PRODUCT_OR_HISTORICAL_UPLOAD_PATH_CHANGED")
+    require(os.environ.get("RC_EXPECTED_SOURCE_SHA", head) == head, "EXPECTED_SOURCE_SHA_MISMATCH")
+    entry = product_contract()
     tracked = capture(["git", "ls-files", "--", *PROTECTED]).decode().splitlines()
     untracked = capture(["git", "ls-files", "--others", "--exclude-standard", "--", *PROTECTED]).decode().splitlines()
     require(set(untracked) <= {"App/Info.plist", "Packages/ArchiveCore/Package.resolved"}, "UNEXPECTED_PRODUCT_FILE")
     generated_hash = generated_info(Path("App/Info.plist")) if "App/Info.plist" in untracked else None
     if "Packages/ArchiveCore/Package.resolved" in untracked:
         package_lock(Path("Packages/ArchiveCore/Package.resolved"))
-    dirty = capture(["git", "diff", "--name-only", "HEAD", "--", *PROTECTED]).decode().splitlines()
-    require(not dirty or dirty == ["App/LectureAsset.entitlements"], "DIRTY_PRODUCT_TREE")
-    if dirty:
-        require(plistlib.loads(Path(dirty[0]).read_bytes()) ==
-                plistlib.loads(capture(["git", "show", "HEAD:" + dirty[0]])), "GENERATED_ENTITLEMENT_CONTENT_CHANGED")
-    # Bind all executable release inputs too. Permit only the documented semantic
-    # XcodeGen rewrite in the protected entitlement file.
-    release_inputs = ["scripts/s05_rc_verify.py", "scripts/s05_rc_status.swift", "scripts/s05_rc_bridge.py",
-                      "scripts/s05_final_rc.sh", "scripts/s05_r2_asc.swift", ".github/workflows/s05-final-rc.yml", str(CONFIG)]
-    require(not capture(["git", "diff", "HEAD", "--", *release_inputs]).strip(), "DIRTY_RELEASE_INPUT")
-    hashes = {}
-    for name in tracked:
-        data = Path(name).read_bytes()
-        if name == "App/LectureAsset.entitlements":
-            data = plistlib.dumps(plistlib.loads(data), sort_keys=True)
-        hashes[name] = hashlib.sha256(data).hexdigest()
-    return {"product_baseline_sha": BASELINE, "current_main_at_start": MAIN,
-            "release_checkout_sha": head, "protected_paths": PROTECTED,
-            "product_sources_identical": True, "production_file_sha256": hashes,
-            "historical_internal_pipeline_unchanged": True, "xcodegen_entitlement_format_only":bool(dirty),
-            "validated_generated_info_sha256":generated_hash}
+    require(not capture(["git", "diff", "HEAD", "--", *PROTECTED]).strip(), "DIRTY_PRODUCT_TREE")
+    release_inputs = ["scripts", ".github/workflows", "Tests", "UITests", str(CONFIG)]
+    require(not capture(["git", "diff", "HEAD", "--", *release_inputs, HISTORICAL_REPORT]).strip(), "DIRTY_RELEASE_INPUT")
+    require(not capture(["git", "ls-files", "--others", "--exclude-standard", "--", *release_inputs]).strip(),
+            "UNEXPECTED_RELEASE_INPUT")
+    hashes = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in tracked}
+    return {"comparison_product_baseline_sha": BASELINE, "current_main_at_start": MAIN,
+            "historical_35_1_report_unchanged": True, "release_checkout_sha": head,
+            "protected_paths": PROTECTED, "only_authorized_r4_product_changes": True,
+            "production_file_sha256": hashes, "entry_absence": entry,
+            "historical_internal_pipeline_unchanged": True,
+            "validated_generated_info_sha256": generated_hash}
 
 
 def package_lock(path):
@@ -256,18 +275,24 @@ def digest(ipa, signed_report):
 def self_test():
     import copy
     team = "SYNTHETIC0"
-    ent = {"com.apple.developer.declared-age-range": True, "application-identifier": team + "." + BUNDLE,
+    ent = {"application-identifier": team + "." + BUNDLE,
            "com.apple.developer.team-identifier": team, "get-task-allow": False}
     profile = {"Entitlements": copy.deepcopy(ent), "TeamIdentifier": [team],
                "ExpirationDate": datetime.datetime.now() + datetime.timedelta(days=1)}
     entitlement_contract(ent, profile, team)
     mutations = [
-        ("signed age absent", lambda e, p: e.pop("com.apple.developer.declared-age-range")),
-        ("signed age false", lambda e, p: e.update({"com.apple.developer.declared-age-range": False})),
+        ("signed age true", lambda e, p: e.update({AGE_KEY: True})),
+        ("signed age false", lambda e, p: e.update({AGE_KEY: False})),
+        ("signed age malformed", lambda e, p: e.update({AGE_KEY: "true"})),
         ("signed wrong app", lambda e, p: e.update({"application-identifier": "wrong"})),
         ("signed wrong team", lambda e, p: e.update({"com.apple.developer.team-identifier": "wrong"})),
         ("signed debug", lambda e, p: e.update({"get-task-allow": True})),
-        ("profile age absent", lambda e, p: p["Entitlements"].pop("com.apple.developer.declared-age-range")),
+        ("signed debug missing", lambda e, p: e.pop("get-task-allow")),
+        ("profile wrong app", lambda e, p: p["Entitlements"].update({"application-identifier":"wrong"})),
+        ("profile wrong team", lambda e, p: p["Entitlements"].update({"com.apple.developer.team-identifier":"wrong"})),
+        ("profile debug", lambda e, p: p["Entitlements"].update({"get-task-allow":True})),
+        ("profile debug missing", lambda e, p: p["Entitlements"].pop("get-task-allow")),
+        ("profile team missing", lambda e, p: p.update({"TeamIdentifier":[]})),
         ("development/ad-hoc profile", lambda e, p: p.update({"ProvisionedDevices": ["SYNTHETIC"]})),
         ("enterprise profile", lambda e, p: p.update({"ProvisionsAllDevices": True})),
         ("expired profile", lambda e, p: p.update({"ExpirationDate": datetime.datetime.now() - datetime.timedelta(days=1)})),
@@ -280,26 +305,13 @@ def self_test():
         except RCError:
             continue
         raise RCError("SELF_TEST_ACCEPTED_INVALID_ASSET")
-    diagnostic_cases = 0
-    for signed_state in ("true", "false", "missing"):
-        for profile_state in ("true", "false", "missing"):
-            e, p = copy.deepcopy(ent), copy.deepcopy(profile)
-            key = "com.apple.developer.declared-age-range"
-            for values, state in ((e, signed_state), (p["Entitlements"], profile_state)):
-                if state == "missing": values.pop(key)
-                else: values[key] = state == "true"
-                require(age_state(values) == state, "SELF_TEST_WRONG_AGE_OBSERVATION")
-            expected = ("DISTRIBUTION_PROFILE_DECLARED_AGE_RANGE_REGRESSED" if profile_state != "true" else
-                        "DISTRIBUTION_SIGNED_ENTITLEMENT_DROPPED_AFTER_ADHOC_BRIDGE" if signed_state != "true" else None)
-            try:
-                age_contract(e, p)
-                require(expected is None, "SELF_TEST_MISSED_DIAGNOSTIC")
-            except RCError as error:
-                require(str(error) == expected, "SELF_TEST_WRONG_DIAGNOSTIC")
-            diagnostic_cases += 1
+    for allowance in (None, False, True):
+        p = copy.deepcopy(profile)
+        if allowance is not None: p["Entitlements"][AGE_KEY] = allowance
+        entitlement_contract(ent, p, team)
     return {"valid_synthetic_contract": "PASS", "negative_contract_cases": len(mutations),
-            "distribution_diagnostic_cases": diagnostic_cases,
-            "result": "PASS", "scope": "Validator logic only; NOT genuine signing evidence"}
+            "unused_profile_allowance_cases": 3, "result": "PASS",
+            "scope": "Validator logic only; NOT genuine signing evidence"}
 
 
 def main():
@@ -319,7 +331,7 @@ def main():
             path = directory / (name + ".json")
             if path.is_file(): result[name] = json.loads(path.read_text())
         tests = result.get("tests", {})
-        if tests.get("failedTests") == 0 and tests.get("passedTests", 0) >= 18 and tests.get("skippedTests") == 0:
+        if tests.get("failedTests") == 0 and tests.get("passedTests") == FOCUSED_TEST_COUNT and tests.get("skippedTests") == 0:
             result["tested_sha"] = result["release_checkout_sha"]
         result["ipa_sha256"] = result.get("signed-distribution", {}).get("ipa_sha256")
         result["independently_audited_candidate"] = False

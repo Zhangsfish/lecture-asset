@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Explicit S05-R2 dispatch only; credentials never used by ordinary pushes.
+# Explicit S05-R4 dispatch only; credentials never used by ordinary pushes.
 set -euo pipefail
 set +x
 umask 077
@@ -9,7 +9,14 @@ if [[ "$operation" == prepare-only ]]; then
   echo 'S05_RC_PREPARE_ONLY_NO_CREDENTIAL_USE'
   exit 0
 fi
-[[ "$operation" == upload || "$operation" == status-only || "$operation" == readback-only || "$operation" == internal-only ]] || exit 2
+[[ "$operation" == upload || "$operation" == status-only || "$operation" == readback-only || "$operation" == internal-only || "$operation" == preflight-only ]] || exit 2
+# Fail before any credentials/signing if this implementation has not been audited
+# and separately authorized. Changing this gate requires a new reviewed diff.
+if [[ "$operation" == upload || "$operation" == internal-only ]]; then
+  [[ "${RC_OWNER_AUTHORIZED_AFTER_AUDIT:-false}" == true ]] || { echo 'RELEASE_NOT_AUTHORIZED'; exit 2; }
+  [[ "${RC_EXPECTED_SOURCE_SHA:-}" =~ ^[0-9a-f]{40}$ ]] || { echo 'AUDITED_SOURCE_REQUIRED'; exit 2; }
+  [[ "$(git rev-parse HEAD)" == "$RC_EXPECTED_SOURCE_SHA" ]] || { echo 'AUDITED_SOURCE_MISMATCH'; exit 2; }
+fi
 for name in APPLE_TEAM_ID APP_STORE_CONNECT_KEY_ID APP_STORE_CONNECT_ISSUER_ID APP_STORE_CONNECT_PRIVATE_KEY; do
   [[ -n "${!name:-}" ]] || { echo "S05_RC_MISSING_SETTING $name"; exit 2; }
 done
@@ -24,11 +31,11 @@ key_file="$private_dir/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
 printf '%s' "$APP_STORE_CONNECT_PRIVATE_KEY" > "$key_file"
 chmod 600 "$key_file"
 unset APP_STORE_CONNECT_PRIVATE_KEY
-RC_BUILD=$(python3 -c 'import json; print(json.load(open("reports/S05/submission-closeout-2026-10-31/round-01/candidate.json"))["build"])')
+RC_BUILD=$(python3 -c 'import json; print(json.load(open("reports/S05/age-removal-2026-11-09/round-01/candidate.json"))["build"])')
 export RC_BUILD
 python3 - <<'PY'
 import json, os
-candidate = json.load(open('reports/S05/submission-closeout-2026-10-31/round-01/candidate.json'))
+candidate = json.load(open('reports/S05/age-removal-2026-11-09/round-01/candidate.json'))
 assert os.environ['APPLE_TEAM_ID'] == candidate['team_id'], 'S05_RC_TEAM_CONFIG_MISMATCH'
 PY
 evidence="$RUNNER_TEMP/s05-rc-evidence"
@@ -37,7 +44,12 @@ export API_PRIVATE_KEYS_DIR="$private_dir"
 archive="$private_dir/LectureAsset-RC.xcarchive"
 export_dir="$private_dir/export"
 
-if [[ "$operation" == readback-only || "$operation" == internal-only ]]; then
+if [[ "$operation" == preflight-only ]]; then
+  swift scripts/s05_rc_status.swift "$key_file" preflight "$evidence/asc-preflight.json"
+  swift scripts/s05_r2_asc.swift "$key_file" readback "$evidence/asc-readback.json"
+  exit $?
+fi
+if [[ "$operation" == readback-only || "$operation" == internal-only || "$operation" == preflight-only ]]; then
   mode=readback
   [[ "$operation" != internal-only ]] || mode=internal
   swift scripts/s05_r2_asc.swift "$key_file" "$mode" "$evidence/asc-$mode.json"
@@ -92,10 +104,7 @@ private_command archive xcodebuild -project LectureAsset.xcodeproj -scheme Lectu
   CURRENT_PROJECT_VERSION="$RC_BUILD" MARKETING_VERSION=0.1.0 archive
 python3 scripts/s05_rc_verify.py --metadata "$archive/Products/Applications/Lecture Asset.app" "$evidence/archive-metadata.json"
 
-bridge_archive="$private_dir/LectureAsset-EntitlementBridge.xcarchive"
-python3 scripts/s05_rc_bridge.py "$archive" "$bridge_archive" App/LectureAsset.entitlements "$evidence/bridge.json"
-
-private_command export xcodebuild -exportArchive -archivePath "$bridge_archive" \
+private_command export xcodebuild -exportArchive -archivePath "$archive" \
   -exportOptionsPlist "$private_dir/export-options.plist" -exportPath "$export_dir" \
   -allowProvisioningUpdates -authenticationKeyPath "$key_file" \
   -authenticationKeyID "$APP_STORE_CONNECT_KEY_ID" -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID"
