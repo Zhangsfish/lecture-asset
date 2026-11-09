@@ -1,0 +1,11 @@
+{
+  "direct_content_view_entry": true,
+  "active_age_references": 0,
+  "source_entry_sha256": "385a88a001543324828f3e132fd37c029c9101282869f7302ea5263554b4711b",
+  "scope": "Source/config assertion; not physical-device execution",
+  "compiled_age_symbols_imports_strings_absent": true,
+  "compiled_age_localizations_absent": true,
+  "app_entitlement_age_key_absent": true,
+  "executable_sha256": "394c4a443c9f0c621a34d6010f6da29ad312c3cd67dee7d4bb7a065af2ded9dd",
+  "codesign_scope": "Ad-hoc simulator signature; NOT Apple Distribution"
+}

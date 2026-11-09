@@ -1,0 +1,49 @@
+{
+  "status": "UNSAVED_PLAN_ONLY",
+  "observedAt": "2026-11-09T13:44:41Z",
+  "authorizedMutationThisRound": "Existing internal TestFlight group build relationship only; already associated, so no relationship POST was needed",
+  "changesNotExecuted": [
+    {
+      "field": "review-selected build",
+      "observed": "35.1",
+      "proposed": "36.1 only after distribution audit and separate owner submission authorization"
+    },
+    {
+      "field": "ageAssurance",
+      "observed": false,
+      "proposed": "Retain No for no-age replacement; do not toggle again",
+      "note": "Preflight was Yes; concurrent change not performed by R5"
+    },
+    {
+      "field": "reviewNotes",
+      "observed": "absent",
+      "proposed": "Accurate no-age replacement explanation and neutral Continue/继续 permission reproduction; unsent draft in this directory"
+    }
+  ],
+  "preserve": {
+    "parentalControls": false,
+    "releaseType": "AFTER_APPROVAL",
+    "availableTerritories": [
+      "USA",
+      "CHN"
+    ],
+    "availableInNewTerritories": false,
+    "price": "free",
+    "ageRatingOverride": "NONE"
+  },
+  "ownerReconciliationBeforeReview": [
+    "Confirm zh-Hans app/version localization absence is intended; no restoration/deletion authorized"
+  ],
+  "rating": "Current FOUR_PLUS; no arbitrary increase",
+  "submissionGate": [
+    "Independent distribution audit",
+    "Separate owner authorization for metadata/build selection/reply/resubmission",
+    "Resolve or explicitly escalate Texas developer-duty risk before resubmission; 4+ and Everwhile are not verified exceptions",
+    "Apple Nov8 old-build age-demo request has not been waived"
+  ],
+  "noASCMetadataMutationByR5": true,
+  "ownerConfirmedCompletedActions": [
+    "Age Assurance changed Yes to No",
+    "Old review submission stopped; owner intends a later resubmission, not authorized for Codex now"
+  ]
+}

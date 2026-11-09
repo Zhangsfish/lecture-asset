@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "audited_r4_head": "3536213364e10f1724451da6f2401d8ca4296a6e",
+  "release_source_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+  "command": "git diff --name-only 3536213364e10f1724451da6f2401d8ca4296a6e e74d7a154721748e84957d57257b8f9abcb39376 -- App Packages AppResources project.yml scripts .github/workflows Tests UITests schemas",
+  "changed_release_input_paths": [],
+  "runtime_workflow_script_changes_this_round": [],
+  "historical_35_1_report_unchanged": true,
+  "r4_report_unchanged_this_round": true
+}

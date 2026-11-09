@@ -1,0 +1,108 @@
+{
+  "id": 42628050599,
+  "head_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+  "event": "workflow_dispatch",
+  "status": "completed",
+  "conclusion": "success",
+  "run_attempt": 1,
+  "html_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42628050599",
+  "created_at": "2026-11-09T13:44:01Z",
+  "updated_at": "2026-11-09T13:44:53Z",
+  "operation": "internal",
+  "jobs": [
+    {
+      "id": 129196855474,
+      "name": "final-rc",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T13:44:05Z",
+      "completed_at": "2026-11-09T13:44:52Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:05Z",
+          "completed_at": "2026-11-09T13:44:06Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:06Z",
+          "completed_at": "2026-11-09T13:44:24Z"
+        },
+        {
+          "name": "Toolchain and frozen product provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:24Z",
+          "completed_at": "2026-11-09T13:44:40Z"
+        },
+        {
+          "name": "Focused localization and ArchiveCore checks",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-11-09T13:44:40Z",
+          "completed_at": "2026-11-09T13:44:40Z"
+        },
+        {
+          "name": "Verified XcodeGen 2.46.0",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-11-09T13:44:40Z",
+          "completed_at": "2026-11-09T13:44:40Z"
+        },
+        {
+          "name": "Clean generic iOS Release and packaged privacy",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-11-09T13:44:40Z",
+          "completed_at": "2026-11-09T13:44:40Z"
+        },
+        {
+          "name": "Release simulator focused XCTest",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-11-09T13:44:40Z",
+          "completed_at": "2026-11-09T13:44:40Z"
+        },
+        {
+          "name": "Explicitly authorized signing and exact IPA upload or read-only status",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:40Z",
+          "completed_at": "2026-11-09T13:44:46Z"
+        },
+        {
+          "name": "Bind exact checkout, tests and signed IPA evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:46Z",
+          "completed_at": "2026-11-09T13:44:46Z"
+        },
+        {
+          "name": "Upload safe summaries only",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:46Z",
+          "completed_at": "2026-11-09T13:44:48Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:48Z",
+          "completed_at": "2026-11-09T13:44:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-09T13:44:49Z",
+          "completed_at": "2026-11-09T13:44:49Z"
+        }
+      ]
+    }
+  ]
+}
