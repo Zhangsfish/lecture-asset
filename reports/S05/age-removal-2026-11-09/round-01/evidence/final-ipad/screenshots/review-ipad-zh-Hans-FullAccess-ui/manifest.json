@@ -1,0 +1,32 @@
+[
+  {
+    "attachments": [
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "223EAE05-EB81-4AD4-A398-89278C264F81.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-full-access-synthetic-grid_0_3F69B8A3-D1CA-40A7-9708-548B8523C90B.png",
+        "timestamp": 1794209089.901
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "EB9F4B0D-1D89-4FAD-84E2-DB691DB6FFA0.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-genuine-system-photos-choices_0_6A884706-D8C5-4FF5-B620-4FB2D40D9E98.png",
+        "timestamp": 1794209085.999
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "DBB48B90-1647-40FE-BCF9-3593863F5A46.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-zh-gate_0_26E34442-23F7-47DA-A371-CC038ADCBCAE.png",
+        "timestamp": 1794209080.292
+      }
+    ],
+    "testIdentifier": "AppReviewChinesePermissionUITests/testContinueThenFullAccess()",
+    "testIdentifierURL": "test://com.apple.xcode/LectureAsset/LectureAssetUITests/AppReviewChinesePermissionUITests/testContinueThenFullAccess"
+  }
+]

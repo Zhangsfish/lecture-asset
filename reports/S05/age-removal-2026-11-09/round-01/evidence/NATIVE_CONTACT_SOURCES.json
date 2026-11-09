@@ -1,0 +1,86 @@
+[
+  {
+    "device": "iphone",
+    "locale": "en",
+    "kind": "gate",
+    "image": "final-iphone/screenshots/review-iphone-en-Denied-ui/5EA0AC29-C18C-4771-89DC-1FFD1FB3D45B.png",
+    "sha256": "c5f51c85c433501113a8faca488db1f9f37e2cb1e54780b33127f7d39cf75533"
+  },
+  {
+    "device": "iphone",
+    "locale": "en",
+    "kind": "system",
+    "image": "final-iphone/screenshots/review-iphone-en-FullAccess-ui/A14F9939-7C63-4DA2-AED1-9055C438D2A5.png",
+    "sha256": "b0c08c8967992c0e608fd631b1e015f5de8134db4ce41d360541740a719d5693"
+  },
+  {
+    "device": "iphone",
+    "locale": "en",
+    "kind": "ordinary",
+    "image": "final-iphone/screenshots/review-iphone-en-ordinary-entry/57CC7EE8-DC04-4DAE-8EA3-5C73BC14C29E.png",
+    "sha256": "3eea7536d447f5726752a1c834880953a3f407a9c4fbc72898714f4445d2dcea"
+  },
+  {
+    "device": "iphone",
+    "locale": "zh-Hans",
+    "kind": "gate",
+    "image": "final-iphone/screenshots/review-iphone-zh-Hans-Denied-ui/3E626B6E-7F42-4337-9BFD-A511B2F89C68.png",
+    "sha256": "79b97abd0f33052c28b952985d93d01f24f13715487e892eb6abba325d759bdf"
+  },
+  {
+    "device": "iphone",
+    "locale": "zh-Hans",
+    "kind": "system",
+    "image": "final-iphone/screenshots/review-iphone-zh-Hans-FullAccess-ui/05B572DD-A09B-4F2E-AE5D-6511B9DBFEDD.png",
+    "sha256": "0a9500b7f18a0f6efd896efe899033adac7a9416d3b41a9742f43935ef49c1ad"
+  },
+  {
+    "device": "iphone",
+    "locale": "zh-Hans",
+    "kind": "ordinary",
+    "image": "final-iphone/screenshots/review-iphone-zh-Hans-ordinary-entry/9637A7D1-92B9-47B7-9CAA-9C33D39BAFFB.png",
+    "sha256": "34f001a3fb09e42834c8b8e92cead96b95a0ed86a7231b007f38508f6ba984a7"
+  },
+  {
+    "device": "ipad",
+    "locale": "en",
+    "kind": "gate",
+    "image": "final-ipad/screenshots/review-ipad-en-Denied-ui/FA4652E3-7F18-4939-A352-90FE047DAFC9.png",
+    "sha256": "3ecc00a13591339557fa2d344058a55316133804fc5e2171778d150d06285c37"
+  },
+  {
+    "device": "ipad",
+    "locale": "en",
+    "kind": "system",
+    "image": "final-ipad/screenshots/review-ipad-en-FullAccess-ui/50BC577B-4C9B-445E-9C3E-610B2949B61A.png",
+    "sha256": "62f4d75d012cc7e06237ca737b671112d1e40e3a4b4694b50cffae4e162228e2"
+  },
+  {
+    "device": "ipad",
+    "locale": "en",
+    "kind": "ordinary",
+    "image": "final-ipad/screenshots/review-ipad-en-ordinary-entry/38AB1579-90D8-4D8F-9FF2-07614FC06720.png",
+    "sha256": "daf5391391c4151ddf77979851a35e2b27f1517a590bc8783e76f0e60673f13e"
+  },
+  {
+    "device": "ipad",
+    "locale": "zh-Hans",
+    "kind": "gate",
+    "image": "final-ipad/screenshots/review-ipad-zh-Hans-Denied-ui/BCB1753B-6887-4B3E-B4B2-63969A00FE56.png",
+    "sha256": "245e38e68b7e6ddc7373864c82b861f2f40b6153724d628ecb2c64aa3260d6c8"
+  },
+  {
+    "device": "ipad",
+    "locale": "zh-Hans",
+    "kind": "system",
+    "image": "final-ipad/screenshots/review-ipad-zh-Hans-FullAccess-ui/EB9F4B0D-1D89-4FAD-84E2-DB691DB6FFA0.png",
+    "sha256": "1dfdc687e304049664f2056867c013e90bdff538e33f3bdd7bcb3225ac1b25e8"
+  },
+  {
+    "device": "ipad",
+    "locale": "zh-Hans",
+    "kind": "ordinary",
+    "image": "final-ipad/screenshots/review-ipad-zh-Hans-ordinary-entry/ED3BE48E-373B-4182-9938-54F341CE2A6A.png",
+    "sha256": "a1e861c449fc1f74ac02c8c141d908851ec09a47b90839003ccc6f5d81d243f4"
+  }
+]

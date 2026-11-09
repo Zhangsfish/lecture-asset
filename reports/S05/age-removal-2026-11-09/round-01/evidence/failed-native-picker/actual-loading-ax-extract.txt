@@ -1,0 +1,6 @@
+NavigationBar, 0x117d20640, {{0.0, 82.0}, {440.0, 54.0}}, identifier: 'PUPickerUnavailableView'
+Button, 0x117d20780, {{24.0, 86.0}, {36.0, 36.0}}, label: 'Cancel'
+ActivityIndicator, 0x117d20f00, {{204.0, 500.0}, {32.0, 32.0}}, label: 'In progress', value: 1
+StaticText, 0x117d21040, {{186.3, 540.0}, {67.3, 18.0}}, label: 'Loading...'
+ActivityIndicator, 0x117d21400, {{204.0, 500.0}, {32.0, 32.0}}, label: 'In progress', value: 1
+StaticText, 0x117d21540, {{186.3, 540.0}, {67.3, 18.0}}, label: 'Loading...'

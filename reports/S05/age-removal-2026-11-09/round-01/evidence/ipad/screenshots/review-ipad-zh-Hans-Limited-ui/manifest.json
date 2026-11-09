@@ -1,0 +1,56 @@
+[
+  {
+    "attachments": [
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "E691DC7D-1D18-4931-AF0F-585DA6BF599C.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-real-settings-opened_0_AD53F78B-2547-4C57-B97B-58AF1AAECCB9.png",
+        "timestamp": 1794206110.055
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "F53B1267-1B2A-4C93-B72C-A7E0905E59FC.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-blocked-with-settings_0_44837C54-22CB-40F5-ABEF-232D4558F082.png",
+        "timestamp": 1794206108.539
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "EEA95FC1-DAA5-4FCF-A980-E2CE590AA6E7.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-help-without-full-photos_0_FF47D2BF-0EE8-4AE4-9523-DBB942FEF0B4.png",
+        "timestamp": 1794206106.783
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "126503F3-DA2E-4199-B293-6874108EAF16.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-limited-picker-zero-items_0_319B8CC8-E630-44C8-AD46-5025A62C3C57.png",
+        "timestamp": 1794206099.69
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "154B169B-3559-42EF-AD2C-B22D5BF8AA1D.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-genuine-system-photos-choices_0_53FDFEDF-AEF9-4136-B161-D8EBC0427BB2.png",
+        "timestamp": 1794206090.39
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "82A55C5B-6B4A-4CF6-B964-6E9B6C3C5A30.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-zh-gate_0_DC1C1250-EFDA-4530-BD4C-9A2AC588F319.png",
+        "timestamp": 1794206084.738
+      }
+    ],
+    "testIdentifier": "AppReviewChinesePermissionUITests/testContinueThenLimited()",
+    "testIdentifierURL": "test://com.apple.xcode/LectureAsset/LectureAssetUITests/AppReviewChinesePermissionUITests/testContinueThenLimited"
+  }
+]

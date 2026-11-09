@@ -1,6 +1,12 @@
 # Current status — 2026-11-09 (latest owner direction)
 
-## ONLY CURRENT DISPATCH: S05-R4 — READY_FOR_CODEX
+## ONLY CURRENT DISPATCH: S05-R4 — READY_FOR_AUDIT
+
+Implementation complete on existing PR23; **independent exact-head audit pending**. Tested implementation/source: `651600c1890158f661d8ea32b564e46866cd8690`; final report head is documentation/evidence only. [R4 delivery](reports/S05/age-removal-2026-11-09/round-01/DELIVERY.md). Complete runtime module, age entitlement, orphaned strings, tests/CI/bridge removed; direct ContentView restored. No change to validated photo/archive/recovery/cleanup contracts.
+
+Actual [Release +9 XCTest/3 ArchiveCore + absence checks](https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655515), [bilingual iPhone/iPad native UI37 executions](https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655542), and [GET-only candidate preflight/readback](https://github.com/Zhangsfish/lecture-asset/actions/runs/42577015653) all PASS. Compiled Continue/继续 and both privacy manifests preserved. Actual Release simulator signed entitlement age key absent; generic-device build is unsigned. **New genuine distribution signing/IPA/upload/TestFlight NOT_RUN and NOT AUTHORIZED before audit/separate owner gate.** 36.1 was unused at2026-11-09 07:12:32Z; not reserved, recheck before release. ASC still selects35.1 with Age Assurance Yes; no metadata mutation. Historical35.1 evidence is unchanged.
+
+No merge, Apple reply, resubmission or public release. No old Sandbox video task. US/Texas applicability remains a separate unresolved resubmission/publication gate; retain owner AFTER_APPROVAL and US+CHN and no false exemption claim.
 
 **Owner has explicitly decided to remove the complete Declared Age Range / in-app Age Assurance module from Lecture Asset and return to ordinary local photo-tool behavior, following Everwhile's no-age-request product pattern.**
 
@@ -12,7 +18,7 @@ Execute [tasks/S05_R4_REMOVE_AGE_ASSURANCE_2026-11-09.md](tasks/S05_R4_REMOVE_AG
 
 - App: Lecture Asset; numeric Apple ID `6816814541`; Bundle `com.zhangsfish.lectureasset`; Team `QK73K23W9N`; version `0.1.0`.
 - Source main prior to this dispatch: `7d11a372afd9c6dd19ee52af72dd5635b43581b2`; task creation adds a subsequent doc-only main commit. **Always refetch latest main.**
-- PR #23 remains **OPEN / UNMERGED**, last checked head `4d7be3703176535c88c696b53611dbc86ef932fb`. It has audited reusable release-tooling but is not part of main. The new R4 implementation should proceed on its isolated branch as specified in the task, with a fresh audit once head changes.
+- PR #23 remains **OPEN / UNMERGED** on `codex/s05-r2-submission-closeout`. Previous R2 audited head was `4d7be3703176535c88c696b53611dbc86ef932fb`; new R4 tested source is `651600c1890158f661d8ea32b564e46866cd8690`. Resolve final report head from PR/API. Prior audit does not approve the new code; independent R4 audit is required.
 - Last uploaded/reviewed 35.1 source/tested: `b107ded0d60ec3944c4db41068a6e79e41c6f5b1`; new code needs a new unique build (36.1 only a provisional candidate).
 - Apple reviewed 35.1 on **2026-11-08**, iPhone17ProMax / iPad Pro11-inchM4. Under **2.1 Information Needed**, asked for physical age-assurance demo video, Notes link and current conversation reply. No final approval recorded. **A new no-age build must be accurately disclosed; Apple may still request new evidence.**
 - PR #22 already merged Photos pre-permission neutral EN `Continue` / zh-Hans `继续`. Preserve native system readWrite permission and core asset safety.

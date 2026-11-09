@@ -1,0 +1,110 @@
+{
+  "task": "S05-R4",
+  "status": "READY_FOR_AUDIT",
+  "base_main_sha": "52f7bdb5dd8f89cdd2edd3b2161ed9080cbd27c9",
+  "previous_pr23_head": "4d7be3703176535c88c696b53611dbc86ef932fb",
+  "tested_code_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+  "version": "0.1.0",
+  "candidate_build": "36.1",
+  "candidate_descriptor_is_not_upload_authorization": true,
+  "historical35_1_immutable": true,
+  "source_absence": "PASS",
+  "unsigned_device_release": "PASS",
+  "actual_release_simulator_signed_age_entitlement_absent": "PASS",
+  "actual_distribution_signature_and_ipa": "NOT_RUN_NOT_AUTHORIZED_BEFORE_AUDIT",
+  "prepare_ci": {
+    "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655515",
+    "passed_xctest": 9,
+    "failed": 0,
+    "skipped": 0,
+    "archive_core_passed": 3,
+    "tooling_test_methods": 9,
+    "negative_entitlement_profile_cases": 15,
+    "unused_profile_allowance_cases": 3
+  },
+  "photos_ui_ci": {
+    "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655542",
+    "ipad": {
+      "executions": 14,
+      "failed": 0,
+      "skipped": 0,
+      "model": "iPad Air 11-inch (M3)",
+      "osVersion": "26.5",
+      "osBuildNumber": "23F77",
+      "architecture": "arm64",
+      "compatibility": "iPhone-family compatibility window",
+      "locales": [
+        "en",
+        "zh-Hans"
+      ],
+      "earlier_source_passed": true,
+      "final_run": "PASS"
+    },
+    "iphone": {
+      "executions": 23,
+      "failed": 0,
+      "skipped": 0,
+      "model": "iPhone17ProMax",
+      "osVersion": "26.5",
+      "architecture": "arm64",
+      "locales": [
+        "en",
+        "zh-Hans"
+      ]
+    },
+    "real_system_ui": true,
+    "locales": [
+      "en",
+      "zh-Hans"
+    ],
+    "limited_selected_items": 0,
+    "nonzero_limited_picker": "NOT_RUN",
+    "final_executions": 37,
+    "total_failed": 0,
+    "total_skipped": 0
+  },
+  "asc_preflight": {
+    "run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42577015653",
+    "result": "PASS_READ_ONLY",
+    "queried_at": "2026-11-09T07:12:32Z",
+    "36.1_available": true,
+    "reserved": false,
+    "recheck_before_upload": true
+  },
+  "not_run": {
+    "new_signed_distribution_ipa": "STOP_BEFORE_AUDIT",
+    "upload_TestFlight": "NOT_AUTHORIZED",
+    "new_physical_demo": "AFTER_AUDIT_AND_AUTHORIZED_SIGNED_BUILD_ONLY",
+    "old_age_Sandbox_video": "SUPERSEDED_BY_R4_REMOVAL_NOT_A_NEW_PASS_FOR_35_1",
+    "physical_iOS18_26_0_26_1": "NOT_RUN",
+    "200_photo_WeChat_destructive_Photos": "OUT_OF_SCOPE"
+  },
+  "mutations": {
+    "ASC_fields": false,
+    "storefronts": false,
+    "price": false,
+    "Apple_capability_or_credentials": false,
+    "Apple_reply": false,
+    "AppReview_submission": false,
+    "public_release": false,
+    "merge": false
+  },
+  "later_release_blockers": [
+    "independent exact-SHA audit + separate owner signing/upload authorization",
+    "actual no-age Apple Distribution IPA verification after export",
+    "current replacement-build demo if Apple requests; no age-video waiver claimed",
+    "verified replacement selection and truthful No/No questionnaire save/readback before resubmission",
+    "separate US/Texas applicability/owner risk decision before AFTER_APPROVAL resubmission"
+  ],
+  "xctest_execution_counts": {
+    "prepare": 9,
+    "native_matrix_with_repeated_contracts": 37,
+    "sum_executions": 46,
+    "note": "Executions, not46 distinct test methods; includes repeated contract methods across independent runs."
+  },
+  "visual_review": {
+    "actual_contact": "evidence/NATIVE_CONTACT.png",
+    "observed": "Both EN/zh-Hans native Continue/Photos prompts/ordinary gallery; no age wait; iPad uses compatibility-window mode; native translucent material remains."
+  },
+  "ci_final_all_green": true
+}

@@ -1,0 +1,9 @@
+{
+  "artifact_id": 13653496453,
+  "run_id": 42571096394,
+  "zip_sha256": "sha256:f3804991a11dcda3865de378827ea437be50c926da29d7e91835f241ac123e99",
+  "original_files_retained_byte_identical": true,
+  "original_job_log_id": 129008402396,
+  "reason": "Remove only this new R4 failed-download artifact to avoid immutable artifact-name collision on rerun of failed job; no35.1 history changed.",
+  "github_artifact_removed_after_exact_preservation": true
+}

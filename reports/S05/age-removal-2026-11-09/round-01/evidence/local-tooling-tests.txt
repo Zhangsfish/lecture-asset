@@ -1,0 +1,14 @@
+test_digest_mismatch_and_unverified_ipa (__main__.ReleaseGuards.test_digest_mismatch_and_unverified_ipa) ... ok
+test_generated_dependency_lock_cannot_add_or_change_dependency (__main__.ReleaseGuards.test_generated_dependency_lock_cannot_add_or_change_dependency) ... ok
+test_generated_info_is_narrowly_validated (__main__.ReleaseGuards.test_generated_info_is_narrowly_validated) ... ok
+test_missing_privacy_and_wrong_compiled_labels (__main__.ReleaseGuards.test_missing_privacy_and_wrong_compiled_labels) ... ok
+test_no_age_source_bundle_contract_and_entitlement_matrix (__main__.ReleaseGuards.test_no_age_source_bundle_contract_and_entitlement_matrix) ... ok
+test_profile_and_signature_fail_closed (__main__.ReleaseGuards.test_profile_and_signature_fail_closed) ... ok
+test_provenance_source_dirty_and_unexpected_files (__main__.ReleaseGuards.test_provenance_source_dirty_and_unexpected_files) ... ok
+test_workflow_secrets_are_manual_and_default_is_prepare (__main__.ReleaseGuards.test_workflow_secrets_are_manual_and_default_is_prepare) ... ok
+test_wrong_bundle_version_build_minimum_os_encryption (__main__.ReleaseGuards.test_wrong_bundle_version_build_minimum_os_encryption) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.215s
+
+OK

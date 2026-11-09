@@ -1,0 +1,32 @@
+[
+  {
+    "attachments": [
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review iphone",
+        "exportedFileName": "2321E480-33FE-478E-BAB2-2294C9BB2A3F.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-full-access-synthetic-grid_0_45D8F2E5-2AF9-487E-BC10-1967EDF7EF5E.png",
+        "timestamp": 1794208738.356
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review iphone",
+        "exportedFileName": "A14F9939-7C63-4DA2-AED1-9055C438D2A5.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-genuine-system-photos-choices_0_5A387DDD-EFF6-4A79-A9CF-40B1EE258E15.png",
+        "timestamp": 1794208734.281
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review iphone",
+        "exportedFileName": "4B38BD37-7C04-4124-9817-2D7C4FE1973B.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-en-gate_0_699A9953-83D2-494D-B85E-B186127473CB.png",
+        "timestamp": 1794208729.041
+      }
+    ],
+    "testIdentifier": "AppReviewEnglishPermissionUITests/testContinueThenFullAccess()",
+    "testIdentifierURL": "test://com.apple.xcode/LectureAsset/LectureAssetUITests/AppReviewEnglishPermissionUITests/testContinueThenFullAccess"
+  }
+]

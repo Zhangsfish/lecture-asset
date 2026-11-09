@@ -1,0 +1,115 @@
+{
+  "rule": "Remove only ephemeral simulator deviceId/deviceIdentifier keys from retained JSON; counts/statuses/UI image pixels unchanged; original artifact remains available.",
+  "modified_json": [
+    {
+      "file": "review-ipad-en-Denied-native-status-summary.json",
+      "original_sha256": "24be14f87bb6af61e9b7d80c4c9f2941cfb1fe1bcb2235f35979f6dbf815bd2b",
+      "retained_sha256": "bd4d8582fa6e456378c8e4f81a27130171c4659191758ace18ec1d2f369153bc"
+    },
+    {
+      "file": "review-ipad-en-Denied-ui-summary.json",
+      "original_sha256": "3ab9836263757c8b02afa5ed352668e430b28707e72681aac935aafa61c1817e",
+      "retained_sha256": "055c61e4ec75f2644ad0a564268538b351a49bf32de02d79913cca1bf43a6141"
+    },
+    {
+      "file": "review-ipad-en-FullAccess-native-status-summary.json",
+      "original_sha256": "3830c4d4fc7de33fe64eb801242e6a3462627d79ed92679bcd27dd54ab1356fa",
+      "retained_sha256": "bafef0f11598f541c9133184ba2d41d4afd43bef05ddbdbb875a7dada8af74dd"
+    },
+    {
+      "file": "review-ipad-en-FullAccess-ui-summary.json",
+      "original_sha256": "4e90199b84e790662bba2f8c4e00f2ee795414f962db7fe004c0f8e5178227d6",
+      "retained_sha256": "2016dda5d38677c66d17c13781cbe9abf1928af8ad2547d1545c8a3ac74356ac"
+    },
+    {
+      "file": "review-ipad-en-Limited-native-status-summary.json",
+      "original_sha256": "146f92dcead9c8699e3db1a6853f46264f056f9d3b8bf6615b25658dc08fc6b0",
+      "retained_sha256": "1a74bf51d8168465b30ecd4d38f9976e3c1faadfd9991710f04b4f0b322a1ec3"
+    },
+    {
+      "file": "review-ipad-en-Limited-ui-summary.json",
+      "original_sha256": "714ecab7b48cbfa9819bbbba82960fd1c450334e2132becc3e5180aff008a54c",
+      "retained_sha256": "eb96b38dca96f316e57c2fb4abb557c136ba472a2416640cb38697e783ed7ddc"
+    },
+    {
+      "file": "review-ipad-en-ordinary-entry-summary.json",
+      "original_sha256": "a7a307faace2068bbfa9e3484b0862e43fac20ff23975595fc68761abfe32cdf",
+      "retained_sha256": "9104403f85db0547a4474309667e21a841cdfb8b3b55d1c8ec57c37947d03a47"
+    },
+    {
+      "file": "review-ipad-zh-Hans-Denied-native-status-summary.json",
+      "original_sha256": "745617796644dde282061417f35a8552867f874eeb603a9eec78cdbab74c4ce6",
+      "retained_sha256": "1187514ad12441d3e544d3a3997b9d4606e239e949c4625be6383e780adbcbc1"
+    },
+    {
+      "file": "review-ipad-zh-Hans-Denied-ui-summary.json",
+      "original_sha256": "6c60b969f2dfe7c6352b063667772fd7e357ec9d64fb61da8191c170295bc080",
+      "retained_sha256": "b7d883ca0095ddeae7700a2961178ed0e3cb79692a7640dcc21aa455bb51a451"
+    },
+    {
+      "file": "review-ipad-zh-Hans-FullAccess-native-status-summary.json",
+      "original_sha256": "f07ac02362da7d904a02293a7730ab96858cf4e39dfa699b21dc0589a2b6fa0b",
+      "retained_sha256": "4505e67c1eb2bdc8219ea6f5ad7e188c1bf12dfd9a87a5d19c93baf238dac101"
+    },
+    {
+      "file": "review-ipad-zh-Hans-FullAccess-ui-summary.json",
+      "original_sha256": "7eff58bd4ca6a2909c154d53df5dece7f2babff5a1b62702f707996c97f8c652",
+      "retained_sha256": "4c0c9dc839ae714e037c247d931e3365622e6339f552ab36979862bf25d3c344"
+    },
+    {
+      "file": "review-ipad-zh-Hans-Limited-native-status-summary.json",
+      "original_sha256": "da4f062406779436e65b6ac374ab3f35e49fb0ebc3d888b327f5c42e38cf79e1",
+      "retained_sha256": "0c8d731f5014fe662d429ab7102e21aefb606c95769e37e9ce8710bb764bbbb3"
+    },
+    {
+      "file": "review-ipad-zh-Hans-Limited-ui-summary.json",
+      "original_sha256": "b903366af8d0f1ef224543052149972fe32182a7015b99b946f3d5a4029ce021",
+      "retained_sha256": "547cd711e08d998e5eeea9af72acd40fb19b5a48b062b06497870203b8527a95"
+    },
+    {
+      "file": "review-ipad-zh-Hans-ordinary-entry-summary.json",
+      "original_sha256": "e66c9cbbe19d2ddfef7c3aafe3017b6257eb70cf45e6354180ac2de8948ea3d6",
+      "retained_sha256": "772c4ef37c3f8323daf8623e6081612429cd0894448757273108039d19484667"
+    },
+    {
+      "file": "screenshots/review-ipad-en-Denied-ui/manifest.json",
+      "original_sha256": "95d8de3b098d50a296f40ff98f37371eb4ba7cb747cf031b89c3853fc7adfaa8",
+      "retained_sha256": "4e3134e601131cb30f9980f628f3aa37e113161f952daab7541484dbe2f07e22"
+    },
+    {
+      "file": "screenshots/review-ipad-en-FullAccess-ui/manifest.json",
+      "original_sha256": "1310e72b6224e0cee9101ba57644133ed390dd1bdeb1e13a9afe13dbd6c89802",
+      "retained_sha256": "2200c93ae7615a0d08ff4bb65e581e57ce76fbf6349bacf5e3dabd44d9d67456"
+    },
+    {
+      "file": "screenshots/review-ipad-en-Limited-ui/manifest.json",
+      "original_sha256": "ee17e308c5c6700565bcd9f6b78d2d139e9437c7a10c730ff8169d9d8aab75cb",
+      "retained_sha256": "65086e4984cbeb68d47d3b815332eebfe2692f3ef50119d8b0613c90ab12605c"
+    },
+    {
+      "file": "screenshots/review-ipad-en-ordinary-entry/manifest.json",
+      "original_sha256": "058b6dd13e0b39bf0201c717e8905c6d405d1f603a329fcf833b93c30f15af78",
+      "retained_sha256": "a84cb0d56824fc04222c04dd625e2199f114c5f1a1f708cf400f9d7963845471"
+    },
+    {
+      "file": "screenshots/review-ipad-zh-Hans-Denied-ui/manifest.json",
+      "original_sha256": "4a67a7ba2c2e43fbab3e1f9e2528c809b4a00fac31e9246fd48b38abc03d1d17",
+      "retained_sha256": "4eeabdca75f4b9ed495c59c44a191721891709689aaf5affbd6db2175d18589b"
+    },
+    {
+      "file": "screenshots/review-ipad-zh-Hans-FullAccess-ui/manifest.json",
+      "original_sha256": "853d378466634065ede55c09aaa804f567485e0acc99e365f64c34b95d3542b3",
+      "retained_sha256": "1347b12452e3549cfab0ee78e6ab1668ac33bf06c8adc4786a4440c97d9e4aa5"
+    },
+    {
+      "file": "screenshots/review-ipad-zh-Hans-Limited-ui/manifest.json",
+      "original_sha256": "0316c1dd2d0f524114eb93ca5403fabb8097f52602d37e29be079c9cad3a071c",
+      "retained_sha256": "1a9f6e98677c567f4f23a7fa69fdd7bd03a0fcbe62811b477c87f62ac8a5e584"
+    },
+    {
+      "file": "screenshots/review-ipad-zh-Hans-ordinary-entry/manifest.json",
+      "original_sha256": "bd974d09b89f6905642335a27795041ef14df99829430a45cf3cb4a94b25dbbd",
+      "retained_sha256": "5c0374fcfb23e56c3edf26fd157b15f457ee48fa1a92d5212389d4962375b188"
+    }
+  ]
+}

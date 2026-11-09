@@ -1,0 +1,1 @@
+{"actual":"authorized","expected":"authorized","match":true,"scope":"Actual App-host PHPhotoLibrary readWrite status; simulator only"}

@@ -1,0 +1,1221 @@
+{
+  "tested_code_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+  "hash_scope": "Retained LF text/unchanged PNG bytes as committed; excludes this index itself. Original ZIP digests and JSON redactions separately documented.",
+  "files": [
+    {
+      "path": "ABSENCE_AND_SIGNING_PLAN.md",
+      "bytes": 3721,
+      "sha256": "a75ab6e83c7cebbfc786257beb4ac4114a233301b160991904038533fc51afe5"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1437,
+      "sha256": "1843727f08312fe95bcdba2ed4fa835a89733f1983836e970b22917733e3a182"
+    },
+    {
+      "path": "APPLE_REVIEW_REPLY_DRAFT.md",
+      "bytes": 2534,
+      "sha256": "d2128e244118bde469c55613ad170fdf70898ce5c499ab1326573e78e3f82495"
+    },
+    {
+      "path": "ASC_CURRENT_SUMMARY.json",
+      "bytes": 2402,
+      "sha256": "f9156c4f932af12016bfc367cdcb6200aad1df1e13ea09d6cf23c7b3aaab0aa5"
+    },
+    {
+      "path": "ASC_OWNER_STEPS.md",
+      "bytes": 1869,
+      "sha256": "b814eb9c54d8034d4774d6c8cf2187387aa2beea4c21a98fc4610532922f998c"
+    },
+    {
+      "path": "candidate.json",
+      "bytes": 636,
+      "sha256": "862a95f163e225db0fac3065313c7ad6f4b4462dbc05f1b47e8f813731ac5a6c"
+    },
+    {
+      "path": "CHANGED_FILES.json",
+      "bytes": 70470,
+      "sha256": "f3a95a66213cc7ad5bf3f776f81b990ac185cb6e2894888f57f81f9cd00211f6"
+    },
+    {
+      "path": "CI_EVIDENCE.json",
+      "bytes": 3703,
+      "sha256": "87aee0cce06ac8558ee57a65bdeddd84363143f1d390444039cad2afd656d175"
+    },
+    {
+      "path": "COMMANDS.md",
+      "bytes": 2343,
+      "sha256": "ddc9f489514ad247ccbd7a6c75b074e8b15ac9c2ddfde4e03ff8eefb8f17fac2"
+    },
+    {
+      "path": "DELIVERY.md",
+      "bytes": 7396,
+      "sha256": "8a5a38e0a15a294c88541b765c3873598f11963f93954747e0e1d622022ac3ef"
+    },
+    {
+      "path": "ENVIRONMENT.md",
+      "bytes": 1656,
+      "sha256": "89ee57f4ca8a339cfe8d8d66dc50d6c11b287d18d92e16934ce0351321435b6e"
+    },
+    {
+      "path": "evidence/failed-iphone-download/localization.json",
+      "bytes": 1237,
+      "sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "path": "evidence/failed-iphone-download/ordinary-entry.json",
+      "bytes": 232,
+      "sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "path": "evidence/failed-iphone-download/PROVENANCE.json",
+      "bytes": 453,
+      "sha256": "30d3ee28b59d050459fb4830acb4f0aca563fdaf91d088f1acd0fda4f3ea1d7c"
+    },
+    {
+      "path": "evidence/failed-iphone-download/r4-provenance.json",
+      "bytes": 20501,
+      "sha256": "de784a6e16b35839733a49496e1d19a8ef654ccdccec1c7cd58f6d42752ebe50"
+    },
+    {
+      "path": "evidence/failed-iphone-download/toolchain.txt",
+      "bytes": 144,
+      "sha256": "1407089f771b293b6a1dac0faac20f466afa70fc1d9853ca8e9a7277aee99ab9"
+    },
+    {
+      "path": "evidence/failed-native-picker/actual-loading-ax-extract.txt",
+      "bytes": 507,
+      "sha256": "cb35ee22e6f43e4f92d55c43ac215f6e68b521ad86c3e79e7d269df6069dd242"
+    },
+    {
+      "path": "evidence/failed-native-picker/DERIVATION.json",
+      "bytes": 925,
+      "sha256": "66a6d8d86814488d90e90066fe8c9c79b14d58a7f22ba54cfabd71f52f80e949"
+    },
+    {
+      "path": "evidence/failed-native-picker/native-picker-after-timeout.png",
+      "bytes": 2140054,
+      "sha256": "6bd1145e2e885ca71dd9cfe9a0e8d19be2ce44ca808547ed1930c6261a64b9c7"
+    },
+    {
+      "path": "evidence/failed-native-picker/PROVENANCE.json",
+      "bytes": 1029,
+      "sha256": "44967354cf1a5de411b636ebb078f16a5a93388d31eec2141781eb72d73ecfdc"
+    },
+    {
+      "path": "evidence/failed-native-picker/review-iphone-en-contracts-summary.json",
+      "bytes": 879,
+      "sha256": "0850dff115ea7531e69dc9e7dda35b6828b6b0ba5b3312b24ead0bb12a92e8ca"
+    },
+    {
+      "path": "evidence/failed-native-picker/review-iphone-en-Limited-ui-summary.json",
+      "bytes": 1292,
+      "sha256": "8a9c4cab6b9ca80aff0940c6cc0114de00de58a34077b672a3c585ea5b03fb74"
+    },
+    {
+      "path": "evidence/failed-native-picker/review-iphone-en-ordinary-entry-summary.json",
+      "bytes": 879,
+      "sha256": "ca134a2e423106aec2b8c0ac2a9fba18f64cc95300e0b4bbd8f7c762f1f400e1"
+    },
+    {
+      "path": "evidence/final-ipad/COUNTS.json",
+      "bytes": 2929,
+      "sha256": "0b1d47d31252bba2dedca79cc7257e2fc6093c6724569dc4b9a4501d17e39086"
+    },
+    {
+      "path": "evidence/final-ipad/DERIVATION.json",
+      "bytes": 5995,
+      "sha256": "9f420cf9c671d44435a99b902bf6c088eaf90d73083e74aa5c1c6fe5475ea6f6"
+    },
+    {
+      "path": "evidence/final-ipad/device-binary-absence.json",
+      "bytes": 532,
+      "sha256": "02b9edd5d386c55635da4bd05d6358e68f2404416b6d7a8615029fab6c12b06f"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-en-Denied-native.json",
+      "bytes": 126,
+      "sha256": "476ac5ee273d49f04dd0e8c8cc818f6903a5c16d1d9ce988c89d291985253256"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-en-FullAccess-native.json",
+      "bytes": 134,
+      "sha256": "79a3c617c91c027d9cd181fa8f0919321de6083e10ea94dd1105db04a1266c6e"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-en-Limited-native.json",
+      "bytes": 128,
+      "sha256": "fc48cf7bc157ae1bc9651d86e50958c7880cc64953248d67a2a6c355c1fd03ff"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-en-simulator-absence.json",
+      "bytes": 539,
+      "sha256": "20b9f56e078950d47027d8f1c082f5977fd2f2c9d72ad97399e7b777032e9eca"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-zh-Hans-Denied-native.json",
+      "bytes": 126,
+      "sha256": "476ac5ee273d49f04dd0e8c8cc818f6903a5c16d1d9ce988c89d291985253256"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-zh-Hans-FullAccess-native.json",
+      "bytes": 134,
+      "sha256": "79a3c617c91c027d9cd181fa8f0919321de6083e10ea94dd1105db04a1266c6e"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-zh-Hans-Limited-native.json",
+      "bytes": 128,
+      "sha256": "fc48cf7bc157ae1bc9651d86e50958c7880cc64953248d67a2a6c355c1fd03ff"
+    },
+    {
+      "path": "evidence/final-ipad/ipad-zh-Hans-simulator-absence.json",
+      "bytes": 539,
+      "sha256": "20b9f56e078950d47027d8f1c082f5977fd2f2c9d72ad97399e7b777032e9eca"
+    },
+    {
+      "path": "evidence/final-ipad/localization.json",
+      "bytes": 1237,
+      "sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "path": "evidence/final-ipad/ordinary-entry.json",
+      "bytes": 232,
+      "sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "path": "evidence/final-ipad/r4-provenance.json",
+      "bytes": 20501,
+      "sha256": "e6104666cc84f6c222e0b106b5fefc78d870f04d7237276b520b7011437e43fd"
+    },
+    {
+      "path": "evidence/final-ipad/release-build.json",
+      "bytes": 538,
+      "sha256": "7a2fd0a970ead9d2efa2a3acb1c19559b59617d19c3a6ecbd72df5df57ef41ca"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-en-Denied-native-status-summary.json",
+      "bytes": 880,
+      "sha256": "911671f97916d0ad5350767bce6e561e7bb71ebd557274458df11aa35e606ef6"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-en-Denied-ui-summary.json",
+      "bytes": 881,
+      "sha256": "f156d29180b128cc6a0b57b690705bfbe224f3fb07299f736242c8b58c9b3b8d"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-en-FullAccess-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "8aa2c95f19ead9fd9969fbfb5ad78539d86a66c3e5b7acb7fa4fb410e00e569d"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-en-FullAccess-ui-summary.json",
+      "bytes": 881,
+      "sha256": "3455f3490695729906ddc932c4ca58334f11dcd448adfe1d9e50b88f40cb8686"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-en-Limited-native-status-summary.json",
+      "bytes": 879,
+      "sha256": "c6e2bd7211b1e3b3f67fd2df4996ab6eaad9553029668c92c2ea0169ab2cd8d5"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-en-Limited-ui-summary.json",
+      "bytes": 881,
+      "sha256": "af697adcf8b6a15e5707850ac2871c9c93d5632b54e55e0e463a3352e6eb0d7b"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-en-ordinary-entry-summary.json",
+      "bytes": 881,
+      "sha256": "38c8bf5b9410edaecfd0330413978fff207871f8900ba833f243433c6fd8df85"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-zh-Hans-Denied-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "68c90221969087b9b44feeedac7429ec1c1e6b049ebf6e886a0d3bc5617e30ef"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-zh-Hans-Denied-ui-summary.json",
+      "bytes": 881,
+      "sha256": "de950b2a32849edfd3d4ccccd3678eeac975c344f299b0c00fbf03628ba44aa2"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-zh-Hans-FullAccess-native-status-summary.json",
+      "bytes": 880,
+      "sha256": "cc313d38cbd2340aaf25a95c8d2949bc0f3fbdbd9d7bc8600e5cbe680db8f9e6"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-zh-Hans-FullAccess-ui-summary.json",
+      "bytes": 881,
+      "sha256": "f3ffc20ae4b991cdacc39e5793562dc702bc100edd92c6018d998c01a41696ea"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-zh-Hans-Limited-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "3e6a9aea675122f118c0f1c3ad6a60a0edc78b5e3f3eaa53729ff5f34f7020fd"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-zh-Hans-Limited-ui-summary.json",
+      "bytes": 881,
+      "sha256": "5e87f86ae39a75a9c35b07f50be676c072dd338b57edd5cc8fb637044997511f"
+    },
+    {
+      "path": "evidence/final-ipad/review-ipad-zh-Hans-ordinary-entry-summary.json",
+      "bytes": 881,
+      "sha256": "af9a6b1a3c5fbf61fafc34439ee8e8831135a11ecd2491cf96870a117ceefc84"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-Denied-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-Denied-ui/FA4652E3-7F18-4939-A352-90FE047DAFC9.png",
+      "bytes": 1041786,
+      "sha256": "3ecc00a13591339557fa2d344058a55316133804fc5e2171778d150d06285c37"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-Denied-ui/manifest.json",
+      "bytes": 2469,
+      "sha256": "f1a2839f17b163aa135120198001f780f4fa3f45d8ad846556183b40a7b8a9e0"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-FullAccess-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-FullAccess-ui/50BC577B-4C9B-445E-9C3E-610B2949B61A.png",
+      "bytes": 1173865,
+      "sha256": "62f4d75d012cc7e06237ca737b671112d1e40e3a4b4694b50cffae4e162228e2"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-FullAccess-ui/manifest.json",
+      "bytes": 1374,
+      "sha256": "c77806882a5fade6ddce665c36729d9250f50a09977e18b20efb89eea4afda86"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-Limited-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-Limited-ui/manifest.json",
+      "bytes": 2471,
+      "sha256": "c79898eb3f169a187723ab28c0ed5fc4c1a3b3f92b25e6c82c1da1d994b9aa9d"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-ordinary-entry/38AB1579-90D8-4D8F-9FF2-07614FC06720.png",
+      "bytes": 1996129,
+      "sha256": "daf5391391c4151ddf77979851a35e2b27f1517a590bc8783e76f0e60673f13e"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-en-ordinary-entry/manifest.json",
+      "bytes": 1045,
+      "sha256": "bc12c4e40c40bedff6e8e1ab2b61b81ddb5cd844c27e1ae3094b8ac50a8d5d6c"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-Denied-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-Denied-ui/BCB1753B-6887-4B3E-B4B2-63969A00FE56.png",
+      "bytes": 911503,
+      "sha256": "245e38e68b7e6ddc7373864c82b861f2f40b6153724d628ecb2c64aa3260d6c8"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-Denied-ui/manifest.json",
+      "bytes": 2470,
+      "sha256": "a305ad0e003d5db1371225c1f1521c1ec78ea9d5c258c1afee9991553d84a65f"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-FullAccess-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-FullAccess-ui/EB9F4B0D-1D89-4FAD-84E2-DB691DB6FFA0.png",
+      "bytes": 1219443,
+      "sha256": "1dfdc687e304049664f2056867c013e90bdff538e33f3bdd7bcb3225ac1b25e8"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-FullAccess-ui/manifest.json",
+      "bytes": 1374,
+      "sha256": "537d733aeb782219607c9862381c7428acab1201aec5f70f0c7b9af3d2c0a4ed"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-Limited-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-Limited-ui/manifest.json",
+      "bytes": 2469,
+      "sha256": "51c44937e193faadbd9b9a8d105b190fbcdbd79f279a6b6033880271ff280527"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-ordinary-entry/ED3BE48E-373B-4182-9938-54F341CE2A6A.png",
+      "bytes": 1986623,
+      "sha256": "a1e861c449fc1f74ac02c8c141d908851ec09a47b90839003ccc6f5d81d243f4"
+    },
+    {
+      "path": "evidence/final-ipad/screenshots/review-ipad-zh-Hans-ordinary-entry/manifest.json",
+      "bytes": 1045,
+      "sha256": "b646099e975ca4257c2c2f1db4a164c807d06277e88f18c6f6792b738eb84395"
+    },
+    {
+      "path": "evidence/final-ipad/toolchain.txt",
+      "bytes": 144,
+      "sha256": "e254b8817074f38a5c5ce723065baec2624440737404762237588cfececd5776"
+    },
+    {
+      "path": "evidence/final-ipad/xcodegen.txt",
+      "bytes": 16,
+      "sha256": "bf8aa757345fcd22d1fd26e760aa058f02991e2d930686b8eaf750cd6e5f8532"
+    },
+    {
+      "path": "evidence/final-iphone/COUNTS.json",
+      "bytes": 3152,
+      "sha256": "6c2e36b7317b08805eff0b563ff94890e256838336735288cd320ea12896b52d"
+    },
+    {
+      "path": "evidence/final-iphone/DERIVATION.json",
+      "bytes": 6294,
+      "sha256": "5d78b99b58e443129f596c36c96c368e0a4e28b884f8a40691dfa368b94729de"
+    },
+    {
+      "path": "evidence/final-iphone/device-binary-absence.json",
+      "bytes": 532,
+      "sha256": "02b9edd5d386c55635da4bd05d6358e68f2404416b6d7a8615029fab6c12b06f"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-en-Denied-native.json",
+      "bytes": 126,
+      "sha256": "476ac5ee273d49f04dd0e8c8cc818f6903a5c16d1d9ce988c89d291985253256"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-en-FullAccess-native.json",
+      "bytes": 134,
+      "sha256": "79a3c617c91c027d9cd181fa8f0919321de6083e10ea94dd1105db04a1266c6e"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-en-Limited-native.json",
+      "bytes": 128,
+      "sha256": "fc48cf7bc157ae1bc9651d86e50958c7880cc64953248d67a2a6c355c1fd03ff"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-en-simulator-absence.json",
+      "bytes": 539,
+      "sha256": "8ee5a41453de7388227853a5cda3eeecf21a28a56a00c40aa3546716bb832982"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-zh-Hans-Denied-native.json",
+      "bytes": 126,
+      "sha256": "476ac5ee273d49f04dd0e8c8cc818f6903a5c16d1d9ce988c89d291985253256"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-zh-Hans-FullAccess-native.json",
+      "bytes": 134,
+      "sha256": "79a3c617c91c027d9cd181fa8f0919321de6083e10ea94dd1105db04a1266c6e"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-zh-Hans-Limited-native.json",
+      "bytes": 128,
+      "sha256": "fc48cf7bc157ae1bc9651d86e50958c7880cc64953248d67a2a6c355c1fd03ff"
+    },
+    {
+      "path": "evidence/final-iphone/iphone-zh-Hans-simulator-absence.json",
+      "bytes": 539,
+      "sha256": "8ee5a41453de7388227853a5cda3eeecf21a28a56a00c40aa3546716bb832982"
+    },
+    {
+      "path": "evidence/final-iphone/localization.json",
+      "bytes": 1237,
+      "sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "path": "evidence/final-iphone/ordinary-entry.json",
+      "bytes": 232,
+      "sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "path": "evidence/final-iphone/r4-provenance.json",
+      "bytes": 20501,
+      "sha256": "e6104666cc84f6c222e0b106b5fefc78d870f04d7237276b520b7011437e43fd"
+    },
+    {
+      "path": "evidence/final-iphone/release-build.json",
+      "bytes": 538,
+      "sha256": "7a2fd0a970ead9d2efa2a3acb1c19559b59617d19c3a6ecbd72df5df57ef41ca"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-contracts-summary.json",
+      "bytes": 879,
+      "sha256": "7d9899d0f8e60fb051e0c8e05fe728cb149aa6b0ba35794d19234a04c307ca9d"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-Denied-native-status-summary.json",
+      "bytes": 879,
+      "sha256": "d35c2a4a31fc16b1dbb959d50e1f5a6e7a166f00f44ff7d44579b941d5ab28c6"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-Denied-ui-summary.json",
+      "bytes": 879,
+      "sha256": "07f98078a931a35c2b62cd2e4860c8b4f0e962c4d9a1d599b583418f0c5ae023"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-FullAccess-native-status-summary.json",
+      "bytes": 879,
+      "sha256": "206ae590db8ba4197846289077bc30691e62728fd97b621b6d089ffb29fbe5a2"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-FullAccess-ui-summary.json",
+      "bytes": 879,
+      "sha256": "83a70fa4aa53d5b94fc6478a5a7f00e138be0e8606bb83a4b685c5d6053ebec7"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-Limited-native-status-summary.json",
+      "bytes": 879,
+      "sha256": "2726e8ef74c3e6caf4058c15b990e0d9045bb4078cee521d979a0bf16614e20d"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-Limited-ui-summary.json",
+      "bytes": 878,
+      "sha256": "432abd26e0f17a9f67c221f08dceae5b97d880f58deeed507b419d1d3940aff8"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-en-ordinary-entry-summary.json",
+      "bytes": 879,
+      "sha256": "e1ee7a178728a07ce5b404fea2c7c31b5a3bf2a1b185dfd71d21063e0f7ec44a"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-zh-Hans-Denied-native-status-summary.json",
+      "bytes": 879,
+      "sha256": "db61926210cf1a9302132eb9c66c50993a67ea7c3cff5677538291d8d8ee22e6"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-zh-Hans-Denied-ui-summary.json",
+      "bytes": 879,
+      "sha256": "86b9ea8416a9d514ff30dc5594b4a26a0fa5e6db6e4cf962b2c45ba90045146b"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-zh-Hans-FullAccess-native-status-summary.json",
+      "bytes": 879,
+      "sha256": "b3c1e49218729737059098cf12ce09c30a378b40dd24c1320a69ada1264a68ba"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-zh-Hans-FullAccess-ui-summary.json",
+      "bytes": 879,
+      "sha256": "e8a43d62ee97999da5352756829a01450bd48c19dac1d6711abdc31443c7eeda"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-zh-Hans-Limited-native-status-summary.json",
+      "bytes": 878,
+      "sha256": "e9742de7d5e107ae71b74a3be1e508bf1fe791609227feabb7f2435a6c101eb1"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-zh-Hans-Limited-ui-summary.json",
+      "bytes": 879,
+      "sha256": "eb57d045fc6eb427c85a68dea1e54a4601f9f4789cad7affd911646ca51405bb"
+    },
+    {
+      "path": "evidence/final-iphone/review-iphone-zh-Hans-ordinary-entry-summary.json",
+      "bytes": 879,
+      "sha256": "8ab28e7433e2441bb5c6ab873f49b8471aa5e4faa138c5d00a4a56d1ca23a5ea"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-contracts/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-Denied-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-Denied-ui/5EA0AC29-C18C-4771-89DC-1FFD1FB3D45B.png",
+      "bytes": 126579,
+      "sha256": "c5f51c85c433501113a8faca488db1f9f37e2cb1e54780b33127f7d39cf75533"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-Denied-ui/manifest.json",
+      "bytes": 2480,
+      "sha256": "267a4f1510590c0c57c1ab727429de31660408fee4ea6f14103f5a8454771b7f"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-FullAccess-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-FullAccess-ui/A14F9939-7C63-4DA2-AED1-9055C438D2A5.png",
+      "bytes": 760708,
+      "sha256": "b0c08c8967992c0e608fd631b1e015f5de8134db4ce41d360541740a719d5693"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-FullAccess-ui/manifest.json",
+      "bytes": 1380,
+      "sha256": "6008e210dbff23534113f3f7db6cc025964ab43b8e8da3d47d21cc3069f0fa0f"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-Limited-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-Limited-ui/manifest.json",
+      "bytes": 2485,
+      "sha256": "c40f8633cab7c5f801ba83f76a52977de7944bc865da00cb5d1d65e666ceaacf"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-ordinary-entry/57CC7EE8-DC04-4DAE-8EA3-5C73BC14C29E.png",
+      "bytes": 1387852,
+      "sha256": "3eea7536d447f5726752a1c834880953a3f407a9c4fbc72898714f4445d2dcea"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-en-ordinary-entry/manifest.json",
+      "bytes": 1049,
+      "sha256": "c47986a2fa6e5503b502066ce3f9d9ba7f39158aac49130df940dbea025e76d0"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-Denied-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-Denied-ui/3E626B6E-7F42-4337-9BFD-A511B2F89C68.png",
+      "bytes": 133745,
+      "sha256": "79b97abd0f33052c28b952985d93d01f24f13715487e892eb6abba325d759bdf"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-Denied-ui/manifest.json",
+      "bytes": 2482,
+      "sha256": "bc89a31549df0b28a938cd41c8dcd23e64ddd0f23d4253585dd8ccc5168b0f17"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-FullAccess-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-FullAccess-ui/05B572DD-A09B-4F2E-AE5D-6511B9DBFEDD.png",
+      "bytes": 652663,
+      "sha256": "0a9500b7f18a0f6efd896efe899033adac7a9416d3b41a9742f43935ef49c1ad"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-FullAccess-ui/manifest.json",
+      "bytes": 1380,
+      "sha256": "d6baebde8b8b012cd5a2b324da96a805d252123ffa8eabd943b2e509ca95ef24"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-Limited-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-Limited-ui/manifest.json",
+      "bytes": 2483,
+      "sha256": "b398ff0128db26bf200968f43312730ea54522324c4eb98836f875cce4a05542"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-ordinary-entry/9637A7D1-92B9-47B7-9CAA-9C33D39BAFFB.png",
+      "bytes": 1392259,
+      "sha256": "34f001a3fb09e42834c8b8e92cead96b95a0ed86a7231b007f38508f6ba984a7"
+    },
+    {
+      "path": "evidence/final-iphone/screenshots/review-iphone-zh-Hans-ordinary-entry/manifest.json",
+      "bytes": 1049,
+      "sha256": "623b53d05ceac29bfd476b7a51443372156c69250c4eb78e82efb7f45a49e63d"
+    },
+    {
+      "path": "evidence/final-iphone/toolchain.txt",
+      "bytes": 144,
+      "sha256": "e254b8817074f38a5c5ce723065baec2624440737404762237588cfececd5776"
+    },
+    {
+      "path": "evidence/final-iphone/xcodegen.txt",
+      "bytes": 16,
+      "sha256": "bf8aa757345fcd22d1fd26e760aa058f02991e2d930686b8eaf750cd6e5f8532"
+    },
+    {
+      "path": "evidence/final-preflight/asc-preflight.json",
+      "bytes": 308,
+      "sha256": "f7457866d6353b7fef681ea6be2317eb8801177c5ee846e9837ff65f6fea4c8f"
+    },
+    {
+      "path": "evidence/final-preflight/asc-readback.json",
+      "bytes": 60301,
+      "sha256": "048ff8569ebc3b79bbad4c0c1ddda8d8e020a67fd18afba59fb6c849256ab697"
+    },
+    {
+      "path": "evidence/final-preflight/build-preflight-tests.json",
+      "bytes": 175,
+      "sha256": "b47f2c8a491d0fd2ace5a743e6361007127af039ab72e075338e2b158f847894"
+    },
+    {
+      "path": "evidence/final-preflight/provenance.json",
+      "bytes": 20501,
+      "sha256": "e6104666cc84f6c222e0b106b5fefc78d870f04d7237276b520b7011437e43fd"
+    },
+    {
+      "path": "evidence/final-preflight/RELEASE_MANIFEST.json",
+      "bytes": 20819,
+      "sha256": "9e3862820b4438ea555e2363775313042dfc33810e4a3e999d0272db22afb73d"
+    },
+    {
+      "path": "evidence/final-preflight/toolchain.txt",
+      "bytes": 144,
+      "sha256": "e254b8817074f38a5c5ce723065baec2624440737404762237588cfececd5776"
+    },
+    {
+      "path": "evidence/final-preflight/tooling-tests.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final-preflight/validator-self-test.json",
+      "bytes": 198,
+      "sha256": "d66212626391e0e9e7dea3ba2f9b0bbfa0c5ec15612949f29553ec95b0d05828"
+    },
+    {
+      "path": "evidence/final-prepare/actual-safe-job-log-extract.txt",
+      "bytes": 2142,
+      "sha256": "c833919be58414676fab5100ca31c4aedfdb65192ea46db85b89f023d22080d0"
+    },
+    {
+      "path": "evidence/final-prepare/archive-tests.json",
+      "bytes": 693,
+      "sha256": "959bded01c619fbbb1fe7a3d2db6c88b8b3548470471e4efa524c0034148d72d"
+    },
+    {
+      "path": "evidence/final-prepare/build-preflight-tests.json",
+      "bytes": 175,
+      "sha256": "b47f2c8a491d0fd2ace5a743e6361007127af039ab72e075338e2b158f847894"
+    },
+    {
+      "path": "evidence/final-prepare/clean-release-metadata.json",
+      "bytes": 538,
+      "sha256": "7a2fd0a970ead9d2efa2a3acb1c19559b59617d19c3a6ecbd72df5df57ef41ca"
+    },
+    {
+      "path": "evidence/final-prepare/device-binary-absence.json",
+      "bytes": 532,
+      "sha256": "291c7f6528eb66817a43b40023312be4ec76791c76e2c6ba9b1890b98abc93ae"
+    },
+    {
+      "path": "evidence/final-prepare/entry-routing.json",
+      "bytes": 232,
+      "sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "path": "evidence/final-prepare/localization.json",
+      "bytes": 1237,
+      "sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "path": "evidence/final-prepare/provenance.json",
+      "bytes": 20563,
+      "sha256": "be01a9b33ff4362312ab53b1c878f0333d8dd646779a77396bed51b075b372ff"
+    },
+    {
+      "path": "evidence/final-prepare/RELEASE_MANIFEST.json",
+      "bytes": 21052,
+      "sha256": "3209814d84a28cc61d7a7ceb5af5a2879a2e80c878ef9a04a33f81d25bb0a536"
+    },
+    {
+      "path": "evidence/final-prepare/simulator-absence.json",
+      "bytes": 539,
+      "sha256": "9b00af4c9f4dbc985596ec974887cb8090ab192da7309b05294492c84d9bcbe7"
+    },
+    {
+      "path": "evidence/final-prepare/tests.json",
+      "bytes": 109,
+      "sha256": "6540f9664293fe1ddfe3b73d0a9ec9f2ab2af2f7bc57d567980953a4e1678dc5"
+    },
+    {
+      "path": "evidence/final-prepare/toolchain.txt",
+      "bytes": 144,
+      "sha256": "e254b8817074f38a5c5ce723065baec2624440737404762237588cfececd5776"
+    },
+    {
+      "path": "evidence/final-prepare/tooling-tests.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final-prepare/validator-self-test.json",
+      "bytes": 198,
+      "sha256": "d66212626391e0e9e7dea3ba2f9b0bbfa0c5ec15612949f29553ec95b0d05828"
+    },
+    {
+      "path": "evidence/ipad/COUNTS.json",
+      "bytes": 2918,
+      "sha256": "585eec03e7f81784171fc92d5b7b6c245b1d66e94eef8b1575960a0fa5434dfa"
+    },
+    {
+      "path": "evidence/ipad/DERIVATION.json",
+      "bytes": 6045,
+      "sha256": "9774272ee72cbf3daec3461d6b4ec663ed739d3b500455a8ddb3caddbbfb4988"
+    },
+    {
+      "path": "evidence/ipad/device-binary-absence.json",
+      "bytes": 532,
+      "sha256": "02b9edd5d386c55635da4bd05d6358e68f2404416b6d7a8615029fab6c12b06f"
+    },
+    {
+      "path": "evidence/ipad/ipad-en-Denied-native.json",
+      "bytes": 126,
+      "sha256": "476ac5ee273d49f04dd0e8c8cc818f6903a5c16d1d9ce988c89d291985253256"
+    },
+    {
+      "path": "evidence/ipad/ipad-en-FullAccess-native.json",
+      "bytes": 134,
+      "sha256": "79a3c617c91c027d9cd181fa8f0919321de6083e10ea94dd1105db04a1266c6e"
+    },
+    {
+      "path": "evidence/ipad/ipad-en-Limited-native.json",
+      "bytes": 128,
+      "sha256": "fc48cf7bc157ae1bc9651d86e50958c7880cc64953248d67a2a6c355c1fd03ff"
+    },
+    {
+      "path": "evidence/ipad/ipad-en-simulator-absence.json",
+      "bytes": 539,
+      "sha256": "20b9f56e078950d47027d8f1c082f5977fd2f2c9d72ad97399e7b777032e9eca"
+    },
+    {
+      "path": "evidence/ipad/ipad-zh-Hans-Denied-native.json",
+      "bytes": 126,
+      "sha256": "476ac5ee273d49f04dd0e8c8cc818f6903a5c16d1d9ce988c89d291985253256"
+    },
+    {
+      "path": "evidence/ipad/ipad-zh-Hans-FullAccess-native.json",
+      "bytes": 134,
+      "sha256": "79a3c617c91c027d9cd181fa8f0919321de6083e10ea94dd1105db04a1266c6e"
+    },
+    {
+      "path": "evidence/ipad/ipad-zh-Hans-Limited-native.json",
+      "bytes": 128,
+      "sha256": "fc48cf7bc157ae1bc9651d86e50958c7880cc64953248d67a2a6c355c1fd03ff"
+    },
+    {
+      "path": "evidence/ipad/ipad-zh-Hans-simulator-absence.json",
+      "bytes": 539,
+      "sha256": "20b9f56e078950d47027d8f1c082f5977fd2f2c9d72ad97399e7b777032e9eca"
+    },
+    {
+      "path": "evidence/ipad/localization.json",
+      "bytes": 1237,
+      "sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "path": "evidence/ipad/ordinary-entry.json",
+      "bytes": 232,
+      "sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "path": "evidence/ipad/r4-provenance.json",
+      "bytes": 20501,
+      "sha256": "de784a6e16b35839733a49496e1d19a8ef654ccdccec1c7cd58f6d42752ebe50"
+    },
+    {
+      "path": "evidence/ipad/release-build.json",
+      "bytes": 538,
+      "sha256": "7a2fd0a970ead9d2efa2a3acb1c19559b59617d19c3a6ecbd72df5df57ef41ca"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-en-Denied-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "bd4d8582fa6e456378c8e4f81a27130171c4659191758ace18ec1d2f369153bc"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-en-Denied-ui-summary.json",
+      "bytes": 881,
+      "sha256": "055c61e4ec75f2644ad0a564268538b351a49bf32de02d79913cca1bf43a6141"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-en-FullAccess-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "bafef0f11598f541c9133184ba2d41d4afd43bef05ddbdbb875a7dada8af74dd"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-en-FullAccess-ui-summary.json",
+      "bytes": 880,
+      "sha256": "2016dda5d38677c66d17c13781cbe9abf1928af8ad2547d1545c8a3ac74356ac"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-en-Limited-native-status-summary.json",
+      "bytes": 880,
+      "sha256": "1a74bf51d8168465b30ecd4d38f9976e3c1faadfd9991710f04b4f0b322a1ec3"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-en-Limited-ui-summary.json",
+      "bytes": 880,
+      "sha256": "eb96b38dca96f316e57c2fb4abb557c136ba472a2416640cb38697e783ed7ddc"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-en-ordinary-entry-summary.json",
+      "bytes": 880,
+      "sha256": "9104403f85db0547a4474309667e21a841cdfb8b3b55d1c8ec57c37947d03a47"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-zh-Hans-Denied-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "1187514ad12441d3e544d3a3997b9d4606e239e949c4625be6383e780adbcbc1"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-zh-Hans-Denied-ui-summary.json",
+      "bytes": 881,
+      "sha256": "b7d883ca0095ddeae7700a2961178ed0e3cb79692a7640dcc21aa455bb51a451"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-zh-Hans-FullAccess-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "4505e67c1eb2bdc8219ea6f5ad7e188c1bf12dfd9a87a5d19c93baf238dac101"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-zh-Hans-FullAccess-ui-summary.json",
+      "bytes": 881,
+      "sha256": "4c0c9dc839ae714e037c247d931e3365622e6339f552ab36979862bf25d3c344"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-zh-Hans-Limited-native-status-summary.json",
+      "bytes": 881,
+      "sha256": "0c8d731f5014fe662d429ab7102e21aefb606c95769e37e9ce8710bb764bbbb3"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-zh-Hans-Limited-ui-summary.json",
+      "bytes": 881,
+      "sha256": "547cd711e08d998e5eeea9af72acd40fb19b5a48b062b06497870203b8527a95"
+    },
+    {
+      "path": "evidence/ipad/review-ipad-zh-Hans-ordinary-entry-summary.json",
+      "bytes": 881,
+      "sha256": "772c4ef37c3f8323daf8623e6081612429cd0894448757273108039d19484667"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-Denied-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-Denied-ui/FD6392C3-FBAF-4B0C-90DB-78505960E375.png",
+      "bytes": 1042030,
+      "sha256": "dc6227feaa37520a581494e9443e023dd50b2346a76669717c4214fe24b48545"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-Denied-ui/manifest.json",
+      "bytes": 2470,
+      "sha256": "4e3134e601131cb30f9980f628f3aa37e113161f952daab7541484dbe2f07e22"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-FullAccess-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-FullAccess-ui/A21CE231-7892-4E1A-B177-4AFE65FCFA25.png",
+      "bytes": 1177455,
+      "sha256": "974b4cb8e4822c4aa33497fc0ecfee8092de7a290ffd192b2d126b0f29e441a6"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-FullAccess-ui/manifest.json",
+      "bytes": 1374,
+      "sha256": "2200c93ae7615a0d08ff4bb65e581e57ce76fbf6349bacf5e3dabd44d9d67456"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-Limited-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-Limited-ui/manifest.json",
+      "bytes": 2472,
+      "sha256": "65086e4984cbeb68d47d3b815332eebfe2692f3ef50119d8b0613c90ab12605c"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-ordinary-entry/59E325C5-13DA-4F56-86C2-2549D8DCD2C9.png",
+      "bytes": 1996494,
+      "sha256": "9f0f1bb0b81cebf8b1aea5f10a318e27e41c6a77e7a4520fed72ee7f95b4c65c"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-en-ordinary-entry/manifest.json",
+      "bytes": 1043,
+      "sha256": "a84cb0d56824fc04222c04dd625e2199f114c5f1a1f708cf400f9d7963845471"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-Denied-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-Denied-ui/E3BD96E3-6344-4B75-8108-776CCD96FA1E.png",
+      "bytes": 911869,
+      "sha256": "0c7d950e549ac47bcd0134932fe259ab6eedccf53cd96fbcf5ff8c51dcb93721"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-Denied-ui/manifest.json",
+      "bytes": 2470,
+      "sha256": "4eeabdca75f4b9ed495c59c44a191721891709689aaf5affbd6db2175d18589b"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-FullAccess-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-FullAccess-ui/E933D560-C959-4EDD-A420-5640BCFF34D9.png",
+      "bytes": 1189692,
+      "sha256": "f00dee1db0759007b67e74427b5a2db99b3556573d63444413bb285049071342"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-FullAccess-ui/manifest.json",
+      "bytes": 1373,
+      "sha256": "1347b12452e3549cfab0ee78e6ab1668ac33bf06c8adc4786a4440c97d9e4aa5"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-Limited-native-status/manifest.json",
+      "bytes": 4,
+      "sha256": "ace810d7e2cbb4f8c40ce09dc8e191ae466adb4e1a7d49c59f2215b411d38b05"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-Limited-ui/manifest.json",
+      "bytes": 2471,
+      "sha256": "1a9f6e98677c567f4f23a7fa69fdd7bd03a0fcbe62811b477c87f62ac8a5e584"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-ordinary-entry/6A73DB81-2D62-440F-B254-6211F1B8B181.png",
+      "bytes": 1986901,
+      "sha256": "ae11a904701f560139e62e2e349280a16c9d308d28698f7934674820ba5da2d7"
+    },
+    {
+      "path": "evidence/ipad/screenshots/review-ipad-zh-Hans-ordinary-entry/manifest.json",
+      "bytes": 1045,
+      "sha256": "5c0374fcfb23e56c3edf26fd157b15f457ee48fa1a92d5212389d4962375b188"
+    },
+    {
+      "path": "evidence/ipad/toolchain.txt",
+      "bytes": 144,
+      "sha256": "1407089f771b293b6a1dac0faac20f466afa70fc1d9853ca8e9a7277aee99ab9"
+    },
+    {
+      "path": "evidence/ipad/xcodegen.txt",
+      "bytes": 16,
+      "sha256": "bf8aa757345fcd22d1fd26e760aa058f02991e2d930686b8eaf750cd6e5f8532"
+    },
+    {
+      "path": "evidence/IPAD_CONTACT.png",
+      "bytes": 681197,
+      "sha256": "5389248d14546d2af9859224a59360233c3f26b8ddb6a3f3dfa20f4d4e2633a9"
+    },
+    {
+      "path": "evidence/IPAD_CONTACT_SOURCES.json",
+      "bytes": 1437,
+      "sha256": "f7711606dc4ce8de5dcb2934809d65cbc4a808ec86e5777e5daeeed362cd8b3f"
+    },
+    {
+      "path": "evidence/local-entry.json",
+      "bytes": 232,
+      "sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "path": "evidence/local-localization.json",
+      "bytes": 1237,
+      "sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "path": "evidence/local-provenance.json",
+      "bytes": 20501,
+      "sha256": "63d85d24ef51396cb4847a330eca8ca2b7e0874f4ef1b2ffe6b8f9f3eb6b314a"
+    },
+    {
+      "path": "evidence/local-tooling-tests.txt",
+      "bytes": 1284,
+      "sha256": "dd2c901ab92a2effe92c58090b15d0677b7bd0120fe63c8c6a80eece5b9f69a9"
+    },
+    {
+      "path": "evidence/local-unauthorized-release-tests.json",
+      "bytes": 429,
+      "sha256": "2193b491d8991f7dee72739270120208b58011523146cf68bdf055532a69831d"
+    },
+    {
+      "path": "evidence/local-validator-tests.json",
+      "bytes": 198,
+      "sha256": "d66212626391e0e9e7dea3ba2f9b0bbfa0c5ec15612949f29553ec95b0d05828"
+    },
+    {
+      "path": "evidence/NATIVE_CONTACT.png",
+      "bytes": 1017857,
+      "sha256": "edd466159b02beef09eedcaffa5f61f88ea41c6e186924d8e10d7a725228f05a"
+    },
+    {
+      "path": "evidence/NATIVE_CONTACT_SOURCES.json",
+      "bytes": 3243,
+      "sha256": "79c5b5c68be4d99031bfa12aaa2f2b5fee95898c3b9c6b78c3dad98f996f06de"
+    },
+    {
+      "path": "evidence/preflight/asc-preflight.json",
+      "bytes": 308,
+      "sha256": "91b5a771b0eaced69e14fb9f5402ee5dfc8e015ee6952584cf6195c132766a2c"
+    },
+    {
+      "path": "evidence/preflight/asc-readback.json",
+      "bytes": 60301,
+      "sha256": "3e3a3996cc94ed6d5a9f9e20f6dce4345eb13435b5343c8623c96e76da70c8a5"
+    },
+    {
+      "path": "evidence/preflight/build-preflight-tests.json",
+      "bytes": 175,
+      "sha256": "b47f2c8a491d0fd2ace5a743e6361007127af039ab72e075338e2b158f847894"
+    },
+    {
+      "path": "evidence/preflight/provenance.json",
+      "bytes": 20501,
+      "sha256": "de784a6e16b35839733a49496e1d19a8ef654ccdccec1c7cd58f6d42752ebe50"
+    },
+    {
+      "path": "evidence/preflight/RELEASE_MANIFEST.json",
+      "bytes": 20819,
+      "sha256": "dc1b57003d2dc0bbd4ba9d9d72bcded96c39344f22d3d1443fae9df5397d5aeb"
+    },
+    {
+      "path": "evidence/preflight/toolchain.txt",
+      "bytes": 144,
+      "sha256": "1407089f771b293b6a1dac0faac20f466afa70fc1d9853ca8e9a7277aee99ab9"
+    },
+    {
+      "path": "evidence/preflight/tooling-tests.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/preflight/validator-self-test.json",
+      "bytes": 198,
+      "sha256": "d66212626391e0e9e7dea3ba2f9b0bbfa0c5ec15612949f29553ec95b0d05828"
+    },
+    {
+      "path": "evidence/prepare/actual-safe-job-log-extract.txt",
+      "bytes": 2142,
+      "sha256": "efa88daaf8d4f9c33a9948132d96d845bbc78d8e0cc89db97b992cbabd172592"
+    },
+    {
+      "path": "evidence/prepare/archive-tests.json",
+      "bytes": 693,
+      "sha256": "d77b5de97ddb4e73567812215c6be4a391d639764d288fc3d3c60ca98a050727"
+    },
+    {
+      "path": "evidence/prepare/build-preflight-tests.json",
+      "bytes": 175,
+      "sha256": "b47f2c8a491d0fd2ace5a743e6361007127af039ab72e075338e2b158f847894"
+    },
+    {
+      "path": "evidence/prepare/clean-release-metadata.json",
+      "bytes": 538,
+      "sha256": "7a2fd0a970ead9d2efa2a3acb1c19559b59617d19c3a6ecbd72df5df57ef41ca"
+    },
+    {
+      "path": "evidence/prepare/device-binary-absence.json",
+      "bytes": 532,
+      "sha256": "291c7f6528eb66817a43b40023312be4ec76791c76e2c6ba9b1890b98abc93ae"
+    },
+    {
+      "path": "evidence/prepare/entry-routing.json",
+      "bytes": 232,
+      "sha256": "f2f1dff432239d27d3735ca57b61ed87a01786fad19cb88c93c37983a6055a53"
+    },
+    {
+      "path": "evidence/prepare/localization.json",
+      "bytes": 1237,
+      "sha256": "70c75dea1edd1cf9d176ffee5c2563322c1591769c72a075c92ff782bd469e60"
+    },
+    {
+      "path": "evidence/prepare/provenance.json",
+      "bytes": 20563,
+      "sha256": "57ec24316db5ebb5a1415cd1348f588ee596df2a78a8f8563370b644ca13f297"
+    },
+    {
+      "path": "evidence/prepare/RELEASE_MANIFEST.json",
+      "bytes": 21052,
+      "sha256": "e554938579218f9cfbba8c1244c118e43fdb02d9dea95bf7bc2e8070e6018428"
+    },
+    {
+      "path": "evidence/prepare/simulator-absence.json",
+      "bytes": 539,
+      "sha256": "9b00af4c9f4dbc985596ec974887cb8090ab192da7309b05294492c84d9bcbe7"
+    },
+    {
+      "path": "evidence/prepare/tests.json",
+      "bytes": 109,
+      "sha256": "6540f9664293fe1ddfe3b73d0a9ec9f2ab2af2f7bc57d567980953a4e1678dc5"
+    },
+    {
+      "path": "evidence/prepare/toolchain.txt",
+      "bytes": 144,
+      "sha256": "1407089f771b293b6a1dac0faac20f466afa70fc1d9853ca8e9a7277aee99ab9"
+    },
+    {
+      "path": "evidence/prepare/tooling-tests.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/prepare/validator-self-test.json",
+      "bytes": 198,
+      "sha256": "d66212626391e0e9e7dea3ba2f9b0bbfa0c5ec15612949f29553ec95b0d05828"
+    },
+    {
+      "path": "evidence/r4-source-diff-hashes.json",
+      "bytes": 6097,
+      "sha256": "32d170400160f6a4416b392673e41d5de98c1448f5c923489f3501576127f4e2"
+    },
+    {
+      "path": "evidence/SELECTED_SCREENSHOT_POLICY.json",
+      "bytes": 19138,
+      "sha256": "a345aac833c1594f7fb664882d74fd5328a44905f959bf6cadf0363e2a4890af"
+    },
+    {
+      "path": "evidence/test-harness-only-followup.json",
+      "bytes": 436,
+      "sha256": "a3581c5b65f831c2b7ccdb03088270729454cdbeed923bf94ccd8a38cd1a0aed"
+    },
+    {
+      "path": "evidence/unchanged-protected-files.json",
+      "bytes": 19127,
+      "sha256": "3f2d95d0cb4b936ed26ded4b08103016c103a11d60dfef772f1bb5dfb78a88fe"
+    },
+    {
+      "path": "FILE_BY_FILE.md",
+      "bytes": 2875,
+      "sha256": "ae6bafc434205a0c2fd4fd14b366e65cfe0eef629a42182f9f2fd0571f183125"
+    },
+    {
+      "path": "R4_IMPLEMENTATION_DIFF.json",
+      "bytes": 17345,
+      "sha256": "6efea6ff818596f176db2a6ce273e46e904a9b419bb3af50882c85deb696525b"
+    },
+    {
+      "path": "RELEASE_MANIFEST.json",
+      "bytes": 21052,
+      "sha256": "3209814d84a28cc61d7a7ceb5af5a2879a2e80c878ef9a04a33f81d25bb0a536"
+    },
+    {
+      "path": "RELEASE_PLAN.md",
+      "bytes": 3195,
+      "sha256": "10df52947fb7e7e6c916c2d557221702a950797f48dfeb84512ad2be9c4b8472"
+    },
+    {
+      "path": "TEST_RESULTS.json",
+      "bytes": 3776,
+      "sha256": "29aeee12f3e31f7595881adcbcb5d50cf85eb6bbd7f1d73efd6f84ebe5474669"
+    },
+    {
+      "path": "US_REGIONAL_RISK.md",
+      "bytes": 2364,
+      "sha256": "bd5a9b5218c07de479619c7ebd4fa7f4759ee061ba6c4302f0342d96c8706fa6"
+    },
+    {
+      "path": "VISUAL_REVIEW.md",
+      "bytes": 1548,
+      "sha256": "1a1cdbcee0d841a6f3c533c80a77e7285ac4a1a81cb44dc4145f21b23b936beb"
+    }
+  ]
+}

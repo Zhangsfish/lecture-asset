@@ -1,0 +1,35 @@
+{
+  "devicesAndConfigurations": [
+    {
+      "device": {
+        "architecture": "arm64",
+        "deviceName": "Review iphone",
+        "modelName": "iPhone 17 Pro Max",
+        "osBuildNumber": "23F77",
+        "osVersion": "26.5",
+        "platform": "iOS Simulator"
+      },
+      "expectedFailures": 0,
+      "failedTests": 0,
+      "passedTests": 1,
+      "skippedTests": 0,
+      "testPlanConfiguration": {
+        "configurationId": "1",
+        "configurationName": "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription": "LectureAsset · Built with macOS 26.7.2",
+  "expectedFailures": 0,
+  "failedTests": 0,
+  "finishTime": 1794208875.62,
+  "passedTests": 1,
+  "result": "Passed",
+  "skippedTests": 0,
+  "startTime": 1794208813.218,
+  "statistics": [],
+  "testFailures": [],
+  "title": "Test - LectureAsset",
+  "topInsights": [],
+  "totalTestCount": 1
+}

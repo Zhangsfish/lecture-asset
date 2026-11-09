@@ -1,0 +1,24 @@
+[
+  {
+    "attachments": [
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "ED3BE48E-373B-4182-9938-54F341CE2A6A.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-ordinary-entry-no-intermediate-request_0_FD0E2A06-8D76-4317-9C8D-FDE00556E44D.png",
+        "timestamp": 1794209137.915
+      },
+      {
+        "configurationName": "Test Scheme Action",
+        "deviceName": "Review ipad",
+        "exportedFileName": "1F517344-C7A1-4579-8086-989F7C897786.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "review-ordinary-entry-no-intermediate-request_0_82D881D9-EA1E-4E1D-8231-633878F9DCE6.png",
+        "timestamp": 1794209128.474
+      }
+    ],
+    "testIdentifier": "AppReviewChinesePermissionUITests/testOrdinaryEntryAndRelaunch()",
+    "testIdentifierURL": "test://com.apple.xcode/LectureAsset/LectureAssetUITests/AppReviewChinesePermissionUITests/testOrdinaryEntryAndRelaunch"
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "queryDate": "2026-11-09T07:12:32Z",
+  "source_sha": "651600c1890158f661d8ea32b564e46866cd8690",
+  "workflow_run": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42577015653",
+  "candidate": "0.1.0 (36.1)",
+  "candidateNumberAvailable": true,
+  "candidate_not_reserved": true,
+  "selectedReviewBuild": {
+    "attributes": {
+      "buildAudienceType": "APP_STORE_ELIGIBLE",
+      "processingState": "VALID",
+      "version": "35.1"
+    },
+    "id": "9dd9196a-b0c1-4457-b025-eb90cf9a72c3"
+  },
+  "version": {
+    "appStoreState": "REJECTED",
+    "appVersionState": "REJECTED",
+    "copyright": "2026 Shuo Zhang",
+    "releaseType": "AFTER_APPROVAL",
+    "usesIdfa": null,
+    "versionString": "0.1.0"
+  },
+  "age": {
+    "advertising": false,
+    "ageAssurance": true,
+    "ageRatingOverride": "NONE",
+    "ageRatingOverrideV2": "NONE",
+    "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+    "contests": "NONE",
+    "developerAgeRatingInfoUrl": null,
+    "gambling": false,
+    "gamblingSimulated": "NONE",
+    "gunsOrOtherWeapons": "NONE",
+    "healthOrWellnessTopics": false,
+    "horrorOrFearThemes": "NONE",
+    "kidsAgeBand": null,
+    "koreaAgeRatingOverride": "NONE",
+    "lootBox": false,
+    "matureOrSuggestiveThemes": "NONE",
+    "medicalOrTreatmentInformation": "NONE",
+    "messagingAndChat": false,
+    "parentalControls": false,
+    "profanityOrCrudeHumor": "NONE",
+    "sexualContentGraphicAndNudity": "NONE",
+    "sexualContentOrNudity": "NONE",
+    "socialMedia": false,
+    "socialMediaAgeRestricted": false,
+    "unrestrictedWebAccess": false,
+    "userGeneratedContent": false,
+    "violenceCartoonOrFantasy": "NONE",
+    "violenceRealistic": "NONE",
+    "violenceRealisticProlongedGraphicOrSadistic": "NONE"
+  },
+  "available_territories": [
+    "USA",
+    "CHN"
+  ],
+  "future_new_territories": false,
+  "pricing": {
+    "pricePoints": [
+      {
+        "customerPrice": "0.0",
+        "proceeds": "0.0"
+      }
+    ]
+  },
+  "review_submissions": [
+    {
+      "platform": "IOS",
+      "state": "UNRESOLVED_ISSUES",
+      "submittedDate": "2026-10-31T11:22:55.84Z"
+    },
+    {
+      "platform": "IOS",
+      "state": "COMPLETE",
+      "submittedDate": "2026-10-07T05:27:33.704Z"
+    }
+  ],
+  "mutations_performed": false,
+  "questionnaire_target_for_future_verified_replacement": {
+    "parentalControls": false,
+    "ageAssurance": false,
+    "saved": false
+  }
+}
