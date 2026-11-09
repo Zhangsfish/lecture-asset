@@ -1,41 +1,33 @@
-# Current status — 2026-11-09
+# Current status — 2026-11-09 (latest verified closeout)
 
-## ONLY CURRENT TASK: S05-R5 — READY_FOR_CODEX
+## Current gate: R5 DISTRIBUTION PASS_WITH_NOTES — WAITING_FOR_OWNER_TESTFLIGHT_AND_REVIEW_BUILD
 
-**Goal:** Use the **already audited and merged complete age-assurance removal** to produce a **genuine Apple Distribution signed no-age iOS 0.1.0 replacement (proposed build 36.1), upload it, confirm ASC VALID / APP_STORE_ELIGIBLE, and associate with the EXISTING internal TestFlight group.** Do not stop at another unsigned build plan.
+**There is no current unfinished Codex engineering task.** S05-R5 signed no-age replacement **0.1.0 (36.1)** is genuinely Apple Distribution signed, uploaded, processed `VALID / APP_STORE_ELIGIBLE` and available to the existing internal TestFlight group `IN_BETA_TESTING`. Age Rating question **Parental Controls=No / Age Assurance=No** was **SAVED and independently read back as of 2026-11-09 13:44:41 UTC**, computed 4+. Original ZIP artifacts, decoded workflow logs and readback were independently inspected and [audited PASS_WITH_NOTES](audits/S05/age-removal-distribution-2026-11-09/round-01.md).
 
-Read [tasks/S05_R5_SIGNED_36_1_TESTFLIGHT_2026-11-09.md](tasks/S05_R5_SIGNED_36_1_TESTFLIGHT_2026-11-09.md), `handoff/CODEX_START.md`, `AGENTS.md`, `docs/WORKFLOW.md`.
+**One remaining submission-critical discrepancy:** Review-selected build is still **35.1**, not new **36.1**, as of that readback; version marked `REJECTED` and Review Notes absent. No reply or resubmission has been made.
 
-**Owner's current instruction:** ChatGPT should complete all accessible repo steps; delegate existing secure signing/Apple processing to Codex. **Scoped App Store Connect binary upload and existing internal TestFlight are authorized for R5; App Review resubmission, account questionnaire edits, legal attestation, public release and change of pricing/regions are NOT authorized.** Owner's chosen `AFTER_APPROVAL` must not be silently changed.
+### Actual SHA / provenance
 
-## Confirmed repository and source state
+- R4 code removal PR #23 merged at exact audited head `3536213364e10f1724451da6f2401d8ca4296a6e`, merge SHA `e43091fe210f1d93860056a78fa3a408cc5d518b`.
+- R5 Apple Distribution release/tested checkout SHA: `e74d7a154721748e84957d57257b8f9abcb39376`; intervening changes to main were documentation/dispatch only.
+- Real `0.1.0 (36.1)` IPA SHA256 `26a958a13dc3c13022a2c7464cd628fe2da7f8539236fa4eed5fa61c34973f17`.
+- [Signing/upload CI 42625370360](https://github.com/Zhangsfish/lecture-asset/actions/runs/42625370360): clean Release +9/9 XCTest+3/3 ArchiveCore, real `archive → Apple Distribution export → signed verifier → digest → altool validate → digest → upload`, actual VALID/APP_STORE_ELIGIBLE. Distinct final App age entitlement `missing` (REQUIRED); old profile age allowance `true` is unused and harmless if App does not claim it; signed get-task-allow=false, correct team/bundle, APP+ZIPFoundation privacy and EN Continue / ZH 继续 present.
+- [Internal/metadata CI 42628050599](https://github.com/Zhangsfish/lecture-asset/actions/runs/42628050599): existing group associated, IN_BETA_TESTING; verified saved No/No, 4+; auto-release AFTER_APPROVAL (owner choice), future-new-territory opt-in false, **exactly USA and CHN available=true** among 175 queried territories, free.
+- [Original R4 code audit](audits/S05/age-removal-2026-11-09/round-01.md) and [R5 distribution audit](audits/S05/age-removal-distribution-2026-11-09/round-01.md).
 
-| Gate | Actual outcome |
-|---|---|
-| PR #23 | **MERGED** after independent [S05-R4 audit](audits/S05/age-removal-2026-11-09/round-01.md), at exact audited head `3536213364e10f1724451da6f2401d8ca4296a6e`. Merge commit `e43091fe210f1d93860056a78fa3a408cc5d518b`. |
-| R4 tested implementation | `651600c1890158f661d8ea32b564e46866cd8690`; later changes were audit reports and handoff docs. Compare current main's App/project/CI/scripts against audited R4 before signing. |
-| R4 tests | [42576655515](https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655515): 9/9 focused XCTest + 3/3 ArchiveCore, clean unsigned device Release, age runtime and age entitlement absent from signed simulator; [42576655542](https://github.com/Zhangsfish/lecture-asset/actions/runs/42576655542): 37 actual bilingual simulator executions, iPhone/iPad photo prompts and native status, no fails/skips. |
-| New build uniqueness | At 2026-11-09T07:12Z `36.1` was unused; **NOT RESERVED**. Recheck immediately before genuine upload. |
-| Distribution | New no-age binary **NOT_YET_SIGNED/UPLOADED**, no new ASC VALID/APP_STORE_ELIGIBLE or internal TestFlight confirmation. **Do not claim old 35.1 age-bearing IPA is the new candidate.** |
-| Active previous review | Apple Nov8 reviewed `0.1.0 (35.1)` and requested an age-demo video under 2.1. A new no-age build must be truthfully explained; Apple has NOT withdrawn that request yet. |
-| App Store Age Rating | Last authenticated readback: Parental Controls No, Age Assurance Yes, 4+. Owner's intended **new-binary** answers: No / No, likely 4+; **NOT YET SAVED**. |
-| Release choices | `releaseType=AFTER_APPROVAL` owner chose auto-release, free, existing USA+China mainland only; future new territories off in recent readback. This means approval can cause **immediate public availability**. |
-| Legal/regional | Texas developer duty under SB2420/§121.054 remains unresolved after owner-directed removal. Neither a 4+ rating nor Everwhile approval proves exception. Document and escalate specific risk before ANY resubmission. |
-| China mainland | Lecture Asset ICP exception case `102984758084` approved per owner-provided Apple message. Do not confuse with filing-number field or Everwhile's own case. |
+### Required next action (owner App Store Connect / physical iPhone)
 
-**Implementation gate closed:** Full `DeclaredAgeRange` source/entitlement/string/test removal; direct `ContentView`; continued neutral EN **Continue** / zh-Hans **继续** and native PhotoKit. `scripts/s05_rc_verify.py` requires age entitlement **ABSENT from signed App** while preserving Apple Distribution, App Store profile, get-task-allow=false, privacy manifests and exact IPA digest. Unused older provisioning allowance is not an App claim. Full signed no-age IPA export still needs genuine execution.
+1. **Physical iPhone TestFlight**: install/update to `0.1.0 (36.1)`, open normal photo workflow. No age Sandbox and no private/destructive tests needed. Real device smoke **NOT_RUN** until owner reports it.
+2. **ASC current rejected 0.1.0 item:** `Edit → Build`, replace `35.1` with processed `36.1` and save. Recheck selected build, not only the list of uploaded builds. **Do NOT edit Age Assurance again**: currently No/No is already saved. Keep US+China free, automatic approval release, future territories off.
+3. Add factual Review Notes. Apple Nov8 requested a physical age-assurance demonstration for `35.1`; the actual `36.1` binary no longer provides age assurance, so state that truthfully and ask for review of the replacement. A current 36.1 real-device ordinary-function demonstration may still be required; do not fabricate or promise a non-existent age video.
+4. After confirming 36.1 is selected and Notes are ready, use the [fact-checked unsent Apple reply](reports/S05/age-removal-distribution-2026-11-09/round-01/APP_REVIEW_REPLY_DRAFT.md); owner confirms sending/review resubmission. [Step-by-step owner actions](reports/S05/age-removal-distribution-2026-11-09/round-01/ASC_OWNER_STEPS.md).
+5. **Before auto-release-triggering App Review resubmission**, owner understands and must explicitly disposition separate **USA/Texas age developer duty risk**. No ordinary 4+ rating or Everwhile approval establishes exemption; keep applicable regional obligations distinct from App Store feature classification. Do not silently change owner chosen AUTO release or current regions.
 
-## R5 execution/control boundaries
+**Do not run Codex R5 again, reupload 36.1, sign more IPA, or delete historical artifacts solely for this closeout.** If an actual App Review/physical test/ASC defect appears, create one new narrow task then. No Apple reply, review resubmission or publication has been performed by ChatGPT.
 
-- Work from **latest main** with signed/upload workflow already present; no need to restart old `codex/s05-r2-submission-closeout` branch or reimplement R4.
-- Normal push/test run is secret-free; deliberate GitHub Actions workflow_dispatch `operation=upload`, exact current main SHA and `owner_authorized_after_audit=true` is authorized in this task for **IPA upload only**. Existing credentials stay in protected GitHub Actions secrets; no new keys/certs/UDIDs paid resources. No unaudited changes to entitlement/signature validator.
-- **Real Apple distribution signature verification + ASC VALID / APP_STORE_ELIGIBLE + existing internal IN_BETA_TESTING** required. If direct archive export drops required identifiers or fails, stop and propose narrow fix/new audit instead of weakening checks.
-- No App Review submission, reply, questionnaire saves, changed region or release mode, public publication, new external testers, owner iCloud changes, photo destructive tests or age Sandbox. Owner does one short TestFlight launch only after new build is actually available.
-- Create new independent run report under `reports/S05/age-removal-distribution-2026-11-09/round-01/`. Hand back source SHA, workflow runs/jobs, actual test and signature/IPA digest evidence, ASC state and outstanding owner-only steps. ChatGPT independently audits results before next stage.
+## History (not current dispatch)
 
-## History
-
-- [S05-R4 code-removal task](tasks/S05_R4_REMOVE_AGE_ASSURANCE_2026-11-09.md) **COMPLETE_CODE_AUDIT/MERGED**.
-- [R4 independent audit](audits/S05/age-removal-2026-11-09/round-01.md).
-- [S05-R3 age Sandbox video plan](tasks/S05_R3_PHYSICAL_AGE_DEMO_2026-11-08.md) superseded by owner-directed removal; the original Apple Nov8 message remains real history.
-- [Earlier full STATUS snapshot](https://github.com/Zhangsfish/lecture-asset/blob/e43091fe210f1d93860056a78fa3a408cc5d518b/STATUS.md), [historic 35.1 report](https://github.com/Zhangsfish/lecture-asset/blob/4d7be3703176535c88c696b53611dbc86ef932fb/reports/S05/submission-closeout-2026-10-31/round-01/DELIVERY.md).
+- [R5 delegated signed distribution task — complete](tasks/S05_R5_SIGNED_36_1_TESTFLIGHT_2026-11-09.md)
+- [R4 full age module removal](tasks/S05_R4_REMOVE_AGE_ASSURANCE_2026-11-09.md)
+- [Pre-closeout STATUS](https://github.com/Zhangsfish/lecture-asset/blob/e74d7a154721748e84957d57257b8f9abcb39376/STATUS.md)
+- [Old 35.1 source and signed submission evidence](https://github.com/Zhangsfish/lecture-asset/blob/4d7be3703176535c88c696b53611dbc86ef932fb/reports/S05/submission-closeout-2026-10-31/round-01/DELIVERY.md)
