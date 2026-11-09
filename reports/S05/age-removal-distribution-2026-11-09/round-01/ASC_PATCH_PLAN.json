@@ -32,9 +32,7 @@
     "ageRatingOverride": "NONE"
   },
   "ownerReconciliationBeforeReview": [
-    "Confirm origin/intention of concurrent ageAssurance Yes to No change",
-    "Confirm zh-Hans app/version localization absence is intended; no restoration/deletion authorized",
-    "Confirm old review submission COMPLETE state; version is still REJECTED with selected 35.1"
+    "Confirm zh-Hans app/version localization absence is intended; no restoration/deletion authorized"
   ],
   "rating": "Current FOUR_PLUS; no arbitrary increase",
   "submissionGate": [
@@ -43,5 +41,9 @@
     "Resolve or explicitly escalate Texas developer-duty risk before resubmission; 4+ and Everwhile are not verified exceptions",
     "Apple Nov8 old-build age-demo request has not been waived"
   ],
-  "noASCMetadataMutationByR5": true
+  "noASCMetadataMutationByR5": true,
+  "ownerConfirmedCompletedActions": [
+    "Age Assurance changed Yes to No",
+    "Old review submission stopped; owner intends a later resubmission, not authorized for Codex now"
+  ]
 }

@@ -23,7 +23,7 @@ Please let us know if you need an ordinary-function demo of this replacement on 
 ## Required pre-send checks (not executed)
 
 - Owner selects the genuinely processed **36.1** in the review version. The task deliberately leaves **35.1** selected.
-- Latest readback reports Age Assurance **No**, compared with Yes before the run; this was not changed by R5. Confirm the owner's intended questionnaire state with the replacement, retaining Parental Controls No and the correctly recalculated rating. Also reconcile why zh-Hans is absent and the old submission became COMPLETE; do not silently restore metadata.
+- Latest readback reports Age Assurance **No**, compared with Yes before the run; this was not changed by R5. Owner confirmed the Yes → No change and stopping the old review submission. Retain Parental Controls No and the correctly recalculated rating; reconcile why zh-Hans is absent before review. Do not silently restore metadata or treat intent to resubmit later as authorization to submit now.
 - Resolve/escalate the outstanding US/Texas release risk before resubmitting; do not claim Apple approval, 4+ or another utility's release proves a legal exception.
 - Physical-device observation is recorded separately. This draft does not claim a new 36.1 physical video or a waived Apple request.
 - Preserve AFTER_APPROVAL intentionally: approval can cause immediate publication. No resubmission or public release is authorized by R5.

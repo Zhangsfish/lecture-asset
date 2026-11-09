@@ -1,0 +1,13 @@
+{
+  "evidence_kind": "OWNER_REPORTED",
+  "date": "2026-11-09",
+  "owner_reply": "我改了那个年龄从yes变成了no，然后停止了提交，准备下一轮重新提交",
+  "confirmed_owner_actions": [
+    "Age Assurance Yes to No",
+    "Stopped previous review submission"
+  ],
+  "not_confirmed": [
+    "Reason zh-Hans app/version localization is not returned"
+  ],
+  "resubmission_authorized_by_this_reply": false
+}

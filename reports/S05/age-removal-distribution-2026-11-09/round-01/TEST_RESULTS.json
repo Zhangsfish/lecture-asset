@@ -144,11 +144,24 @@
   },
   "remaining_gates": [
     "Independent distribution audit",
-    "Confirm concurrent age-questionnaire/localization/review-submission changes with owner",
+    "Resolve unexplained zh-Hans app/version localization absence before review",
     "Separately authorized owner review-stage actions",
     "US/Texas regional legal/release decision unresolved",
     "Apple may still request actual current-build physical demo"
   ],
   "no_runtime_workflow_changes": true,
-  "no_secret_values_published": true
+  "no_secret_values_published": true,
+  "owner_asc_confirmation": {
+    "evidence_kind": "OWNER_REPORTED",
+    "date": "2026-11-09",
+    "owner_reply": "我改了那个年龄从yes变成了no，然后停止了提交，准备下一轮重新提交",
+    "confirmed_owner_actions": [
+      "Age Assurance Yes to No",
+      "Stopped previous review submission"
+    ],
+    "not_confirmed": [
+      "Reason zh-Hans app/version localization is not returned"
+    ],
+    "resubmission_authorized_by_this_reply": false
+  }
 }

@@ -32,7 +32,7 @@ The audited release tool omits `testFlightInternalTestingOnly` to prepare an App
 - Release simulator: **9 passed, 0 failed, 0 skipped** (recovery, cleanup safety, localization).
 - ArchiveCore focused synthetic archive/integrity/AI contract: **3 passed, 0 failed**.
 - Signed IPA and exact upload chain: PASS, backed by genuine Apple export, not synthetic signer tests.
-- Live ASC before/after comparison: review version attributes/selected build, en-US listing, availability, pricing and existing group count **unchanged**. Concurrent changes outside R5 were detected: Age Assurance true → false, zh-Hans no longer returned in app/version localizations, and the 2026-10-31 review submission UNRESOLVED_ISSUES → COMPLETE. Source of those changes is awaiting owner confirmation; no metadata mutation exists in the R5 API allowlist. Both original snapshots are retained. See ASC_RECONCILIATION.json.
+- Live ASC before/after comparison: review version attributes/selected build, en-US listing, availability, pricing and existing group count **unchanged**. Concurrent changes outside R5 were detected: Age Assurance true → false, zh-Hans no longer returned in app/version localizations, and the 2026-10-31 review submission UNRESOLVED_ISSUES → COMPLETE. Owner subsequently confirmed changing Age Assurance Yes → No and stopping the old submission. The reason zh-Hans is absent remains unconfirmed; no metadata mutation exists in the R5 API allowlist. Both original snapshots are retained. See ASC_RECONCILIATION.json.
 - Safe artifact ZIP downloads independently matched GitHub SHA256; originals and per-file hashes are indexed.
 - Physical startup: **PASS / OWNER_REPORTED**. Owner: “首页是选照片，我更新了，然后当前36.1”. No independent Codex hardware observation or new physical video is claimed.
 
@@ -40,7 +40,7 @@ The original machine RELEASE_MANIFEST.json is copied unchanged from the upload r
 
 ## Remaining gates / NOT_RUN
 
-Independent distribution audit is pending. Latest readback still selects **35.1**, now reports Age Assurance **No**, Parental Controls No, calculated rating FOUR_PLUS and review notes absent. Age Assurance was Yes before this run; do not claim R5 changed it or toggle it again. The zh-Hans localization disappearance and old submission's COMPLETE status also require owner reconciliation before review. The owner-only proposed delta is UNSAVED in ASC_PATCH_PLAN.json; APP_REVIEW_REPLY_DRAFT.md is UNSENT.
+Independent distribution audit is pending. Latest readback still selects **35.1**, now reports Age Assurance **No**, Parental Controls No, calculated rating FOUR_PLUS and review notes absent. Age Assurance was Yes before this run; do not claim R5 changed it or toggle it again. The owner confirmed stopping the old submission; the zh-Hans localization absence still requires reconciliation before review. Their intent to resubmit later is not authorization for Codex to resubmit. The owner-only proposed delta is UNSAVED in ASC_PATCH_PLAN.json; APP_REVIEW_REPLY_DRAFT.md is UNSENT.
 
 Free pricing, USA+CHN, future new territories=false and AFTER_APPROVAL remain unchanged. The unresolved US/Texas developer-duty issue remains a gate before any resubmission; no exception is claimed from 4+, accountless/local processing or Everwhile. AFTER_APPROVAL can publish immediately after approval, so R5 does not authorize review submission.
 
