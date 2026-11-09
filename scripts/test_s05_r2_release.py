@@ -65,10 +65,10 @@ class ReleaseGuards(unittest.TestCase):
             (dep / "PrivacyInfo.xcprivacy").write_bytes(plistlib.dumps({"NSPrivacyAccessedAPITypes":[
                 {"NSPrivacyAccessedAPITypeReasons":["0A2A.1"]}]}))
             rc.privacy(app)
-            for locale, label in [("en","Continue"),("zh-Hans","缁х画")]:
+            for locale, label in [("en","Continue"),("zh-Hans","继续")]:
                 loc = app / (locale + ".lproj"); loc.mkdir()
                 (loc / "Localizable.strings").write_bytes(plistlib.dumps({"permission.allow":label}))
-            self.assertEqual(rc.labels(app), {"en":"Continue","zh-Hans":"缁х画"})
+            self.assertEqual(rc.labels(app), {"en":"Continue","zh-Hans":"继续"})
             (app / "en.lproj/Localizable.strings").write_bytes(plistlib.dumps({"permission.allow":"Allow full access"}))
             with self.assertRaisesRegex(rc.RCError, "LOCALIZED_PERMISSION_LABEL_MISMATCH"):
                 rc.labels(app)
@@ -135,6 +135,9 @@ class ReleaseGuards(unittest.TestCase):
                 with self.assertRaisesRegex(rc.RCError,code): rc.provenance()
 
     def test_no_age_source_bundle_contract_and_entitlement_matrix(self):
+        actual=json.loads(Path("App/Localizable.xcstrings").read_text(encoding="utf8"))["strings"]["permission.allow"]["localizations"]
+        self.assertEqual(actual["en"]["stringUnit"]["value"], "Continue")
+        self.assertEqual(actual["zh-Hans"]["stringUnit"]["value"], "\u7ee7\u7eed")
         from check_app_entry_release import source_proof, require_absent, FORBIDDEN
         source_proof()
         require_absent(b"ordinary utility executable fixture")

@@ -47,22 +47,7 @@ jobs:
           set -euo pipefail
           xcodegen generate --spec project.yml
           xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset -configuration Release -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/ReviewDevice" CODE_SIGNING_ALLOWED=NO CURRENT_PROJECT_VERSION="$RC_BUILD" MARKETING_VERSION=0.1.0 clean build > "$RUNNER_TEMP/review-release-build.log" 2>&1 || { tail -n 90 "$RUNNER_TEMP/review-release-build.log"; exit 1; }
-          python3 - <<'PY'
-          import json,os,pathlib,plistlib,subprocess
-          app=pathlib.Path(os.environ['RUNNER_TEMP'])/'ReviewDevice/Build/Products/Release-iphoneos/Lecture Asset.app'
-          info=plistlib.loads((app/'Info.plist').read_bytes())
-          assert info['CFBundleIdentifier']=='com.zhangsfish.lectureasset'
-          assert info['MinimumOSVersion']=='18.0'
-          assert info['CFBundleShortVersionString']=='0.1.0'
-          assert info['UIDeviceFamily']==[1], 'Keep iPhone family, test real iPad compatibility mode'
-          assert (app/'PrivacyInfo.xcprivacy').is_file()
-          assert list(app.glob('ZIPFoundation*/PrivacyInfo.xcprivacy'))
-          for locale,action in [('en','Continue'),('zh-Hans','缂佈呯敾')]:
-            strings=plistlib.loads(subprocess.check_output(['plutil','-convert','xml1','-o','-',str(app/(locale+'.lproj')/'Localizable.strings')]))
-            assert strings['permission.allow']==action
-          result={'clean_release_build':'PASS','bundle_id':info['CFBundleIdentifier'],'minimum_os':info['MinimumOSVersion'],'targeted_device_family':info['UIDeviceFamily'],'both_bundled_permission_labels':'PASS','both_privacy_manifests':'PASS','distribution_signing':'NOT_RUN','upload':'NOT_RUN'}
-          (pathlib.Path(os.environ['RUNNER_TEMP'])/'review-evidence/release-build.json').write_text(json.dumps(result,indent=2)+'\n')
-          PY
+          python3 scripts/s05_rc_verify.py --metadata "$RUNNER_TEMP/ReviewDevice/Build/Products/Release-iphoneos/Lecture Asset.app" "$RUNNER_TEMP/review-evidence/release-build.json"
           python3 scripts/check_app_entry_release.py --unsigned "$RUNNER_TEMP/ReviewDevice/Build/Products/Release-iphoneos/Lecture Asset.app" "$RUNNER_TEMP/review-evidence/device-binary-absence.json"
       - name: Real bilingual system Photos UI and native authorization on ${{ matrix.device }}
         run: bash scripts/s05_review_focused.sh '${{ matrix.device }}'

@@ -163,7 +163,7 @@ def signed(app, ipa, output):
 
 def labels(app):
     result = {}
-    for locale, expected in [("en", "Continue"), ("zh-Hans", "缁х画")]:
+    for locale, expected in [("en", "Continue"), ("zh-Hans", "继续")]:
         path = app / (locale + ".lproj") / "Localizable.strings"
         require(path.is_file(), "LOCALIZED_STRINGS_MISSING")
         # Compiled .strings are binary plists in the real Release product.
