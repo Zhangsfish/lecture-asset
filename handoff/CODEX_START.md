@@ -1,29 +1,21 @@
-# Codex start — CURRENT S05-R5 signed replacement upload
+# Codex start — NO CURRENT ENGINEERING DISPATCH (as of 2026-11-09)
 
-Updated 2026-11-09. Repo `Zhangsfish/lecture-asset`.
+Always fetch latest `main` and read `AGENTS.md` → `STATUS.md` first. **Only `STATUS.md` defines the next READY task; historical R4/R5 instructions are completed, not ongoing.**
 
-## Read and execute
+## Completed and independently audited
 
-1. Fetch latest `main` and PR #23 status. PR #23 was **independently audited and merged** at exact head `3536213364e10f1724451da6f2401d8ca4296a6e`, merge SHA `e43091fe210f1d93860056a78fa3a408cc5d518b`.
-2. Read `AGENTS.md` → `STATUS.md` → **`tasks/S05_R5_SIGNED_36_1_TESTFLIGHT_2026-11-09.md`** → `docs/WORKFLOW.md` → prior [R4 audit](audits/S05/age-removal-2026-11-09/round-01.md) and actual release source/scripts.
-3. Execute the whole R5 engineering lane **now**, not another prep-only plan.
+- PR #23 merged; full `DeclaredAgeRange` in-app age module removed, direct `ContentView` entry and full Photos/ZIP/PDF safety retained.
+- New no-age app `Lecture Asset 0.1.0 (36.1)` genuinely Apple Distribution signed, uploaded, `VALID / APP_STORE_ELIGIBLE`, existing internal TestFlight `IN_BETA_TESTING`.
+- Exact IPA SHA256 `26a958a13dc3c13022a2c7464cd628fe2da7f8539236fa4eed5fa61c34973f17`, release checkout `e74d7a154721748e84957d57257b8f9abcb39376`.
+- Saved ASC Age Rating `Parental Controls=No`, `Age Assurance=No`, calculated 4+ independently read back November9 13:44 UTC.
+- [R5 independent distribution audit](audits/S05/age-removal-distribution-2026-11-09/round-01.md), [R4 code audit](audits/S05/age-removal-2026-11-09/round-01.md).
 
-## Exact objective
+## Currently awaiting owner / App Review
 
-The owner removed the optional in-app age feature. Deliver a **genuinely Apple Distribution signed replacement IPA** from the **audited no-age source** for Lecture Asset version `0.1.0`; build candidate **36.1**, only after live ASC uniqueness check. Reuse existing secure GitHub Actions `s05-final-rc.yml` (`workflow_dispatch` operation `upload`, exact expected source SHA, `owner_authorized_after_audit=true`). Owner's instruction now authorizes signed binary upload and existing internal TestFlight placement, not public submission or release. Do not request existing Apple secrets again.
+- Owner physical iPhone TestFlight launch of 36.1 (NOT_RUN in CI).
+- App Review currently still selected old 35.1; owner has to select 36.1 and update Review Notes (not yet done). Current 36.1 is AVAILABLE internally, but no resubmission or Apple reply has been sent.
+- Owner chose `AFTER_APPROVAL` auto release, free, USA+China mainland only and future-new-territory auto opt-in off. Do not change.
+- Factual unsent Apple reply: `reports/S05/age-removal-distribution-2026-11-09/round-01/APP_REVIEW_REPLY_DRAFT.md`. Owner steps: `ASC_OWNER_STEPS.md` in the same folder.
+- US/Texas developer age duties may still apply notwithstanding ordinary 4+ / no age API; this is not legally cleared by App Review precedent. Explicit owner decision/clarification before resubmission due auto-public release.
 
-Run clean Release/focused regressions; signed App must have **NO** `com.apple.developer.declared-age-range` key and no age API in executable; preserve strict Apple Distribution/app-store profile/get-task-allow=false/team/bundle/version/localized Continue/继续/privacy/full IPA digest checks. Existing old profile may allow age without the App claiming it. Poll actual `VALID/APP_STORE_ELIGIBLE` then existing internal TestFlight `IN_BETA_TESTING`. Request a one-step physical TestFlight launch only once the real build is available.
-
-No silent bypass if export fails. New code or verifier fix requires tiny PR and independent ChatGPT audit. Stay on no-age functionality, **not** the superseded R3 age Sandbox recording.
-
-## Do NOT do
-
-Do not mutate the Age Assurance questionnaire or select build in ongoing App Review, reply to Apple, resubmit, publish, change `AFTER_APPROVAL`/USA+China/free/future territory settings, accept legal attestations, recruit new testers, add payments or remove Photos safety. The existing 35.1 still contains age and remains separate historical evidence.
-
-The Texas age information / parental-consent developer-duty question remains **NOT_CLEARED**. Owner knows and chose product removal; because approval could auto-publish, ChatGPT/owner must resolve or consciously evaluate the remaining risk **before** any App Review resubmission. Do not silently equate Everwhile's review approval with legal exemption.
-
-## Evidence and handoff
-
-Use new `reports/S05/age-removal-distribution-2026-11-09/round-01/` with exact source SHA, original GitHub Actions run+artifact IDs, actual signer contract and IPA hash, uploaded ASC build ID/status, existing internal TestFlight state, current ASC readback and proposed No/No update plus unsent Apple 2.1 response.
-
-Hand back `READY_FOR_DISTRIBUTION_AUDIT` only when signed/processed/internal state **actually** observed. On a genuine dispatch blocker, give only one minimal owner GitHub Actions UI action with exact inputs; no generic guide or credential requests. ChatGPT will independently audit the real signed evidence, then supply remaining owner-only ASC instructions and truthful Apple reply.
+**No further code, signing or upload task is presently authorized or required.** Do not rerun R5, create duplicate builds, reintroduce age UI or alter review metadata. If owner later reports a reproducible defect or Apple-specific requirement, read current `STATUS.md` and wait for a new scoped READY task and exact-SHA audit.
