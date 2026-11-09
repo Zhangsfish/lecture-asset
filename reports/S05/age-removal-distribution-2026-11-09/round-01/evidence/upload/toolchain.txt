@@ -1,0 +1,7 @@
+e74d7a154721748e84957d57257b8f9abcb39376
+ProductName:		macOS
+ProductVersion:		26.7.2
+BuildVersion:		25G332
+Xcode 26.6
+Build version 17F113
+26.5

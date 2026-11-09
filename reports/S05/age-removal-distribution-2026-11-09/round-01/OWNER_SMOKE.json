@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "evidence_kind": "OWNER_REPORTED",
+  "date": "2026-11-09",
+  "version": "0.1.0",
+  "build": "36.1",
+  "operation": "Update existing TestFlight install without uninstall, launch and confirm current build",
+  "reported_first_screen": "Photo selection home",
+  "owner_reply": "首页是选照片，我更新了，然后当前36.1",
+  "independently_observed_hardware": false,
+  "photo_processing_or_deletion_requested": false,
+  "age_sandbox_requested": false
+}

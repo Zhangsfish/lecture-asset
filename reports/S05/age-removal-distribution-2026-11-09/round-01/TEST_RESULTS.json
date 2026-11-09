@@ -1,0 +1,154 @@
+{
+  "status": "READY_FOR_DISTRIBUTION_AUDIT",
+  "base_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+  "tested_source_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+  "release_source_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+  "report_head_sha": "See PR current head; evidence-only revision, not binary source",
+  "version": "0.1.0",
+  "build": "36.1",
+  "ipa_sha256": "26a958a13dc3c13022a2c7464cd628fe2da7f8539236fa4eed5fa61c34973f17",
+  "workflow_runs": [
+    {
+      "operation": "preflight",
+      "run_id": 42625085907,
+      "job_ids": [
+        129186675486
+      ],
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42625085907",
+      "source_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+      "conclusion": "success",
+      "artifact_id": 13678057446,
+      "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42625085907/artifacts/13678057446",
+      "downloaded_zip_sha256": "b7f2237b0067f1cf5d36e22a9a4890e18b2f5be97a63916ff6058b26206924e0",
+      "github_digest_matched": true,
+      "original_safe_files_directory": "evidence/preflight"
+    },
+    {
+      "operation": "upload",
+      "run_id": 42625370360,
+      "job_ids": [
+        129187632773
+      ],
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42625370360",
+      "source_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+      "conclusion": "success",
+      "artifact_id": 13679053031,
+      "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42625370360/artifacts/13679053031",
+      "downloaded_zip_sha256": "d563b042553024d80f6b66da3bfa47954e5157dd6685d5330f546f3d018d8deb",
+      "github_digest_matched": true,
+      "original_safe_files_directory": "evidence/upload"
+    },
+    {
+      "operation": "internal",
+      "run_id": 42628050599,
+      "job_ids": [
+        129196855474
+      ],
+      "url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42628050599",
+      "source_sha": "e74d7a154721748e84957d57257b8f9abcb39376",
+      "conclusion": "success",
+      "artifact_id": 13679366588,
+      "artifact_url": "https://github.com/Zhangsfish/lecture-asset/actions/runs/42628050599/artifacts/13679366588",
+      "downloaded_zip_sha256": "f702cf14d7e9b52b167768bdef174ccca06054cac7c9114397b0590c375367da",
+      "github_digest_matched": true,
+      "original_safe_files_directory": "evidence/internal"
+    }
+  ],
+  "results": {
+    "audited_product_equivalence": "PASS",
+    "clean_generic_device_release": "PASS",
+    "archive_core_focused": {
+      "passed": 3,
+      "failed": 0,
+      "safe_log_extract": [
+        "Test Case '-[ArchiveCoreTests.ArchiveCoreTests testAIUsageContractRequiresVisualVerification]' passed (0.002 seconds).",
+        "Test Case '-[ArchiveCoreTests.ArchiveCoreTests testMissingOrChangedCanonicalJPEGIsRejected]' passed (0.016 seconds).",
+        "Test Case '-[ArchiveCoreTests.ArchiveCoreTests testOneAndTwentyPageArchivesWithEmptyAndFailedOCR]' passed (0.210 seconds).",
+        "\t Executed 3 tests, with 0 failures (0 unexpected) in 0.228 (0.229) seconds",
+        "\t Executed 3 tests, with 0 failures (0 unexpected) in 0.228 (0.229) seconds",
+        "\t Executed 3 tests, with 0 failures (0 unexpected) in 0.228 (0.231) seconds"
+      ]
+    },
+    "release_simulator_focused": {
+      "result": "Passed",
+      "totalTestCount": 9,
+      "passedTests": 9,
+      "failedTests": 0,
+      "skippedTests": 0
+    },
+    "compiled_continue_and_zh": "PASS",
+    "root_and_zipfoundation_privacy_packaged": "PASS",
+    "signed_distribution": {
+      "codesign_verification": "PASS",
+      "distribution_profile_declared_age_range": "true",
+      "signed_app_declared_age_range": "missing",
+      "signed_application_identifier_correct": true,
+      "application_identifier_correct": true,
+      "signed_team_identifier_correct": true,
+      "team_identifier_correct": true,
+      "signed_get_task_allow": false,
+      "get_task_allow": false,
+      "profile_type": "app-store",
+      "apple_distribution_certificate": true,
+      "raw_profile_retained_or_published": false,
+      "contract_result": "PASS",
+      "ipa_sha256": "26a958a13dc3c13022a2c7464cd628fe2da7f8539236fa4eed5fa61c34973f17",
+      "signed_entitlements": {
+        "age_key_absent_from_signed_app": true,
+        "application_identifier_correct": true,
+        "team_identifier_correct": true,
+        "get_task_allow_false": true,
+        "unused_profile_age_allowance": "true",
+        "app_store_distribution_profile": true,
+        "profile_not_expired": true
+      },
+      "compiled_age_runtime_absent": true,
+      "metadata": {
+        "CFBundleIdentifier": "com.zhangsfish.lectureasset",
+        "CFBundleShortVersionString": "0.1.0",
+        "CFBundleVersion": "36.1",
+        "MinimumOSVersion": "18.0",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "privacy": {
+        "app_manifest": true,
+        "zipfoundation_manifest": true,
+        "bundled_manifest_paths": [
+          "PrivacyInfo.xcprivacy",
+          "ZIPFoundation_ZIPFoundation.bundle/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "localized_permission_labels": {
+        "en": "Continue",
+        "zh-Hans": "继续"
+      }
+    },
+    "exact_ipa_hash_chain": "PASS",
+    "upload": "ACCEPTED",
+    "asc_processing": "VALID",
+    "asc_audience": "APP_STORE_ELIGIBLE",
+    "internal_group_association": "PASS_EXISTING_GROUP",
+    "internal_build_state": "IN_BETA_TESTING",
+    "owner_physical_launch": "PASS_OWNER_REPORTED",
+    "metadata_live_comparison": "CONCURRENT_EXTERNAL_CHANGES_RECORDED_NOT_PASS_UNCHANGED",
+    "safe_artifact_download_sha256_vs_github": "PASS",
+    "artifact_chain_consistency_assertions": "PASS"
+  },
+  "not_run": {
+    "codex_independent_physical_observation": "NOT_RUN; owner reported successful launch of 36.1",
+    "new_36_1_physical_video": "NOT_RUN; not required for R5 distribution, no Apple waiver claimed",
+    "live_portal_privacy_label": "NOT_READ_BACK by existing API; not invented from older owner report",
+    "broad_100_200_page_wechat_destructive_QA": "NOT_RUN; explicitly out of scope",
+    "age_sandbox": "NOT_APPLICABLE_REMOVED_MODULE",
+    "app_review_build_selection_questionnaire_reply_resubmission_release": "NOT_RUN_NOT_AUTHORIZED_BY_R5"
+  },
+  "remaining_gates": [
+    "Independent distribution audit",
+    "Confirm concurrent age-questionnaire/localization/review-submission changes with owner",
+    "Separately authorized owner review-stage actions",
+    "US/Texas regional legal/release decision unresolved",
+    "Apple may still request actual current-build physical demo"
+  ],
+  "no_runtime_workflow_changes": true,
+  "no_secret_values_published": true
+}

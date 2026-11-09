@@ -1,0 +1,59 @@
+{
+  "result": "READBACK_COMPLETE_WITH_CONCURRENT_EXTERNAL_CHANGES",
+  "before_query_date": "2026-11-09T13:24:31Z",
+  "after_query_date": "2026-11-09T13:44:41Z",
+  "unchanged_sections": [
+    "availability",
+    "pricing",
+    "existingInternalGroupCount"
+  ],
+  "unchanged_fields": [
+    "review version attributes",
+    "selected review build",
+    "en-US listing"
+  ],
+  "review_selected_build": "35.1",
+  "ageAssurance": false,
+  "parentalControls": false,
+  "rating": "FOUR_PLUS",
+  "releaseType": "AFTER_APPROVAL",
+  "available_territories": [
+    "USA",
+    "CHN"
+  ],
+  "availableInNewTerritories": false,
+  "free": true,
+  "review_notes_present": false,
+  "existing_internal_groups": 1,
+  "candidate_build": "36.1",
+  "candidate_processing": "VALID",
+  "candidate_audience": "APP_STORE_ELIGIBLE",
+  "internal_state": "IN_BETA_TESTING",
+  "group_already_associated": true,
+  "new_groups_or_testers": false,
+  "metadata_mutations_by_r5_workflow": [],
+  "observed_concurrent_changes": [
+    {
+      "field": "ageAssurance",
+      "before": true,
+      "after": false
+    },
+    {
+      "field": "version and appInfo locales",
+      "before": [
+        "en-US",
+        "zh-Hans"
+      ],
+      "after": [
+        "en-US"
+      ]
+    },
+    {
+      "field": "2026-10-31 review submission state",
+      "before": "UNRESOLVED_ISSUES",
+      "after": "COMPLETE"
+    }
+  ],
+  "change_origin": "Not performed by R5 allowlisted scripts; owner confirmation pending",
+  "appPrivacyLabel": "NOT_READ_BACK_BY_ALLOWLISTED_API"
+}
