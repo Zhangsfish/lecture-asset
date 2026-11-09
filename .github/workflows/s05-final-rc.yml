@@ -83,7 +83,7 @@ jobs:
         if: inputs.operation == 'upload' || inputs.operation == 'prepare-only' || github.event_name == 'push'
         run: |
           set -euo pipefail
-          curl --fail --location --silent --show-error https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip --output "$RUNNER_TEMP/xcodegen.zip"
+          curl --retry 3 --retry-delay 2 --fail --location --silent --show-error https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip --output "$RUNNER_TEMP/xcodegen.zip"
           echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
           unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
           tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)

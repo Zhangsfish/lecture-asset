@@ -134,7 +134,14 @@ class AppReviewPermissionUIBase: XCTestCase {
         let done = app.buttons.matching(NSPredicate(format:
             "identifier == %@ OR label == %@ OR label == %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@",
             "Update", "Done", "完成", "Allow Access", "允许访问")).firstMatch
-        XCTAssertTrue(done.waitForExistence(timeout: 10))
+        // A cold native Photos picker can still show PUPickerUnavailableView /
+        // Loading after ten seconds on hosted iPhone simulators. Wait for the
+        // actual system completion control; never inject permission or skip it.
+        guard done.waitForExistence(timeout: 60) else {
+            keep("limited-picker-completion-timeout")
+            XCTFail("Native limited picker did not become ready")
+            return
+        }
         keep("limited-picker-zero-items")
         done.tap()
         blockedSettings(app, chinese)
