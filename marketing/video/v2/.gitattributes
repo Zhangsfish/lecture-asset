@@ -1,2 +1,4 @@
 # Official downloaded SVG bytes are provenance evidence; do not normalize line endings.
 assets/brands/*.svg -text
+# Preserve Apple's exact public API response bytes, including its whitespace.
+review/post-launch-2026-11-23/evidence/apple-lookup-*.json -text -whitespace

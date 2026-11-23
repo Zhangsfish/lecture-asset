@@ -1,0 +1,52 @@
+{
+  "checked_utc": "2026-11-23T11:53:56.715973+00:00",
+  "method": "Read-only Apple public lookup plus HTTPS product pages via existing local network proxy; no ASC access",
+  "checks": [
+    {
+      "locale": "en",
+      "region": "us",
+      "lookup_url": "https://itunes.apple.com/lookup?id=6816814541&country=us",
+      "product_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "lookup_result_count": 1,
+      "trackId": 6816814541,
+      "trackName": "Lecture Asset",
+      "bundleId": "com.zhangsfish.lectureasset",
+      "version": "0.1.0",
+      "price": 0.0,
+      "currency": "USD",
+      "releaseDate": "2026-11-16T08:00:00Z",
+      "currentVersionReleaseDate": "2026-11-16T16:46:26Z",
+      "minimumOsVersion": "18.0",
+      "product_http_status": 200,
+      "resolved_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "product_page_title": "‎Lecture Asset App - App Store",
+      "product_html_sha256": "9b7fc9855b8189a599986aec2e7b138cddc154aa71a0dea932deca2701e71e4d",
+      "raw_lookup_sha256": "570045067f039f217c36b4ffa8418511d103907f9eff349576ad896d6c3d7060",
+      "qr_asset_sha256": "298f0c872e3340b1b89b519c139e64dad8b7505b0eddc8441490648c6b7c66c5"
+    },
+    {
+      "locale": "zh-Hans",
+      "region": "cn",
+      "lookup_url": "https://itunes.apple.com/lookup?id=6816814541&country=cn",
+      "product_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "lookup_result_count": 1,
+      "trackId": 6816814541,
+      "trackName": "Lecture Asset",
+      "bundleId": "com.zhangsfish.lectureasset",
+      "version": "0.1.0",
+      "price": 0.0,
+      "currency": "CNY",
+      "releaseDate": "2026-11-16T08:00:00Z",
+      "currentVersionReleaseDate": "2026-11-16T16:46:26Z",
+      "minimumOsVersion": "18.0",
+      "product_http_status": 200,
+      "resolved_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "product_page_title": "‎Lecture Asset App - App Store",
+      "product_html_sha256": "66203ac24bdbdb01b5c7bf0109659ef4e62e97f84cf1678f0db47e11f615b0cc",
+      "raw_lookup_sha256": "c3f98eff17e3258c10851b0d79a19d622fb59f5c4487b0839ce91be561120d02",
+      "qr_asset_sha256": "69dbe97884c0d8bbbc55799ee7851e88d012fceb40ca6661226d15fc76bf59b2"
+    }
+  ],
+  "public_download_status": "VERIFIED_US_AND_CN",
+  "posting_authorized": false
+}

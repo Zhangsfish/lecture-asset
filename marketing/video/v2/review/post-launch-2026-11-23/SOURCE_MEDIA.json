@@ -1,0 +1,15 @@
+{
+  "base_sha": "a0c925fc4120f39ef47df69b5874814189e13f94",
+  "accepted_directory": "review/director-r3-caption-male",
+  "sha256": {
+    "director-cut-en-chatgpt-720-muted.mp4": "4c402cad5e0f050cedd3ea42121bfe19ab4eda715858c4e8df8af3477e1893f1",
+    "director-cut-en-chatgpt-720.mp4": "b55c47d1f1e4dd0378937747904699394fa5b4055c00d76f5790c4a1b1d704bf",
+    "director-cut-en-chatgpt-muted.mp4": "ff2fe8edcb5c742499214384ae01b34a7399e0e90c51469d736b5836d10f1c8c",
+    "director-cut-en-chatgpt.mp4": "e629988ee8e6d43319f5e603af34f12c8830f15283911ada4a11c4c23d8fea81",
+    "director-cut-zh-workbuddy-720-muted.mp4": "8ea267847fb929868a4025afb50b11c370b4a2f20216d9c7ad54ee9f5e88023f",
+    "director-cut-zh-workbuddy-720.mp4": "2b6028e6268274ac2bb2fd2bef4f35e86b3ea01f18ceba706f1a071d4c0cfd35",
+    "director-cut-zh-workbuddy-muted.mp4": "8dbc846034e361754214e609aa76288671c998524704cd925984cb3dd2820385",
+    "director-cut-zh-workbuddy.mp4": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd"
+  },
+  "story_audio_and_timing": "PRESERVE; only QR and search-cue rectangles after 1230/60 seconds are patched"
+}

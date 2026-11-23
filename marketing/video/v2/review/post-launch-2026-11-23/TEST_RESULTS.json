@@ -1,0 +1,578 @@
+{
+  "status": "READY_FOR_AUDIT",
+  "base_sha": "a0c925fc4120f39ef47df69b5874814189e13f94",
+  "tested_code_sha": "923ed40635fcfe00b0967329d808d60f4b34843a",
+  "public_availability": "VERIFIED_US_AND_CN",
+  "original_movies_unchanged": true,
+  "original_movie_sha256": {
+    "director-cut-en-chatgpt-720-muted.mp4": "4c402cad5e0f050cedd3ea42121bfe19ab4eda715858c4e8df8af3477e1893f1",
+    "director-cut-en-chatgpt-720.mp4": "b55c47d1f1e4dd0378937747904699394fa5b4055c00d76f5790c4a1b1d704bf",
+    "director-cut-en-chatgpt-muted.mp4": "ff2fe8edcb5c742499214384ae01b34a7399e0e90c51469d736b5836d10f1c8c",
+    "director-cut-en-chatgpt.mp4": "e629988ee8e6d43319f5e603af34f12c8830f15283911ada4a11c4c23d8fea81",
+    "director-cut-zh-workbuddy-720-muted.mp4": "8ea267847fb929868a4025afb50b11c370b4a2f20216d9c7ad54ee9f5e88023f",
+    "director-cut-zh-workbuddy-720.mp4": "2b6028e6268274ac2bb2fd2bef4f35e86b3ea01f18ceba706f1a071d4c0cfd35",
+    "director-cut-zh-workbuddy-muted.mp4": "8dbc846034e361754214e609aa76288671c998524704cd925984cb3dd2820385",
+    "director-cut-zh-workbuddy.mp4": "170723a68ea595b9aae7399f5bcb5fb8cf65ab203309ad8ebf02647a7f359ddd"
+  },
+  "patch_rectangles_1080": {
+    "qr": [
+      684,
+      777,
+      222,
+      222
+    ],
+    "search": [
+      108,
+      993,
+      600,
+      117
+    ]
+  },
+  "patch_first_frame": 1230,
+  "patch_last_frame": 1559,
+  "audio_original_aac_packets_unchanged": [
+    {
+      "locale": "en",
+      "size": 1080,
+      "original_aac_packet_hash": "SHA256=dc0d41c59807d0f20cae31043670b42b07f5436b845c0e8e05217790e36532af",
+      "new_aac_packet_hash": "SHA256=dc0d41c59807d0f20cae31043670b42b07f5436b845c0e8e05217790e36532af",
+      "equal": true
+    },
+    {
+      "locale": "en",
+      "size": 720,
+      "original_aac_packet_hash": "SHA256=d681fec19beb092d49218aae93d414db323b7c286a2af620d9e7409ce2ef47b5",
+      "new_aac_packet_hash": "SHA256=d681fec19beb092d49218aae93d414db323b7c286a2af620d9e7409ce2ef47b5",
+      "equal": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 1080,
+      "original_aac_packet_hash": "SHA256=92d99034413995340a1f01e8c7db194de79999fa39cada994c5edb23aca61152",
+      "new_aac_packet_hash": "SHA256=92d99034413995340a1f01e8c7db194de79999fa39cada994c5edb23aca61152",
+      "equal": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 720,
+      "original_aac_packet_hash": "SHA256=826adc1fa8bb4ec4188912f6a3e94676bbfcc04626db7d0d0a8d636fd5e829fe",
+      "new_aac_packet_hash": "SHA256=826adc1fa8bb4ec4188912f6a3e94676bbfcc04626db7d0d0a8d636fd5e829fe",
+      "equal": true
+    }
+  ],
+  "pre_cta_encoded_quality_samples": [
+    {
+      "locale": "en",
+      "size": 1080,
+      "frame": 0,
+      "mean_abs_rgb_error": 0.3474,
+      "psnr_db": 49.036,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 1080,
+      "frame": 120,
+      "mean_abs_rgb_error": 0.90736,
+      "psnr_db": 41.498,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 1080,
+      "frame": 400,
+      "mean_abs_rgb_error": 0.1321,
+      "psnr_db": 51.804,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 1080,
+      "frame": 800,
+      "mean_abs_rgb_error": 0.11383,
+      "psnr_db": 53.974,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 1080,
+      "frame": 1100,
+      "mean_abs_rgb_error": 0.37889,
+      "psnr_db": 47.489,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 1080,
+      "frame": 1229,
+      "mean_abs_rgb_error": 0.43605,
+      "psnr_db": 46.346,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 720,
+      "frame": 0,
+      "mean_abs_rgb_error": 0.5029,
+      "psnr_db": 46.706,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 720,
+      "frame": 120,
+      "mean_abs_rgb_error": 1.17248,
+      "psnr_db": 40.049,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 720,
+      "frame": 400,
+      "mean_abs_rgb_error": 0.149,
+      "psnr_db": 51.694,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 720,
+      "frame": 800,
+      "mean_abs_rgb_error": 0.13493,
+      "psnr_db": 53.433,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 720,
+      "frame": 1100,
+      "mean_abs_rgb_error": 0.451,
+      "psnr_db": 46.785,
+      "PASS": true
+    },
+    {
+      "locale": "en",
+      "size": 720,
+      "frame": 1229,
+      "mean_abs_rgb_error": 0.51643,
+      "psnr_db": 45.084,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 1080,
+      "frame": 0,
+      "mean_abs_rgb_error": 0.34755,
+      "psnr_db": 49.048,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 1080,
+      "frame": 120,
+      "mean_abs_rgb_error": 1.04133,
+      "psnr_db": 40.245,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 1080,
+      "frame": 400,
+      "mean_abs_rgb_error": 0.12963,
+      "psnr_db": 51.868,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 1080,
+      "frame": 800,
+      "mean_abs_rgb_error": 0.11309,
+      "psnr_db": 53.171,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 1080,
+      "frame": 1100,
+      "mean_abs_rgb_error": 0.37699,
+      "psnr_db": 47.523,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 1080,
+      "frame": 1229,
+      "mean_abs_rgb_error": 0.43349,
+      "psnr_db": 46.428,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 720,
+      "frame": 0,
+      "mean_abs_rgb_error": 0.50834,
+      "psnr_db": 46.674,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 720,
+      "frame": 120,
+      "mean_abs_rgb_error": 1.1974,
+      "psnr_db": 39.804,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 720,
+      "frame": 400,
+      "mean_abs_rgb_error": 0.14488,
+      "psnr_db": 51.68,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 720,
+      "frame": 800,
+      "mean_abs_rgb_error": 0.1332,
+      "psnr_db": 53.02,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 720,
+      "frame": 1100,
+      "mean_abs_rgb_error": 0.45875,
+      "psnr_db": 46.63,
+      "PASS": true
+    },
+    {
+      "locale": "zh-Hans",
+      "size": 720,
+      "frame": 1229,
+      "mean_abs_rgb_error": 0.51921,
+      "psnr_db": 45.019,
+      "PASS": true
+    }
+  ],
+  "qr_from_actual_exports": [
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "frame": 1230,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "frame": 1260,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "frame": 1559,
+      "decoded_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "expected_url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "whole_actual_encoded_frame": true,
+      "PASS": true
+    }
+  ],
+  "media": [
+    {
+      "file": "director-cut-en-chatgpt.mp4",
+      "sha256": "e6006f140d86ce026652715185c429262ac67ed1dd25b84591e656adc4480137",
+      "bytes": 9696754,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 1,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-muted.mp4",
+      "sha256": "220bb1cab24e9e48200d58a70d265cbc62ce535566cf0da13ee78eea9bbe790a",
+      "bytes": 9042490,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 0,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720.mp4",
+      "sha256": "3a85d38bb750f62116fa8ea0fba3540a42f3961fb5077f3fe74a71532d5524eb",
+      "bytes": 4075925,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 1,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-en-chatgpt-720-muted.mp4",
+      "sha256": "b71fcf500bf6ec68846bfc7185b96ae00d69cd0e093f0130fcf4eb5482df94b7",
+      "bytes": 3525330,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 0,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy.mp4",
+      "sha256": "99a3d2121bbbacbda7c0b34c531b0c5b4f7747ff6f3739cb25a4b88ac5a44a7f",
+      "bytes": 9307218,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 1,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-muted.mp4",
+      "sha256": "7f60012dced4069e00383f7afaa98fc3cf4b6a10f36c854801f5f0a7eaf313cb",
+      "bytes": 8645209,
+      "width": 1080,
+      "height": 1920,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 0,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720.mp4",
+      "sha256": "a56e1d5ac035f72347b537996345a2adaa88f42c079dc7eee9048d04b4c85255",
+      "bytes": 3909470,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 1,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    },
+    {
+      "file": "director-cut-zh-workbuddy-720-muted.mp4",
+      "sha256": "3d89f1f2119c413e37668c2a78c3f47c27a72374ca9dcb1dfb4cfbbc8e1ef59f",
+      "bytes": 3353711,
+      "width": 720,
+      "height": 1280,
+      "frames": 1560,
+      "fps": "60/1",
+      "seconds": 26,
+      "audio_streams": 0,
+      "decode": "PASS",
+      "color_primaries": "bt709",
+      "color_transfer": "bt709",
+      "color_space": "bt709"
+    }
+  ],
+  "video_reencoding_disclosure": "Video recompressed for the two localized CTA rectangles. No story/timing/voice edits; do not claim all decoded pixels or video bytes identical.",
+  "human_listening": "NOT_RUN; AAC packet identity verifies accepted soundtrack was retained",
+  "physical_phone_scan": "NOT_RUN; independent OpenCV decoding of 24 actual exported frames passed",
+  "posting_authorized": false,
+  "App_ASC_TestFlight_changes": false
+}

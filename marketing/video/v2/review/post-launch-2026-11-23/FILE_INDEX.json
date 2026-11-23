@@ -1,0 +1,126 @@
+{
+  "tested_code_sha": "923ed40635fcfe00b0967329d808d60f4b34843a",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 1429,
+      "sha256": "4afbcd0f5f47bd962503fe0764a15ff4156a04c1a98d16f902433d068ed055f2"
+    },
+    {
+      "path": "CAPTURE_CHECKS.json",
+      "bytes": 2020,
+      "sha256": "a364ea8fff3e87d1c8ef8958716f94efdf822337625324c9c2fb8e4553648da2"
+    },
+    {
+      "path": "CONTACT_SHEET.png",
+      "bytes": 343145,
+      "sha256": "d2216b1d124b48d61052083ddff1c4e52f75aeb668b72843cb37a16236a2d800"
+    },
+    {
+      "path": "DELIVERY.md",
+      "bytes": 5395,
+      "sha256": "35594458faf6a5a1595140ba8968c3868355d2163cf4f5fcdc6102d22d474d8b"
+    },
+    {
+      "path": "director-cut-en-chatgpt-720-muted.mp4",
+      "bytes": 3525330,
+      "sha256": "b71fcf500bf6ec68846bfc7185b96ae00d69cd0e093f0130fcf4eb5482df94b7"
+    },
+    {
+      "path": "director-cut-en-chatgpt-720.mp4",
+      "bytes": 4075925,
+      "sha256": "3a85d38bb750f62116fa8ea0fba3540a42f3961fb5077f3fe74a71532d5524eb"
+    },
+    {
+      "path": "director-cut-en-chatgpt-muted.mp4",
+      "bytes": 9042490,
+      "sha256": "220bb1cab24e9e48200d58a70d265cbc62ce535566cf0da13ee78eea9bbe790a"
+    },
+    {
+      "path": "director-cut-en-chatgpt.mp4",
+      "bytes": 9696754,
+      "sha256": "e6006f140d86ce026652715185c429262ac67ed1dd25b84591e656adc4480137"
+    },
+    {
+      "path": "director-cut-zh-workbuddy-720-muted.mp4",
+      "bytes": 3353711,
+      "sha256": "3d89f1f2119c413e37668c2a78c3f47c27a72374ca9dcb1dfb4cfbbc8e1ef59f"
+    },
+    {
+      "path": "director-cut-zh-workbuddy-720.mp4",
+      "bytes": 3909470,
+      "sha256": "a56e1d5ac035f72347b537996345a2adaa88f42c079dc7eee9048d04b4c85255"
+    },
+    {
+      "path": "director-cut-zh-workbuddy-muted.mp4",
+      "bytes": 8645209,
+      "sha256": "7f60012dced4069e00383f7afaa98fc3cf4b6a10f36c854801f5f0a7eaf313cb"
+    },
+    {
+      "path": "director-cut-zh-workbuddy.mp4",
+      "bytes": 9307218,
+      "sha256": "99a3d2121bbbacbda7c0b34c531b0c5b4f7747ff6f3739cb25a4b88ac5a44a7f"
+    },
+    {
+      "path": "END_CARD_EN.png",
+      "bytes": 883546,
+      "sha256": "5338b191e39629546a7113fdb642cce9e5230e62d665dcf8de353b6c00a3330b"
+    },
+    {
+      "path": "END_CARD_EN_720.png",
+      "bytes": 456555,
+      "sha256": "d9658385c344c55f38fb9d0a4023307c8ac4c6b6e3e8eaa233602c866f62e2cc"
+    },
+    {
+      "path": "END_CARD_ZH.png",
+      "bytes": 873944,
+      "sha256": "125dc5f42457f9dcc6e5e1992fe3430f8a047a4b10424199c57a9b52fe1093e7"
+    },
+    {
+      "path": "END_CARD_ZH_720.png",
+      "bytes": 458010,
+      "sha256": "4eef5adcc1645fcda3edbf51da663d6f9f29fc216e4a8de3bb5492bdb2c4c3c5"
+    },
+    {
+      "path": "ENVIRONMENT.json",
+      "bytes": 1705,
+      "sha256": "034cc7674e3140616d388b52bab1dafe7289282d338eee52b87e79667c2c70b0"
+    },
+    {
+      "path": "evidence/apple-lookup-cn.json",
+      "bytes": 7917,
+      "sha256": "c3f98eff17e3258c10851b0d79a19d622fb59f5c4487b0839ce91be561120d02"
+    },
+    {
+      "path": "evidence/apple-lookup-us.json",
+      "bytes": 7921,
+      "sha256": "570045067f039f217c36b4ffa8418511d103907f9eff349576ad896d6c3d7060"
+    },
+    {
+      "path": "PUBLIC_AVAILABILITY.json",
+      "bytes": 2352,
+      "sha256": "dcf2208d94b1b6ea479a77fb3a38aaa11c29ec7dea054d6ca7fc2f64bc150c79"
+    },
+    {
+      "path": "RENDER_COMMANDS.json",
+      "bytes": 7595,
+      "sha256": "6b7aff2e47366baf66dfa40e261ee4053e5c80f4d68a0d639d63585ee600a1e6"
+    },
+    {
+      "path": "SCOPE_CHECK.json",
+      "bytes": 637,
+      "sha256": "fa5636633cfb83a4a1c5cd1e946b2c1c1381d592e1913a3bea716e8297568611"
+    },
+    {
+      "path": "SOURCE_MEDIA.json",
+      "bytes": 1119,
+      "sha256": "2addb8cddbb0f04b504592a1a5e9659da3db4bcd50255ff1c410a486f532f53a"
+    },
+    {
+      "path": "TEST_RESULTS.json",
+      "bytes": 17704,
+      "sha256": "2016fbdfc45f159ed143edfeea28a4d0b781e21ce6e8ef747e1db51b0ae789af"
+    }
+  ],
+  "index_excludes_itself": true
+}
