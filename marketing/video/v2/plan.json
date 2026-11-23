@@ -718,13 +718,17 @@
     "first_visible_frame": 1230,
     "last_visible_frame": 1559,
     "brand": "Lecture Asset",
-    "download_url": "https://apps.apple.com/us/app/id6816814541",
+    "download_url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
     "search": {
-      "zh-Hans": "在美区 App Store 搜索 Lecture Asset",
+      "zh-Hans": "在 App Store 搜索 Lecture Asset",
       "en": "Search Lecture Asset on the App Store"
     },
-    "publication_status": "REVERIFY_PUBLIC_LIVE_SEPARATELY",
-    "badge_qr_story_and_brand_must_appear_together": true
+    "publication_status": "PUBLIC_LISTING_VERIFIED_US_AND_CN_NOT_POSTED",
+    "badge_qr_story_and_brand_must_appear_together": true,
+    "download_urls_by_locale": {
+      "en": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "zh-Hans": "https://apps.apple.com/cn/app/lecture-asset/id6816814541"
+    }
   },
   "voice_sync_adjustments": {
     "measurement": "review/director-r3-caption-male/VOICE_ASR.json",
@@ -897,5 +901,6 @@
       1167,
       1230
     ]
-  }
+  },
+  "post_launch_review_output": "review/post-launch-2026-11-23"
 }

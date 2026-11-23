@@ -1,19 +1,21 @@
 import spec from "../R3_COPY_AUDIO.json";
+import publish from "../PUBLISH_LINK.json";
 import {sync} from "./r3-sync";
 export type R3Locale="en"|"zh-Hans";
 const copy={
  en:{hook:["Too useful to delete.","Too scattered for AI."],selected:"Selected. Sorted.",read:"Reading instructions<br>included.",rules:["Images first","Navigate by index","Check the page"],index:"Meaning → example → question",provider:"ChatGPT",icon:"chatgpt.webp",pages:"12 pages",pdf:"For later",zip:"For AI",receiving:"Reading the archive",summary:"Lecture summary",report:"Lecture report",intro:"A clearer way to learn and revisit ideas.",topics:["Understand the idea","Connect an example","Return with questions"],body:["Start with what the concept means.","Link the idea to a concrete example.","Revisit the page with a fresh question."],illustrative:"Illustrative workflow",saved:"Files saved",clear:"Keep the files.<br>Clear the photos.",slogan:["Hand the lecture to AI.","Take back your photo library."],search:"Search “Lecture Asset”<br>on the App Store",badge:"app-store-en.svg",source:"Source pages"},
- "zh-Hans":{hook:["舍不得删。","交给 AI，却太散。"],selected:"选好，排好。",read:"连怎么读，<br>都准备好了。",rules:["页图为准","索引定位","回图核对"],index:"概念 → 例子 → 问题",provider:"WorkBuddy",icon:"workbuddy.svg",pages:"12 页",pdf:"留着回看",zip:"交给 AI",receiving:"正在阅读资料包",summary:"讲座总结",report:"讲座报告",intro:"把概念、例子与问题，连成清晰的学习线索。",topics:["理解概念","连接例子","带着问题回看"],body:["先弄懂这个概念意味着什么。","把观点与一个具体例子联系起来。","回到原页，提出一个新的问题。"],illustrative:"效果示意",saved:"资料已保存",clear:"留好资料，<br>再清相册。",slogan:["把讲座交给 AI，","把相册还给自己。"],search:"在美区 App Store 搜索<br>Lecture Asset",badge:"app-store-zh.svg",source:"原始页图"}
+ "zh-Hans":{hook:["舍不得删。","交给 AI，却太散。"],selected:"选好，排好。",read:"连怎么读，<br>都准备好了。",rules:["页图为准","索引定位","回图核对"],index:"概念 → 例子 → 问题",provider:"WorkBuddy",icon:"workbuddy.svg",pages:"12 页",pdf:"留着回看",zip:"交给 AI",receiving:"正在阅读资料包",summary:"讲座总结",report:"讲座报告",intro:"把概念、例子与问题，连成清晰的学习线索。",topics:["理解概念","连接例子","带着问题回看"],body:["先弄懂这个概念意味着什么。","把观点与一个具体例子联系起来。","回到原页，提出一个新的问题。"],illustrative:"效果示意",saved:"资料已保存",clear:"留好资料，<br>再清相册。",slogan:["把讲座交给 AI，","把相册还给自己。"],search:"在 App Store 搜索<br>Lecture Asset",badge:"app-store-zh.svg",source:"原始页图"}
 };
 export function page(locale:R3Locale){
  const c=copy[locale];
+ const destination=publish.live_destinations[locale];
  const timing=sync.locales[locale];
  const scene=(id:string)=>spec.scenes.find(x=>x.id===id)!;
  const display=(id:string,part=0)=>scene(id).display![locale][part].join("<br>");
  const captions=timing.captions.map(c=>`<div id="${c.id}" class="display-text main-copy ${c.kind}">${c.lines.map((line,i)=>`<span class="caption-line" id="${c.id}-line-${i}">${line}</span>`).join("")}</div>`).join("");
  c.hook=[display("S01",0),display("S01",1)];c.selected=display("S02");c.read=display("S04");c.clear=display("S07");
  c.slogan=scene("S08").display![locale][0];
- c.search=locale==="en"?"Search Lecture Asset<br>on the App Store":"在美区 App Store 搜索<br>Lecture Asset";
+ c.search=destination.search_lines.join("<br>");
  c.intro=c.intro.replace(/[。，.]/g,"");c.body=c.body.map(x=>x.replace(/[。，.]/g,""));
  const life=Array.from({length:8},(_,i)=>`<div id="P${String(i+1).padStart(2,"0")}" class="life subject" data-life-id="P${String(i+1).padStart(2,"0")}" data-crop="${i%2},${Math.floor(i/2)},2,4"><div class="atlas" style="background-position:${i%2*100}% ${Math.floor(i/2)/3*100}%"></div></div>`).join("");
  const pages=Array.from({length:12},(_,i)=>`<div id="L${String(i+1).padStart(2,"0")}" class="lecture subject" data-page="${i+1}"><img src="assets/lecture/${String(i+1).padStart(4,"0")}.jpg"><div class="index"><span aria-hidden="true"></span></div></div>`).join("");
@@ -30,6 +32,6 @@ export function page(locale:R3Locale){
  <small id="illustrative" aria-hidden="true"></small></div>
  <div id="cleanup-space" aria-hidden="true"></div>${captions}<div id="read-secondary">${scene("S04").secondary![locale]}</div>
  <div id="saved"><svg viewBox="0 0 48 48"><path d="M8 24L20 36L41 11"/></svg>${c.saved}</div>
- <div id="ending"><div id="slogan" class="display-text closing"><p>${c.slogan[0]}</p><p>${c.slogan[1]}</p></div><div id="brand"><img src="assets/app-icon.png"><span>Lecture Asset</span></div><div id="download"><img id="badge" src="assets/brands/${c.badge}" alt="Official App Store download badge"><img id="qr" src="assets/brands/app-store-qr.png" alt="https://apps.apple.com/us/app/id6816814541"><p id="search">${c.search}</p></div></div>
+ <div id="ending"><div id="slogan" class="display-text closing"><p>${c.slogan[0]}</p><p>${c.slogan[1]}</p></div><div id="brand"><img src="assets/app-icon.png"><span>Lecture Asset</span></div><div id="download"><img id="badge" src="assets/brands/${c.badge}" alt="Official App Store download badge"><img id="qr" src="assets/brands/${destination.qr_asset}" alt="${destination.url}"><p id="search">${c.search}</p></div></div>
  <audio id="original-r3-mix" src="${timing.mix}" data-start="0" data-duration="${timing.duration}" data-track-index="1" preload="auto"></audio></main><script src="r3.js"></script></body></html>`;
 }

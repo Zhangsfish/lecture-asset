@@ -1,7 +1,7 @@
 {
   "app_id": "6816814541",
   "planned_url": "https://apps.apple.com/us/app/id6816814541",
-  "checked_utc": "2026-10-05T19:14:39.903051+00:00",
+  "checked_utc": "2026-11-23T11:51:01.229813+00:00",
   "checks": [
     {
       "requested": "https://apps.apple.com/us/app/id6816814541",
@@ -14,9 +14,9 @@
       "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)>"
     }
   ],
-  "matching_name_id": "NOT_VERIFIED",
-  "public_download_status": "NOT_VERIFIED",
-  "publication_state": "PUBLISH_HOLD_NOT_LIVE_VERIFIED",
+  "matching_name_id": "VERIFIED",
+  "public_download_status": "VERIFIED_US_AND_CN",
+  "publication_state": "PUBLIC_LISTING_VERIFIED_NOT_POSTED",
   "qr_payload": "https://apps.apple.com/us/app/id6816814541",
   "note": "A 200 response redirected to an App Store Today page is not proof of a live matching product, nor proof of delisting. No ASC mutation or publishing.",
   "qr_exported_frame_checks": [
@@ -271,10 +271,31 @@
   ],
   "owner_post_launch_followup": {
     "recorded_date": "2026-10-07",
-    "status": "OPEN_REQUIRED_BEFORE_PUBLIC_VIDEO_DISTRIBUTION",
+    "status": "IN_PROGRESS_POST_LAUNCH_CTA_PATCH",
     "owner_approved_delivery_head": "99145299cf3ad8008e1ce293a140a601cb02de1d",
     "requirement": "After public launch, replace or confirm the final-scene link using the verified live App Store product URL and regenerate/verify the end-card QR in both languages and all distribution variants.",
     "instructions": "POST_LAUNCH_LINK_UPDATE.md",
     "public_posting_authorized": false
-  }
+  },
+  "live_destinations": {
+    "en": {
+      "storefront": "us",
+      "url": "https://apps.apple.com/us/app/lecture-asset/id6816814541",
+      "qr_asset": "app-store-live-en.png",
+      "search_lines": [
+        "Search Lecture Asset",
+        "on the App Store"
+      ]
+    },
+    "zh-Hans": {
+      "storefront": "cn",
+      "url": "https://apps.apple.com/cn/app/lecture-asset/id6816814541",
+      "qr_asset": "app-store-live-zh-Hans.png",
+      "search_lines": [
+        "在 App Store 搜索",
+        "Lecture Asset"
+      ]
+    }
+  },
+  "latest_verification": "review/post-launch-2026-11-23/PUBLIC_AVAILABILITY.json"
 }

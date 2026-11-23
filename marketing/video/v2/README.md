@@ -1,3 +1,11 @@
+# Current owner task — post-launch CTA patch (2026-11-23)
+
+Owner confirms public launch and authorizes repairing the accepted promo ending. Current work uses a fresh branch from main, not the historical PR18 branch. Only verified US/CN download destinations, generated QR assets and Chinese search cue change. No story/voice/timing redesign or public posting. Accepted director-r3-caption-male movies are read-only inputs; new deliverables: review/post-launch-2026-11-23/. Below production instructions are historical where they conflict with this narrow task.
+
+Reproduce with existing dependencies: C:/conda_envs/myenv/python.exe scripts/post-launch-cta.py prepare; node scripts/post-launch-capture.mjs; C:/conda_envs/myenv/python.exe scripts/post-launch-cta.py render; C:/conda_envs/myenv/python.exe scripts/post-launch-cta.py verify. The prepare step requires fresh official lookup/product-page responses saved under the shared Git directory (commands and hashes in the new delivery). Do not run old packaging scripts over historical outputs. Renderer reads PUBLISH_LINK.json live_destinations; original story/audio and 20.5s end-card onset remain fixed. No new tools, fonts, voices or account changes.
+
+---
+
 Current owner authority: OWNER_CAPTION_MALE_2026-10-07.md. English voice unchanged; all Chinese voice replaced with stock male. Key in-frame captions follow measured speech. Length/CTA time may extend. Output review/director-r3-caption-male/. Historical fixed26s/1230 below is superseded for the Chinese revision.
 
 ## Current owner opening amendment
