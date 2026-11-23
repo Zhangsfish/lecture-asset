@@ -61,8 +61,13 @@ def prepare():
           'raw_lookup_sha256':sha(source),'qr_asset_sha256':sha(ROOT/'assets/brands'/qr_asset)})
     now=datetime.datetime.now(datetime.timezone.utc).isoformat()
     write(REVIEW/'PUBLIC_AVAILABILITY.json',{'checked_utc':now,'method':'Read-only Apple public lookup plus HTTPS product pages via existing local network proxy; no ASC access','checks':checks,'public_download_status':'VERIFIED_US_AND_CN','posting_authorized':False})
-    publish=load(ROOT/'PUBLISH_LINK.json')
-    publish.update(checked_utc=now,matching_name_id='VERIFIED',public_download_status='VERIFIED_US_AND_CN',publication_state='PUBLIC_LISTING_VERIFIED_NOT_POSTED',live_destinations=destinations,latest_verification='review/post-launch-2026-11-23/PUBLIC_AVAILABILITY.json')
+    # Keep the entire prelaunch record as explicit history, not stale current fields.
+    historical=json.loads(subprocess.check_output(['git','show',BASE+':marketing/video/v2/PUBLISH_LINK.json'],cwd=REPO))
+    publish={'app_id':'6816814541','checked_utc':now,'matching_name_id':'VERIFIED','public_download_status':'VERIFIED_US_AND_CN',
+      'publication_state':'PUBLIC_LISTING_VERIFIED_NOT_POSTED','planned_url':destinations['en']['url'],'qr_payload':destinations['en']['url'],
+      'qr_payload_by_locale':{k:v['url'] for k,v in destinations.items()},'live_destinations':destinations,'checks':checks,
+      'latest_verification':'review/post-launch-2026-11-23/PUBLIC_AVAILABILITY.json','historical_prelaunch':historical,
+      'owner_post_launch_followup':dict(historical['owner_post_launch_followup'])}
     publish['owner_post_launch_followup']['status']='IN_PROGRESS_POST_LAUNCH_CTA_PATCH'
     publish['owner_post_launch_followup']['public_posting_authorized']=False
     write(ROOT/'PUBLISH_LINK.json',publish)
