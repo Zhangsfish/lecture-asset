@@ -1,0 +1,20 @@
+{
+  "base_sha": "a0c925fc4120f39ef47df69b5874814189e13f94",
+  "tested_code_sha": "923ed40635fcfe00b0967329d808d60f4b34843a",
+  "protected_paths": [
+    "App",
+    "Packages",
+    "AppResources",
+    "project.yml",
+    "reports/S05/store-screenshots-01",
+    "reports/S05/store-screenshots-medium-01",
+    ".github/workflows",
+    "marketing/video/v2/review/director-r3-caption-male",
+    "marketing/video/v2/assets/sound",
+    "marketing/video/v2/src/r3-timeline.ts",
+    "marketing/video/v2/src/r3.css",
+    "marketing/video/v2/R3_CAPTION_SYNC.json"
+  ],
+  "changed_protected_paths": [],
+  "no_ASC_TestFlight_or_public_posting": true
+}

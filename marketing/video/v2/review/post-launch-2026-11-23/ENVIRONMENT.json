@@ -1,0 +1,37 @@
+{
+  "checked_date": "2026-11-23",
+  "node": "24.15.0",
+  "hyperframes": "0.8.132 existing pinned package",
+  "gsap": "3.15.0 existing pinned package",
+  "typescript": "7.0.2",
+  "esbuild": "0.28.2",
+  "browser": "Chrome 157.0.8103.79",
+  "python": "Existing C:/conda_envs/myenv/python.exe",
+  "pillow": "11.1.0",
+  "opencv": "4.11.0",
+  "qrcode": "Existing installed package",
+  "ffmpeg": "Existing E:/video_to_md/readable-transcript/resource/bin/ffmpeg.exe",
+  "new_installations": [],
+  "font_sources": "Existing ignored local InterVariable.ttf and SourceHanSansSC-Regular.otf; platform-font proof in CAPTURE_CHECKS.json. No font binaries redistributed.",
+  "network": "Read-only official Apple lookup/product pages; no account login or ASC API used",
+  "test_commands": [
+    "node node_modules/typescript/bin/tsc --noEmit",
+    "C:/conda_envs/myenv/python.exe scripts/post-launch-cta.py prepare",
+    "node scripts/post-launch-capture.mjs",
+    "C:/conda_envs/myenv/python.exe scripts/post-launch-cta.py render",
+    "C:/conda_envs/myenv/python.exe scripts/post-launch-cta.py verify"
+  ],
+  "python_version": "Python 3.11.11",
+  "ffmpeg_version": "ffmpeg version 9.0.1-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "installed_packages": {
+    "hyperframes": "0.8.132",
+    "gsap": "3.15.0",
+    "typescript": "7.0.2",
+    "esbuild": "0.28.2"
+  },
+  "font_sha256": {
+    "InterVariable.ttf": "4989b125924991b90d05b2d16e0e388c48f7d5bb8b30539bbf9c755278d0ccaf",
+    "SourceHanSansSC-Regular.otf": "f1d8611151880c6c336aabeac4640ef434fa13cbfbf1ffe82d0a71b2a5637256",
+    "SourceHanSansSC-Bold.otf": "df2b90f5bcc6d01dfc964cec5f6d535d6b6aebd26ed7fd79a9c1b3f2112fcb6b"
+  }
+}

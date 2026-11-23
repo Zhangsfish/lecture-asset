@@ -7,7 +7,11 @@ Accepted outputs: `review/director-r3-caption-male/`.
 
 ## Required follow-up after public App Store launch
 
-**OPEN / REQUIRED BEFORE PUBLIC VIDEO DISTRIBUTION**
+**COMPLETED / READY_FOR_AUDIT — 2026-11-23**
+
+Owner requested this follow-up after launch. Apple public US/CN Lookup and matching product pages were verified; both locale-specific QR destinations now use the live canonical product URLs. All eight new movie variants and 24 actual exported-frame QR decodes passed. Chinese search cue no longer says US-only. Accepted movies remain unchanged. [Delivery and evidence](review/post-launch-2026-11-23/DELIVERY.md). This is not public-posting authorization; do not automatically distribute the video.
+
+## Original requirements (retained for traceability)
 
 The owner explicitly requires replacing the final-scene download link after the App is publicly live. The current end-card QR encodes `https://apps.apple.com/us/app/id6816814541`; that registered-ID destination is not evidence that the App can currently be downloaded.
 
