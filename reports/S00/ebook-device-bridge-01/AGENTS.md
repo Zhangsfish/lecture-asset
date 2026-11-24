@@ -10,7 +10,7 @@
 - Branch: `codex/ebook-device-installation`. Never merge or touch the owner's
   active `lecture_asset` worktree / untracked promo files.
 - eBOOK application record: `6838578846`, bundle `com.zhangsfish.ebook`.
-- Target reader code: `1e556ae1622b4d56fa3c0c9e05ca0a14877073ac`.
+- Target reader code: `ddff8c75ad0b95112386df7697b92cf464f1f28b`.
 - S01 PR #4 / `3bfb4429fe7a42e50df62f4857bcb9909bf00ab3` stays frozen.
 
 ## File map and provenance
@@ -39,3 +39,12 @@
 - Owner completes Apple login/verification directly in the official browser.
 - Reports/build results stay distinct from observed owner iPhone behavior.
 - Final reader delivery/evidence belongs in eBOOK `reports/S00/device-01/`.
+
+## New owner presentation feedback
+- Installed35.1 works for owner private TXT import/read. Owner explicitly requested
+  on-demand speech controls. Reader ddff8c7 changes only ReaderView presentation
+  and UI tests/CI focus plumbing; speech/parser/persistence engines stay unchanged.
+- Prepare-only additionally runs the real native Files picker test via an explicit
+  focused scope, with safe log/PNG artifacts and no Apple credentials. The full
+  reader regression remains the independent default device CI.
+- Existing installed35.1 source remains1e556ae; do not relabel it as the new code.
