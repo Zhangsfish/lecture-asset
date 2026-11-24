@@ -19,7 +19,7 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 45
     env:
-      EBOOK_TESTED_SHA: ddff8c75ad0b95112386df7697b92cf464f1f28b
+      EBOOK_TESTED_SHA: 2f8c6f0b86cead51074093b27fbc95a294c72197
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           repository: Zhangsfish/eBOOK
-          ref: ddff8c75ad0b95112386df7697b92cf464f1f28b
+          ref: 2f8c6f0b86cead51074093b27fbc95a294c72197
           path: reader
           persist-credentials: false
       - name: Check frozen eBOOK source and existing tools

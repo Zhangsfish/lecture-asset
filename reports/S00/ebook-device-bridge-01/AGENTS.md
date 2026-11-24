@@ -10,7 +10,7 @@
 - Branch: `codex/ebook-device-installation`. Never merge or touch the owner's
   active `lecture_asset` worktree / untracked promo files.
 - eBOOK application record: `6838578846`, bundle `com.zhangsfish.ebook`.
-- Target reader code: `ddff8c75ad0b95112386df7697b92cf464f1f28b`.
+- Target reader code: `2f8c6f0b86cead51074093b27fbc95a294c72197`.
 - S01 PR #4 / `3bfb4429fe7a42e50df62f4857bcb9909bf00ab3` stays frozen.
 
 ## File map and provenance
@@ -57,3 +57,16 @@
 - If group association readback fails after upload, the upload may already have
   succeeded. Do not reupload merely to retry association or infer installability
   from a green workflow; inspect the fixed status output and resolve linkage only.
+
+## Latest immersive-reading follow-up
+- Owner confirmed internal37.1 works, including speech continuing after hiding.
+- New explicit request: hide back/TOC/type/speech/progress during reading. Owner
+  accepted one subtle theme-aware ellipsis entry, no white background/border,
+  instead of a body-tap gesture. Source2f8c6f0 keeps engines/table unchanged.
+- Default reader has only text and a44-point quiet entry. It opens one overlay
+  control panel; no body tap/scroll activation. Overlay keeps text viewport fixed.
+- Before next internal upload, inspect the new real native UI/archive evidence.
+  Current tests are eBOOK45334431210(Xcode16.4) and the automatic26.6 device run.
+- 37.1 upload45330975786(helper64c7885/readerDDFF) was VALID/internal-only, existing
+  owner group linkage API verified. Website also showed37.1Testing,1tester/2builds.
+  Do not relabel37.1 as the new immersive UI. No new key/tester/public link.
