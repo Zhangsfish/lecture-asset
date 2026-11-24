@@ -1,4 +1,5 @@
-// Query only the exact S00 build after upload. Never print tokens or raw API responses.
+// Read the exact eBOOK build and optionally associate it with the existing owner group.
+// Never print tokens, tester identities or raw API responses.
 import CryptoKit
 import Foundation
 
@@ -50,6 +51,50 @@ func get(_ path: String, queries: [URLQueryItem], bearer: String) throws -> [[St
     return items
 }
 
+func addBuild(_ buildID: String, to groupID: String, bearer: String) throws {
+    guard UUID(uuidString: buildID) != nil, UUID(uuidString: groupID) != nil else { throw APIError() }
+    let url = URL(string: "https://api.appstoreconnect.apple.com/v1/betaGroups/" + groupID + "/relationships/builds")!
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.timeoutInterval = 30
+    request.setValue("Bearer " + bearer, forHTTPHeaderField: "Authorization")
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpBody = try JSONSerialization.data(withJSONObject: ["data": [["type": "builds", "id": buildID]]])
+    let semaphore = DispatchSemaphore(value: 0)
+    var status = 0
+    var failed = false
+    URLSession.shared.dataTask(with: request) { _, response, error in
+        status = (response as? HTTPURLResponse)?.statusCode ?? 0
+        failed = error != nil
+        semaphore.signal()
+    }.resume()
+    guard semaphore.wait(timeout: .now() + 35) == .success, !failed, status == 204 else { throw APIError() }
+}
+
+func enableExistingOwnerGroup(_ build: [String: Any], appID: String, groupID: String, bearer: String) throws {
+    guard UUID(uuidString: groupID) != nil,
+          let buildID = build["id"] as? String,
+          let attributes = build["attributes"] as? [String: Any],
+          attributes["processingState"] as? String == "VALID",
+          attributes["buildAudienceType"] as? String == "INTERNAL_ONLY" else { throw APIError() }
+    let groups = try get("apps/" + appID + "/betaGroups", queries: [URLQueryItem(name: "limit", value: "200")], bearer: bearer)
+    guard let group = groups.first(where: { $0["id"] as? String == groupID }),
+          let settings = group["attributes"] as? [String: Any],
+          settings["name"] as? String == "Owner iPhone",
+          settings["isInternalGroup"] as? Bool == true,
+          settings["hasAccessToAllBuilds"] as? Bool == false,
+          settings["publicLinkEnabled"] as? Bool != true else { throw APIError() }
+    let path = "betaGroups/" + groupID + "/builds"
+    let query = [URLQueryItem(name: "limit", value: "200")]
+    let existing = try get(path, queries: query, bearer: bearer)
+    if !existing.contains(where: { $0["id"] as? String == buildID }) {
+        try addBuild(buildID, to: groupID, bearer: bearer)
+    }
+    let readback = try get(path, queries: query, bearer: bearer)
+    guard readback.contains(where: { $0["id"] as? String == buildID }) else { throw APIError() }
+    print("EBOOK_OWNER_GROUP_ASSOCIATION_VERIFIED")
+}
+
 let args = CommandLine.arguments
 guard args.count == 3,
       let keyID = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_KEY_ID"],
@@ -78,6 +123,11 @@ do {
            let state = attributes["processingState"] as? String {
             if state == "VALID" {
                 print("EBOOK_PROCESSING_STATUS_VALID build=" + args[2])
+                if let groupID = ProcessInfo.processInfo.environment["EBOOK_OWNER_GROUP_ID"] {
+                    print("EBOOK_OWNER_GROUP_ASSOCIATION_START")
+                    try enableExistingOwnerGroup(item, appID: appID, groupID: groupID,
+                        bearer: token(key: key, keyID: keyID, issuerID: issuerID))
+                }
                 exit(0)
             }
             if state == "FAILED" || state == "INVALID" {

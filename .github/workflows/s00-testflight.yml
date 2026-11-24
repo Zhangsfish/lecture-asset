@@ -78,6 +78,7 @@ jobs:
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          EBOOK_OWNER_GROUP_ID: b9f19916-d70f-4e6d-82e1-7d147f173336
         run: |
           export EBOOK_BRIDGE_SCRIPTS="$GITHUB_WORKSPACE/bridge/scripts"
           bash "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_release.sh"

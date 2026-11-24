@@ -48,3 +48,12 @@
   focused scope, with safe log/PNG artifacts and no Apple credentials. The full
   reader regression remains the independent default device CI.
 - Existing installed35.1 source remains1e556ae; do not relabel it as the new code.
+- Updated status helper may associate a new VALID/INTERNAL_ONLY eBOOK build with
+  the already-created Owner iPhone group only. It verifies the app relationship,
+  internal flag, manual distribution and disabled public link, then posts the
+  single build linkage and reads it back. No tester creation/invitation or other
+  mutation. This reuses the verified S05 existing-group endpoint pattern, checked
+  against current official Apple API documentation on2026-11-24.
+- If group association readback fails after upload, the upload may already have
+  succeeded. Do not reupload merely to retry association or infer installability
+  from a green workflow; inspect the fixed status output and resolve linkage only.
