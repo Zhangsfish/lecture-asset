@@ -10,7 +10,7 @@
 - Branch: `codex/ebook-device-installation`. Never merge or touch the owner's
   active `lecture_asset` worktree / untracked promo files.
 - eBOOK application record: `6838578846`, bundle `com.zhangsfish.ebook`.
-- Target reader code: `4c6d4914bfdd333a65585e7be92c0c7267afe97f`.
+- Target reader code: `326c5438794c76a8978c3cdb049b905ace703f66`.
 - S01 PR #4 / `3bfb4429fe7a42e50df62f4857bcb9909bf00ab3` stays frozen.
 
 ## File map and provenance
