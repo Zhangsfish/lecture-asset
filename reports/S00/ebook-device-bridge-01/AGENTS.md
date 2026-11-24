@@ -10,7 +10,7 @@
 - Branch: `codex/ebook-device-installation`. Never merge or touch the owner's
   active `lecture_asset` worktree / untracked promo files.
 - eBOOK application record: `6838578846`, bundle `com.zhangsfish.ebook`.
-- Target reader code: `424aa49be067880d73030860c32af19316db9f6c`.
+- Target reader code: `1e556ae1622b4d56fa3c0c9e05ca0a14877073ac`.
 - S01 PR #4 / `3bfb4429fe7a42e50df62f4857bcb9909bf00ab3` stays frozen.
 
 ## File map and provenance
@@ -28,7 +28,12 @@
   Never read/copy secret values or request a new key. Key/raw signing logs remain
   ephemeral, never artifacts. No new signing access scope or paid services.
 - Prepare-only runs have no Apple credential environment. Upload is an explicit
-  manual operation after the reader package tests pass.
+  manual operation for the owner's requested parallel phone testing. Real device
+  archive/metadata preflight passed; app Swift sources remain identical to merged
+  S00. At reader 424aa49, Xcode26 gave 25/26 pass, native Files click still failed;
+  reader 1e556ae adds only a native UI-test fallback and its full rerun is pending.
+  Do not claim a green suite or proven app import until the evidence supports it.
+  Internal owner testing may proceed in parallel; no App Review/public release.
 - Only eBOOK Internal TestFlight. No App Review, public release, external testers,
   legal agreements, account creation, Lecture Asset upload or product changes.
 - Owner completes Apple login/verification directly in the official browser.
