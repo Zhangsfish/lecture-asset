@@ -10,7 +10,8 @@
 - Branch: `codex/ebook-device-installation`. Never merge or touch the owner's
   active `lecture_asset` worktree / untracked promo files.
 - eBOOK application record: `6838578846`, bundle `com.zhangsfish.ebook`.
-- Target reader code: `326c5438794c76a8978c3cdb049b905ace703f66`.
+- Current TOC follow-up target: `7509547a0b62598097ff5f24ca6eb9611455109c`.
+  Previously uploaded38.1 remains reader326c543 until a new upload is observed.
 - S01 PR #4 / `3bfb4429fe7a42e50df62f4857bcb9909bf00ab3` stays frozen.
 
 ## File map and provenance
@@ -39,6 +40,34 @@
 - Owner completes Apple login/verification directly in the official browser.
 - Reports/build results stay distinct from observed owner iPhone behavior.
 - Final reader delivery/evidence belongs in eBOOK `reports/S00/device-01/`.
+
+## Owner current-chapter TOC feedback (2026-11-25)
+- Owner asks that every TOC opening reveal the live reading chapter. The reader
+  correction is 7509547a0b62598097ff5f24ca6eb9611455109c, PR #5, with original
+  long-book current-row/search-reset/reading-anchor/relaunch UI assertions.
+- The helper's two reader pins are prepared for that exact source. Final26.5
+  run45548099346 passed2/2,0skips, real live-chapter/624/relaunch and bounded
+  renderer checks; unsigned iPhone Release + Debug/Release builds passed.
+  This satisfies the new navigation gate for owner-only internal testing.
+- Initial source ebd9232: Xcode26 run45542499967 built successfully,25/27 tests
+  passed. Existing Files UI failure plus a new harness parse of display anchor
+  1,870 caused failures. Corrected only tests/CI; all shipping Sources blobs
+  remain identical. Initial18.5 run45542537329 is separate, not relabelled PASS.
+- Source34d5289 focused26.5 run45545433809 passed2/2,0skips, real624/font/relaunch
+  and metrics.18.5 run45545438020 passed1/2; after deep TOC scrolling its automatic
+  navigation search drawer disappeared.7509547 keeps search always visible and
+  isolates a dedicated live-chapter/search/relaunch case; original stress case
+  remains in the default full suite. Final focused runs45548099346(26) and
+  45548105689(18.5) each select2 methods with a strict count/no-skips guard.
+- Final18.5 attempt1 timed out obtaining an AX snapshot before opening the book;
+  directory assertions were NOT_RUN, no cause inferred. Same source retry is
+  running; preserve failure and report separately. Internal owner testing may
+  proceed in parallel under the existing installation authorization.
+- Latest available owner beta remains38.1 until a separate new upload, Apple
+  VALID/INTERNAL_ONLY and existing owner-group relationship are read back.
+- Reuse only the existing eBOOK internal group/signing flow; no new tester,
+  secret copy, Lecture Asset build, public distribution, merge or local AI.
+- New reader evidence belongs in eBOOK reports/S00/toc-current-chapter/.
 
 ## New owner presentation feedback
 - Installed35.1 works for owner private TXT import/read. Owner explicitly requested
