@@ -25,7 +25,9 @@ key_file="$secret_dir/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
 archive_log="$secret_dir/archive.log"
 export_log="$secret_dir/export.log"
 export_options="$secret_dir/export-options.plist"
-trap 'rm -f "$key_file" "$archive_log" "$export_log" "$export_options"; rmdir "$secret_dir"' EXIT
+link_map="$secret_dir/link-map.txt"
+export EBOOK_RELEASE_LINK_MAP="$link_map"
+trap 'rm -f "$key_file" "$archive_log" "$export_log" "$export_options" "$link_map"; rmdir "$secret_dir"' EXIT
 printf '%s' "$APP_STORE_CONNECT_PRIVATE_KEY" > "$key_file"
 chmod 600 "$key_file"
 
@@ -74,6 +76,7 @@ if xcodebuild -project eBOOK.xcodeproj -scheme eBOOK \
   -configuration Release -destination 'generic/platform=iOS' \
   -archivePath "$archive_path" -derivedDataPath "$RUNNER_TEMP/EBOOKReleaseDerivedData" \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+  LD_GENERATE_MAP_FILE=YES LD_MAP_FILE_PATH="$link_map" \
   CURRENT_PROJECT_VERSION="$build_number" archive > "$archive_log" 2>&1; then
   echo 'EBOOK_UNSIGNED_ARCHIVE_SUCCEEDED'
 else
