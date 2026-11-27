@@ -45,6 +45,7 @@ categories = {
 matched = [name for name, terms in categories.items() if any(term in text for term in terms)]
 print("EBOOK_PRIVATE_LOG_CATEGORIES=" + (",".join(matched) if matched else "OTHER"))
 codes = sorted(set(re.findall(r"\bitms-[0-9]{5}\b", text)))
+codes += sorted(set('APPLE_ERROR_' + code for code in re.findall(r'\b(?:error code|"code"\s*:)\s*(-?[0-9]{3,6})\b', text)))
 print("EBOOK_PRIVATE_VALIDATION_CODES=" + (",".join(codes) if codes else "NONE_OBSERVED"))
 errors = [line for line in text.splitlines() if "invalid signature" in line or "error:" in line]
 component = "UNCLASSIFIED"
@@ -52,6 +53,8 @@ if any("onnxruntime.framework" in line for line in errors):
     component = "ONNXRUNTIME_FRAMEWORK"
 elif any("ebook.app/ebook" in line for line in errors):
     component = "EBOOK_EXECUTABLE"
+elif any("ebook.app" in line for line in errors):
+    component = "EBOOK_APP"
 print("EBOOK_PRIVATE_SIGNATURE_COMPONENT=" + component)
 
 # Keep only fixed vocabulary from Xcode error lines. All names, identifiers,

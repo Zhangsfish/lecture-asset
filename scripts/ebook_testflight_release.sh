@@ -21,7 +21,7 @@ done
 [[ "$APP_STORE_CONNECT_PRIVATE_KEY" == *'-----BEGIN PRIVATE KEY-----'* ]] || { echo 'INVALID_API_KEY_FILE_FORMAT'; exit 2; }
 
 secret_dir=$(mktemp -d "$RUNNER_TEMP/s00-apple.XXXXXX")
-key_file="$secret_dir/AuthKey.p8"
+key_file="$secret_dir/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
 archive_log="$secret_dir/archive.log"
 export_log="$secret_dir/export.log"
 export_options="$secret_dir/export-options.plist"
@@ -118,6 +118,16 @@ if [[ "$operation" == 'inspect-export' ]]; then
     -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID" > "$export_log" 2>&1; then
     echo 'EBOOK_EXPORT_ONLY_SUCCEEDED_NO_UPLOAD'
     python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_verify_export.py" "$export_path"
+    # Apple preflight validation only; --validate-app never submits a build.
+    export API_PRIVATE_KEYS_DIR="$secret_dir"
+    if python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_validate_export.py" "$export_path" > "$export_log" 2>&1; then
+      echo 'EBOOK_APPLE_PREFLIGHT_VALIDATION_PASSED_NO_UPLOAD'
+    else
+      result=$?
+      echo "EBOOK_APPLE_PREFLIGHT_VALIDATION_FAILED_NO_UPLOAD exit=$result"
+      python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_diagnostics.py" "$export_log"
+      exit "$result"
+    fi
     exit $?
   else
     result=$?

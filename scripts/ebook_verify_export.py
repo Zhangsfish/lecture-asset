@@ -31,7 +31,7 @@ def error_categories(result):
 
 def signature_summary(path):
     strict = run(['codesign', '--verify', '--deep', '--strict', str(path)])
-    anchor = run(['codesign', '--verify', '--strict', '-R', 'anchor apple generic', str(path)])
+    anchor = run(['codesign', '--verify', '--strict', '-R', '=anchor apple generic', str(path)])
     display = run(['codesign', '-d', '-vvv', str(path)])
     text = (display.stdout + display.stderr).decode(errors='replace')
     return {
@@ -70,7 +70,7 @@ with tempfile.TemporaryDirectory(prefix='ebook-export-audit-', dir=os.environ['R
     if info['CFBundleIdentifier'] != 'com.zhangsfish.ebook' or info['CFBundleShortVersionString'] != '0.1.0':
         raise ValueError('Wrong exported product')
     verification = run(['codesign', '--verify', '--deep', '--strict', str(app)])
-    anchor = run(['codesign', '--verify', '--strict', '-R', 'anchor apple generic', str(app)])
+    anchor = run(['codesign', '--verify', '--strict', '-R', '=anchor apple generic', str(app)])
     display = run(['codesign', '-d', '-vvv', str(app)])
     details = (display.stdout + display.stderr).decode(errors='replace')
     distribution = any(line.startswith(('Authority=Apple Distribution', 'Authority=iPhone Distribution')) for line in details.splitlines())
