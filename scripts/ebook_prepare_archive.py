@@ -17,13 +17,36 @@ sys.path.insert(0, str(Path.cwd() / 'scripts'))
 from verify_release_bundle import validate_resources
 
 app = Path(sys.argv[1]).resolve(strict=True)
+baseline_app = Path(sys.argv[2]).resolve(strict=True)
 temporary = Path(os.environ['RUNNER_TEMP']).resolve(strict=True)
-if not app.is_relative_to(temporary) or app.name != 'eBOOK.app':
-    raise ValueError('Not the ephemeral eBOOK archive')
+for candidate in (app, baseline_app):
+    if not candidate.is_relative_to(temporary) or candidate.name != 'eBOOK.app':
+        raise ValueError('Not an ephemeral eBOOK archive')
+    if (candidate / 'eBOOK').is_symlink():
+        raise ValueError('Unexpected executable link')
+if app == baseline_app or (app / 'eBOOK').samefile(baseline_app / 'eBOOK'):
+    raise ValueError('Expected separate map and no-map archives')
 info = plistlib.loads((app / 'Info.plist').read_bytes())
 if info.get('CFBundleIdentifier') != 'com.zhangsfish.ebook':
     raise ValueError('Wrong archived product')
+baseline_info = plistlib.loads((baseline_app / 'Info.plist').read_bytes())
+identity = ('CFBundleIdentifier', 'CFBundleShortVersionString', 'CFBundleVersion')
+if any(info.get(field) != baseline_info.get(field) for field in identity):
+    raise ValueError('Archive identity differs from no-map baseline')
+validate_resources(baseline_app)
 validate_resources(app)
+executable = app / 'eBOOK'
+before = hashlib.sha256(executable.read_bytes()).hexdigest()
+baseline_sha = hashlib.sha256((baseline_app / 'eBOOK').read_bytes()).hexdigest()
+if before != baseline_sha:
+    print('EBOOK_ARCHIVE_BASELINE_MISMATCH_NO_REMOVAL ' + json.dumps({
+        'build': info['CFBundleVersion'], 'no_map_sha256': baseline_sha, 'with_map_sha256': before,
+    }, sort_keys=True))
+    sys.exit(2)
+print('EBOOK_ARCHIVE_BASELINE_VERIFIED ' + json.dumps({
+    'source_sha': os.environ['EBOOK_TESTED_SHA'], 'build': info['CFBundleVersion'],
+    'no_map_sha256': baseline_sha, 'with_map_sha256': before,
+}, sort_keys=True))
 framework = app / 'Frameworks/onnxruntime.framework'
 if not framework.exists():
     print('EBOOK_ARCHIVE_NO_UNUSED_ONNX_FRAMEWORK')
@@ -38,7 +61,6 @@ files = [path for path in framework.rglob('*') if path.is_file()]
 if any(path.is_symlink() for path in framework.rglob('*')) or {path.relative_to(framework).as_posix() for path in files} - allowed:
     print('EBOOK_ARCHIVE_FRAMEWORK_HAS_UNVERIFIED_RESOURCES_NO_REMOVAL')
     sys.exit(2)
-executable = app / 'eBOOK'
 dependencies = subprocess.run(['otool', '-L', str(executable)], capture_output=True, text=True)
 symbols = subprocess.run(['nm', '-g', str(executable)], capture_output=True, text=True)
 if dependencies.returncode or symbols.returncode:
@@ -61,9 +83,6 @@ if not static_proof and link_map.is_file():
 if not static_proof:
     print('EBOOK_ARCHIVE_STATIC_ONNX_SYMBOL_NOT_PROVEN_NO_REMOVAL')
     sys.exit(2)
-before = hashlib.sha256(executable.read_bytes()).hexdigest()
-if before != 'f35c58465cc729b41aec172c0a536a7eb7e7be23dd4a84292114cdd6b07ca934':
-    raise ValueError('Link-map generation changed the previously measured executable')
 removed_sha = hashlib.sha256((framework / 'onnxruntime').read_bytes()).hexdigest()
 removed_bytes = sum(path.stat().st_size for path in files)
 # Exact resolved path was checked above; this is a newly built runner-only archive.
@@ -75,6 +94,7 @@ resources = validate_resources(app)
 print('EBOOK_ARCHIVE_PACKAGING_ADJUSTMENT ' + json.dumps({
     'action': 'REMOVE_UNUSED_EMBEDDED_ONNX_FRAMEWORK',
     'app_executable_sha256': after, 'app_executable_unchanged': True,
+    'no_map_baseline_sha256': baseline_sha,
     'static_OrtGetApiBase_defined': True, 'dynamic_onnx_dependency': False,
     'static_link_proof': static_proof,
     'removed_framework_binary_sha256': removed_sha, 'removed_bytes': removed_bytes,

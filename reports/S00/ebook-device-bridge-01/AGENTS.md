@@ -1,5 +1,12 @@
 # eBOOK internal installation bridge
 
+## Approved copy and side-tap update
+
+- Current task in eBOOK: `tasks/S02B_OWNER_POLISH_PHONE_DELIVERY.md`. Reader `03fe0237462f0af0595d47c455c7e5756d6cbd97` passed review. Bridge base `af7f4d0cfdc6464064ea1e123da1cc93457bf86f`.
+- `ebook_testflight_release.sh` builds two Release archives in the same runner for the actual build number. Map generation is the only build-setting difference. `ebook_prepare_archive.py` requires identical executable digests and checks both resource sets before the existing static-link proof and packaging guard.
+- An exact `recheck_build` input is required for `status-only` or `inspect-export`. Use the build from the actual upload run. The previous 39.1 and 47.1 remain available to their existing owner group.
+- Save the actual new delivery in eBOOK `reports/S02B/owner-polish/PHONE_DELIVERY.md`, then stop at WAITING_OWNER_FEEDBACK.
+
 ## Current owner trial2026-11-27
 - Authority: eBOOK tasks/S02B_OWNER_PHONE_TRIAL.md and independent review APPROVED_FOR_OWNER_BETA.
 - Sole reader pin6469489062e6b91d743295cc2c08320334dbbf17; no App feature changes.

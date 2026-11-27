@@ -7,6 +7,10 @@ umask 077
 [[ "$(git rev-parse HEAD)" == "${EBOOK_TESTED_SHA:?}" ]] || { echo EBOOK_UNTESTED_SOURCE; exit 2; }
 operation="${EBOOK_RELEASE_OPERATION:-upload}"
 case "$operation" in upload|inspect-export|status-only) ;; *) echo EBOOK_INVALID_OPERATION; exit 2 ;; esac
+if [[ "$operation" != upload && ! "${EBOOK_RECHECK_BUILD:-}" =~ ^[0-9]+\.[0-9]+$ ]]; then
+  echo EBOOK_INVALID_RECHECK_BUILD
+  exit 2
+fi
 
 for name in APPLE_TEAM_ID APP_STORE_CONNECT_KEY_ID APP_STORE_CONNECT_ISSUER_ID APP_STORE_CONNECT_PRIVATE_KEY; do
   if [[ -z "${!name:-}" ]]; then
@@ -32,13 +36,11 @@ printf '%s' "$APP_STORE_CONNECT_PRIVATE_KEY" > "$key_file"
 chmod 600 "$key_file"
 
 if [[ "$operation" == 'status-only' ]]; then
-  [[ "${EBOOK_RECHECK_BUILD:-}" =~ ^[0-9]+\.[0-9]+$ ]] || { echo EBOOK_INVALID_RECHECK_BUILD; exit 2; }
   echo "EBOOK_SAME_BUILD_READBACK_START build=$EBOOK_RECHECK_BUILD"
   swift "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_status.swift" "$key_file" "$EBOOK_RECHECK_BUILD"
   exit $?
 fi
 if [[ "$operation" == 'inspect-export' ]]; then
-  [[ "${EBOOK_RECHECK_BUILD:-}" =~ ^[0-9]+\.[0-9]+$ ]] || { echo EBOOK_INVALID_RECHECK_BUILD; exit 2; }
   result=0
   swift "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_status.swift" "$key_file" "$EBOOK_RECHECK_BUILD" --once || result=$?
   case "$result" in
@@ -50,6 +52,7 @@ if [[ "$operation" == 'inspect-export' ]]; then
 fi
 
 build_number="${GITHUB_RUN_NUMBER}.${GITHUB_RUN_ATTEMPT}"
+baseline_archive="$RUNNER_TEMP/EBOOK-Internal-TestFlight-no-map.xcarchive"
 archive_path="$RUNNER_TEMP/EBOOK-Internal-TestFlight.xcarchive"
 export_path="$RUNNER_TEMP/EBOOK-Internal-TestFlight-export"
 code_sha=$(git rev-parse HEAD)
@@ -72,19 +75,29 @@ with open(sys.argv[1], "wb") as output:
 PY
 
 echo "EBOOK_RELEASE_START version=0.1.0 build=$build_number code_sha=$code_sha"
-if xcodebuild -project eBOOK.xcodeproj -scheme eBOOK \
-  -configuration Release -destination 'generic/platform=iOS' \
-  -archivePath "$archive_path" -derivedDataPath "$RUNNER_TEMP/EBOOKReleaseDerivedData" \
-  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-  LD_GENERATE_MAP_FILE=YES LD_MAP_FILE_PATH="$link_map" \
-  CURRENT_PROJECT_VERSION="$build_number" archive > "$archive_log" 2>&1; then
-  echo 'EBOOK_UNSIGNED_ARCHIVE_SUCCEEDED'
-else
-  result=$?
-  echo "EBOOK_UNSIGNED_ARCHIVE_FAILED exit=$result"
-  python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_diagnostics.py" "$archive_log"
-  exit "$result"
-fi
+archive_release() {
+  local destination="$1" generate_map="$2" result
+  if xcodebuild -project eBOOK.xcodeproj -scheme eBOOK \
+    -configuration Release -destination 'generic/platform=iOS' \
+    -archivePath "$destination" -derivedDataPath "$RUNNER_TEMP/EBOOKReleaseDerivedData" \
+    CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+    LD_GENERATE_MAP_FILE="$generate_map" LD_MAP_FILE_PATH="$link_map" \
+    CURRENT_PROJECT_VERSION="$build_number" archive > "$archive_log" 2>&1; then
+    echo "EBOOK_UNSIGNED_ARCHIVE_SUCCEEDED link_map=$generate_map"
+  else
+    result=$?
+    echo "EBOOK_UNSIGNED_ARCHIVE_FAILED link_map=$generate_map exit=$result"
+    python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_diagnostics.py" "$archive_log"
+    exit "$result"
+  fi
+}
+
+# Establish the baseline on this runner with the same source, build number,
+# toolchain and archive settings. Only the map switch and output path differ.
+archive_release "$baseline_archive" NO
+[[ ! -e "$link_map" ]] || { echo EBOOK_UNEXPECTED_BASELINE_LINK_MAP; exit 2; }
+archive_release "$archive_path" YES
+[[ -s "$link_map" ]] || { echo EBOOK_RELEASE_LINK_MAP_MISSING; exit 2; }
 
 app_info="$archive_path/Products/Applications/eBOOK.app/Info.plist"
 test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app_info")" = 'com.zhangsfish.ebook'
@@ -113,7 +126,8 @@ metadata = {
 print('EBOOK_ARCHIVE_RESOURCES_VERIFIED ' + json.dumps(metadata, sort_keys=True))
 PY
 
-python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_prepare_archive.py" "$archive_path/Products/Applications/eBOOK.app"
+python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_prepare_archive.py" \
+  "$archive_path/Products/Applications/eBOOK.app" "$baseline_archive/Products/Applications/eBOOK.app"
 
 if [[ "$operation" == 'inspect-export' ]]; then
   if xcodebuild -exportArchive -archivePath "$archive_path" \
