@@ -122,13 +122,35 @@ do {
            let attributes = item["attributes"] as? [String: Any],
            let state = attributes["processingState"] as? String {
             if state == "VALID" {
+                guard builds.count == 1,
+                      attributes["version"] as? String == args[2],
+                      attributes["buildAudienceType"] as? String == "INTERNAL_ONLY",
+                      attributes["expired"] as? Bool == false,
+                      let buildID = item["id"] as? String else { throw APIError() }
                 print("EBOOK_PROCESSING_STATUS_VALID build=" + args[2])
+                print("EBOOK_BUILD_AUDIENCE_INTERNAL_ONLY")
                 if let groupID = ProcessInfo.processInfo.environment["EBOOK_OWNER_GROUP_ID"] {
                     print("EBOOK_OWNER_GROUP_ASSOCIATION_START")
                     try enableExistingOwnerGroup(item, appID: appID, groupID: groupID,
                         bearer: token(key: key, keyID: keyID, issuerID: issuerID))
+                } else {
+                    throw APIError()
                 }
-                exit(0)
+                // Read only: group linkage alone is not an installability result.
+                // Official collection: /v1/buildBetaDetails?filter[build]=<id>.
+                print("EBOOK_INSTALLABILITY_QUERY_START")
+                let details = try get("buildBetaDetails", queries: [
+                    URLQueryItem(name: "filter[build]", value: buildID),
+                    URLQueryItem(name: "fields[buildBetaDetails]", value: "internalBuildState"),
+                    URLQueryItem(name: "limit", value: "2")
+                ], bearer: token(key: key, keyID: keyID, issuerID: issuerID))
+                if details.count == 1,
+                   let detail = details.first?["attributes"] as? [String: Any],
+                   detail["internalBuildState"] as? String == "IN_BETA_TESTING" {
+                    print("EBOOK_INTERNAL_STATE_IN_BETA_TESTING")
+                    print("EBOOK_TESTFLIGHT_AVAILABLE build=" + args[2])
+                    exit(0)
+                }
             }
             if state == "FAILED" || state == "INVALID" {
                 print("EBOOK_PROCESSING_STATUS_" + state + " build=" + args[2])
@@ -138,6 +160,7 @@ do {
         if attempt < 29 { Thread.sleep(forTimeInterval: 30) }
     }
     print("EBOOK_PROCESSING_STATUS_PENDING build=" + args[2])
+    exit(1)
 } catch {
     print("EBOOK_PROCESSING_STATUS_NOT_VERIFIED api_query_failed")
     exit(1)

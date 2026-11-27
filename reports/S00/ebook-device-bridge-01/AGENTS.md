@@ -1,5 +1,19 @@
 # eBOOK internal installation bridge
 
+## Current owner trial2026-11-27
+- Authority: eBOOK tasks/S02B_OWNER_PHONE_TRIAL.md and independent review APPROVED_FOR_OWNER_BETA.
+- Sole reader pin6469489062e6b91d743295cc2c08320334dbbf17; no App feature changes.
+- Bridge base0be62cf0a51a5dfc0f8a271b95c2ae9e31c22ded. Update both pins, credential-free
+  resource preparation, then strict reader validate_resources on the actual archive before export.
+- Existing Secrets step scope, internal-only export and Owner iPhone association stay unchanged.
+  Status adds read-only buildBetaDetails/IN_BETA_TESTING and expired=false checks before declaring available.
+  Official endpoints checked2026-11-27: developer.apple.com/documentation/appstoreconnectapi/get-v1-buildbetadetails
+  and /internalbetastate. No tester creation, public link or App Store submission.
+- Latest observed workflow is39/39.1; next upload run supplies its actual unique increasing build.
+  Do not rerun upload if accepted/processing; inspect that same build. Actual results belong in
+  eBOOK reports/S02B/OWNER_PHONE_TRIAL.md. After installability, stop WAITING_OWNER_FEEDBACK.
+- Prior target/build notes below are history; do not reuse the old reader pin for this trial.
+
 ## Purpose and authority
 - Owner requested parallel eBOOK tests / iPhone installation on 2026-11-24.
 - This isolated helper branch reuses the existing signing pipeline for the

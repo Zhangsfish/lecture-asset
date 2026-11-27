@@ -19,7 +19,7 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 45
     env:
-      EBOOK_TESTED_SHA: 7509547a0b62598097ff5f24ca6eb9611455109c
+      EBOOK_TESTED_SHA: 6469489062e6b91d743295cc2c08320334dbbf17
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           repository: Zhangsfish/eBOOK
-          ref: 7509547a0b62598097ff5f24ca6eb9611455109c
+          ref: 6469489062e6b91d743295cc2c08320334dbbf17
           path: reader
           persist-credentials: false
       - name: Check frozen eBOOK source and existing tools
@@ -36,6 +36,8 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$EBOOK_TESTED_SHA"
+          python3 tools/suxin/scripts/prepare_resources.py
+          python3 tools/suxin/scripts/inspect_runtime.py
           python3 scripts/generate_xcode_project.py --check
           bash -n ../bridge/scripts/ebook_testflight_release.sh
           swiftc -typecheck ../bridge/scripts/ebook_testflight_status.swift

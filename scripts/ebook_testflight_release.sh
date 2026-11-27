@@ -69,6 +69,27 @@ test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app_inf
 test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$app_info")" = "$build_number"
 echo 'EBOOK_UNSIGNED_ARCHIVE_METADATA_VERIFIED'
 
+python3 - "$archive_path/Products/Applications/eBOOK.app" "$code_sha" "$build_number" <<'PY'
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path.cwd() / 'scripts'))
+from verify_release_bundle import validate_resources
+
+app = Path(sys.argv[1])
+resources = validate_resources(app)
+metadata = {
+    'source_sha': sys.argv[2],
+    'build': sys.argv[3],
+    'app_bytes': sum(path.stat().st_size for path in app.rglob('*') if path.is_file()),
+    'unsigned_executable_sha256': hashlib.sha256((app / 'eBOOK').read_bytes()).hexdigest(),
+    **resources,
+}
+print('EBOOK_ARCHIVE_RESOURCES_VERIFIED ' + json.dumps(metadata, sort_keys=True))
+PY
+
 if xcodebuild -exportArchive -archivePath "$archive_path" \
   -exportOptionsPlist "$export_options" -exportPath "$export_path" \
   -allowProvisioningUpdates \
