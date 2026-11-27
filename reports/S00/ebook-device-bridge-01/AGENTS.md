@@ -1,5 +1,16 @@
 # eBOOK internal installation bridge
 
+## Owner-requested reader controls and help (2026-11-27)
+
+- Actual final candidate1619c200ed7552be5687c4446240daefe676fb4c is checked:18.5/46014021341 and26.5/46014013164 each14PASS/0FAIL/0SKIP, exact method sets and unsigned arm64/6+2 PASS. Both native seek traces show accepted user drag, valueChanged actions and source block3.26.5 also executes the original device archive entry. Existing paired no-map/map/static-link/resource guards remain unchanged. Direct owner-internal upload is now authorized under the explicit no-further-web-review instruction; subsequent pending/hold notes below are historical. Only two workflow pins and this memory change. Stop after actual availability and update notes.
+
+- Current prepared pin1619c200ed7552be5687c4446240daefe676fb4c, actual tests46014013164(26.5)/46014021341(18.5) pending. This supersedes the older candidate pins in this section. It adds explicit native-control overlay order and test-only real thumb geometry/event tracing plus bounded tutorial-title waiting. Do not upload until actual current results are checked. Source208fd7c is documentation only and has identical build inputs. No new build has been uploaded;48.1 remains available.
+
+- eBOOK task `tasks/S02B_READER_HELP.md` explicitly authorizes direct existing internal-TestFlight testing after focused real checks, without another web review. This supersedes the prior freeze/audit gate for this scoped UI update. No merge or public release.
+- Candidate reader pin `84e49d46ed2e1ecd0c481122dd3bf69d4df97a7a`: bottom icon controls/12pt dot inside44pt transparent drag target, animated tutorial, bookshelf feedback and app-owned tutorial preference reasonCA92.1. Final focused runs46009580484(18.5)/46009570704(26.5) are pending. Do not dispatch upload until actual results and scope are checked. Earliera82 source had18.5 14/14;26.5 attempt1 13/14(first swipe), attempt2 13/14(slider drag; first swipe passed).89c643d had18.5 14/14,26.5 12/14(default swipe and normalized slider did not advance). Final candidate changes only the test's explicit drag geometry relative todab2e94; shipping Sources are identical. Preserve all observations in reader reports; no invented infrastructure root cause.
+- Bridge only changes the two source pins. Keep release helpers, paired executable-baseline archives, resource/static-link guards, existing encrypted Secrets, internal-only mode and owner group exactly as delivered for48.1. Prior builds remain retained. New upload/build availability is not yet claimed.
+- Canonical final evidence belongs in eBOOK `reports/S02B/reader-help/`. Stop after actual Apple availability and update notes, waiting for phone feedback.
+
 ## Approved copy and side-tap update
 
 - Current task in eBOOK: `tasks/S02B_OWNER_POLISH_PHONE_DELIVERY.md`. Reader `03fe0237462f0af0595d47c455c7e5756d6cbd97` passed review. Bridge base `af7f4d0cfdc6464064ea1e123da1cc93457bf86f`.
