@@ -16,6 +16,32 @@ from verify_release_bundle import validate_resources
 def run(args):
     return subprocess.run(args, capture_output=True)
 
+def error_categories(result):
+    text = (result.stdout + result.stderr).decode(errors='replace').lower()
+    terms = {
+        'REQUIREMENT_UNSATISFIED': 'failed to satisfy',
+        'UNTRUSTED_CERTIFICATE': 'cssmerr_tp_not_trusted',
+        'REVOKED_CERTIFICATE': 'revoked',
+        'EXPIRED_CERTIFICATE': 'expired',
+        'UNSIGNED_CODE': 'not signed at all',
+        'INVALID_RESOURCES': 'sealed resource',
+        'INVALID_FORMAT': 'bundle format',
+    }
+    return [name for name, term in terms.items() if term in text]
+
+def signature_summary(path):
+    strict = run(['codesign', '--verify', '--deep', '--strict', str(path)])
+    anchor = run(['codesign', '--verify', '--strict', '-R', 'anchor apple generic', str(path)])
+    display = run(['codesign', '-d', '-vvv', str(path)])
+    text = (display.stdout + display.stderr).decode(errors='replace')
+    return {
+        'strict_exit': strict.returncode, 'strict_errors': error_categories(strict),
+        'anchor_exit': anchor.returncode, 'anchor_errors': error_categories(anchor),
+        'authority_count': sum(line.startswith('Authority=') for line in text.splitlines()),
+        'apple_distribution_authority': any(line.startswith(('Authority=Apple Distribution', 'Authority=iPhone Distribution')) for line in text.splitlines()),
+        'adhoc_signature': 'Signature=adhoc' in text,
+    }
+
 ipas = list(Path(sys.argv[1]).glob('*.ipa'))
 if len(ipas) != 1:
     print('EBOOK_SIGNED_EXPORT_AUDIT_NO_SINGLE_IPA')
@@ -61,6 +87,28 @@ with tempfile.TemporaryDirectory(prefix='ebook-export-audit-', dir=os.environ['R
     matching_app_id = (entitlements.get('application-identifier') == profile_entitlements.get('application-identifier')
                        and str(entitlements.get('application-identifier', '')).endswith('.com.zhangsfish.ebook'))
     frameworks = list((app / 'Frameworks').glob('*.framework'))
+    component_audits = []
+    for framework in frameworks:
+        framework_info = plistlib.loads((framework / 'Info.plist').read_bytes())
+        executable = framework / framework_info['CFBundleExecutable']
+        with executable.open('rb') as stream:
+            magic = stream.read(8)
+        component_audits.append({
+            'component': 'ONNXRUNTIME_FRAMEWORK' if framework.name == 'onnxruntime.framework' else 'OTHER_FRAMEWORK',
+            'static_archive_magic': magic == b'!<arch>\n',
+            **signature_summary(framework),
+        })
+    certificate_prefix = root / 'certificate-'
+    extraction = run(['codesign', '-d', '--extract-certificates=' + str(certificate_prefix), str(app)])
+    certificates = sorted(root.glob('certificate-*'))
+    certificate_audit = {'extraction_exit': extraction.returncode, 'certificate_count': len(certificates)}
+    if certificates:
+        verification_args = ['security', 'verify-cert', '-p', 'codeSign']
+        for certificate in certificates:
+            verification_args.extend(['-c', str(certificate)])
+        trust = run(verification_args)
+        certificate_audit.update({'chain_trust_exit': trust.returncode, 'chain_trust_errors': error_categories(trust),
+            'leaf_present_in_profile': certificates[0].read_bytes() in profile.get('DeveloperCertificates', [])})
     metadata = {
         'build': info['CFBundleVersion'], 'source_sha': os.environ['EBOOK_TESTED_SHA'],
         'no_upload': True, 'ipa_bytes': ipa.stat().st_size,
@@ -72,6 +120,9 @@ with tempfile.TemporaryDirectory(prefix='ebook-export-audit-', dir=os.environ['R
         'profile_team_matches': matching_team, 'profile_app_identifier_matches': matching_app_id,
         'get_task_allow_false': entitlements.get('get-task-allow') is False,
         'embedded_framework_count': len(frameworks),
+        'app_signature_detail': signature_summary(app),
+        'component_audits': component_audits,
+        'certificate_audit': certificate_audit,
         **validate_resources(app),
     }
     print('EBOOK_SIGNED_EXPORT_AUDIT ' + json.dumps(metadata, sort_keys=True))
