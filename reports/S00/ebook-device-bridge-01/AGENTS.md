@@ -4,7 +4,7 @@
 
 - The owner's failing-file feedback reopens the existing direct internal-phone path for eBOOK only. Reader `dfbcc0f9204a47960e16bb4a3270c9811a7da697` fixes bare HTML void tags without dropping chapters or weakening XML/entity/path/CRC/size limits. Actual focused EPUB runs46042481531(iOS26.5) and46042489928(iOS18.5) each pass11/11,0fail/0skip, exact method sets and unsigned arm64/6+2;26 also runs the original device entry.
 - Both source pins now target that exact reader. Only pins and this scope memory change; preserve signing helpers, paired executable guards, existing Secrets, internal-only mode and owner group. Upload is authorized under the existing owner-requested direct internal-test workflow; no merge/public release or Lecture Asset product changes. Prior49.1 stays retained.
-- Actual next build/upload/Apple availability are pending. Canonical evidence is eBOOK `reports/S02B/epub-compatibility/`. Do not claim installability from CI success; stop for phone feedback after actual availability.
+- **DELIVERED / WAITING_OWNER_FEEDBACK**: actual0.1.0(50.1), bridgecode8a27770a05bfe997359abcb9764be637b1e29706/run46044956972, job140661783078. Apple accepted2026-11-27T17:54:45Z and returnedVALID/INTERNAL_ONLY/existing-group/IN_BETA_TESTING at17:57:00Z (2026-11-28 01:57:00Beijing). Actual paired executable7eba3d410451c6b0d81e45bba5742b1b84b2ba536005ae1c736cc611d22bf13c matches; unchanged after the guarded33,798-byte unused-framework removal,6+2/static-link checks PASS. Canonical eBOOK reports/S02B/epub-compatibility/PHONE_DELIVERY.md andphone-delivery-evidence.json. Stop edits/uploads pending original-file phone retry; no merge/public release. Older sections below are history.
 
 ## Owner-requested reader controls and help (2026-11-27)
 
