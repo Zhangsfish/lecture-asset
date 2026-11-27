@@ -9,9 +9,11 @@
   Status adds read-only buildBetaDetails/IN_BETA_TESTING and expired=false checks before declaring available.
   Official endpoints checked2026-11-27: developer.apple.com/documentation/appstoreconnectapi/get-v1-buildbetadetails
   and /internalbetastate. No tester creation, public link or App Store submission.
-- Latest observed workflow is39/39.1; next upload run supplies its actual unique increasing build.
-  Do not rerun upload if accepted/processing; inspect that same build. Actual results belong in
-  eBOOK reports/S02B/OWNER_PHONE_TRIAL.md. After installability, stop WAITING_OWNER_FEEDBACK.
+- Current delivery: WAITING_OWNER_FEEDBACK. Actual0.1.0（47.1）/run45933165856,
+  tested bridge code a866cd83c342e3652555080de949ca47ac1349e0, exact reader6469489.
+  Accepted03:19:46Z; VALID/INTERNAL_ONLY/unexpired/existing Owner iPhone group/IN_BETA_TESTING
+  verified03:21:56Z on2026-11-27.39.1 retained. Stop upload/optimization; phone upgrade/acceptance NOT_RUN.
+  Actual results belong in eBOOK reports/S02B/OWNER_PHONE_TRIAL.md. Do not re-execute this delivery.
 - Prior target/build notes below are history; do not reuse the old reader pin for this trial.
 - Actual40.1/run45927979017: prepared/typechecked, archived and strict6+2 PASS;
   Apple export/upload rejected an invalid signature (exit70). No acceptance or installability claimed.
@@ -19,6 +21,18 @@
   and status-only. Same secret references/team/group in the same step; no reader feature changes.
   Fixed diagnostic categories identify signing component/codes without raw logs. Signed-export
   verifier prints only booleans and hashes; profile/identity/IPA stay ephemeral and never artifacts.
+- 41/42 verifier omitted literal '=' for codesign -R; its anchor failure was a diagnostic error,
+  not certificate failure.43 corrected strict/anchor/profile/chain checks pass; Apple rejects
+  the embedded ONNX framework.44 confirms90035, proper signer/team/flags; no certificate rotation.
+- 45 guarded removal fails closed: stripped symbol table alone does not prove static linkage.
+ 46 link-map guard proves active _OrtGetApiBase from a static archive object and no ONNX dynamic
+ dependency in App/root dylibs. Exact runner-only framework path/identity/resource-set checks
+ permit removing33,798 unused bytes; primary executable remains f35c58465cc729b41aec172c0a536a7eb7e7be23dd4a84292114cdd6b07ca934.
+ Same6+2 checked before/after; original model/runtime source/version not replaced.46 actual
+ Apple altool validation passes;47 repeats exact guarded packaging and uploads successfully.
+ Link maps, IPA, profiles, signer identities and raw validation output are private temporary files,
+ never artifacts. Future approved-source changes must deliberately re-establish the hardcoded
+ executable baseline; do not bypass the fail-closed guard for an arbitrary new reader SHA.
 
 ## Purpose and authority
 - Owner requested parallel eBOOK tests / iPhone installation on 2026-11-24.
