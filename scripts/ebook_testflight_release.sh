@@ -110,6 +110,8 @@ metadata = {
 print('EBOOK_ARCHIVE_RESOURCES_VERIFIED ' + json.dumps(metadata, sort_keys=True))
 PY
 
+python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_prepare_archive.py" "$archive_path/Products/Applications/eBOOK.app"
+
 if [[ "$operation" == 'inspect-export' ]]; then
   if xcodebuild -exportArchive -archivePath "$archive_path" \
     -exportOptionsPlist "$export_options" -exportPath "$export_path" \

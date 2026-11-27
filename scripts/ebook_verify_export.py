@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import plistlib
+import re
 import stat
 import struct
 import subprocess
@@ -35,7 +36,7 @@ def signature_summary(path):
     anchor = run(['codesign', '--verify', '--strict', '-R', '=anchor apple generic', str(path)])
     display = run(['codesign', '-d', '-vvv', str(path)])
     text = (display.stdout + display.stderr).decode(errors='replace')
-    flags = __import__('re').search(r'flags=(0x[0-9a-fA-F]+)', text)
+    flags = re.search(r'flags=(0x[0-9a-fA-F]+)', text)
     return {
         'strict_exit': strict.returncode, 'strict_errors': error_categories(strict),
         'anchor_exit': anchor.returncode, 'anchor_errors': error_categories(anchor),
