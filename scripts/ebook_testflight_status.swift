@@ -96,7 +96,8 @@ func enableExistingOwnerGroup(_ build: [String: Any], appID: String, groupID: St
 }
 
 let args = CommandLine.arguments
-guard args.count == 3,
+let once = args.count == 4 && args[3] == "--once"
+guard (args.count == 3 || once),
       let keyID = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_KEY_ID"],
       let issuerID = ProcessInfo.processInfo.environment["APP_STORE_CONNECT_ISSUER_ID"] else {
     print("EBOOK_PROCESSING_STATUS_NOT_VERIFIED configuration")
@@ -112,7 +113,8 @@ do {
     guard apps.count == 1, let appID = apps.first?["id"] as? String else { throw APIError() }
 
     // Apple's upload acceptance and build processing are separate events.
-    for attempt in 0..<30 {
+    let attempts = once ? 1 : 30
+    for attempt in 0..<attempts {
         let builds = try get("builds", queries: [
             URLQueryItem(name: "filter[app]", value: appID),
             URLQueryItem(name: "filter[version]", value: args[2]),
@@ -154,10 +156,18 @@ do {
             }
             if state == "FAILED" || state == "INVALID" {
                 print("EBOOK_PROCESSING_STATUS_" + state + " build=" + args[2])
-                exit(1)
+                exit(2)
             }
         }
-        if attempt < 29 { Thread.sleep(forTimeInterval: 30) }
+        if once {
+            if builds.isEmpty {
+                print("EBOOK_BUILD_NOT_FOUND build=" + args[2])
+                exit(3)
+            }
+            print("EBOOK_BUILD_EXISTS_NOT_YET_INSTALLABLE build=" + args[2])
+            exit(4)
+        }
+        if attempt < attempts - 1 { Thread.sleep(forTimeInterval: 30) }
     }
     print("EBOOK_PROCESSING_STATUS_PENDING build=" + args[2])
     exit(1)

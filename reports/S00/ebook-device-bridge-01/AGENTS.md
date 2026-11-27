@@ -13,6 +13,12 @@
   Do not rerun upload if accepted/processing; inspect that same build. Actual results belong in
   eBOOK reports/S02B/OWNER_PHONE_TRIAL.md. After installability, stop WAITING_OWNER_FEEDBACK.
 - Prior target/build notes below are history; do not reuse the old reader pin for this trial.
+- Actual40.1/run45927979017: prepared/typechecked, archived and strict6+2 PASS;
+  Apple export/upload rejected an invalid signature (exit70). No acceptance or installability claimed.
+  Bounded follow-up adds inspect-export (read40.1 once first, export locally only if absent/rejected)
+  and status-only. Same secret references/team/group in the same step; no reader feature changes.
+  Fixed diagnostic categories identify signing component/codes without raw logs. Signed-export
+  verifier prints only booleans and hashes; profile/identity/IPA stay ephemeral and never artifacts.
 
 ## Purpose and authority
 - Owner requested parallel eBOOK tests / iPhone installation on 2026-11-24.

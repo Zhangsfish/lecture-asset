@@ -44,6 +44,15 @@ categories = {
 }
 matched = [name for name, terms in categories.items() if any(term in text for term in terms)]
 print("EBOOK_PRIVATE_LOG_CATEGORIES=" + (",".join(matched) if matched else "OTHER"))
+codes = sorted(set(re.findall(r"\bitms-[0-9]{5}\b", text)))
+print("EBOOK_PRIVATE_VALIDATION_CODES=" + (",".join(codes) if codes else "NONE_OBSERVED"))
+errors = [line for line in text.splitlines() if "invalid signature" in line or "error:" in line]
+component = "UNCLASSIFIED"
+if any("onnxruntime.framework" in line for line in errors):
+    component = "ONNXRUNTIME_FRAMEWORK"
+elif any("ebook.app/ebook" in line for line in errors):
+    component = "EBOOK_EXECUTABLE"
+print("EBOOK_PRIVATE_SIGNATURE_COMPONENT=" + component)
 
 # Keep only fixed vocabulary from Xcode error lines. All names, identifiers,
 # paths, addresses, tokens and unknown text become one redaction marker.

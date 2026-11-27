@@ -5,6 +5,8 @@ set -euo pipefail
 set +x
 umask 077
 [[ "$(git rev-parse HEAD)" == "${EBOOK_TESTED_SHA:?}" ]] || { echo EBOOK_UNTESTED_SOURCE; exit 2; }
+operation="${EBOOK_RELEASE_OPERATION:-upload}"
+case "$operation" in upload|inspect-export|status-only) ;; *) echo EBOOK_INVALID_OPERATION; exit 2 ;; esac
 
 for name in APPLE_TEAM_ID APP_STORE_CONNECT_KEY_ID APP_STORE_CONNECT_ISSUER_ID APP_STORE_CONNECT_PRIVATE_KEY; do
   if [[ -z "${!name:-}" ]]; then
@@ -27,6 +29,24 @@ trap 'rm -f "$key_file" "$archive_log" "$export_log" "$export_options"; rmdir "$
 printf '%s' "$APP_STORE_CONNECT_PRIVATE_KEY" > "$key_file"
 chmod 600 "$key_file"
 
+if [[ "$operation" == 'status-only' ]]; then
+  [[ "${EBOOK_RECHECK_BUILD:-}" =~ ^[0-9]+\.[0-9]+$ ]] || { echo EBOOK_INVALID_RECHECK_BUILD; exit 2; }
+  echo "EBOOK_SAME_BUILD_READBACK_START build=$EBOOK_RECHECK_BUILD"
+  swift "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_status.swift" "$key_file" "$EBOOK_RECHECK_BUILD"
+  exit $?
+fi
+if [[ "$operation" == 'inspect-export' ]]; then
+  [[ "${EBOOK_RECHECK_BUILD:-}" =~ ^[0-9]+\.[0-9]+$ ]] || { echo EBOOK_INVALID_RECHECK_BUILD; exit 2; }
+  result=0
+  swift "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_status.swift" "$key_file" "$EBOOK_RECHECK_BUILD" --once || result=$?
+  case "$result" in
+    0) exit 0 ;; # Already installable: no new export or upload.
+    4) swift "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_status.swift" "$key_file" "$EBOOK_RECHECK_BUILD"; exit $? ;;
+    2|3) ;; # Explicit rejection or an absent build after the failed export.
+    *) echo EBOOK_READBACK_INCONCLUSIVE_NO_EXPORT; exit "$result" ;;
+  esac
+fi
+
 build_number="${GITHUB_RUN_NUMBER}.${GITHUB_RUN_ATTEMPT}"
 archive_path="$RUNNER_TEMP/EBOOK-Internal-TestFlight.xcarchive"
 export_path="$RUNNER_TEMP/EBOOK-Internal-TestFlight-export"
@@ -38,7 +58,7 @@ import plistlib
 import sys
 
 options = {
-    "destination": "upload",
+    "destination": "export" if os.environ.get("EBOOK_RELEASE_OPERATION") == "inspect-export" else "upload",
     "manageAppVersionAndBuildNumber": False,
     "method": "app-store-connect",
     "signingStyle": "automatic",
@@ -89,6 +109,23 @@ metadata = {
 }
 print('EBOOK_ARCHIVE_RESOURCES_VERIFIED ' + json.dumps(metadata, sort_keys=True))
 PY
+
+if [[ "$operation" == 'inspect-export' ]]; then
+  if xcodebuild -exportArchive -archivePath "$archive_path" \
+    -exportOptionsPlist "$export_options" -exportPath "$export_path" \
+    -allowProvisioningUpdates -authenticationKeyPath "$key_file" \
+    -authenticationKeyID "$APP_STORE_CONNECT_KEY_ID" \
+    -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID" > "$export_log" 2>&1; then
+    echo 'EBOOK_EXPORT_ONLY_SUCCEEDED_NO_UPLOAD'
+    python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_verify_export.py" "$export_path"
+    exit $?
+  else
+    result=$?
+    echo "EBOOK_EXPORT_ONLY_FAILED_NO_UPLOAD exit=$result"
+    python3 "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_diagnostics.py" "$export_log"
+    exit "$result"
+  fi
+fi
 
 if xcodebuild -exportArchive -archivePath "$archive_path" \
   -exportOptionsPlist "$export_options" -exportPath "$export_path" \
