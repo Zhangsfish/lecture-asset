@@ -5,7 +5,7 @@
 - Current task in eBOOK: `tasks/S02B_OWNER_POLISH_PHONE_DELIVERY.md`. Reader `03fe0237462f0af0595d47c455c7e5756d6cbd97` passed review. Bridge base `af7f4d0cfdc6464064ea1e123da1cc93457bf86f`.
 - `ebook_testflight_release.sh` builds two Release archives in the same runner for the actual build number. Map generation is the only build-setting difference. `ebook_prepare_archive.py` requires identical executable digests and checks both resource sets before the existing static-link proof and packaging guard.
 - An exact `recheck_build` input is required for `status-only` or `inspect-export`. Use the build from the actual upload run. The previous 39.1 and 47.1 remain available to their existing owner group.
-- Save the actual new delivery in eBOOK `reports/S02B/owner-polish/PHONE_DELIVERY.md`, then stop at WAITING_OWNER_FEEDBACK.
+- Delivery complete. `0.1.0 (48.1)` is available to the existing owner group. Bridge code `e0a122b499ef417fba032e58cb1181594634a08a`, run `45991125943`. Xcode 26.6 verified the shared no-map/with-map executable digest `89605d8567d02a50a29352d1d303934487364ac429de00fad3ce10c537b538f1` and the 6+2 resources before and after the guarded packaging adjustment. Apple accepted 48.1 and read back `VALID`, `INTERNAL_ONLY`, unexpired, existing-group linked and `IN_BETA_TESTING` at `2026-11-27T11:38:08Z`. See eBOOK `reports/S02B/owner-polish/PHONE_DELIVERY.md`. **WAITING_OWNER_FEEDBACK**.
 
 ## Current owner trial2026-11-27
 - Authority: eBOOK tasks/S02B_OWNER_PHONE_TRIAL.md and independent review APPROVED_FOR_OWNER_BETA.
