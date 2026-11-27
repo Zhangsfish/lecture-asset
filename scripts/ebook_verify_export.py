@@ -5,6 +5,7 @@ import json
 import os
 import plistlib
 import stat
+import struct
 import subprocess
 import sys
 import tempfile
@@ -34,13 +35,30 @@ def signature_summary(path):
     anchor = run(['codesign', '--verify', '--strict', '-R', '=anchor apple generic', str(path)])
     display = run(['codesign', '-d', '-vvv', str(path)])
     text = (display.stdout + display.stderr).decode(errors='replace')
+    flags = __import__('re').search(r'flags=(0x[0-9a-fA-F]+)', text)
     return {
         'strict_exit': strict.returncode, 'strict_errors': error_categories(strict),
         'anchor_exit': anchor.returncode, 'anchor_errors': error_categories(anchor),
         'authority_count': sum(line.startswith('Authority=') for line in text.splitlines()),
         'apple_distribution_authority': any(line.startswith(('Authority=Apple Distribution', 'Authority=iPhone Distribution')) for line in text.splitlines()),
         'adhoc_signature': 'Signature=adhoc' in text,
+        'code_directory_flags': flags[1] if flags else None,
+        'team_identifier_matches': ('TeamIdentifier=' + os.environ['APPLE_TEAM_ID']) in text.splitlines(),
     }
+
+def binary_kind(path):
+    with path.open('rb') as stream:
+        data = stream.read(64)
+        if data[:4] == b'\xca\xfe\xba\xbe':
+            offset = struct.unpack('>I', data[16:20])[0]
+            stream.seek(offset)
+            data = stream.read(16)
+        if data.startswith(b'!<arch>\n'):
+            return 'STATIC_AR_ARCHIVE'
+        if data[:4] in [b'\xcf\xfa\xed\xfe', b'\xce\xfa\xed\xfe']:
+            kind = struct.unpack('<I', data[12:16])[0]
+            return {1: 'MH_OBJECT', 2: 'MH_EXECUTE', 6: 'MH_DYLIB', 8: 'MH_BUNDLE'}.get(kind, 'OTHER_MACH_O')
+        return 'OTHER_FORMAT'
 
 ipas = list(Path(sys.argv[1]).glob('*.ipa'))
 if len(ipas) != 1:
@@ -96,8 +114,11 @@ with tempfile.TemporaryDirectory(prefix='ebook-export-audit-', dir=os.environ['R
         component_audits.append({
             'component': 'ONNXRUNTIME_FRAMEWORK' if framework.name == 'onnxruntime.framework' else 'OTHER_FRAMEWORK',
             'static_archive_magic': magic == b'!<arch>\n',
+            'binary_kind': binary_kind(executable),
             **signature_summary(framework),
         })
+    dependencies = run(['otool', '-L', str(app / 'eBOOK')])
+    dependency_text = (dependencies.stdout + dependencies.stderr).decode(errors='replace')
     certificate_prefix = root / 'certificate-'
     extraction = run(['codesign', '-d', '--extract-certificates=' + str(certificate_prefix), str(app)])
     certificates = sorted(root.glob('certificate-*'))
@@ -121,6 +142,7 @@ with tempfile.TemporaryDirectory(prefix='ebook-export-audit-', dir=os.environ['R
         'get_task_allow_false': entitlements.get('get-task-allow') is False,
         'embedded_framework_count': len(frameworks),
         'app_signature_detail': signature_summary(app),
+        'app_dynamically_loads_onnxruntime': 'onnxruntime.framework/onnxruntime' in dependency_text,
         'component_audits': component_audits,
         'certificate_audit': certificate_audit,
         **validate_resources(app),

@@ -45,7 +45,7 @@ categories = {
 matched = [name for name, terms in categories.items() if any(term in text for term in terms)]
 print("EBOOK_PRIVATE_LOG_CATEGORIES=" + (",".join(matched) if matched else "OTHER"))
 codes = sorted(set(re.findall(r"\bitms-[0-9]{5}\b", text)))
-codes += sorted(set('APPLE_ERROR_' + code for code in re.findall(r'\b(?:error code|"code"\s*:)\s*(-?[0-9]{3,6})\b', text)))
+codes += sorted(set('APPLE_ERROR_' + code for code in re.findall(r'(?:\berror code|"code"\s*:)\s*"?(-?[0-9]{3,6})\b', text)))
 print("EBOOK_PRIVATE_VALIDATION_CODES=" + (",".join(codes) if codes else "NONE_OBSERVED"))
 errors = [line for line in text.splitlines() if "invalid signature" in line or "error:" in line]
 component = "UNCLASSIFIED"
@@ -56,6 +56,18 @@ elif any("ebook.app/ebook" in line for line in errors):
 elif any("ebook.app" in line for line in errors):
     component = "EBOOK_APP"
 print("EBOOK_PRIVATE_SIGNATURE_COMPONENT=" + component)
+diagnosis_terms = {
+    'INVALID_SIGNATURE': 'invalid signature',
+    'CODE_REQUIREMENT_UNSATISFIED': 'failed to satisfy specified code requirement',
+    'INVALID_MACH_O': 'mach-o',
+    'STATIC_LIBRARY_IN_BUNDLE': 'static librar',
+    'UNSUPPORTED_ARCHITECTURE': 'unsupported architecture',
+    'UNSUPPORTED_BITCODE': 'bitcode',
+    'INVALID_EXECUTABLE': 'invalid executable',
+    'MISSING_PRIVACY_MANIFEST': 'missing privacy manifest',
+    'INVALID_INFO_PLIST': 'invalid info.plist',
+}
+print('EBOOK_PRIVATE_VALIDATION_REASONS=' + (','.join(name for name, term in diagnosis_terms.items() if term in text) or 'OTHER'))
 
 # Keep only fixed vocabulary from Xcode error lines. All names, identifiers,
 # paths, addresses, tokens and unknown text become one redaction marker.
@@ -68,10 +80,12 @@ failed fail could cannot unable create created use using automatic manually
 requires required is are was has have with this the a an to of and or
 valid invalid expired revoked existing local remote key authentication
 service request server network response unable code entitlement bundle id
+signature binary executable framework onnxruntime requirement requirements
+satisfy specified path payload validation validate failure failed file
 """.split())
 safe_lines = []
 for line in text.splitlines():
-    if "error:" not in line and "cloud signing" not in line and "no profiles for" not in line:
+    if not any(term in line for term in ['error:', 'cloud signing', 'no profiles for', 'invalid signature', 'failed to satisfy', 'mach-o']):
         continue
     words = re.findall(r"[a-z]+", line)
     filtered = []
