@@ -104,6 +104,34 @@ class PublicReleaseTests(unittest.TestCase):
         self.assertEqual(result.returncode, 2)
         self.assertEqual(result.stdout.strip(), 'EBOOK_PUBLIC_CONTRACT_FAILED FULL_READER_SHA_REQUIRED')
 
+    def test_existing_manual_entry_isolates_public_routes_and_preserves_internal_job(self):
+        root = Path(__file__).resolve().parents[1]
+        routed = (root / '.github/workflows/s00-testflight.yml').read_text(encoding='utf8')
+        standalone = (root / '.github/workflows/ebook-public-release.yml').read_text(encoding='utf8')
+        internal, public_job = routed.split('jobs:\n', 1)[1].split('  public-release:\n', 1)
+        internal = internal.replace(
+            "    if: github.event.repository.private == false && !startsWith(inputs.operation, 'public-')\n",
+            '    if: github.event.repository.private == false\n', 1)
+        # This digest is the exact original job at c7065abb, including pinned
+        # reader, every step, internal credential scope and all internal tests.
+        self.assertEqual(hashlib.sha256(internal.encode()).hexdigest(),
+                         '78fd0de9f3e3f3c25b49ac60c15714a5944481090c29a16050f7b2d33b4a07ae')
+        public_job = '  public-release:\n' + public_job
+        normalized = public_job.replace(
+            "github.event.repository.private == false && contains(fromJSON('[\"public-prepare\",\"public-upload\",\"public-status-only\"]'), inputs.operation)",
+            'github.event.repository.private == false', 1).replace(
+            "${{ inputs.operation == 'public-prepare' && 'prepare-only' || inputs.operation == 'public-upload' && 'upload' || 'status-only' }}",
+            '${{ inputs.operation }}', 1).replace(
+            "inputs.operation == 'public-prepare'", "inputs.operation == 'prepare-only'").replace(
+            "inputs.operation == 'public-upload' || inputs.operation == 'public-status-only'",
+            "inputs.operation == 'upload' || inputs.operation == 'status-only'")
+        self.assertEqual(normalized, standalone.split('jobs:\n', 1)[1])
+        early_steps = public_job.split('      - name: Owner-authorized public build upload or GET-only readback', 1)[0]
+        self.assertNotIn('secrets.', early_steps)
+        self.assertEqual(public_job.count('secrets.'), 3)
+        self.assertIn('        default: prepare-only\n', routed)
+        self.assertIn('public-prepare, public-upload, public-status-only]', routed)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

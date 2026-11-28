@@ -1,7 +1,9 @@
 {
   "date": "2026-11-28",
   "bridge_base_sha": "5eea297ba64cbbc85e737a628958136f7f4adc5f",
-  "implementation_sha": "UNCOMMITTED_PATCH_FOR_ROOT_REVIEW",
+  "initial_public_bridge_committed_by_root": "c7065abb25ee55e76e975195dbe8973585171de1",
+  "routing_base_sha": "c7065abb25ee55e76e975195dbe8973585171de1",
+  "implementation_sha": "UNCOMMITTED_ROUTING_PATCH_FOR_ROOT_REVIEW",
   "reader_candidate_not_compiled_by_this_subtask": "59e68cf42d7e0b42eb637e59cc6049281c24577d",
   "local_environment": {
     "python": "C:/conda_envs/myenv/python.exe (3.11.11)",
@@ -9,17 +11,20 @@
     "new_installs": false
   },
   "checks": [
-    {"command": "python scripts/test_ebook_public_release.py", "status": "PASS", "passed": 5, "failed": 0},
+    {"command": "python scripts/test_ebook_public_release.py", "status": "PASS", "passed": 6, "failed": 0},
+    {"check": "Original internal-job digest preserved after removing only the public guard; routed public job equals standalone after op normalization; secrets isolated", "status": "PASS"},
     {"check": "Python AST: ebook_public_contract.py, ebook_verify_export.py, test_ebook_public_release.py", "status": "PASS"},
-    {"check": "Existing PyYAML parse and macos-26 runner assertion", "status": "PASS"},
+    {"check": "Both workflows parsed with existing PyYAML; macos-26, default/internal options and optional public SHA verified", "status": "PASS"},
     {"command": "bash -n scripts/ebook_public_release.sh", "status": "PASS"},
     {"check": "Real public shell old-version refusal", "status": "PASS", "exit_code": 2},
     {"command": "git diff --check", "status": "PASS"},
     {"check": "Actual Swift typecheck/self-test", "status": "NOT_RUN", "reason": "No local Swift compiler; mandatory credential-free macOS workflow step"},
+    {"check": "Root standalone workflow dispatch", "status": "HTTP404_NO_RUN_CREATED", "reason": "Workflow not registered on default branch; no macOS build or test ran"},
     {"check": "Actual macOS archive, signing, Apple validation/upload, public build readback", "status": "NOT_RUN", "reason": "No dispatch authorized for this implementation subtask"},
     {"check": "App Review submission and China/US public availability", "status": "NOT_RUN", "reason": "Separate root-controlled actions"}
   ],
   "private_outputs_published": false,
-  "existing_internal_workflow_release_and_status_changed": false,
+  "existing_internal_release_and_status_changed": false,
+  "existing_manual_workflow_routing_change": "Public operation choices/input and isolated job added; original internal job body unchanged except exclusion guard",
   "shared_verifier_change": "Explicit expected version with original 0.1.0 default retained"
 }

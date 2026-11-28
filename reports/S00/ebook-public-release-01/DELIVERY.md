@@ -4,6 +4,13 @@ State: **READY_FOR_ROOT_REVIEW**. No workflow dispatch, commit, push, merge,
 signing, upload, App Review submission, Apple reply or account change was made
 by this implementation subtask.
 
+Routing follow-up: root committed/pushed the initial bridge as
+`c7065abb25ee55e76e975195dbe8973585171de1`, then attempted standalone dispatch.
+The actual response was **HTTP404 / workflow not found on default branch**, with
+**no run created**. This is a dispatch failure, not a build/test failure or PASS.
+Root separately authorized adding an isolated public job to the already
+registered `s00-testflight.yml`; that uncommitted follow-up is delivered here.
+
 - Bridge base SHA: `5eea297ba64cbbc85e737a628958136f7f4adc5f`.
 - Reader candidate supplied by root (not compiled by this subtask):
   `59e68cf42d7e0b42eb637e59cc6049281c24577d`.
@@ -36,7 +43,15 @@ marketing version `1.0`, iOS platform, nonexpired `VALID / APP_STORE_ELIGIBLE`,
 minimum OS and encryption metadata. It never associates an owner group or
 submits review.
 
-The existing internal workflow, release script and status reader are untouched.
+The existing internal release script and status reader are untouched. The
+registered manual workflow adds exactly three public operations and an optional
+`reader_sha` input. Its existing internal job only adds the public-operation
+exclusion guard: the original env, pins, steps, defaults and secret scope are
+byte-identical. New public-job operations map exactly to `prepare-only`, `upload`
+and `status-only`. The required 40-character SHA validation happens before reader
+checkout; public secrets appear only in the final upload/readback step. A test
+normalizes only routing conditions/op mapping and compares the complete public
+job with the retained standalone workflow to prevent behavioral divergence.
 The only shared change is `exported_product_matches` in `ebook_verify_export.py`:
 default `0.1.0` is unchanged; the public workflow explicitly sets expected `1.0`.
 Synthetic regression exercises both accepted and rejected versions.
@@ -47,13 +62,16 @@ exists. Only fixed-vocabulary diagnostics, boolean checks and hashes are printed
 
 ## Actual validation
 
-- Python 3.11.11 at `C:/conda_envs/myenv/python.exe`: **5/5 PASS**. Tests cover
+- Python 3.11.11 at `C:/conda_envs/myenv/python.exe`: latest **6/6 PASS** (initial
+  preparation was 5/5). Tests cover public-route isolation, the exact original
+  internal-job digest, standalone/routed public-job equality, and
   internal/public version acceptance and refusal, nine invalid signing-profile
   cases, changed IPA rejection, multiple IPA rejection, moving-reference refusal
   before tool access and the real safe CLI refusal.
 - Python AST of both new Python files and the changed shared verifier: **PASS**.
-- Existing PyYAML parses the new workflow and verifies the free `macos-26`
-  runner: **PASS**. No dependencies installed.
+- Existing PyYAML parses both workflows, verifies the free `macos-26` runner,
+  preserved internal default/options and optional public SHA input: **PASS**.
+  No dependencies installed.
 - Existing Git Bash `bash -n scripts/ebook_public_release.sh`: **PASS**.
 - Real shell entry with old expected version: fixed message
   `EBOOK_PUBLIC_VERSION_REQUIRED`, exit **2**, before tool/credential use: **PASS**.
@@ -66,11 +84,11 @@ exists. Only fixed-vocabulary diagnostics, boolean checks and hashes are printed
 
 ## Handoff
 
-Root should review the stable patch, commit/push only within authorized scope,
-then use the final reader SHA after its real CI checks. Newly introduced manual
-workflows can require default-branch registration; root is checking actual API
-behavior before considering a narrow route through the existing manual workflow.
-No route or default-branch change was made here. If build-number preflight finds
+Root should review the stable routing patch, commit/push only within authorized
+scope, then dispatch the registered `s00-testflight.yml` with `public-prepare`
+and the final `reader_sha` after its real CI checks. The standalone404 attempt
+remains recorded; no main merge or paid service was used to bypass it. No
+follow-up dispatch/commit/push was made by this subtask. If build-number preflight finds
 a historical collision, it conservatively refuses upload; do not disable it or
 re-upload an existing number. `status-only` reads the exact accepted build again.
 
