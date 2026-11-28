@@ -1,0 +1,82 @@
+name: eBOOK App Store eligible release
+on:
+  workflow_dispatch:
+    inputs:
+      reader_sha:
+        description: Exact reviewed eBOOK source SHA (40 lowercase hexadecimal characters)
+        required: true
+        type: string
+      operation:
+        description: Prepare unsigned, upload public-eligible, or read back existing public build
+        required: true
+        type: choice
+        options: [prepare-only, upload, status-only]
+        default: prepare-only
+      recheck_build:
+        description: Exact existing build number for status-only; never re-upload it
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: ebook-public-release
+  cancel-in-progress: false
+jobs:
+  public-release:
+    if: github.event.repository.private == false
+    runs-on: macos-26
+    timeout-minutes: 60
+    env:
+      EBOOK_TESTED_SHA: ${{ inputs.reader_sha }}
+      EBOOK_EXPECTED_VERSION: '1.0'
+      EBOOK_PUBLIC_OPERATION: ${{ inputs.operation }}
+      EBOOK_RECHECK_BUILD: ${{ inputs.recheck_build }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          path: bridge
+          persist-credentials: false
+      - name: Reject moving reader references before checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$EBOOK_TESTED_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo EBOOK_PUBLIC_FULL_SHA_REQUIRED; exit 2; }
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Zhangsfish/eBOOK
+          ref: ${{ inputs.reader_sha }}
+          path: reader
+          persist-credentials: false
+      - name: Check clean pinned reader and real public tooling
+        working-directory: reader
+        run: |
+          set -euo pipefail
+          python3 ../bridge/scripts/ebook_public_contract.py source
+          python3 tools/suxin/scripts/prepare_resources.py
+          python3 tools/suxin/scripts/inspect_runtime.py
+          python3 scripts/generate_xcode_project.py --check
+          python3 ../bridge/scripts/ebook_public_contract.py source
+          bash -n ../bridge/scripts/ebook_public_release.sh
+          python3 ../bridge/scripts/test_ebook_public_release.py
+          swiftc -typecheck ../bridge/scripts/ebook_public_status.swift
+          swift ../bridge/scripts/ebook_public_status.swift --self-test
+          xcodebuild -version
+          major=$(xcodebuild -version | awk '/^Xcode / {split($2, parts, "."); print parts[1]}')
+          test "$major" -ge 26
+      - name: Prepare public 1.0 archives without Apple credentials
+        if: inputs.operation == 'prepare-only'
+        working-directory: reader
+        run: |
+          export EBOOK_BRIDGE_SCRIPTS="$GITHUB_WORKSPACE/bridge/scripts"
+          bash "$EBOOK_BRIDGE_SCRIPTS/ebook_public_release.sh"
+      - name: Owner-authorized public build upload or GET-only readback
+        if: inputs.operation == 'upload' || inputs.operation == 'status-only'
+        working-directory: reader
+        env:
+          APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        run: |
+          export EBOOK_BRIDGE_SCRIPTS="$GITHUB_WORKSPACE/bridge/scripts"
+          bash "$EBOOK_BRIDGE_SCRIPTS/ebook_public_release.sh"

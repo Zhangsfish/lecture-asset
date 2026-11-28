@@ -18,6 +18,13 @@ from verify_release_bundle import validate_resources
 def run(args):
     return subprocess.run(args, capture_output=True)
 
+def exported_product_matches(info):
+    # Internal delivery keeps its original default. The separate public bridge
+    # explicitly sets the fixed App Store marketing version before verification.
+    expected_version = os.environ.get('EBOOK_EXPECTED_VERSION', '0.1.0')
+    return (info.get('CFBundleIdentifier') == 'com.zhangsfish.ebook'
+            and info.get('CFBundleShortVersionString') == expected_version)
+
 def error_categories(result):
     text = (result.stdout + result.stderr).decode(errors='replace').lower()
     terms = {
@@ -86,7 +93,7 @@ with tempfile.TemporaryDirectory(prefix='ebook-export-audit-', dir=os.environ['R
         raise ValueError('Expected one exported App')
     app = apps[0]
     info = plistlib.loads((app / 'Info.plist').read_bytes())
-    if info['CFBundleIdentifier'] != 'com.zhangsfish.ebook' or info['CFBundleShortVersionString'] != '0.1.0':
+    if not exported_product_matches(info):
         raise ValueError('Wrong exported product')
     verification = run(['codesign', '--verify', '--deep', '--strict', str(app)])
     anchor = run(['codesign', '--verify', '--strict', '-R', '=anchor apple generic', str(app)])
