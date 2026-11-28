@@ -1,103 +1,154 @@
-name: S00 TestFlight preparation and upload
-
+name: eBOOK internal TestFlight only
 on:
-  push:
-    branches: [codex/s00-selection]
   workflow_dispatch:
     inputs:
       operation:
-        description: Prepare only, or explicitly upload to TestFlight
+        description: Prepare only, or owner-authorized internal TestFlight upload
         required: true
         type: choice
-        options: [prepare-only, upload]
+        options: [prepare-only, upload, inspect-export, status-only, public-prepare, public-upload, public-status-only]
         default: prepare-only
-
+      reader_sha:
+        description: Public operations only; exact reviewed eBOOK source SHA (40 lowercase hexadecimal characters)
+        required: false
+        type: string
+      recheck_build:
+        description: Actual existing build number for status-only or inspect-export
+        required: false
+        type: string
 permissions:
   contents: read
-
+concurrency:
+  group: ebook-internal-testflight
+  cancel-in-progress: false
 jobs:
-  testflight:
+  ebook:
+    if: github.event.repository.private == false && !startsWith(inputs.operation, 'public-')
     runs-on: macos-26
-    timeout-minutes: 90
+    timeout-minutes: 45
+    env:
+      EBOOK_TESTED_SHA: dfbcc0f9204a47960e16bb4a3270c9811a7da697
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
+          path: bridge
           persist-credentials: false
-      - name: Record Xcode 26 host and toolchain
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Zhangsfish/eBOOK
+          ref: dfbcc0f9204a47960e16bb4a3270c9811a7da697
+          path: reader
+          persist-credentials: false
+      - name: Check frozen eBOOK source and existing tools
+        working-directory: reader
         run: |
           set -euo pipefail
-          sw_vers
-          uname -m
-          xcode-select -p
+          test "$(git rev-parse HEAD)" = "$EBOOK_TESTED_SHA"
+          python3 tools/suxin/scripts/prepare_resources.py
+          python3 tools/suxin/scripts/inspect_runtime.py
+          python3 scripts/generate_xcode_project.py --check
+          bash -n ../bridge/scripts/ebook_testflight_release.sh
+          swiftc -typecheck ../bridge/scripts/ebook_testflight_status.swift
           xcodebuild -version
-          xcodebuild -showsdks
-          swift --version
           major=$(xcodebuild -version | awk '/^Xcode / {split($2, parts, "."); print parts[1]}')
           test "$major" -ge 26
-      - name: Check current S05-A resources and core packages
+      - name: Prepare without any Apple credentials
+        if: inputs.operation == 'prepare-only'
+        working-directory: reader
+        run: bash scripts/ci_device.sh
+      - name: Focused native Files picker check without credentials
+        if: inputs.operation == 'prepare-only'
+        working-directory: reader
+        env:
+          EBOOK_XCODE_TEST_SCOPE: native-picker
+          SIMULATOR_BOOT_TIMEOUT_SECONDS: '900'
         run: |
-          set -euo pipefail
-          python3 -m json.tool App/Localizable.xcstrings >/dev/null
-          plutil -lint AppResources/PrivacyInfo.xcprivacy
-          swift test --package-path Packages/SelectionCore
-          swift test --package-path Packages/ArchiveCore
-      - name: Install SHA-256 verified XcodeGen 2.46.0
-        run: |
-          set -euo pipefail
-          curl --fail --location --silent --show-error \
-            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip \
-            --output "$RUNNER_TEMP/xcodegen.zip"
-          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 --check
-          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-release"
-          tool=$(find "$RUNNER_TEMP/xcodegen-release" -type f -name xcodegen -print -quit)
-          test -n "$tool"
-          chmod +x "$tool"
-          echo "$(dirname "$tool")" >> "$GITHUB_PATH"
-          "$tool" --version
-      - name: Generate Xcode project and verify upload options
-        run: |
-          set -euo pipefail
-          xcodegen generate --spec project.yml
-          xcodebuild -help 2>&1 | grep -E 'app-store-connect|destination.*upload|testFlightInternalTestingOnly' || true
-          bash -n scripts/s00_testflight_release.sh
-          swiftc -typecheck scripts/s00_testflight_status.swift
-          sips -g pixelWidth -g pixelHeight App/Assets.xcassets/AppIcon.appiconset/AppIcon.png
-      - name: Inspect effective Release signing settings safely
-        run: python3 scripts/s00_signing_settings.py
-      - name: Clean unsigned iPhone Release build
-        run: |
-          set -euo pipefail
-          xcodebuild -project LectureAsset.xcodeproj -scheme LectureAsset \
-            -configuration Release -destination 'generic/platform=iOS' \
-            -derivedDataPath "$RUNNER_TEMP/S00DeviceDerivedData" \
-            CODE_SIGNING_ALLOWED=NO clean build
-          app="$RUNNER_TEMP/S00DeviceDerivedData/Build/Products/Release-iphoneos/Lecture Asset.app"
-          test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist")" = 'com.zhangsfish.lectureasset'
-          test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app/Info.plist")" = '0.1.0'
-          test -f "$app/PrivacyInfo.xcprivacy"
-          plutil -lint "$app/PrivacyInfo.xcprivacy"
-          python3 - "$app" <<'PY'
-          from pathlib import Path
-          import plistlib, sys
-
-          app = Path(sys.argv[1])
-          bundled = sorted(app.rglob('PrivacyInfo.xcprivacy'))
-          assert app / 'PrivacyInfo.xcprivacy' in bundled, 'app privacy manifest missing'
-          assert any(
-              manifest != app / 'PrivacyInfo.xcprivacy'
-              and any(
-                  '0A2A.1' in entry.get('NSPrivacyAccessedAPITypeReasons', [])
-                  for entry in plistlib.loads(manifest.read_bytes()).get('NSPrivacyAccessedAPITypes', [])
-              )
-              for manifest in bundled
-          ), 'ZIPFoundation privacy manifest missing'
-          print('Bundled privacy manifests:', [str(path.relative_to(app)) for path in bundled])
-          PY
-      - name: Sign and upload only on an explicit upload trigger
-        if: github.event_name == 'workflow_dispatch' && inputs.operation == 'upload'
+          python3 scripts/generate_long_gb18030_fixture.py
+          export DEVELOPER_DIR="$(xcode-select -p)"
+          bash scripts/ci_xcode.sh
+      - name: Retain safe focused test evidence
+        if: always() && inputs.operation == 'prepare-only'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ebook-focused-${{ env.EBOOK_TESTED_SHA }}
+          path: |
+            reader/build/xcode-*.log
+            reader/build/environment.json
+            reader/build/simulator-boot.log
+            reader/build/test-summary.json
+            reader/build/test-details.json
+            reader/build/screenshots/
+            reader/build/attachments/manifest.json
+          retention-days: 7
+      - name: Owner-authorized eBOOK internal TestFlight upload
+        if: inputs.operation == 'upload' || inputs.operation == 'inspect-export' || inputs.operation == 'status-only'
+        working-directory: reader
         env:
           APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
-        run: bash scripts/s00_testflight_release.sh
+          EBOOK_OWNER_GROUP_ID: b9f19916-d70f-4e6d-82e1-7d147f173336
+          EBOOK_RELEASE_OPERATION: ${{ inputs.operation }}
+          EBOOK_RECHECK_BUILD: ${{ inputs.recheck_build }}
+        run: |
+          export EBOOK_BRIDGE_SCRIPTS="$GITHUB_WORKSPACE/bridge/scripts"
+          bash "$EBOOK_BRIDGE_SCRIPTS/ebook_testflight_release.sh"
+  public-release:
+    if: github.event.repository.private == false && contains(fromJSON('["public-prepare","public-upload","public-status-only"]'), inputs.operation)
+    runs-on: macos-26
+    timeout-minutes: 60
+    env:
+      EBOOK_TESTED_SHA: ${{ inputs.reader_sha }}
+      EBOOK_EXPECTED_VERSION: '1.0'
+      EBOOK_PUBLIC_OPERATION: ${{ inputs.operation == 'public-prepare' && 'prepare-only' || inputs.operation == 'public-upload' && 'upload' || 'status-only' }}
+      EBOOK_RECHECK_BUILD: ${{ inputs.recheck_build }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          path: bridge
+          persist-credentials: false
+      - name: Reject moving reader references before checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$EBOOK_TESTED_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo EBOOK_PUBLIC_FULL_SHA_REQUIRED; exit 2; }
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Zhangsfish/eBOOK
+          ref: ${{ inputs.reader_sha }}
+          path: reader
+          persist-credentials: false
+      - name: Check clean pinned reader and real public tooling
+        working-directory: reader
+        run: |
+          set -euo pipefail
+          python3 ../bridge/scripts/ebook_public_contract.py source
+          python3 tools/suxin/scripts/prepare_resources.py
+          python3 tools/suxin/scripts/inspect_runtime.py
+          python3 scripts/generate_xcode_project.py --check
+          python3 ../bridge/scripts/ebook_public_contract.py source
+          bash -n ../bridge/scripts/ebook_public_release.sh
+          python3 ../bridge/scripts/test_ebook_public_release.py
+          swiftc -typecheck ../bridge/scripts/ebook_public_status.swift
+          swift ../bridge/scripts/ebook_public_status.swift --self-test
+          xcodebuild -version
+          major=$(xcodebuild -version | awk '/^Xcode / {split($2, parts, "."); print parts[1]}')
+          test "$major" -ge 26
+      - name: Prepare public 1.0 archives without Apple credentials
+        if: inputs.operation == 'public-prepare'
+        working-directory: reader
+        run: |
+          export EBOOK_BRIDGE_SCRIPTS="$GITHUB_WORKSPACE/bridge/scripts"
+          bash "$EBOOK_BRIDGE_SCRIPTS/ebook_public_release.sh"
+      - name: Owner-authorized public build upload or GET-only readback
+        if: inputs.operation == 'public-upload' || inputs.operation == 'public-status-only'
+        working-directory: reader
+        env:
+          APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        run: |
+          export EBOOK_BRIDGE_SCRIPTS="$GITHUB_WORKSPACE/bridge/scripts"
+          bash "$EBOOK_BRIDGE_SCRIPTS/ebook_public_release.sh"
