@@ -26,5 +26,30 @@
   "private_outputs_published": false,
   "existing_internal_release_and_status_changed": false,
   "existing_manual_workflow_routing_change": "Public operation choices/input and isolated job added; original internal job body unchanged except exclusion guard",
-  "shared_verifier_change": "Explicit expected version with original 0.1.0 default retained"
+  "shared_verifier_change": "Explicit expected version with original 0.1.0 default retained",
+  "later_actual_distribution": {
+    "prepare_run_id": 46158034911,
+    "upload_run_id": 46158631882,
+    "bridge_sha": "79b4a4f12b720a96f9a5df137d2538d2d5e9e5b9",
+    "reader_sha": "59e68cf42d7e0b42eb637e59cc6049281c24577d",
+    "version": "1.0",
+    "build": "52.1",
+    "actual_xcode": "26.6",
+    "swift_typecheck": "PASS",
+    "swift_negative_selftest_cases_passed": 8,
+    "python_contract_tests_passed": 6,
+    "genuine_signed_export": "PASS",
+    "apple_validation": "PASS",
+    "upload": "ACCEPTED",
+    "apple_processing_state": "VALID",
+    "build_audience_type": "APP_STORE_ELIGIBLE",
+    "query_date_utc": "2026-11-28T15:21:07Z",
+    "ipa_bytes": 69154423,
+    "ipa_sha256": "058bf3dd53b2b8f480245176718e891465abad45d5be5a47302b6ec4f0c1ca5b",
+    "matching_digest_checks": 3,
+    "app_review": "NOT_SUBMITTED_BY_THIS_WORKFLOW",
+    "china_us_public_availability": "NOT_VERIFIED_BY_THIS_WORKFLOW",
+    "canonical_sanitized_record_in_ebook_repository": "reports/RELEASE/2026-11-28/public-upload.json",
+    "raw_logs": "LOCAL_GIT_IGNORED_ONLY"
+  }
 }

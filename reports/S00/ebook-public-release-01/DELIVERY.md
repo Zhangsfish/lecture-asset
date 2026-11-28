@@ -1,5 +1,29 @@
 # eBOOK public release bridge preparation
 
+## Later actual distribution result
+
+Root dispatched prepare run 46158034911 and upload run 46158631882 after the
+preparation/review below. Upload run completed **success** on bridge
+`79b4a4f12b720a96f9a5df137d2538d2d5e9e5b9`, pinned reader
+`59e68cf42d7e0b42eb637e59cc6049281c24577d`, marketing version **1.0(52.1)**.
+Actual stages archive-NO/archive-YES/packaging/export/signed-audit/validate/upload
+all passed. Apple validation **PASS**, upload **ACCEPTED**, and exact related
+build readback at **2026-11-28T15:21:07Z** was **VALID / APP_STORE_ELIGIBLE**.
+The signed IPA is 69,154,423 bytes, SHA256
+`058bf3dd53b2b8f480245176718e891465abad45d5be5a47302b6ec4f0c1ca5b`; all three
+digest checks match. Existing internal job was genuinely skipped. Real Swift
+typecheck, 8-negative readback self-test and 6 Python contracts passed before the
+credential-scoped step. Prepare 51.1 had already passed paired unsigned archive
+and packaging without signing/upload.
+
+Sanitized canonical record: eBOOK `reports/RELEASE/2026-11-28/public-upload.json`.
+Original logs are retained only in eBOOK's git-ignored
+`.local-test-data/release-20261128/bridge/`. The monitoring subtask performed no
+repeat dispatch, no Apple UI or implementation change. **App Review remains
+NOT_SUBMITTED_BY_THIS_WORKFLOW; China/US public availability is not established.**
+
+## Original preparation handoff (historical)
+
 State: **READY_FOR_ROOT_REVIEW**. No workflow dispatch, commit, push, merge,
 signing, upload, App Review submission, Apple reply or account change was made
 by this implementation subtask.

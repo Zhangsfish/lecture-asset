@@ -1,5 +1,19 @@
 # eBOOK public release bridge
 
+## Actual distribution result (2026-11-28)
+
+Root-dispatched run 46158631882 completed success on bridge
+79b4a4f12b720a96f9a5df137d2538d2d5e9e5b9 / reader
+59e68cf42d7e0b42eb637e59cc6049281c24577d. Real 1.0 (52.1) passed genuine signed
+checks, Apple validation, same-IPA upload and returned VALID/APP_STORE_ELIGIBLE
+at2026-11-28T15:21:07Z. IPA SHA256
+058bf3dd53b2b8f480245176718e891465abad45d5be5a47302b6ec4f0c1ca5b,
+69,154,423 bytes; three digest checks agree. Canonical sanitized record is eBOOK
+`reports/RELEASE/2026-11-28/public-upload.json`; raw logs are only in its ignored
+`.local-test-data/release-20261128/bridge/` directory. Prepare run 46158034911 /
+51.1 passed paired unsigned archive/packaging without signing or uploading.
+This is App Store eligible processing, not App Review submission or public launch.
+
 ## Purpose and authorization
 
 The owner's 2026-11-28 request authorizes preparation and upload of eBOOK for
@@ -50,6 +64,7 @@ job has only a public-operation exclusion guard added, with its body preserved.
 Secrets, raw logs, IPA, certificate/profile data remain in a runner-only private
 directory and are deleted on exit. The workflow publishes no build artifact.
 Only safe fixed-vocabulary summaries and hashes reach Actions output.
-Local checks cannot replace actual macOS archive/signing/upload/readback.
+Local checks cannot replace actual macOS archive/signing/upload/readback; the
+later actual 52.1 result above now supplies those distribution states separately.
 The caller must review the final exact source and handle ASC legal declarations,
 metadata, China-specific support requests and review submission separately.
